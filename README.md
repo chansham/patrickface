@@ -1,12 +1,15 @@
 # Patrick Face
 
-Apple Watch 动态主题原型，默认使用 1999 第一季风格，并保留同轮廓的平滑 Toon 3D 主题。
+同一個倉庫裡的 Apple Watch 動態錶盤合集：
 
-## 当前效果
+1. **派大星 Patrick Face**（主線）— 1999 第一季風格，手臂當真實時針／分針，含 iPhone companion 與主題包。
+2. **軌道錶盤 Orbit Face**（併入）— 金色軌道＋彗星秒針的抽象動態錶盤原型。
+
+## 派大星 · 当前效果
 
 - 纯黑 OLED 背景，没有圆形表盘。
 - 边缘 12 个低调刻度，顶部另有数字时间。
-- 两只手臂是共用同一腹部中心轴的真实时针、分针，秒数也参与连续角度计算；动作只增加有界角度偏移，不移动轴心。
+- 两只手臂是共用同一胸部中心轴的真实时针、分针，秒数也参与连续角度计算；动作只增加有界角度偏移，不移动轴心。
 - 每 12 秒播放一次有界揮手动作；1.8 秒后精确回到当前时间。
 - 点击角色触发跳动与 watchOS 触觉接口。
 - 睡眠、低电量、充电状态有独立动画表现。
@@ -15,13 +18,28 @@ Apple Watch 动态主题原型，默认使用 1999 第一季风格，并保留�
 - WidgetKit complication 支援 `accessoryCircular`、`accessoryRectangular` 与
   `accessoryInline`；显示数字时间、主题／状态，并点按打开全屏 App。
 
+## 軌道錶盤 · Orbit Face
+
+獨立的抽象錶盤原型（從桌面 `OrbitWatchFace` 併入）：
+
+- 象牙時針／分針共用中心軸。
+- 金色／珊瑚色軌道弧與彗星秒針尾跡。
+- Always-On 降低更新與發光。
+- 瀏覽器預覽：`preview-orbit/index.html`
+- watchOS 工程：`OrbitFace.xcodeproj`
+
 ## 浏览器预览
 
-预览服务运行时打开：
+仓库根目录入口：
 
-`http://127.0.0.1:8765/`
+`http://127.0.0.1:8765/`（需在仓库根目录启动 `python -m http.server 8765`）
 
-页面控制：
+或直接打开：
+
+- 派大星：`preview/index.html`
+- 軌道：`preview-orbit/index.html`
+
+派大星页面控制：
 
 - `第一季 2D`／`第一季 Toon 3D`：切换主题。
 - `揮手`：播放手臂动作。
@@ -97,8 +115,11 @@ Gallery/深连结实机测试、Always-On 功耗测试、Archive 或签名。
 
 ## 主要文件
 
-- `preview/`：集成后的可交互预览。
-- `PatrickFace/PatrickFaceView.swift`：watchOS 主实现。
+- `preview/`：派大星可交互预览。
+- `preview-orbit/`：軌道錶盤浏览器预览。
+- `PatrickFace/PatrickFaceView.swift`：派大星 watchOS 主实现。
+- `OrbitFace/DynamicFaceView.swift`：軌道錶盤 watchOS 主实现。
+- `OrbitFace.xcodeproj`：軌道錶盤独立 Xcode 工程。
 - `PatrickFace/PatrickShared.swift`：共享主题、状态、时针角度与 deep-link contract。
 - `PatrickFaceComplications/PatrickFaceComplications.swift`：三种 WidgetKit complication。
 - `tools/validate_watch_project.py`：Windows source/project consistency gate。

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>軌道錶盤 · Orbit Face</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #12141a;
+      font-family: "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color: #f3efe6;
+    }
+    main { text-align: center; }
+    h1 {
+      margin: 0 0 6px;
+      font-weight: 560;
+      font-size: 22px;
+      letter-spacing: 0.14em;
+    }
+    p {
+      margin: 0 0 22px;
+      color: #a7a294;
+      font-size: 14px;
+    }
+    .case {
+      width: 392px;
+      height: 476px;
+      margin: 0 auto;
+      padding: 16px;
+      border-radius: 88px;
+      background: linear-gradient(155deg, #4a4e57 0%, #23262c 38%, #101216 100%);
+      box-shadow:
+        0 28px 70px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      position: relative;
+    }
+    .crown {
+      position: absolute;
+      right: -7px;
+      top: 108px;
+      width: 8px;
+      height: 46px;
+      border-radius: 4px;
+      background: linear-gradient(#6a6e76, #2a2d33);
+    }
+    .screen {
+      width: 360px;
+      height: 440px;
+      border-radius: 74px;
+      overflow: hidden;
+      background: #000;
+    }
+    canvas { display: block; width: 360px; height: 440px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>軌道錶盤 · Orbit Face</h1>
+    <p>併入 PatrickFace 倉庫的抽象動態錶盤；指針與軌道跟著現在時間連續移動</p>
+    <div class="case">
+      <div class="crown"></div>
+      <div class="screen">
+        <canvas id="face" width="720" height="880"></canvas>
+      </div>
+    </div>
+  </main>
+  <script>
+    const canvas = document.getElementById("face");
+    const ctx = canvas.getContext("2d");
+    const weeks = ["週日", "週一", "週二", "週三", "週四", "週五", "週六"];
+
+    function pad(n) {
+      return String(n).padStart(2, "0");
+    }
+
+    function arc(cx, cy, radius, start, end, color, width) {
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.lineCap = "round";
+      ctx.arc(cx, cy, radius, start, end);
+      ctx.stroke();
+    }
+
+    function hand(cx, cy, angle, length, tail, width, color) {
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.lineCap = "round";
+      ctx.moveTo(cx + Math.cos(angle + Math.PI) * tail, cy + Math.sin(angle + Math.PI) * tail);
+      ctx.lineTo(cx + Math.cos(angle) * length, cy + Math.sin(angle) * length);
+      ctx.stroke();
+    }
+
+    function draw(date) {
+      const w = canvas.width;
+      const h = canvas.height;
+      const cx = w * 0.5;
+      const cy = h * 0.445;
+      const ms = date.getMilliseconds();
+      const sec = date.getSeconds() + ms / 1000;
+      const min = date.getMinutes() + sec / 60;
+      const hr = (date.getHours() % 12) + min / 60;
+      const breathe = 0.55 + 0.45 * Math.sin(sec * Math.PI * 2);
+
+      ctx.clearRect(0, 0, w, h);
+      const bg = ctx.createRadialGradient(cx, cy - 20, 30, cx, cy, h * 0.72);
+      bg.addColorStop(0, "#1a1e28");
+      bg.addColorStop(0.55, "#0c0e14");
+      bg.addColorStop(1, "#05060a");
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+
+      const glow = ctx.createRadialGradient(cx, cy, 10, cx, cy, w * 0.34);
+      glow.addColorStop(0, `rgba(224, 194, 122, ${0.08 + breathe * 0.08})`);
+      glow.addColorStop(1, "rgba(224, 194, 122, 0)");
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(cx, cy, w * 0.34, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.strokeStyle = "rgba(224, 194, 122, 0.35)";
+      ctx.lineWidth = 2;
+      ctx.arc(cx, cy, w * 0.455, 0, Math.PI * 2);
+      ctx.stroke();
+
+      const spin = sec * (Math.PI / 30);
+      arc(cx, cy, w * 0.40, spin - 0.15, spin + Math.PI * 0.72, "rgba(224, 194, 122, 0.92)", 7);
+      arc(cx, cy, w * 0.335, -spin * 1.6 + 0.4, -spin * 1.6 + Math.PI * 0.95, "rgba(255, 107, 74, 0.88)", 5);
+
+      for (let i = 0; i < 60; i++) {
+        const angle = (i / 60) * Math.PI * 2 - Math.PI / 2;
+        const major = i % 5 === 0;
+        const inner = w * (major ? 0.392 : 0.418);
+        const outer = w * 0.445;
+        ctx.beginPath();
+        ctx.strokeStyle = major ? "rgba(243, 239, 230, 0.88)" : "rgba(243, 239, 230, 0.28)";
+        ctx.lineWidth = major ? 4 : 2;
+        ctx.lineCap = "round";
+        ctx.moveTo(cx + Math.cos(angle) * inner, cy + Math.sin(angle) * inner);
+        ctx.lineTo(cx + Math.cos(angle) * outer, cy + Math.sin(angle) * outer);
+        ctx.stroke();
+      }
+
+      const passed = Math.floor(sec);
+      for (let i = 0; i < 60; i++) {
+        const angle = (i / 60) * Math.PI * 2 - Math.PI / 2;
+        const r = w * 0.372;
+        const lit = i === passed;
+        ctx.beginPath();
+        ctx.fillStyle = lit ? "#ff6b4a" : "rgba(243, 239, 230, 0.16)";
+        ctx.arc(cx + Math.cos(angle) * r, cy + Math.sin(angle) * r, lit ? 5 : 2.2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = "#a7a294";
+      ctx.font = "500 28px Segoe UI, Microsoft JhengHei, sans-serif";
+      ctx.fillText(weeks[date.getDay()], cx, 78);
+      ctx.fillStyle = "#f3efe6";
+      ctx.font = "500 34px Segoe UI, Microsoft JhengHei, sans-serif";
+      ctx.fillText(`${date.getMonth() + 1}月${date.getDate()}日`, cx, h - 118);
+
+      hand(cx, cy, hr * (Math.PI / 6) - Math.PI / 2, w * 0.20, 28, 12, "#f3efe6");
+      hand(cx, cy, min * (Math.PI / 30) - Math.PI / 2, w * 0.30, 32, 8, "#f7f4ee");
+
+      const tip = sec * (Math.PI / 30) - Math.PI / 2;
+      const orbit = w * 0.40;
+      for (let k = 16; k >= 1; k--) {
+        const angle = tip - k * 0.05;
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(255, 107, 74, ${0.28 * (1 - k / 17)})`;
+        ctx.arc(cx + Math.cos(angle) * orbit, cy + Math.sin(angle) * orbit, 8 - k * 0.28, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.save();
+      ctx.shadowColor = "rgba(255, 107, 74, 0.95)";
+      ctx.shadowBlur = 22;
+      ctx.beginPath();
+      ctx.fillStyle = "#ff6b4a";
+      ctx.arc(cx + Math.cos(tip) * orbit, cy + Math.sin(tip) * orbit, 9, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      ctx.beginPath();
+      ctx.fillStyle = "#11141b";
+      ctx.arc(cx, cy, 16, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(224, 194, 122, ${0.65 + breathe * 0.35})`;
+      ctx.arc(cx, cy, 7, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = "#f3efe6";
+      ctx.font = "300 64px Consolas, Segoe UI, sans-serif";
+      ctx.fillText(`${pad(date.getHours())}:${pad(date.getMinutes())}`, cx - 28, h - 62);
+      ctx.fillStyle = "#ff6b4a";
+      ctx.font = "560 32px Consolas, Segoe UI, sans-serif";
+      ctx.fillText(pad(date.getSeconds()), cx + 118, h - 52);
+
+      window.__face = {
+        h: date.getHours(),
+        m: date.getMinutes(),
+        s: sec,
+        text: `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`
+      };
+    }
+
+    function loop() {
+      draw(new Date());
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>
