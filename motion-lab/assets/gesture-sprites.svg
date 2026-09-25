@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="576" height="96" viewBox="0 0 576 96">
+  <defs>
+    <filter id="g" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
+    <g id="spark">
+      <path d="M0-17 C2-5 5-2 17 0 C5 2 2 5 0 17 C-2 5-5 2-17 0 C-5-2-2-5 0-17Z" fill="#f7e379"/>
+      <circle r="4" fill="#fff7c7"/>
+    </g>
+    <g id="bubble">
+      <circle r="10" fill="#7fe5e1" fill-opacity=".22" stroke="#bdfffa" stroke-width="2"/>
+      <circle cx="-3" cy="-3" r="2.5" fill="#fff" fill-opacity=".75"/>
+    </g>
+  </defs>
+
+  <g transform="translate(48 48)">
+    <use href="#bubble" transform="translate(-12 16) scale(.35)"/>
+    <path d="M-27 17 Q0 2 27 17" fill="none" stroke="#ff9fb3" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(144 48)">
+    <use href="#bubble" transform="translate(-20 8) scale(.5)"/>
+    <use href="#bubble" transform="translate(13 18) scale(.3)"/>
+    <path d="M-29 14 Q0 -8 29 14" fill="none" stroke="#ff9fb3" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(240 48)">
+    <use href="#bubble" transform="translate(-23 -8) scale(.55)"/>
+    <use href="#bubble" transform="translate(20 12) scale(.45)"/>
+    <use href="#spark" transform="translate(4 -6) scale(.45)" filter="url(#g)"/>
+    <path d="M-30 13 Q0 -17 30 13" fill="none" stroke="#ff9fb3" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(336 48)">
+    <use href="#bubble" transform="translate(-25 -16) scale(.45)"/>
+    <use href="#bubble" transform="translate(24 -5) scale(.55)"/>
+    <use href="#spark" transform="scale(.75)" filter="url(#g)"/>
+    <path d="M-28 16 Q0 -12 28 16" fill="none" stroke="#ff9fb3" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(432 48)">
+    <use href="#bubble" transform="translate(-18 -20) scale(.35)"/>
+    <use href="#bubble" transform="translate(21 -15) scale(.4)"/>
+    <use href="#spark" transform="scale(.52)" filter="url(#g)"/>
+    <path d="M-25 17 Q0 -4 25 17" fill="none" stroke="#ff9fb3" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(528 48)">
+    <use href="#bubble" transform="translate(-10 -18) scale(.26)"/>
+    <use href="#spark" transform="scale(.26)" filter="url(#g)"/>
+    <path d="M-21 19 Q0 7 21 19" fill="none" stroke="#ff9fb3" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+  </g>
+</svg>

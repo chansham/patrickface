@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07080d">
+  <title>Patrick Motion Lab · Apple Watch Prototype</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">ISOLATED MOTION PROTOTYPE · WATCHOS NATIVE PATH</p>
+        <h1>Patrick actually moves.</h1>
+        <p class="lede">A deterministic, layered watch rig: real clock arms remain authoritative while breathing, attention, gestures, crown input, and power states blend around them.</p>
+      </div>
+      <div class="truth-card">
+        <span class="truth-dot"></span>
+        <div>
+          <strong>No Cubism claim</strong>
+          <small>Live2D Cubism does not officially list watchOS. This lab uses a native layer/bone + lightweight mesh substitute.</small>
+        </div>
+      </div>
+    </header>
+
+    <section class="lab-grid">
+      <article class="stage-panel">
+        <div class="watch-wrap">
+          <div class="watch-case" aria-label="Interactive Apple Watch motion prototype">
+            <div class="crown" aria-hidden="true"></div>
+            <div
+              id="watch-screen"
+              class="watch-screen"
+              role="button"
+              tabindex="0"
+              aria-label="Tap for bounce. Scroll to simulate Digital Crown."
+            >
+              <svg id="watch-svg" viewBox="0 0 360 440" role="img" aria-labelledby="watch-title watch-desc">
+                <title id="watch-title">Layered Patrick motion rig</title>
+                <desc id="watch-desc">Hour and minute arms track time while a parameterized body breathes, blinks, reacts, and changes mode.</desc>
+                <defs>
+                  <radialGradient id="ocean" cx="50%" cy="38%" r="74%">
+                    <stop offset="0%" stop-color="#12354a"></stop>
+                    <stop offset="58%" stop-color="#07131f"></stop>
+                    <stop offset="100%" stop-color="#030609"></stop>
+                  </radialGradient>
+                  <linearGradient id="bodyFill" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#ff9aac"></stop>
+                    <stop offset="55%" stop-color="#ea738d"></stop>
+                    <stop offset="100%" stop-color="#b84462"></stop>
+                  </linearGradient>
+                  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="7"></feGaussianBlur>
+                  </filter>
+                  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+                    <feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#000" flood-opacity=".5"></feDropShadow>
+                  </filter>
+                </defs>
+
+                <rect id="ocean-bg" width="360" height="440" fill="url(#ocean)"></rect>
+                <circle id="charging-ring" cx="180" cy="236" r="142" fill="none" stroke="#7ef2bd" stroke-width="5" opacity="0"></circle>
+                <g id="dial-ticks" aria-hidden="true"></g>
+
+                <g class="time-readout">
+                  <text id="digital-time" x="180" y="47" text-anchor="middle">10:10</text>
+                  <text id="mode-label" x="180" y="67" text-anchor="middle">ACTIVE · LIVE</text>
+                </g>
+
+                <g id="character-root" filter="url(#shadow)">
+                  <g id="hour-hand" class="time-hand">
+                    <path d="M -17 3 C -25 -25 -20 -79 -9 -112 C -5 -124 5 -124 9 -112 C 20 -79 25 -25 17 3 Z"></path>
+                    <circle cy="-115" r="13"></circle>
+                  </g>
+                  <g id="minute-hand" class="time-hand minute">
+                    <path d="M -15 3 C -22 -35 -17 -105 -8 -145 C -5 -159 5 -159 8 -145 C 17 -105 22 -35 15 3 Z"></path>
+                    <circle cy="-149" r="12"></circle>
+                  </g>
+
+                  <g id="torso-bone">
+                    <path id="body-mesh" fill="url(#bodyFill)" stroke="#572b42" stroke-width="4" stroke-linejoin="round"></path>
+                    <path class="body-highlight" d="M129 191 C116 239 122 297 144 328" fill="none" stroke="#ffb1bd" stroke-width="7" stroke-linecap="round" opacity=".35"></path>
+
+                    <g id="shorts-bone">
+                      <path id="shorts" d="M116 319 Q180 342 244 319 L241 371 Q218 382 199 369 L190 348 L170 348 L161 369 Q140 382 118 371 Z" fill="#bada48" stroke="#4d304a" stroke-width="4"></path>
+                      <path d="M124 342 q18-13 29 5 q-9 20-25 18z M198 337 q21-12 31 7 q-11 18-28 14z" fill="#704487" opacity=".92"></path>
+                    </g>
+
+                    <g id="face-bone">
+                      <g id="eyes">
+                        <g class="eye" transform="translate(158 188)">
+                          <ellipse rx="22" ry="25" fill="#f4f2d4" stroke="#542b40" stroke-width="3"></ellipse>
+                          <circle class="pupil" cx="3" cy="4" r="6" fill="#171019"></circle>
+                          <path class="lid" d="M-22 -3 Q0 -15 22 -3" fill="#e87a91" stroke="#542b40" stroke-width="3"></path>
+                        </g>
+                        <g class="eye" transform="translate(202 188)">
+                          <ellipse rx="22" ry="25" fill="#f4f2d4" stroke="#542b40" stroke-width="3"></ellipse>
+                          <circle class="pupil" cx="3" cy="4" r="6" fill="#171019"></circle>
+                          <path class="lid" d="M-22 -3 Q0 -15 22 -3" fill="#e87a91" stroke="#542b40" stroke-width="3"></path>
+                        </g>
+                      </g>
+                      <path id="brow-left" d="M137 157 Q157 149 175 157" fill="none" stroke="#542b40" stroke-width="3" stroke-linecap="round"></path>
+                      <path id="brow-right" d="M185 157 Q203 149 223 157" fill="none" stroke="#542b40" stroke-width="3" stroke-linecap="round"></path>
+                      <path id="mouth" d="M149 232 Q180 250 211 232" fill="none" stroke="#542b40" stroke-width="4" stroke-linecap="round"></path>
+                      <circle id="sleep-bubble" cx="220" cy="218" r="0" fill="#bcefff" opacity=".72"></circle>
+                    </g>
+                  </g>
+                </g>
+
+                <g id="rig-overlay" opacity="0" pointer-events="none">
+                  <path id="mesh-lines" fill="none" stroke="#74f5d0" stroke-width="1.2" stroke-dasharray="4 3"></path>
+                  <g id="mesh-points"></g>
+                  <circle cx="180" cy="240" r="7" fill="#ffdd69" stroke="#111" stroke-width="2"></circle>
+                  <text x="189" y="234">arm pivot</text>
+                </g>
+              </svg>
+              <div id="sprite-gesture" class="sprite-gesture" aria-hidden="true"></div>
+              <div class="interaction-hint">tap · scroll crown</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="telemetry" aria-live="polite">
+          <div><span>HOUR TARGET</span><strong id="hour-target">—</strong></div>
+          <div><span>HOUR ACTUAL</span><strong id="hour-actual">—</strong></div>
+          <div><span>MIN TARGET</span><strong id="minute-target">—</strong></div>
+          <div><span>RETURN ERROR</span><strong id="return-error">0.000°</strong></div>
+        </div>
+      </article>
+
+      <aside class="control-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">DETERMINISTIC DEMO</p>
+            <h2>Motion console</h2>
+          </div>
+          <span id="manifest-pill" class="pill pending">manifest…</span>
+        </div>
+
+        <div class="control-group">
+          <label class="switch-line">
+            <span><strong>Fixed 10:10:30</strong><small>Repeatable clock targets</small></span>
+            <input id="fixed-time" type="checkbox" checked>
+          </label>
+          <label class="slider-line" for="crown-input">
+            <span><strong>Crown parameter</strong><output id="crown-output">0.00</output></span>
+            <input id="crown-input" type="range" min="0" max="1" value="0" step="0.01">
+            <small>Expression + outfit hue; mouse wheel over watch also works.</small>
+          </label>
+        </div>
+
+        <div class="button-grid" aria-label="Motion clip triggers">
+          <button data-action="idle"><span>↗</span>Idle arm gesture</button>
+          <button data-action="blink"><span>◉</span>Blink / attention</button>
+          <button data-action="tap"><span>↓</span>Tap bounce + haptic</button>
+          <button data-action="sprite"><span>▦</span>6-frame clip</button>
+        </div>
+
+        <fieldset class="state-grid">
+          <legend>State machine inputs</legend>
+          <label><input id="sleep-state" type="checkbox"> Sleep</label>
+          <label><input id="focus-state" type="checkbox"> Focus</label>
+          <label><input id="battery-state" type="checkbox"> Low battery</label>
+          <label><input id="charging-state" type="checkbox"> Charging</label>
+          <label><input id="aod-state" type="checkbox"> Always-On</label>
+          <label><input id="low-power-state" type="checkbox"> Low power</label>
+        </fieldset>
+
+        <div class="utility-row">
+          <label><input id="rig-state" type="checkbox"> show native rig</label>
+          <button id="run-verification" class="primary">Run return test</button>
+        </div>
+
+        <div class="state-readout">
+          <div><span>STATE</span><strong id="state-name">AWAKE</strong></div>
+          <div><span>TIER</span><strong id="tier-name">ACTIVE / 30 FPS</strong></div>
+          <div><span>BLEND</span><strong id="blend-name">TIME + BREATH</strong></div>
+        </div>
+
+        <div id="verification-log" class="verification-log">
+          <span class="status-dot"></span>
+          <p><strong>Ready.</strong> Run the deterministic suite to prove both hands return to their exact wall-clock angles after the gesture envelope reaches zero.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="architecture">
+      <div class="section-heading wide">
+        <div>
+          <p class="eyebrow">NATIVE SUBSTITUTE FOR LIVE2D</p>
+          <h2>Small rig, explicit priorities</h2>
+        </div>
+        <p>Body control points deform like a tiny mesh; face, shorts, eyes, and arms form a bone hierarchy. No runtime or opaque animation state is required.</p>
+      </div>
+      <div class="priority-flow">
+        <div><b>1000</b><strong>Timekeeping</strong><small>Absolute hour/minute targets</small></div>
+        <i>+</i>
+        <div><b>700</b><strong>Interaction</strong><small>Tap + crown, additive</small></div>
+        <i>+</i>
+        <div><b>500</b><strong>Mode</strong><small>Sleep / focus / power</small></div>
+        <i>+</i>
+        <div><b>300</b><strong>Gesture clip</strong><small>Zero-ended arm offsets</small></div>
+        <i>+</i>
+        <div><b>100</b><strong>Ambient</strong><small>Breath + attention</small></div>
+      </div>
+      <p class="invariant"><strong>Invariant:</strong> hand angle = wall-clock angle + transient clip offset. Every clip envelope is exactly zero before and after its duration, so animation cannot permanently corrupt time.</p>
+    </section>
+
+    <section class="matrix-section">
+      <div class="section-heading wide">
+        <div>
+          <p class="eyebrow">FEASIBILITY MATRIX</p>
+          <h2>What belongs on watchOS</h2>
+        </div>
+        <p>Support reflects vendor platform lists and Apple’s watchOS rendering APIs, not assumptions based on iOS compatibility.</p>
+      </div>
+      <div class="matrix-wrap">
+        <table>
+          <thead>
+            <tr><th>Method</th><th>watchOS support</th><th>Interaction</th><th>Battery</th><th>App Store outlook</th></tr>
+          </thead>
+          <tbody>
+            <tr class="recommended"><td><strong>SwiftUI Canvas + layer rig</strong><em>Primary</em></td><td>Native; Canvas available on watchOS</td><td>Excellent: touch, crown, state</td><td>Best when cadence-aware</td><td>Strong; ordinary public APIs</td></tr>
+            <tr><td><strong>SpriteKit / spritesheet</strong><em>Gesture clips</em></td><td>Native via WKInterfaceSKScene</td><td>Good; node-level input/state</td><td>Good if short and paused</td><td>Strong; keep assets/memory lean</td></tr>
+            <tr><td><strong>Custom mesh puppet</strong><em>Selective use</em></td><td>Native Canvas/path math</td><td>Excellent parameter control</td><td>Good at few vertices / 30 fps</td><td>Strong; test thermal cost</td></tr>
+            <tr class="caution"><td><strong>Live2D Cubism</strong><em>Do not target directly</em></td><td>watchOS not officially listed</td><td>Excellent elsewhere</td><td>Unproven / likely heavy</td><td>Risky unsupported port + license</td></tr>
+            <tr><td><strong>Video / GIF / Lottie</strong><em>Pre-render fallback</em></td><td>Video/movie or frames; Airbnb Lottie omits watchOS</td><td>Low; parameter blending is weak</td><td>Medium–poor if continuous</td><td>Viable for brief owned clips</td></tr>
+            <tr><td><strong>Pre-rendered 3D</strong><em>Art pipeline only</em></td><td>Runs as frames/video, not live 3D rig</td><td>Low unless many variants</td><td>Medium; storage trade-off</td><td>Viable with licensed assets</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <span>Local fallback anchors keep this folder runnable while <code>../style-library/patrick-anchor-manifest.json</code> is pending.</span>
+      <span id="fps-counter">render 0 fps</span>
+    </footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

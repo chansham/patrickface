@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>1999 派大星製作質感比較</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #101014;
+      --panel: #18181d;
+      --text: #f6f3f5;
+      --muted: #aaa2aa;
+      --hairline: rgba(255, 255, 255, 0.09);
+      --accent: #f394ad;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-width: 1280px;
+      background:
+        radial-gradient(circle at 50% -20%, rgba(113, 54, 77, 0.18), transparent 38%),
+        var(--page);
+      color: var(--text);
+      font-family: "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 112px));
+      margin: 0 auto;
+      padding: 32px 0 34px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      align-items: end;
+      gap: 52px;
+      margin-bottom: 20px;
+      padding: 0 8px 16px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 620;
+      letter-spacing: -0.035em;
+    }
+
+    .subtitle {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .architecture {
+      text-align: right;
+      color: #c9c1c8;
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .architecture strong {
+      display: block;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 620;
+      letter-spacing: 0.08em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px 24px;
+    }
+
+    .option {
+      min-width: 0;
+      padding: 15px 18px 14px;
+      border: 1px solid var(--hairline);
+      border-radius: 22px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012));
+      overflow: visible;
+    }
+
+    .watch {
+      position: relative;
+      width: min(100%, 190px);
+      aspect-ratio: 0.80;
+      margin: 0 auto 13px;
+      padding: 7px;
+      border-radius: 48px;
+      background:
+        linear-gradient(145deg, #65656c 0%, #2b2b30 38%, #101013 76%, #34343a 100%);
+      box-shadow:
+        0 16px 34px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+
+    .watch::after {
+      content: "";
+      position: absolute;
+      right: -5px;
+      top: 58px;
+      width: 5px;
+      height: 30px;
+      border-radius: 5px;
+      background: linear-gradient(#77777d, #29292d);
+    }
+
+    .screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 41px;
+      background: #000;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+    }
+
+    .screen > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      background: #000;
+    }
+
+    .digital {
+      position: absolute;
+      z-index: 3;
+      top: 17px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+      font-weight: 350;
+      letter-spacing: -0.045em;
+      color: rgba(255, 255, 255, 0.93);
+      font-variant-numeric: tabular-nums;
+      text-shadow: 0 1px 8px #000;
+    }
+
+    .marker {
+      position: absolute;
+      z-index: 3;
+      transform: translate(-50%, -50%);
+      width: 2.5px;
+      height: 2.5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.40);
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.08);
+    }
+
+    .marker.major {
+      width: 9px;
+      height: 2px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.70);
+    }
+
+    .marker.m3,
+    .marker.m9 {
+      width: 2px;
+      height: 9px;
+    }
+
+    .m12 { left: 50%; top: 12px; }
+    .m1  { left: 75%; top: 8%; }
+    .m2  { left: 92%; top: 27%; }
+    .m3  { left: calc(100% - 10px); top: 50%; }
+    .m4  { left: 92%; top: 73%; }
+    .m5  { left: 75%; top: 92%; }
+    .m6  { left: 50%; top: calc(100% - 11px); }
+    .m7  { left: 25%; top: 92%; }
+    .m8  { left: 8%; top: 73%; }
+    .m9  { left: 10px; top: 50%; }
+    .m10 { left: 8%; top: 27%; }
+    .m11 { left: 25%; top: 8%; }
+
+    .number {
+      margin: 0 0 7px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .tradeoff {
+      min-height: 46px;
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.62;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 38px;
+      margin-top: 20px;
+      padding: 14px 20px;
+      border: 1px solid var(--hairline);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.025);
+      color: var(--muted);
+      font-size: 11.5px;
+      line-height: 1.6;
+    }
+
+    footer span:last-child { text-align: right; }
+
+    footer strong { color: #e3dce1; }
+
+    @media (max-width: 900px) {
+      header { grid-template-columns: 1fr; }
+      .architecture { text-align: left; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 580px) {
+      body { min-width: 0; }
+      main { width: min(100% - 28px, 440px); padding-top: 24px; }
+      .grid { grid-template-columns: 1fr; }
+      .option { padding-inline: 14px; }
+      footer { display: block; }
+      footer span { display: block; }
+      footer span:last-child { margin-top: 8px; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>1999 派大星製作質感比較</h1>
+        <p class="subtitle">這次固定第一季造型與線條，只比較當年可能出現的製作、轉印與媒介質感。</p>
+      </div>
+      <div class="architecture">
+        <strong>固定資訊架構</strong>
+        雙臂＝時針 / 分針 · 邊緣 12 刻度 · 數字時間 10:10
+      </div>
+    </header>
+
+    <section class="grid" id="styles" aria-label="六種第一季製作質感"></section>
+
+    <footer>
+      <span><strong>完全固定：</strong>1999 角色結構、矩形 Apple Watch、純黑 OLED、10:10 雙臂、刻度與數字時間。</span>
+      <span><strong>只比較：</strong>賽璐璐、膠片、錄影帶、紙張與印刷如何改變完成質感。</span>
+    </footer>
+  </main>
+
+  <script>
+    const styles = [
+      {
+        id: "01",
+        title: "乾淨播出母版",
+        image: "assets/season1-01-clean.png",
+        tradeoff: "只有極輕的光學柔化；最接近修復後的第一季播出母版，也是最準確的基準。"
+      },
+      {
+        id: "02",
+        title: "實體醋酸賽璐璐片",
+        image: "assets/season1-02-acetate.png",
+        tradeoff: "顏料厚薄、細小灰塵與針孔不均；是真實物件感，不等於老舊損壞。"
+      },
+      {
+        id: "03",
+        title: "輕度老化 16mm 轉印",
+        image: "assets/season1-03-film.png",
+        tradeoff: "微暖片基、克制顆粒與一像素閘門漂移；有年代感，但仍保留角色細節。"
+      },
+      {
+        id: "04",
+        title: "90 年代 VHS／CRT 播出",
+        image: "assets/season1-04-vhs.png",
+        tradeoff: "輕微色度延遲、掃描柔化與低強度掃描線；像當年電視，不做破壞性故障。"
+      },
+      {
+        id: "05",
+        title: "水粉／賽璐璐紙本典藏",
+        image: "assets/season1-05-gouache.png",
+        tradeoff: "紙齒、消光顏料與細微筆觸厚薄；更像畫廊原稿，不是電視播出畫面。"
+      },
+      {
+        id: "06",
+        title: "低線數復古商品印刷",
+        image: "assets/season1-06-print.png",
+        tradeoff: "少色分版、套色偏移、墨陷與網點增肥；適合復古周邊感，不是動畫母版。"
+      }
+    ];
+
+    const markerNames = ["12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
+    const markerHTML = markerNames
+      .map(name => `<i class="marker m${name}${["12","3","6","9"].includes(name) ? " major" : ""}"></i>`)
+      .join("");
+
+    document.getElementById("styles").innerHTML = styles.map(style => `
+      <article class="option">
+        <div class="watch">
+          <div class="screen">
+            <img src="${style.image}?v=2" alt="${style.title}的派大星 10:10 錶盤" />
+            ${markerHTML}
+            <div class="digital">10:10</div>
+          </div>
+        </div>
+        <p class="number">STYLE ${style.id}</p>
+        <h2>${style.title}</h2>
+        <p class="tradeoff">${style.tradeoff}</p>
+      </article>
+    `).join("");
+  </script>
+</body>
+</html>

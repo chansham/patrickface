@@ -1,0 +1,13 @@
+# Python validation caches
+__pycache__/
+*.py[cod]
+
+# Xcode local state and build output
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+
+# Signing material must remain outside source control
+*.mobileprovision
+*.p12

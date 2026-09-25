@@ -1,0 +1,55 @@
+{
+  "$schema": "./schemas/patrick-anchor-manifest.schema.json",
+  "id": "patrick-motion-placeholder-v1",
+  "version": 1,
+  "coordinateSpace": {
+    "width": 360,
+    "height": 440,
+    "origin": "top-left"
+  },
+  "source": {
+    "kind": "procedural-placeholder",
+    "sharedManifestCandidate": "../style-library/patrick-anchor-manifest.json",
+    "finalArtStatus": "pending"
+  },
+  "anchors": {
+    "characterRoot": [180, 240],
+    "hourArmPivot": [180, 240],
+    "minuteArmPivot": [180, 240],
+    "faceRoot": [180, 190],
+    "leftEye": [158, 188],
+    "rightEye": [202, 188],
+    "shortsRoot": [180, 338]
+  },
+  "mesh": {
+    "bodyControlPoints": [
+      [180, 92],
+      [145, 131],
+      [118, 219],
+      [106, 309],
+      [126, 338],
+      [180, 348],
+      [234, 338],
+      [254, 309],
+      [242, 219],
+      [215, 131]
+    ]
+  },
+  "layers": [
+    { "id": "minuteArm", "z": 10, "asset": null },
+    { "id": "hourArm", "z": 11, "asset": null },
+    { "id": "body", "z": 20, "asset": null },
+    { "id": "shorts", "z": 30, "asset": null },
+    { "id": "eyes", "z": 40, "asset": null },
+    { "id": "faceInk", "z": 50, "asset": null },
+    { "id": "gestureFX", "z": 60, "asset": "./assets/gesture-sprites.svg" }
+  ],
+  "safeAreas": {
+    "digitalTime": [110, 18, 140, 52],
+    "characterBounds": [80, 78, 200, 306]
+  },
+  "notes": [
+    "All values are local fallback coordinates, not final art measurements.",
+    "A shared manifest with matching anchor names can replace this file without changing motion logic."
+  ]
+}

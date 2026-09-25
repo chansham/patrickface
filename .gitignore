@@ -1,0 +1,43 @@
+# Secrets and local env
+.env
+.env.*
+!.env.example
+credentials.env
+*.pem
+*.p12
+*.mobileprovision
+*.cer
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Xcode / Apple
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local preview / temp
+*.log
+.cache/
+tmp/
+temp/
+
+# Preserved rejected/legacy package snapshot (local only)
+delivery/theme-pack-before-rebuild-*/

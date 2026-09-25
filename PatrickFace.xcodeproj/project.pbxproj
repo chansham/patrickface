@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B20000000000000000000014 /* PatrickFaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000007 /* PatrickFaceApp.swift */; };
+		B20000000000000000000015 /* PatrickFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000008 /* PatrickFaceView.swift */; };
+		B20000000000000000000016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000009 /* Assets.xcassets */; };
+		C30000000000000000000001 /* PatrickShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000010 /* PatrickShared.swift */; };
+		C30000000000000000000002 /* PatrickFaceComplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000012 /* PatrickFaceComplications.swift */; };
+		C30000000000000000000003 /* PatrickShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30000000000000000000010 /* PatrickShared.swift */; };
+		C30000000000000000000004 /* PatrickFaceComplications.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C30000000000000000000015 /* PatrickFaceComplications.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D40000000000000000000001 /* PatrickWatchReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000010 /* PatrickWatchReceiver.swift */; };
+		D40000000000000000000002 /* PatrickWatchWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000011 /* PatrickWatchWire.swift */; };
+		D40000000000000000000003 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000012 /* PrivacyInfo.xcprivacy */; };
+		D40000000000000000000004 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000012 /* PrivacyInfo.xcprivacy */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C30000000000000000000050 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B20000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C30000000000000000000040;
+			remoteInfo = PatrickFaceComplications;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C30000000000000000000023 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C30000000000000000000004 /* PatrickFaceComplications.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B20000000000000000000006 /* PatrickFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatrickFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B20000000000000000000007 /* PatrickFaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFaceApp.swift; sourceTree = "<group>"; };
+		B20000000000000000000008 /* PatrickFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFaceView.swift; sourceTree = "<group>"; };
+		B20000000000000000000009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2000000000000000000000A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C30000000000000000000010 /* PatrickShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickShared.swift; sourceTree = "<group>"; };
+		C30000000000000000000011 /* PatrickFace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatrickFace.entitlements; sourceTree = "<group>"; };
+		C30000000000000000000012 /* PatrickFaceComplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFaceComplications.swift; sourceTree = "<group>"; };
+		C30000000000000000000013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C30000000000000000000014 /* PatrickFaceComplications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatrickFaceComplications.entitlements; sourceTree = "<group>"; };
+		C30000000000000000000015 /* PatrickFaceComplications.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PatrickFaceComplications.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D40000000000000000000010 /* PatrickWatchReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickWatchReceiver.swift; sourceTree = "<group>"; };
+		D40000000000000000000011 /* PatrickWatchWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickWatchWire.swift; sourceTree = "<group>"; };
+		D40000000000000000000012 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B20000000000000000000005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C30000000000000000000021 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B2000000000000000000000B = {
+			isa = PBXGroup;
+			children = (
+				B2000000000000000000000C /* PatrickFace */,
+				C30000000000000000000030 /* PatrickFaceComplications */,
+				D40000000000000000000020 /* WatchIntegration */,
+				B2000000000000000000000D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B2000000000000000000000C /* PatrickFace */ = {
+			isa = PBXGroup;
+			children = (
+				B20000000000000000000007 /* PatrickFaceApp.swift */,
+				B20000000000000000000008 /* PatrickFaceView.swift */,
+				C30000000000000000000010 /* PatrickShared.swift */,
+				B20000000000000000000009 /* Assets.xcassets */,
+				B2000000000000000000000A /* Info.plist */,
+				C30000000000000000000011 /* PatrickFace.entitlements */,
+				D40000000000000000000012 /* PrivacyInfo.xcprivacy */,
+			);
+			path = PatrickFace;
+			sourceTree = "<group>";
+		};
+		C30000000000000000000030 /* PatrickFaceComplications */ = {
+			isa = PBXGroup;
+			children = (
+				C30000000000000000000012 /* PatrickFaceComplications.swift */,
+				C30000000000000000000013 /* Info.plist */,
+				C30000000000000000000014 /* PatrickFaceComplications.entitlements */,
+			);
+			path = PatrickFaceComplications;
+			sourceTree = "<group>";
+		};
+		D40000000000000000000020 /* WatchIntegration */ = {
+			isa = PBXGroup;
+			children = (
+				D40000000000000000000010 /* PatrickWatchReceiver.swift */,
+				D40000000000000000000011 /* PatrickWatchWire.swift */,
+			);
+			path = iOSCompanion/WatchIntegration;
+			sourceTree = "<group>";
+		};
+		B2000000000000000000000D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B20000000000000000000006 /* PatrickFace.app */,
+				C30000000000000000000015 /* PatrickFaceComplications.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B20000000000000000000002 /* PatrickFace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2000000000000000000000F /* Build configuration list for PBXNativeTarget "PatrickFace" */;
+			buildPhases = (
+				B20000000000000000000003 /* Sources */,
+				B20000000000000000000005 /* Frameworks */,
+				B20000000000000000000004 /* Resources */,
+				C30000000000000000000023 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C30000000000000000000051 /* PBXTargetDependency */,
+			);
+			name = PatrickFace;
+			productName = PatrickFace;
+			productReference = B20000000000000000000006 /* PatrickFace.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C30000000000000000000040 /* PatrickFaceComplications */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C30000000000000000000062 /* Build configuration list for PBXNativeTarget "PatrickFaceComplications" */;
+			buildPhases = (
+				C30000000000000000000020 /* Sources */,
+				C30000000000000000000021 /* Frameworks */,
+				C30000000000000000000022 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PatrickFaceComplications;
+			productName = PatrickFaceComplications;
+			productReference = C30000000000000000000015 /* PatrickFaceComplications.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B20000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					B20000000000000000000002 = {
+						CreatedOnToolsVersion = 16.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					C30000000000000000000040 = {
+						CreatedOnToolsVersion = 16.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = B2000000000000000000000E /* Build configuration list for PBXProject "PatrickFace" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "zh-Hant";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				"zh-Hant",
+				Base,
+			);
+			mainGroup = B2000000000000000000000B;
+			productRefGroup = B2000000000000000000000D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B20000000000000000000002 /* PatrickFace */,
+				C30000000000000000000040 /* PatrickFaceComplications */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B20000000000000000000004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20000000000000000000016 /* Assets.xcassets in Resources */,
+				D40000000000000000000003 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C30000000000000000000022 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D40000000000000000000004 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B20000000000000000000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20000000000000000000014 /* PatrickFaceApp.swift in Sources */,
+				B20000000000000000000015 /* PatrickFaceView.swift in Sources */,
+				C30000000000000000000001 /* PatrickShared.swift in Sources */,
+				D40000000000000000000001 /* PatrickWatchReceiver.swift in Sources */,
+				D40000000000000000000002 /* PatrickWatchWire.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C30000000000000000000020 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C30000000000000000000002 /* PatrickFaceComplications.swift in Sources */,
+				C30000000000000000000003 /* PatrickShared.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C30000000000000000000051 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C30000000000000000000040 /* PatrickFaceComplications */;
+			targetProxy = C30000000000000000000050 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B20000000000000000000010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B20000000000000000000011 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				SDKROOT = watchos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B20000000000000000000012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PatrickFace/PatrickFace.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PatrickFace/Info.plist;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		B20000000000000000000013 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PatrickFace/PatrickFace.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PatrickFace/Info.plist;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		C30000000000000000000060 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = PatrickFaceComplications/PatrickFaceComplications.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PatrickFaceComplications/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.watchkitapp.complications;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		C30000000000000000000061 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = PatrickFaceComplications/PatrickFaceComplications.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PatrickFaceComplications/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.watchkitapp.complications;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B2000000000000000000000E /* Build configuration list for PBXProject "PatrickFace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B20000000000000000000010 /* Debug */,
+				B20000000000000000000011 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2000000000000000000000F /* Build configuration list for PBXNativeTarget "PatrickFace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B20000000000000000000012 /* Debug */,
+				B20000000000000000000013 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C30000000000000000000062 /* Build configuration list for PBXNativeTarget "PatrickFaceComplications" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C30000000000000000000060 /* Debug */,
+				C30000000000000000000061 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B20000000000000000000001 /* Project object */;
+}

@@ -1,0 +1,30 @@
+{
+  "source": "../PatrickFace/Assets.xcassets",
+  "policy": "Byte-for-byte copies of approved source PNGs; runtime overlays are derived in SwiftUI.",
+  "files": {
+    "season1-body-normal.imageset/season1-body-normal.png": {
+      "source": "PatrickFace/Assets.xcassets/season1-body-normal.imageset/season1-body-normal.png",
+      "sha256": "8b59d7ebaf45f9b604d1b7a90b489bfd6f12357f6cc8b90d04fe877149e93997"
+    },
+    "season1-hour-arm.imageset/season1-hour-arm.png": {
+      "source": "PatrickFace/Assets.xcassets/season1-hour-arm.imageset/season1-hour-arm.png",
+      "sha256": "d6b5100dc3fb55f073ece241f010644e4454270f07b3ed0877b316b9146077d6"
+    },
+    "season1-minute-arm.imageset/season1-minute-arm.png": {
+      "source": "PatrickFace/Assets.xcassets/season1-minute-arm.imageset/season1-minute-arm.png",
+      "sha256": "4e5cf2e0e7318a5a78bdcb64dfc75c296abe258c1c43e1bf53a66f7684167fc0"
+    },
+    "season1-3d-body.imageset/season1-3d-body.png": {
+      "source": "PatrickFace/Assets.xcassets/season1-3d-body.imageset/season1-3d-body.png",
+      "sha256": "1ab704f217c6acbf214ccf30ac48b4edd2e89796d6971207095e3f9df891c606"
+    },
+    "season1-3d-arm.imageset/season1-3d-arm.png": {
+      "source": "PatrickFace/Assets.xcassets/season1-3d-arm.imageset/season1-3d-arm.png",
+      "sha256": "dd7547cbf404ced93954e249938a57266c7c0086a6df7f91b4bb64737a2a0f08"
+    },
+    "AppIcon.appiconset/AppIcon.png": {
+      "source": "PatrickFace/Assets.xcassets/AppIcon.appiconset/AppIcon.png",
+      "sha256": "09b80536a9349f64cd45af7fae03bc60e2d3ce456af031d3c39b0be9c3ee0177"
+    }
+  }
+}

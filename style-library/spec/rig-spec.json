@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "1.0.0",
+  "coordinateSystem": {
+    "origin": "top-left",
+    "x": "right",
+    "y": "down",
+    "units": "pixels"
+  },
+  "sourceCanvas": {
+    "width": 1024,
+    "height": 1024,
+    "format": "RGBA PNG",
+    "background": "transparent"
+  },
+  "runtimeCanvas": {
+    "width": 256,
+    "height": 256,
+    "scaleFromSource": 0.25
+  },
+  "clockPivot": {
+    "sourcePx": [
+      512,
+      500
+    ],
+    "runtimePx": [
+      128,
+      125
+    ],
+    "normalized": [
+      0.5,
+      0.48828125
+    ]
+  },
+  "canonicalHandDirection": "12-o'clock/up",
+  "rotationFormulaClockwiseDegrees": {
+    "minute": "minute * 6",
+    "hour": "(hour % 12) * 30 + minute * 0.5"
+  },
+  "anchors": {
+    "hourShoulderSocket": {
+      "sourcePx": [
+        484,
+        500
+      ],
+      "normalized": [
+        0.47265625,
+        0.48828125
+      ]
+    },
+    "minuteShoulderSocket": {
+      "sourcePx": [
+        540,
+        500
+      ],
+      "normalized": [
+        0.52734375,
+        0.48828125
+      ]
+    },
+    "faceGroup": {
+      "sourcePx": [
+        512,
+        326
+      ]
+    },
+    "mouthGroup": {
+      "sourcePx": [
+        512,
+        395
+      ]
+    },
+    "clothingWaist": {
+      "sourcePx": [
+        512,
+        662
+      ]
+    },
+    "leftFoot": {
+      "sourcePx": [
+        404,
+        810
+      ]
+    },
+    "rightFoot": {
+      "sourcePx": [
+        620,
+        810
+      ]
+    },
+    "headAccessory": {
+      "sourcePx": [
+        512,
+        126
+      ]
+    }
+  },
+  "compositeOrderBackToFront": [
+    "feet",
+    "body",
+    "clothing",
+    "eyes-lids-brows",
+    "mouths",
+    "arms",
+    "accessories",
+    "overlays"
+  ],
+  "morphologyBaseline": [
+    "Large bottom-heavy pear body",
+    "Long tapering head, never oversized baby head",
+    "Small, low-energy sleepy face",
+    "Uneven early hand-ink asymmetry",
+    "Long triangular arms and compact corrected feet",
+    "Explicitly non-cute proportions"
+  ]
+}

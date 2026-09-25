@@ -1,0 +1,4100 @@
+{
+  "schemaVersion": "1.0.0",
+  "library": "Patrick Apple Watch Modular Style Library",
+  "generatedAtUtc": "2026-09-23T14:10:42.347487+00:00",
+  "rootContract": "All generated work is contained below this manifest's directory.",
+  "reference": {
+    "suppliedPath": "<USER_HOME>\\.cursor\\projects\\<PROJECT_SLUG>\\assets\\<USER_HOME>_.cursor_projects_<PROJECT_SLUG>_assets_<USER_HOME>_AppData_Roaming_Cursor_User_workspaceStorage_e3578c596abe3e051a6fc784b89a5c20_images_image-fcb3bfe4-b8b5-4443-9300-f0908dc0e1ad.png",
+    "localCopy": "reference/user-watch-reference.png",
+    "usage": "Morphology/context reference only; generated assets are independent redraws."
+  },
+  "rigSpec": "spec/rig-spec.json",
+  "optimization": {
+    "sourceTier": "1024×1024 RGBA PNG for review, re-export, and future vector/paint replacement",
+    "runtimeTier": "256×256 optimized RGBA PNG, 25% linear dimensions",
+    "shippingGuidance": "Ship only selected family/state combinations; keep assets-src and previews outside the watch app bundle.",
+    "recommendedFuture": "Use indexed PNG where alpha permits; validate ASTC/asset-catalog output on device."
+  },
+  "families": [
+    {
+      "id": "cel-1999",
+      "name": "Clean 1999 broadcast cel",
+      "short": "CEL 1999",
+      "skin": [
+        244,
+        133,
+        121,
+        255
+      ],
+      "skin_dark": [
+        207,
+        87,
+        83,
+        255
+      ],
+      "line": [
+        43,
+        34,
+        39,
+        255
+      ],
+      "cloth": [
+        173,
+        201,
+        75,
+        255
+      ],
+      "accent": [
+        118,
+        69,
+        154,
+        255
+      ],
+      "paper": [
+        255,
+        248,
+        230,
+        255
+      ],
+      "construction": "Uneven single-pass cel contour with flat hand-painted fills.",
+      "edge": "Firm ink edge, tiny registration wobble, no digital smoothing aesthetic.",
+      "material": "Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "model-sheet-bw",
+      "name": "B/W animation model sheet",
+      "short": "MODEL SHEET",
+      "skin": [
+        250,
+        248,
+        240,
+        242
+      ],
+      "skin_dark": [
+        208,
+        208,
+        202,
+        255
+      ],
+      "line": [
+        28,
+        29,
+        28,
+        255
+      ],
+      "cloth": [
+        245,
+        245,
+        238,
+        245
+      ],
+      "accent": [
+        35,
+        35,
+        35,
+        255
+      ],
+      "paper": [
+        255,
+        255,
+        250,
+        255
+      ],
+      "construction": "Redrawn graphite/ink contour with visible searching strokes.",
+      "edge": "Double-line corrections, broken construction arcs, variable pressure.",
+      "material": "Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pen-line",
+      "name": "Expressive pen-line illustration",
+      "short": "PEN LINE",
+      "skin": [
+        235,
+        170,
+        149,
+        235
+      ],
+      "skin_dark": [
+        168,
+        83,
+        68,
+        255
+      ],
+      "line": [
+        64,
+        43,
+        37,
+        255
+      ],
+      "cloth": [
+        179,
+        177,
+        94,
+        245
+      ],
+      "accent": [
+        119,
+        75,
+        102,
+        255
+      ],
+      "paper": [
+        246,
+        231,
+        203,
+        245
+      ],
+      "construction": "Loose nib redraw with elastic curves and deliberate overshoot.",
+      "edge": "Dry pen skips, parallel contour searching, directional hatching.",
+      "material": "Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "sumi-e",
+      "name": "Chinese ink-wash 水墨",
+      "short": "SUMI-E",
+      "skin": [
+        170,
+        119,
+        108,
+        150
+      ],
+      "skin_dark": [
+        126,
+        48,
+        39,
+        220
+      ],
+      "line": [
+        31,
+        30,
+        28,
+        230
+      ],
+      "cloth": [
+        106,
+        126,
+        76,
+        190
+      ],
+      "accent": [
+        178,
+        53,
+        38,
+        230
+      ],
+      "paper": [
+        230,
+        225,
+        207,
+        175
+      ],
+      "construction": "Shape rebuilt as overlapping wet washes and calligraphic strokes.",
+      "edge": "Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour.",
+      "material": "Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "riso-woodcut",
+      "name": "Vintage woodcut / risograph",
+      "short": "RISO CUT",
+      "skin": [
+        232,
+        90,
+        81,
+        245
+      ],
+      "skin_dark": [
+        127,
+        42,
+        70,
+        255
+      ],
+      "line": [
+        45,
+        34,
+        70,
+        255
+      ],
+      "cloth": [
+        57,
+        152,
+        145,
+        245
+      ],
+      "accent": [
+        91,
+        50,
+        112,
+        255
+      ],
+      "paper": [
+        245,
+        224,
+        175,
+        245
+      ],
+      "construction": "Angular block-cut silhouette with independently registered plates.",
+      "edge": "Coarse carved contour, teal misregistration, clipped hatch channels.",
+      "material": "Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "clay-3d",
+      "name": "Faithful non-cute clay 3D",
+      "short": "CLAY 3D",
+      "skin": [
+        220,
+        112,
+        100,
+        255
+      ],
+      "skin_dark": [
+        132,
+        55,
+        53,
+        255
+      ],
+      "line": [
+        91,
+        47,
+        47,
+        220
+      ],
+      "cloth": [
+        137,
+        166,
+        65,
+        255
+      ],
+      "accent": [
+        94,
+        53,
+        130,
+        255
+      ],
+      "paper": [
+        231,
+        207,
+        171,
+        255
+      ],
+      "construction": "Re-sculpted pear volume with small face and long un-cute taper.",
+      "edge": "Soft occlusion edge, asymmetric compression, modeled seam at sockets.",
+      "material": "Layered clay shading, finger dents, matte roughness, no toy gloss."
+    }
+  ],
+  "counts": {
+    "families": 6,
+    "assetsPerFamily": 20,
+    "sourceAssets": 120,
+    "runtimeAssets": 120,
+    "previewImages": 12
+  },
+  "assets": [
+    {
+      "id": "pf.cel-1999.body.armless-base",
+      "family": "cel-1999",
+      "category": "body",
+      "variant": "armless-base",
+      "source": "assets-src/cel-1999/body/pf_cel-1999_body_armless-base_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/body/pf_cel-1999_body_armless-base_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        281,
+        100,
+        746,
+        827
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 12932,
+      "runtimeBytes": 12067,
+      "sourceSha256": "153257611d01ae40ad2fc7fd21c70b2f244e7d140ce77a2747bbdf7ca5449ba4",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.arms.hour",
+      "family": "cel-1999",
+      "category": "arms",
+      "variant": "hour",
+      "source": "assets-src/cel-1999/arms/pf_cel-1999_arms_hour_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/arms/pf_cel-1999_arms_hour_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        462,
+        230,
+        568,
+        532
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 6621,
+      "runtimeBytes": 3859,
+      "sourceSha256": "6b49fec4ffec08aa01514b3e681f3ebc2855b1926fbd9a7ba7691121dc8fd5ca",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.arms.minute",
+      "family": "cel-1999",
+      "category": "arms",
+      "variant": "minute",
+      "source": "assets-src/cel-1999/arms/pf_cel-1999_arms_minute_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/arms/pf_cel-1999_arms_minute_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        464,
+        133,
+        568,
+        532
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 6809,
+      "runtimeBytes": 3893,
+      "sourceSha256": "2bb551e44ef7867feebff91abad2bddc412d7d3c8aa8cd344467ca594c25739b",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.feet.corrected",
+      "family": "cel-1999",
+      "category": "feet",
+      "variant": "corrected",
+      "source": "assets-src/cel-1999/feet/pf_cel-1999_feet_corrected_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/feet/pf_cel-1999_feet_corrected_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        321,
+        758,
+        702,
+        899
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 7713,
+      "runtimeBytes": 6095,
+      "sourceSha256": "008649af663573280ea315ae5eb841a1e50e9ea3c4e3095a43c36cf5ae100909",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.eyes-lids-brows.eyes-sleepy",
+      "family": "cel-1999",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-sleepy",
+      "source": "assets-src/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        466,
+        285,
+        560,
+        339
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5239,
+      "runtimeBytes": 1683,
+      "sourceSha256": "33e5d4b580093a29e850ac47b87517445e2cc13b142b9a2e29bfaa25d108233a",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.eyes-lids-brows.eyes-alert",
+      "family": "cel-1999",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-alert",
+      "source": "assets-src/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_eyes-alert_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_eyes-alert_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        466,
+        268,
+        559,
+        347
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5368,
+      "runtimeBytes": 2156,
+      "sourceSha256": "b49aa427388f4ac20a6909edcc3f75c01431af865b5be2d5dcf206167703784b",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.eyes-lids-brows.lids-half",
+      "family": "cel-1999",
+      "category": "eyes-lids-brows",
+      "variant": "lids-half",
+      "source": "assets-src/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_lids-half_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_lids-half_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        464,
+        296,
+        562,
+        320
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4494,
+      "runtimeBytes": 925,
+      "sourceSha256": "190e11f4201e48f843065f79c193a726ab5ebac139142f15a8a8176d741b4dbd",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.eyes-lids-brows.brows-annoyed",
+      "family": "cel-1999",
+      "category": "eyes-lids-brows",
+      "variant": "brows-annoyed",
+      "source": "assets-src/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        464,
+        250,
+        562,
+        275
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4491,
+      "runtimeBytes": 905,
+      "sourceSha256": "4b6fa674e26c99148f2f32b6dc6f74f996479897bb2725bb3f95f87935cfe1f6",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.mouths.neutral",
+      "family": "cel-1999",
+      "category": "mouths",
+      "variant": "neutral",
+      "source": "assets-src/cel-1999/mouths/pf_cel-1999_mouths_neutral_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/mouths/pf_cel-1999_mouths_neutral_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        472,
+        377,
+        550,
+        397
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4405,
+      "runtimeBytes": 746,
+      "sourceSha256": "8dafe33aef43c6f183aa9b1d9530001fa0b0ddf0795c14924825ec7e89c70e8e",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.mouths.happy",
+      "family": "cel-1999",
+      "category": "mouths",
+      "variant": "happy",
+      "source": "assets-src/cel-1999/mouths/pf_cel-1999_mouths_happy_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/mouths/pf_cel-1999_mouths_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        470,
+        372,
+        563,
+        427
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5016,
+      "runtimeBytes": 1551,
+      "sourceSha256": "edc61c993005e3f7c661f9309f9e5676c689cb34b51ef3cad32aa72ff7039b02",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.mouths.surprised",
+      "family": "cel-1999",
+      "category": "mouths",
+      "variant": "surprised",
+      "source": "assets-src/cel-1999/mouths/pf_cel-1999_mouths_surprised_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/mouths/pf_cel-1999_mouths_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        487,
+        367,
+        542,
+        432
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4848,
+      "runtimeBytes": 1188,
+      "sourceSha256": "af0bf0656794c699724cf8ee7a0bb75e328da98c1774583b1261d85c53bc4386",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.clothing.trunks-classic",
+      "family": "cel-1999",
+      "category": "clothing",
+      "variant": "trunks-classic",
+      "source": "assets-src/cel-1999/clothing/pf_cel-1999_clothing_trunks-classic_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/clothing/pf_cel-1999_clothing_trunks-classic_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        305,
+        638,
+        724,
+        816
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 8063,
+      "runtimeBytes": 7395,
+      "sourceSha256": "47dbddc5fbd99a10371e44c579c0bb4eb90384c07d85a4428def22f19e92f2d4",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.clothing.sleep-robe",
+      "family": "cel-1999",
+      "category": "clothing",
+      "variant": "sleep-robe",
+      "source": "assets-src/cel-1999/clothing/pf_cel-1999_clothing_sleep-robe_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/clothing/pf_cel-1999_clothing_sleep-robe_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        319,
+        524,
+        714,
+        824
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 8745,
+      "runtimeBytes": 8990,
+      "sourceSha256": "98cfc068d741808afbdddf70db72d261c5e7ee6ca6c9cc2bac054bfa43451c32",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.accessories.nightcap",
+      "family": "cel-1999",
+      "category": "accessories",
+      "variant": "nightcap",
+      "source": "assets-src/cel-1999/accessories/pf_cel-1999_accessories_nightcap_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/accessories/pf_cel-1999_accessories_nightcap_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        451,
+        44,
+        642,
+        185
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6136,
+      "runtimeBytes": 3513,
+      "sourceSha256": "7b289fdb92408b65548119848eb54d27dfeea53e835d5e20955e4c2d1a15a4ca",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.accessories.party-hat",
+      "family": "cel-1999",
+      "category": "accessories",
+      "variant": "party-hat",
+      "source": "assets-src/cel-1999/accessories/pf_cel-1999_accessories_party-hat_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/accessories/pf_cel-1999_accessories_party-hat_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        454,
+        28,
+        586,
+        175
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5474,
+      "runtimeBytes": 2651,
+      "sourceSha256": "ec39c009cb16eb08edadf099705bc46493225a13e8dcf2cae48d73b2555d1691",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.overlays.sleep",
+      "family": "cel-1999",
+      "category": "overlays",
+      "variant": "sleep",
+      "source": "assets-src/cel-1999/overlays/pf_cel-1999_overlays_sleep_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/overlays/pf_cel-1999_overlays_sleep_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        675,
+        155,
+        798,
+        286
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5669,
+      "runtimeBytes": 1196,
+      "sourceSha256": "7d649c5a3a97488bb6c02c88a7bb67206a6ebdca2b5640b47d80cbd0d9428e64",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.overlays.charging",
+      "family": "cel-1999",
+      "category": "overlays",
+      "variant": "charging",
+      "source": "assets-src/cel-1999/overlays/pf_cel-1999_overlays_charging_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/overlays/pf_cel-1999_overlays_charging_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        753,
+        86,
+        899,
+        257
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5771,
+      "runtimeBytes": 3816,
+      "sourceSha256": "fac4c2bea4af17fd6f2911c38cecd53744a0a71129014520d28d291390e96a48",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.overlays.low-battery",
+      "family": "cel-1999",
+      "category": "overlays",
+      "variant": "low-battery",
+      "source": "assets-src/cel-1999/overlays/pf_cel-1999_overlays_low-battery_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/overlays/pf_cel-1999_overlays_low-battery_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        760,
+        120,
+        928,
+        195
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4514,
+      "runtimeBytes": 1505,
+      "sourceSha256": "f810e38cc867658330a3ded6b8316a6734312a63f7bef4d7b11bc77b4e8f7277",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.overlays.happy",
+      "family": "cel-1999",
+      "category": "overlays",
+      "variant": "happy",
+      "source": "assets-src/cel-1999/overlays/pf_cel-1999_overlays_happy_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/overlays/pf_cel-1999_overlays_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        92,
+        80,
+        933,
+        921
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5333,
+      "runtimeBytes": 1694,
+      "sourceSha256": "b74e0e02f6d474af6352d5f45f07b7ed14e3a2bbfc5a1629f0af46a593f0030b",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.cel-1999.overlays.surprised",
+      "family": "cel-1999",
+      "category": "overlays",
+      "variant": "surprised",
+      "source": "assets-src/cel-1999/overlays/pf_cel-1999_overlays_surprised_src_1024.png",
+      "runtime": "assets-watchos/cel-1999/overlays/pf_cel-1999_overlays_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        106,
+        44,
+        918,
+        343
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5907,
+      "runtimeBytes": 3028,
+      "sourceSha256": "f411b0bf44008873db843992c318b218c597936762438e88d565d88457189fe2",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Uneven single-pass cel contour with flat hand-painted fills. Firm ink edge, tiny registration wobble, no digital smoothing aesthetic. Opaque cel paint with restrained two-tone spot accents."
+    },
+    {
+      "id": "pf.model-sheet-bw.body.armless-base",
+      "family": "model-sheet-bw",
+      "category": "body",
+      "variant": "armless-base",
+      "source": "assets-src/model-sheet-bw/body/pf_model-sheet-bw_body_armless-base_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/body/pf_model-sheet-bw_body_armless-base_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        280,
+        108,
+        737,
+        821
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 16479,
+      "runtimeBytes": 12353,
+      "sourceSha256": "89c3789662a4028248bf648711e3c959da78a1a91224a2ce5c7013f7b0f52074",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.arms.hour",
+      "family": "model-sheet-bw",
+      "category": "arms",
+      "variant": "hour",
+      "source": "assets-src/model-sheet-bw/arms/pf_model-sheet-bw_arms_hour_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/arms/pf_model-sheet-bw_arms_hour_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        459,
+        231,
+        562,
+        536
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 6976,
+      "runtimeBytes": 4145,
+      "sourceSha256": "6800c164b41c770ee571f301efead995a27a77c6b2170b04e9a5259a5c3f3d9d",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.arms.minute",
+      "family": "model-sheet-bw",
+      "category": "arms",
+      "variant": "minute",
+      "source": "assets-src/model-sheet-bw/arms/pf_model-sheet-bw_arms_minute_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/arms/pf_model-sheet-bw_arms_minute_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        461,
+        137,
+        564,
+        536
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 7325,
+      "runtimeBytes": 4429,
+      "sourceSha256": "8db059ec0ac7f825a04404ce3d19db033d1df79afc2f4bb3bb746f10b3d899fd",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.feet.corrected",
+      "family": "model-sheet-bw",
+      "category": "feet",
+      "variant": "corrected",
+      "source": "assets-src/model-sheet-bw/feet/pf_model-sheet-bw_feet_corrected_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/feet/pf_model-sheet-bw_feet_corrected_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        321,
+        758,
+        702,
+        898
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 8645,
+      "runtimeBytes": 5868,
+      "sourceSha256": "b479773607e7d6335f728cdec244134ab40fb0683a48fed3658e16d236a288a9",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.eyes-lids-brows.eyes-sleepy",
+      "family": "model-sheet-bw",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-sleepy",
+      "source": "assets-src/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        465,
+        286,
+        561,
+        340
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5780,
+      "runtimeBytes": 1645,
+      "sourceSha256": "88f2c5134edf8b218311e26fc688bedf05f27c9072fd1ecfa4fd73023270d919",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.eyes-lids-brows.eyes-alert",
+      "family": "model-sheet-bw",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-alert",
+      "source": "assets-src/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_eyes-alert_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_eyes-alert_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        466,
+        269,
+        559,
+        347
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5649,
+      "runtimeBytes": 2131,
+      "sourceSha256": "1ae27f10794b177ffd58a9a85ad1c389cbb7935e3fa52a7f458ca23222549280",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.eyes-lids-brows.lids-half",
+      "family": "model-sheet-bw",
+      "category": "eyes-lids-brows",
+      "variant": "lids-half",
+      "source": "assets-src/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_lids-half_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_lids-half_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        463,
+        295,
+        562,
+        318
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4577,
+      "runtimeBytes": 856,
+      "sourceSha256": "82f904815df63380ccec10419b940142530c267180546e175f8106a021bb056a",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.eyes-lids-brows.brows-annoyed",
+      "family": "model-sheet-bw",
+      "category": "eyes-lids-brows",
+      "variant": "brows-annoyed",
+      "source": "assets-src/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        463,
+        252,
+        559,
+        275
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4589,
+      "runtimeBytes": 861,
+      "sourceSha256": "7a395c2927ff7ef20008503db6e509e52570fe368cee595e0ecbf6b5e33eb821",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.mouths.neutral",
+      "family": "model-sheet-bw",
+      "category": "mouths",
+      "variant": "neutral",
+      "source": "assets-src/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_neutral_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_neutral_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        472,
+        377,
+        552,
+        396
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4492,
+      "runtimeBytes": 702,
+      "sourceSha256": "adf1016d01ea3cdded42a5d8d1d5e0c18ad00813548416c46a359e8bed78c657",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.mouths.happy",
+      "family": "model-sheet-bw",
+      "category": "mouths",
+      "variant": "happy",
+      "source": "assets-src/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_happy_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        471,
+        372,
+        562,
+        428
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5335,
+      "runtimeBytes": 1467,
+      "sourceSha256": "9612d5219309097c0bb6c0b458bd507998a0b1ba09e38ced2b30cb8f3549413f",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.mouths.surprised",
+      "family": "model-sheet-bw",
+      "category": "mouths",
+      "variant": "surprised",
+      "source": "assets-src/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_surprised_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        488,
+        367,
+        542,
+        432
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5226,
+      "runtimeBytes": 1264,
+      "sourceSha256": "264c61d862180f04be2012b7ed25b44ac9be5186c351c338826c86f811c48c96",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.clothing.trunks-classic",
+      "family": "model-sheet-bw",
+      "category": "clothing",
+      "variant": "trunks-classic",
+      "source": "assets-src/model-sheet-bw/clothing/pf_model-sheet-bw_clothing_trunks-classic_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/clothing/pf_model-sheet-bw_clothing_trunks-classic_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        307,
+        638,
+        722,
+        816
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 10104,
+      "runtimeBytes": 8160,
+      "sourceSha256": "f5f741acf891c28c64659ae1558fe567660a7253a9c871e5b7a001fc16332ee0",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.clothing.sleep-robe",
+      "family": "model-sheet-bw",
+      "category": "clothing",
+      "variant": "sleep-robe",
+      "source": "assets-src/model-sheet-bw/clothing/pf_model-sheet-bw_clothing_sleep-robe_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/clothing/pf_model-sheet-bw_clothing_sleep-robe_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        320,
+        526,
+        712,
+        824
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 11050,
+      "runtimeBytes": 9607,
+      "sourceSha256": "c58e04c8c9effdd4250a82dc88ca082ec972475825eef63fb3d559dde2df07ec",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.accessories.nightcap",
+      "family": "model-sheet-bw",
+      "category": "accessories",
+      "variant": "nightcap",
+      "source": "assets-src/model-sheet-bw/accessories/pf_model-sheet-bw_accessories_nightcap_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/accessories/pf_model-sheet-bw_accessories_nightcap_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        451,
+        44,
+        642,
+        184
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6590,
+      "runtimeBytes": 3296,
+      "sourceSha256": "4702da86d7c0bf638b25317166afe802f396fa2abd2643adc7dd7625f5f88d83",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.accessories.party-hat",
+      "family": "model-sheet-bw",
+      "category": "accessories",
+      "variant": "party-hat",
+      "source": "assets-src/model-sheet-bw/accessories/pf_model-sheet-bw_accessories_party-hat_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/accessories/pf_model-sheet-bw_accessories_party-hat_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        456,
+        28,
+        587,
+        174
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5475,
+      "runtimeBytes": 2326,
+      "sourceSha256": "feecec1090b36c6d921bac63fd2a351fa619a47c11bbe4608ff1bc70983b999c",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.overlays.sleep",
+      "family": "model-sheet-bw",
+      "category": "overlays",
+      "variant": "sleep",
+      "source": "assets-src/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_sleep_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_sleep_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        675,
+        155,
+        801,
+        288
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6192,
+      "runtimeBytes": 1254,
+      "sourceSha256": "8520fb176c4393cb07ae51240578ef61269724503c66140c96aa2dbe29ee1149",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.overlays.charging",
+      "family": "model-sheet-bw",
+      "category": "overlays",
+      "variant": "charging",
+      "source": "assets-src/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_charging_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_charging_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        753,
+        86,
+        899,
+        257
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5699,
+      "runtimeBytes": 3134,
+      "sourceSha256": "9192718f5e7614246e017659dc7934acf1116024aa221f9ffab4912d447a5d12",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.overlays.low-battery",
+      "family": "model-sheet-bw",
+      "category": "overlays",
+      "variant": "low-battery",
+      "source": "assets-src/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_low-battery_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_low-battery_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        760,
+        120,
+        928,
+        195
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4505,
+      "runtimeBytes": 1240,
+      "sourceSha256": "eba717eb12d031cab5280620d7666590096cb64500526083ec1cfa94a4508736",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.overlays.happy",
+      "family": "model-sheet-bw",
+      "category": "overlays",
+      "variant": "happy",
+      "source": "assets-src/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_happy_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        91,
+        77,
+        935,
+        923
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5948,
+      "runtimeBytes": 2126,
+      "sourceSha256": "16999a8a2354275dae62d00dd4ea484593b66058ab106dc825ce9942392cb1cf",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.model-sheet-bw.overlays.surprised",
+      "family": "model-sheet-bw",
+      "category": "overlays",
+      "variant": "surprised",
+      "source": "assets-src/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_surprised_src_1024.png",
+      "runtime": "assets-watchos/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        106,
+        43,
+        917,
+        342
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6529,
+      "runtimeBytes": 3144,
+      "sourceSha256": "97e58d25a87cd06c8670412f7f42e85a36a2145541e89d26b726099f3527ae29",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Redrawn graphite/ink contour with visible searching strokes. Double-line corrections, broken construction arcs, variable pressure. Strict black, white, and neutral gray animation-paper logic."
+    },
+    {
+      "id": "pf.pen-line.body.armless-base",
+      "family": "pen-line",
+      "category": "body",
+      "variant": "armless-base",
+      "source": "assets-src/pen-line/body/pf_pen-line_body_armless-base_src_1024.png",
+      "runtime": "assets-watchos/pen-line/body/pf_pen-line_body_armless-base_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        285,
+        95,
+        750,
+        834
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 19268,
+      "runtimeBytes": 13668,
+      "sourceSha256": "3217744a04a01aca57d93b29d28fcb1d4edba67095b95bc29d298b1d033f19bf",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.arms.hour",
+      "family": "pen-line",
+      "category": "arms",
+      "variant": "hour",
+      "source": "assets-src/pen-line/arms/pf_pen-line_arms_hour_src_1024.png",
+      "runtime": "assets-watchos/pen-line/arms/pf_pen-line_arms_hour_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        461,
+        221,
+        568,
+        551
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 7847,
+      "runtimeBytes": 4532,
+      "sourceSha256": "70b52d4cd0aa58cfdd98520170786069fa7ec10f63903b3335c6b5956a94b8d0",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.arms.minute",
+      "family": "pen-line",
+      "category": "arms",
+      "variant": "minute",
+      "source": "assets-src/pen-line/arms/pf_pen-line_arms_minute_src_1024.png",
+      "runtime": "assets-watchos/pen-line/arms/pf_pen-line_arms_minute_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        468,
+        127,
+        571,
+        543
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 7824,
+      "runtimeBytes": 4194,
+      "sourceSha256": "7858016c7681336c47ae58c2df433f6dacc2e357c5e922d147342c8a2dd58095",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.feet.corrected",
+      "family": "pen-line",
+      "category": "feet",
+      "variant": "corrected",
+      "source": "assets-src/pen-line/feet/pf_pen-line_feet_corrected_src_1024.png",
+      "runtime": "assets-watchos/pen-line/feet/pf_pen-line_feet_corrected_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        320,
+        758,
+        701,
+        898
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 8858,
+      "runtimeBytes": 6080,
+      "sourceSha256": "811e61dfd3f2a873e9ad7b2beac4e81a51442af39d5de094a520bcc13dd84c7c",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.eyes-lids-brows.eyes-sleepy",
+      "family": "pen-line",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-sleepy",
+      "source": "assets-src/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "runtime": "assets-watchos/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        465,
+        286,
+        561,
+        341
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5788,
+      "runtimeBytes": 1785,
+      "sourceSha256": "5fac20dba1941da577c24b43dc4edcac8fc4592f2fb01a7f7a4b2084cf18ad45",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.eyes-lids-brows.eyes-alert",
+      "family": "pen-line",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-alert",
+      "source": "assets-src/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_eyes-alert_src_1024.png",
+      "runtime": "assets-watchos/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_eyes-alert_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        466,
+        269,
+        559,
+        348
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5693,
+      "runtimeBytes": 2241,
+      "sourceSha256": "72223cf29639f390a18fe9e7547d3a31a6dafbe9648f09f9c2c6c9123dfb8b05",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.eyes-lids-brows.lids-half",
+      "family": "pen-line",
+      "category": "eyes-lids-brows",
+      "variant": "lids-half",
+      "source": "assets-src/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_lids-half_src_1024.png",
+      "runtime": "assets-watchos/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_lids-half_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        463,
+        296,
+        562,
+        318
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4608,
+      "runtimeBytes": 909,
+      "sourceSha256": "5e4be24d70de62651bc41ba766f82309af93bdae2c67dabf49d82629cd34ab87",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.eyes-lids-brows.brows-annoyed",
+      "family": "pen-line",
+      "category": "eyes-lids-brows",
+      "variant": "brows-annoyed",
+      "source": "assets-src/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "runtime": "assets-watchos/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        463,
+        252,
+        560,
+        275
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4599,
+      "runtimeBytes": 930,
+      "sourceSha256": "7ba841d8ee3bad57dbd0d4e4e81f7bb44ba6f1ff6a45b44e4f15c17fdc8a8ec2",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.mouths.neutral",
+      "family": "pen-line",
+      "category": "mouths",
+      "variant": "neutral",
+      "source": "assets-src/pen-line/mouths/pf_pen-line_mouths_neutral_src_1024.png",
+      "runtime": "assets-watchos/pen-line/mouths/pf_pen-line_mouths_neutral_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        472,
+        377,
+        552,
+        397
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4518,
+      "runtimeBytes": 786,
+      "sourceSha256": "1e53ab4ffc6658707f1580aba52499ac0ec1a1cd958fa165cc3ba7b0e1a38866",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.mouths.happy",
+      "family": "pen-line",
+      "category": "mouths",
+      "variant": "happy",
+      "source": "assets-src/pen-line/mouths/pf_pen-line_mouths_happy_src_1024.png",
+      "runtime": "assets-watchos/pen-line/mouths/pf_pen-line_mouths_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        470,
+        371,
+        562,
+        428
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5476,
+      "runtimeBytes": 1566,
+      "sourceSha256": "e0be068c90f7e4ef0c0c90dccef87ad7ebea074f0b8a4d77ef64ae0cae7163d9",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.mouths.surprised",
+      "family": "pen-line",
+      "category": "mouths",
+      "variant": "surprised",
+      "source": "assets-src/pen-line/mouths/pf_pen-line_mouths_surprised_src_1024.png",
+      "runtime": "assets-watchos/pen-line/mouths/pf_pen-line_mouths_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        489,
+        366,
+        543,
+        433
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5271,
+      "runtimeBytes": 1227,
+      "sourceSha256": "c3e0dcb523b7ceca6d590cc0fbfe12af610226db38610701895b5c1f6f744e0c",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.clothing.trunks-classic",
+      "family": "pen-line",
+      "category": "clothing",
+      "variant": "trunks-classic",
+      "source": "assets-src/pen-line/clothing/pf_pen-line_clothing_trunks-classic_src_1024.png",
+      "runtime": "assets-watchos/pen-line/clothing/pf_pen-line_clothing_trunks-classic_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        307,
+        637,
+        723,
+        817
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 8904,
+      "runtimeBytes": 7173,
+      "sourceSha256": "8976743dc43735743588af5aba3e77a85f48335df842517d24da3bd391b6331e",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.clothing.sleep-robe",
+      "family": "pen-line",
+      "category": "clothing",
+      "variant": "sleep-robe",
+      "source": "assets-src/pen-line/clothing/pf_pen-line_clothing_sleep-robe_src_1024.png",
+      "runtime": "assets-watchos/pen-line/clothing/pf_pen-line_clothing_sleep-robe_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        322,
+        525,
+        713,
+        824
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 10950,
+      "runtimeBytes": 10480,
+      "sourceSha256": "9d28addf1737282de8f29b6146e33f80631ec5b12ba8830831798bdb50665eb0",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.accessories.nightcap",
+      "family": "pen-line",
+      "category": "accessories",
+      "variant": "nightcap",
+      "source": "assets-src/pen-line/accessories/pf_pen-line_accessories_nightcap_src_1024.png",
+      "runtime": "assets-watchos/pen-line/accessories/pf_pen-line_accessories_nightcap_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        451,
+        44,
+        642,
+        185
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6722,
+      "runtimeBytes": 3355,
+      "sourceSha256": "b47fb0603020893bff29ca48c9ef6eb41a047bcae6c8f44f2959a97c428ba584",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.accessories.party-hat",
+      "family": "pen-line",
+      "category": "accessories",
+      "variant": "party-hat",
+      "source": "assets-src/pen-line/accessories/pf_pen-line_accessories_party-hat_src_1024.png",
+      "runtime": "assets-watchos/pen-line/accessories/pf_pen-line_accessories_party-hat_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        457,
+        28,
+        587,
+        175
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5521,
+      "runtimeBytes": 2725,
+      "sourceSha256": "c19057500e2a164a9d25eb6559a79ec3e3a35aff782f161d5f3da2b0aa7bd919",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.overlays.sleep",
+      "family": "pen-line",
+      "category": "overlays",
+      "variant": "sleep",
+      "source": "assets-src/pen-line/overlays/pf_pen-line_overlays_sleep_src_1024.png",
+      "runtime": "assets-watchos/pen-line/overlays/pf_pen-line_overlays_sleep_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        675,
+        155,
+        801,
+        288
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6222,
+      "runtimeBytes": 1342,
+      "sourceSha256": "a31b260e7ef18044d891e7b44199220e686e3465a3ee1dc7dffde390a995a371",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.overlays.charging",
+      "family": "pen-line",
+      "category": "overlays",
+      "variant": "charging",
+      "source": "assets-src/pen-line/overlays/pf_pen-line_overlays_charging_src_1024.png",
+      "runtime": "assets-watchos/pen-line/overlays/pf_pen-line_overlays_charging_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        753,
+        86,
+        899,
+        257
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5771,
+      "runtimeBytes": 3816,
+      "sourceSha256": "fac4c2bea4af17fd6f2911c38cecd53744a0a71129014520d28d291390e96a48",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.overlays.low-battery",
+      "family": "pen-line",
+      "category": "overlays",
+      "variant": "low-battery",
+      "source": "assets-src/pen-line/overlays/pf_pen-line_overlays_low-battery_src_1024.png",
+      "runtime": "assets-watchos/pen-line/overlays/pf_pen-line_overlays_low-battery_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        760,
+        120,
+        928,
+        195
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4514,
+      "runtimeBytes": 1505,
+      "sourceSha256": "f810e38cc867658330a3ded6b8316a6734312a63f7bef4d7b11bc77b4e8f7277",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.overlays.happy",
+      "family": "pen-line",
+      "category": "overlays",
+      "variant": "happy",
+      "source": "assets-src/pen-line/overlays/pf_pen-line_overlays_happy_src_1024.png",
+      "runtime": "assets-watchos/pen-line/overlays/pf_pen-line_overlays_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        91,
+        76,
+        935,
+        923
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6165,
+      "runtimeBytes": 2869,
+      "sourceSha256": "62e247fdc23171b25be533052b8ef85f559db4c487fb7288c0502f2410c2d57f",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.pen-line.overlays.surprised",
+      "family": "pen-line",
+      "category": "overlays",
+      "variant": "surprised",
+      "source": "assets-src/pen-line/overlays/pf_pen-line_overlays_surprised_src_1024.png",
+      "runtime": "assets-watchos/pen-line/overlays/pf_pen-line_overlays_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        106,
+        42,
+        917,
+        343
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6645,
+      "runtimeBytes": 3712,
+      "sourceSha256": "af01afa065dfa40f29848e3cececfdd04f1f9466a8117e90008d662dd3a3c492",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Loose nib redraw with elastic curves and deliberate overshoot. Dry pen skips, parallel contour searching, directional hatching. Transparent watercolor-like fill under warm brown pen."
+    },
+    {
+      "id": "pf.sumi-e.body.armless-base",
+      "family": "sumi-e",
+      "category": "body",
+      "variant": "armless-base",
+      "source": "assets-src/sumi-e/body/pf_sumi-e_body_armless-base_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/body/pf_sumi-e_body_armless-base_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        280,
+        101,
+        739,
+        831
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 28160,
+      "runtimeBytes": 18513,
+      "sourceSha256": "d23b08b7275381683ea8564a7b535c47e9fd3745ac701d46967a5d4936dd9a94",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.arms.hour",
+      "family": "sumi-e",
+      "category": "arms",
+      "variant": "hour",
+      "source": "assets-src/sumi-e/arms/pf_sumi-e_arms_hour_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/arms/pf_sumi-e_arms_hour_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        456,
+        234,
+        577,
+        555
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 8166,
+      "runtimeBytes": 4620,
+      "sourceSha256": "2b8f08164d76be85b8586986709b7625f2923aab5ee3d9241aa71e9ae2dffc3a",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.arms.minute",
+      "family": "sumi-e",
+      "category": "arms",
+      "variant": "minute",
+      "source": "assets-src/sumi-e/arms/pf_sumi-e_arms_minute_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/arms/pf_sumi-e_arms_minute_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        454,
+        132,
+        572,
+        546
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 8113,
+      "runtimeBytes": 5042,
+      "sourceSha256": "d554709be19e4c5c9d2908e6a1cb4588601283de06f5be8a6228ff8c7f649215",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.feet.corrected",
+      "family": "sumi-e",
+      "category": "feet",
+      "variant": "corrected",
+      "source": "assets-src/sumi-e/feet/pf_sumi-e_feet_corrected_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/feet/pf_sumi-e_feet_corrected_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        314,
+        753,
+        707,
+        908
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 11669,
+      "runtimeBytes": 7018,
+      "sourceSha256": "30c2c1e4106e3d3ee21fddae8a1b98dded0103661999d7d2dfef94ee8a33f9b2",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.eyes-lids-brows.eyes-sleepy",
+      "family": "sumi-e",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-sleepy",
+      "source": "assets-src/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        464,
+        287,
+        559,
+        342
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5153,
+      "runtimeBytes": 1787,
+      "sourceSha256": "eeaddc8e8576a774de183990a9daab7e85b2287b13f72cba4920b36a1973f6bd",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.eyes-lids-brows.eyes-alert",
+      "family": "sumi-e",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-alert",
+      "source": "assets-src/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_eyes-alert_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_eyes-alert_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        466,
+        270,
+        560,
+        349
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5179,
+      "runtimeBytes": 2325,
+      "sourceSha256": "9ab06232b1b8ffc07636e1e20d9a837762602ee994922099226b435026607729",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.eyes-lids-brows.lids-half",
+      "family": "sumi-e",
+      "category": "eyes-lids-brows",
+      "variant": "lids-half",
+      "source": "assets-src/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_lids-half_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_lids-half_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        462,
+        298,
+        543,
+        317
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4377,
+      "runtimeBytes": 699,
+      "sourceSha256": "407bfa962fef5c84450c3dbc433d08e80e9c2cbe7a9b039640d210ae11714e55",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.eyes-lids-brows.brows-annoyed",
+      "family": "sumi-e",
+      "category": "eyes-lids-brows",
+      "variant": "brows-annoyed",
+      "source": "assets-src/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        462,
+        253,
+        544,
+        273
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4394,
+      "runtimeBytes": 676,
+      "sourceSha256": "4cdfacd63d3073b64ca0de1e2886ae054627d503da09e3ea6e82bd65f0a0c49f",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.mouths.neutral",
+      "family": "sumi-e",
+      "category": "mouths",
+      "variant": "neutral",
+      "source": "assets-src/sumi-e/mouths/pf_sumi-e_mouths_neutral_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/mouths/pf_sumi-e_mouths_neutral_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        472,
+        377,
+        552,
+        397
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4407,
+      "runtimeBytes": 726,
+      "sourceSha256": "3305ea3fc587b594fa11cb2adf2aae3570b24e01706dfd979f662b53892d5a4d",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.mouths.happy",
+      "family": "sumi-e",
+      "category": "mouths",
+      "variant": "happy",
+      "source": "assets-src/sumi-e/mouths/pf_sumi-e_mouths_happy_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/mouths/pf_sumi-e_mouths_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        469,
+        372,
+        563,
+        426
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5282,
+      "runtimeBytes": 1567,
+      "sourceSha256": "0246ca7ab02532a9075ad9a0bff46bf93f411a37e978241358c557ce32b2ba6e",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.mouths.surprised",
+      "family": "sumi-e",
+      "category": "mouths",
+      "variant": "surprised",
+      "source": "assets-src/sumi-e/mouths/pf_sumi-e_mouths_surprised_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/mouths/pf_sumi-e_mouths_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        487,
+        366,
+        546,
+        432
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4968,
+      "runtimeBytes": 1209,
+      "sourceSha256": "8867a9eb61e8ea5f89fee62fb96e6b7d6d6c1616f8842258889e62873a666e16",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.clothing.trunks-classic",
+      "family": "sumi-e",
+      "category": "clothing",
+      "variant": "trunks-classic",
+      "source": "assets-src/sumi-e/clothing/pf_sumi-e_clothing_trunks-classic_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/clothing/pf_sumi-e_clothing_trunks-classic_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        299,
+        631,
+        729,
+        826
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 12793,
+      "runtimeBytes": 8978,
+      "sourceSha256": "65dba766f5f6982cde2f78abfd710c63d43646ade8d690b0e36e40a30c428324",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.clothing.sleep-robe",
+      "family": "sumi-e",
+      "category": "clothing",
+      "variant": "sleep-robe",
+      "source": "assets-src/sumi-e/clothing/pf_sumi-e_clothing_sleep-robe_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/clothing/pf_sumi-e_clothing_sleep-robe_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        314,
+        519,
+        718,
+        834
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 15465,
+      "runtimeBytes": 11458,
+      "sourceSha256": "c62d41d38b61e257f2f914490d25e5e0721f9cf4cd79bc995d9388a7483f26a0",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.accessories.nightcap",
+      "family": "sumi-e",
+      "category": "accessories",
+      "variant": "nightcap",
+      "source": "assets-src/sumi-e/accessories/pf_sumi-e_accessories_nightcap_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/accessories/pf_sumi-e_accessories_nightcap_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        444,
+        40,
+        642,
+        190
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 7890,
+      "runtimeBytes": 3697,
+      "sourceSha256": "eefa491c8448fdf4f02cf1e6d283a2eae33d317330f7c2a751ca017800832269",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.accessories.party-hat",
+      "family": "sumi-e",
+      "category": "accessories",
+      "variant": "party-hat",
+      "source": "assets-src/sumi-e/accessories/pf_sumi-e_accessories_party-hat_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/accessories/pf_sumi-e_accessories_party-hat_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        445,
+        28,
+        586,
+        184
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6328,
+      "runtimeBytes": 3102,
+      "sourceSha256": "8ee8e09fcfb41e99dc689ccc1e41ba0a240897a8111ccac04aa1e73379b1d114",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.overlays.sleep",
+      "family": "sumi-e",
+      "category": "overlays",
+      "variant": "sleep",
+      "source": "assets-src/sumi-e/overlays/pf_sumi-e_overlays_sleep_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/overlays/pf_sumi-e_overlays_sleep_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        675,
+        155,
+        798,
+        286
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5660,
+      "runtimeBytes": 1111,
+      "sourceSha256": "8e2e9ba589ea4fd013e096720d2e10344abc27bb2131290e3714c60d605b3109",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.overlays.charging",
+      "family": "sumi-e",
+      "category": "overlays",
+      "variant": "charging",
+      "source": "assets-src/sumi-e/overlays/pf_sumi-e_overlays_charging_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/overlays/pf_sumi-e_overlays_charging_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        753,
+        86,
+        899,
+        257
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5771,
+      "runtimeBytes": 3816,
+      "sourceSha256": "fac4c2bea4af17fd6f2911c38cecd53744a0a71129014520d28d291390e96a48",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.overlays.low-battery",
+      "family": "sumi-e",
+      "category": "overlays",
+      "variant": "low-battery",
+      "source": "assets-src/sumi-e/overlays/pf_sumi-e_overlays_low-battery_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/overlays/pf_sumi-e_overlays_low-battery_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        760,
+        120,
+        928,
+        195
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4514,
+      "runtimeBytes": 1505,
+      "sourceSha256": "f810e38cc867658330a3ded6b8316a6734312a63f7bef4d7b11bc77b4e8f7277",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.overlays.happy",
+      "family": "sumi-e",
+      "category": "overlays",
+      "variant": "happy",
+      "source": "assets-src/sumi-e/overlays/pf_sumi-e_overlays_happy_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/overlays/pf_sumi-e_overlays_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        90,
+        79,
+        930,
+        923
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5580,
+      "runtimeBytes": 2659,
+      "sourceSha256": "d56dc78001bd6870820b4faf8a0b6437793def712d3a5da0e2b8c033f6cd3c4b",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.sumi-e.overlays.surprised",
+      "family": "sumi-e",
+      "category": "overlays",
+      "variant": "surprised",
+      "source": "assets-src/sumi-e/overlays/pf_sumi-e_overlays_surprised_src_1024.png",
+      "runtime": "assets-watchos/sumi-e/overlays/pf_sumi-e_overlays_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        104,
+        42,
+        916,
+        343
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5976,
+      "runtimeBytes": 3161,
+      "sourceSha256": "da1fd332faa8ece5e561b9cb2806631d6bc5b847e8c2c93ebc4c8167103abcee",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Shape rebuilt as overlapping wet washes and calligraphic strokes. Feathered ink diffusion, broken dry-brush perimeter, lost-and-found contour. Translucent carbon wash with restrained cinnabar and moss accents."
+    },
+    {
+      "id": "pf.riso-woodcut.body.armless-base",
+      "family": "riso-woodcut",
+      "category": "body",
+      "variant": "armless-base",
+      "source": "assets-src/riso-woodcut/body/pf_riso-woodcut_body_armless-base_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/body/pf_riso-woodcut_body_armless-base_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        280,
+        100,
+        751,
+        829
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 17546,
+      "runtimeBytes": 26302,
+      "sourceSha256": "f107306b173b2ddd7e59e544ca09309b9047802b9248540c9a64bcc8fd578f96",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.arms.hour",
+      "family": "riso-woodcut",
+      "category": "arms",
+      "variant": "hour",
+      "source": "assets-src/riso-woodcut/arms/pf_riso-woodcut_arms_hour_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/arms/pf_riso-woodcut_arms_hour_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        461,
+        235,
+        572,
+        551
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 7335,
+      "runtimeBytes": 5460,
+      "sourceSha256": "a739bb5a715a307a0e6ac809c9cc6eaec7ab48dfd7be89c50b9c6231ef45289c",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.arms.minute",
+      "family": "riso-woodcut",
+      "category": "arms",
+      "variant": "minute",
+      "source": "assets-src/riso-woodcut/arms/pf_riso-woodcut_arms_minute_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/arms/pf_riso-woodcut_arms_minute_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        469,
+        138,
+        572,
+        544
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 7626,
+      "runtimeBytes": 5263,
+      "sourceSha256": "dd12d6f45b61c00c00dc2b2b1dfbc0af165961cc90769546589c9409c86ef6c5",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.feet.corrected",
+      "family": "riso-woodcut",
+      "category": "feet",
+      "variant": "corrected",
+      "source": "assets-src/riso-woodcut/feet/pf_riso-woodcut_feet_corrected_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/feet/pf_riso-woodcut_feet_corrected_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        321,
+        755,
+        706,
+        901
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 7445,
+      "runtimeBytes": 7049,
+      "sourceSha256": "88b7600951184c68fee19c09c8765677968fdadb2509105cab5c42c707d58550",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.eyes-lids-brows.eyes-sleepy",
+      "family": "riso-woodcut",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-sleepy",
+      "source": "assets-src/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        465,
+        283,
+        563,
+        341
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5546,
+      "runtimeBytes": 1902,
+      "sourceSha256": "37062adee7155439552bede318257b7159ce365f396cb79e985fb709e78268f7",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.eyes-lids-brows.eyes-alert",
+      "family": "riso-woodcut",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-alert",
+      "source": "assets-src/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_eyes-alert_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_eyes-alert_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        466,
+        266,
+        560,
+        349
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5630,
+      "runtimeBytes": 2437,
+      "sourceSha256": "25068358002199282884389ff2752dfb99ed2bd09d73d696394990355fdf1b53",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.eyes-lids-brows.lids-half",
+      "family": "riso-woodcut",
+      "category": "eyes-lids-brows",
+      "variant": "lids-half",
+      "source": "assets-src/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_lids-half_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_lids-half_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        463,
+        294,
+        564,
+        321
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4662,
+      "runtimeBytes": 1080,
+      "sourceSha256": "aef0b60e8b3df8b9a928ce89999569bf55c21cc924b2c4f54a5d9b2c9d6727c2",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.eyes-lids-brows.brows-annoyed",
+      "family": "riso-woodcut",
+      "category": "eyes-lids-brows",
+      "variant": "brows-annoyed",
+      "source": "assets-src/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        463,
+        248,
+        564,
+        277
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4674,
+      "runtimeBytes": 1092,
+      "sourceSha256": "24b696781aed252ee7a5f5d12d01486178abcd5630ad7bd5e24f079fba04b4e8",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.mouths.neutral",
+      "family": "riso-woodcut",
+      "category": "mouths",
+      "variant": "neutral",
+      "source": "assets-src/riso-woodcut/mouths/pf_riso-woodcut_mouths_neutral_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/mouths/pf_riso-woodcut_mouths_neutral_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        472,
+        377,
+        552,
+        399
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4528,
+      "runtimeBytes": 877,
+      "sourceSha256": "f1b74759d0f4180b08eadb6ea641bbc23d113faa2515ebe67f3727d37678fdec",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.mouths.happy",
+      "family": "riso-woodcut",
+      "category": "mouths",
+      "variant": "happy",
+      "source": "assets-src/riso-woodcut/mouths/pf_riso-woodcut_mouths_happy_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/mouths/pf_riso-woodcut_mouths_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        468,
+        370,
+        565,
+        429
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5373,
+      "runtimeBytes": 1833,
+      "sourceSha256": "453d1454e5a3f4020d759da8fa69b4ee1598ea8ff80145cc0c127647199c90c1",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.mouths.surprised",
+      "family": "riso-woodcut",
+      "category": "mouths",
+      "variant": "surprised",
+      "source": "assets-src/riso-woodcut/mouths/pf_riso-woodcut_mouths_surprised_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/mouths/pf_riso-woodcut_mouths_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        485,
+        365,
+        544,
+        434
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5045,
+      "runtimeBytes": 1473,
+      "sourceSha256": "38885008d381552d3b68b9b6b439803ff37adaa623711579e4eefd911d273334",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.clothing.trunks-classic",
+      "family": "riso-woodcut",
+      "category": "clothing",
+      "variant": "trunks-classic",
+      "source": "assets-src/riso-woodcut/clothing/pf_riso-woodcut_clothing_trunks-classic_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/clothing/pf_riso-woodcut_clothing_trunks-classic_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        305,
+        635,
+        728,
+        817
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 9667,
+      "runtimeBytes": 10521,
+      "sourceSha256": "26c124094fe6ac3f3e3d236dcd77043ea78b23e39ee61d471f824376e16c97bd",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.clothing.sleep-robe",
+      "family": "riso-woodcut",
+      "category": "clothing",
+      "variant": "sleep-robe",
+      "source": "assets-src/riso-woodcut/clothing/pf_riso-woodcut_clothing_sleep-robe_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/clothing/pf_riso-woodcut_clothing_sleep-robe_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        319,
+        523,
+        718,
+        825
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 12415,
+      "runtimeBytes": 16585,
+      "sourceSha256": "383f2316a1b94618bf72d9a054fcbd4d84fcee44cc749a8c5905bfeb9cf2939f",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.accessories.nightcap",
+      "family": "riso-woodcut",
+      "category": "accessories",
+      "variant": "nightcap",
+      "source": "assets-src/riso-woodcut/accessories/pf_riso-woodcut_accessories_nightcap_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/accessories/pf_riso-woodcut_accessories_nightcap_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        450,
+        43,
+        642,
+        186
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5881,
+      "runtimeBytes": 3697,
+      "sourceSha256": "a5799e646b887f3edd039b4c1f777778db22d49533f6b51e1de9b1794d9e5631",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.accessories.party-hat",
+      "family": "riso-woodcut",
+      "category": "accessories",
+      "variant": "party-hat",
+      "source": "assets-src/riso-woodcut/accessories/pf_riso-woodcut_accessories_party-hat_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/accessories/pf_riso-woodcut_accessories_party-hat_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        458,
+        28,
+        591,
+        176
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5252,
+      "runtimeBytes": 2369,
+      "sourceSha256": "53adfb8d5bb0c53faa794d4b762ebe263c0cc9433a0934b8d6c04d0e0e4f6e65",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.overlays.sleep",
+      "family": "riso-woodcut",
+      "category": "overlays",
+      "variant": "sleep",
+      "source": "assets-src/riso-woodcut/overlays/pf_riso-woodcut_overlays_sleep_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/overlays/pf_riso-woodcut_overlays_sleep_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        675,
+        155,
+        798,
+        286
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5670,
+      "runtimeBytes": 1234,
+      "sourceSha256": "3230d27baf9608b7799a0d1d105fbc6551477f64fba9a23427e8f7b9927fa26e",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.overlays.charging",
+      "family": "riso-woodcut",
+      "category": "overlays",
+      "variant": "charging",
+      "source": "assets-src/riso-woodcut/overlays/pf_riso-woodcut_overlays_charging_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/overlays/pf_riso-woodcut_overlays_charging_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        753,
+        86,
+        899,
+        257
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5771,
+      "runtimeBytes": 3816,
+      "sourceSha256": "fac4c2bea4af17fd6f2911c38cecd53744a0a71129014520d28d291390e96a48",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.overlays.low-battery",
+      "family": "riso-woodcut",
+      "category": "overlays",
+      "variant": "low-battery",
+      "source": "assets-src/riso-woodcut/overlays/pf_riso-woodcut_overlays_low-battery_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/overlays/pf_riso-woodcut_overlays_low-battery_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        760,
+        120,
+        928,
+        195
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4514,
+      "runtimeBytes": 1505,
+      "sourceSha256": "f810e38cc867658330a3ded6b8316a6734312a63f7bef4d7b11bc77b4e8f7277",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.overlays.happy",
+      "family": "riso-woodcut",
+      "category": "overlays",
+      "variant": "happy",
+      "source": "assets-src/riso-woodcut/overlays/pf_riso-woodcut_overlays_happy_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/overlays/pf_riso-woodcut_overlays_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        92,
+        80,
+        937,
+        924
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5738,
+      "runtimeBytes": 2503,
+      "sourceSha256": "7b2504164d8169915c99f430d39565503ddd8054c83b79be16946efbcf715913",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.riso-woodcut.overlays.surprised",
+      "family": "riso-woodcut",
+      "category": "overlays",
+      "variant": "surprised",
+      "source": "assets-src/riso-woodcut/overlays/pf_riso-woodcut_overlays_surprised_src_1024.png",
+      "runtime": "assets-watchos/riso-woodcut/overlays/pf_riso-woodcut_overlays_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        106,
+        44,
+        921,
+        345
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6579,
+      "runtimeBytes": 4133,
+      "sourceSha256": "c08d7425ce1cf8abc828d07aa0075ffff5ba9fd81bcd535ff23a90aeffd58610",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Angular block-cut silhouette with independently registered plates. Coarse carved contour, teal misregistration, clipped hatch channels. Two-ink riso overprint, visible halftone and carved negative marks."
+    },
+    {
+      "id": "pf.clay-3d.body.armless-base",
+      "family": "clay-3d",
+      "category": "body",
+      "variant": "armless-base",
+      "source": "assets-src/clay-3d/body/pf_clay-3d_body_armless-base_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/body/pf_clay-3d_body_armless-base_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        294,
+        97,
+        737,
+        830
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 96981,
+      "runtimeBytes": 19028,
+      "sourceSha256": "d9fc66384943a5db3af9ae3f25e9d4fcb43d1cabcff4e390db015ef6ef7ebdc6",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.arms.hour",
+      "family": "clay-3d",
+      "category": "arms",
+      "variant": "hour",
+      "source": "assets-src/clay-3d/arms/pf_clay-3d_arms_hour_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/arms/pf_clay-3d_arms_hour_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        461,
+        226,
+        566,
+        552
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 13637,
+      "runtimeBytes": 5384,
+      "sourceSha256": "fe4ee6be85ac0338f0e7305b55707ad2b2cdcce1346d8eef989c880f2b2e7c61",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.arms.minute",
+      "family": "clay-3d",
+      "category": "arms",
+      "variant": "minute",
+      "source": "assets-src/clay-3d/arms/pf_clay-3d_arms_minute_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/arms/pf_clay-3d_arms_minute_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        468,
+        131,
+        569,
+        544
+      ],
+      "pivotSourcePx": [
+        512,
+        500
+      ],
+      "pivotNormalized": [
+        0.5,
+        0.488281
+      ],
+      "canonicalDirection": "12-o'clock/up",
+      "sourceBytes": 18534,
+      "runtimeBytes": 5145,
+      "sourceSha256": "3ef8f6a0eedd5c7a1e5dd8cb1187173415c3593c3db4c7f521d324d4eb775a4c",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.feet.corrected",
+      "family": "clay-3d",
+      "category": "feet",
+      "variant": "corrected",
+      "source": "assets-src/clay-3d/feet/pf_clay-3d_feet_corrected_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/feet/pf_clay-3d_feet_corrected_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        323,
+        759,
+        700,
+        898
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 14615,
+      "runtimeBytes": 6046,
+      "sourceSha256": "6d8c460c70f9f9b1f3a5064286a24d626476bf7b8d4882769fe35f68a0eb7244",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.eyes-lids-brows.eyes-sleepy",
+      "family": "clay-3d",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-sleepy",
+      "source": "assets-src/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        464,
+        281,
+        562,
+        343
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5627,
+      "runtimeBytes": 1958,
+      "sourceSha256": "bf7c66c0e3b7c374418009bb1da2aeab4203bdef20ccedc9952daef44bf7aa6e",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.eyes-lids-brows.eyes-alert",
+      "family": "clay-3d",
+      "category": "eyes-lids-brows",
+      "variant": "eyes-alert",
+      "source": "assets-src/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_eyes-alert_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_eyes-alert_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        465,
+        264,
+        560,
+        351
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5761,
+      "runtimeBytes": 2528,
+      "sourceSha256": "de4a2e7a7f58f7260e41905a4c22a4a757fc837bbb357960e1e1d2b5cdc20fda",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.eyes-lids-brows.lids-half",
+      "family": "clay-3d",
+      "category": "eyes-lids-brows",
+      "variant": "lids-half",
+      "source": "assets-src/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_lids-half_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_lids-half_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        462,
+        292,
+        564,
+        323
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4748,
+      "runtimeBytes": 1237,
+      "sourceSha256": "497bed6297905f906c8c8117b52ac7d449e05066e474500958376f6fb1ad0272",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.eyes-lids-brows.brows-annoyed",
+      "family": "clay-3d",
+      "category": "eyes-lids-brows",
+      "variant": "brows-annoyed",
+      "source": "assets-src/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        462,
+        246,
+        564,
+        279
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4750,
+      "runtimeBytes": 1271,
+      "sourceSha256": "b54a790c6fd63313c21c8d3825904871a8dc70b8d7ee62fac9690c69610ddc34",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.mouths.neutral",
+      "family": "clay-3d",
+      "category": "mouths",
+      "variant": "neutral",
+      "source": "assets-src/clay-3d/mouths/pf_clay-3d_mouths_neutral_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/mouths/pf_clay-3d_mouths_neutral_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        472,
+        377,
+        552,
+        400
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4568,
+      "runtimeBytes": 1012,
+      "sourceSha256": "3678fb42b0e70fddfc5ab2f04c94c33738beec3e6621cf2adc5e1861b651a3e0",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.mouths.happy",
+      "family": "clay-3d",
+      "category": "mouths",
+      "variant": "happy",
+      "source": "assets-src/clay-3d/mouths/pf_clay-3d_mouths_happy_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/mouths/pf_clay-3d_mouths_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        466,
+        368,
+        567,
+        431
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5425,
+      "runtimeBytes": 2025,
+      "sourceSha256": "7b6a596c974b03365cc46121333163f2c718fa2ea5c344d5460011a15b3819ae",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.mouths.surprised",
+      "family": "clay-3d",
+      "category": "mouths",
+      "variant": "surprised",
+      "source": "assets-src/clay-3d/mouths/pf_clay-3d_mouths_surprised_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/mouths/pf_clay-3d_mouths_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        483,
+        363,
+        546,
+        436
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5157,
+      "runtimeBytes": 1636,
+      "sourceSha256": "e5db9fdf431c678c3b5ce1652d927bd50c54ac9d082ed3fc86ccfda43d8f85f4",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.clothing.trunks-classic",
+      "family": "clay-3d",
+      "category": "clothing",
+      "variant": "trunks-classic",
+      "source": "assets-src/clay-3d/clothing/pf_clay-3d_clothing_trunks-classic_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/clothing/pf_clay-3d_clothing_trunks-classic_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        307,
+        639,
+        722,
+        815
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 26835,
+      "runtimeBytes": 7638,
+      "sourceSha256": "a836db81a338de977748b2ef07d1ae0964d20bd27e9f78216fef873294bcdd48",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.clothing.sleep-robe",
+      "family": "clay-3d",
+      "category": "clothing",
+      "variant": "sleep-robe",
+      "source": "assets-src/clay-3d/clothing/pf_clay-3d_clothing_sleep-robe_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/clothing/pf_clay-3d_clothing_sleep-robe_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        321,
+        525,
+        712,
+        823
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 51316,
+      "runtimeBytes": 13167,
+      "sourceSha256": "fc9d4723cf361bc955926af9d61b6825f4bf176fc3375e617737b218ef0f4abf",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.accessories.nightcap",
+      "family": "clay-3d",
+      "category": "accessories",
+      "variant": "nightcap",
+      "source": "assets-src/clay-3d/accessories/pf_clay-3d_accessories_nightcap_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/accessories/pf_clay-3d_accessories_nightcap_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        452,
+        46,
+        642,
+        183
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 9140,
+      "runtimeBytes": 3374,
+      "sourceSha256": "d4f7a521f34d21ec3e891f0c279ff02264f12fb91e2d678bf4253e7ed46573cc",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.accessories.party-hat",
+      "family": "clay-3d",
+      "category": "accessories",
+      "variant": "party-hat",
+      "source": "assets-src/clay-3d/accessories/pf_clay-3d_accessories_party-hat_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/accessories/pf_clay-3d_accessories_party-hat_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        454,
+        28,
+        586,
+        173
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 8223,
+      "runtimeBytes": 2803,
+      "sourceSha256": "1b38c3eb1e267557375a7e57c9eca59e7eefe63a9a4ca993afa8f0a33eae7eea",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.overlays.sleep",
+      "family": "clay-3d",
+      "category": "overlays",
+      "variant": "sleep",
+      "source": "assets-src/clay-3d/overlays/pf_clay-3d_overlays_sleep_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/overlays/pf_clay-3d_overlays_sleep_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        675,
+        155,
+        798,
+        286
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5658,
+      "runtimeBytes": 1187,
+      "sourceSha256": "51d8902fe746449eb09d3a19de0d721a275b41ac615eda572a0c2bb8b8a001c7",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.overlays.charging",
+      "family": "clay-3d",
+      "category": "overlays",
+      "variant": "charging",
+      "source": "assets-src/clay-3d/overlays/pf_clay-3d_overlays_charging_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/overlays/pf_clay-3d_overlays_charging_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        753,
+        86,
+        899,
+        257
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5771,
+      "runtimeBytes": 3816,
+      "sourceSha256": "fac4c2bea4af17fd6f2911c38cecd53744a0a71129014520d28d291390e96a48",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.overlays.low-battery",
+      "family": "clay-3d",
+      "category": "overlays",
+      "variant": "low-battery",
+      "source": "assets-src/clay-3d/overlays/pf_clay-3d_overlays_low-battery_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/overlays/pf_clay-3d_overlays_low-battery_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        760,
+        120,
+        928,
+        195
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 4514,
+      "runtimeBytes": 1505,
+      "sourceSha256": "f810e38cc867658330a3ded6b8316a6734312a63f7bef4d7b11bc77b4e8f7277",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.overlays.happy",
+      "family": "clay-3d",
+      "category": "overlays",
+      "variant": "happy",
+      "source": "assets-src/clay-3d/overlays/pf_clay-3d_overlays_happy_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/overlays/pf_clay-3d_overlays_happy_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        92,
+        80,
+        935,
+        924
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 5862,
+      "runtimeBytes": 2401,
+      "sourceSha256": "d62c770469cd1c3fd4cb71f53a2ee52f712b5e9356e6bb6377a4abcfb1f41c61",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    },
+    {
+      "id": "pf.clay-3d.overlays.surprised",
+      "family": "clay-3d",
+      "category": "overlays",
+      "variant": "surprised",
+      "source": "assets-src/clay-3d/overlays/pf_clay-3d_overlays_surprised_src_1024.png",
+      "runtime": "assets-watchos/clay-3d/overlays/pf_clay-3d_overlays_surprised_rt_256.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "runtimeDimensions": [
+        256,
+        256
+      ],
+      "transparentCanvas": true,
+      "opaqueBoundsSource": [
+        105,
+        43,
+        920,
+        346
+      ],
+      "pivotSourcePx": null,
+      "pivotNormalized": null,
+      "canonicalDirection": null,
+      "sourceBytes": 6823,
+      "runtimeBytes": 4455,
+      "sourceSha256": "845761b9a76784067b945d7be2b4795c1237351d9346323727e846096a07dd79",
+      "provenance": "Original style-specific redraw generated from independent geometry and mark logic. Morphology informed by the supplied watch screenshot; no family is a filter, desaturation, or recolor of another family.",
+      "notes": "Re-sculpted pear volume with small face and long un-cute taper. Soft occlusion edge, asymmetric compression, modeled seam at sockets. Layered clay shading, finger dents, matte roughness, no toy gloss."
+    }
+  ],
+  "previews": [
+    "previews/contact-sheet-families.png",
+    "previews/contact-sheet-components.png",
+    "previews/apple-watch-samples.png",
+    "previews/rig-specification.png",
+    "previews/transparency-proof.png",
+    "previews/style-library-board.png",
+    "previews/watch-sample-cel-1999.png",
+    "previews/watch-sample-model-sheet-bw.png",
+    "previews/watch-sample-pen-line.png",
+    "previews/watch-sample-sumi-e.png",
+    "previews/watch-sample-riso-woodcut.png",
+    "previews/watch-sample-clay-3d.png"
+  ],
+  "provenanceNote": "Every family is drawn from common rig constraints but has independent silhouette coordinates, mark construction, edge behavior, texture generation, and material treatment. No family is produced by recoloring, desaturating, or filtering a shared final raster."
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>派大星動態 OLED 錶盤</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main>
+    <h1>派大星動態 OLED</h1>
+    <p class="status" id="status">正在載入分層素材</p>
+
+    <div class="watch">
+      <div class="screen">
+        <canvas id="face" width="720" height="880" aria-label="派大星動態 Apple Watch 錶盤"></canvas>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="theme-cel" class="active">第一季 2D</button>
+      <button id="theme-toon3d">第一季 Toon 3D</button>
+      <button id="gesture">揮手</button>
+      <button id="return-test">回位測試</button>
+    </div>
+    <div class="states">
+      <button id="sleep">睡眠</button>
+      <button id="low-battery">低電量</button>
+      <button id="charging">充電</button>
+    </div>
+
+    <p class="hint">
+      雙臂共用同一中心軸，持續顯示真正時、分；每 12 秒只增加短暫角度偏移並精確回位。<br />
+      點擊錶面會跳起並觸發震動接口。
+    </p>
+    <span class="test" id="test-result">MOTION TEST READY</span>
+  </main>
+
+  <script type="module" src="./app.js?v=arm-hands-1"></script>
+</body>
+</html>

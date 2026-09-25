@@ -1,0 +1,203 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - paragraph [ref=e5]: ISOLATED MOTION PROTOTYPE · WATCHOS NATIVE PATH
+      - heading "Patrick actually moves." [level=1] [ref=e6]
+      - paragraph [ref=e7]: "A deterministic, layered watch rig: real clock arms remain authoritative while breathing, attention, gestures, crown input, and power states blend around them."
+    - generic [ref=e10]:
+      - strong [ref=e11]: No Cubism claim
+      - generic [ref=e12]: Live2D Cubism does not officially list watchOS. This lab uses a native layer/bone + lightweight mesh substitute.
+  - generic [ref=e13]:
+    - article [ref=e14]:
+      - generic "Interactive Apple Watch motion prototype" [ref=e16]:
+        - button "Tap for bounce. Scroll to simulate Digital Crown." [ref=e18] [cursor=pointer]:
+          - img "Layered Patrick motion rig Hour and minute arms track time while a parameterized body breathes, blinks, reacts, and changes mode." [ref=e19]:
+            - generic [ref=e31]:
+              - generic [ref=e32]: 10:10
+              - generic [ref=e33]: AWAKE · ACTIVE
+            - generic: arm pivot
+          - generic [ref=e60]: tap · scroll crown
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]: HOUR TARGET
+          - strong [ref=e64]: 305.250°
+        - generic [ref=e65]:
+          - generic [ref=e66]: HOUR ACTUAL
+          - strong [ref=e67]: 305.250°
+        - generic [ref=e68]:
+          - generic [ref=e69]: MIN TARGET
+          - strong [ref=e70]: 63.004°
+        - generic [ref=e71]:
+          - generic [ref=e72]: RETURN ERROR
+          - strong [ref=e73]: 0.000°
+    - complementary [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - paragraph [ref=e77]: DETERMINISTIC DEMO
+          - heading "Motion console" [level=2] [ref=e78]
+        - generic [ref=e79]: local fallback
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - strong [ref=e83]: Fixed 10:10:30
+            - generic [ref=e84]: Repeatable clock targets
+          - checkbox "Fixed 10:10:30 Repeatable clock targets" [checked] [ref=e85]
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - strong [ref=e88]: Crown parameter
+            - status [ref=e89]: "0.00"
+          - slider "Crown parameter Expression + outfit hue; mouse wheel over watch also works." [ref=e90]: "0"
+          - generic [ref=e91]: Expression + outfit hue; mouse wheel over watch also works.
+      - generic "Motion clip triggers" [ref=e92]:
+        - button "↗ Idle arm gesture" [ref=e93] [cursor=pointer]:
+          - generic [ref=e94]: ↗
+          - text: Idle arm gesture
+        - button "◉ Blink / attention" [ref=e95] [cursor=pointer]:
+          - generic [ref=e96]: ◉
+          - text: Blink / attention
+        - button "↓ Tap bounce + haptic" [ref=e97] [cursor=pointer]:
+          - generic [ref=e98]: ↓
+          - text: Tap bounce + haptic
+        - button "▦ 6-frame clip" [ref=e99] [cursor=pointer]:
+          - generic [ref=e100]: ▦
+          - text: 6-frame clip
+      - group "State machine inputs" [ref=e101]:
+        - generic [ref=e103]:
+          - checkbox "Sleep" [ref=e104]
+          - text: Sleep
+        - generic [ref=e105]:
+          - checkbox "Focus" [ref=e106]
+          - text: Focus
+        - generic [ref=e107]:
+          - checkbox "Low battery" [ref=e108]
+          - text: Low battery
+        - generic [ref=e109]:
+          - checkbox "Charging" [ref=e110]
+          - text: Charging
+        - generic [ref=e111]:
+          - checkbox "Always-On" [ref=e112]
+          - text: Always-On
+        - generic [ref=e113]:
+          - checkbox "Low power" [ref=e114]
+          - text: Low power
+      - generic [ref=e115]:
+        - generic [ref=e116]:
+          - checkbox "show native rig" [ref=e117]
+          - text: show native rig
+        - button "Run return test" [ref=e118] [cursor=pointer]
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]: STATE
+          - strong [ref=e122]: AWAKE
+        - generic [ref=e123]:
+          - generic [ref=e124]: TIER
+          - strong [ref=e125]: ACTIVE / 30 FPS
+        - generic [ref=e126]:
+          - generic [ref=e127]: BLEND
+          - strong [ref=e128]: TIME + BREATH
+      - paragraph [ref=e131]:
+        - strong [ref=e132]: Ready.
+        - text: Run the deterministic suite to prove both hands return to their exact wall-clock angles after the gesture envelope reaches zero.
+  - generic [ref=e133]:
+    - generic [ref=e134]:
+      - generic [ref=e135]:
+        - paragraph [ref=e136]: NATIVE SUBSTITUTE FOR LIVE2D
+        - heading "Small rig, explicit priorities" [level=2] [ref=e137]
+      - paragraph [ref=e138]: Body control points deform like a tiny mesh; face, shorts, eyes, and arms form a bone hierarchy. No runtime or opaque animation state is required.
+    - generic [ref=e139]:
+      - generic [ref=e140]:
+        - generic [ref=e141]: "1000"
+        - strong [ref=e142]: Timekeeping
+        - generic [ref=e143]: Absolute hour/minute targets
+      - generic [ref=e144]: +
+      - generic [ref=e145]:
+        - generic [ref=e146]: "700"
+        - strong [ref=e147]: Interaction
+        - generic [ref=e148]: Tap + crown, additive
+      - generic [ref=e149]: +
+      - generic [ref=e150]:
+        - generic [ref=e151]: "500"
+        - strong [ref=e152]: Mode
+        - generic [ref=e153]: Sleep / focus / power
+      - generic [ref=e154]: +
+      - generic [ref=e155]:
+        - generic [ref=e156]: "300"
+        - strong [ref=e157]: Gesture clip
+        - generic [ref=e158]: Zero-ended arm offsets
+      - generic [ref=e159]: +
+      - generic [ref=e160]:
+        - generic [ref=e161]: "100"
+        - strong [ref=e162]: Ambient
+        - generic [ref=e163]: Breath + attention
+    - paragraph [ref=e164]:
+      - strong [ref=e165]: "Invariant:"
+      - text: hand angle = wall-clock angle + transient clip offset. Every clip envelope is exactly zero before and after its duration, so animation cannot permanently corrupt time.
+  - generic [ref=e166]:
+    - generic [ref=e167]:
+      - generic [ref=e168]:
+        - paragraph [ref=e169]: FEASIBILITY MATRIX
+        - heading "What belongs on watchOS" [level=2] [ref=e170]
+      - paragraph [ref=e171]: Support reflects vendor platform lists and Apple’s watchOS rendering APIs, not assumptions based on iOS compatibility.
+    - table [ref=e173]:
+      - rowgroup [ref=e174]:
+        - row [ref=e175]:
+          - columnheader "Method" [ref=e176]
+          - columnheader "watchOS support" [ref=e177]
+          - columnheader "Interaction" [ref=e178]
+          - columnheader "Battery" [ref=e179]
+          - columnheader "App Store outlook" [ref=e180]
+      - rowgroup [ref=e181]:
+        - row [ref=e182]:
+          - cell [ref=e183]:
+            - strong [ref=e184]: SwiftUI Canvas + layer rig
+            - emphasis [ref=e185]: Primary
+          - cell "Native; Canvas available on watchOS" [ref=e186]
+          - 'cell "Excellent: touch, crown, state" [ref=e187]'
+          - cell "Best when cadence-aware" [ref=e188]
+          - cell "Strong; ordinary public APIs" [ref=e189]
+        - row [ref=e190]:
+          - cell [ref=e191]:
+            - strong [ref=e192]: SpriteKit / spritesheet
+            - emphasis [ref=e193]: Gesture clips
+          - cell "Native via WKInterfaceSKScene" [ref=e194]
+          - cell "Good; node-level input/state" [ref=e195]
+          - cell "Good if short and paused" [ref=e196]
+          - cell "Strong; keep assets/memory lean" [ref=e197]
+        - row [ref=e198]:
+          - cell [ref=e199]:
+            - strong [ref=e200]: Custom mesh puppet
+            - emphasis [ref=e201]: Selective use
+          - cell "Native Canvas/path math" [ref=e202]
+          - cell "Excellent parameter control" [ref=e203]
+          - cell "Good at few vertices / 30 fps" [ref=e204]
+          - cell "Strong; test thermal cost" [ref=e205]
+        - row [ref=e206]:
+          - cell [ref=e207]:
+            - strong [ref=e208]: Live2D Cubism
+            - emphasis [ref=e209]: Do not target directly
+          - cell "watchOS not officially listed" [ref=e210]
+          - cell "Excellent elsewhere" [ref=e211]
+          - cell "Unproven / likely heavy" [ref=e212]
+          - cell "Risky unsupported port + license" [ref=e213]
+        - row [ref=e214]:
+          - cell [ref=e215]:
+            - strong [ref=e216]: Video / GIF / Lottie
+            - emphasis [ref=e217]: Pre-render fallback
+          - cell "Video/movie or frames; Airbnb Lottie omits watchOS" [ref=e218]
+          - cell "Low; parameter blending is weak" [ref=e219]
+          - cell "Medium–poor if continuous" [ref=e220]
+          - cell "Viable for brief owned clips" [ref=e221]
+        - row [ref=e222]:
+          - cell [ref=e223]:
+            - strong [ref=e224]: Pre-rendered 3D
+            - emphasis [ref=e225]: Art pipeline only
+          - cell "Runs as frames/video, not live 3D rig" [ref=e226]
+          - cell "Low unless many variants" [ref=e227]
+          - cell "Medium; storage trade-off" [ref=e228]
+          - cell "Viable with licensed assets" [ref=e229]
+  - generic [ref=e230]:
+    - generic [ref=e231]:
+      - text: Local fallback anchors keep this folder runnable while
+      - code [ref=e232]: ../style-library/patrick-anchor-manifest.json
+      - text: is pending.
+    - generic [ref=e233]: render 0 fps
