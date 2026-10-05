@@ -1,30 +1,30 @@
 # 私人安裝與沒有 Mac 的開發路線
 
-資料查證：2026-09-27；原生及私人編譯接續更新：2026-10-05。此文件提供可選路線與驗收門檻；簽名與真機安裝仍未完成。10 月 5 日已依使用者指定的 chansham 帳號建立私人 GitHub 倉庫並開始上傳；編譯證據以 [本次紀錄](APPLE-BUILD-20261005.md) 為準。沒有購買服務、建立 Apple 帳號或操作手錶。
+首次資料查證：2026-09-27；帳號、安裝條件與 Apple 官方資料複核：2026-10-05。此文件提供可選路線與驗收門檻。私人 GitHub macOS runner 已完成下述無簽名編譯與測試；簽名、真機安裝仍未完成。沒有購買服務、建立 Apple 帳號或操作手錶。9 月 27 日的歷史資料與本次新增證據分別標示。
 
 ## 現在已知與待確認
 
-- 使用者沒有 MacBook；目前使用 iPhone 13 Pro，計畫換 iPhone 18 Pro Max，Watch 為使用者提供的 Series 12 46 mm。OS 小版本與 Apple Developer Program 會員狀態仍待確認。此套裝按普通配對 iPhone＋Watch 開發。
-- 2026-10-05 使用者指定改用 `chansham` 並完成登入授權；新建 `chansham/patrickface` 已確認 **PRIVATE**。目前以獨立開發分支準備 Apple 編譯，實際進度見 [本次紀錄](APPLE-BUILD-20261005.md)。原 `<GITHUB_USER>/patrickface` 保留。
+- 使用者使用 Windows、沒有 Mac；目前使用 iPhone 13 Pro 及配對的 Watch，Watch 型號自報為 Series 12 46 mm，計畫換 iPhone 18 Pro Max。2026-10-05 已明確確認只有一般 Apple 帳號，**沒有付費 Apple Developer Program 會員**。實際 OS 小版本、Watch 型號號碼尚未讀取；詳見 [裝置紀錄](DEVICE-PROFILE-2026-09-27.md)。
+- 2026-10-05 使用者指定改用 `chansham` 並完成 GitHub 登入授權；新建 `chansham/patrickface` 已確認 **PRIVATE**。獨立開發分支已完成 Apple 編譯；原 `<GITHUB_USER>/patrickface` 保留。GitHub 授權不等於 Apple 簽名或付費會員。
 - Windows 已接好原生首頁、數字時間、逐幀素材、原味手臂時計、衣服／情境／心情、照顧、音效／觸覺、作息、生日與確切日期節日、陪伴倒數及手機同步的源碼。iPhone widget、Watch complication 改讀同一份陪伴狀態；舊整圖晃動頁不再是首頁。
 - Watch 健康摘要只在按下按鈕後請求 **read-only** 今日步數、最近心率及 HRV，附資料時間；沒有樣本顯示「尚無資料」，不推斷拒絕權限或人的心情，不啟動假健身 session。
-- **所有上述原生修改尚未在 Apple SDK 編譯或實機跑過。**素材為本輪授權接入的開發稿；新衣服、時計關節和動作過渡仍可審改。不可把網頁通過或源碼檢查通過寫成 Watch 已完成安裝。
+- **Apple 編譯已通過，簽名與真機仍未完成。**2026-10-05 的 `f6daa08`／[run 37254670555](https://github.com/chansham/patrickface/actions/runs/37254670555) 全部成功：1,695 項 Foundation 檢查（1503＋129＋63）、9 項 XCTest 實跑、iPhone／Watch 雙平台及兩個 extensions 編譯、四個 product 的版本／ID／素材 SHA 檢查、無簽名 Release device archive。XCTest 在 iPhone Air／iOS 26.5 模擬器執行；runner 為 Xcode 26.6、iOS／watchOS SDK 26.5。這些不是 Series 12／OS 27 真機證據；詳細記錄見 [本次紀錄](APPLE-BUILD-20261005.md)。素材仍為開發稿，沒有因編譯通過而取得美術批准。
 - 沒有自己的 Mac 不等於必須買 Mac：借用／租用遠端 Mac 或 macOS CI 可以編譯，但仍要處理簽名和真機交付。[I01]
 
 ## 如何選擇
 
 | 條件與目的 | 首選路線 | 仍需要什麼 |
 |---|---|---|
-| 有普通配對 iPhone，要完整寵物邏輯 | Windows 開發＋macOS CI／遠端 Mac＋自己帳號的 TestFlight 內部測試 | Apple Developer Program、簽名設定、有效 build；按真機問題迭代 |
+| 目前免費帳號，借得到可連接真機的 Mac | Xcode＋免費 Personal Team 開發安裝 | 四個 target 實際完成簽名／安裝；每 7 天重新建置安裝，須能持續取得 Mac 使用權 |
+| 日後自行選擇付費會員，要從 Windows 持續迭代 | Windows 開發＋macOS CI／遠端 Mac＋私人 TestFlight 內部測試 | Apple Developer Program、簽名設定及有效 build；目前沒有會員，未啟用此路線 |
 | 先把角色外觀戴上去，願意使用現成工具的互動能力 | Clockology 的 iPhone編輯／匯入與Watch App | 相容iPhone／Watch、重新製作成其支援格式；完整養成邏輯不保證可做 |
-| 有可借的 Mac，先少量測試並接受每週維護 | Xcode＋免費 Personal Team 開發安裝 | 與Xcode可配對／連線的真機；7天到期後重新建置安裝 |
 | 不經TestFlight，要給自己的註冊裝置安裝 | 付費會員＋Ad Hoc／development provisioning | Watch與相關裝置識別碼、有效profile、已驗證的本地安裝管道 |
 | 只有家人設定的Watch，沒有一般配對iPhone | 先驗 independent watch app與該設定的安裝管道 | 不能假設管理者iPhone能按普通配對流程安裝TestFlight；可能先用現有獨立App驗入口 |
-| 想從Windows用AltStore／Sideloadly直接裝Watch | 研究候選，不作已可交付路線 | 必須找到匹配機型／版本的維護中實作並完成實測；iPhone側載成功不是證據 |
+| 想從 Windows 安裝完整 iPhone＋Watch 套裝 | **Sideloadly v0.70.1 是有官方更新紀錄支持的可測試候選**；AltStore 另列未驗證 | Sideloadly 已明列保留及重簽 WatchKit App、更新 bundle IDs；免費帳號、目前 iOS／watchOS 27、實際 Watch 安裝與續期仍待實測。[I29] |
 
-具體玩法與限制見 [CAPABILITY-MAP.md](CAPABILITY-MAP.md)。先選能保留寵物需求的交付路線，再決定是否做現成工具的短期版本。
+目前以使用者的 **Windows＋iPhone＋Watch、沒有可用 Mac、沒有付費會員** 為前提；使用者沒有選擇借 Mac 或 TestFlight。下列 Mac／付費路線僅保留為有條件的說明，不要求使用者尋找 Mac 或購買會員。免費帳號＋可用 Mac 是有官方依據的個人裝置測試途徑；Sideloadly v0.70.1 已提供可測試的 Windows 候選，但純 Windows 免費安裝完整 iPhone＋Watch 套裝的端到端結果仍未證實。[I29] 具體玩法與限制見 [CAPABILITY-MAP.md](CAPABILITY-MAP.md)；Clockology 僅是另行製作的外觀／簡單互動版本，不是本原生 App 的等效交付。
 
-## 已準備：手動 Apple 編譯與診斷
+## 已通過：Apple 編譯與診斷
 
 [apple-build.yml](../.github/workflows/apple-build.yml) 保留手動入口，另只允許 `codex/apple-watch-integration` 這條私人開發分支的 push 觸發，讓第一次驗證不需要改動 main。沒有 PR／定時觸發；同分支新版本取消仍在跑的舊版本。權限 `contents: read`，不需要 Apple secrets，不自行下載 Xcode。macOS 執行使用 Actions 額度；實际 run 與結果見 [10月5日編譯紀錄](APPLE-BUILD-20261005.md)。[I06][I20]
 
@@ -35,16 +35,21 @@
 3. 無簽名編譯 Watch App＋complication、iPhone App＋widget，再用 `build-for-testing` 編譯 XCTest target。隨後從已安裝且 scheme 支援的 iPhone 模擬器選取 UDID，以同一份產物執行 `test-without-building`；沒有可用 runtime 時明確失敗，不下載替代 runtime。
 4. 用 [check_apple_bundle.py](../tools/check_apple_bundle.py) 檢查 **產出的** iPhone App 內確實有 `Watch/PatrickFace.app` 與兩個 extensions、bundle IDs／四產品版本一致、所有逐幀與 Experience 資源的 SHA 正確。
 
-手動 workflow 可勾選 `unsigned_device_archive`，私人開發分支 push 則在前述驗證通過後自動對 `generic/platform=iOS` 做無簽名 Release archive，檢查實際 archive 內的 Watch payload。無簽名 simulator／device archive 均不能裝到手錶或提交 TestFlight。workflow 只保留編譯紀錄與 XCTest result bundle 為目前私有 repo 的診斷 artifact，7天到期；不上传 IPA、不發公開 release，也不提交 Apple。出錯時保留原始 compiler／project 錯誤供修復。
+手動 workflow 可勾選 `unsigned_device_archive`，私人開發分支 push 則在前述驗證通過後自動對 `generic/platform=iOS` 做無簽名 Release archive，檢查實際 archive 內的 Watch payload。**`9d6e095` 已提交及推送新版 workflow**：archive 步驟新增 `--package-unsigned`，通過封裝檢查後，把未簽名 IPA、manifest 與 SHA256 檔存為私人倉庫的 `patrick-unsigned-resigning-input-<run number>` artifact，保留 **7 天**；診斷 log、XCTest result bundle 及後續模擬器截圖另存診斷 artifact，同樣保留 7 天。
 
-真正啟動前需把這份具體版本放到私有倉庫，並確認目前可用的 macOS 額度；手動入口要求 workflow 已在預設分支。[I20] 借到 Mac 時，也可從根目錄執行 `bash tools/build_apple_simulators.sh`。要實際跑模擬器 XCTest，另用 `iOSCompanion/tools/verify_companion_on_mac.sh`，它只選已安裝的 iPhone runtime，不自行下載。
+這是供 Windows 工具重新簽名的輸入，不是已簽名成品；**未簽名 IPA／archive 不能直接安裝到裝置或提交 TestFlight**。workflow 不發公開 release，也不提交 Apple。`9d6e095` 的 [run 37256581810](https://github.com/chansham/patrickface/actions/runs/37256581810) 已全部成功：原有1695項Foundation及9項XCTest再通過、12項封裝測試全部通過，未簽名IPA已下載並再次驗證154個項目。真正46mm Watch模擬器截圖也已實看，時間安全區與角色頭腳正常。具體版本、SHA及實機界線見 [本次紀錄](APPLE-BUILD-20261005.md)。
+
+本次已從私人開發分支的 push 執行成功；後續仍需依使用者帳號的 macOS 額度安排建置。手動入口要求 workflow 已在預設分支。[I20] 借到 Mac 時，也可從根目錄執行 `bash tools/build_apple_simulators.sh`，其中包含實跑 XCTest 的步驟；需要單獨驗證 companion 時，可用 `iOSCompanion/tools/verify_companion_on_mac.sh`，它只選已安裝的 iPhone runtime，不自行下載。
 
 ### 簽名、匯出與 Watch 內嵌檢查
 
-[archive_apple.py](../tools/archive_apple.py) 已準備兩種明確模式，尚未執行：
+[archive_apple.py](../tools/archive_apple.py) 區分下列用途：
 
-- 不帶 `--signing-config`：只做無簽名 device archive 與內嵌檢查。
-- 帶本機設定 `--signing-config /絕對路徑/實際設定.json`：使用這台 Mac 已安裝的憑證及 profiles，做手動簽名 archive，再 **只匯出到本機**。不帶 `-allowProvisioningUpdates`，不建立／下載 profiles，不連 Apple 提交程式。
+- 不帶 `--signing-config` 或 `--package-unsigned`：只做無簽名 device archive 與內嵌檢查；`f6daa08` 已通過。
+- 帶 `--package-unsigned`：以 macOS `ditto` 複製及封裝四個原始 device 產品；核對原 bundle IDs／版本、iPhoneOS／WatchOS、每檔 SHA／類型／權限及符號連結，再核對 ZIP 內容。第六輪已產出版本1.0／build6，僅供重新簽名。未刪除 Watch、extensions、素材或修改原始檔案來避過檢查。
+- 帶本機設定 `--signing-config /絕對路徑/實際設定.json`：使用這台 Mac 已安裝的憑證及 profiles，做手動簽名 archive，再 **只匯出到本機**。不帶 `-allowProvisioningUpdates`，不建立／下載 profiles，不連 Apple 提交程式。這個簽名模式尚未執行，並與 `--package-unsigned` 互斥。
+
+manifest 的 `entitlementRequirements` 是四份**源碼 entitlement 模板**及其 SHA、App Group／HealthKit 要求，並非已簽名 IPA 中實際有效的權限。未簽名包明列 `signed=false`、`directlyInstallable=false`；重新簽名後必須另查四個產品的實際 entitlements 與 provisioning profiles。
 
 [apple-signing.example.json](../tools/apple-signing.example.json) 是不能直接執行的範本；填入自己的 Team ID、簽名憑證種類、四個 profile 名稱。不要把密碼、`.p12` 私鑰或 `.mobileprovision` 放入版本庫。選擇 `app-store-connect`（私人 TestFlight）、`release-testing`（已註冊裝置）或 `debugging`，以使用的 Xcode 支援的 export method 為準；最初選用的 profiles 必須符合該方法及四個 entitlements。
 
@@ -61,9 +66,24 @@ iPhone 工程已宣告 Watch cross-project dependency 與 `Embed Watch Content`�
 
 匯出選項固定 `destination=export`、不上传 symbols；私人 TestFlight 方法預設 `testFlightInternalTestingOnly=true`。正式上传仍是其後的獨立動作，且要先有會員、正確簽名、App Store Connect app record，並跑過 Apple 編譯和核心真機測試。[I22]
 
+## 目前 Windows 試裝（尚未執行）
+
+先使用官方 **Sideloadly v0.70.1** 作候選，保持 Windows＋iPhone＋配對 Watch，不要求 Mac 或付費會員。以下是待實作的流程；目前尚未登入 Sideloadly、替帳號簽名或完成裝置安裝。[I19][I29]
+
+**使用者於10月5日選擇稍後再試裝。**試裝輸入已準備好，接續時從連接iPhone開始，不要求重新授權GitHub或尋找Mac。
+
+1. 已下載並核對的檔案位於 `output/apple-build/run-37256581810-artifacts/patrick-unsigned-resigning-input-6/`：`PatrickCompanion-unsigned.ipa`（45,178,729 bytes）、完整manifest及`.ipa.sha256`。IPA SHA256為`a60802223ff36887de9ce4866e5ef2c1b1cc2bcc45d08ce882da54ecb2d34319`。可直接取本機檔案，不需自行拆包／改名或刪檔；私人GitHub artifact保留7天不影響本機副本。
+2. 只從 [Sideloadly 官網](https://sideloadly.io/)取得 Windows 版，確認至少包含 v0.70.1 的 WatchKit 改進。依官網要求核對 Windows 的 Apple iTunes／iCloud 元件；先以 USB 連接並解鎖 iPhone，在手機出現提示時信任這台 PC，確認工具能辨識裝置。[I19][I30]
+3. 將 IPA 載入 Sideloadly，**由使用者自行輸入 Apple 帳號、密碼及兩步驗證**。保留 Watch App 與兩個 extensions，不使用刪除 extensions／Watch 子包來換取手機端安裝成功。原套裝的 bundle ID 關聯與共用資料必須一起驗證；不憑猜測指定尚未確認的進階 UI 選項。[I19][I29]
+4. 依裝置實際提示處理 Developer Mode 與開發者信任。Sideloadly FAQ 的 iPhone 位置是「設定 → 隱私權與安全性 → 開發者模式」；若出現不受信任開發者，依「設定 → 一般 → VPN 與裝置管理」的相應帳號完成信任。Watch 的 Developer Mode／信任亦需按實際狀態處理；選項未出現時保留畫面與原錯誤，不假稱已開啟。[I26][I30]
+5. 手機成功後，仍要確認 Watch 端確實安裝並可冷啟動，兩個 extensions 保留，手機／Watch 設定可往返，重開後資料保存。若只能裝手機、Watch 不出現或回報簽名錯誤，記錄為部分成功並保留錯誤；不宣稱套裝已完成。
+6. 免費帳號有效期為 7 天。官方說明自動續期需電腦上的 Sideloadly Daemon 運行，並透過 USB 或已設定的同網路 Wi-Fi 偵測裝置；更新沿用同一 Apple 帳號與 bundle ID。這是一般 App 的續期機制，**本專案 Watch 子包及其 extensions 能否一併正常續期仍需實測**。[I30]
+
+**本工程的具體驗收點：**四個 target 的源碼共用群組是 `group.com.chans.patrickface.shared`，程式讀取也使用此固定值。若重簽工具只改 entitlements 的群組名稱，程式仍讀原值，widget／complication 共用資料可能失效；必須檢查重簽後的實際值與程式是否一致。Watch 的 HealthKit 權限也要對照實際 profile。manifest 中的源碼模板、Sideloadly 宣告能重簽 WatchKit，以及一般免費帳號支援，三者都不代替上述實測。
+
 ## 路線 A：Windows＋雲端 macOS＋私人 TestFlight
 
-這是有普通配對 iPhone 時，最容易持續迭代完整原生寵物的方案。私人內部測試不要求公開商店頁面或公開邀請連結；它仍是 Apple 的測試分發服務。[I02][I03]
+這是**日後選擇付費會員時**可用的持續迭代方案；目前使用者沒有會員，尚未設定或啟用 TestFlight。此路線不要求使用者擁有 Mac，但編譯及簽名仍在合適的 macOS／Xcode 環境進行。私人內部測試不要求公開商店頁面或公開邀請連結；它仍是 Apple 的測試分發服務。[I02][I03]
 
 1. 在 Windows 完成源碼、素材與本地邏輯檢查；保留私有版本庫。
 2. 在有合適 Xcode／watchOS SDK 的 macOS runner做**無簽名的編譯／模擬器測試**，先暴露真實 Swift、asset catalog 和工程錯誤。這一步不等於可安裝的真機程式。
@@ -75,7 +95,7 @@ iPhone 工程已宣告 Watch cross-project dependency 與 `Embed Watch Content`�
 
 **有效期限**：每個TestFlight build自上傳起最多90天，到期不能再開啟；應在到期前提供新build並安裝。不要把它描述成一次安裝永久有效。內部測試不等於取消Apple服務條件，也不是將他人隨意加為管理員的理由。[I03][I04]
 
-**費用**：Apple Developer Program為US$99／會員年度，地方價格以註冊顯示為準。[I05] GitHub私有repo有按帳號方案的Actions額度；超出才依服務計費／額度限制處理。查證日官方標準macOS 3／4 core費率為US$0.062／分鐘，另有artifact儲存計費；應先設預算及短artifact保留期，不能保證所有使用量免費。[I06]
+**費用**：Apple Developer Program為US$99／會員年度，地方價格以註冊顯示為準。[I05] GitHub私有repo有按帳號方案的Actions額度；超出才依服務計費／額度限制處理。2026-09-27 查證時官方標準macOS 3／4 core費率為US$0.062／分鐘（10 月 5 日未重新核價），另有artifact儲存計費；應先設預算及短artifact保留期，不能保證所有使用量免費。[I06]
 
 ## 路線 B：Xcode Cloud或租借Mac
 
@@ -100,9 +120,11 @@ Apple官方允許免費Apple Account在Xcode建立Personal Team做個人裝置�
 | 安裝用profile簽發後7天到期 | 需要重新建置及安裝；沒有免費永久安裝承諾 |
 | 無TestFlight分發服務 | 不能把免費Apple Account當付費團隊的TestFlight替代 |
 
-**不要使用過時理由判定必敗**：截至查證日，Apple iOS capability表的App Groups三個會員欄均有支援勾選（已核對HTML `alt="yes"`）；watchOS表也明說watch app target的App Groups／background modes不依會員種類。是否能讓本工程全部target實際完成Personal Team簽名，仍須以當前Xcode結果驗證。[I10][I11]
+**2026-10-05 官方複核**：iOS 與 watchOS 能力表的免費 Apple Developer 欄，**App Groups、HealthKit 均有支援勾選**；已核對原頁 HTML 的 `alt="yes"`，不是把純文字表格的空白誤讀成不支援。因此不能以這兩項為理由要求付費或預先刪除功能。這只證明官方列出的能力範圍，**不代表本工程四個 target 已完成 Personal Team 簽名**。[I10][I11]
 
-此路線適合借得到Mac、能接近並配對實機、願意週期維護的人。雲端僅產出檔案尚不足證明可從Windows完成Watch免費重簽安裝。
+本工程有四個產品識別碼，widget／complication 各自需要符合所選團隊的簽名與共用 App Group。四個 target 不等於在同一手機安裝四個獨立 App，也不能忽略帳號已佔用的 App IDs。WatchConnectivity 的手機與 Watch 關聯、Widget 共用資料仍須在真正簽名及安裝後驗證；目前的 Foundation／XCTest 成功不代替這些實機驗收。
+
+此路線適合借得到 Mac、能讓 Xcode 與實機配對、願意每週維護的人；**借用一次 Mac 不等於永久安裝**。目前 Apple 的 Device Hub 文件允許 iOS 27 及後續版本在同一 Wi-Fi 網路無線配對 Mac；較舊 iOS 可用連接線，Watch 先處理 companion iPhone。iPhone 與 Watch 都需開啟 Developer Mode 並完成信任。一般遠端桌面不會自動建立這條裝置連線；雲端只產出檔案，仍不足以證明 Windows 可完成 Watch 免費重簽、安裝及續期。[I09][I26]
 
 ## 路線 D：Ad Hoc／註冊裝置開發安裝
 
@@ -132,9 +154,13 @@ Apple Watch For Your Kids（前Family Setup）允許家人沒有自己的iPhone�
 
 ## 非官方安裝的查證結果
 
-AltStore官方入門主要為iPhone／iPad；Sideloadly官方描述iOS、Apple Silicon與tvOS。兩者存在Windows工具／自動重簽說明，**不構成Watch payload可被保留、正確簽名及傳到Watch的證明**。[I18][I19]
+**2026-10-05 新增直接證據：Sideloadly v0.70.1 官方 changelog 明確說明，現在預設保留 WatchKit App，重新簽名並更新 bundle IDs；此前會剝除這部分。**因此 Sideloadly 已由只有一般 iOS 側載資訊，升級為本專案在 Windows 上的**具體可測試候選**。首頁沒有單獨列出 Watch，不能蓋過這份明確的新版更新紀錄。[I19][I29]
 
-目前結論是未驗證，不是「網上有人說可用所以已解決」，也不武斷宣稱任何非官方方案永遠不可能。若繼續研究，需對應使用者的確切版本，查維護中原始專案、已知問題與實際Watch安裝記錄；付費企業簽名服務並不能代替這個驗證。
+這項改進證明工具宣告處理 WatchKit 子包，尚不證明使用者的免費帳號、目前 iOS／watchOS 27 與本專案四個產品一定可完成安裝。需驗證重新簽名後的 bundle ID 關聯、App Group／HealthKit 與各 profile，以及 Watch 端實際安裝、冷啟動和到期前續期；iPhone 側載成功或一般 App 自動續期說明都不能代替 Watch 端結果。本次沒有安裝、登入或實機測試。
+
+AltStore 官方 Windows 安裝說明確認的是 iOS 裝置。[I18][I27] 其 Watch App resigning 議題 #229 仍為開放的 enhancement；維護者於 2020-05-28 回覆當時尚不具備 WatchOS App 安裝能力。這是維護者的歷史說明，不是 2026 年所有版本必然不支援的證明。本次未找到維護者對上述完整 Watch 流程的現行保證，也未在使用者裝置實測。[I28]
+
+目前結論分開記錄：**Sideloadly v0.70.1 有維護者發布的 WatchKit 保留／重簽能力證據，但本專案尚未完成端到端實測；AltStore 的完整 Watch 安裝仍未證實。**接下來應對應使用者的確切版本與本工程驗證，不把候選方案寫成已安裝成功，也不宣稱所有非官方方案都不可行。
 
 ## 第一次真機驗收清單
 
@@ -149,7 +175,7 @@ AltStore官方入門主要為iPhone／iPad；Sideloadly官方描述iOS、Apple S
 
 ## 來源索引
 
-全部於2026-09-27查閱。費率、系統支援與服務要求可能改變，真正安裝前應再次核對。
+基礎來源於 2026-09-27 查閱。2026-10-05 再讀 Apple 帳號／免費能力表／配對與裝置分發文件、TestFlight 安裝說明，以及 AltStore／Sideloadly 官方資料；新增來源 I26–I30 於 10 月 5 日查閱；I29 的 Sideloadly v0.70.1 WatchKit 更新證據已納入，取代僅依首頁平台清單所能得到的有限結論。其他來源（尤其雲端費率與配額）仍按原查證日期，不表示本次全部重新核價。裝置與 Xcode 新版核對另見 [裝置紀錄](DEVICE-PROFILE-2026-09-27.md)。
 
 [I01]: https://docs.github.com/en/actions/how-tos/deploy/deploy-to-third-party-platforms/sign-xcode-applications "GitHub — Sign Xcode applications on macOS runners"
 [I02]: https://developer.apple.com/help/app-store-connect/test-a-beta-version/add-internal-testers "Apple — Add internal testers"
@@ -171,11 +197,16 @@ AltStore官方入門主要為iPhone／iPad；Sideloadly官方描述iOS、Apple S
 [I18]: https://faq.altstore.io/ "AltStore — Official documentation"
 [I19]: https://sideloadly.io/ "Sideloadly — Official supported platforms"
 [I20]: https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow "GitHub — Manually running a workflow"
+[I26]: https://developer.apple.com/documentation/xcode/managing-your-simulated-and-physical-devices-in-device-hub "Apple — Device Hub pairing"
+[I27]: https://faq.altstore.io/altstore-classic/how-to-install-altstore-windows "AltStore — Windows installation"
+[I28]: https://github.com/altstoreio/AltStore/issues/229#issuecomment-635651937 "AltStore maintainer — Historical Watch app support request"
+[I29]: https://sideloadly.io/changelog "Sideloadly v0.70.1 — WatchKit apps retained and re-signed"
+[I30]: https://sideloadly.io/faq.html "Sideloadly — USB, Developer Mode, trust and refresh requirements"
 
 
 ## 本輪原生行為驗收
 
-本機已通過工程／plist／雙端 v1 DTO 結構檢查與包裝檢查器的3項負面回歸（缺 Watch complication、素材遭改、版本不一致）。這些不是 Swift 編譯結果。新增 Foundation／XCTest 測試已寫入上述 Mac pipeline，Windows 尚未執行。
+2026-09-27 已通過的是 Windows 工程／plist／雙端 v1 DTO 結構檢查與包裝檢查器的 3 項負面回歸（缺 Watch complication、素材遭改、版本不一致）。2026-10-05 又取得前述 macOS runner 的 1,695 項 Foundation、9 項 XCTest、Apple 雙平台編譯及無簽名 archive 成功證據。前者不再是唯一證據；兩者仍不能代替下列真機行為驗收。
 
 上手錶後依序核對：
 
@@ -197,4 +228,4 @@ AltStore官方入門主要為iPhone／iPad；Sideloadly官方描述iOS、Apple S
 - [I24] Apple WatchConnectivity 狀態與排隊傳送：https://developer.apple.com/documentation/watchconnectivity/transferring-data-with-watch-connectivity
 - [I25] Apple AVAudioPlayer：https://developer.apple.com/documentation/avfaudio/avaudioplayer；Watch觸覺：https://developer.apple.com/documentation/watchkit/wkinterfacedevice/play(_:)
 
-Apple SDK 編譯、圖形像素方向、效能／記憶體、Watch 喇叭、HealthKit 取樣、WC真機時序與簽名安裝仍是未完成驗收項；沒有假造成功的安裝包。
+Apple SDK 26.5 編譯、上述測試及無簽名封存檢查已完成；iPhone及46mm Watch模擬器啟動畫面已實看。所有原生動作、效能／記憶體、Watch 喇叭、HealthKit 取樣、WatchConnectivity 真機時序、四個 target 的簽名與裝置安裝仍待驗收；沒有可直接安裝的已簽名成品，也沒有 Series 12／OS 27 真機通過的證據。

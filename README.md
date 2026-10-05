@@ -9,7 +9,7 @@
 - 照顧數值與日記保存在本機；手動心情、餵食冷卻、專注／運動陪伴／呼吸倒數有暫停、繼續、取消和一次性完成。取消不發完成獎勵。
 - 六個短音效預設靜音；可開啟音效、輕震、情境泡泡／星星／彩紙。12／24 小時、日期、自選服裝、生日／節日與睡眠時段可設定。
 - 手臂時計使用新畫的自然手臂及真實时间角度，上方數字獨立；演出結束回到當前時間。手臂接合仍是**待修試稿**，只適用原味時計造型。
-- iPhone、Watch 及小工具已進行源碼整合，兩端資源由同一份 catalog／experience 同步。**Windows 檢查不能代替 Apple SDK 編譯；尚無簽名安裝包或真機通過結果。**
+- iPhone、Watch 及兩個小工具已整合，兩端資源由同一份 catalog／experience 同步。10 月 5 日已在 Apple 環境通過雙平台編譯、9 項模擬器 XCTest、1695 項 Foundation 檢查及無簽名裝置封存包檢查。**尚無簽名安裝包或真機通過結果。**詳見 [實際編譯紀錄](docs/APPLE-BUILD-20261005.md)。
 
 ## 打開體驗
 
@@ -39,4 +39,4 @@
 - [裝置資料](docs/DEVICE-PROFILE-2026-09-27.md)：保留使用者申報，確切型號／系統版本待裝置確認。
 - `delivery/theme-pack/` 是舊交付候選，**不是這次動畫和功能版的可安裝包**；`play/` 舊小劇場已退役；Orbit 是另外的實驗。
 
-素材、程式與觀感分開驗證。主動畫、聲音、clock manifest 有驗證器；照顧／計时有純邏輯及瀏覽器測試。原生純邏輯、雙平台編譯與嵌入包檢查入口為 `tools/build_apple_simulators.sh`，只能在 macOS／Apple SDK 執行；無簽名編譯通過也不等於能安裝實機。
+素材、程式與觀感分開驗證。主動畫、聲音、clock manifest 有驗證器；照顧／計時有純邏輯及瀏覽器測試。`tools/build_apple_simulators.sh` 在 macOS／Apple SDK 執行原生純邏輯、雙平台編譯、嵌入包及真正 XCTest；無簽名編譯通過不等於能安裝實機。使用者只有一般 Apple 帳號且沒有 Mac；目前準備以 Sideloadly v0.70.1 的 Windows WatchKit 重簽支援進行試裝，真機安裝、完整權限與續期仍未驗證。未購買會員或簽名服務，詳見 [安裝路線](docs/INSTALLATION.md)。
