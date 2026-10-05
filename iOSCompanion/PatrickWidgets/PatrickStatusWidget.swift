@@ -60,8 +60,8 @@ struct PatrickStatusWidget: Widget {
                 }
                 .widgetURL(PatrickDeepLinkRoute.openWatchFace.url)
         }
-        .configurationDisplayName("Patrick Status")
-        .description("Theme, state, and timer at a glance.")
+        .configurationDisplayName("派大星陪伴")
+        .description("心情、照顧狀態和陪伴倒數；點一下開App。")
         .supportedFamilies([
             .systemSmall,
             .systemMedium,
@@ -76,132 +76,28 @@ struct PatrickStatusWidget: Widget {
 private struct PatrickStatusWidgetView: View {
     @Environment(\.widgetFamily) private var family
     let entry: PatrickWidgetEntry
-
+    private var state: PatrickExperienceState {
+        var value = entry.settings.experience ?? PatrickExperienceState()
+        _ = value.updateCare(at: entry.date)
+        return value
+    }
     var body: some View {
         switch family {
         case .accessoryInline:
-            Label(
-                "\(entry.settings.theme.displayName) · \(entry.settings.previewState.displayName)",
-                systemImage: entry.settings.previewState.symbolName
-            )
+            Label("派大星 · \(state.settings.mood.title)", systemImage: "heart.fill")
         case .accessoryCircular:
-            accessoryCircular
-        case .accessoryRectangular:
-            accessoryRectangular
-        case .systemMedium:
-            homeScreen(horizontal: true)
-        case .systemLarge:
-            largeHomeScreen
+            ZStack { AccessoryWidgetBackground(); VStack { Image(systemName: "heart.fill").widgetAccentable(); Text("\(state.care.bond)").font(.caption2) } }
         default:
-            homeScreen(horizontal: false)
-        }
-    }
-
-    private var accessoryCircular: some View {
-        ZStack {
-            AccessoryWidgetBackground()
-            VStack(spacing: 1) {
-                Image(systemName: entry.settings.previewState.symbolName)
-                    .font(.headline)
-                    .widgetAccentable()
-                Text(entry.settings.theme == .cel1999 ? "CEL" : "3D")
-                    .font(.caption2.bold())
-            }
-        }
-    }
-
-    private var accessoryRectangular: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Label(
-                entry.settings.theme.displayName,
-                systemImage: entry.settings.previewState.symbolName
-            )
-            .font(.headline)
-            .widgetAccentable()
-
-            if
-                entry.timer.status == .running,
-                let endsAt = entry.timer.endsAt
-            {
-                Text(timerInterval: entry.timer.startedAt ... endsAt, countsDown: true)
-                    .font(.caption.monospacedDigit())
-            } else {
-                Text(entry.settings.previewState.displayName)
-                    .font(.caption)
-            }
-        }
-    }
-
-    private func homeScreen(horizontal: Bool) -> some View {
-        HStack(spacing: 10) {
-            if horizontal {
-                PatrickArtworkView(
-                    theme: entry.settings.theme,
-                    state: entry.settings.previewState,
-                    animated: false
-                )
-                .frame(width: 112)
-            }
-
             VStack(alignment: .leading, spacing: 5) {
-                if !horizontal {
-                    PatrickArtworkView(
-                        theme: entry.settings.theme,
-                        state: entry.settings.previewState,
-                        animated: false
-                    )
-                    .frame(maxHeight: .infinity)
-                }
-
-                Text(entry.settings.theme.displayName)
-                    .font(horizontal ? .title3.bold() : .caption.bold())
-                    .foregroundStyle(.white)
-                    .lineLimit(1)
-                Label(
-                    entry.settings.previewState.displayName,
-                    systemImage: entry.settings.previewState.symbolName
-                )
-                .font(.caption2)
-                .foregroundStyle(.secondary)
-
-                timerLabel
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-        }
-        .padding(horizontal ? 4 : 0)
-    }
-
-    private var largeHomeScreen: some View {
-        VStack(spacing: 8) {
-            PatrickArtworkView(
-                theme: entry.settings.theme,
-                state: entry.settings.previewState,
-                animated: false
-            )
-
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(entry.settings.theme.displayName)
-                        .font(.headline)
-                    Text(entry.settings.previewState.displayName)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-                Spacer()
-                timerLabel
-            }
-        }
-    }
-
-    @ViewBuilder
-    private var timerLabel: some View {
-        if
-            entry.timer.status == .running,
-            let endsAt = entry.timer.endsAt
-        {
-            Text(timerInterval: entry.timer.startedAt ... endsAt, countsDown: true)
-                .font(.caption.monospacedDigit())
-                .foregroundStyle(.pink)
+                Label("派大星 · \(state.settings.mood.title)", systemImage: "star.fill").font(.headline).widgetAccentable()
+                Text("飽足 \(Int(state.care.satiety.rounded())) · 親密 \(state.care.bond)").font(.caption)
+                if let activity = state.activity, activity.status == .running, let end = activity.endsAt, end > entry.date {
+                    Text(activity.kind.title).font(.caption2)
+                    Text(timerInterval: activity.startedAt...end, countsDown: true).monospacedDigit()
+                } else if let activity = state.activity, activity.status == .paused {
+                    Text("\(activity.kind.title)已暫停").font(.caption)
+                } else { Text("點一下，來陪牠").font(.caption).foregroundStyle(.secondary) }
+            }.frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }

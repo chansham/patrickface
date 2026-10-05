@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101719">
+  <title>派大星衣櫥 · 不只一種個性</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./wardrobe.css">
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <a class="wordmark" href="../">PATRICK / WARDROBE</a>
+      <nav aria-label="專案導覽"><a class="nav-motion" href="../preview/?v=20260927-animation2">哈欠動畫樣片 ↗</a><a href="../review/">全部素材</a></nav>
+    </header>
+    <section class="intro" aria-labelledby="title">
+      <div><p class="eyebrow">造型提案 / 由你慢慢挑</p><h1 id="title">同一顆星，<br>也有很多面。</h1>
+        <p class="lead">眼鏡與正裝的認真，睡衣的鬆弛，或泡澡時的一臉放空。<br class="desktop-break">不必一直賣萌，也不急著定下唯一畫風。</p></div>
+      <aside class="intro-note"><span class="note-number">01 — OPEN WARDROBE</span><p>先選你想保留的個性，<br>再把服裝、表情與動作<br>一件件做完整。</p><span class="draft-stamp">靜態造型稿<br>尚未拆層與動畫</span></aside>
+    </section>
+    <section class="collection" aria-label="服裝與表情候選">
+      <div class="collection-top"><div><p class="eyebrow">衣櫥候選</p><p id="summary" class="summary" role="status">正在讀取造型清單…</p></div><div class="utility"><button id="reload" class="text-button" type="button">更新清單</button><button id="import" class="outline-button" type="button">匯入我的意見</button><input id="import-file" type="file" accept=".json,application/json" hidden><button id="export" class="outline-button" type="button">匯出我的意見 <span aria-hidden="true">↗</span></button></div></div>
+      <div class="filters">
+        <div id="categories" class="category-tabs" role="group" aria-label="生活分類"></div>
+        <div class="secondary-filters"><label class="search-label"><span class="sr-only">搜尋造型</span><input id="search" type="search" placeholder="眼鏡、睡衣、嚴肅…" autocomplete="off"></label>
+          <label><span class="sr-only">畫風</span><select id="style"><option value="">全部畫風 · 2D / 3D</option><option value="2D">2D 平面</option><option value="3D">3D 立體</option><option value="unknown">畫風待標示</option></select></label>
+          <label><span class="sr-only">情緒</span><select id="mood"><option value="">所有情緒</option></select></label>
+          <label><span class="sr-only">我的審稿意見</span><select id="verdict"><option value="">全部選擇</option><option value="pending">還沒決定</option><option value="liked">我喜歡</option><option value="revise">想修改</option><option value="rejected">不喜歡</option></select></label>
+        </div>
+      </div>
+      <p id="save-note" class="storage-note" role="status">喜好、修改選擇與註記會儲存在這個瀏覽器，也可以匯出留存。</p>
+      <p id="import-note" class="import-note" role="status" hidden></p>
+      <div id="grid" class="grid" aria-label="造型列表"></div>
+      <div id="empty" class="empty" hidden><span aria-hidden="true">✳</span><h2>這一格衣櫥還空著。</h2><p id="empty-message">換個分類，看看其他樣子。</p></div>
+    </section>
+    <footer><span>一個角色，多種心情。</span><span>畫風待確認 · 靜態造型候選</span></footer>
+  </main>
+  <dialog id="detail" aria-labelledby="detail-title">
+    <div class="detail-top"><span class="eyebrow" id="detail-position"></span><button id="close-detail" class="icon-button" type="button" aria-label="關閉大預覽">×</button></div>
+    <div class="detail-layout"><div id="detail-media" class="detail-media"></div><div class="detail-copy">
+      <p id="detail-category" class="eyebrow"></p><h2 id="detail-title"></h2><p id="detail-line" class="mood-line"></p><p id="detail-description" class="description"></p><p id="detail-change" class="change-note" hidden></p>
+      <div class="detail-rule"><h3>服裝與表情細節</h3><ul id="detail-tags"></ul></div>
+      <a id="try-look" class="try-look" href="../preview/?v=20260927-animation2">看已修眼的哈欠樣片 <span aria-hidden="true">↗</span></a>
+      <div id="detail-votes" class="votes" role="group" aria-label="這一稿的選擇"></div>
+      <label class="note-label" for="detail-note">這個樣子，哪裡想留下或改掉？</label><textarea id="detail-note" rows="3" maxlength="8000" placeholder="例如：保留眼鏡，但表情再嚴肅一點；睡衣想換成深藍。"></textarea>
+      <p id="detail-review-note" class="small-note"></p>
+    </div></div>
+    <details id="version-comparison" class="version-comparison" hidden><summary>上一版對照與意見</summary><div id="comparison-grid" class="comparison-grid"></div></details>
+    <details id="review-history" class="review-history" hidden><summary>我的意見記錄</summary><ol id="history-list"></ol></details>
+    <div class="detail-bottom"><button id="previous" class="text-button" type="button">← 上一款</button><span>慢慢看，選出喜歡的樣子。</span><button id="next" class="text-button" type="button">下一款 →</button></div>
+  </dialog>
+  <script type="module" src="./wardrobe.js?v=20260927-eye2"></script>
+</body>
+</html>

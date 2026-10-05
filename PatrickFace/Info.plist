@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh-Hant</string>
 	<key>CFBundleDisplayName</key>
-	<string>派大星錶盤</string>
+	<string>派大星陪伴</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -30,7 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>MinimumOSVersion</key>
 	<string>10.0</string>
 	<key>NSFocusStatusUsageDescription</key>
@@ -49,5 +49,7 @@
 	<true/>
 	<key>WKWatchOnly</key>
 	<false/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>在你按下讀取後，顯示今日步數與最近心率、HRV樣本和時間；不推斷心情、不上傳或修改健康資料。</string>
 </dict>
 </plist>

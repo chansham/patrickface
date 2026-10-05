@@ -521,7 +521,7 @@ def validate_protocol(errors: list[str]) -> None:
             "PatrickCommandPayload",
             watch_wire,
             "Command",
-            {"name", "theme", "sleepMode", "previewState", "timer", "deepLink"},
+            {"name", "theme", "sleepMode", "previewState", "timer", "deepLink", "careAction"},
         ),
         (
             iphone_models,
@@ -536,6 +536,7 @@ def validate_protocol(errors: list[str]) -> None:
                 "sleepMode",
                 "demoMode",
                 "updatedAt",
+                "experience",
             },
         ),
         (

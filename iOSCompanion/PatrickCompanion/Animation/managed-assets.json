@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "tool": "tools/sync_animation_bundle.py",
+  "catalogSource": "animation/catalog.json",
+  "catalogSha256": "bb06318beafa0a8abf3c30dd68b32f600020b7ea8de752812af6299bc59ceaa0",
+  "availableClipIds": [
+    "yawn",
+    "idle-blink-normal",
+    "idle-blink-slow",
+    "idle-blink-double",
+    "pet",
+    "charging-classic",
+    "charging",
+    "exercise",
+    "focus",
+    "celebrate",
+    "bath",
+    "wake",
+    "bedtime-mint",
+    "bedtime-moon",
+    "feed"
+  ],
+  "plannedClipIds": [],
+  "files": [
+    {
+      "source": "animation/bath-v1/atlas-generated.png",
+      "destination": "bath-v1/atlas-generated.png",
+      "sha256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd",
+      "bytes": 1275986,
+      "active": true
+    },
+    {
+      "source": "animation/bath-v1/regions-v1.json",
+      "destination": "bath-v1/regions-v1.json",
+      "sha256": "a4ed3fe2ce93cf2e44e3869d00c96d5c56e042b6911f904fbb58de827b614738",
+      "bytes": 136668,
+      "active": true
+    },
+    {
+      "source": "animation/blink-v2/atlas-generated.png",
+      "destination": "blink-v2/atlas-generated.png",
+      "sha256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "bytes": 1612378,
+      "active": true
+    },
+    {
+      "source": "animation/blink-v2/regions-v1.json",
+      "destination": "blink-v2/regions-v1.json",
+      "sha256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e",
+      "bytes": 131656,
+      "active": true
+    },
+    {
+      "source": "animation/catalog.json",
+      "destination": "catalog.json",
+      "sha256": "bb06318beafa0a8abf3c30dd68b32f600020b7ea8de752812af6299bc59ceaa0",
+      "bytes": 23850,
+      "active": true
+    },
+    {
+      "source": "animation/celebrate-v1/atlas-generated.png",
+      "destination": "celebrate-v1/atlas-generated.png",
+      "sha256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8",
+      "bytes": 1881353,
+      "active": true
+    },
+    {
+      "source": "animation/celebrate-v1/regions-v1.json",
+      "destination": "celebrate-v1/regions-v1.json",
+      "sha256": "4d6ae47ddf460ee798861f3db55a67753897b3359afb64b04d9dfa921e5a7e99",
+      "bytes": 135382,
+      "active": true
+    },
+    {
+      "source": "animation/charging-space-v1/atlas-generated.png",
+      "destination": "charging-space-v1/atlas-generated.png",
+      "sha256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22",
+      "bytes": 1694480,
+      "active": true
+    },
+    {
+      "source": "animation/charging-space-v1/regions-v1.json",
+      "destination": "charging-space-v1/regions-v1.json",
+      "sha256": "2449e95c7f53a09414a1f02c6035fbedf0927cbfcceeba0d6063876fe66dd1e7",
+      "bytes": 423053,
+      "active": true
+    },
+    {
+      "source": "animation/charging-v2/atlas-generated.png",
+      "destination": "charging-v2/atlas-generated.png",
+      "sha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "bytes": 1182158,
+      "active": true
+    },
+    {
+      "source": "animation/charging-v2/regions-v1.json",
+      "destination": "charging-v2/regions-v1.json",
+      "sha256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
+      "bytes": 440137,
+      "active": true
+    },
+    {
+      "source": "animation/exercise-v2/atlas-generated.png",
+      "destination": "exercise-v2/atlas-generated.png",
+      "sha256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+      "bytes": 1899694,
+      "active": true
+    },
+    {
+      "source": "animation/exercise-v2/regions-v1.json",
+      "destination": "exercise-v2/regions-v1.json",
+      "sha256": "1561eae78deaed2c58cfdecebb42cc385eb744451fa0628321b17a7674966e6a",
+      "bytes": 298711,
+      "active": true
+    },
+    {
+      "source": "animation/feeding-chef-v1/atlas-generated.png",
+      "destination": "feeding-chef-v1/atlas-generated.png",
+      "sha256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66",
+      "bytes": 1484887,
+      "active": true
+    },
+    {
+      "source": "animation/feeding-chef-v1/regions-v1.json",
+      "destination": "feeding-chef-v1/regions-v1.json",
+      "sha256": "4346965a107da3c2ed9c8ed807c5537599506093a188b865ae013d1025822714",
+      "bytes": 179833,
+      "active": true
+    },
+    {
+      "source": "animation/focus-v1/atlas-generated.png",
+      "destination": "focus-v1/atlas-generated.png",
+      "sha256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "bytes": 1338546,
+      "active": true
+    },
+    {
+      "source": "animation/focus-v1/regions-v1.json",
+      "destination": "focus-v1/regions-v1.json",
+      "sha256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909",
+      "bytes": 179639,
+      "active": true
+    },
+    {
+      "source": "animation/mint-pajama-v1/atlas-generated.png",
+      "destination": "mint-pajama-v1/atlas-generated.png",
+      "sha256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b",
+      "bytes": 1560294,
+      "active": true
+    },
+    {
+      "source": "animation/mint-pajama-v1/regions-v1.json",
+      "destination": "mint-pajama-v1/regions-v1.json",
+      "sha256": "1b04aa20669bc7870ed2207eec648d4853ce599dbfebcef7360013950565ecf7",
+      "bytes": 136190,
+      "active": true
+    },
+    {
+      "source": "animation/moon-robe-v1/atlas-generated.png",
+      "destination": "moon-robe-v1/atlas-generated.png",
+      "sha256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f",
+      "bytes": 1269138,
+      "active": true
+    },
+    {
+      "source": "animation/moon-robe-v1/regions-v1.json",
+      "destination": "moon-robe-v1/regions-v1.json",
+      "sha256": "e0fa2f4e099f86cee8648a5a3ddedb6b1ed2a1e96279dac0fe0e7fa4fd6d8906",
+      "bytes": 114089,
+      "active": true
+    },
+    {
+      "source": "animation/pet-v2/atlas-generated.png",
+      "destination": "pet-v2/atlas-generated.png",
+      "sha256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b",
+      "bytes": 1224522,
+      "active": true
+    },
+    {
+      "source": "animation/pet-v2/regions-v1.json",
+      "destination": "pet-v2/regions-v1.json",
+      "sha256": "82ae7279f09a2777a4f9be149c593d20dee58ddd6f9ae4c90771b691aac4d9e5",
+      "bytes": 304705,
+      "active": true
+    },
+    {
+      "source": "animation/wake-v1/atlas-generated.png",
+      "destination": "wake-v1/atlas-generated.png",
+      "sha256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4",
+      "bytes": 1584798,
+      "active": true
+    },
+    {
+      "source": "animation/wake-v1/regions-v1.json",
+      "destination": "wake-v1/regions-v1.json",
+      "sha256": "54adb188c1bf5e72b5d94deb80c7123052ad36cdecc60d5fc0278b41f0e32b65",
+      "bytes": 132783,
+      "active": true
+    },
+    {
+      "source": "animation/yawn-v1/atlas-eyes-v2.png",
+      "destination": "yawn-v1/atlas-eyes-v2.png",
+      "sha256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372",
+      "bytes": 1607392,
+      "active": true
+    },
+    {
+      "source": "animation/yawn-v1/regions-v1.json",
+      "destination": "yawn-v1/regions-v1.json",
+      "sha256": "bf9a23db553f5e6c85d7e784fa5b4fb36fd9588c7edbbf3ed7add342075eb22f",
+      "bytes": 140938,
+      "active": true
+    }
+  ]
+}

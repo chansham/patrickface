@@ -1,0 +1,14 @@
+{
+  "used": "built-in image_gen",
+  "atlas": {
+    "prompt": "Precise object edit. Fix the incorrect BLUE/PURPLE eye coloring only. Patrick Star's exposed eyeball sclera must be neutral clean WHITE, with black pupils wherever eyes are open. His eyelid skin must be the same coral PINK as his face, not lavender or blue. Half-closed eyes must have PINK upper lids and WHITE exposed sclera with black pupils below; fully CLOSED eyes must have PINK lid skin and a clear black closed-eye line, no exposed pupil. Purple is allowed on pajamas and hat ONLY. Preserve identity, every pose/expression, mouth, hands, framing, costume, pillow, 2D cel style and true transparent background. No recoloring of pajamas. Do not introduce new eye shapes, objects, text or poses. The edit target is an EIGHT-frame animation atlas in FOUR columns and TWO rows. Apply the eye correction consistently in ALL EIGHT cells. Keep all eight different drawings in their original order, positions and size. Keep exact original canvas aspect ratio and grid, no extra frames, no missing frames. Do not change any non-eye region.",
+    "path": "animation/yawn-v1/atlas-eyes-v2.png",
+    "status": "generated-unapproved"
+  },
+  "single": {
+    "prompt": "Precise object edit. Fix the incorrect BLUE/PURPLE eye coloring only. Patrick Star's exposed eyeball sclera must be neutral clean WHITE, with black pupils wherever eyes are open. His eyelid skin must be the same coral PINK as his face, not lavender or blue. Half-closed eyes must have PINK upper lids and WHITE exposed sclera with black pupils below; fully CLOSED eyes must have PINK lid skin and a clear black closed-eye line, no exposed pupil. Purple is allowed on pajamas and hat ONLY. Preserve identity, every pose/expression, mouth, hands, framing, costume, pillow, 2D cel style and true transparent background. No recoloring of pajamas. Do not introduce new eye shapes, objects, text or poses. The edit target is the SINGLE seated sleepy character hugging a pillow. Keep both eyes peacefully CLOSED, colored pink like the face, without blue/purple eyeballs.",
+    "path": null,
+    "status": "blocked-output",
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 24b02e81-4ce7-48eb-bd02-17c87729b374.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+  }
+}

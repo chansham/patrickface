@@ -1,0 +1,890 @@
+{
+  "schemaVersion": 1,
+  "version": 1,
+  "updatedAt": "2026-09-27",
+  "master": {
+    "id": "patrick-cel-seated-v1",
+    "anchorNormalized": [
+      0.5,
+      0.97
+    ],
+    "scale": 1,
+    "cellAspect": 1
+  },
+  "device": {
+    "model": "Apple Watch Series 12",
+    "caseMM": 46,
+    "pixels": [
+      416,
+      496
+    ],
+    "layout": {
+      "spriteX": 0.1,
+      "spriteY": 0.25,
+      "spriteWidth": 0.8,
+      "timeY": 0.07
+    }
+  },
+  "reviewPolicy": "Integrated development experience, not a release-art approval. Preserve all source candidate identities, hashes and user feedback. User confirmation and native Apple SDK build/signing/device verification remain separate.",
+  "clips": [
+    {
+      "id": "yawn",
+      "title": "抱枕打哈欠",
+      "category": "睡前",
+      "version": 2,
+      "atlas": "animation/yawn-v1/atlas-eyes-v2.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        540,
+        170,
+        220,
+        270,
+        520,
+        240,
+        200,
+        540
+      ],
+      "sha256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372",
+      "anchorNormalized": [
+        0.5,
+        0.8803680981595092
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 1.4701240135287486,
+      "status": "direction-accepted-rough",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "bedtime-entry",
+        "manual"
+      ],
+      "frameLabels": [
+        "抱枕犯睏",
+        "擠眼吸氣",
+        "抬手遮嘴",
+        "張嘴",
+        "大哈欠",
+        "放下手",
+        "抱枕眨眼",
+        "回到休息"
+      ],
+      "description": "進入睡前時播放一次；不持續循環。眼睛已修正，正補動作過渡。",
+      "frameRegions": {
+        "path": "animation/yawn-v1/regions-v1.json",
+        "sha256": "bf9a23db553f5e6c85d7e784fa5b4fb36fd9588c7edbbf3ed7add342075eb22f",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "idle-blink-normal",
+      "title": "輕輕眨眼",
+      "category": "待機",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "idle",
+      "atlas": "animation/blink-v2/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        550,
+        90,
+        80,
+        110,
+        85,
+        90,
+        110,
+        550
+      ],
+      "sha256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "anchorNormalized": [
+        0.5,
+        0.8803571428571428
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 1.2626832018038332,
+      "status": "development-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "idle"
+      ],
+      "description": "白眼白／黑瞳／粉眼皮。獨立眨眼8張原畫；衣紋、帽子與枕頭仍有細變，需審正常速度的抖動。尚未加入自動待機，也未另算慢眨／雙眨新原畫。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/blink-v2/regions-v1.json",
+        "sha256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "blink-batch2-candidate"
+    },
+    {
+      "id": "idle-blink-slow",
+      "title": "慢慢眨眼",
+      "category": "待機",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "idle",
+      "atlas": "animation/blink-v2/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        650,
+        160,
+        180,
+        360,
+        260,
+        160,
+        180,
+        600
+      ],
+      "sha256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "anchorNormalized": [
+        0.5,
+        0.8803571428571428
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 1.2626832018038332,
+      "status": "development-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "idle"
+      ],
+      "description": "與普通眨眼共用8張原畫的慢節奏變體，並非新增原畫。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/blink-v2/regions-v1.json",
+        "sha256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "blink-batch2-candidate"
+    },
+    {
+      "id": "idle-blink-double",
+      "title": "連眨兩下",
+      "category": "待機",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "idle",
+      "atlas": "animation/blink-v2/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 15,
+      "durationsMs": [
+        500,
+        75,
+        65,
+        80,
+        60,
+        65,
+        75,
+        180,
+        75,
+        65,
+        80,
+        60,
+        65,
+        75,
+        550
+      ],
+      "sha256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "anchorNormalized": [
+        0.5,
+        0.8803571428571428
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 1.2626832018038332,
+      "status": "development-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "idle"
+      ],
+      "description": "同一8張原畫的兩次眨眼編排，並非15張新原畫。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/blink-v2/regions-v1.json",
+        "sha256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "blink-batch2-candidate",
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "pet",
+      "title": "先嫌棄，再偷笑",
+      "category": "awake",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "interaction",
+      "atlas": "animation/pet-v2/atlas-generated.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "durationsMs": [
+        450,
+        180,
+        150,
+        150,
+        150,
+        240,
+        240,
+        180,
+        160,
+        180,
+        150,
+        450
+      ],
+      "sha256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b",
+      "anchorNormalized": [
+        0.5,
+        0.8801020408163265
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 2.165745856353591,
+      "status": "development-review",
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "被戳後先嫌棄、抱臂，再忍不住偷笑。第4→5格抱臂變化較大，首尾衣紋略異；請審過渡。這裡是手動動作審稿。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/pet-v2/regions-v1.json",
+        "sha256": "82ae7279f09a2777a4f9be149c593d20dee58ddd6f9ae4c90771b691aac4d9e5",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "pet-batch2-candidate"
+    },
+    {
+      "id": "charging-classic",
+      "title": "原味抱電池",
+      "category": "charging",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "scene",
+      "atlas": "animation/charging-v2/atlas-generated.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "durationsMs": [
+        450,
+        160,
+        160,
+        170,
+        200,
+        220,
+        240,
+        220,
+        180,
+        180,
+        160,
+        450
+      ],
+      "sha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "anchorNormalized": [
+        0.5,
+        0.8803763440860215
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 2.0552486187845305,
+      "status": "development-review",
+      "scenes": [
+        "charging"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "抱著小電池從犯睏到回神。有真實眼嘴與抱持手勢變化；前傾與電池接觸仍需審。此稿未替換Apple Watch系統充電畫面。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/charging-v2/regions-v1.json",
+        "sha256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "charging-batch2-candidate"
+    },
+    {
+      "id": "charging",
+      "title": "泡泡太空補給",
+      "category": "charging",
+      "version": 1,
+      "batch": "20260927-batch3",
+      "reviewGroup": "scene",
+      "atlas": "animation/charging-space-v1/atlas-generated.png",
+      "width": 1223,
+      "height": 1286,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "durationsMs": [
+        500,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        600
+      ],
+      "sha256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22",
+      "anchorNormalized": [
+        0.5,
+        0.88
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 2.0995334370139966,
+      "status": "development-review",
+      "scenes": [
+        "charging"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "太空充電服、頭盔、電池枕與泡泡。完整輪廓取圖；第5→6格傾頭回正仍待審。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/charging-space-v1/regions-v1.json",
+        "sha256": "2449e95c7f53a09414a1f02c6035fbedf0927cbfcceeba0d6063876fe66dd1e7",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "charging-space-batch3-candidate"
+    },
+    {
+      "id": "exercise",
+      "title": "最後一下啞鈴",
+      "category": "exercise",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "scene",
+      "atlas": "animation/exercise-v2/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "durationsMs": [
+        450,
+        150,
+        150,
+        150,
+        150,
+        150,
+        180,
+        220,
+        260,
+        160,
+        160,
+        160,
+        230,
+        180,
+        180,
+        450
+      ],
+      "sha256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+      "anchorNormalized": [
+        0.5,
+        0.8804945054945055
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 2.6541666666666663,
+      "status": "development-review",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "戴運動頭帶做一次啞鈴彎舉，再放下吐氣。手臂與啞鈴有不同姿勢；第13格有吐氣雲，仍需審握持和升降過渡。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/exercise-v2/regions-v1.json",
+        "sha256": "1561eae78deaed2c58cfdecebb42cc385eb744451fa0628321b17a7674966e6a",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "exercise-batch2-candidate"
+    },
+    {
+      "id": "focus",
+      "title": "正裝推眼鏡",
+      "category": "focus",
+      "version": 1,
+      "atlas": "animation/focus-v1/atlas-generated.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 12,
+      "durationsMs": [
+        450,
+        190,
+        180,
+        180,
+        180,
+        230,
+        180,
+        180,
+        180,
+        230,
+        180,
+        600
+      ],
+      "sha256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "anchorNormalized": [
+        0.5,
+        0.8804347826086957
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 1.7790055248618784,
+      "status": "development-review",
+      "scenes": [
+        "focus"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "主體驗使用前12格推眼鏡與收手，停止使用明顯縮小的第13–16格；原16格仍留候選供修稿。前段輪廓和收手過渡仍待審。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/focus-v1/regions-v1.json",
+        "sha256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "focus-candidate",
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "celebrate",
+      "title": "吹一聲派對哨",
+      "category": "celebrate",
+      "version": 1,
+      "atlas": "animation/celebrate-v1/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 15,
+      "durationsMs": [
+        450,
+        270,
+        200,
+        180,
+        140,
+        140,
+        140,
+        330,
+        140,
+        140,
+        180,
+        180,
+        230,
+        200,
+        600
+      ],
+      "sha256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8",
+      "anchorNormalized": [
+        0.5,
+        0.8803827751196173
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 2.1770833333333335,
+      "status": "development-review",
+      "scenes": [
+        "celebrate"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "主體驗播前15格；原圖第16格碰底邊而停用。口與哨接觸、道具收回仍待審，完整16格候選保留。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/celebrate-v1/regions-v1.json",
+        "sha256": "4d6ae47ddf460ee798861f3db55a67753897b3359afb64b04d9dfa921e5a7e99",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "celebrate-candidate",
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "id": "bath",
+      "title": "泡泡裡逗小鴨",
+      "category": "bath",
+      "version": 1,
+      "atlas": "animation/bath-v1/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 7,
+      "durationsMs": [
+        480,
+        200,
+        230,
+        400,
+        400,
+        230,
+        600
+      ],
+      "sha256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd",
+      "anchorNormalized": [
+        0.5,
+        0.8803763440860215
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 1.6775648252536641,
+      "status": "development-review",
+      "scenes": [
+        "bath"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "主體驗跳過多出黃色爆發形狀的第5格；完整8格候選保留。拿放小鴨的過渡仍待審。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/bath-v1/regions-v1.json",
+        "sha256": "a4ed3fe2ce93cf2e44e3869d00c96d5c56e042b6911f904fbb58de827b614738",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "bath-candidate",
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "wake",
+      "title": "揉眼睛醒來",
+      "category": "awake",
+      "version": 1,
+      "atlas": "animation/wake-v1/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        500,
+        180,
+        200,
+        240,
+        280,
+        200,
+        220,
+        500
+      ],
+      "sha256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4",
+      "anchorNormalized": [
+        0.5,
+        0.8803680981595092
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 1.4701240135287486,
+      "status": "development-review",
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "白眼白／黑瞳／粉眼皮方向正確；枕頭與收尾輪廓偏移，揉眼過渡需要補順，仍待逐格審稿。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/wake-v1/regions-v1.json",
+        "sha256": "54adb188c1bf5e72b5d94deb80c7123052ad36cdecc60d5fc0278b41f0e32b65",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "wake-candidate"
+    },
+    {
+      "id": "bedtime-mint",
+      "title": "薄荷睡衣拉毯子",
+      "category": "sleeping",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "scene",
+      "atlas": "animation/mint-pajama-v1/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        550,
+        170,
+        190,
+        220,
+        300,
+        160,
+        200,
+        600
+      ],
+      "sha256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b",
+      "anchorNormalized": [
+        0.5,
+        0.8803571428571428
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 1.2626832018038332,
+      "status": "development-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "薄荷條紋睡衣把毯子拉高、眨眼後歇著。首尾毯子位置故意不同，播放一次停末姿。帽形和頭身大小仍有變化待審；已按完整輪廓保留帽頂與腳。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/mint-pajama-v1/regions-v1.json",
+        "sha256": "1b04aa20669bc7870ed2207eec648d4853ce599dbfebcef7360013950565ecf7",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "mint-pajama-batch2-candidate"
+    },
+    {
+      "id": "bedtime-moon",
+      "title": "月亮睡袍整衣襟",
+      "category": "sleeping",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "scene",
+      "atlas": "animation/moon-robe-v1/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        550,
+        200,
+        180,
+        220,
+        200,
+        350,
+        160,
+        600
+      ],
+      "sha256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f",
+      "anchorNormalized": [
+        0.5,
+        0.8801369863013698
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 1.3167981961668547,
+      "status": "development-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "深藍月亮睡袍整理衣襟、一本正經，最後露出微笑。播放一次停末姿，不硬接成無縫循環。衣襟與手勢接續仍待審。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/moon-robe-v1/regions-v1.json",
+        "sha256": "e0fa2f4e099f86cee8648a5a3ddedb6b1ed2a1e96279dac0fe0e7fa4fd6d8906",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "moon-robe-batch2-candidate"
+    },
+    {
+      "id": "feed",
+      "title": "小廚師嚐點心",
+      "category": "awake",
+      "version": 1,
+      "batch": "20260927-batch3",
+      "reviewGroup": "interaction",
+      "atlas": "animation/feeding-chef-v1/atlas-generated.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 11,
+      "durationsMs": [
+        500,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        600
+      ],
+      "sha256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66",
+      "anchorNormalized": [
+        0.5,
+        0.88
+      ],
+      "masterId": "patrick-cel-seated-v1",
+      "scale": 1.4354066985645932,
+      "status": "development-review",
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual",
+        "scene-entry",
+        "interaction"
+      ],
+      "description": "播前11格吃一口並放低已咬過的點心，停在末姿；第12格餅乾恢復完整故不進主體驗。12張來源原畫全數保留候選。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/feeding-chef-v1/regions-v1.json",
+        "sha256": "4346965a107da3c2ed9c8ed807c5537599506093a188b865ae013d1025822714",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1",
+      "approvedDirection": false,
+      "sourceCandidateId": "feeding-chef-batch3-candidate",
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  ],
+  "rules": {
+    "idleMinMs": 10000,
+    "idleMaxMs": 22000,
+    "yawnCooldownMs": 600000,
+    "backgroundPlayback": false,
+    "autoReplayOnForeground": false
+  },
+  "plannedClips": [],
+  "channel": "development-review"
+}

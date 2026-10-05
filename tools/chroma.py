@@ -1,13 +1,12 @@
-"""把洋紅色背景扣成透明，錶盤外圈的白底也去掉。"""
+"""Historical premium-art chroma export; never restore retired runtime copies."""
+import argparse
 import math
-import shutil
 from pathlib import Path
 
 from PIL import Image
 
 SRC = Path(r"<USER_HOME>\.cursor\projects\<PROJECT_SLUG>\assets")
-OUT = Path(r"<PROJECT_DIR>\preview\assets")
-OUT.mkdir(parents=True, exist_ok=True)
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def chroma_magenta(im: Image.Image) -> Image.Image:
@@ -58,22 +57,35 @@ def mask_circle(im: Image.Image) -> Image.Image:
     return im
 
 
-jobs = {
-    "body.png": ("patrick-premium-body.png", True),
-    "body-night.png": ("patrick-premium-sleep.png", True),
-    "arm.png": ("patrick-premium-arm.png", True),
-}
-for dest, (src, keyed) in jobs.items():
-    im = Image.open(SRC / src)
-    if keyed:
-        im = crop_visible(chroma_magenta(im))
-    im.save(OUT / dest)
-    print(dest, im.size)
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, required=True, help="A new archive/review folder; runtime destinations are forbidden.")
+    args = parser.parse_args()
+    output = args.output.resolve()
+    runtime_roots = [ROOT / "preview", ROOT / "PatrickFace", ROOT / "iOSCompanion"]
+    if any(output == path or path in output.parents for path in runtime_roots):
+        parser.error("Legacy art cannot be exported into preview or application runtime folders.")
+    if output.exists():
+        parser.error("Choose a new output directory to preserve existing artwork.")
+    sources = {
+        "body.png": "patrick-premium-body.png",
+        "body-night.png": "patrick-premium-sleep.png",
+        "arm.png": "patrick-premium-arm.png",
+    }
+    required = list(sources.values()) + ["dial.png", "wallpaper-phone.png", "icon-face.png"]
+    if any(not (SRC / name).is_file() for name in required):
+        parser.error("Historical input assets are missing; no outputs were created.")
+    output.mkdir(parents=True)
+    for name, source in sources.items():
+        with Image.open(SRC / source) as im:
+            crop_visible(chroma_magenta(im)).save(output / name)
+    with Image.open(SRC / "dial.png") as im:
+        mask_circle(im).save(output / "dial.png")
+    for source, name in [("wallpaper-phone.png", "wallpaper.png"), ("icon-face.png", "icon.png")]:
+        with Image.open(SRC / source) as im:
+            im.convert("RGB").save(output / name, format="PNG")
+    print(f"Historical candidates exported to {output}; runtime unchanged.")
 
-dial = mask_circle(Image.open(SRC / "dial.png"))
-dial.save(OUT / "dial.png")
-print("dial", dial.size)
 
-shutil.copyfile(SRC / "wallpaper-phone.png", OUT / "wallpaper.png")
-shutil.copyfile(SRC / "icon-face.png", OUT / "icon.png")
-print("copied wallpaper and icon")
+if __name__ == "__main__":
+    main()

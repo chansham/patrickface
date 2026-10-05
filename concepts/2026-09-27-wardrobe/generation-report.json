@@ -1,0 +1,116 @@
+{
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "path": "after-work.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        65,
+        55,
+        930,
+        1464
+      ],
+      "sha256": "cc95ff57a77a9a71c9696406b9d4ae5e1b5badb19a9224af281273cdb78b0801",
+      "status": "pending-user-review",
+      "readiness": "concept-only; not layered or rigged"
+    },
+    {
+      "path": "bath-duck.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        30,
+        1236,
+        1254
+      ],
+      "sha256": "665f065a72174db273e118edbbd5a705e102c07ecd2582c154645027e4e210c0",
+      "status": "pending-user-review",
+      "readiness": "concept-only; not layered or rigged"
+    },
+    {
+      "path": "detective.png",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        49,
+        36,
+        1107,
+        1319
+      ],
+      "sha256": "23f9d971f39a4f2486ca08b372899339141efacdd725eff823e2ad5b6fb0cd48",
+      "status": "pending-user-review",
+      "readiness": "concept-only; not layered or rigged"
+    },
+    {
+      "path": "serious-suit.png",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        49,
+        36,
+        1030,
+        1326
+      ],
+      "sha256": "23b5a96cd2c376e0ad5883c8f7f92d8c1201ccd5b2258d82d3c0a9385434a402",
+      "status": "pending-user-review",
+      "readiness": "concept-only; not layered or rigged"
+    },
+    {
+      "path": "street-confident.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "alphaBounds": [
+        0,
+        48,
+        972,
+        1488
+      ],
+      "sha256": "9078ffb8d4ce3ecf21a318fe83cea9ff151c8faa21ec9c9d0d7af5363c1487b2",
+      "status": "pending-user-review",
+      "readiness": "concept-only; not layered or rigged"
+    }
+  ],
+  "notGenerated": [
+    "mint-striped-pajamas",
+    "navy-moon-robe",
+    "summer-pajamas"
+  ],
+  "reason": "Image service output check rejected the three pajama variants; no image files exist for them."
+}

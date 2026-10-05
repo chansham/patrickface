@@ -14,6 +14,7 @@ enum PatrickCommandName: String, Codable, Hashable, Sendable {
     case openWatchFace = "open-watch-face"
     case startTimer = "start-timer"
     case stopTimer = "stop-timer"
+    case updateExperience = "update-experience"
 }
 
 struct PatrickCommandPayload: Codable, Equatable, Sendable {
@@ -23,6 +24,7 @@ struct PatrickCommandPayload: Codable, Equatable, Sendable {
     var previewState: PatrickVisualState?
     var timer: PatrickTimerSnapshot?
     var deepLink: URL?
+    var careAction: PatrickCareAction?
 
     init(
         name: PatrickCommandName,
@@ -30,7 +32,8 @@ struct PatrickCommandPayload: Codable, Equatable, Sendable {
         sleepMode: PatrickSleepMode? = nil,
         previewState: PatrickVisualState? = nil,
         timer: PatrickTimerSnapshot? = nil,
-        deepLink: URL? = nil
+        deepLink: URL? = nil,
+        careAction: PatrickCareAction? = nil
     ) {
         self.name = name
         self.theme = theme
@@ -38,6 +41,7 @@ struct PatrickCommandPayload: Codable, Equatable, Sendable {
         self.previewState = previewState
         self.timer = timer
         self.deepLink = deepLink
+        self.careAction = careAction
     }
 }
 

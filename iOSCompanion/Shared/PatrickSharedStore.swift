@@ -88,6 +88,14 @@ final class PatrickSharedStore: @unchecked Sendable {
         }
     }
 
+    func loadExperience() -> PatrickExperienceState {
+        loadSettings().experience ?? PatrickExperienceState.load(from: defaults)
+    }
+
+    func saveExperience(_ value: PatrickExperienceState) {
+        lock.withLock { value.save(to: defaults) }
+    }
+
     func loadTimer() -> PatrickTimerSnapshot {
         lock.withLock {
             guard
@@ -148,6 +156,7 @@ final class PatrickSharedStore: @unchecked Sendable {
     func resetLocalData() {
         lock.withLock {
             [
+                PatrickExperienceState.storageKey,
                 PatrickAppGroup.settingsKey,
                 PatrickAppGroup.timerKey,
                 PatrickAppGroup.pendingActionsKey,

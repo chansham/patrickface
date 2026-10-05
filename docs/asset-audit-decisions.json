@@ -1,0 +1,3224 @@
+{
+  "backup": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927",
+  "items": [
+    {
+      "path": "delivery/theme-pack/qr/create-new-shortcut-900x900.png",
+      "status": "removed",
+      "category": "qr-build-artifact",
+      "reason": "First-pass QR encodes a trailing CRLF; verified QR has the exact replacement payload.",
+      "technicalStatus": "superseded",
+      "visualReview": "inspected",
+      "sha256": "c040e17769f5b85df2542727437260de2c81820617bafd5647dcde9655f198a8",
+      "bytes": 7399,
+      "replacementPath": "delivery/theme-pack/qr/verified-create-new-shortcut-900x900.png",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\delivery\\theme-pack\\qr\\create-new-shortcut-900x900.png"
+    },
+    {
+      "path": "delivery/theme-pack/qr/payloads/create-new-shortcut.txt",
+      "status": "removed",
+      "category": "qr-payload",
+      "reason": "Trailing CRLF confirmed in original bytes; exact-payload replacement retained.",
+      "technicalStatus": "invalid-payload",
+      "sha256": "deb7981c6ae8d9898ec699859a79a2f2728022f5e38cdcce5657dc3513d051d3",
+      "bytes": 29,
+      "replacementPath": "delivery/theme-pack/qr/payloads/verified-create-new-shortcut.txt",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\delivery\\theme-pack\\qr\\payloads\\create-new-shortcut.txt"
+    },
+    {
+      "path": "delivery/theme-pack/qr/official-shortcuts-guide-900x900.png",
+      "status": "removed",
+      "category": "qr-build-artifact",
+      "reason": "First-pass QR encodes a trailing CRLF; verified QR has the exact replacement payload.",
+      "technicalStatus": "superseded",
+      "visualReview": "inspected",
+      "sha256": "96d6e52561003e634b74c71795e6311cbdd73e7130fa288034fd7ad726b22876",
+      "bytes": 8414,
+      "replacementPath": "delivery/theme-pack/qr/verified-official-shortcuts-guide-900x900.png",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\delivery\\theme-pack\\qr\\official-shortcuts-guide-900x900.png"
+    },
+    {
+      "path": "delivery/theme-pack/qr/payloads/official-shortcuts-guide.txt",
+      "status": "removed",
+      "category": "qr-payload",
+      "reason": "Trailing CRLF confirmed in original bytes; exact-payload replacement retained.",
+      "technicalStatus": "invalid-payload",
+      "sha256": "da39276c811c78ba235feebb1079d7978ae0bf7efbf83ae76e79299201fa07e1",
+      "bytes": 55,
+      "replacementPath": "delivery/theme-pack/qr/payloads/verified-official-shortcuts-guide.txt",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\delivery\\theme-pack\\qr\\payloads\\official-shortcuts-guide.txt"
+    },
+    {
+      "path": "delivery/theme-pack/qr/run-patrick-mode-900x900.png",
+      "status": "removed",
+      "category": "qr-build-artifact",
+      "reason": "First-pass QR encodes a trailing CRLF; verified QR has the exact replacement payload.",
+      "technicalStatus": "superseded",
+      "visualReview": "inspected",
+      "sha256": "0a3b89bd390a5b1406d54a9bbdc497fc410ef4d325d575fd0fb3cbd4f741690e",
+      "bytes": 8480,
+      "replacementPath": "delivery/theme-pack/qr/verified-run-patrick-mode-900x900.png",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\delivery\\theme-pack\\qr\\run-patrick-mode-900x900.png"
+    },
+    {
+      "path": "delivery/theme-pack/qr/payloads/run-patrick-mode.txt",
+      "status": "removed",
+      "category": "qr-payload",
+      "reason": "Trailing CRLF confirmed in original bytes; exact-payload replacement retained.",
+      "technicalStatus": "invalid-payload",
+      "sha256": "979e424f42145d2737659abc686cd45706a3ca1fece2b1fb81354719ab1eca24",
+      "bytes": 46,
+      "replacementPath": "delivery/theme-pack/qr/payloads/verified-run-patrick-mode.txt",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\delivery\\theme-pack\\qr\\payloads\\run-patrick-mode.txt"
+    },
+    {
+      "path": "delivery/theme-pack/source-layers/season1-3d-comparison-approved.png",
+      "status": "removed",
+      "category": "legacy-source-reference",
+      "reason": "Duplicate historical comparison flattened on black, not a reusable alpha layer; exact original retained in comparison folder.",
+      "technicalStatus": "superseded",
+      "visualReview": "inspected",
+      "sha256": "fca1298ba862e2ba5b9b0a8814963ecd705d44362789e135e286fe7544f95ccb",
+      "bytes": 275573,
+      "replacementPath": "comparison-season1-3d/assets/season1-faithful-3d.png",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\delivery\\theme-pack\\source-layers\\season1-3d-comparison-approved.png"
+    },
+    {
+      "path": "delivery/theme-pack/contact-sheets/audio-waveforms-contact-sheet.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/contact-sheets/shortcuts-icons-contact-sheet.jpg",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/contact-sheets/wallpapers-contact-sheet.jpg",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/contact-sheets/watch-faces-contact-sheet.jpg",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/contact-sheets/widgets-contact-sheet.jpg",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/qr/verified-create-new-shortcut-900x900.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/qr/verified-official-shortcuts-guide-900x900.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/qr/verified-run-patrick-mode-900x900.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/calculator-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/calendar-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/camera-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/clock-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/files-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/health-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/home-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/mail-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/maps-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/messages-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/music-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/notes-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/phone-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/photos-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/reminders-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/safari-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/settings-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/shortcuts-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/wallet-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/shortcuts-icons/1024/weather-1024.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/sounds/m4a/charge-aac-192k.m4a",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "audio-integrity-check-only"
+    },
+    {
+      "path": "delivery/theme-pack/sounds/m4a/disconnect-aac-192k.m4a",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "audio-integrity-check-only"
+    },
+    {
+      "path": "delivery/theme-pack/sounds/m4a/hour-chime-aac-192k.m4a",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "audio-integrity-check-only"
+    },
+    {
+      "path": "delivery/theme-pack/sounds/m4a/low-battery-aac-192k.m4a",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "audio-integrity-check-only"
+    },
+    {
+      "path": "delivery/theme-pack/sounds/m4a/sleep-focus-aac-192k.m4a",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "audio-integrity-check-only"
+    },
+    {
+      "path": "delivery/theme-pack/sounds/wav/charge-48k-stereo.wav",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "audio-integrity-check-only"
+    },
+    {
+      "path": "delivery/theme-pack/sounds/wav/disconnect-48k-stereo.wav",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "audio-integrity-check-only"
+    },
+    {
+      "path": "delivery/theme-pack/sounds/wav/hour-chime-48k-stereo.wav",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "audio-integrity-check-only"
+    },
+    {
+      "path": "delivery/theme-pack/sounds/wav/low-battery-48k-stereo.wav",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "audio-integrity-check-only"
+    },
+    {
+      "path": "delivery/theme-pack/sounds/wav/sleep-focus-48k-stereo.wav",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "audio-integrity-check-only"
+    },
+    {
+      "path": "delivery/theme-pack/source-layers/composite-2d-1010-transparent.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/source-layers/composite-3d-1010-transparent.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/source-layers/season1-2d-body-clean-approved.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/source-layers/season1-2d-body-preview-approved.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/source-layers/season1-2d-hour-arm-approved.png",
+      "status": "replaced",
+      "reason": "Superseded pre-root-feather arm copy replaced byte-for-byte by the current runtime layer; visual approval still pending.",
+      "visualReview": "contact-sheet-inspected",
+      "replacementPath": "preview/assets/season1-hour-arm.png",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\delivery\\theme-pack\\source-layers\\season1-2d-hour-arm-approved.png",
+      "visualApproval": "pending-review"
+    },
+    {
+      "path": "delivery/theme-pack/source-layers/season1-2d-minute-arm-approved.png",
+      "status": "replaced",
+      "reason": "Superseded pre-root-feather arm copy replaced byte-for-byte by the current runtime layer; visual approval still pending.",
+      "visualReview": "contact-sheet-inspected",
+      "replacementPath": "preview/assets/season1-minute-arm.png",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\delivery\\theme-pack\\source-layers\\season1-2d-minute-arm-approved.png",
+      "visualApproval": "pending-review"
+    },
+    {
+      "path": "delivery/theme-pack/source-layers/season1-3d-arm-approved.png",
+      "status": "replaced",
+      "reason": "Superseded pre-root-feather arm copy replaced byte-for-byte by the current runtime layer; visual approval still pending.",
+      "visualReview": "contact-sheet-inspected",
+      "replacementPath": "preview/assets/season1-3d-arm.png",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\delivery\\theme-pack\\source-layers\\season1-3d-arm-approved.png",
+      "visualApproval": "pending-review"
+    },
+    {
+      "path": "delivery/theme-pack/source-layers/season1-3d-body-approved.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/2d/home/iphone-16-1179x2556-home.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/2d/home/iphone-16-plus-1290x2796-home.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/2d/home/iphone-16-pro-1206x2622-home.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/2d/home/iphone-16-pro-max-1320x2868-home.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/2d/lock/iphone-16-1179x2556-lock.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/2d/lock/iphone-16-plus-1290x2796-lock.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/2d/lock/iphone-16-pro-1206x2622-lock.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/2d/lock/iphone-16-pro-max-1320x2868-lock.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/3d/home/iphone-16-1179x2556-home.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/3d/home/iphone-16-plus-1290x2796-home.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/3d/home/iphone-16-pro-1206x2622-home.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/3d/home/iphone-16-pro-max-1320x2868-home.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/3d/lock/iphone-16-1179x2556-lock.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/3d/lock/iphone-16-plus-1290x2796-lock.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/3d/lock/iphone-16-pro-1206x2622-lock.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/iphone/3d/lock/iphone-16-pro-max-1320x2868-lock.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/standby/2d/iphone-16-2556x1179-standby.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/standby/2d/iphone-16-plus-2796x1290-standby.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/standby/2d/iphone-16-pro-2622x1206-standby.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/standby/2d/iphone-16-pro-max-2868x1320-standby.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/standby/3d/iphone-16-2556x1179-standby.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/standby/3d/iphone-16-plus-2796x1290-standby.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/standby/3d/iphone-16-pro-2622x1206-standby.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/wallpapers/standby/3d/iphone-16-pro-max-2868x1320-standby.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/2d/series-10-42mm-374x446-time-bottom.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/2d/series-10-42mm-374x446-time-top.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/2d/series-10-46mm-416x496-time-bottom.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/2d/series-10-46mm-416x496-time-top.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/2d/ultra-2-49mm-410x502-time-bottom.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/2d/ultra-2-49mm-410x502-time-top.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/3d/series-10-42mm-374x446-time-bottom.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/3d/series-10-42mm-374x446-time-top.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/3d/series-10-46mm-416x496-time-bottom.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/3d/series-10-46mm-416x496-time-top.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/3d/ultra-2-49mm-410x502-time-bottom.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/watch/photo-faces/3d/ultra-2-49mm-410x502-time-top.png",
+      "status": "pending-review",
+      "reason": "Retained design candidate; visual contact-sheet review found no empty or corrupt media. No current style approval.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/iphone-lock-screen/2d/accessory-circular-228x228@3x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/iphone-lock-screen/2d/accessory-rectangular-516x228@3x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/iphone-lock-screen/3d/accessory-circular-228x228@3x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/iphone-lock-screen/3d/accessory-rectangular-516x228@3x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/iphone/2d/system-large-1092x1146@3x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/iphone/2d/system-medium-1092x510@3x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/iphone/2d/system-small-510x510@3x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/iphone/3d/system-large-1092x1146@3x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/iphone/3d/system-medium-1092x510@3x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/iphone/3d/system-small-510x510@3x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/2d/accessory-circular-45-49mm-100x100@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/2d/accessory-rectangular-full-45-49mm-386x164@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/2d/accessory-rectangular-with-title-45-49mm-357x112@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/2d/smart-stack-41mm-330x145@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/2d/smart-stack-45mm-368x161@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/2d/smart-stack-49mm-382x163@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/3d/accessory-circular-45-49mm-100x100@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/3d/accessory-rectangular-full-45-49mm-386x164@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/3d/accessory-rectangular-with-title-45-49mm-357x112@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/3d/smart-stack-41mm-330x145@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/3d/smart-stack-45mm-368x161@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/3d/smart-stack-49mm-382x163@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "delivery/theme-pack/widgets/watch/template/accessory-circular-template-100x100@2x.png",
+      "status": "pending-review",
+      "reason": "Static candidate artwork; rectangular/circular layouts intentionally crop the character and include placeholder bars. Requires composition review, not a complete interactive widget.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/body/pf_cel-1999_body_armless-base_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/body/pf_cel-1999_body_armless-base_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/arms/pf_cel-1999_arms_hour_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/arms/pf_cel-1999_arms_hour_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/arms/pf_cel-1999_arms_minute_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/arms/pf_cel-1999_arms_minute_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/feet/pf_cel-1999_feet_corrected_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/feet/pf_cel-1999_feet_corrected_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_eyes-alert_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_eyes-alert_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_lids-half_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_lids-half_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/eyes-lids-brows/pf_cel-1999_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/mouths/pf_cel-1999_mouths_neutral_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/mouths/pf_cel-1999_mouths_neutral_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/mouths/pf_cel-1999_mouths_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/mouths/pf_cel-1999_mouths_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/mouths/pf_cel-1999_mouths_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/mouths/pf_cel-1999_mouths_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/clothing/pf_cel-1999_clothing_trunks-classic_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/clothing/pf_cel-1999_clothing_trunks-classic_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/clothing/pf_cel-1999_clothing_sleep-robe_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/clothing/pf_cel-1999_clothing_sleep-robe_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/accessories/pf_cel-1999_accessories_nightcap_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/accessories/pf_cel-1999_accessories_nightcap_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/accessories/pf_cel-1999_accessories_party-hat_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/accessories/pf_cel-1999_accessories_party-hat_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/overlays/pf_cel-1999_overlays_sleep_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/overlays/pf_cel-1999_overlays_sleep_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/overlays/pf_cel-1999_overlays_charging_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/overlays/pf_cel-1999_overlays_charging_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/overlays/pf_cel-1999_overlays_low-battery_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/overlays/pf_cel-1999_overlays_low-battery_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/overlays/pf_cel-1999_overlays_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/overlays/pf_cel-1999_overlays_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/cel-1999/overlays/pf_cel-1999_overlays_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/cel-1999/overlays/pf_cel-1999_overlays_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/body/pf_model-sheet-bw_body_armless-base_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/body/pf_model-sheet-bw_body_armless-base_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/arms/pf_model-sheet-bw_arms_hour_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/arms/pf_model-sheet-bw_arms_hour_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/arms/pf_model-sheet-bw_arms_minute_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/arms/pf_model-sheet-bw_arms_minute_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/feet/pf_model-sheet-bw_feet_corrected_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/feet/pf_model-sheet-bw_feet_corrected_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_eyes-alert_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_eyes-alert_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_lids-half_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_lids-half_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/eyes-lids-brows/pf_model-sheet-bw_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_neutral_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_neutral_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/mouths/pf_model-sheet-bw_mouths_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/clothing/pf_model-sheet-bw_clothing_trunks-classic_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/clothing/pf_model-sheet-bw_clothing_trunks-classic_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/clothing/pf_model-sheet-bw_clothing_sleep-robe_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/clothing/pf_model-sheet-bw_clothing_sleep-robe_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/accessories/pf_model-sheet-bw_accessories_nightcap_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/accessories/pf_model-sheet-bw_accessories_nightcap_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/accessories/pf_model-sheet-bw_accessories_party-hat_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/accessories/pf_model-sheet-bw_accessories_party-hat_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_sleep_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_sleep_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_charging_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_charging_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_low-battery_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_low-battery_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/model-sheet-bw/overlays/pf_model-sheet-bw_overlays_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/body/pf_pen-line_body_armless-base_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/body/pf_pen-line_body_armless-base_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/arms/pf_pen-line_arms_hour_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/arms/pf_pen-line_arms_hour_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/arms/pf_pen-line_arms_minute_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/arms/pf_pen-line_arms_minute_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/feet/pf_pen-line_feet_corrected_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/feet/pf_pen-line_feet_corrected_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_eyes-alert_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_eyes-alert_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_lids-half_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_lids-half_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/eyes-lids-brows/pf_pen-line_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/mouths/pf_pen-line_mouths_neutral_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/mouths/pf_pen-line_mouths_neutral_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/mouths/pf_pen-line_mouths_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/mouths/pf_pen-line_mouths_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/mouths/pf_pen-line_mouths_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/mouths/pf_pen-line_mouths_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/clothing/pf_pen-line_clothing_trunks-classic_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/clothing/pf_pen-line_clothing_trunks-classic_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/clothing/pf_pen-line_clothing_sleep-robe_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/clothing/pf_pen-line_clothing_sleep-robe_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/accessories/pf_pen-line_accessories_nightcap_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/accessories/pf_pen-line_accessories_nightcap_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/accessories/pf_pen-line_accessories_party-hat_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/accessories/pf_pen-line_accessories_party-hat_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/overlays/pf_pen-line_overlays_sleep_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/overlays/pf_pen-line_overlays_sleep_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/overlays/pf_pen-line_overlays_charging_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/overlays/pf_pen-line_overlays_charging_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/overlays/pf_pen-line_overlays_low-battery_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/overlays/pf_pen-line_overlays_low-battery_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/overlays/pf_pen-line_overlays_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/overlays/pf_pen-line_overlays_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/pen-line/overlays/pf_pen-line_overlays_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/pen-line/overlays/pf_pen-line_overlays_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/body/pf_sumi-e_body_armless-base_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/body/pf_sumi-e_body_armless-base_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/arms/pf_sumi-e_arms_hour_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/arms/pf_sumi-e_arms_hour_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/arms/pf_sumi-e_arms_minute_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/arms/pf_sumi-e_arms_minute_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/feet/pf_sumi-e_feet_corrected_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/feet/pf_sumi-e_feet_corrected_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_eyes-alert_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_eyes-alert_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_lids-half_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_lids-half_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/eyes-lids-brows/pf_sumi-e_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/mouths/pf_sumi-e_mouths_neutral_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/mouths/pf_sumi-e_mouths_neutral_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/mouths/pf_sumi-e_mouths_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/mouths/pf_sumi-e_mouths_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/mouths/pf_sumi-e_mouths_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/mouths/pf_sumi-e_mouths_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/clothing/pf_sumi-e_clothing_trunks-classic_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/clothing/pf_sumi-e_clothing_trunks-classic_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/clothing/pf_sumi-e_clothing_sleep-robe_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/clothing/pf_sumi-e_clothing_sleep-robe_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/accessories/pf_sumi-e_accessories_nightcap_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/accessories/pf_sumi-e_accessories_nightcap_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/accessories/pf_sumi-e_accessories_party-hat_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/accessories/pf_sumi-e_accessories_party-hat_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/overlays/pf_sumi-e_overlays_sleep_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/overlays/pf_sumi-e_overlays_sleep_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/overlays/pf_sumi-e_overlays_charging_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/overlays/pf_sumi-e_overlays_charging_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/overlays/pf_sumi-e_overlays_low-battery_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/overlays/pf_sumi-e_overlays_low-battery_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/overlays/pf_sumi-e_overlays_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/overlays/pf_sumi-e_overlays_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/sumi-e/overlays/pf_sumi-e_overlays_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/sumi-e/overlays/pf_sumi-e_overlays_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/body/pf_riso-woodcut_body_armless-base_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/body/pf_riso-woodcut_body_armless-base_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/arms/pf_riso-woodcut_arms_hour_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/arms/pf_riso-woodcut_arms_hour_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/arms/pf_riso-woodcut_arms_minute_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/arms/pf_riso-woodcut_arms_minute_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/feet/pf_riso-woodcut_feet_corrected_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/feet/pf_riso-woodcut_feet_corrected_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_eyes-alert_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_eyes-alert_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_lids-half_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_lids-half_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/eyes-lids-brows/pf_riso-woodcut_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/mouths/pf_riso-woodcut_mouths_neutral_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/mouths/pf_riso-woodcut_mouths_neutral_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/mouths/pf_riso-woodcut_mouths_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/mouths/pf_riso-woodcut_mouths_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/mouths/pf_riso-woodcut_mouths_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/mouths/pf_riso-woodcut_mouths_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/clothing/pf_riso-woodcut_clothing_trunks-classic_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/clothing/pf_riso-woodcut_clothing_trunks-classic_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/clothing/pf_riso-woodcut_clothing_sleep-robe_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/clothing/pf_riso-woodcut_clothing_sleep-robe_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/accessories/pf_riso-woodcut_accessories_nightcap_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/accessories/pf_riso-woodcut_accessories_nightcap_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/accessories/pf_riso-woodcut_accessories_party-hat_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/accessories/pf_riso-woodcut_accessories_party-hat_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/overlays/pf_riso-woodcut_overlays_sleep_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/overlays/pf_riso-woodcut_overlays_sleep_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/overlays/pf_riso-woodcut_overlays_charging_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/overlays/pf_riso-woodcut_overlays_charging_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/overlays/pf_riso-woodcut_overlays_low-battery_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/overlays/pf_riso-woodcut_overlays_low-battery_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/overlays/pf_riso-woodcut_overlays_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/overlays/pf_riso-woodcut_overlays_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/riso-woodcut/overlays/pf_riso-woodcut_overlays_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/riso-woodcut/overlays/pf_riso-woodcut_overlays_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/body/pf_clay-3d_body_armless-base_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/body/pf_clay-3d_body_armless-base_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/arms/pf_clay-3d_arms_hour_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/arms/pf_clay-3d_arms_hour_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/arms/pf_clay-3d_arms_minute_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/arms/pf_clay-3d_arms_minute_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/feet/pf_clay-3d_feet_corrected_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/feet/pf_clay-3d_feet_corrected_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_eyes-sleepy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_eyes-sleepy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_eyes-alert_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_eyes-alert_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_lids-half_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_lids-half_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_brows-annoyed_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/eyes-lids-brows/pf_clay-3d_eyes-lids-brows_brows-annoyed_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/mouths/pf_clay-3d_mouths_neutral_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/mouths/pf_clay-3d_mouths_neutral_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/mouths/pf_clay-3d_mouths_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/mouths/pf_clay-3d_mouths_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/mouths/pf_clay-3d_mouths_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/mouths/pf_clay-3d_mouths_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/clothing/pf_clay-3d_clothing_trunks-classic_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/clothing/pf_clay-3d_clothing_trunks-classic_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/clothing/pf_clay-3d_clothing_sleep-robe_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/clothing/pf_clay-3d_clothing_sleep-robe_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/accessories/pf_clay-3d_accessories_nightcap_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/accessories/pf_clay-3d_accessories_nightcap_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/accessories/pf_clay-3d_accessories_party-hat_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/accessories/pf_clay-3d_accessories_party-hat_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/overlays/pf_clay-3d_overlays_sleep_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/overlays/pf_clay-3d_overlays_sleep_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/overlays/pf_clay-3d_overlays_charging_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/overlays/pf_clay-3d_overlays_charging_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/overlays/pf_clay-3d_overlays_low-battery_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/overlays/pf_clay-3d_overlays_low-battery_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/overlays/pf_clay-3d_overlays_happy_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/overlays/pf_clay-3d_overlays_happy_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-src/clay-3d/overlays/pf_clay-3d_overlays_surprised_src_1024.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/assets-watchos/clay-3d/overlays/pf_clay-3d_overlays_surprised_rt_256.png",
+      "status": "retained",
+      "reason": "Retained only as historical research; six families cannot support required natural acting. Not an approved production animation library.",
+      "visualReview": "inspected-not-suitable",
+      "category": "retired-style-research",
+      "productionUse": false
+    },
+    {
+      "path": "sources/rejected-runtime/pre-root-feather-season1-3d-arm.png",
+      "status": "retained",
+      "category": "historical-rejected-runtime",
+      "reason": "Historical pre-feather, earlier feet, or separate-shoulder rig evidence; excluded from current asset approval. Current runtime replacements exist.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "sources/rejected-runtime/pre-root-feather-season1-hour-arm.png",
+      "status": "retained",
+      "category": "historical-rejected-runtime",
+      "reason": "Historical pre-feather, earlier feet, or separate-shoulder rig evidence; excluded from current asset approval. Current runtime replacements exist.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "sources/rejected-runtime/rejected-separate-shoulder-rig-20260924.png",
+      "status": "retained",
+      "category": "historical-rejected-runtime",
+      "reason": "Historical pre-feather, earlier feet, or separate-shoulder rig evidence; excluded from current asset approval. Current runtime replacements exist.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "sources/rejected-runtime/season1-3d-arm.png",
+      "status": "retained",
+      "category": "historical-rejected-runtime",
+      "reason": "Historical pre-feather, earlier feet, or separate-shoulder rig evidence; excluded from current asset approval. Current runtime replacements exist.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "sources/rejected-runtime/season1-3d-body.png",
+      "status": "retained",
+      "category": "historical-rejected-runtime",
+      "reason": "Historical pre-feather, earlier feet, or separate-shoulder rig evidence; excluded from current asset approval. Current runtime replacements exist.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "sources/rejected-runtime/season1-body-normal.png",
+      "status": "retained",
+      "category": "historical-rejected-runtime",
+      "reason": "Historical pre-feather, earlier feet, or separate-shoulder rig evidence; excluded from current asset approval. Current runtime replacements exist.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "sources/rejected-runtime/season1-hour-arm.png",
+      "status": "retained",
+      "category": "historical-rejected-runtime",
+      "reason": "Historical pre-feather, earlier feet, or separate-shoulder rig evidence; excluded from current asset approval. Current runtime replacements exist.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "sources/rejected-runtime/season1-minute-arm.png",
+      "status": "retained",
+      "category": "historical-rejected-runtime",
+      "reason": "Historical pre-feather, earlier feet, or separate-shoulder rig evidence; excluded from current asset approval. Current runtime replacements exist.",
+      "visualReview": "contact-sheet-inspected"
+    },
+    {
+      "path": "motion-lab/assets/gesture-sprites.svg",
+      "status": "pending-review",
+      "category": "motion-effect-placeholder",
+      "reason": "Six-frame bubble/spark FX atlas is referenced by motion-lab CSS and has valid SVG. It is a playback placeholder, not a complete character gesture or sports animation.",
+      "visualReview": "svg-geometry-and-references-inspected"
+    },
+    {
+      "path": "motion-lab/.playwright-cli/page-2026-09-23T14-13-47-700Z.png",
+      "status": "removed",
+      "category": "qa-screenshot",
+      "reason": "1029x742 RGB screenshot contains exactly one color: every pixel is (255,255,255). It cannot evidence any motion or rendered UI; original console/DOM logs remain.",
+      "technicalStatus": "blank-output",
+      "visualReview": "visually-inspected-and-pixel-verified",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\motion-lab\\.playwright-cli\\page-2026-09-23T14-13-47-700Z.png",
+      "sha256": "d276e4685ee9c2b0ed038e9e16d36accf73d4da65222acecf5ffa886f06bfb4d",
+      "bytes": 3811
+    },
+    {
+      "path": "preview/assets/arm.png",
+      "status": "removed",
+      "category": "retired-runtime-copy",
+      "reason": "Unreferenced legacy runtime copy retired after Swift/JS/HTML/CSS reference scan. Existing candidate source/history retained; current runtime uses season1 layers.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "visualReview": "visually-complete-but-obsolete-runtime",
+      "sha256": "c64114f169217c69627faf489b881857c4441251773ac78e74dbda08bafe324e",
+      "bytes": 406014,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\preview\\assets\\arm.png",
+      "approvalImpact": "None: only the runtime copy was retired."
+    },
+    {
+      "path": "preview/assets/body.png",
+      "status": "removed",
+      "category": "retired-runtime-copy",
+      "reason": "Unreferenced legacy runtime copy retired after Swift/JS/HTML/CSS reference scan. Existing candidate source/history retained; current runtime uses season1 layers.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "visualReview": "visually-complete-but-obsolete-runtime",
+      "sha256": "a94bfce0279373ac1c96f4a121fbcbed8fe67338465a2a24b32f54e174f97737",
+      "bytes": 434607,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\preview\\assets\\body.png",
+      "approvalImpact": "None: only the runtime copy was retired."
+    },
+    {
+      "path": "preview/assets/body-night.png",
+      "status": "removed",
+      "category": "retired-runtime-copy",
+      "reason": "Unreferenced legacy runtime copy retired after Swift/JS/HTML/CSS reference scan. Existing candidate source/history retained; current runtime uses season1 layers.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "visualReview": "visually-complete-but-obsolete-runtime",
+      "sha256": "79a64767d9814072266cfead72f1d5cf59bb58d4961c0b75f22eaa2f68f81adf",
+      "bytes": 460785,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\preview\\assets\\body-night.png",
+      "approvalImpact": "None: only the runtime copy was retired."
+    },
+    {
+      "path": "preview/assets/dial.png",
+      "status": "removed",
+      "category": "retired-runtime-copy",
+      "reason": "Unreferenced legacy runtime copy retired after Swift/JS/HTML/CSS reference scan. Existing candidate source/history retained; current runtime uses season1 layers.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "visualReview": "visually-complete-but-obsolete-runtime",
+      "sha256": "c38b7fd19890cbbeba83dcdffdebeffb7b0c373baa9603b0bb3832302cfe1070",
+      "bytes": 1304804,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\preview\\assets\\dial.png",
+      "approvalImpact": "None: only the runtime copy was retired."
+    },
+    {
+      "path": "preview/assets/icon.png",
+      "status": "removed",
+      "category": "retired-runtime-copy",
+      "reason": "Unreferenced legacy runtime copy retired after Swift/JS/HTML/CSS reference scan. Existing candidate source/history retained; current runtime uses season1 layers. Legacy content was JPEG under a PNG extension.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "visualReview": "visually-complete-but-obsolete-runtime",
+      "sha256": "bd05bf12a30b0a19b98c0ab97fa6f36586661fe19ad98f4eb80e243eb8eb3f55",
+      "bytes": 247351,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\preview\\assets\\icon.png",
+      "approvalImpact": "None: only the runtime copy was retired."
+    },
+    {
+      "path": "preview/assets/wallpaper.png",
+      "status": "removed",
+      "category": "retired-runtime-copy",
+      "reason": "Unreferenced legacy runtime copy retired after Swift/JS/HTML/CSS reference scan. Existing candidate source/history retained; current runtime uses season1 layers. Legacy content was JPEG under a PNG extension.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "visualReview": "visually-complete-but-obsolete-runtime",
+      "sha256": "f59db82f9dd3f2a4f73aa81e29999477a2747df855660923fca1a502defe7a5b",
+      "bytes": 191357,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\preview\\assets\\wallpaper.png",
+      "approvalImpact": "None: only the runtime copy was retired."
+    },
+    {
+      "path": "PatrickFace/Assets.xcassets/arm.imageset/arm.png",
+      "status": "removed",
+      "category": "retired-runtime-copy",
+      "reason": "Retired unused legacy image set; no current Swift image reference. Current season1 image sets remain intact.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "sha256": "9673f1aeb2175aca408ec072078ca793c61efecf32fb0add0b5f648d26731aa5",
+      "bytes": 168558,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\PatrickFace\\Assets.xcassets\\arm.imageset\\arm.png",
+      "userModifiedBeforeRemoval": false
+    },
+    {
+      "path": "PatrickFace/Assets.xcassets/arm.imageset/Contents.json",
+      "status": "removed",
+      "category": "retired-runtime-metadata",
+      "reason": "Retired unused legacy image set; no current Swift image reference. Current season1 image sets remain intact. User-modified working-tree bytes were copied and SHA-verified before deletion, including the prior BOM-related edit; this was not a reset to Git.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "sha256": "17d6ecd1a4ef6637ef2ea2d2a54d0b4a9afdd9a6af7f92dadadc2939316435c0",
+      "bytes": 122,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\PatrickFace\\Assets.xcassets\\arm.imageset\\Contents.json",
+      "userModifiedBeforeRemoval": true
+    },
+    {
+      "path": "PatrickFace/Assets.xcassets/body.imageset/body.png",
+      "status": "removed",
+      "category": "retired-runtime-copy",
+      "reason": "Retired unused legacy image set; no current Swift image reference. Current season1 image sets remain intact.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "sha256": "43cbc22efc7d66c37218a01471ea0182ebef1c83801826d1af2c5ef743138c26",
+      "bytes": 330009,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\PatrickFace\\Assets.xcassets\\body.imageset\\body.png",
+      "userModifiedBeforeRemoval": false
+    },
+    {
+      "path": "PatrickFace/Assets.xcassets/body.imageset/Contents.json",
+      "status": "removed",
+      "category": "retired-runtime-metadata",
+      "reason": "Retired unused legacy image set; no current Swift image reference. Current season1 image sets remain intact. User-modified working-tree bytes were copied and SHA-verified before deletion, including the prior BOM-related edit; this was not a reset to Git.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "sha256": "4bec8297eb8500ac0446e0c73eef55db38c198cac31c92a7ae1dd4335fc6be0d",
+      "bytes": 123,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\PatrickFace\\Assets.xcassets\\body.imageset\\Contents.json",
+      "userModifiedBeforeRemoval": true
+    },
+    {
+      "path": "PatrickFace/Assets.xcassets/body-night.imageset/body-night.png",
+      "status": "removed",
+      "category": "retired-runtime-copy",
+      "reason": "Retired unused legacy image set; no current Swift image reference. Current season1 image sets remain intact.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "sha256": "a0ea8f26a610ced247b019326aa664a8f66b9e7900638f5bc0624a50b6dacb93",
+      "bytes": 307028,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\PatrickFace\\Assets.xcassets\\body-night.imageset\\body-night.png",
+      "userModifiedBeforeRemoval": false
+    },
+    {
+      "path": "PatrickFace/Assets.xcassets/body-night.imageset/Contents.json",
+      "status": "removed",
+      "category": "retired-runtime-metadata",
+      "reason": "Retired unused legacy image set; no current Swift image reference. Current season1 image sets remain intact. User-modified working-tree bytes were copied and SHA-verified before deletion, including the prior BOM-related edit; this was not a reset to Git.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "sha256": "2f22710ecf747fe492d007c346102316fe3ab7e6f60f7f08eca095fe628e53be",
+      "bytes": 129,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\PatrickFace\\Assets.xcassets\\body-night.imageset\\Contents.json",
+      "userModifiedBeforeRemoval": true
+    },
+    {
+      "path": "PatrickFace/Assets.xcassets/dial.imageset/dial.png",
+      "status": "removed",
+      "category": "retired-runtime-copy",
+      "reason": "Retired unused legacy image set; no current Swift image reference. Current season1 image sets remain intact.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "sha256": "53a3a66402b35b38944ddfdc092b49ef8c001a1bbe50ddef5d31761d60951196",
+      "bytes": 1300515,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\PatrickFace\\Assets.xcassets\\dial.imageset\\dial.png",
+      "userModifiedBeforeRemoval": false
+    },
+    {
+      "path": "PatrickFace/Assets.xcassets/dial.imageset/Contents.json",
+      "status": "removed",
+      "category": "retired-runtime-metadata",
+      "reason": "Retired unused legacy image set; no current Swift image reference. Current season1 image sets remain intact. User-modified working-tree bytes were copied and SHA-verified before deletion, including the prior BOM-related edit; this was not a reset to Git.",
+      "technicalStatus": "unreferenced-and-superseded",
+      "sha256": "467d9d41e022bb562b307f7ccb072aafe7a099406d60c4341c67c8047c2923cf",
+      "bytes": 123,
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-assets-20260927\\PatrickFace\\Assets.xcassets\\dial.imageset\\Contents.json",
+      "userModifiedBeforeRemoval": true
+    },
+    {
+      "path": "concepts/2026-09-27/bedtime-cel-v1.png",
+      "status": "retained",
+      "category": "eye-color-error-evidence",
+      "reason": "User flagged blue/purple eye area. Removed from active showcase; static original awaiting a valid edit; atlas replaced by atlas-eyes-v2.png.",
+      "visualReview": "user-requested-revision",
+      "productionUse": false,
+      "lifecycle": "retired-eye-color-error"
+    },
+    {
+      "path": "concepts/2026-09-27/charging-cel-v1.png",
+      "category": "new-scene-concept",
+      "visualReview": "inspected",
+      "status": "pending-review",
+      "technicalStatus": "concept-only",
+      "userFeedback": "本輪正向回饋；並非整體畫風定案或正式素材批准。",
+      "visualApproval": "pending-review",
+      "smallSizeReview": "已檢視220 px及80 px等比縮圖；僅記憶體顯示，未輸出新圖片。",
+      "sha256": "da69bf66f43548c51119f5bf27a21fa6700100b724057db555cf2a485c579984",
+      "bytes": 914160,
+      "reason": "使用者本輪對這批新圖給予正向回饋，保留抱電池充電造型；這不是整體畫風或正式素材批准。角色與坐墊目視完整，220 px及80 px仍可清楚辨識電池/閃電。concept-only：alphaBounds碰到畫布左側與底部，兩邊分別有8及10個非零alpha雜點；正式使用需修邊/清理雜點/拆層，不能直接當動畫或手針素材。",
+      "technicalIssues": [
+        "alphaBounds=[0,45,1222,1286]接觸左側及底部；左緣8、底緣10個非零alpha像素，皆非全不透明。",
+        "泡泡外圍光暈及細碎邊緣需在正式透明素材階段清理；概念圖尚未拆層。"
+      ],
+      "alphaBounds": [
+        0,
+        45,
+        1222,
+        1286
+      ]
+    },
+    {
+      "path": "concepts/2026-09-27/fitness-toon-v1.png",
+      "category": "new-scene-concept",
+      "visualReview": "inspected",
+      "status": "pending-review",
+      "technicalStatus": "concept-only",
+      "userFeedback": "本輪正向回饋；並非整體畫風定案或正式素材批准。",
+      "visualApproval": "pending-review",
+      "smallSizeReview": "已檢視220 px及80 px等比縮圖；僅記憶體顯示，未輸出新圖片。",
+      "sha256": "983e3c03bf9e5bc993499135fed295975425ad46d508db696105014046579bfc",
+      "bytes": 1169088,
+      "reason": "使用者本輪對這批新圖給予正向回饋，保留運動頭帶/毛巾/啞鈴造型；這不是整體畫風或正式素材批准。頭頂、手臂、腳與啞鈴均未裁切且四邊有透明留白；220 px可辨識服飾與道具，80 px仍可辨識運動情境但細節會減少。concept-only：正式使用仍需修邊、拆層與小錶面動態驗證。",
+      "technicalIssues": [
+        "輪廓可見少量白色/彩色去背邊緣；正式素材需修邊。",
+        "單張合成概念圖，尚無可獨立換裝、表情或手臂報時的分層。"
+      ],
+      "alphaBounds": [
+        45,
+        15,
+        1083,
+        1344
+      ]
+    },
+    {
+      "path": "concepts/2026-09-27-wardrobe/after-work.png",
+      "category": "new-scene-concept",
+      "status": "rejected",
+      "technicalStatus": "concept-only",
+      "visualReview": "inspected",
+      "visualApproval": "rejected",
+      "reason": "使用者匯出審稿明確標記此版本 rejected，逐款備註為空；原圖保留作v1比較，需重做。SHA-256、審稿fingerprint及核對時manifest一致。不把設計推測當成使用者逐款原因。",
+      "sha256": "cc95ff57a77a9a71c9696406b9d4ae5e1b5badb19a9224af281273cdb78b0801",
+      "bytes": 1551671,
+      "alphaBounds": [
+        65,
+        55,
+        930,
+        1464
+      ],
+      "technicalIssues": [
+        "彩色光暈仍可見，alpha最大值254；正式透明部件需修邊。"
+      ],
+      "userVerdict": "rejected",
+      "revisionStatus": "needs-redo",
+      "preservation": "retained-for-comparison",
+      "feedbackSource": "feedback/2026-09-27-wardrobe-review.json",
+      "feedbackExportedAt": "2026-09-27T09:34:49.269Z",
+      "reviewedAt": "2026-09-27T09:34:09.177Z",
+      "reviewFingerprint": "concepts/2026-09-27-wardrobe/after-work.png|cc95ff57a77a9a71c9696406b9d4ae5e1b5badb19a9224af281273cdb78b0801|concept-review",
+      "feedbackVersionVerified": true,
+      "userNote": ""
+    },
+    {
+      "path": "concepts/2026-09-27-wardrobe/bath-duck.png",
+      "category": "new-scene-concept",
+      "status": "pending-review",
+      "technicalStatus": "concept-only",
+      "visualReview": "inspected",
+      "visualApproval": "pending-review",
+      "reason": "已檢視生成輸出，保留為不同個性與服裝候選；新圖尚待使用者逐款確認。靜態合成概念，未拆層或製作動畫。",
+      "sha256": "665f065a72174db273e118edbbd5a705e102c07ecd2582c154645027e4e210c0",
+      "bytes": 745799,
+      "alphaBounds": [
+        0,
+        30,
+        1236,
+        1254
+      ],
+      "technicalIssues": [
+        "alpha範圍接觸左側與底部；泡泡周邊雜點需清理。浴缸遮住下身，不能直接用作通用換裝底板。"
+      ]
+    },
+    {
+      "path": "concepts/2026-09-27-wardrobe/detective.png",
+      "category": "new-scene-concept",
+      "status": "pending-review",
+      "technicalStatus": "concept-only",
+      "visualReview": "inspected",
+      "visualApproval": "pending-review",
+      "reason": "已檢視生成輸出，保留為不同個性與服裝候選；新圖尚待使用者逐款確認。靜態合成概念，未拆層或製作動畫。",
+      "sha256": "23f9d971f39a4f2486ca08b372899339141efacdd725eff823e2ad5b6fb0cd48",
+      "bytes": 795835,
+      "alphaBounds": [
+        49,
+        36,
+        1107,
+        1319
+      ],
+      "technicalIssues": [
+        "尚未拆分帽子、放大鏡、表情與身體；需小錶面動態驗證。"
+      ]
+    },
+    {
+      "path": "concepts/2026-09-27-wardrobe/serious-suit.png",
+      "category": "new-scene-concept",
+      "status": "rejected",
+      "technicalStatus": "concept-only",
+      "visualReview": "inspected",
+      "visualApproval": "rejected",
+      "reason": "使用者匯出審稿明確標記此版本 rejected，逐款備註為空；原圖保留作v1比較，需重做。SHA-256、審稿fingerprint及核對時manifest一致。不把設計推測當成使用者逐款原因。",
+      "sha256": "23b5a96cd2c376e0ad5883c8f7f92d8c1201ccd5b2258d82d3c0a9385434a402",
+      "bytes": 694459,
+      "alphaBounds": [
+        49,
+        36,
+        1030,
+        1326
+      ],
+      "technicalIssues": [
+        "眼鏡、衣服、手臂與文件仍合成同一張；需拆層及小錶面動態驗證。"
+      ],
+      "userVerdict": "rejected",
+      "revisionStatus": "needs-redo",
+      "preservation": "retained-for-comparison",
+      "feedbackSource": "feedback/2026-09-27-wardrobe-review.json",
+      "feedbackExportedAt": "2026-09-27T09:34:49.269Z",
+      "reviewedAt": "2026-09-27T09:34:01.146Z",
+      "reviewFingerprint": "concepts/2026-09-27-wardrobe/serious-suit.png|23b5a96cd2c376e0ad5883c8f7f92d8c1201ccd5b2258d82d3c0a9385434a402|concept-review",
+      "feedbackVersionVerified": true,
+      "userNote": ""
+    },
+    {
+      "path": "concepts/2026-09-27-wardrobe/street-confident.png",
+      "category": "new-scene-concept",
+      "status": "rejected",
+      "technicalStatus": "concept-only",
+      "visualReview": "inspected",
+      "visualApproval": "rejected",
+      "reason": "使用者匯出審稿明確標記此版本 rejected，逐款備註為空；原圖保留作v1比較，需重做。SHA-256、審稿fingerprint及核對時manifest一致。不把設計推測當成使用者逐款原因。",
+      "sha256": "9078ffb8d4ce3ecf21a318fe83cea9ff151c8faa21ec9c9d0d7af5363c1487b2",
+      "bytes": 1769401,
+      "alphaBounds": [
+        0,
+        48,
+        972,
+        1488
+      ],
+      "technicalIssues": [
+        "彩色光暈與少量左緣像素，alpha最大值254；正式部件需修邊、檢視手部細節。"
+      ],
+      "userVerdict": "rejected",
+      "revisionStatus": "needs-redo",
+      "preservation": "retained-for-comparison",
+      "feedbackSource": "feedback/2026-09-27-wardrobe-review.json",
+      "feedbackExportedAt": "2026-09-27T09:34:49.269Z",
+      "reviewedAt": "2026-09-27T09:34:14.585Z",
+      "reviewFingerprint": "concepts/2026-09-27-wardrobe/street-confident.png|9078ffb8d4ce3ecf21a318fe83cea9ff151c8faa21ec9c9d0d7af5363c1487b2|concept-review",
+      "feedbackVersionVerified": true,
+      "userNote": ""
+    },
+    {
+      "path": "preview/assets/season1-3d-arm.png",
+      "sha256": "dd7547cbf404ced93954e249938a57266c7c0086a6df7f91b4bb64737a2a0f08",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\assets\\season1-3d-arm.png",
+      "status": "removed",
+      "category": "retired-animation-runtime",
+      "reason": "Rejected animation base: baked face/body or solid rotating arm; not usable for natural acting. Removed after SHA-verified backup.",
+      "technicalStatus": "decode-passed",
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "preview/assets/season1-3d-body.png",
+      "sha256": "1ab704f217c6acbf214ccf30ac48b4edd2e89796d6971207095e3f9df891c606",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\assets\\season1-3d-body.png",
+      "status": "removed",
+      "category": "retired-animation-runtime",
+      "reason": "Rejected animation base: baked face/body or solid rotating arm; not usable for natural acting. Removed after SHA-verified backup.",
+      "technicalStatus": "decode-passed",
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "preview/assets/season1-body-normal.png",
+      "sha256": "8b59d7ebaf45f9b604d1b7a90b489bfd6f12357f6cc8b90d04fe877149e93997",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\assets\\season1-body-normal.png",
+      "status": "removed",
+      "category": "retired-animation-runtime",
+      "reason": "Rejected animation base: baked face/body or solid rotating arm; not usable for natural acting. Removed after SHA-verified backup.",
+      "technicalStatus": "decode-passed",
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "preview/assets/season1-hour-arm.png",
+      "sha256": "d6b5100dc3fb55f073ece241f010644e4454270f07b3ed0877b316b9146077d6",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\assets\\season1-hour-arm.png",
+      "status": "removed",
+      "category": "retired-animation-runtime",
+      "reason": "Rejected animation base: baked face/body or solid rotating arm; not usable for natural acting. Removed after SHA-verified backup.",
+      "technicalStatus": "decode-passed",
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "preview/assets/season1-minute-arm.png",
+      "sha256": "4e5cf2e0e7318a5a78bdcb64dfc75c296abe258c1c43e1bf53a66f7684167fc0",
+      "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\assets\\season1-minute-arm.png",
+      "status": "removed",
+      "category": "retired-animation-runtime",
+      "reason": "Rejected animation base: baked face/body or solid rotating arm; not usable for natural acting. Removed after SHA-verified backup.",
+      "technicalStatus": "decode-passed",
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "animation/yawn-v1/atlas.png",
+      "status": "retained",
+      "category": "eye-color-error-evidence",
+      "reason": "User flagged blue/purple eye area. Removed from active showcase; static original awaiting a valid edit; atlas replaced by atlas-eyes-v2.png.",
+      "visualReview": "user-requested-revision",
+      "productionUse": false,
+      "lifecycle": "retired-eye-color-error"
+    },
+    {
+      "path": "animation/yawn-v1/atlas-eyes-v2.png",
+      "status": "pending-review",
+      "category": "animation-keyframe-rough",
+      "reason": "Eye colors corrected; eight acting keys only, edges, in-betweens and pose consistency need work. Awaiting user review.",
+      "visualReview": "assistant-inspected-user-pending",
+      "productionUse": false
+    },
+    {
+      "path": "style-library/previews/apple-watch-samples.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/contact-sheet-components.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/contact-sheet-families.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/rig-specification.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/style-library-board.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/transparency-proof.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/watch-sample-cel-1999.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/watch-sample-clay-3d.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/watch-sample-model-sheet-bw.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/watch-sample-pen-line.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/watch-sample-riso-woodcut.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    },
+    {
+      "path": "style-library/previews/watch-sample-sumi-e.png",
+      "status": "retained",
+      "category": "retired-style-research",
+      "reason": "Historical preview of retired component families; not a usable natural animation.",
+      "productionUse": false,
+      "visualReview": "inspected-not-suitable"
+    }
+  ]
+}

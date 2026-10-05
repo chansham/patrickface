@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "processedAt": "2026-09-27T09:39:07.492514+00:00",
+  "sourcePath": "<USER_HOME>\\下载\\patrick-wardrobe-review.json",
+  "rawArchive": "feedback/2026-09-27-wardrobe-review.json",
+  "rawSha256": "f746eabe42cc9e138154614ddca67dae0501672a34ac494d04b7d8396f6f71d2",
+  "exportedAt": "2026-09-27T09:34:49.269Z",
+  "scope": "wardrobe concept feedback only",
+  "approvalGranted": false,
+  "manifestSha256AtVerification": "a7a1890e91c0cca7a390e7db95ab2b7d2d92113bf0adda4759b3d8494e9f91a8",
+  "verifiedRejected": [
+    {
+      "id": "serious-suit",
+      "title": "今天很正經",
+      "image": "concepts/2026-09-27-wardrobe/serious-suit.png",
+      "verdict": "rejected",
+      "note": "",
+      "reviewedAt": "2026-09-27T09:34:01.146Z",
+      "fingerprint": "concepts/2026-09-27-wardrobe/serious-suit.png|23b5a96cd2c376e0ad5883c8f7f92d8c1201ccd5b2258d82d3c0a9385434a402|concept-review",
+      "sha256": "23b5a96cd2c376e0ad5883c8f7f92d8c1201ccd5b2258d82d3c0a9385434a402",
+      "checks": {
+        "verdictRejected": true,
+        "noteEmpty": true,
+        "imagePathMatches": true,
+        "snapshotFingerprintMatches": true,
+        "currentFingerprintMatches": true,
+        "currentShaMatches": true,
+        "availableAtReview": true
+      },
+      "nextAction": "redraw-v2",
+      "originalDisposition": "retain-for-comparison"
+    },
+    {
+      "id": "after-work",
+      "title": "今天先到這裡",
+      "image": "concepts/2026-09-27-wardrobe/after-work.png",
+      "verdict": "rejected",
+      "note": "",
+      "reviewedAt": "2026-09-27T09:34:09.177Z",
+      "fingerprint": "concepts/2026-09-27-wardrobe/after-work.png|cc95ff57a77a9a71c9696406b9d4ae5e1b5badb19a9224af281273cdb78b0801|concept-review",
+      "sha256": "cc95ff57a77a9a71c9696406b9d4ae5e1b5badb19a9224af281273cdb78b0801",
+      "checks": {
+        "verdictRejected": true,
+        "noteEmpty": true,
+        "imagePathMatches": true,
+        "snapshotFingerprintMatches": true,
+        "currentFingerprintMatches": true,
+        "currentShaMatches": true,
+        "availableAtReview": true
+      },
+      "nextAction": "redraw-v2",
+      "originalDisposition": "retain-for-comparison"
+    },
+    {
+      "id": "street-confident",
+      "title": "今天我說了算",
+      "image": "concepts/2026-09-27-wardrobe/street-confident.png",
+      "verdict": "rejected",
+      "note": "",
+      "reviewedAt": "2026-09-27T09:34:14.585Z",
+      "fingerprint": "concepts/2026-09-27-wardrobe/street-confident.png|9078ffb8d4ce3ecf21a318fe83cea9ff151c8faa21ec9c9d0d7af5363c1487b2|concept-review",
+      "sha256": "9078ffb8d4ce3ecf21a318fe83cea9ff151c8faa21ec9c9d0d7af5363c1487b2",
+      "checks": {
+        "verdictRejected": true,
+        "noteEmpty": true,
+        "imagePathMatches": true,
+        "snapshotFingerprintMatches": true,
+        "currentFingerprintMatches": true,
+        "currentShaMatches": true,
+        "availableAtReview": true
+      },
+      "nextAction": "redraw-v2",
+      "originalDisposition": "retain-for-comparison"
+    }
+  ],
+  "unreviewedIds": [
+    "charging-cel-v1",
+    "fitness-toon-v1",
+    "bedtime-cel-v1",
+    "mint-striped-pajamas",
+    "navy-moon-robe",
+    "summer-pajamas",
+    "bath-duck",
+    "detective"
+  ],
+  "unreviewedPolicy": "No verdict means no opinion in this export, never implicit like/approval. Earlier verbal positive feedback remains separate evidence.",
+  "generalFeedback": {
+    "source": "本輪聊天需求整理，並非JSON逐款備註或逐字引述",
+    "summary": "部分造型太中規中矩；希望更有趣、更搞怪；不鎖定2D或3D。",
+    "verbatim": false
+  },
+  "designInterpretationIsInference": true
+}

@@ -31,6 +31,9 @@ enum PatrickFaceStatus: String, Codable, Sendable {
     case sleeping
     case lowPower
     case charging
+    case resting
+    case exercise
+    case preview
 
     var complicationLabel: String {
         switch self {
@@ -38,8 +41,65 @@ enum PatrickFaceStatus: String, Codable, Sendable {
         case .sleeping: "REST"
         case .lowPower: "LOW POWER"
         case .charging: "CHARGING"
+        case .resting: "RESTING"
+        case .exercise: "COMPANION"
+        case .preview: "PREVIEW"
         }
     }
+}
+
+/// Local, user-chosen scenes. These describe the pet, not a measured human state.
+enum PatrickPetScene: String, CaseIterable, Identifiable, Hashable, Sendable {
+    case automatic
+    case resting
+    case sleeping
+    case exercise
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .automatic: "依時間陪伴"
+        case .resting: "休息陪伴"
+        case .sleeping: "睡眠陪伴"
+        case .exercise: "運動陪伴"
+        }
+    }
+}
+
+enum PatrickPetRules {
+    static let nightStartsAtMinute = 22 * 60
+    static let nightEndsAtMinute = 5 * 60 + 30
+
+    static func isNight(_ date: Date, calendar: Calendar = .current) -> Bool {
+        let minute = calendar.component(.hour, from: date) * 60
+            + calendar.component(.minute, from: date)
+        return minute >= nightStartsAtMinute || minute < nightEndsAtMinute
+    }
+
+    static func isSleeping(
+        scene: PatrickPetScene,
+        automaticNight: Bool,
+        companionSleep: Bool?,
+        companionPreviewSleeping: Bool
+    ) -> Bool {
+        switch scene {
+        case .sleeping: return true
+        case .resting, .exercise: return false
+        case .automatic:
+            return companionPreviewSleeping || (companionSleep ?? automaticNight)
+        }
+    }
+}
+
+/// Both app and complication use one pivot and the same hand-length ratio.
+enum PatrickClockLayout {
+    static let width = 720.0
+    static let height = 880.0
+    static let hubX = 360.0
+    static let hubY = 498.0
+    static let hourLength = 250.0
+    static let minuteLength = 340.0
 }
 
 struct PatrickSharedState: Equatable, Sendable {

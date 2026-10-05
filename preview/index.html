@@ -1,41 +1,39 @@
 <!doctype html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>派大星動態 OLED 錶盤</title>
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-<body>
-  <main>
-    <h1>派大星動態 OLED</h1>
-    <p class="status" id="status">正在載入分層素材</p>
-
-    <div class="watch">
-      <div class="screen">
-        <canvas id="face" width="720" height="880" aria-label="派大星動態 Apple Watch 錶盤"></canvas>
-      </div>
-    </div>
-
-    <div class="controls">
-      <button id="theme-cel" class="active">第一季 2D</button>
-      <button id="theme-toon3d">第一季 Toon 3D</button>
-      <button id="gesture">揮手</button>
-      <button id="return-test">回位測試</button>
-    </div>
-    <div class="states">
-      <button id="sleep">睡眠</button>
-      <button id="low-battery">低電量</button>
-      <button id="charging">充電</button>
-    </div>
-
-    <p class="hint">
-      雙臂共用同一中心軸，持續顯示真正時、分；每 12 秒只增加短暫角度偏移並精確回位。<br />
-      點擊錶面會跳起並觸發震動接口。
-    </p>
-    <span class="test" id="test-result">MOTION TEST READY</span>
-  </main>
-
-  <script type="module" src="./app.js?v=arm-hands-1"></script>
-</body>
-</html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#18151e"><link rel="icon" href="data:,"><title>派大星 · 每一天的小動作</title><link rel="stylesheet" href="./styles.css?v=20260927-experience2"></head>
+<body><main>
+<header><a class="wordmark" href="../">PATRICK / 小小日常</a><nav><a id="candidate-link" href="./?review=candidates">待修動畫審稿 ↗</a><a href="../wardrobe/">造型衣櫥 ↗</a><a href="../review/">素材審稿</a></nav></header>
+<section class="intro"><p class="eyebrow">眨眨眼，再陪你過一天</p><h1>小動作，有自己的時候。</h1><p id="intro-description">平常偶爾眨眼；打哈欠、吃東西、摸摸頭，各自演完就停。</p><p id="catalog-summary" class="catalog-summary">正在核對目前可試的畫稿…</p></section>
+<aside id="candidate-banner" class="candidate-banner" hidden role="note"><strong>待修動畫審稿｜非正式播放素材</strong><p>這些畫稿已生成，但仍有已知問題。只供手動播放、逐格比較與留意見，不會觸發日常事件。</p><a href="./">返回日常預覽 ↗</a></aside>
+<div class="workspace">
+<section class="stage" aria-label="同步手錶動畫預覽">
+<div class="stage-heading"><span id="clip-title">正在讀取動作…</span><span class="draft" id="clip-state">逐幀畫稿</span></div>
+<div class="viewports">
+<div class="watch-view enlarged"><div class="watch"><div class="screen"><canvas class="ambience-canvas" id="ambience-large" width="832" height="992" aria-hidden="true"></canvas><div class="companion-speech" id="watch-speech" hidden></div><canvas id="face" width="832" height="992" role="button" tabindex="0" aria-label="播放目前動作"></canvas><time id="digital-time" data-clock class="digital-time">--:--</time><span id="watch-date" data-watch-date class="watch-date"></span><div class="safe-area" aria-hidden="true"></div><div class="baseline" aria-hidden="true"></div></div></div><p class="viewport-label">放大檢視 <span>416 : 496</span></p></div>
+<div class="watch-view wrist"><div class="watch"><div class="screen"><canvas class="ambience-canvas" id="ambience-small" width="832" height="992" aria-hidden="true"></canvas><canvas id="wrist-face" width="832" height="992" aria-label="200 像素腕上尺度，同步顯示目前畫格"></canvas><time data-clock class="digital-time">--:--</time><span data-watch-date class="watch-date"></span><div class="safe-area" aria-hidden="true"></div><div class="baseline" aria-hidden="true"></div></div></div><p class="viewport-label">200 px 腕上尺度<span>畫格完全同步；實際大小依螢幕而異</span></p></div>
+</div>
+<p class="status" id="status" role="status">正在載入動作畫稿…</p>
+<div id="preview-recovery" class="recovery" hidden role="alert"><p id="recovery-message">角色載入失敗。時間仍會顯示；重試會保留審稿意見。</p><button id="retry-preview">重新載入角色</button></div>
+<div class="actions"><button id="play" class="primary" data-ready>播放一次 ↗</button><button id="pause" data-ready disabled>暫停</button></div><progress id="progress" max="1" value="0" aria-label="動作播放進度"></progress>
+<p class="hint" id="play-hint">每段播完停住，不連續循環。</p><p class="reduced" id="reduced-note" hidden>目前維持靜態；播放鍵改為逐格前進。</p>
+<div class="scene-picker"><label for="scene">現在陪你做什麼<select id="scene" data-ready><option value="auto">跟著時間</option><option value="sleeping">睡前</option><option value="awake">日常</option><option value="charging">充電</option><option value="exercise">運動</option><option value="focus">專心</option><option value="bath">洗澡</option><option value="celebrate">節日</option></select></label><p id="scene-explanation" class="muted"></p><p id="missing-actions" class="missing" hidden></p></div>
+<div class="interactions"><button id="pet" data-ready>摸摸頭</button><button id="feed" data-ready>餵一口</button></div>
+<div class="idle-control"><label><input id="auto-idle" type="checkbox" checked data-ready> 偶爾眨眼</label><button id="resume-idle" data-ready hidden>繼續日常陪伴</button><p id="idle-status" role="status">待機動作每隔 10–22 秒才會出現。</p></div>
+<details class="settings"><summary>檢視與情境日期</summary><div class="settings-grid"><label><input id="wrist-down" type="checkbox" data-ready> 模擬腕下</label><label><input id="low-power" type="checkbox" data-ready> 省電呈現</label><label><input id="show-guides" type="checkbox" checked data-ready> 顯示安全邊界</label></div><label for="scene-date">節日小劇場日期 <input id="scene-date" type="date" data-ready></label><p class="hint left" id="date-status">日期只改變節日小劇場；時間和計時仍照常。</p></details>
+</section>
+<section id="experience-panel" class="experience-panel" hidden aria-label="我的小小日常">
+<div class="experience-heading"><span class="eyebrow">MY LITTLE COMPANION</span><h2>今天，想怎麼一起過？</h2><p id="companion-line" role="status">待著也很好。想玩時就摸摸我。</p></div>
+<div class="experience-tabs" role="tablist" aria-label="日常功能"><button role="tab" data-experience-tab="care" aria-selected="true">照顧</button><button role="tab" data-experience-tab="outfits" aria-selected="false">衣櫥</button><button role="tab" data-experience-tab="timer" aria-selected="false">陪伴</button><button role="tab" data-experience-tab="journal" aria-selected="false">日記</button></div>
+<section data-experience-panel="care"><div class="care-cards"><div><span>肚子</span><strong id="care-satiety">60%</strong><progress id="satiety-meter" max="100" value="60"></progress></div><div><span>熟悉度</span><strong id="care-bond">0</strong><progress id="bond-meter" max="100" value="0"></progress></div></div><p id="care-counts" class="muted"></p><p class="hint left">這是我們的小遊戲紀錄；想照顧時再來，不會責怪你。</p><label for="mood">今天心情<select id="mood" data-ready><option value="">先不說</option><option value="happy">開心</option><option value="calm">平靜</option><option value="serious">認真</option><option value="tired">疲倦</option><option value="grumpy">鬧脾氣</option><option value="low">低落</option></select></label><div class="care-extras"><button id="little-surprise" data-ready>找個小驚喜 ✦</button><span class="hint">也可以連摸三下，看看他的反應。</span></div></section>
+<section data-experience-panel="outfits" hidden><p class="muted">自己選一套，或讓造型跟著情境。自己選的衣服會保留；跟隨情境時，也會為小點心換上廚師服。</p><div id="outfit-grid" class="outfit-grid"></div><p id="outfit-description" class="muted"></p></section>
+<section data-experience-panel="timer" hidden><div class="timer-presets"><button id="focus-timer" data-ready>專心 25 分鐘</button><button id="exercise-timer" data-ready>運動 5 分鐘</button><button id="breath-timer" data-ready>呼吸 1 分鐘</button></div><label for="activity-kind">一起做<select id="activity-kind" data-ready><option value="focus">專心</option><option value="exercise">運動陪伴</option><option value="breathing">呼吸</option></select></label><label for="activity-minutes">時間（分鐘）<input id="activity-minutes" type="number" min="0.1667" max="120" step="any" value="25" data-ready></label><div class="activity-display"><output id="timer-status" aria-live="off">準備好就開始。</output><div id="breath-guide" class="breath-guide" hidden><span id="breath-phase">一起慢慢呼吸</span></div><progress id="activity-progress" max="1" value="0"></progress></div><div class="timer-controls"><button id="start-activity" class="primary" data-ready>開始陪伴</button><button id="pause-activity" data-ready disabled>暫停</button><button id="resume-activity" data-ready hidden>繼續</button><button id="stop-timer" data-ready disabled>結束</button></div><p class="hint left">手動計時陪伴。暫停會保留剩餘時間；沒有記錄步數、心率或運動量。</p></section>
+<section data-experience-panel="journal" hidden><p class="muted">換過的衣服、餵過的一口和一起完成的事。</p><ol id="local-journal" class="local-journal"></ol><button id="export-journal" data-ready>保存這些小日子 ↓</button><p class="hint left">紀錄存在這個瀏覽器。</p></section>
+<details class="experience-settings"><summary>偏好與小聲提醒</summary><div class="preferences-grid"><label><input id="sound-enabled" type="checkbox" data-ready> 互動聲音</label><label><input id="haptics-enabled" type="checkbox" data-ready> 輕震回應</label><label><input id="ambience-enabled" type="checkbox" data-ready checked> 情境小道具</label><label><input id="date-enabled" type="checkbox" data-ready checked> 顯示日期</label></div><label for="time-format">時間格式<select id="time-format" data-ready><option value="24">24 小時</option><option value="12">12 小時</option></select></label><label for="clock-mode">時鐘樣式<select id="clock-mode" data-ready><option value="digital">數字時間</option><option value="arms">原味手臂時計 · 試稿</option></select></label><p id="clock-mode-status" class="hint left"></p><button id="test-sound" data-ready>試聽一聲</button><p id="sound-status" class="hint left">預設不播聲音。打開後，先按一下互動才會回應。</p><div class="preferences-grid"><label for="sleep-start">睡前開始<input id="sleep-start" type="time" value="22:00" data-ready></label><label for="sleep-end">早上開始<input id="sleep-end" type="time" value="06:00" data-ready></label></div><p class="hint left">只在「跟著時間」時自動換情境；起訖相同則不自動進睡前。</p><label><input id="holidays-enabled" type="checkbox" checked data-ready> 節日小驚喜</label><label for="birthday">生日（月-日）<input id="birthday" placeholder="例如 09-27" maxlength="5" data-ready></label></details>
+<button id="toggle-review" class="review-toggle" data-ready>逐格看動作與留意見 ↗</button><p id="experience-save-status" class="hint left" role="status"></p>
+</section>
+<section class="editing" aria-label="逐格檢視與審稿">
+<div class="panel"><span class="eyebrow">01 / 選一段小動作</span><div id="candidate-filters" class="candidate-filters" hidden><div id="candidate-filter-buttons" role="group" aria-label="候選動作分類"></div><p id="candidate-filter-summary" class="muted" role="status"></p></div><label for="clip-select">動作畫稿<select id="clip-select" data-ready></select></label><p class="muted" id="clip-description"></p><div class="panel-title"><span class="eyebrow">每格使用同一尺寸與位置</span><output id="frame-count">—</output></div><div id="frames" class="frames" role="group" aria-label="動作畫格"></div><div class="step-controls"><button id="previous-frame" data-ready>← 上一格</button><button id="next-frame" data-ready>下一格 →</button></div><label for="speed">播放速度<select id="speed" data-ready><option value="1">正常</option><option value="0.5">慢一點 · ½ 倍</option></select></label><p class="hint left">點畫格、換稿或寫意見後，自動待機會暫停，方便仔細比較。</p></div>
+<div class="panel review-panel"><span class="eyebrow">02 / 留下這一段的意見</span><h2>動作，還是造型？</h2><div class="review-filters" role="group" aria-label="意見分類"><button data-review-scope="action" aria-pressed="true" data-ready>看動作</button><button data-review-scope="outfit" aria-pressed="false" data-ready>看造型</button></div><p class="muted" id="review-prompt">看表情、姿勢、節奏和收尾。</p><label for="verdict"><span>第 <span id="review-frame">1</span> 格</span><select id="verdict" data-ready><option value="">還沒決定</option><option value="liked">這格喜歡</option><option value="revise">這格要修改</option><option value="rejected">這格不要</option></select></label><label for="review-note">這個分類的整段意見<textarea id="review-note" data-ready rows="3" maxlength="8000" placeholder="例如：哈欠張嘴的節奏太快；第 5 格帽子突然變小。"></textarea></label><div class="review-bottom"><span id="save-status" role="status">意見只存在這個瀏覽器。</span><button id="export-review" data-ready>匯出所有意見 ↓</button></div><p class="revision" id="review-revision"></p></div>
+<div class="scope"><span class="eyebrow">這一輪看的重點</span><p>角色的表情與姿勢來自不同畫格。兩個視窗共用同一格、同一位置；細線標示角色安全區與底線。</p><p>有畫稿才會播放；待補動作會明列。這是網頁試演，Apple Watch 原生移植與真機檢視另行完成。</p></div>
+</section></div><footer>數字時間獨立運作 · 每組動作各自審稿 · 舊審稿紀錄保留</footer>
+</main><script src="./boot.js?v=20260927-experience2" defer></script></body></html>

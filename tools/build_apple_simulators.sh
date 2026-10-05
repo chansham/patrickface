@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# Manual compile check only. No signing, export, upload or device installation. Includes pure-logic tests.
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+WATCH_PROJECT="$ROOT/PatrickFace.xcodeproj"
+PHONE_WORKSPACE="$ROOT/iOSCompanion/PatrickFaceSuite.xcworkspace"
+
+if [[ "$(uname -s)" != "Darwin" ]]; then
+  echo "This check requires macOS with Xcode and Apple Simulator SDKs." >&2
+  exit 1
+fi
+for tool in xcodebuild xcode-select xcrun python3; do
+  if ! command -v "$tool" >/dev/null 2>&1; then
+    echo "Required tool is unavailable: $tool" >&2
+    exit 1
+  fi
+done
+
+# Use the selected Xcode. Do not assume a version or install new runtimes.
+xcode-select -p
+xcodebuild -version
+xcodebuild -showsdks
+xcrun --sdk watchsimulator --show-sdk-path
+xcrun --sdk iphonesimulator --show-sdk-path
+
+require_scheme() {
+  local container_type="$1"
+  local container_path="$2"
+  local scheme="$3"
+  xcodebuild "$container_type" "$container_path" -list -json |
+    python3 -c '
+import json
+import sys
+data = json.load(sys.stdin)
+container = data.get("workspace", data.get("project", {}))
+schemes = container.get("schemes", [])
+expected = sys.argv[1]
+print("Available schemes: " + ", ".join(schemes))
+if expected not in schemes:
+    sys.exit("Required shared scheme is missing: " + expected)
+' "$scheme"
+}
+
+require_scheme -project "$WATCH_PROJECT" PatrickFace
+require_scheme -workspace "$PHONE_WORKSPACE" PatrickCompanion
+
+DERIVED_ROOT="$(mktemp -d "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/patrick-simulator-build.XXXXXX")"
+echo "Simulator build data: $DERIVED_ROOT"
+
+xcrun swiftc "$ROOT/PatrickFace/PatrickShared.swift" "$ROOT/tools/NativeRulesChecks.swift" -o "$DERIVED_ROOT/native-rules"
+"$DERIVED_ROOT/native-rules"
+xcrun swiftc "$ROOT/PatrickFace/PatrickAnimationCatalog.swift" "$ROOT/PatrickFace/PatrickAnimationPolicy.swift" "$ROOT/tools/NativeAnimationChecks.swift" -o "$DERIVED_ROOT/native-animation"
+"$DERIVED_ROOT/native-animation" "$ROOT/animation/catalog.json"
+xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickExperience.swift" "$ROOT/tools/NativeExperienceChecks.swift" -o "$DERIVED_ROOT/native-experience"
+"$DERIVED_ROOT/native-experience" "$ROOT/experience/themes.json" "$ROOT/experience/calendar.json"
+
+
+xcodebuild \
+  -project "$WATCH_PROJECT" \
+  -scheme PatrickFace \
+  -configuration Debug \
+  -destination 'generic/platform=watchOS Simulator' \
+  -derivedDataPath "$DERIVED_ROOT/watch" \
+  CODE_SIGNING_ALLOWED=NO \
+  CODE_SIGNING_REQUIRED=NO \
+  CODE_SIGN_IDENTITY= \
+  DEVELOPMENT_TEAM= \
+  build
+
+xcodebuild \
+  -workspace "$PHONE_WORKSPACE" \
+  -scheme PatrickCompanion \
+  -configuration Debug \
+  -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath "$DERIVED_ROOT/phone" \
+  CODE_SIGNING_ALLOWED=NO \
+  CODE_SIGNING_REQUIRED=NO \
+  CODE_SIGN_IDENTITY= \
+  DEVELOPMENT_TEAM= \
+  build
+
+python3 "$ROOT/tools/check_apple_bundle.py" "$DERIVED_ROOT/phone/Build/Products/Debug-iphonesimulator/PatrickCompanion.app"
+# Compile XCTest target too, without booting a device or downloading a runtime.
+xcodebuild -workspace "$PHONE_WORKSPACE" -scheme PatrickCompanion -configuration Debug \
+  -destination 'generic/platform=iOS Simulator' -derivedDataPath "$DERIVED_ROOT/phone" \
+  CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY= DEVELOPMENT_TEAM= build-for-testing
+
+echo "Unsigned simulator builds, native pure-logic tests and embedded bundle checks completed. XCTest was compiled but not run. No signed package was produced."

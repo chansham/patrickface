@@ -1,0 +1,11 @@
+# Asset manifests and contour maps are verified by SHA of their exact bytes.
+# Preserve their bytes across Windows, macOS and GitHub checkouts.
+*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.wav binary
+*.aiff binary
+
+# Apple build scripts must be executable by bash on a macOS runner.
+*.sh text eol=lf

@@ -1,0 +1,12 @@
+{
+  "teamID": "REPLACE_WITH_YOUR_10_CHARACTER_TEAM_ID",
+  "signingCertificate": "Apple Distribution",
+  "method": "app-store-connect",
+  "testFlightInternalTestingOnly": true,
+  "profiles": {
+    "com.chans.patrickface.companion": "YOUR_IPHONE_PROFILE_NAME",
+    "com.chans.patrickface.companion.widgets": "YOUR_WIDGET_PROFILE_NAME",
+    "com.chans.patrickface.companion.watchkitapp": "YOUR_WATCH_HEALTHKIT_PROFILE_NAME",
+    "com.chans.patrickface.companion.watchkitapp.complications": "YOUR_WATCH_WIDGET_PROFILE_NAME"
+  }
+}

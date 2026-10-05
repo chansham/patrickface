@@ -10,6 +10,43 @@ Both hour and minute arms share one transparent layout so they meet at one hub:
 
 from __future__ import annotations
 
+
+# Retirement guard: this runs before image libraries or filesystem setup.
+# The implementation below is preserved as historical source evidence only.
+# It cannot be executed or imported to recreate obsolete runtime artwork.
+import argparse as _retired_argparse
+import json as _retired_json
+
+_RETIRED_MESSAGE = (
+    "The historical clock-hand generator is retired. "
+    "It cannot rebuild or overwrite assets, including custom output paths. "
+    "Retained artwork is historical research, not approval of the new "
+    "expression/pose animation. Use --status to inspect this state."
+)
+
+
+def _retired_entrypoint() -> None:
+    parser = _retired_argparse.ArgumentParser(description=_RETIRED_MESSAGE)
+    parser.add_argument("--status", action="store_true", help="Print retirement metadata without writing files.")
+    args, unsupported = parser.parse_known_args()
+    if not args.status or unsupported:
+        parser.error(_RETIRED_MESSAGE)
+    print(_retired_json.dumps({
+        "lifecycle": "retired-clock-hand-generator",
+        "retiredAt": "2026-09-27",
+        "generationEnabled": False,
+        "currentApproval": False,
+        "newAnimationIntegrated": False,
+        "message": _RETIRED_MESSAGE,
+    }, indent=2))
+
+
+if __name__ == "__main__":
+    _retired_entrypoint()
+    raise SystemExit(0)
+raise RuntimeError(_RETIRED_MESSAGE)
+
+
 import shutil
 from collections import deque
 from pathlib import Path

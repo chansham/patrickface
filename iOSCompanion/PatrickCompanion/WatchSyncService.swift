@@ -63,6 +63,7 @@ final class WatchSyncService: NSObject, ObservableObject {
     private let store: PatrickSharedStore
     private var session: WCSession?
     private var demoMode = false
+    private var pendingDeliveries: [(PatrickMessageEnvelope, PatrickMessageEnvelope?)] = []
 
     init(store: PatrickSharedStore = .shared) {
         self.store = store
@@ -140,6 +141,13 @@ final class WatchSyncService: NSObject, ObservableObject {
             return
         }
 
+        guard session.activationState == .activated else {
+            pendingDeliveries.append((envelope, contextEnvelope))
+            pendingDeliveries = Array(pendingDeliveries.suffix(20))
+            linkState = .activating
+            return
+        }
+
         if let contextEnvelope {
             do {
                 try session.updateApplicationContext([
@@ -211,15 +219,29 @@ final class WatchSyncService: NSObject, ObservableObject {
 
             lastDeliveryAt = .now
             if let settings = envelope.settings {
-                store.saveSettings(settings)
-                onSettingsReceived?(settings)
+                // The model merges by revision/experience timestamp before persisting.
+                if let onSettingsReceived { onSettingsReceived(settings) }
+                else {
+                    var merged = store.loadSettings()
+                    let localExperience = store.loadExperience()
+                    if settings.revision >= merged.revision { merged = settings }
+                    merged.experience = settings.experience.flatMap { $0.isNewer(than: localExperience) ? $0 : nil } ?? localExperience
+                    store.saveSettings(merged)
+                    if let experience = merged.experience { store.saveExperience(experience) }
+                }
             }
             if let timer = envelope.timer {
-                store.saveTimer(timer)
-                onTimerReceived?(timer)
+                let effective = PatrickTimerSnapshot.resolving(timer, experience: store.loadExperience())
+                store.saveTimer(effective)
+                onTimerReceived?(effective)
             }
             if let command = envelope.command {
-                onCommandReceived?(command)
+                var current = command
+                let expired = abs(envelope.sentAt.timeIntervalSinceNow) > 120
+                if expired {
+                    current.careAction = nil
+                }
+                if !(expired && (command.name == .playThemeSound || command.name == .openWatchFace)) { onCommandReceived?(current) }
             }
 
             return try? PatrickMessageEnvelope.acknowledgement(
@@ -300,6 +322,10 @@ extension WatchSyncService: WCSessionDelegate {
                 self?.linkState = .failed(error.localizedDescription)
             } else {
                 self?.refreshLinkState()
+                if activationState == .activated, let self {
+                    let pending = self.pendingDeliveries; self.pendingDeliveries = []
+                    for (envelope, context) in pending { self.deliver(envelope, updateContextWith: context) }
+                }
             }
         }
     }

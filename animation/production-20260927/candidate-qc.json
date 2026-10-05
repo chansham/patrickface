@@ -1,0 +1,5254 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-27T12:43:15.967716+00:00",
+  "purpose": "Candidate QC only; no source art edits, acceptance, catalog insertion, native sync, or auto-fit",
+  "ledger": {
+    "path": "animation/production-20260927/generation-ledger.json",
+    "sha256": "fab184fc8eaf241da6c2d3b11974f4f09577003b2e8861253a31ffc6ecc9b9b1",
+    "jobCount": 12,
+    "statusCounts": {
+      "generated-pending-quality": 5,
+      "generation-failed": 7
+    }
+  },
+  "method": {
+    "gridInspection": "Fixed source cells. Fractional sourceRect is authoritative; floor partition inspectionRect is diagnostic only.",
+    "alphaThresholds": [
+      1,
+      16,
+      128
+    ],
+    "componentInspection": "4-connected alpha>=128 components >=10000 pixels across whole atlas. Diagnostic only: parts/accessories may split; no automatic character recognition.",
+    "limitations": [
+      "bbox change can be intentional pose or prop motion",
+      "boundary presence can include neighboring frame; never an instruction to per-frame auto-fit",
+      "technical decoding and generated output are not art approval",
+      "small-size alpha composite inspection is not full-resolution or motion acceptance"
+    ]
+  },
+  "items": [
+    {
+      "id": "yawn-v3",
+      "jobId": "yawn16",
+      "path": "animation/yawn-v3/atlas-generated.png",
+      "sha256": "5a2d1def5ee4ab2440cccde0ff10ca01b59926fb569fcce16701129ed4a90798",
+      "bytes": 1878008,
+      "width": 1275,
+      "height": 1234,
+      "mode": "RGBA",
+      "format": "PNG",
+      "columns": 4,
+      "rows": 4,
+      "sourceCellWidth": 318.75,
+      "sourceCellHeight": 308.5,
+      "cellAspect": 1.03322528363047,
+      "frameCount": 16,
+      "catalogEligible": false,
+      "productionStatus": "hold-for-rework-or-review",
+      "userApproval": "not-recorded-for-this-candidate",
+      "visualReview": "inspected",
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "zeroPixels": 745570,
+        "partialPixels": 824405,
+        "opaquePixels": 3375,
+        "totalPixels": 1573350,
+        "zeroPercent": 47.3874,
+        "cornerRGBA": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "framesTouchingAtAlpha128": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "largeComponentsAtAlpha128": [
+        {
+          "bbox": [
+            35,
+            10,
+            287,
+            309
+          ],
+          "width": 252,
+          "height": 299,
+          "pixelCount": 46257
+        },
+        {
+          "bbox": [
+            354,
+            10,
+            603,
+            308
+          ],
+          "width": 249,
+          "height": 298,
+          "pixelCount": 46424
+        },
+        {
+          "bbox": [
+            677,
+            10,
+            924,
+            309
+          ],
+          "width": 247,
+          "height": 299,
+          "pixelCount": 46577
+        },
+        {
+          "bbox": [
+            1005,
+            11,
+            1248,
+            309
+          ],
+          "width": 243,
+          "height": 298,
+          "pixelCount": 46874
+        },
+        {
+          "bbox": [
+            37,
+            316,
+            282,
+            619
+          ],
+          "width": 245,
+          "height": 303,
+          "pixelCount": 46865
+        },
+        {
+          "bbox": [
+            358,
+            315,
+            609,
+            619
+          ],
+          "width": 251,
+          "height": 304,
+          "pixelCount": 48058
+        },
+        {
+          "bbox": [
+            680,
+            316,
+            933,
+            620
+          ],
+          "width": 253,
+          "height": 304,
+          "pixelCount": 47911
+        },
+        {
+          "bbox": [
+            1004,
+            315,
+            1251,
+            619
+          ],
+          "width": 247,
+          "height": 304,
+          "pixelCount": 48507
+        },
+        {
+          "bbox": [
+            36,
+            620,
+            294,
+            927
+          ],
+          "width": 258,
+          "height": 307,
+          "pixelCount": 52104
+        },
+        {
+          "bbox": [
+            365,
+            624,
+            612,
+            927
+          ],
+          "width": 247,
+          "height": 303,
+          "pixelCount": 48349
+        },
+        {
+          "bbox": [
+            677,
+            627,
+            934,
+            927
+          ],
+          "width": 257,
+          "height": 300,
+          "pixelCount": 48472
+        },
+        {
+          "bbox": [
+            1002,
+            626,
+            1252,
+            927
+          ],
+          "width": 250,
+          "height": 301,
+          "pixelCount": 47669
+        },
+        {
+          "bbox": [
+            35,
+            931,
+            287,
+            1225
+          ],
+          "width": 252,
+          "height": 294,
+          "pixelCount": 46151
+        },
+        {
+          "bbox": [
+            356,
+            931,
+            606,
+            1226
+          ],
+          "width": 250,
+          "height": 295,
+          "pixelCount": 46266
+        },
+        {
+          "bbox": [
+            677,
+            931,
+            923,
+            1226
+          ],
+          "width": 246,
+          "height": 295,
+          "pixelCount": 46442
+        },
+        {
+          "bbox": [
+            997,
+            932,
+            1247,
+            1226
+          ],
+          "width": 250,
+          "height": 294,
+          "pixelCount": 46207
+        }
+      ],
+      "cells": [
+        {
+          "frame": 1,
+          "sourceRect": [
+            0.0,
+            0.0,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            0,
+            0,
+            318,
+            308
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                31,
+                0,
+                291,
+                308
+              ],
+              "pixelCount": 49676,
+              "edgePixelCounts": {
+                "top": 4,
+                "bottom": 77,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                34,
+                10,
+                288,
+                308
+              ],
+              "pixelCount": 47016,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 54,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                35,
+                10,
+                287,
+                308
+              ],
+              "pixelCount": 46238,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 43,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "sourceRect": [
+            318.75,
+            0.0,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            318,
+            0,
+            637,
+            308
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                20,
+                0,
+                312,
+                308
+              ],
+              "pixelCount": 50641,
+              "edgePixelCounts": {
+                "top": 7,
+                "bottom": 69,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                35,
+                9,
+                286,
+                308
+              ],
+              "pixelCount": 47206,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 48,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                36,
+                10,
+                285,
+                308
+              ],
+              "pixelCount": 46424,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 34,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "sourceRect": [
+            637.5,
+            0.0,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            637,
+            0,
+            956,
+            308
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                26,
+                0,
+                311,
+                308
+              ],
+              "pixelCount": 50572,
+              "edgePixelCounts": {
+                "top": 37,
+                "bottom": 78,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                39,
+                9,
+                287,
+                308
+              ],
+              "pixelCount": 47330,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 53,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                40,
+                10,
+                287,
+                308
+              ],
+              "pixelCount": 46557,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 41,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 4,
+          "sourceRect": [
+            956.25,
+            0.0,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            956,
+            0,
+            1275,
+            308
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                45,
+                1,
+                295,
+                308
+              ],
+              "pixelCount": 50815,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 77,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                48,
+                10,
+                292,
+                308
+              ],
+              "pixelCount": 47678,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 54,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                49,
+                11,
+                292,
+                308
+              ],
+              "pixelCount": 46854,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 42,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 5,
+          "sourceRect": [
+            0.0,
+            308.5,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            0,
+            308,
+            318,
+            617
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                34,
+                0,
+                287,
+                309
+              ],
+              "pixelCount": 50723,
+              "edgePixelCounts": {
+                "top": 56,
+                "bottom": 122,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                36,
+                0,
+                282,
+                309
+              ],
+              "pixelCount": 47656,
+              "edgePixelCounts": {
+                "top": 41,
+                "bottom": 64,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                37,
+                0,
+                282,
+                309
+              ],
+              "pixelCount": 46826,
+              "edgePixelCounts": {
+                "top": 19,
+                "bottom": 55,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 6,
+          "sourceRect": [
+            318.75,
+            308.5,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            318,
+            308,
+            637,
+            617
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                37,
+                0,
+                294,
+                309
+              ],
+              "pixelCount": 52022,
+              "edgePixelCounts": {
+                "top": 56,
+                "bottom": 116,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                39,
+                0,
+                292,
+                309
+              ],
+              "pixelCount": 48759,
+              "edgePixelCounts": {
+                "top": 29,
+                "bottom": 69,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                40,
+                7,
+                291,
+                309
+              ],
+              "pixelCount": 47971,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 61,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 7,
+          "sourceRect": [
+            637.5,
+            308.5,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            637,
+            308,
+            956,
+            617
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                14,
+                0,
+                299,
+                309
+              ],
+              "pixelCount": 51635,
+              "edgePixelCounts": {
+                "top": 60,
+                "bottom": 114,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                42,
+                0,
+                297,
+                309
+              ],
+              "pixelCount": 48661,
+              "edgePixelCounts": {
+                "top": 38,
+                "bottom": 70,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                43,
+                0,
+                296,
+                309
+              ],
+              "pixelCount": 47832,
+              "edgePixelCounts": {
+                "top": 20,
+                "bottom": 63,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 8,
+          "sourceRect": [
+            956.25,
+            308.5,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            956,
+            308,
+            1275,
+            617
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                45,
+                0,
+                299,
+                309
+              ],
+              "pixelCount": 52330,
+              "edgePixelCounts": {
+                "top": 60,
+                "bottom": 111,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                47,
+                0,
+                295,
+                309
+              ],
+              "pixelCount": 49263,
+              "edgePixelCounts": {
+                "top": 41,
+                "bottom": 70,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                48,
+                0,
+                295,
+                309
+              ],
+              "pixelCount": 48438,
+              "edgePixelCounts": {
+                "top": 20,
+                "bottom": 63,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 9,
+          "sourceRect": [
+            0.0,
+            617.0,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            0,
+            617,
+            318,
+            925
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                31,
+                0,
+                299,
+                308
+              ],
+              "pixelCount": 56377,
+              "edgePixelCounts": {
+                "top": 117,
+                "bottom": 137,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                36,
+                0,
+                295,
+                308
+              ],
+              "pixelCount": 53014,
+              "edgePixelCounts": {
+                "top": 56,
+                "bottom": 59,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                36,
+                0,
+                294,
+                308
+              ],
+              "pixelCount": 52118,
+              "edgePixelCounts": {
+                "top": 41,
+                "bottom": 49,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 10,
+          "sourceRect": [
+            318.75,
+            617.0,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            318,
+            617,
+            637,
+            925
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                44,
+                0,
+                297,
+                308
+              ],
+              "pixelCount": 53158,
+              "edgePixelCounts": {
+                "top": 110,
+                "bottom": 113,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                47,
+                0,
+                295,
+                308
+              ],
+              "pixelCount": 49228,
+              "edgePixelCounts": {
+                "top": 60,
+                "bottom": 59,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                47,
+                0,
+                294,
+                308
+              ],
+              "pixelCount": 48395,
+              "edgePixelCounts": {
+                "top": 51,
+                "bottom": 50,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 11,
+          "sourceRect": [
+            637.5,
+            617.0,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            637,
+            617,
+            956,
+            925
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                7,
+                0,
+                299,
+                308
+              ],
+              "pixelCount": 53452,
+              "edgePixelCounts": {
+                "top": 115,
+                "bottom": 132,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                39,
+                0,
+                297,
+                308
+              ],
+              "pixelCount": 49357,
+              "edgePixelCounts": {
+                "top": 61,
+                "bottom": 61,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                40,
+                0,
+                297,
+                308
+              ],
+              "pixelCount": 48521,
+              "edgePixelCounts": {
+                "top": 53,
+                "bottom": 53,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 12,
+          "sourceRect": [
+            956.25,
+            617.0,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            956,
+            617,
+            1275,
+            925
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                43,
+                0,
+                301,
+                308
+              ],
+              "pixelCount": 52467,
+              "edgePixelCounts": {
+                "top": 118,
+                "bottom": 137,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                45,
+                0,
+                297,
+                308
+              ],
+              "pixelCount": 48600,
+              "edgePixelCounts": {
+                "top": 60,
+                "bottom": 61,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                46,
+                0,
+                296,
+                308
+              ],
+              "pixelCount": 47713,
+              "edgePixelCounts": {
+                "top": 52,
+                "bottom": 52,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 13,
+          "sourceRect": [
+            0.0,
+            925.5,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            0,
+            925,
+            318,
+            1234
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                32,
+                0,
+                291,
+                309
+              ],
+              "pixelCount": 50615,
+              "edgePixelCounts": {
+                "top": 130,
+                "bottom": 59,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                34,
+                0,
+                288,
+                300
+              ],
+              "pixelCount": 47047,
+              "edgePixelCounts": {
+                "top": 49,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                35,
+                0,
+                287,
+                300
+              ],
+              "pixelCount": 46195,
+              "edgePixelCounts": {
+                "top": 35,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 14,
+          "sourceRect": [
+            318.75,
+            925.5,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            318,
+            925,
+            637,
+            1234
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                30,
+                0,
+                293,
+                309
+              ],
+              "pixelCount": 50899,
+              "edgePixelCounts": {
+                "top": 103,
+                "bottom": 76,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                37,
+                0,
+                289,
+                301
+              ],
+              "pixelCount": 47114,
+              "edgePixelCounts": {
+                "top": 48,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                38,
+                0,
+                288,
+                301
+              ],
+              "pixelCount": 46307,
+              "edgePixelCounts": {
+                "top": 33,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 15,
+          "sourceRect": [
+            637.5,
+            925.5,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            637,
+            925,
+            956,
+            1234
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                26,
+                0,
+                291,
+                309
+              ],
+              "pixelCount": 50903,
+              "edgePixelCounts": {
+                "top": 126,
+                "bottom": 64,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                39,
+                0,
+                287,
+                302
+              ],
+              "pixelCount": 47330,
+              "edgePixelCounts": {
+                "top": 50,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                40,
+                0,
+                286,
+                301
+              ],
+              "pixelCount": 46492,
+              "edgePixelCounts": {
+                "top": 38,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 16,
+          "sourceRect": [
+            956.25,
+            925.5,
+            318.75,
+            308.5
+          ],
+          "inspectionRect": [
+            956,
+            925,
+            1275,
+            1234
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                21,
+                0,
+                295,
+                309
+              ],
+              "pixelCount": 51495,
+              "edgePixelCounts": {
+                "top": 133,
+                "bottom": 82,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                40,
+                0,
+                292,
+                302
+              ],
+              "pixelCount": 47121,
+              "edgePixelCounts": {
+                "top": 49,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                41,
+                0,
+                291,
+                301
+              ],
+              "pixelCount": 46252,
+              "edgePixelCounts": {
+                "top": 36,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        }
+      ],
+      "issues": [
+        {
+          "code": "equal-grid-clips-character",
+          "kind": "technical",
+          "severity": "blocker",
+          "description": "固定4x4格界通過人物腳部／下一列帽頭，必須重做一致格內留白；不可逐格fit掩蓋。"
+        },
+        {
+          "code": "gesture-order-reversal",
+          "kind": "visual",
+          "severity": "blocker",
+          "frames": [
+            11,
+            12,
+            13
+          ],
+          "description": "第11格雙手已回抱枕，第12–13格一手又回到嘴旁，收尾動作倒回。"
+        },
+        {
+          "code": "rest-pose-drift",
+          "kind": "visual",
+          "severity": "review",
+          "frames": [
+            1,
+            16
+          ],
+          "description": "首尾枕頭、身型與手位未精確回到同一待機姿態；不能稱無縫loop。"
+        }
+      ],
+      "alphaDisplayCorrection": "原圖檢視器所見強烈彩邊多為透明像素RGB顯示；正確黑／白底合成的小圖未呈同樣強彩邊，不能沿用該觀察作退件原因。",
+      "compositionReview": {
+        "method": "Pillow RGBA alpha_composite at source size onto black and white; then display-only downscale and JPEG encoding in memory",
+        "sourceModified": false,
+        "inspectionFilesWritten": false,
+        "scope": "full atlas black/white composite at 512px atlas width per background; not a full-resolution per-frame edge approval",
+        "finding": "透明區正確顯示黑／白背景；沒有原始RGB檢視器中的大面積彩色底或強烈彩色雜點；細邊仍需原尺寸正常合成逐格驗收。"
+      },
+      "sourceUnchangedAfterRead": true
+    },
+    {
+      "id": "focus-v1",
+      "jobId": "focus",
+      "path": "animation/focus-v1/atlas-generated.png",
+      "sha256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "bytes": 1338546,
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "format": "PNG",
+      "columns": 4,
+      "rows": 4,
+      "sourceCellWidth": 362.0,
+      "sourceCellHeight": 271.5,
+      "cellAspect": 1.3333333333333333,
+      "frameCount": 16,
+      "catalogEligible": false,
+      "productionStatus": "hold-for-rework-or-review",
+      "userApproval": "not-recorded-for-this-candidate",
+      "visualReview": "inspected",
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "zeroPixels": 933709,
+        "partialPixels": 635216,
+        "opaquePixels": 3603,
+        "totalPixels": 1572528,
+        "zeroPercent": 59.3763,
+        "cornerRGBA": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "framesTouchingAtAlpha128": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "largeComponentsAtAlpha128": [
+        {
+          "bbox": [
+            89,
+            10,
+            325,
+            290
+          ],
+          "width": 236,
+          "height": 280,
+          "pixelCount": 39169
+        },
+        {
+          "bbox": [
+            443,
+            11,
+            679,
+            290
+          ],
+          "width": 236,
+          "height": 279,
+          "pixelCount": 38943
+        },
+        {
+          "bbox": [
+            793,
+            10,
+            1031,
+            290
+          ],
+          "width": 238,
+          "height": 280,
+          "pixelCount": 39330
+        },
+        {
+          "bbox": [
+            1145,
+            10,
+            1383,
+            290
+          ],
+          "width": 238,
+          "height": 280,
+          "pixelCount": 39651
+        },
+        {
+          "bbox": [
+            88,
+            297,
+            325,
+            569
+          ],
+          "width": 237,
+          "height": 272,
+          "pixelCount": 38546
+        },
+        {
+          "bbox": [
+            444,
+            297,
+            680,
+            569
+          ],
+          "width": 236,
+          "height": 272,
+          "pixelCount": 38522
+        },
+        {
+          "bbox": [
+            796,
+            298,
+            1031,
+            569
+          ],
+          "width": 235,
+          "height": 271,
+          "pixelCount": 39766
+        },
+        {
+          "bbox": [
+            1148,
+            298,
+            1385,
+            569
+          ],
+          "width": 237,
+          "height": 271,
+          "pixelCount": 38998
+        },
+        {
+          "bbox": [
+            89,
+            571,
+            323,
+            837
+          ],
+          "width": 234,
+          "height": 266,
+          "pixelCount": 37825
+        },
+        {
+          "bbox": [
+            446,
+            571,
+            680,
+            837
+          ],
+          "width": 234,
+          "height": 266,
+          "pixelCount": 37594
+        },
+        {
+          "bbox": [
+            797,
+            571,
+            1031,
+            838
+          ],
+          "width": 234,
+          "height": 267,
+          "pixelCount": 37684
+        },
+        {
+          "bbox": [
+            1154,
+            572,
+            1385,
+            838
+          ],
+          "width": 231,
+          "height": 266,
+          "pixelCount": 36667
+        },
+        {
+          "bbox": [
+            90,
+            840,
+            317,
+            1082
+          ],
+          "width": 227,
+          "height": 242,
+          "pixelCount": 33273
+        },
+        {
+          "bbox": [
+            446,
+            840,
+            671,
+            1082
+          ],
+          "width": 225,
+          "height": 242,
+          "pixelCount": 32967
+        },
+        {
+          "bbox": [
+            800,
+            840,
+            1027,
+            1082
+          ],
+          "width": 227,
+          "height": 242,
+          "pixelCount": 32975
+        },
+        {
+          "bbox": [
+            1154,
+            841,
+            1381,
+            1082
+          ],
+          "width": 227,
+          "height": 241,
+          "pixelCount": 32819
+        }
+      ],
+      "cells": [
+        {
+          "frame": 1,
+          "sourceRect": [
+            0.0,
+            0.0,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            0,
+            0,
+            362,
+            271
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                83,
+                0,
+                328,
+                271
+              ],
+              "pixelCount": 38293,
+              "edgePixelCounts": {
+                "top": 5,
+                "bottom": 214,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                88,
+                10,
+                325,
+                271
+              ],
+              "pixelCount": 36933,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 207,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                89,
+                10,
+                325,
+                271
+              ],
+              "pixelCount": 36480,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 205,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "sourceRect": [
+            362.0,
+            0.0,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            362,
+            0,
+            724,
+            271
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                76,
+                8,
+                321,
+                271
+              ],
+              "pixelCount": 37922,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 215,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                81,
+                10,
+                318,
+                271
+              ],
+              "pixelCount": 36703,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 207,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                81,
+                11,
+                317,
+                271
+              ],
+              "pixelCount": 36259,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 205,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "sourceRect": [
+            724.0,
+            0.0,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            724,
+            0,
+            1086,
+            271
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                63,
+                1,
+                310,
+                271
+              ],
+              "pixelCount": 38397,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 217,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                69,
+                10,
+                307,
+                271
+              ],
+              "pixelCount": 37071,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 208,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                69,
+                10,
+                307,
+                271
+              ],
+              "pixelCount": 36622,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 207,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 4,
+          "sourceRect": [
+            1086.0,
+            0.0,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            1086,
+            0,
+            1448,
+            271
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                56,
+                6,
+                300,
+                271
+              ],
+              "pixelCount": 38697,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 212,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                59,
+                9,
+                297,
+                271
+              ],
+              "pixelCount": 37449,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 207,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                59,
+                10,
+                297,
+                271
+              ],
+              "pixelCount": 36984,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 206,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 5,
+          "sourceRect": [
+            0.0,
+            271.5,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            0,
+            271,
+            362,
+            543
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                79,
+                0,
+                350,
+                272
+              ],
+              "pixelCount": 39832,
+              "edgePixelCounts": {
+                "top": 214,
+                "bottom": 223,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                87,
+                0,
+                326,
+                272
+              ],
+              "pixelCount": 37705,
+              "edgePixelCounts": {
+                "top": 206,
+                "bottom": 215,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                88,
+                0,
+                325,
+                272
+              ],
+              "pixelCount": 37109,
+              "edgePixelCounts": {
+                "top": 204,
+                "bottom": 213,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 6,
+          "sourceRect": [
+            362.0,
+            271.5,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            362,
+            271,
+            724,
+            543
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                15,
+                0,
+                330,
+                272
+              ],
+              "pixelCount": 39795,
+              "edgePixelCounts": {
+                "top": 213,
+                "bottom": 226,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                82,
+                0,
+                319,
+                272
+              ],
+              "pixelCount": 37670,
+              "edgePixelCounts": {
+                "top": 205,
+                "bottom": 215,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                82,
+                0,
+                318,
+                272
+              ],
+              "pixelCount": 37071,
+              "edgePixelCounts": {
+                "top": 203,
+                "bottom": 214,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 7,
+          "sourceRect": [
+            724.0,
+            271.5,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            724,
+            271,
+            1086,
+            543
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                63,
+                0,
+                322,
+                272
+              ],
+              "pixelCount": 41173,
+              "edgePixelCounts": {
+                "top": 216,
+                "bottom": 222,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                72,
+                0,
+                308,
+                272
+              ],
+              "pixelCount": 38952,
+              "edgePixelCounts": {
+                "top": 208,
+                "bottom": 213,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                72,
+                0,
+                307,
+                272
+              ],
+              "pixelCount": 38327,
+              "edgePixelCounts": {
+                "top": 206,
+                "bottom": 213,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 8,
+          "sourceRect": [
+            1086.0,
+            271.5,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            1086,
+            271,
+            1448,
+            543
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                57,
+                0,
+                306,
+                272
+              ],
+              "pixelCount": 40336,
+              "edgePixelCounts": {
+                "top": 210,
+                "bottom": 224,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                62,
+                0,
+                300,
+                272
+              ],
+              "pixelCount": 38084,
+              "edgePixelCounts": {
+                "top": 206,
+                "bottom": 215,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                62,
+                0,
+                299,
+                272
+              ],
+              "pixelCount": 37498,
+              "edgePixelCounts": {
+                "top": 204,
+                "bottom": 214,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 9,
+          "sourceRect": [
+            0.0,
+            543.0,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            0,
+            543,
+            362,
+            814
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                83,
+                0,
+                352,
+                271
+              ],
+              "pixelCount": 41263,
+              "edgePixelCounts": {
+                "top": 224,
+                "bottom": 220,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                89,
+                0,
+                324,
+                271
+              ],
+              "pixelCount": 39183,
+              "edgePixelCounts": {
+                "top": 214,
+                "bottom": 210,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                89,
+                0,
+                323,
+                271
+              ],
+              "pixelCount": 38530,
+              "edgePixelCounts": {
+                "top": 213,
+                "bottom": 208,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 10,
+          "sourceRect": [
+            362.0,
+            543.0,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            362,
+            543,
+            724,
+            814
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                33,
+                0,
+                346,
+                271
+              ],
+              "pixelCount": 41266,
+              "edgePixelCounts": {
+                "top": 226,
+                "bottom": 216,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                83,
+                0,
+                319,
+                271
+              ],
+              "pixelCount": 38946,
+              "edgePixelCounts": {
+                "top": 214,
+                "bottom": 209,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                84,
+                0,
+                318,
+                271
+              ],
+              "pixelCount": 38312,
+              "edgePixelCounts": {
+                "top": 212,
+                "bottom": 207,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 11,
+          "sourceRect": [
+            724.0,
+            543.0,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            724,
+            543,
+            1086,
+            814
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                15,
+                0,
+                350,
+                271
+              ],
+              "pixelCount": 41139,
+              "edgePixelCounts": {
+                "top": 217,
+                "bottom": 215,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                72,
+                0,
+                308,
+                271
+              ],
+              "pixelCount": 39018,
+              "edgePixelCounts": {
+                "top": 213,
+                "bottom": 210,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                73,
+                0,
+                307,
+                271
+              ],
+              "pixelCount": 38388,
+              "edgePixelCounts": {
+                "top": 211,
+                "bottom": 208,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 12,
+          "sourceRect": [
+            1086.0,
+            543.0,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            1086,
+            543,
+            1448,
+            814
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                59,
+                0,
+                303,
+                271
+              ],
+              "pixelCount": 39908,
+              "edgePixelCounts": {
+                "top": 218,
+                "bottom": 213,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                68,
+                0,
+                300,
+                271
+              ],
+              "pixelCount": 37992,
+              "edgePixelCounts": {
+                "top": 214,
+                "bottom": 208,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                68,
+                0,
+                299,
+                271
+              ],
+              "pixelCount": 37362,
+              "edgePixelCounts": {
+                "top": 213,
+                "bottom": 206,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 13,
+          "sourceRect": [
+            0.0,
+            814.5,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            0,
+            814,
+            362,
+            1086
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                82,
+                0,
+                342,
+                272
+              ],
+              "pixelCount": 40479,
+              "edgePixelCounts": {
+                "top": 221,
+                "bottom": 140,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                89,
+                0,
+                318,
+                269
+              ],
+              "pixelCount": 37421,
+              "edgePixelCounts": {
+                "top": 208,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                90,
+                0,
+                317,
+                268
+              ],
+              "pixelCount": 36694,
+              "edgePixelCounts": {
+                "top": 206,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 14,
+          "sourceRect": [
+            362.0,
+            814.5,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            362,
+            814,
+            724,
+            1086
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                23,
+                0,
+                338,
+                272
+              ],
+              "pixelCount": 40064,
+              "edgePixelCounts": {
+                "top": 215,
+                "bottom": 132,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                83,
+                0,
+                310,
+                269
+              ],
+              "pixelCount": 37098,
+              "edgePixelCounts": {
+                "top": 209,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                84,
+                0,
+                309,
+                268
+              ],
+              "pixelCount": 36384,
+              "edgePixelCounts": {
+                "top": 207,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 15,
+          "sourceRect": [
+            724.0,
+            814.5,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            724,
+            814,
+            1086,
+            1086
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                70,
+                0,
+                338,
+                272
+              ],
+              "pixelCount": 40201,
+              "edgePixelCounts": {
+                "top": 217,
+                "bottom": 167,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                76,
+                0,
+                303,
+                269
+              ],
+              "pixelCount": 37135,
+              "edgePixelCounts": {
+                "top": 210,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                76,
+                0,
+                303,
+                268
+              ],
+              "pixelCount": 36418,
+              "edgePixelCounts": {
+                "top": 208,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 16,
+          "sourceRect": [
+            1086.0,
+            814.5,
+            362.0,
+            271.5
+          ],
+          "inspectionRect": [
+            1086,
+            814,
+            1448,
+            1086
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                1,
+                0,
+                318,
+                272
+              ],
+              "pixelCount": 40054,
+              "edgePixelCounts": {
+                "top": 213,
+                "bottom": 131,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                67,
+                0,
+                296,
+                269
+              ],
+              "pixelCount": 37016,
+              "edgePixelCounts": {
+                "top": 206,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                68,
+                0,
+                295,
+                268
+              ],
+              "pixelCount": 36291,
+              "edgePixelCounts": {
+                "top": 204,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        }
+      ],
+      "issues": [
+        {
+          "code": "equal-grid-clips-character",
+          "kind": "technical",
+          "severity": "blocker",
+          "description": "固定4x4格界穿過角色，前一列脚部落入下一格頂端，並非少量alpha雜點。"
+        },
+        {
+          "code": "last-row-scale-drift",
+          "kind": "visual",
+          "severity": "blocker",
+          "frames": [
+            13,
+            14,
+            15,
+            16
+          ],
+          "description": "末列角色比前列縮小；眼鏡／手勢變化不能解釋整體頭身尺度一起變小。"
+        },
+        {
+          "code": "column-anchor-drift",
+          "kind": "visual",
+          "severity": "review",
+          "description": "等格內角色水平落點沿各列向左偏移，正常播放需檢查抖動。"
+        }
+      ],
+      "alphaDisplayCorrection": "原圖檢視器所見強烈彩邊多為透明像素RGB顯示；正確黑／白底合成的小圖未呈同樣強彩邊，不能沿用該觀察作退件原因。",
+      "compositionReview": {
+        "method": "Pillow RGBA alpha_composite at source size onto black and white; then display-only downscale and JPEG encoding in memory",
+        "sourceModified": false,
+        "inspectionFilesWritten": false,
+        "scope": "full atlas black/white composite at 512px atlas width per background; not a full-resolution per-frame edge approval",
+        "finding": "透明區正確顯示黑／白背景；沒有原始RGB檢視器中的大面積彩色底或強烈彩色雜點；細邊仍需原尺寸正常合成逐格驗收。"
+      },
+      "sourceUnchangedAfterRead": true
+    },
+    {
+      "id": "celebrate-v1",
+      "jobId": "celebrate",
+      "path": "animation/celebrate-v1/atlas-generated.png",
+      "sha256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8",
+      "bytes": 1881353,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "format": "PNG",
+      "columns": 4,
+      "rows": 4,
+      "sourceCellWidth": 384.0,
+      "sourceCellHeight": 256.0,
+      "cellAspect": 1.5,
+      "frameCount": 16,
+      "catalogEligible": false,
+      "productionStatus": "hold-for-rework-or-review",
+      "userApproval": "not-recorded-for-this-candidate",
+      "visualReview": "inspected",
+      "alpha": {
+        "min": 0,
+        "max": 254,
+        "zeroPixels": 1097155,
+        "partialPixels": 475709,
+        "opaquePixels": 0,
+        "totalPixels": 1572864,
+        "zeroPercent": 69.7552,
+        "cornerRGBA": [
+          [
+            27,
+            11,
+            4,
+            0
+          ],
+          [
+            51,
+            34,
+            10,
+            0
+          ],
+          [
+            64,
+            45,
+            37,
+            0
+          ],
+          [
+            82,
+            59,
+            49,
+            0
+          ]
+        ]
+      },
+      "framesTouchingAtAlpha128": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        16
+      ],
+      "largeComponentsAtAlpha128": [
+        {
+          "bbox": [
+            110,
+            3,
+            287,
+            257
+          ],
+          "width": 177,
+          "height": 254,
+          "pixelCount": 25038
+        },
+        {
+          "bbox": [
+            494,
+            3,
+            670,
+            257
+          ],
+          "width": 176,
+          "height": 254,
+          "pixelCount": 26150
+        },
+        {
+          "bbox": [
+            877,
+            4,
+            1053,
+            257
+          ],
+          "width": 176,
+          "height": 253,
+          "pixelCount": 25966
+        },
+        {
+          "bbox": [
+            1263,
+            4,
+            1441,
+            257
+          ],
+          "width": 178,
+          "height": 253,
+          "pixelCount": 25936
+        },
+        {
+          "bbox": [
+            110,
+            262,
+            288,
+            512
+          ],
+          "width": 178,
+          "height": 250,
+          "pixelCount": 26674
+        },
+        {
+          "bbox": [
+            493,
+            261,
+            704,
+            512
+          ],
+          "width": 211,
+          "height": 251,
+          "pixelCount": 27326
+        },
+        {
+          "bbox": [
+            877,
+            262,
+            1136,
+            512
+          ],
+          "width": 259,
+          "height": 250,
+          "pixelCount": 28167
+        },
+        {
+          "bbox": [
+            1260,
+            262,
+            1525,
+            512
+          ],
+          "width": 265,
+          "height": 250,
+          "pixelCount": 28506
+        },
+        {
+          "bbox": [
+            110,
+            516,
+            296,
+            767
+          ],
+          "width": 186,
+          "height": 251,
+          "pixelCount": 26939
+        },
+        {
+          "bbox": [
+            493,
+            516,
+            670,
+            767
+          ],
+          "width": 177,
+          "height": 251,
+          "pixelCount": 26454
+        },
+        {
+          "bbox": [
+            877,
+            516,
+            1054,
+            767
+          ],
+          "width": 177,
+          "height": 251,
+          "pixelCount": 26059
+        },
+        {
+          "bbox": [
+            1262,
+            516,
+            1439,
+            767
+          ],
+          "width": 177,
+          "height": 251,
+          "pixelCount": 25902
+        },
+        {
+          "bbox": [
+            110,
+            772,
+            288,
+            1023
+          ],
+          "width": 178,
+          "height": 251,
+          "pixelCount": 26635
+        },
+        {
+          "bbox": [
+            493,
+            772,
+            671,
+            1023
+          ],
+          "width": 178,
+          "height": 251,
+          "pixelCount": 26044
+        },
+        {
+          "bbox": [
+            877,
+            772,
+            1054,
+            1023
+          ],
+          "width": 177,
+          "height": 251,
+          "pixelCount": 25914
+        },
+        {
+          "bbox": [
+            1263,
+            773,
+            1440,
+            1024
+          ],
+          "width": 177,
+          "height": 251,
+          "pixelCount": 25107
+        }
+      ],
+      "cells": [
+        {
+          "frame": 1,
+          "sourceRect": [
+            0.0,
+            0.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            0,
+            0,
+            384,
+            256
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                63,
+                0,
+                380,
+                256
+              ],
+              "pixelCount": 28114,
+              "edgePixelCounts": {
+                "top": 39,
+                "bottom": 84,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                110,
+                0,
+                288,
+                256
+              ],
+              "pixelCount": 25575,
+              "edgePixelCounts": {
+                "top": 6,
+                "bottom": 51,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                110,
+                3,
+                287,
+                256
+              ],
+              "pixelCount": 25016,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 43,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "sourceRect": [
+            384.0,
+            0.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            384,
+            0,
+            768,
+            256
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                89,
+                0,
+                289,
+                256
+              ],
+              "pixelCount": 28848,
+              "edgePixelCounts": {
+                "top": 31,
+                "bottom": 90,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                109,
+                2,
+                287,
+                256
+              ],
+              "pixelCount": 26668,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 50,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                110,
+                3,
+                286,
+                256
+              ],
+              "pixelCount": 26128,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 43,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "sourceRect": [
+            768.0,
+            0.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            768,
+            0,
+            1152,
+            256
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                57,
+                0,
+                356,
+                256
+              ],
+              "pixelCount": 28756,
+              "edgePixelCounts": {
+                "top": 31,
+                "bottom": 89,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                109,
+                3,
+                286,
+                256
+              ],
+              "pixelCount": 26496,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 51,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                109,
+                4,
+                285,
+                256
+              ],
+              "pixelCount": 25942,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 43,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 4,
+          "sourceRect": [
+            1152.0,
+            0.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            1152,
+            0,
+            1536,
+            256
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                71,
+                0,
+                328,
+                256
+              ],
+              "pixelCount": 28697,
+              "edgePixelCounts": {
+                "top": 28,
+                "bottom": 88,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                110,
+                3,
+                289,
+                256
+              ],
+              "pixelCount": 26449,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 53,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                111,
+                4,
+                289,
+                256
+              ],
+              "pixelCount": 25912,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 44,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 5,
+          "sourceRect": [
+            0.0,
+            256.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            0,
+            256,
+            384,
+            512
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                57,
+                0,
+                338,
+                256
+              ],
+              "pixelCount": 30005,
+              "edgePixelCounts": {
+                "top": 68,
+                "bottom": 79,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                109,
+                0,
+                288,
+                256
+              ],
+              "pixelCount": 27278,
+              "edgePixelCounts": {
+                "top": 39,
+                "bottom": 33,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                110,
+                0,
+                288,
+                256
+              ],
+              "pixelCount": 26696,
+              "edgePixelCounts": {
+                "top": 22,
+                "bottom": 8,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 6,
+          "sourceRect": [
+            384.0,
+            256.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            384,
+            256,
+            768,
+            512
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                73,
+                0,
+                356,
+                256
+              ],
+              "pixelCount": 30829,
+              "edgePixelCounts": {
+                "top": 70,
+                "bottom": 75,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                109,
+                0,
+                321,
+                256
+              ],
+              "pixelCount": 28016,
+              "edgePixelCounts": {
+                "top": 38,
+                "bottom": 33,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                109,
+                0,
+                320,
+                256
+              ],
+              "pixelCount": 27348,
+              "edgePixelCounts": {
+                "top": 22,
+                "bottom": 6,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 7,
+          "sourceRect": [
+            768.0,
+            256.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            768,
+            256,
+            1152,
+            512
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                73,
+                0,
+                370,
+                256
+              ],
+              "pixelCount": 32135,
+              "edgePixelCounts": {
+                "top": 64,
+                "bottom": 69,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                109,
+                0,
+                368,
+                256
+              ],
+              "pixelCount": 28925,
+              "edgePixelCounts": {
+                "top": 40,
+                "bottom": 34,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                109,
+                0,
+                368,
+                256
+              ],
+              "pixelCount": 28191,
+              "edgePixelCounts": {
+                "top": 24,
+                "bottom": 9,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 8,
+          "sourceRect": [
+            1152.0,
+            256.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            1152,
+            256,
+            1536,
+            512
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                47,
+                0,
+                376,
+                256
+              ],
+              "pixelCount": 32823,
+              "edgePixelCounts": {
+                "top": 71,
+                "bottom": 75,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                107,
+                0,
+                373,
+                256
+              ],
+              "pixelCount": 29284,
+              "edgePixelCounts": {
+                "top": 39,
+                "bottom": 35,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                108,
+                0,
+                373,
+                256
+              ],
+              "pixelCount": 28530,
+              "edgePixelCounts": {
+                "top": 24,
+                "bottom": 10,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 9,
+          "sourceRect": [
+            0.0,
+            512.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            0,
+            512,
+            384,
+            768
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                59,
+                0,
+                350,
+                256
+              ],
+              "pixelCount": 30266,
+              "edgePixelCounts": {
+                "top": 61,
+                "bottom": 76,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                109,
+                3,
+                296,
+                256
+              ],
+              "pixelCount": 27535,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 23,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                110,
+                4,
+                296,
+                255
+              ],
+              "pixelCount": 26939,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 10,
+          "sourceRect": [
+            384.0,
+            512.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            384,
+            512,
+            768,
+            768
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                65,
+                0,
+                338,
+                256
+              ],
+              "pixelCount": 29792,
+              "edgePixelCounts": {
+                "top": 51,
+                "bottom": 76,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                108,
+                4,
+                287,
+                256
+              ],
+              "pixelCount": 27018,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 26,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                109,
+                4,
+                286,
+                255
+              ],
+              "pixelCount": 26454,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 11,
+          "sourceRect": [
+            768.0,
+            512.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            768,
+            512,
+            1152,
+            768
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                1,
+                0,
+                382,
+                256
+              ],
+              "pixelCount": 29225,
+              "edgePixelCounts": {
+                "top": 41,
+                "bottom": 72,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                108,
+                3,
+                287,
+                256
+              ],
+              "pixelCount": 26624,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 29,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                109,
+                4,
+                286,
+                255
+              ],
+              "pixelCount": 26059,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 12,
+          "sourceRect": [
+            1152.0,
+            512.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            1152,
+            512,
+            1536,
+            768
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                7,
+                0,
+                370,
+                256
+              ],
+              "pixelCount": 29365,
+              "edgePixelCounts": {
+                "top": 50,
+                "bottom": 87,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                109,
+                3,
+                288,
+                256
+              ],
+              "pixelCount": 26455,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 28,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                110,
+                4,
+                287,
+                255
+              ],
+              "pixelCount": 25902,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 13,
+          "sourceRect": [
+            0.0,
+            768.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            0,
+            768,
+            384,
+            1024
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                47,
+                0,
+                320,
+                256
+              ],
+              "pixelCount": 30086,
+              "edgePixelCounts": {
+                "top": 38,
+                "bottom": 117,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                109,
+                3,
+                288,
+                256
+              ],
+              "pixelCount": 27176,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 11,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                110,
+                4,
+                288,
+                255
+              ],
+              "pixelCount": 26635,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 14,
+          "sourceRect": [
+            384.0,
+            768.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            384,
+            768,
+            768,
+            1024
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                45,
+                0,
+                376,
+                256
+              ],
+              "pixelCount": 29191,
+              "edgePixelCounts": {
+                "top": 32,
+                "bottom": 112,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                109,
+                3,
+                287,
+                256
+              ],
+              "pixelCount": 26587,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 14,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                109,
+                4,
+                287,
+                255
+              ],
+              "pixelCount": 26044,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 15,
+          "sourceRect": [
+            768.0,
+            768.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            768,
+            768,
+            1152,
+            1024
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                25,
+                0,
+                354,
+                256
+              ],
+              "pixelCount": 29294,
+              "edgePixelCounts": {
+                "top": 36,
+                "bottom": 120,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                108,
+                3,
+                287,
+                256
+              ],
+              "pixelCount": 26449,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 12,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                109,
+                4,
+                286,
+                255
+              ],
+              "pixelCount": 25914,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 16,
+          "sourceRect": [
+            1152.0,
+            768.0,
+            384.0,
+            256.0
+          ],
+          "inspectionRect": [
+            1152,
+            768,
+            1536,
+            1024
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                27,
+                0,
+                336,
+                256
+              ],
+              "pixelCount": 28283,
+              "edgePixelCounts": {
+                "top": 49,
+                "bottom": 134,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                110,
+                4,
+                289,
+                256
+              ],
+              "pixelCount": 25656,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 20,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                111,
+                5,
+                288,
+                256
+              ],
+              "pixelCount": 25107,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 4,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        }
+      ],
+      "issues": [
+        {
+          "code": "equal-grid-boundary-pressure",
+          "kind": "technical",
+          "severity": "blocker",
+          "description": "若按固定4x4來源格，部分腳部／帽尖實際碰格界，沒有提示要求的留白。"
+        },
+        {
+          "code": "grid-aspect-mismatch",
+          "kind": "technical",
+          "severity": "review",
+          "description": "4x4格實為384x256、1.5:1，不能當作正方格直接拉伸；需維持比例並重新確認主角色對位。"
+        },
+        {
+          "code": "prop-width-is-intentional",
+          "kind": "visual",
+          "severity": "note",
+          "frames": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "description": "吹卷笛伸長使bbox變寬屬此動作本身，不能據此自動判定角色縮放或自動fit。"
+        },
+        {
+          "code": "rest-pose-continuity",
+          "kind": "visual",
+          "severity": "review",
+          "frames": [
+            1,
+            16
+          ],
+          "description": "首尾接近冷淡抱笛姿態但未證實pixel一致；需實播確認收尾。"
+        }
+      ],
+      "alphaDisplayCorrection": "先前以view_image畫面推斷整圖不透明背景不正確：實際有alpha，黑／白底正確合成後棕紅漸層消失。",
+      "compositionReview": {
+        "method": "Pillow RGBA alpha_composite at source size onto black and white; then display-only downscale and JPEG encoding in memory",
+        "sourceModified": false,
+        "inspectionFilesWritten": false,
+        "scope": "full atlas black/white composite at 512px atlas width per background; not a full-resolution per-frame edge approval",
+        "finding": "透明區正確顯示黑／白背景；沒有原始RGB檢視器中的大面積彩色底或強烈彩色雜點；細邊仍需原尺寸正常合成逐格驗收。"
+      },
+      "sourceUnchangedAfterRead": true,
+      "additionalReview": {
+        "source": "parent integration workflow browser QA report",
+        "observation": "正確browser alpha合成後棕色背景消失，但仍可見細輪廓halo；不代表全圖不透明。",
+        "status": "edge-review-needed"
+      }
+    },
+    {
+      "id": "bath-v1",
+      "jobId": "bath",
+      "path": "animation/bath-v1/atlas-generated.png",
+      "sha256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd",
+      "bytes": 1275986,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "format": "PNG",
+      "columns": 4,
+      "rows": 2,
+      "sourceCellWidth": 443.5,
+      "sourceCellHeight": 443.5,
+      "cellAspect": 1.0,
+      "frameCount": 8,
+      "catalogEligible": false,
+      "productionStatus": "hold-for-rework-or-review",
+      "userApproval": "not-recorded-for-this-candidate",
+      "visualReview": "inspected",
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "zeroPixels": 852704,
+        "partialPixels": 718167,
+        "opaquePixels": 2667,
+        "totalPixels": 1573538,
+        "zeroPercent": 54.1902,
+        "cornerRGBA": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "framesTouchingAtAlpha128": [],
+      "largeComponentsAtAlpha128": [
+        {
+          "bbox": [
+            42,
+            11,
+            402,
+            421
+          ],
+          "width": 360,
+          "height": 410,
+          "pixelCount": 84657
+        },
+        {
+          "bbox": [
+            487,
+            14,
+            846,
+            421
+          ],
+          "width": 359,
+          "height": 407,
+          "pixelCount": 83439
+        },
+        {
+          "bbox": [
+            930,
+            13,
+            1290,
+            421
+          ],
+          "width": 360,
+          "height": 408,
+          "pixelCount": 85834
+        },
+        {
+          "bbox": [
+            1375,
+            15,
+            1734,
+            421
+          ],
+          "width": 359,
+          "height": 406,
+          "pixelCount": 84606
+        },
+        {
+          "bbox": [
+            42,
+            455,
+            402,
+            864
+          ],
+          "width": 360,
+          "height": 409,
+          "pixelCount": 86235
+        },
+        {
+          "bbox": [
+            487,
+            455,
+            846,
+            864
+          ],
+          "width": 359,
+          "height": 409,
+          "pixelCount": 86666
+        },
+        {
+          "bbox": [
+            930,
+            458,
+            1289,
+            865
+          ],
+          "width": 359,
+          "height": 407,
+          "pixelCount": 84153
+        },
+        {
+          "bbox": [
+            1374,
+            456,
+            1733,
+            865
+          ],
+          "width": 359,
+          "height": 409,
+          "pixelCount": 84182
+        }
+      ],
+      "cells": [
+        {
+          "frame": 1,
+          "sourceRect": [
+            0.0,
+            0.0,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            0,
+            0,
+            443,
+            443
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                36,
+                0,
+                443,
+                425
+              ],
+              "pixelCount": 89587,
+              "edgePixelCounts": {
+                "top": 15,
+                "bottom": 0,
+                "left": 0,
+                "right": 1
+              }
+            },
+            "16": {
+              "bbox": [
+                41,
+                10,
+                403,
+                422
+              ],
+              "pixelCount": 85686,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                42,
+                11,
+                402,
+                421
+              ],
+              "pixelCount": 84657,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "sourceRect": [
+            443.5,
+            0.0,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            443,
+            0,
+            887,
+            443
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                0,
+                11,
+                440,
+                443
+              ],
+              "pixelCount": 87751,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 2,
+                "left": 1,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                43,
+                13,
+                404,
+                422
+              ],
+              "pixelCount": 84414,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                44,
+                14,
+                403,
+                421
+              ],
+              "pixelCount": 83439,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "sourceRect": [
+            887.0,
+            0.0,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            887,
+            0,
+            1330,
+            443
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                40,
+                11,
+                443,
+                425
+              ],
+              "pixelCount": 90268,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 1
+              }
+            },
+            "16": {
+              "bbox": [
+                43,
+                13,
+                403,
+                422
+              ],
+              "pixelCount": 86867,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                43,
+                13,
+                403,
+                421
+              ],
+              "pixelCount": 85834,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 4,
+          "sourceRect": [
+            1330.5,
+            0.0,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            1330,
+            0,
+            1774,
+            443
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                0,
+                12,
+                409,
+                425
+              ],
+              "pixelCount": 89458,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 1,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                44,
+                15,
+                405,
+                422
+              ],
+              "pixelCount": 85625,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                45,
+                15,
+                404,
+                421
+              ],
+              "pixelCount": 84606,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 5,
+          "sourceRect": [
+            0.0,
+            443.5,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            0,
+            443,
+            443,
+            887
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                36,
+                8,
+                421,
+                426
+              ],
+              "pixelCount": 93636,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                41,
+                11,
+                403,
+                422
+              ],
+              "pixelCount": 87773,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                42,
+                12,
+                402,
+                421
+              ],
+              "pixelCount": 86412,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 6,
+          "sourceRect": [
+            443.5,
+            443.5,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            443,
+            443,
+            887,
+            887
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                9,
+                0,
+                442,
+                426
+              ],
+              "pixelCount": 91857,
+              "edgePixelCounts": {
+                "top": 2,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                43,
+                11,
+                404,
+                422
+              ],
+              "pixelCount": 87667,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                44,
+                12,
+                403,
+                421
+              ],
+              "pixelCount": 86666,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 7,
+          "sourceRect": [
+            887.0,
+            443.5,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            887,
+            443,
+            1330,
+            887
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                23,
+                9,
+                419,
+                428
+              ],
+              "pixelCount": 89363,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                43,
+                14,
+                403,
+                422
+              ],
+              "pixelCount": 85135,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                43,
+                15,
+                402,
+                422
+              ],
+              "pixelCount": 84153,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 8,
+          "sourceRect": [
+            1330.5,
+            443.5,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            1330,
+            443,
+            1774,
+            887
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                18,
+                8,
+                416,
+                426
+              ],
+              "pixelCount": 88914,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                43,
+                12,
+                404,
+                422
+              ],
+              "pixelCount": 85130,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                44,
+                13,
+                403,
+                422
+              ],
+              "pixelCount": 84182,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        }
+      ],
+      "issues": [
+        {
+          "code": "squeeze-replaced-by-effect",
+          "kind": "visual",
+          "severity": "review",
+          "frames": [
+            5
+          ],
+          "description": "第5格鴨子旁多出黃色爆發／炸毛狀圖形，未清楚呈現原要求的橡皮鴨受擠壓變形。"
+        },
+        {
+          "code": "prop-rest-drift",
+          "kind": "visual",
+          "severity": "review",
+          "frames": [
+            1,
+            8
+          ],
+          "description": "尾格鴨子、手和泡沫位置與首格不同，未形成可直接循環的同一待機畫面。"
+        },
+        {
+          "code": "safe-margin-shortfall",
+          "kind": "technical",
+          "severity": "review",
+          "description": "全部格alpha>=16及128均不碰邊，但首格頂約11px、底約22.5px留白未達提示8%約35.5px；屬留白不足，不是已證實實體被裁。"
+        }
+      ],
+      "alphaDisplayCorrection": "原圖檢視器所見強烈彩邊多為透明像素RGB顯示；正確黑／白底合成的小圖未呈同樣強彩邊，不能沿用該觀察作退件原因。",
+      "compositionReview": {
+        "method": "Pillow RGBA alpha_composite at source size onto black and white; then display-only downscale and JPEG encoding in memory",
+        "sourceModified": false,
+        "inspectionFilesWritten": false,
+        "scope": "full atlas black/white composite at 512px atlas width per background; not a full-resolution per-frame edge approval",
+        "finding": "透明區正確顯示黑／白背景；沒有原始RGB檢視器中的大面積彩色底或強烈彩色雜點；細邊仍需原尺寸正常合成逐格驗收。"
+      },
+      "sourceUnchangedAfterRead": true,
+      "revisionAttempt": {
+        "jobId": "bathFix",
+        "status": "generation-failed",
+        "newAsset": null,
+        "note": "定點移除第5格黄色burst的修訂遭output moderation_blocked；原候選保留，沒有新修訂圖。"
+      }
+    },
+    {
+      "id": "wake-v1",
+      "jobId": "wake",
+      "path": "animation/wake-v1/atlas-generated.png",
+      "sha256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4",
+      "bytes": 1584798,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "format": "PNG",
+      "columns": 4,
+      "rows": 2,
+      "sourceCellWidth": 443.5,
+      "sourceCellHeight": 443.5,
+      "cellAspect": 1.0,
+      "frameCount": 8,
+      "catalogEligible": false,
+      "productionStatus": "hold-for-rework-or-review",
+      "userApproval": "not-recorded-for-this-candidate",
+      "visualReview": "inspected",
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "zeroPixels": 796376,
+        "partialPixels": 774075,
+        "opaquePixels": 3087,
+        "totalPixels": 1573538,
+        "zeroPercent": 50.6105,
+        "cornerRGBA": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "framesTouchingAtAlpha128": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "largeComponentsAtAlpha128": [
+        {
+          "bbox": [
+            54,
+            14,
+            410,
+            444
+          ],
+          "width": 356,
+          "height": 430,
+          "pixelCount": 92186
+        },
+        {
+          "bbox": [
+            498,
+            13,
+            844,
+            444
+          ],
+          "width": 346,
+          "height": 431,
+          "pixelCount": 91562
+        },
+        {
+          "bbox": [
+            947,
+            13,
+            1288,
+            444
+          ],
+          "width": 341,
+          "height": 431,
+          "pixelCount": 92371
+        },
+        {
+          "bbox": [
+            1388,
+            12,
+            1728,
+            444
+          ],
+          "width": 340,
+          "height": 432,
+          "pixelCount": 93861
+        },
+        {
+          "bbox": [
+            62,
+            454,
+            409,
+            884
+          ],
+          "width": 347,
+          "height": 430,
+          "pixelCount": 93534
+        },
+        {
+          "bbox": [
+            506,
+            455,
+            845,
+            884
+          ],
+          "width": 339,
+          "height": 429,
+          "pixelCount": 92878
+        },
+        {
+          "bbox": [
+            938,
+            456,
+            1287,
+            884
+          ],
+          "width": 349,
+          "height": 428,
+          "pixelCount": 90674
+        },
+        {
+          "bbox": [
+            1379,
+            455,
+            1729,
+            884
+          ],
+          "width": 350,
+          "height": 429,
+          "pixelCount": 91117
+        }
+      ],
+      "cells": [
+        {
+          "frame": 1,
+          "sourceRect": [
+            0.0,
+            0.0,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            0,
+            0,
+            443,
+            443
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                49,
+                11,
+                436,
+                443
+              ],
+              "pixelCount": 96564,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 76,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                53,
+                14,
+                411,
+                443
+              ],
+              "pixelCount": 93263,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 57,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                54,
+                14,
+                410,
+                443
+              ],
+              "pixelCount": 92170,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 44,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 2,
+          "sourceRect": [
+            443.5,
+            0.0,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            443,
+            0,
+            887,
+            443
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                52,
+                10,
+                407,
+                443
+              ],
+              "pixelCount": 95941,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 73,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                55,
+                12,
+                402,
+                443
+              ],
+              "pixelCount": 92671,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 54,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                55,
+                13,
+                401,
+                443
+              ],
+              "pixelCount": 91549,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 37,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 3,
+          "sourceRect": [
+            887.0,
+            0.0,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            887,
+            0,
+            1330,
+            443
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                51,
+                10,
+                405,
+                443
+              ],
+              "pixelCount": 96740,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 69,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                59,
+                12,
+                402,
+                443
+              ],
+              "pixelCount": 93512,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 53,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                60,
+                13,
+                401,
+                443
+              ],
+              "pixelCount": 92356,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 37,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 4,
+          "sourceRect": [
+            1330.5,
+            0.0,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            1330,
+            0,
+            1774,
+            443
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                5,
+                8,
+                401,
+                443
+              ],
+              "pixelCount": 98576,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 70,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                57,
+                12,
+                398,
+                443
+              ],
+              "pixelCount": 94972,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 53,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                58,
+                12,
+                398,
+                443
+              ],
+              "pixelCount": 93847,
+              "edgePixelCounts": {
+                "top": 0,
+                "bottom": 38,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 5,
+          "sourceRect": [
+            0.0,
+            443.5,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            0,
+            443,
+            443,
+            887
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                58,
+                0,
+                413,
+                444
+              ],
+              "pixelCount": 98782,
+              "edgePixelCounts": {
+                "top": 69,
+                "bottom": 70,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                61,
+                0,
+                410,
+                441
+              ],
+              "pixelCount": 94730,
+              "edgePixelCounts": {
+                "top": 40,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                62,
+                0,
+                409,
+                441
+              ],
+              "pixelCount": 93550,
+              "edgePixelCounts": {
+                "top": 16,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 6,
+          "sourceRect": [
+            443.5,
+            443.5,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            443,
+            443,
+            887,
+            887
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                20,
+                0,
+                426,
+                444
+              ],
+              "pixelCount": 98059,
+              "edgePixelCounts": {
+                "top": 63,
+                "bottom": 22,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                62,
+                0,
+                403,
+                441
+              ],
+              "pixelCount": 93994,
+              "edgePixelCounts": {
+                "top": 31,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                63,
+                0,
+                402,
+                441
+              ],
+              "pixelCount": 92891,
+              "edgePixelCounts": {
+                "top": 13,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 7,
+          "sourceRect": [
+            887.0,
+            443.5,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            887,
+            443,
+            1330,
+            887
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                48,
+                0,
+                429,
+                444
+              ],
+              "pixelCount": 96087,
+              "edgePixelCounts": {
+                "top": 59,
+                "bottom": 54,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                51,
+                0,
+                401,
+                441
+              ],
+              "pixelCount": 91849,
+              "edgePixelCounts": {
+                "top": 31,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                51,
+                0,
+                400,
+                441
+              ],
+              "pixelCount": 90689,
+              "edgePixelCounts": {
+                "top": 15,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        },
+        {
+          "frame": 8,
+          "sourceRect": [
+            1330.5,
+            443.5,
+            443.5,
+            443.5
+          ],
+          "inspectionRect": [
+            1330,
+            443,
+            1774,
+            887
+          ],
+          "alpha": {
+            "1": {
+              "bbox": [
+                22,
+                0,
+                414,
+                444
+              ],
+              "pixelCount": 96413,
+              "edgePixelCounts": {
+                "top": 57,
+                "bottom": 55,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "16": {
+              "bbox": [
+                48,
+                0,
+                399,
+                441
+              ],
+              "pixelCount": 92231,
+              "edgePixelCounts": {
+                "top": 32,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "128": {
+              "bbox": [
+                49,
+                0,
+                399,
+                441
+              ],
+              "pixelCount": 91131,
+              "edgePixelCounts": {
+                "top": 14,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            }
+          }
+        }
+      ],
+      "issues": [
+        {
+          "code": "grid-boundary-pressure",
+          "kind": "technical",
+          "severity": "review",
+          "description": "腳部及帽尖接近／碰到水平格界，固定來源框會否截斷需逐格確認。"
+        },
+        {
+          "code": "rest-pose-drift",
+          "kind": "visual",
+          "severity": "review",
+          "frames": [
+            1,
+            8
+          ],
+          "description": "抬手揉眼與回抱枕可辨，但首尾枕頭大小、頭身姿態和手位不同；不能稱無縫loop。"
+        }
+      ],
+      "alphaDisplayCorrection": "原圖檢視器所見強烈彩邊多為透明像素RGB顯示；正確黑／白底合成的小圖未呈同樣強彩邊，不能沿用該觀察作退件原因。",
+      "compositionReview": {
+        "method": "Pillow RGBA alpha_composite at source size onto black and white; then display-only downscale and JPEG encoding in memory",
+        "sourceModified": false,
+        "inspectionFilesWritten": false,
+        "scope": "full atlas black/white composite at 512px atlas width per background; not a full-resolution per-frame edge approval",
+        "finding": "透明區正確顯示黑／白背景；沒有原始RGB檢視器中的大面積彩色底或強烈彩色雜點；細邊仍需原尺寸正常合成逐格驗收。"
+      },
+      "sourceUnchangedAfterRead": true
+    }
+  ]
+}

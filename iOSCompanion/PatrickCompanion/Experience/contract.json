@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "settings": {
+    "outfitID": "auto",
+    "scene": "auto",
+    "mood": "calm",
+    "faceMode": "digital",
+    "soundEnabled": false,
+    "hapticsEnabled": true,
+    "use24Hour": true,
+    "showDate": true,
+    "ambienceEnabled": true,
+    "sleepStartMinutes": 1320,
+    "sleepEndMinutes": 360,
+    "holidaysEnabled": true,
+    "birthdayMMDD": null
+  },
+  "allowedScenes": [
+    "auto",
+    "awake",
+    "sleeping",
+    "charging",
+    "exercise",
+    "focus",
+    "bath",
+    "celebrate"
+  ],
+  "allowedMoods": [
+    "calm",
+    "happy",
+    "serious",
+    "tired",
+    "grumpy",
+    "low"
+  ],
+  "allowedFaceModes": [
+    "digital",
+    "arms"
+  ],
+  "timeEncoding": "Epoch milliseconds for exchanged timestamps; seconds for durations. Convert explicitly at native Date boundaries.",
+  "themesPath": "experience/themes.json",
+  "soundsPath": "experience/audio/manifest.json",
+  "clockPath": "experience/clock/manifest.json",
+  "rules": {
+    "feedCooldownSeconds": 3,
+    "timerMinimumSeconds": 10,
+    "timerMaximumSeconds": 7200,
+    "timerKinds": [
+      "focus",
+      "exercise",
+      "breathing"
+    ],
+    "journalLimit": 60,
+    "careIsGameState": true,
+    "manualMoodIsNotInferredFromHealth": true,
+    "cancelIsNotCompletion": true,
+    "finishRewardOncePerTimerID": true,
+    "noBackgroundAnimationCatchup": true,
+    "muteByDefault": true,
+    "candidateReviewIsIsolated": true
+  },
+  "themesContract": {
+    "topLevel": "schemaVersion, defaultOutfitID, outfits",
+    "outfitFields": "id, title, scene, clipId, actions (event->clipId or idle->array of clip IDs), ambience (none/bubbles/stars/snow/confetti), accent, status, reviewClipId",
+    "priority": "Explicit outfit wins; auto selects available outfit for resolved scene. An action without a same-costume drawing may update game state with text/sound only; do not silently change costume to claim the action exists.",
+    "clipGeometry": "Use animation catalog frameRegions and a single clip scale, never per-frame alpha bounding box fitting.",
+    "artStatus": "Development runtime may use pending-review drawings; use does not mark them user-approved. Preserve the separate candidate catalog and old review identities."
+  },
+  "clockContract": {
+    "status": "development-review",
+    "rendering": "Layered original PNG art plus alpha-region masks. Body is stationary; two organic starfish arms rotate around one specified root. Digital time always remains primary. Clock hands show actual date, not a decorative idle sway.",
+    "layout": "832x992 logical stage with pixel positions, shared pivot and per-hand sourceDirectionDegrees from clock/manifest.json. Only render on validated art. Acting temporarily hides clock art; return to current actual time afterwards.",
+    "fallback": "Digital time and selected outfit remain usable if hand art cannot load; label hand mode unavailable instead of drawing old rigid triangle arms."
+  },
+  "care": {
+    "initialSatiety": 60,
+    "initialBond": 0,
+    "feedSatietyGain": 12,
+    "feedBondGain": 2,
+    "petBondGain": 1,
+    "satietyDecayPerHour": 1.5,
+    "minimum": 0,
+    "maximum": 100,
+    "completionBondGain": 1
+  },
+  "calendarPath": "experience/calendar.json"
+}

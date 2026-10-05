@@ -1,0 +1,82 @@
+[
+  {
+    "path": "preview/motion-core.js",
+    "sha256": "ec081d18a6b04d7e5e62cc6b668a88b76f577e1998d2001fe1b0b9871e4dfd97",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\motion-core.js"
+  },
+  {
+    "path": "preview/performance-core.js",
+    "sha256": "b6ef2aebe12d18b7e9bd3d80a7c836c5c42fc3322db8cc60ccbb21acbb769f79",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\performance-core.js"
+  },
+  {
+    "path": "preview/scene-art.js",
+    "sha256": "f051b0af36f08385d4aa798aa50a459abbc2c676a20e0ad6e289b9780754495c",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\scene-art.js"
+  },
+  {
+    "path": "preview/test-motion.mjs",
+    "sha256": "2af4883bac64eb705329832461d25742c3592fe7fd46a26e6749d5e50235760f",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\test-motion.mjs"
+  },
+  {
+    "path": "preview/test-performances.mjs",
+    "sha256": "521c26411faa509b6692ffe37c97b0ddfddd90944ce52195b84a78856fd72acc",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\test-performances.mjs"
+  },
+  {
+    "path": "preview/test-performance-browser.cjs",
+    "sha256": "16afb21935312cbf3beb6e0e879cd5cf271cbffce2d5d50d7a8213814aed32e3",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\test-performance-browser.cjs"
+  },
+  {
+    "path": "preview/test-startup-browser.cjs",
+    "sha256": "e13616b378d2a3a587cdba5b84028b7f4ef23e04d27963ee6e0c66fe500c698c",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\test-startup-browser.cjs"
+  },
+  {
+    "path": "play/play.js",
+    "sha256": "a9641cde350b6eee816db89960c66090a4a08ae585244f71d7049d3374dcfd14",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\play\\play.js"
+  },
+  {
+    "path": "play/play-core.js",
+    "sha256": "d3218a7fe063eefa38bd9705d6b1cc11042e026d5566b6fe8c2fe1caf971e261",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\play\\play-core.js"
+  },
+  {
+    "path": "play/play.css",
+    "sha256": "16921180737d3834df23409cd382dcb2c1effb020061137c17f12ac697897257",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\play\\play.css"
+  },
+  {
+    "path": "play/test-play.mjs",
+    "sha256": "2b1f9e4d4a87b7ada9269334d6783010690e58d6120a328bea7567d26f8d3ac0",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\play\\test-play.mjs"
+  },
+  {
+    "path": "preview/assets/season1-3d-arm.png",
+    "sha256": "dd7547cbf404ced93954e249938a57266c7c0086a6df7f91b4bb64737a2a0f08",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\assets\\season1-3d-arm.png"
+  },
+  {
+    "path": "preview/assets/season1-3d-body.png",
+    "sha256": "1ab704f217c6acbf214ccf30ac48b4edd2e89796d6971207095e3f9df891c606",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\assets\\season1-3d-body.png"
+  },
+  {
+    "path": "preview/assets/season1-body-normal.png",
+    "sha256": "8b59d7ebaf45f9b604d1b7a90b489bfd6f12357f6cc8b90d04fe877149e93997",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\assets\\season1-body-normal.png"
+  },
+  {
+    "path": "preview/assets/season1-hour-arm.png",
+    "sha256": "d6b5100dc3fb55f073ece241f010644e4454270f07b3ed0877b316b9146077d6",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\assets\\season1-hour-arm.png"
+  },
+  {
+    "path": "preview/assets/season1-minute-arm.png",
+    "sha256": "4e5cf2e0e7318a5a78bdcb64dfc75c296abe258c1c43e1bf53a66f7684167fc0",
+    "backupPath": "<USER_HOME>\\.codex\\backups\\PatrickFace-animation-reset-20260927\\preview\\assets\\season1-minute-arm.png"
+  }
+]

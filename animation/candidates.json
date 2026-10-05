@@ -1,0 +1,659 @@
+{
+  "schemaVersion": 1,
+  "version": 1,
+  "updatedAt": "2026-09-27",
+  "reviewOnly": true,
+  "master": {
+    "id": "patrick-candidate-review-v1",
+    "anchorNormalized": [
+      0.5,
+      0.97
+    ],
+    "scale": 1,
+    "cellAspect": 1
+  },
+  "reviewPolicy": "Unapproved generated roughs with known defects. Manual frame review only; never autoplay or sync into native release bundle.",
+  "rules": {
+    "backgroundPlayback": false,
+    "autoReplayOnForeground": false
+  },
+  "plannedClips": [],
+  "clips": [
+    {
+      "id": "candidate-yawn16",
+      "title": "抱枕哈欠 · 16 幀待修",
+      "category": "待修審稿",
+      "version": 1,
+      "atlas": "animation/yawn-v3/atlas-generated.png",
+      "width": 1275,
+      "height": 1234,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "durationsMs": [
+        450,
+        170,
+        160,
+        160,
+        160,
+        160,
+        160,
+        230,
+        380,
+        170,
+        170,
+        170,
+        170,
+        170,
+        170,
+        450
+      ],
+      "sha256": "5a2d1def5ee4ab2440cccde0ff10ca01b59926fb569fcce16701129ed4a90798",
+      "anchorNormalized": [
+        0.5,
+        0.8804347826086957
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.4431372549019608,
+      "status": "quality-revision-required",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "已按完整輪廓重新取圖，修正等格切頭腳與混入鄰格。後半段收手順序和身形仍需修稿，原順序保留供標記。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/yawn-v3/regions-v1.json",
+        "sha256": "9cc7069d3e8fa282323e8e9fa0ab26dc7f539b875ee3ce19d151db3238d773a7",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "focus-candidate",
+      "title": "眼鏡滑下來 · 16 幀待修",
+      "category": "待修審稿",
+      "version": 1,
+      "atlas": "animation/focus-v1/atlas-generated.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "durationsMs": [
+        450,
+        190,
+        180,
+        180,
+        180,
+        230,
+        180,
+        180,
+        180,
+        230,
+        180,
+        190,
+        200,
+        170,
+        170,
+        450
+      ],
+      "sha256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "anchorNormalized": [
+        0.5,
+        0.8804347826086957
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.7790055248618784,
+      "status": "quality-revision-required",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "已完整分離人物，修正頭腳被切和上方混入前一格的腳。原畫末列角色仍較小，沒有用逐格放大掩蓋；需另修角色比例。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/focus-v1/regions-v1.json",
+        "sha256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "celebrate-candidate",
+      "title": "一本正經吹生日哨 · 16 幀待修",
+      "category": "待修審稿",
+      "version": 1,
+      "atlas": "animation/celebrate-v1/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "durationsMs": [
+        450,
+        270,
+        200,
+        180,
+        140,
+        140,
+        140,
+        330,
+        140,
+        140,
+        180,
+        180,
+        230,
+        200,
+        180,
+        450
+      ],
+      "sha256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8",
+      "anchorNormalized": [
+        0.5,
+        0.8803827751196173
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 2.1770833333333335,
+      "status": "quality-revision-required",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "已按輪廓分離，透明背景正常。道具接觸和首尾銜接仍待審；第16格腳底碰到原PNG外緣，來源外的畫面不能靠取圖補回。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/celebrate-v1/regions-v1.json",
+        "sha256": "4d6ae47ddf460ee798861f3db55a67753897b3359afb64b04d9dfa921e5a7e99",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "bath-candidate",
+      "title": "泡澡逗小鴨 · 8 幀待修",
+      "category": "待修審稿",
+      "version": 1,
+      "atlas": "animation/bath-v1/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        480,
+        200,
+        230,
+        400,
+        280,
+        400,
+        230,
+        480
+      ],
+      "sha256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd",
+      "anchorNormalized": [
+        0.5,
+        0.8803763440860215
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.6775648252536641,
+      "status": "quality-revision-required",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "第5格多出黃色爆發形狀，小鴨首尾位置不一致，須補拿起與放回的過渡。泡澡是手選情境，沒有自動偵測。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/bath-v1/regions-v1.json",
+        "sha256": "a4ed3fe2ce93cf2e44e3869d00c96d5c56e042b6911f904fbb58de827b614738",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "wake-candidate",
+      "title": "起床揉眼睛 · 8 幀待修",
+      "category": "待修審稿",
+      "version": 1,
+      "atlas": "animation/wake-v1/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        500,
+        180,
+        200,
+        240,
+        280,
+        200,
+        220,
+        500
+      ],
+      "sha256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4",
+      "anchorNormalized": [
+        0.5,
+        0.8803680981595092
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.4701240135287486,
+      "status": "quality-revision-required",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "白眼白／黑瞳／粉眼皮方向正確；枕頭與收尾輪廓偏移，揉眼過渡需要補順，仍待逐格審稿。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/wake-v1/regions-v1.json",
+        "sha256": "54adb188c1bf5e72b5d94deb80c7123052ad36cdecc60d5fc0278b41f0e32b65",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "blink-batch2-candidate",
+      "title": "抱枕眨眼 · 新稿待審",
+      "category": "新稿待審",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "idle",
+      "atlas": "animation/blink-v2/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        550,
+        90,
+        80,
+        110,
+        85,
+        90,
+        110,
+        550
+      ],
+      "sha256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "anchorNormalized": [
+        0.5,
+        0.8803571428571428
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.2626832018038332,
+      "status": "pending-user-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "白眼白／黑瞳／粉眼皮。獨立眨眼8張原畫；衣紋、帽子與枕頭仍有細變，需審正常速度的抖動。尚未加入自動待機，也未另算慢眨／雙眨新原畫。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/blink-v2/regions-v1.json",
+        "sha256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "pet-batch2-candidate",
+      "title": "被戳後先嫌棄再偷笑 · 新稿待審",
+      "category": "新稿待審",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "interaction",
+      "atlas": "animation/pet-v2/atlas-generated.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "durationsMs": [
+        450,
+        180,
+        150,
+        150,
+        150,
+        240,
+        240,
+        180,
+        160,
+        180,
+        150,
+        450
+      ],
+      "sha256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b",
+      "anchorNormalized": [
+        0.5,
+        0.8801020408163265
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 2.165745856353591,
+      "status": "pending-user-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "被戳後先嫌棄、抱臂，再忍不住偷笑。第4→5格抱臂變化較大，首尾衣紋略異；請審過渡。這裡是手動動作審稿。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/pet-v2/regions-v1.json",
+        "sha256": "82ae7279f09a2777a4f9be149c593d20dee58ddd6f9ae4c90771b691aac4d9e5",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "charging-batch2-candidate",
+      "title": "抱著電池回神 · 新稿待審",
+      "category": "新稿待審",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "scene",
+      "atlas": "animation/charging-v2/atlas-generated.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "durationsMs": [
+        450,
+        160,
+        160,
+        170,
+        200,
+        220,
+        240,
+        220,
+        180,
+        180,
+        160,
+        450
+      ],
+      "sha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "anchorNormalized": [
+        0.5,
+        0.8803763440860215
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 2.0552486187845305,
+      "status": "pending-user-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "抱著小電池從犯睏到回神。有真實眼嘴與抱持手勢變化；前傾與電池接觸仍需審。此稿未替換Apple Watch系統充電畫面。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/charging-v2/regions-v1.json",
+        "sha256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "exercise-batch2-candidate",
+      "title": "最後一下啞鈴 · 新稿待審",
+      "category": "新稿待審",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "scene",
+      "atlas": "animation/exercise-v2/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "durationsMs": [
+        450,
+        150,
+        150,
+        150,
+        150,
+        150,
+        180,
+        220,
+        260,
+        160,
+        160,
+        160,
+        230,
+        180,
+        180,
+        450
+      ],
+      "sha256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+      "anchorNormalized": [
+        0.5,
+        0.8804945054945055
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 2.6541666666666663,
+      "status": "pending-user-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "戴運動頭帶做一次啞鈴彎舉，再放下吐氣。手臂與啞鈴有不同姿勢；第13格有吐氣雲，仍需審握持和升降過渡。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/exercise-v2/regions-v1.json",
+        "sha256": "1561eae78deaed2c58cfdecebb42cc385eb744451fa0628321b17a7674966e6a",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "mint-pajama-batch2-candidate",
+      "title": "薄荷條紋睡衣・拉好毯子 · 新稿待審",
+      "category": "新稿待審",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "scene",
+      "atlas": "animation/mint-pajama-v1/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        550,
+        170,
+        190,
+        220,
+        300,
+        160,
+        200,
+        600
+      ],
+      "sha256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b",
+      "anchorNormalized": [
+        0.5,
+        0.8803571428571428
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.2626832018038332,
+      "status": "pending-user-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "薄荷條紋睡衣把毯子拉高、眨眼後歇著。首尾毯子位置故意不同，播放一次停末姿。帽形和頭身大小仍有變化待審；已按完整輪廓保留帽頂與腳。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/mint-pajama-v1/regions-v1.json",
+        "sha256": "1b04aa20669bc7870ed2207eec648d4853ce599dbfebcef7360013950565ecf7",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "moon-robe-batch2-candidate",
+      "title": "月亮睡袍・一本正經收心 · 新稿待審",
+      "category": "新稿待審",
+      "version": 1,
+      "batch": "20260927-batch2",
+      "reviewGroup": "scene",
+      "atlas": "animation/moon-robe-v1/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "durationsMs": [
+        550,
+        200,
+        180,
+        220,
+        200,
+        350,
+        160,
+        600
+      ],
+      "sha256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f",
+      "anchorNormalized": [
+        0.5,
+        0.8801369863013698
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.3167981961668547,
+      "status": "pending-user-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "深藍月亮睡袍整理衣襟、一本正經，最後露出微笑。播放一次停末姿，不硬接成無縫循環。衣襟與手勢接續仍待審。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/moon-robe-v1/regions-v1.json",
+        "sha256": "e0fa2f4e099f86cee8648a5a3ddedb6b1ed2a1e96279dac0fe0e7fa4fd6d8906",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "charging-space-batch3-candidate",
+      "title": "泡泡補給員・太空充電服 · 新稿待審",
+      "category": "新稿待審",
+      "version": 1,
+      "batch": "20260927-batch3",
+      "reviewGroup": "scene",
+      "atlas": "animation/charging-space-v1/atlas-generated.png",
+      "width": 1223,
+      "height": 1286,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "durationsMs": [
+        500,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        600
+      ],
+      "sha256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22",
+      "anchorNormalized": [
+        0.5,
+        0.88
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 2.0995334370139966,
+      "status": "pending-user-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "太空充電服、頭盔、電池枕與泡泡。完整輪廓取圖；第5→6格傾頭回正仍待審。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/charging-space-v1/regions-v1.json",
+        "sha256": "2449e95c7f53a09414a1f02c6035fbedf0927cbfcceeba0d6063876fe66dd1e7",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "feeding-chef-batch3-candidate",
+      "title": "小廚師・嚐一口點心 · 新稿待審",
+      "category": "新稿待審",
+      "version": 1,
+      "batch": "20260927-batch3",
+      "reviewGroup": "interaction",
+      "atlas": "animation/feeding-chef-v1/atlas-generated.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "durationsMs": [
+        500,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        600
+      ],
+      "sha256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66",
+      "anchorNormalized": [
+        0.5,
+        0.88
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.4354066985645932,
+      "status": "pending-user-review",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "廚師帽、圍裙與點心。第12格餅乾恢復完整有連貫性問題，審稿保留原12格；主體驗只播前11格停在咬過的點心。",
+      "frameLabels": [],
+      "frameRegions": {
+        "path": "animation/feeding-chef-v1/regions-v1.json",
+        "sha256": "4346965a107da3c2ed9c8ed807c5537599506093a188b865ae013d1025822714",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    }
+  ]
+}

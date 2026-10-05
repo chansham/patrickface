@@ -5,22 +5,22 @@ struct RootView: View {
 
     var body: some View {
         TabView(selection: $model.selectedTab) {
-            ThemeControlCenterView()
+            PatrickPhoneExperienceView()
                 .tag(AppModel.Tab.control)
                 .tabItem {
-                    Label("Themes", systemImage: "paintpalette.fill")
+                    Label("陪伴", systemImage: "heart.fill")
                 }
 
             TimerControlView()
                 .tag(AppModel.Tab.timer)
                 .tabItem {
-                    Label("Timer", systemImage: "timer")
+                    Label("計時", systemImage: "timer")
                 }
 
             DiagnosticsView()
                 .tag(AppModel.Tab.status)
                 .tabItem {
-                    Label("Status", systemImage: "applewatch.radiowaves.left.and.right")
+                    Label("連線", systemImage: "applewatch.radiowaves.left.and.right")
                 }
         }
         .tint(.pink)
@@ -40,10 +40,7 @@ struct RootView: View {
         }
         .fullScreenCover(isPresented: $model.isPresentingWatchFace) {
             NavigationStack {
-                PatrickArtworkView(
-                    theme: model.settings.theme,
-                    state: model.settings.previewState
-                )
+                PatrickPhoneExperienceView()
                 .ignoresSafeArea()
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {

@@ -1,0 +1,726 @@
+{
+  "schemaVersion": 1,
+  "batch": "20260927-batch2",
+  "items": [
+    {
+      "id": "blink-v2",
+      "jobId": "blink",
+      "path": "animation/blink-v2/atlas-generated.png",
+      "sha256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "sourceModified": false,
+      "status": "pending-review",
+      "artApproved": false,
+      "technicalStatus": "regions-valid-art-not-approved",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zeroPixels": 793860,
+        "nonzeroPixels": 779678,
+        "totalPixels": 1573538,
+        "zeroPercent": 50.4506
+      },
+      "regions": {
+        "path": "animation/blink-v2/regions-v1.json",
+        "sha256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e",
+        "canvas": {
+          "width": 560,
+          "height": 560,
+          "anchorPixels": [
+            280,
+            493
+          ],
+          "anchorNormalized": [
+            0.5,
+            0.8803571428571428
+          ]
+        },
+        "coreCount": 8,
+        "coreThreshold": 128,
+        "coreMinimumPixels": 10000,
+        "assignedPixels": 779678,
+        "unassignedPixels": 0,
+        "discardedPixels": 0,
+        "detachedComponentCount": 134,
+        "coreWidthRange": [
+          349,
+          355
+        ],
+        "coreHeightRange": [
+          427,
+          429
+        ],
+        "framesWithStrongCoreAtCanvasEdge": []
+      },
+      "visualReview": {
+        "status": "static-alpha-and-real-1x-reviewed-with-issues",
+        "method": "Original image inspected; read-only in-memory RGBA alpha_composite onto black/white before display; source RGBA untouched.",
+        "eyes": "已查看正確alpha黑／白底合成：露出眼白為白色、瞳孔黑色，第4–5格闭眼眼皮為粉色，未見繼承睡衣紫色眼皮。",
+        "action": "有閉合／睜開眼皮的實際變化；身體、帽子、衣紋、手與枕頭不完全靜止，不能稱只有眼睛改變。",
+        "continuity": "第1與8格不逐像素相同；脚底固定對位後輪廓IoU約0.981267，形狀大致相近但枕頭及身體細節有變。",
+        "alphaDisplayCaution": "原RGB檢視中的紅藍彩點不能當作可見輪廓缺陷；正確合成後未見同樣強色塊。原尺寸細邊尚未最終批准。",
+        "normalSpeedReview": {
+          "status": "reviewed-with-issues-art-not-approved",
+          "reviewedBy": "web integration QA; observed normal-speed timestamped rendered frame sequence",
+          "report": "output/playwright/batch2-normal-speed/report.json",
+          "reportSha256": "3e1058710c34f09a0683e2d22db92ac9803b146e972b5ff824734e73cb6602a6",
+          "caseId": "blink-batch2-candidate",
+          "speed": 1,
+          "clock": "real browser performance.now; no fake clock",
+          "durationMs": 1665,
+          "frameCountObserved": 8,
+          "playbackPassed": true,
+          "stoppedAtLastFrame": true,
+          "autoReplayObserved": false,
+          "displayScale": 1.2626832018038332,
+          "sequenceImage": "output/playwright/batch2-normal-speed/blink-batch2-candidate-sequence.png",
+          "video": "output/playwright/batch2-normal-speed/six-clips-live-1x.webm",
+          "observation": "正常速第4–5格閉眼、第6格重新睜開清楚；衣帽與枕頭仍有小幅形變，不能稱只有眼睛動。可供眨眼方向審稿，尚非完全固定身體版本。",
+          "artApproved": false
+        }
+      },
+      "firstLastComparison": {
+        "exactlyEqual": false,
+        "silhouetteIoUAtAlpha128": 0.981267,
+        "diagnosticOnly": true,
+        "outsideEyeROI": [
+          213,
+          155,
+          365,
+          262
+        ],
+        "visiblePixelsOutsideEyeROI": 78671,
+        "changedPixelsOutsideEyeRGBDeltaOver12": 26309,
+        "changedFraction": 0.334418,
+        "caveat": "使用近似眼部排除ROI及對齊後黑底RGB差，僅證明非眼部並非完全相同，不是審美分數。"
+      },
+      "issues": [
+        {
+          "code": "body-not-locked",
+          "severity": "review",
+          "description": "主體高427–429px、寬349–355px；非眼部圖案和輪廓也改變，未達提示要求的bodyexact。"
+        },
+        {
+          "code": "first-last-not-identical",
+          "severity": "review",
+          "description": "首尾並不相同；正常速衣帽及枕頭仍有小幅形變，不能稱bodyexact或最終鎖身眨眼。"
+        }
+      ]
+    },
+    {
+      "id": "pet-v2",
+      "jobId": "pet",
+      "path": "animation/pet-v2/atlas-generated.png",
+      "sha256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "sourceModified": false,
+      "status": "pending-review",
+      "artApproved": false,
+      "technicalStatus": "regions-valid-art-not-approved",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zeroPixels": 899333,
+        "nonzeroPixels": 673195,
+        "totalPixels": 1572528,
+        "zeroPercent": 57.1903
+      },
+      "regions": {
+        "path": "animation/pet-v2/regions-v1.json",
+        "sha256": "82ae7279f09a2777a4f9be149c593d20dee58ddd6f9ae4c90771b691aac4d9e5",
+        "canvas": {
+          "width": 784,
+          "height": 784,
+          "anchorPixels": [
+            392,
+            690
+          ],
+          "anchorNormalized": [
+            0.5,
+            0.8801020408163265
+          ]
+        },
+        "coreCount": 12,
+        "coreThreshold": 128,
+        "coreMinimumPixels": 10000,
+        "assignedPixels": 673195,
+        "unassignedPixels": 0,
+        "discardedPixels": 0,
+        "detachedComponentCount": 1206,
+        "coreWidthRange": [
+          259,
+          263
+        ],
+        "coreHeightRange": [
+          332,
+          341
+        ],
+        "framesWithStrongCoreAtCanvasEdge": []
+      },
+      "visualReview": {
+        "status": "static-alpha-and-real-1x-reviewed-with-issues",
+        "method": "Original image inspected; read-only in-memory RGBA alpha_composite onto black/white before display; source RGBA untouched.",
+        "eyes": "正確alpha黑／白底合成可見白眼白、黑瞳與粉色上眼皮，沒有藍／紫眼白。",
+        "action": "看向一側、嫌棄、鼓頰、抱臂、偷笑再放手的角色表演可辨；沒有用整圖左右移動冒充動作，也沒有多出外來手指或道具。",
+        "continuity": "第1與12格手回膝旁，但表情、線條、短褲形狀並非逐像素相同；轮廓IoU約0.960722。抱臂出現與收回仍須正常速度看接續。",
+        "alphaDisplayCaution": "原RGB檢視中的紅藍彩點不能當作可見輪廓缺陷；正確合成後未見同樣強色塊。原尺寸細邊尚未最終批准。",
+        "normalSpeedReview": {
+          "status": "reviewed-with-issues-art-not-approved",
+          "reviewedBy": "web integration QA; observed normal-speed timestamped rendered frame sequence",
+          "report": "output/playwright/batch2-normal-speed/report.json",
+          "reportSha256": "3e1058710c34f09a0683e2d22db92ac9803b146e972b5ff824734e73cb6602a6",
+          "caseId": "pet-batch2-candidate",
+          "speed": 1,
+          "clock": "real browser performance.now; no fake clock",
+          "durationMs": 2680,
+          "frameCountObserved": 12,
+          "playbackPassed": true,
+          "stoppedAtLastFrame": true,
+          "autoReplayObserved": false,
+          "displayScale": 2.165745856353591,
+          "sequenceImage": "output/playwright/batch2-normal-speed/pet-batch2-candidate-sequence.png",
+          "video": "output/playwright/batch2-normal-speed/six-clips-live-1x.webm",
+          "observation": "嫌棄到偷笑的反應可讀；第4→5格雙手由垂下直接抱臂，第9→10格放手也偏跳，手勢過渡未修好。",
+          "artApproved": false
+        }
+      },
+      "firstLastComparison": {
+        "exactlyEqual": false,
+        "silhouetteIoUAtAlpha128": 0.960722,
+        "diagnosticOnly": true
+      },
+      "issues": [
+        {
+          "code": "arm-fold-transition",
+          "severity": "review",
+          "frames": [
+            4,
+            5,
+            9,
+            10,
+            11
+          ],
+          "description": "正常速已見第4→5格由垂手直接抱臂、第9→10格放手偏跳，過渡尚待修。"
+        },
+        {
+          "code": "first-last-not-identical",
+          "severity": "review",
+          "description": "首尾表情／短褲及輪廓略異；只可稱回到近似休息姿态。"
+        },
+        {
+          "code": "remote-alpha1-fragments",
+          "severity": "note",
+          "description": "保留1206個離散片，最遠距core101px、alpha1；因此共用canvas784，沒有暗刪噪點或逐幀縮放。"
+        }
+      ]
+    },
+    {
+      "id": "charging-v2",
+      "jobId": "charging",
+      "path": "animation/charging-v2/atlas-generated.png",
+      "sha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "sourceModified": false,
+      "status": "pending-review",
+      "artApproved": false,
+      "technicalStatus": "regions-valid-art-not-approved",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zeroPixels": 944577,
+        "nonzeroPixels": 627951,
+        "totalPixels": 1572528,
+        "zeroPercent": 60.0674
+      },
+      "regions": {
+        "path": "animation/charging-v2/regions-v1.json",
+        "sha256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
+        "canvas": {
+          "width": 744,
+          "height": 744,
+          "anchorPixels": [
+            372,
+            655
+          ],
+          "anchorNormalized": [
+            0.5,
+            0.8803763440860215
+          ]
+        },
+        "coreCount": 12,
+        "coreThreshold": 128,
+        "coreMinimumPixels": 10000,
+        "assignedPixels": 627951,
+        "unassignedPixels": 0,
+        "discardedPixels": 0,
+        "detachedComponentCount": 1940,
+        "coreWidthRange": [
+          236,
+          245
+        ],
+        "coreHeightRange": [
+          308,
+          330
+        ],
+        "framesWithStrongCoreAtCanvasEdge": []
+      },
+      "visualReview": {
+        "status": "static-alpha-and-real-1x-reviewed-with-issues",
+        "method": "Original image inspected; read-only in-memory RGBA alpha_composite onto black/white before display; source RGBA untouched.",
+        "eyes": "正確alpha黑／白底合成可見白眼白、黑瞳、粉色闭眼眼皮；第6、9格閉眼沒有染紫。",
+        "action": "疲倦、看電池、張眼、抱近、笑／鼓頰再回復的角色動作可辨。電池維持由兩手抱持，沒有只靠粒子或整圖位移冒充。",
+        "continuity": "抱近電池時中段前傾、頭身高度變化，應按姿態判斷而非用bbox直接判整身縮小；首尾手位和電池形狀不逐像素相同。",
+        "alphaDisplayCaution": "正確alpha合成後沒有原RGB檢視中的強紅色碎邊；exercise棕色底消失（67.2901%完全透明），不作不透明背景誤判。原尺寸細邊未最終批准。",
+        "normalSpeedReview": {
+          "status": "reviewed-with-issues-art-not-approved",
+          "reviewedBy": "web integration QA; observed normal-speed timestamped rendered frame sequence",
+          "report": "output/playwright/batch2-normal-speed/report.json",
+          "reportSha256": "3e1058710c34f09a0683e2d22db92ac9803b146e972b5ff824734e73cb6602a6",
+          "caseId": "charging-batch2-candidate",
+          "speed": 1,
+          "clock": "real browser performance.now; no fake clock",
+          "durationMs": 2790,
+          "frameCountObserved": 12,
+          "playbackPassed": true,
+          "stoppedAtLastFrame": true,
+          "autoReplayObserved": false,
+          "displayScale": 2.0552486187845305,
+          "sequenceImage": "output/playwright/batch2-normal-speed/charging-batch2-candidate-sequence.png",
+          "video": "output/playwright/batch2-normal-speed/six-clips-live-1x.webm",
+          "observation": "表情与抱電池的故事可讀；第5–6格頭身縮／側傾感及首尾略不齊仍可見，未因此批准比例或道具連續性。",
+          "artApproved": false
+        }
+      },
+      "firstLastComparison": {
+        "exactlyEqual": false,
+        "silhouetteIoUAtAlpha128": 0.938893,
+        "diagnosticOnly": true
+      },
+      "issues": [
+        {
+          "code": "posture-vs-scale-review",
+          "severity": "review",
+          "description": "主體高度308–330px，中段前傾會改變bbox；正常速第5–6格仍可見頭身縮／側傾感，未批准比例，不逐幀fit。"
+        },
+        {
+          "code": "battery-contact-continuity",
+          "severity": "review",
+          "description": "電池有傾斜與外形細變，抱電池故事可讀，但道具與首尾連續性未藝術批准。"
+        },
+        {
+          "code": "first-last-not-identical",
+          "severity": "review",
+          "description": "首尾表情、短褲／手與道具略異，僅為一次充電反應候選，不稱無縫loop。"
+        }
+      ]
+    },
+    {
+      "id": "exercise-v2",
+      "jobId": "exercise",
+      "path": "animation/exercise-v2/atlas-generated.png",
+      "sha256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "sourceModified": false,
+      "status": "pending-review",
+      "artApproved": false,
+      "technicalStatus": "regions-valid-art-not-approved",
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "zeroPixels": 1058382,
+        "nonzeroPixels": 514482,
+        "totalPixels": 1572864,
+        "zeroPercent": 67.2901
+      },
+      "regions": {
+        "path": "animation/exercise-v2/regions-v1.json",
+        "sha256": "1561eae78deaed2c58cfdecebb42cc385eb744451fa0628321b17a7674966e6a",
+        "canvas": {
+          "width": 728,
+          "height": 728,
+          "anchorPixels": [
+            364,
+            641
+          ],
+          "anchorNormalized": [
+            0.5,
+            0.8804945054945055
+          ]
+        },
+        "coreCount": 16,
+        "coreThreshold": 128,
+        "coreMinimumPixels": 10000,
+        "assignedPixels": 514482,
+        "unassignedPixels": 0,
+        "discardedPixels": 0,
+        "detachedComponentCount": 1445,
+        "coreWidthRange": [
+          195,
+          222
+        ],
+        "coreHeightRange": [
+          237,
+          241
+        ],
+        "framesWithStrongCoreAtCanvasEdge": []
+      },
+      "visualReview": {
+        "status": "static-alpha-and-real-1x-reviewed-with-issues",
+        "method": "Original image inspected; read-only in-memory RGBA alpha_composite onto black/white before display; source RGBA untouched.",
+        "eyes": "正確alpha黑／白底合成可見白眼白、黑瞳、粉色眼皮；第13格吐氣閉眼為粉色。",
+        "action": "啞鈴由膝旁抬到面前再放下，手臂彎曲、眉眼及嘴形實際改變，未見額外人手指或整身晃動冒充。第13格吐氣雲保留，ROI內508個白色不透明／半透明像素全部歸第13幀。",
+        "continuity": "首尾近似膝旁持鈴；手腕、啞鈴及短褲細線略異，並非exact初始姿態。",
+        "alphaDisplayCaution": "正確alpha合成後沒有原RGB檢視中的強紅色碎邊；exercise棕色底消失（67.2901%完全透明），不作不透明背景誤判。原尺寸細邊未最終批准。",
+        "normalSpeedReview": {
+          "status": "reviewed-with-issues-art-not-approved",
+          "reviewedBy": "web integration QA; observed normal-speed timestamped rendered frame sequence",
+          "report": "output/playwright/batch2-normal-speed/report.json",
+          "reportSha256": "3e1058710c34f09a0683e2d22db92ac9803b146e972b5ff824734e73cb6602a6",
+          "caseId": "exercise-batch2-candidate",
+          "speed": 1,
+          "clock": "real browser performance.now; no fake clock",
+          "durationMs": 3380,
+          "frameCountObserved": 16,
+          "playbackPassed": true,
+          "stoppedAtLastFrame": true,
+          "autoReplayObserved": false,
+          "displayScale": 2.6541666666666663,
+          "sequenceImage": "output/playwright/batch2-normal-speed/exercise-batch2-candidate-sequence.png",
+          "video": "output/playwright/batch2-normal-speed/six-clips-live-1x.webm",
+          "observation": "整段統一×1.4展示後約577–585畫布px高，與其他候選尺寸較合理；彎舉、放下、吐氣清楚，原稿小幅身形變化仍保留。",
+          "artApproved": false
+        }
+      },
+      "firstLastComparison": {
+        "exactlyEqual": false,
+        "silhouetteIoUAtAlpha128": 0.985501,
+        "diagnosticOnly": true
+      },
+      "issues": [
+        {
+          "code": "grid-not-square",
+          "severity": "note",
+          "description": "原4x4來源格名義384x256非正方，已用輪廓mask取圖、原pixel1:1平移，不能直接將原格拉伸。"
+        },
+        {
+          "code": "dumbbell-contact-and-timing",
+          "severity": "review",
+          "description": "正常速彎舉、放下、吐氣清楚；frame5前臂輪廓與前後格有較大變化，手腕接合等原畫細節仍待審。"
+        },
+        {
+          "code": "first-last-not-identical",
+          "severity": "review",
+          "description": "首尾近似但不相同，不能自動列為無縫運動loop。"
+        }
+      ],
+      "puffOwnership": {
+        "frame": 13,
+        "roi": [
+          246,
+          858,
+          298,
+          902
+        ],
+        "whitePixelsAlphaAtLeast128": 508,
+        "assignedFrames": [
+          13
+        ]
+      },
+      "presentationAdjustment": {
+        "source": "web integration QA report",
+        "scope": "one constant scale for all 16 frames",
+        "factor": 1.4,
+        "previousClipScale": 1.8958333333333333,
+        "clipScale": 2.6541666666666663,
+        "reason": "Whole exercise character appeared much smaller than other seated classic-shorts reactions at the original nominal-cell scale.",
+        "sourcePngChanged": false,
+        "regionsChanged": false,
+        "perFrameScaleUsed": false,
+        "artProportionsRepaired": false
+      }
+    },
+    {
+      "id": "mint-pajama-v1",
+      "jobId": "mint-pajama",
+      "path": "animation/mint-pajama-v1/atlas-generated.png",
+      "sha256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "sourceModified": false,
+      "status": "pending-review",
+      "artApproved": false,
+      "technicalStatus": "regions-valid-art-not-approved",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zeroPixels": 803161,
+        "nonzeroPixels": 770377,
+        "totalPixels": 1573538,
+        "zeroPercent": 51.0417,
+        "topRowMaxAlpha": 1,
+        "bottomRowMaxAlpha": 2
+      },
+      "regions": {
+        "path": "animation/mint-pajama-v1/regions-v1.json",
+        "sha256": "1b04aa20669bc7870ed2207eec648d4853ce599dbfebcef7360013950565ecf7",
+        "canvas": {
+          "width": 560,
+          "height": 560,
+          "anchorPixels": [
+            280,
+            493
+          ],
+          "anchorNormalized": [
+            0.5,
+            0.8803571428571428
+          ]
+        },
+        "coreCount": 8,
+        "coreThreshold": 128,
+        "coreMinimumPixels": 10000,
+        "assignedPixels": 770377,
+        "unassignedPixels": 0,
+        "discardedPixels": 0,
+        "detachedComponentCount": 150,
+        "coreWidthRange": [
+          335,
+          350
+        ],
+        "coreHeightRange": [
+          415,
+          434
+        ],
+        "framesWithStrongCoreAtCanvasEdge": []
+      },
+      "visualReview": {
+        "status": "static-alpha-and-real-1x-reviewed-with-issues",
+        "method": "Original image inspected; read-only in-memory RGBA alpha_composite onto black/white before display; source RGBA untouched.",
+        "eyes": "正確alpha合成：白眼白、黑瞳，第6格閉眼粉色眼皮；沒有被薄荷／奶油服色染眼。",
+        "action": "抓毯角、拉高毯子、收抱與眨眼可辨，手與毯子接觸延續，毯子不是無來源漂起。",
+        "continuity": "提示本來要求由毯在膝上到拉高後持毯，起終姿態不同是預期；適合一次播放後停末姿，不要求硬接無縫loop。",
+        "alphaDisplayCaution": "原RGB檢視的彩點在正確alpha合成後未呈同樣強彩邊，細邊尚未最終批准。",
+        "normalSpeedReview": {
+          "status": "reviewed-with-issues-art-not-approved",
+          "reviewedBy": "web integration QA; observed normal-speed timestamped rendered frame sequence",
+          "report": "output/playwright/batch2-normal-speed/report.json",
+          "reportSha256": "3e1058710c34f09a0683e2d22db92ac9803b146e972b5ff824734e73cb6602a6",
+          "caseId": "mint-pajama-batch2-candidate",
+          "speed": 1,
+          "clock": "real browser performance.now; no fake clock",
+          "durationMs": 2390,
+          "frameCountObserved": 8,
+          "playbackPassed": true,
+          "stoppedAtLastFrame": true,
+          "autoReplayObserved": false,
+          "displayScale": 1.2626832018038332,
+          "sequenceImage": "output/playwright/batch2-normal-speed/mint-pajama-batch2-candidate-sequence.png",
+          "video": "output/playwright/batch2-normal-speed/six-clips-live-1x.webm",
+          "observation": "拉毯子動作可讀，末段角色比首格略小，與約4.4%的量測差異一致；終點持拉高毯子本來是一次動作的預期末姿。",
+          "artApproved": false
+        }
+      },
+      "playbackIntent": "one-shot-then-rest-on-last-pose",
+      "issues": [
+        {
+          "code": "hat-clearance-confirmed",
+          "severity": "note",
+          "description": "全圖頂行maxAlpha=1，強alpha首格帽頂y9；底行maxAlpha=2。不是已證實實體帽尖截斷。"
+        },
+        {
+          "code": "head-hat-size-review",
+          "severity": "review",
+          "description": "首格主體434px高、末格415px（約4.4%差），正常速也見末段略小；未達完全固定頭身，不逐幀縮放修齊。"
+        },
+        {
+          "code": "one-shot-ending",
+          "severity": "note",
+          "description": "結尾刻意持拉高毯子，與起始毯在膝上不同；不將此當無縫loop交付。"
+        }
+      ]
+    },
+    {
+      "id": "moon-robe-v1",
+      "jobId": "moon-robe",
+      "path": "animation/moon-robe-v1/atlas-generated.png",
+      "sha256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "sourceModified": false,
+      "status": "pending-review",
+      "artApproved": false,
+      "technicalStatus": "regions-valid-art-not-approved",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zeroPixels": 894334,
+        "nonzeroPixels": 679204,
+        "totalPixels": 1573538,
+        "zeroPercent": 56.8359,
+        "topRowMaxAlpha": 0,
+        "bottomRowMaxAlpha": 0
+      },
+      "regions": {
+        "path": "animation/moon-robe-v1/regions-v1.json",
+        "sha256": "e0fa2f4e099f86cee8648a5a3ddedb6b1ed2a1e96279dac0fe0e7fa4fd6d8906",
+        "canvas": {
+          "width": 584,
+          "height": 584,
+          "anchorPixels": [
+            292,
+            514
+          ],
+          "anchorNormalized": [
+            0.5,
+            0.8801369863013698
+          ]
+        },
+        "coreCount": 8,
+        "coreThreshold": 128,
+        "coreMinimumPixels": 10000,
+        "assignedPixels": 679204,
+        "unassignedPixels": 0,
+        "discardedPixels": 0,
+        "detachedComponentCount": 112,
+        "coreWidthRange": [
+          323,
+          325
+        ],
+        "coreHeightRange": [
+          404,
+          411
+        ],
+        "framesWithStrongCoreAtCanvasEdge": []
+      },
+      "visualReview": {
+        "status": "static-alpha-and-real-1x-reviewed-with-issues",
+        "method": "Original image inspected; read-only in-memory RGBA alpha_composite onto black/white before display; source RGBA untouched.",
+        "eyes": "正確alpha合成可見白眼白、黑瞳，第7格閉眼為粉色眼皮。",
+        "action": "瞄領口、一手拉合、另一手拍順、回到膝旁與眨眼可辨；第5格換另一手符合提示，不誤判多一隻手。",
+        "continuity": "由嚴肅到會心半笑是提示要求，末姿與起始表情本來不同，應一次播放後保留末姿。",
+        "alphaDisplayCaution": "原RGB檢視的彩點在正確alpha合成後未呈同樣強彩邊，細邊尚未最終批准。",
+        "normalSpeedReview": {
+          "status": "reviewed-with-issues-art-not-approved",
+          "reviewedBy": "web integration QA; observed normal-speed timestamped rendered frame sequence",
+          "report": "output/playwright/batch2-normal-speed/report.json",
+          "reportSha256": "3e1058710c34f09a0683e2d22db92ac9803b146e972b5ff824734e73cb6602a6",
+          "caseId": "moon-robe-batch2-candidate",
+          "speed": 1,
+          "clock": "real browser performance.now; no fake clock",
+          "durationMs": 2460,
+          "frameCountObserved": 8,
+          "playbackPassed": true,
+          "stoppedAtLastFrame": true,
+          "autoReplayObserved": false,
+          "displayScale": 1.3167981961668547,
+          "sequenceImage": "output/playwright/batch2-normal-speed/moon-robe-batch2-candidate-sequence.png",
+          "video": "output/playwright/batch2-normal-speed/six-clips-live-1x.webm",
+          "observation": "第3–4格画面右側手到胸前，第4→5格換另一側手缺過渡；起終表情與衣襟非完全一致。換手符合提示，但過渡仍不自然。",
+          "artApproved": false
+        }
+      },
+      "playbackIntent": "one-shot-then-rest-on-last-pose",
+      "issues": [
+        {
+          "code": "dark-fabric-small-screen-review",
+          "severity": "review",
+          "description": "深藍睡袍在黑底仍可由臉、月亮、帶結和鞋形辨認，但袖口／腰部細節需手錶小尺寸審美確認。"
+        },
+        {
+          "code": "fabric-and-height-consistency",
+          "severity": "review",
+          "description": "首列411px高、末列404px，約1.7%差；正常速第4→5換手缺過渡，月亮圖樣與衣襟亦非完全固定，仍待藝術審稿。"
+        },
+        {
+          "code": "one-shot-ending",
+          "severity": "note",
+          "description": "嚴肅至微笑的結尾有意不同，不宣稱無縫循環。"
+        }
+      ]
+    }
+  ],
+  "reviewedAt": "2026-09-27T14:50:09.358828+00:00",
+  "ledgerSnapshot": {
+    "path": "animation/production-20260927-batch2/generation-ledger.json",
+    "sha256": "e4658d335936a70b7ebb8f4d16566fd27c7076bd3816087ea0a4ad5bef3c41f9",
+    "status": "candidate-delivery-complete-art-review-pending",
+    "jobCount": 8,
+    "statusCounts": {
+      "candidate-manual-review": 6,
+      "generation-failed": 2
+    },
+    "failedJobIds": [
+      "feed",
+      "summer-pajama"
+    ],
+    "validation": {
+      "contours": {
+        "path": "output/playwright/batch2-contours/report.json",
+        "passed": true,
+        "caseCount": 5,
+        "framesChecked": 136
+      },
+      "reviewUI": {
+        "path": "output/playwright/batch2-candidates/report.json",
+        "passed": true,
+        "caseCount": 4
+      },
+      "normalSpeed": {
+        "path": "output/playwright/batch2-normal-speed/report.json",
+        "passed": true,
+        "caseCount": 6
+      }
+    },
+    "note": "Final candidate delivery status; art approval remains pending."
+  },
+  "scope": "Only root-specified saved PNGs; no image edits, catalog edits, approvals, or native sync.",
+  "summary": {
+    "inspectedAtlases": 6,
+    "generatedSourceFrames": 64,
+    "userApprovedNewAtlases": 0,
+    "unassignedNonzeroAlphaPixels": 0,
+    "discardedSourcePixels": 0,
+    "sourcePngsModified": 0,
+    "normalSpeedArtReview": "all-six-reviewed-with-issues-not-approved",
+    "normalSpeedPlaybackCasesPassed": 6
+  }
+}

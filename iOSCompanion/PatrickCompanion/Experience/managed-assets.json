@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "tool": "tools/sync_experience_bundle.py",
+  "files": [
+    {
+      "source": "experience/audio/bubble.wav",
+      "destination": "audio/bubble.wav",
+      "sha256": "789520218100f1dee32541ba39128f53d4651f9c5aa753a0bbdefa947642bee9",
+      "bytes": 30032,
+      "active": true
+    },
+    {
+      "source": "experience/audio/complete.wav",
+      "destination": "audio/complete.wav",
+      "sha256": "098fecec802b6eea2eafb876bde90db94c3d53ed0f667c4885dbee7638229c78",
+      "bytes": 68840,
+      "active": true
+    },
+    {
+      "source": "experience/audio/feed.wav",
+      "destination": "audio/feed.wav",
+      "sha256": "25f177be1c2289dc1fa89adeda8bed00c0079ad40c208274af3eb283c658dba6",
+      "bytes": 37088,
+      "active": true
+    },
+    {
+      "source": "experience/audio/manifest.json",
+      "destination": "audio/manifest.json",
+      "sha256": "680c0c613d2b8aadf3319a6f0f7dbaabb80b70f24e79744b7ad2d1137045650e",
+      "bytes": 3789,
+      "active": true
+    },
+    {
+      "source": "experience/audio/pet.wav",
+      "destination": "audio/pet.wav",
+      "sha256": "d51fc76ecb17445bc400a06674f4eb566b4b8419b12124fdea12eab43867ac54",
+      "bytes": 40616,
+      "active": true
+    },
+    {
+      "source": "experience/audio/softclick.wav",
+      "destination": "audio/softclick.wav",
+      "sha256": "100a6c0866fa26aba35f990f24e6c01e0ef1bc37b293aaa5d3ec4b0325e57880",
+      "bytes": 9746,
+      "active": true
+    },
+    {
+      "source": "experience/audio/wake.wav",
+      "destination": "audio/wake.wav",
+      "sha256": "f6d6176527036799e8817016db33773787149c91d17915d7b874045c7aeb1b99",
+      "bytes": 72368,
+      "active": true
+    },
+    {
+      "source": "experience/calendar.json",
+      "destination": "calendar.json",
+      "sha256": "9c8b7889d9ee082ae44bdac513e1a275fd2a924b071465e3ebc44addc1a77caf",
+      "bytes": 3309,
+      "active": true
+    },
+    {
+      "source": "experience/clock/closed-smile-revision.json",
+      "destination": "clock/closed-smile-revision.json",
+      "sha256": "83aa520ca2334c5cfed9e448c3fcd46b97418bf179e9464d97e4e189dea5ca75",
+      "bytes": 1548,
+      "active": true
+    },
+    {
+      "source": "experience/clock/generation.json",
+      "destination": "clock/generation.json",
+      "sha256": "d3f2f35ef589eccdd6172e732b1c063329d27707cfd6c83d8c8c61267a5cb715",
+      "bytes": 2340,
+      "active": true
+    },
+    {
+      "source": "experience/clock/layers-v1.png",
+      "destination": "clock/layers-v1.png",
+      "sha256": "e2e7d7812b8d1d78c87b067b408d7ae63edc1713ce44d7cb4d0530260e40e810",
+      "bytes": 485322,
+      "active": true
+    },
+    {
+      "source": "experience/clock/manifest.json",
+      "destination": "clock/manifest.json",
+      "sha256": "3ded55598ebe43c504c0a97ecf79a569e404f04c4ab50f6bf9e1b152fdcb054a",
+      "bytes": 2134,
+      "active": true
+    },
+    {
+      "source": "experience/clock/regions-v1.json",
+      "destination": "clock/regions-v1.json",
+      "sha256": "d8121c7a5f9c910c9e54fdd649f92ae86a8042e163e946d602a8d2f8b6a12958",
+      "bytes": 46208,
+      "active": true
+    },
+    {
+      "source": "experience/contract.json",
+      "destination": "contract.json",
+      "sha256": "9fba01ed56ade7672f388be4350bc58d48c0575ceb8e078995bceac6086676cd",
+      "bytes": 3306,
+      "active": true
+    },
+    {
+      "source": "experience/themes.json",
+      "destination": "themes.json",
+      "sha256": "964a6290f7accca808131923780f3ba1defcd3c5d8125655f7d0e4c7a0563b10",
+      "bytes": 5737,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "patrick-bedtime-yawn-v1",
+  "version": 2,
+  "status": "keyframe-rough-awaiting-review",
+  "image": "atlas-eyes-v2.png",
+  "width": 1774,
+  "height": 887,
+  "columns": 4,
+  "rows": 2,
+  "sha256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372",
+  "source": "Built-in ImageGen, 2026-09-27",
+  "reference": "concepts/2026-09-27/bedtime-cel-v1.png",
+  "prompt": "Create a genuine HAND-DRAWN FRAME-BY-FRAME CARTOON ANIMATION SPRITE ATLAS, not outfit variants and not one static pose translated around. Use the attached image only as a visual reference for Patrick Star's recognizable pink starfish identity and lavender star-pattern pajamas, long nightcap and cream pillow. Draw EIGHT sequential acting frames of one short sleepy yawn: 1 seated resting holding pillow with sleepy open eyes; 2 anticipation, eyelids squeeze and cheeks bunch; 3 mouth starts opening and one short starfish flipper leaves pillow toward mouth; 4 broad cartoon yawn, head tilts back a little, flipper covers part of mouth, eyes shut; 5 yawn peak with clear open mouth shape and raised eyebrows; 6 mouth closes and flipper returns toward pillow; 7 hug pillow and blink; 8 return EXACTLY to frame1 resting pose. Each drawing must genuinely change eyelids, mouth, cheek shapes and flipper articulation appropriate to that moment, maintaining character volume and consistent costume details. It must read as one coherent cartoon performance. Compose in an EXACT regular grid of FOUR columns and TWO rows, reading left to right top row then bottom row. Each of the eight equal cells contains exactly one COMPLETE full-body character, identical camera, identical scale and same seated anchor at lower center; all head tips, cap ends, pillow and feet have generous padding and never touch cell boundaries. Total canvas landscape 2:1 aspect ratio. Identical simple clean 2D cel drawing style across all cells. True transparent background throughout. No visible grid lines, borders, numbers, labels, text, arrows, motion lines, scenery, watermark or watch UI. No duplicate or missing cells, no extra characters. Avoid realistic skin, grotesque textures and human fingers. This is an animation production sheet for a small private virtual-pet watch prototype, not a comic.",
+  "artStyle": "2D cel candidate; overall project style not fixed",
+  "limitations": [
+    "Eight key drawings, missing in-betweens",
+    "Fringed outlines need cleanup",
+    "Character volume and costume markings vary between drawings",
+    "Final pose is not identical to first; not a seamless loop",
+    "No arm-clock rig or native watch integration"
+  ],
+  "frames": [
+    {
+      "label": "抱著枕頭，開始犯睏",
+      "duration": 540
+    },
+    {
+      "label": "擠眼，吸一口氣",
+      "duration": 170
+    },
+    {
+      "label": "抬手遮嘴",
+      "duration": 220
+    },
+    {
+      "label": "哈欠張開",
+      "duration": 270
+    },
+    {
+      "label": "忍不住，打個大哈欠",
+      "duration": 520
+    },
+    {
+      "label": "慢慢放下手",
+      "duration": 240
+    },
+    {
+      "label": "抱好枕頭，眨眼",
+      "duration": 200
+    },
+    {
+      "label": "又抱回枕頭",
+      "duration": 540
+    }
+  ],
+  "eyeCorrection": "Open eye sclera white, pupils black; eyelid skin coral pink. User flagged the old blue/purple eyes.",
+  "supersededImage": "atlas.png"
+}

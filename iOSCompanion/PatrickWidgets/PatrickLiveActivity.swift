@@ -12,7 +12,7 @@ struct PatrickLiveActivity: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    Image(context.state.theme.bodyAssetName)
+                    Image(systemName: "star.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 48, height: 58)
@@ -42,7 +42,7 @@ struct PatrickLiveActivity: Widget {
                         )
                         .font(.caption)
                         Spacer()
-                        Text(context.state.theme.displayName)
+                        Text("陪伴計時")
                             .font(.caption.bold())
                             .foregroundStyle(.secondary)
                     }
@@ -73,7 +73,7 @@ private struct PatrickLockScreenActivityView: View {
 
     var body: some View {
         HStack(spacing: isActivityFullscreen ? 22 : 14) {
-            Image(context.state.theme.bodyAssetName)
+            Image(systemName: "star.fill")
                 .resizable()
                 .scaledToFit()
                 .frame(
@@ -123,7 +123,7 @@ private struct PatrickActivityTimerLabel: View {
 
     var body: some View {
         if state.isPaused {
-            Text("PAUSED")
+            Text("已暫停")
         } else if let endsAt = state.endsAt {
             Text(timerInterval: startedAt ... endsAt, countsDown: true)
         } else {

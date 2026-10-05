@@ -38,6 +38,16 @@
 		C00000000000000000000230 /* PatrickContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000130 /* PatrickContractTests.swift */; };
 		C00000000000000000000240 /* PatrickWidgets.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C00000000000000000000011 /* PatrickWidgets.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D50000000000000000000001 /* PatrickFace.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D50000000000000000000014 /* PatrickFace.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F7F4432FD62CD9DA69F1931A /* PatrickExperience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A8870EE845846037B7950 /* PatrickExperience.swift */; };
+		F7832EFF434E004388817C78 /* PatrickExperience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65A8870EE845846037B7950 /* PatrickExperience.swift */; };
+		F7C2341767980E24A2529D5D /* PatrickExperienceResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D6B3E2E6AE1EA664A51A6 /* PatrickExperienceResources.swift */; };
+		F7EB6295FD1B3A0A269A41EF /* PatrickAnimationCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D98A2BC5926252F1345D25 /* PatrickAnimationCatalog.swift */; };
+		F76E798710D25DDEDB495F15 /* PatrickAnimationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F21CB4B1989EF71A5E51C8 /* PatrickAnimationPolicy.swift */; };
+		F71ED08E3FAAABD8AD09D9F5 /* PatrickAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCA0791D9E81125E50A339 /* PatrickAnimationPlayer.swift */; };
+		F7B8FECC84C5B501AA58E094 /* PatrickPhoneExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6865821E2B16783D972A603 /* PatrickPhoneExperienceView.swift */; };
+		F7824A4125937737C86AF097 /* Animation in Resources */ = {isa = PBXBuildFile; fileRef = F69EF6BB897261BE75DAF869 /* Animation */; };
+		F75992FAFD5888FBAC0EB0C3 /* Experience in Resources */ = {isa = PBXBuildFile; fileRef = F6DFE881D2E8F44FC8BB8BAC /* Experience */; };
+		F7EB608A30DD483F788EA333 /* PatrickClockArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E4BD1F7B4E139AFBEF425 /* PatrickClockArtwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +145,15 @@
 		D50000000000000000000012 /* PatrickFace.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PatrickFace.xcodeproj; path = ../PatrickFace.xcodeproj; sourceTree = "<group>"; };
 		D50000000000000000000013 /* PatrickWatchWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickWatchWire.swift; sourceTree = "<group>"; };
 		D50000000000000000000015 /* verify_companion_on_mac.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = verify_companion_on_mac.sh; sourceTree = "<group>"; };
+		F65A8870EE845846037B7950 /* PatrickExperience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickExperience.swift"; sourceTree = SOURCE_ROOT; };
+		F67D6B3E2E6AE1EA664A51A6 /* PatrickExperienceResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickExperienceResources.swift"; sourceTree = SOURCE_ROOT; };
+		F6D98A2BC5926252F1345D25 /* PatrickAnimationCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "../PatrickFace/PatrickAnimationCatalog.swift"; sourceTree = SOURCE_ROOT; };
+		F6F21CB4B1989EF71A5E51C8 /* PatrickAnimationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "../PatrickFace/PatrickAnimationPolicy.swift"; sourceTree = SOURCE_ROOT; };
+		F6DCA0791D9E81125E50A339 /* PatrickAnimationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "../PatrickFace/PatrickAnimationPlayer.swift"; sourceTree = SOURCE_ROOT; };
+		F6865821E2B16783D972A603 /* PatrickPhoneExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatrickCompanion/PatrickPhoneExperienceView.swift"; sourceTree = SOURCE_ROOT; };
+		F69EF6BB897261BE75DAF869 /* Animation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "PatrickCompanion/Animation"; sourceTree = SOURCE_ROOT; };
+		F6DFE881D2E8F44FC8BB8BAC /* Experience */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "PatrickCompanion/Experience"; sourceTree = SOURCE_ROOT; };
+		F61E4BD1F7B4E139AFBEF425 /* PatrickClockArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickClockArtwork.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +232,15 @@
 		C00000000000000000000023 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F61E4BD1F7B4E139AFBEF425 /* PatrickClockArtwork.swift */,
+				F6DFE881D2E8F44FC8BB8BAC /* Experience */,
+				F69EF6BB897261BE75DAF869 /* Animation */,
+				F6865821E2B16783D972A603 /* PatrickPhoneExperienceView.swift */,
+				F6DCA0791D9E81125E50A339 /* PatrickAnimationPlayer.swift */,
+				F6F21CB4B1989EF71A5E51C8 /* PatrickAnimationPolicy.swift */,
+				F6D98A2BC5926252F1345D25 /* PatrickAnimationCatalog.swift */,
+				F67D6B3E2E6AE1EA664A51A6 /* PatrickExperienceResources.swift */,
+				F65A8870EE845846037B7950 /* PatrickExperience.swift */,
 				C00000000000000000000100 /* PatrickModels.swift */,
 				C00000000000000000000101 /* PatrickMessageSchema.swift */,
 				C00000000000000000000102 /* PatrickDeepLink.swift */,
@@ -418,6 +446,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75992FAFD5888FBAC0EB0C3 /* Experience in Resources */,
+				F7824A4125937737C86AF097 /* Animation in Resources */,
 				C00000000000000000000210 /* Assets.xcassets in Resources */,
 				C00000000000000000000211 /* PrivacyInfo.xcprivacy in Resources */,
 			);
@@ -446,6 +476,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7EB608A30DD483F788EA333 /* PatrickClockArtwork.swift in Sources */,
+				F7B8FECC84C5B501AA58E094 /* PatrickPhoneExperienceView.swift in Sources */,
+				F71ED08E3FAAABD8AD09D9F5 /* PatrickAnimationPlayer.swift in Sources */,
+				F76E798710D25DDEDB495F15 /* PatrickAnimationPolicy.swift in Sources */,
+				F7EB6295FD1B3A0A269A41EF /* PatrickAnimationCatalog.swift in Sources */,
+				F7C2341767980E24A2529D5D /* PatrickExperienceResources.swift in Sources */,
+				F7F4432FD62CD9DA69F1931A /* PatrickExperience.swift in Sources */,
 				C00000000000000000000200 /* PatrickModels.swift in Sources */,
 				C00000000000000000000201 /* PatrickMessageSchema.swift in Sources */,
 				C00000000000000000000202 /* PatrickDeepLink.swift in Sources */,
@@ -469,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7832EFF434E004388817C78 /* PatrickExperience.swift in Sources */,
 				C00000000000000000000220 /* PatrickModels.swift in Sources */,
 				C00000000000000000000222 /* PatrickDeepLink.swift in Sources */,
 				C00000000000000000000223 /* PatrickActivityAttributes.swift in Sources */,
@@ -580,6 +618,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion;
+				PROVISIONING_PROFILE_SPECIFIER = "$(PATRICK_PHONE_PROFILE)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -608,6 +647,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion;
+				PROVISIONING_PROFILE_SPECIFIER = "$(PATRICK_PHONE_PROFILE)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -635,6 +675,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.widgets;
+				PROVISIONING_PROFILE_SPECIFIER = "$(PATRICK_WIDGET_PROFILE)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -663,6 +704,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.widgets;
+				PROVISIONING_PROFILE_SPECIFIER = "$(PATRICK_WIDGET_PROFILE)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

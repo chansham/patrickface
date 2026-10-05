@@ -1,55 +1,22 @@
 import SwiftUI
 import WatchKit
-import Intents
-
-@MainActor
-final class FocusChecker: ObservableObject {
-    @Published private(set) var isFocused = false
-    private var timer: Timer?
-
-    init() {
-        INFocusStatusCenter.default.requestAuthorization { [weak self] _ in
-            DispatchQueue.main.async {
-                self?.refresh()
-            }
-        }
-        refresh()
-        setMonitoring(true)
-    }
-
-    func setMonitoring(_ enabled: Bool) {
-        timer?.invalidate()
-        timer = nil
-        guard enabled else { return }
-
-        refresh()
-        timer = Timer.scheduledTimer(withTimeInterval: 15, repeats: true) {
-            [weak self] _ in
-            DispatchQueue.main.async {
-                self?.refresh()
-            }
-        }
-    }
-
-    private func refresh() {
-        isFocused = INFocusStatusCenter.default.focusStatus.isFocused ?? false
-    }
-
-    deinit { timer?.invalidate() }
-}
 
 struct PatrickFaceView: View {
     @Environment(\.isLuminanceReduced) private var dimmed
     @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject private var model: PatrickAppModel
-    @StateObject private var focus = FocusChecker()
     @State private var lastTap = Date.distantPast
     @State private var lastGesture = Date.distantPast
+    @State private var lastChargingShow = Date.distantPast
+    @State private var showingPetControls = false
+    @State private var chargingMessage: String?
     @State private var lowPower = ProcessInfo.processInfo.isLowPowerModeEnabled
 
-    private static let clockHub = CGPoint(x: 360, y: 498)
-    private static let hourHandLength: CGFloat = 250
-    private static let minuteHandLength: CGFloat = 340
+    private static let clockHub = CGPoint(
+        x: PatrickClockLayout.hubX, y: PatrickClockLayout.hubY
+    )
+    private static let hourHandLength = CGFloat(PatrickClockLayout.hourLength)
+    private static let minuteHandLength = CGFloat(PatrickClockLayout.minuteLength)
 
     var body: some View {
         TimelineView(
@@ -70,9 +37,7 @@ struct PatrickFaceView: View {
                 !charging && (
                     physicalLowBattery || model.previewState == .lowBattery
                 )
-            let sleeping = resolvedSleeping(
-                automatic: focus.isFocused || isNight(timeline.date)
-            )
+            let sleeping = resolvedSleeping(date: timeline.date)
             let reduced = dimmed || lowPower || scenePhase != .active
             let status = sharedStatus(
                 sleeping: sleeping,
@@ -83,10 +48,13 @@ struct PatrickFaceView: View {
                 date: timeline.date,
                 lastTap: lastTap,
                 lastGesture: lastGesture,
+                lastChargingShow: lastChargingShow,
                 reduced: reduced,
                 sleeping: sleeping,
                 lowBattery: lowBattery,
-                charging: charging
+                charging: charging,
+                physicalCharging: physicalCharging,
+                petScene: model.petScene
             )
 
             Canvas { context, size in
@@ -104,7 +72,7 @@ struct PatrickFaceView: View {
             .accessibilityElement(children: .ignore)
             .accessibilityLabel("派大星動態錶面")
             .accessibilityValue(
-                "\(formattedTime(timeline.date))，\(model.theme.displayName)，\(status.complicationLabel)"
+                "\(formattedTime(timeline.date))，\(model.petScene.title)，\(status.complicationLabel)"
             )
             .accessibilityHint("點一下互動，點兩下切換風格，長按揮手")
             .onAppear {
@@ -113,14 +81,25 @@ struct PatrickFaceView: View {
             .onChange(of: status) { _, newStatus in
                 model.setStatus(newStatus)
             }
+            .onChange(of: Calendar.current.component(.minute, from: timeline.date)) { _, _ in
+                // Refresh the state timestamp even when the state itself is unchanged.
+                model.setStatus(status)
+            }
         }
         .ignoresSafeArea()
         .background(Color.black)
         .onAppear {
-            focus.setMonitoring(scenePhase == .active)
+            WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+            lowPower = ProcessInfo.processInfo.isLowPowerModeEnabled
         }
         .onChange(of: scenePhase) { _, phase in
-            focus.setMonitoring(phase == .active)
+            WKInterfaceDevice.current().isBatteryMonitoringEnabled = phase != .background
+            lowPower = ProcessInfo.processInfo.isLowPowerModeEnabled
+        }
+        .onDisappear {
+            if !showingPetControls {
+                WKInterfaceDevice.current().isBatteryMonitoringEnabled = false
+            }
         }
         .onChange(of: model.activationSequence) { _, _ in
             guard interactionsEnabled else { return }
@@ -132,6 +111,88 @@ struct PatrickFaceView: View {
             )
         ) { _ in
             lowPower = ProcessInfo.processInfo.isLowPowerModeEnabled
+        }
+        .overlay(alignment: .bottomTrailing) {
+            if interactionsEnabled {
+                Button {
+                    chargingMessage = nil
+                    showingPetControls = true
+                } label: {
+                    Image(systemName: "ellipsis.circle.fill")
+                        .font(.title3)
+                        .padding(8)
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("陪伴情境與互動")
+            }
+        }
+        .sheet(isPresented: $showingPetControls) {
+            petControls
+                .onAppear {
+                    WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+                }
+        }
+    }
+
+    private var petControls: some View {
+        NavigationStack {
+            List {
+                Section("陪伴情境") {
+                    Picker("情境", selection: Binding(
+                        get: { model.petScene },
+                        set: { model.setPetScene($0) }
+                    )) {
+                        ForEach(PatrickPetScene.allCases) { scene in
+                            Text(scene.title).tag(scene)
+                        }
+                    }
+                    Text("依時間：22:00–05:30 休息。其他情境由你選擇；運動陪伴不會記錄運動或心率。")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+                Section("一起玩") {
+                    Button("打個招呼") {
+                        guard interactionsEnabled, !lowPower else { return }
+                        lastGesture = .now
+                        WKInterfaceDevice.current().play(.start)
+                        showingPetControls = false
+                    }
+                    .disabled(lowPower)
+                    Button("充電小表演") {
+                        let batteryState = WKInterfaceDevice.current().batteryState
+                        guard batteryState == .charging || batteryState == .full else {
+                            chargingMessage = "接上充電器後，再來一起玩。"
+                            return
+                        }
+                        guard interactionsEnabled, !lowPower else { return }
+                        lastChargingShow = .now
+                        showingPetControls = false
+                    }
+                    .disabled(lowPower)
+                    if let chargingMessage {
+                        Text(chargingMessage).font(.footnote)
+                    }
+                    if lowPower {
+                        Text("低耗電模式中，動作暫停。")
+                            .font(.footnote)
+                    }
+                    Text("表演只在這個 App 畫面開啟時播放。")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+                if model.previewState != .normal {
+                    Section("手機效果預覽") {
+                        Text("目前包含手機指定的效果，並不代表手錶已量測到這個狀態。")
+                            .font(.footnote)
+                    }
+                }
+            }
+            .navigationTitle("陪你一下")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("完成") { showingPetControls = false }
+                }
+            }
         }
     }
 
@@ -170,9 +231,12 @@ struct PatrickFaceView: View {
         lowBattery: Bool,
         charging: Bool
     ) -> PatrickFaceStatus {
+        if model.previewState != .normal { return .preview }
         if charging { return .charging }
         if lowPower || lowBattery { return .lowPower }
         if sleeping { return .sleeping }
+        if model.petScene == .resting { return .resting }
+        if model.petScene == .exercise { return .exercise }
         return .ready
     }
 
@@ -180,18 +244,22 @@ struct PatrickFaceView: View {
         date.formatted(date: .omitted, time: .shortened)
     }
 
-    private func resolvedSleeping(automatic: Bool) -> Bool {
-        if model.previewState == .sleeping {
-            return true
-        }
+    private func resolvedSleeping(date: Date) -> Bool {
+        let companionSleep: Bool?
         switch model.sleepMode {
         case .automatic:
-            return automatic
+            companionSleep = nil
         case .on:
-            return true
+            companionSleep = true
         case .off:
-            return false
+            companionSleep = false
         }
+        return PatrickPetRules.isSleeping(
+            scene: model.petScene,
+            automaticNight: PatrickPetRules.isNight(date),
+            companionSleep: companionSleep,
+            companionPreviewSleeping: model.previewState == .sleeping
+        )
     }
 
     private func draw(
@@ -240,10 +308,9 @@ struct PatrickFaceView: View {
         var rig = scene
         rig.opacity = pose.reduced ? 0.56 : 1
         rig.translateBy(x: 0, y: pose.tapY + pose.slump * 15)
-        rig.translateBy(x: 360, y: 490)
-        rig.rotate(by: .degrees(pose.slump * 4.5))
+        rig.translateBy(x: Self.clockHub.x, y: Self.clockHub.y)
         rig.scaleBy(x: pose.tapScale, y: pose.tapScale)
-        rig.translateBy(x: -360, y: -490)
+        rig.translateBy(x: -Self.clockHub.x, y: -Self.clockHub.y)
 
         if theme == .clay {
             drawToon3D(context: &rig, pose: pose)
@@ -275,9 +342,11 @@ struct PatrickFaceView: View {
         let breath = 1 + pose.breathing * 0.004
 
         var rig = context
-        rig.translateBy(x: 360, y: pivotY)
-        rig.scaleBy(x: breath, y: 1)
-        rig.translateBy(x: -360, y: -pivotY)
+        var body = rig
+        body.translateBy(x: 360, y: pivotY)
+        body.rotate(by: .degrees(pose.slump * 4.5 + pose.bodySway))
+        body.scaleBy(x: breath, y: 1)
+        body.translateBy(x: -360, y: -pivotY)
 
         let bodyRect = CGRect(
             x: 360 - bodyWidth / 2,
@@ -285,7 +354,7 @@ struct PatrickFaceView: View {
             width: bodyWidth,
             height: bodyHeight
         )
-        rig.draw(Image("season1-body-normal"), in: bodyRect)
+        body.draw(Image("season1-body-normal"), in: bodyRect)
         drawArm(
             context: &rig,
             image: "season1-minute-arm",
@@ -313,9 +382,11 @@ struct PatrickFaceView: View {
         let breath = 1 + pose.breathing * 0.0035
 
         var rig = context
-        rig.translateBy(x: 360, y: pivotY)
-        rig.scaleBy(x: breath, y: 1)
-        rig.translateBy(x: -360, y: -pivotY)
+        var body = rig
+        body.translateBy(x: 360, y: pivotY)
+        body.rotate(by: .degrees(pose.slump * 4.5 + pose.bodySway))
+        body.scaleBy(x: breath, y: 1)
+        body.translateBy(x: -360, y: -pivotY)
 
         let bodyRect = CGRect(
             x: 360 - bodyWidth / 2,
@@ -323,7 +394,7 @@ struct PatrickFaceView: View {
             width: bodyWidth,
             height: bodyHeight
         )
-        rig.draw(Image("season1-3d-body"), in: bodyRect)
+        body.draw(Image("season1-3d-body"), in: bodyRect)
         drawArm(
             context: &rig,
             image: "season1-3d-arm",
@@ -453,7 +524,9 @@ struct PatrickFaceView: View {
             anchor: .leading
         )
         context.draw(
-            Text(theme.statusLabel)
+            Text(model.previewState != .normal
+                 ? "效果預覽"
+                 : model.petScene == .automatic ? theme.statusLabel : model.petScene.title)
                 .font(.system(size: 23, weight: .medium, design: .rounded))
                 .foregroundStyle(.white.opacity(reduced ? 0.25 : 0.48)),
             at: CGPoint(x: 666, y: 132),
@@ -461,13 +534,6 @@ struct PatrickFaceView: View {
         )
     }
 
-    private func isNight(_ date: Date) -> Bool {
-        let calendar = Calendar.current
-        let hour = Double(calendar.component(.hour, from: date))
-        let minute = Double(calendar.component(.minute, from: date)) / 60
-        let value = hour + minute
-        return value >= 22 || value < 5.5
-    }
 }
 
 private struct PatrickTimelineSchedule: TimelineSchedule {
@@ -500,6 +566,7 @@ private struct FacePose {
     let breathing: Double
     let slump: CGFloat
     let chargingPulse: Double
+    let bodySway: Double
     let sleeping: Bool
     let charging: Bool
     let reduced: Bool
@@ -508,10 +575,13 @@ private struct FacePose {
         date: Date,
         lastTap: Date,
         lastGesture: Date,
+        lastChargingShow: Date,
         reduced: Bool,
         sleeping: Bool,
         lowBattery: Bool,
-        charging: Bool
+        charging: Bool,
+        physicalCharging: Bool,
+        petScene: PatrickPetScene
     ) {
         let clock = PatrickClockAngles.make(for: date)
         let baseHour = clock.hour
@@ -520,7 +590,8 @@ private struct FacePose {
         let periodicElapsed = date.timeIntervalSinceReferenceDate
             .truncatingRemainder(dividingBy: 12)
         let manualElapsed = date.timeIntervalSince(lastGesture)
-        let periodicWeight = reduced ? 0 : Self.envelope(periodicElapsed, duration: 1.8)
+        let quiet = reduced || sleeping || lowBattery || petScene == .resting
+        let periodicWeight = quiet ? 0 : Self.envelope(periodicElapsed, duration: 1.8)
         let manualWeight = reduced ? 0 : Self.envelope(manualElapsed, duration: 1.8)
         gestureWeight = max(periodicWeight, manualWeight)
         hourDegrees = baseHour - 5 * gestureWeight
@@ -532,13 +603,19 @@ private struct FacePose {
         )
         tapY = CGFloat(-9 * tapWeight)
         tapScale = CGFloat(1 + 0.045 * tapWeight)
-        breathing = reduced || sleeping
+        breathing = quiet
             ? 0
             : sin(date.timeIntervalSinceReferenceDate * .pi * 0.72)
         slump = lowBattery ? 1 : 0
         chargingPulse = reduced || !charging
             ? 0
             : (sin(date.timeIntervalSinceReferenceDate * .pi * 1.2) + 1) / 2
+        let showElapsed = date.timeIntervalSince(lastChargingShow)
+        let showWeight = reduced || !physicalCharging
+            ? 0 : Self.envelope(showElapsed, duration: 6)
+        let exerciseSway = petScene == .exercise && !quiet
+            ? sin(date.timeIntervalSinceReferenceDate * .pi) * 1.5 : 0
+        bodySway = sin(showElapsed * .pi * 3) * 7 * showWeight + exerciseSway
         self.sleeping = sleeping
         self.charging = charging
         self.reduced = reduced

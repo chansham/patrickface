@@ -103,6 +103,7 @@ struct PatrickSettings: Codable, Equatable, Sendable {
     var sleepMode: PatrickSleepMode
     var demoMode: Bool
     var updatedAt: Date
+    var experience: PatrickExperienceState? = nil
 
     static var defaults: PatrickSettings {
         PatrickSettings(
@@ -139,6 +140,19 @@ struct PatrickTimerSnapshot: Codable, Equatable, Sendable {
     var startedAt: Date
     var endsAt: Date?
     var remainingSeconds: TimeInterval?
+
+    /// New experience is authoritative over an older legacy timer in the same envelope.
+    static func resolving(_ legacy: Self, experience: PatrickExperienceState, at date: Date = .now) -> Self {
+        guard let value = experience.activity else { return legacy }
+        let status: Status = switch value.status {
+        case .running: .running
+        case .paused: .paused
+        case .completed: .complete
+        case .cancelled: .inactive
+        }
+        return Self(id: value.id, status: status, title: value.kind.title, startedAt: value.startedAt,
+            endsAt: value.endsAt, remainingSeconds: value.remaining(at: date))
+    }
 
     static var inactive: PatrickTimerSnapshot {
         PatrickTimerSnapshot(

@@ -15,6 +15,11 @@ final class AppModel: ObservableObject {
     @Published var selectedTab: Tab = .control
     @Published var isPresentingWatchFace = false
     @Published private(set) var notice: String?
+    @Published private(set) var experience: PatrickExperienceState
+    @Published private(set) var actionSequence = 0
+    @Published private(set) var requestedCare: PatrickCareAction?
+    @Published private(set) var completedActivityID: String?
+    @Published private(set) var calendarCelebrationSequence = 0
 
     let watchSync: WatchSyncService
     let activityController: PatrickActivityController
@@ -53,6 +58,7 @@ final class AppModel: ObservableObject {
         }
         self.settings = initialSettings
         self.timer = store.loadTimer()
+        self.experience = store.loadExperience()
 
         watchSync.setDemoMode(settings.demoMode)
         watchSync.onSettingsReceived = { [weak self] settings in
@@ -64,6 +70,12 @@ final class AppModel: ObservableObject {
         watchSync.onCommandReceived = { [weak self] command in
             self?.acceptRemoteCommand(command)
         }
+
+        NotificationCenter.default.publisher(for: .patrickExperienceChanged)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                Task { @MainActor in self?.becameActive() }
+            }.store(in: &cancellables)
 
         NotificationCenter.default.publisher(for: .patrickPendingActionsChanged)
             .receive(on: RunLoop.main)
@@ -88,6 +100,71 @@ final class AppModel: ObservableObject {
         didChangePresentation()
     }
 
+    func updateExperience(_ mutation: (inout PatrickExperienceState) -> Void) {
+        mutation(&experience); experience.changed()
+        saveExperience()
+    }
+
+    func performCare(_ action: PatrickCareAction) {
+        guard experience.perform(action) else { notice = "稍等一下，再\(action.title)"; return }
+        requestedCare = action; actionSequence &+= 1
+        saveExperience(action: action)
+        notice = "\(action.title) · 飽足 \(Int(experience.care.satiety.rounded())) · 親密 \(experience.care.bond)"
+    }
+
+    func refreshExperience(allowEffects: Bool = false, observeCalendar: Bool = true) {
+        let revision = experience.revision
+        _ = experience.updateCare()
+        if observeCalendar, let celebration = experience.observeCalendar(PatrickExperienceResources.calendar(), allowCelebration: allowEffects) {
+            notice = celebration; calendarCelebrationSequence &+= 1
+        }
+        if experience.revision != revision { saveExperience() }
+        if let id = experience.reconcile() {
+            completedActivityID = allowEffects ? id.uuidString : nil
+            timer = .inactive; store.saveTimer(timer)
+            saveExperience(); notice = "陪伴計時完成"
+            Task { await activityController.endAll(finalStatus: "陪伴計時完成") }
+        }
+    }
+
+    func startExperienceActivity(_ kind: PatrickActivityKind, minutes: Int) async {
+        timerCompletionTask?.cancel(); timerCompletionTask = nil
+        experience.start(kind, minutes: minutes)
+        saveExperience()
+        if let value = experience.activity {
+            timer = PatrickTimerSnapshot(id: value.id, status: .running, title: value.kind.title,
+                startedAt: value.startedAt, endsAt: value.endsAt, remainingSeconds: nil)
+            store.saveTimer(timer)
+            await activityController.start(timer: timer, settings: settings)
+        }
+    }
+
+    func toggleExperiencePause() async {
+        if experience.activity?.status == .paused { experience.resume() } else { experience.pause() }
+        saveExperience()
+        if let value = experience.activity {
+            if value.status == .completed { synchronizeActivityPresentation(); return }
+            timer = PatrickTimerSnapshot(id: value.id, status: value.status == .paused ? .paused : .running,
+                title: value.kind.title, startedAt: value.startedAt, endsAt: value.endsAt, remainingSeconds: value.remaining(at: .now))
+            store.saveTimer(timer)
+            await activityController.update(timer: timer, settings: settings)
+        }
+    }
+
+    func cancelExperienceActivity() async {
+        experience.cancel(); saveExperience()
+        timer = .inactive; store.saveTimer(timer)
+        await activityController.endAll(finalStatus: "已結束陪伴計時")
+    }
+
+    private func saveExperience(action: PatrickCareAction? = nil) {
+        let value = experience
+        store.saveExperience(value)
+        settings = store.updateSettings { $0.experience = value }
+        watchSync.send(command: PatrickCommandPayload(name: .updateExperience, careAction: action), settings: settings)
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+
     func setVisualState(_ state: PatrickVisualState) {
         settings = store.updateSettings { $0.previewState = state }
         watchSync.send(
@@ -101,7 +178,10 @@ final class AppModel: ObservableObject {
     }
 
     func setSleepMode(_ mode: PatrickSleepMode) {
-        settings = store.updateSettings { $0.sleepMode = mode }
+        experience.settings.scene = mode == .automatic ? .automatic : mode == .on ? .sleeping : .awake
+        experience.changed(); store.saveExperience(experience)
+        let state = experience
+        settings = store.updateSettings { $0.sleepMode = mode; $0.experience = state }
         watchSync.send(
             command: PatrickCommandPayload(
                 name: .setSleepMode,
@@ -123,6 +203,7 @@ final class AppModel: ObservableObject {
     }
 
     func playThemeSound(sendToWatch: Bool = true) {
+        guard experience.settings.soundEnabled else { notice = "先在設定開啟音效"; return }
         do {
             try soundPlayer.play(for: settings.theme)
             notice = "Played the locally generated \(settings.theme.displayName) cue."
@@ -236,18 +317,22 @@ final class AppModel: ObservableObject {
     }
 
     func becameActive() {
+        requestedCare = nil
         var storedSettings = store.loadSettings()
         if forcedDemoMode {
             storedSettings.demoMode = true
         }
         settings = storedSettings
         timer = store.loadTimer()
+        experience = store.loadExperience()
+        refreshExperience(observeCalendar: false)
+        synchronizeActivityPresentation()
         watchSync.setDemoMode(settings.demoMode)
 
         consumePendingActions()
         activityController.refresh()
 
-        if timer.status == .running {
+        if experience.activity == nil && timer.status == .running {
             if let endsAt = timer.endsAt, endsAt <= .now {
                 Task {
                     await stopTimer(completedAutomatically: true)
@@ -255,6 +340,25 @@ final class AppModel: ObservableObject {
             } else {
                 scheduleTimerCompletion(for: timer)
             }
+        }
+    }
+
+    private func synchronizeActivityPresentation() {
+        guard let value = experience.activity else { return }
+        let isRunning = value.status == .running || value.status == .paused
+        if !isRunning {
+            timer = .inactive; store.saveTimer(timer)
+            Task { await activityController.endAll(finalStatus: value.status == .completed ? "陪伴計時完成" : "已結束陪伴計時") }
+            return
+        }
+        let previousID = timer.id
+        timer = PatrickTimerSnapshot(id: value.id, status: value.status == .paused ? .paused : .running,
+            title: value.kind.title, startedAt: value.startedAt, endsAt: value.endsAt,
+            remainingSeconds: value.remaining(at: .now))
+        store.saveTimer(timer)
+        Task {
+            if previousID == value.id { await activityController.update(timer: timer, settings: settings) }
+            else { await activityController.start(timer: timer, settings: settings) }
         }
     }
 
@@ -273,6 +377,8 @@ final class AppModel: ObservableObject {
         store.resetLocalData()
         settings = .defaults
         timer = .inactive
+        experience = PatrickExperienceState()
+        store.saveExperience(experience)
         watchSync.setDemoMode(false)
         timerCompletionTask?.cancel()
         timerCompletionTask = nil
@@ -287,9 +393,13 @@ final class AppModel: ObservableObject {
     }
 
     private func acceptRemoteSettings(_ value: PatrickSettings) {
-        guard value.revision >= settings.revision else { return }
-        var merged = value
+        if let incoming = value.experience, incoming.isNewer(than: experience) {
+            experience = incoming; store.saveExperience(incoming)
+            synchronizeActivityPresentation()
+        }
+        var merged = value.revision >= settings.revision ? value : settings
         merged.demoMode = settings.demoMode
+        merged.experience = experience
         settings = merged
         store.saveSettings(merged)
         WidgetCenter.shared.reloadAllTimelines()
@@ -297,8 +407,8 @@ final class AppModel: ObservableObject {
     }
 
     private func acceptRemoteTimer(_ value: PatrickTimerSnapshot) {
-        timer = value
-        store.saveTimer(value)
+        timer = PatrickTimerSnapshot.resolving(value, experience: experience)
+        store.saveTimer(timer)
         WidgetCenter.shared.reloadAllTimelines()
         notice = "Applied a timer update from Apple Watch."
     }
@@ -328,6 +438,9 @@ final class AppModel: ObservableObject {
             if let timer = command.timer {
                 acceptRemoteTimer(timer)
             }
+        case .updateExperience:
+            // Care values arrive in the snapshot; never apply a second reward.
+            if let action = command.careAction { requestedCare = action; actionSequence &+= 1 }
         }
     }
 

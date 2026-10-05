@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "holidays": {
+    "2026-02-17": {
+      "id": "lunar-new-year",
+      "name": "農曆新年",
+      "motif": "lantern"
+    },
+    "2026-02-18": {
+      "id": "lunar-new-year",
+      "name": "農曆新年",
+      "motif": "lantern"
+    },
+    "2026-02-19": {
+      "id": "lunar-new-year",
+      "name": "農曆新年",
+      "motif": "lantern"
+    },
+    "2026-03-03": {
+      "id": "lantern",
+      "name": "元宵節",
+      "motif": "lantern"
+    },
+    "2026-06-19": {
+      "id": "dragon-boat",
+      "name": "端午節",
+      "motif": "waves"
+    },
+    "2026-09-25": {
+      "id": "mid-autumn",
+      "name": "中秋節",
+      "motif": "moon"
+    },
+    "2027-02-06": {
+      "id": "lunar-new-year",
+      "name": "農曆新年",
+      "motif": "lantern"
+    },
+    "2027-02-07": {
+      "id": "lunar-new-year",
+      "name": "農曆新年",
+      "motif": "lantern"
+    },
+    "2027-02-08": {
+      "id": "lunar-new-year",
+      "name": "農曆新年",
+      "motif": "lantern"
+    },
+    "2027-02-20": {
+      "id": "lantern",
+      "name": "元宵節",
+      "motif": "lantern"
+    },
+    "2027-06-09": {
+      "id": "dragon-boat",
+      "name": "端午節",
+      "motif": "waves"
+    },
+    "2027-09-15": {
+      "id": "mid-autumn",
+      "name": "中秋節",
+      "motif": "moon"
+    },
+    "2028-01-26": {
+      "id": "lunar-new-year",
+      "name": "農曆新年",
+      "motif": "lantern"
+    },
+    "2028-01-27": {
+      "id": "lunar-new-year",
+      "name": "農曆新年",
+      "motif": "lantern"
+    },
+    "2028-01-28": {
+      "id": "lunar-new-year",
+      "name": "農曆新年",
+      "motif": "lantern"
+    },
+    "2028-02-09": {
+      "id": "lantern",
+      "name": "元宵節",
+      "motif": "lantern"
+    },
+    "2028-05-28": {
+      "id": "dragon-boat",
+      "name": "端午節",
+      "motif": "waves"
+    },
+    "2028-10-03": {
+      "id": "mid-autumn",
+      "name": "中秋節",
+      "motif": "moon"
+    }
+  },
+  "years": [
+    2026,
+    2027,
+    2028
+  ],
+  "annualHolidays": {
+    "01-01": {
+      "id": "new-year",
+      "name": "新年",
+      "motif": "confetti"
+    },
+    "02-14": {
+      "id": "valentine",
+      "name": "情人節",
+      "motif": "heart"
+    },
+    "10-31": {
+      "id": "halloween",
+      "name": "萬聖節",
+      "motif": "pumpkin"
+    },
+    "12-24": {
+      "id": "christmas-eve",
+      "name": "平安夜",
+      "motif": "snow"
+    },
+    "12-25": {
+      "id": "christmas",
+      "name": "聖誕節",
+      "motif": "snow"
+    }
+  },
+  "annualSource": {
+    "path": "preview/pet-core.js",
+    "sha256": "318b289fe2ffd89a98dd49043db6d33434dffedbf47698954f07e660c635ffc9",
+    "conversion": "Exact solar literal values, mapped from [id,name,motif] to named fields."
+  },
+  "source": {
+    "path": "preview/holiday-calendar.js",
+    "sha256": "2eaffad66e8a4bf66055b0aadb9898d04598ffba438657334b32802f1127b86f",
+    "conversion": "Exact JSON literal extraction; no date calculation or network refresh.",
+    "declaredURLs": [
+      "https://data.weather.gov.hk/weatherAPI/hko_data/calendar/nongli_calendar_2026.csv",
+      "https://data.weather.gov.hk/weatherAPI/hko_data/calendar/nongli_calendar_2027.csv",
+      "https://data.weather.gov.hk/weatherAPI/hko_data/calendar/nongli_calendar_2028.csv"
+    ]
+  }
+}

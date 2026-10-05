@@ -1,4 +1,8 @@
-"""Windows-safe source validation for the Patrick watch app and complication."""
+"""Windows-safe checks of the retained native watch project and complication.
+
+This validates source structure and retained native assets, not the rebuilt web
+animation, artwork approval, Apple SDK compilation, or on-device behavior.
+"""
 
 from __future__ import annotations
 
@@ -406,13 +410,13 @@ check(
 )
 check(
     "Color.black" in complication_source
-    and "for index in 0..<12" in complication_source,
-    "complication lost its pure-black background or subtle edge markers",
+    and "Text(entry.date, style: .time)" in complication_source,
+    "complication lost its digital time or black background",
 )
 check(
     "PatrickClockAngles.make" in face_source
-    and "PatrickClockAngles.make" in complication_source,
-    "app and complication must share real hour/minute calculations",
+    and "PatrickExperienceState.load(from: PatrickSharedStore.defaults)" in complication_source,
+    "complication must read actual shared experience state",
 )
 check(
     "drawTicks(context:" in face_source
@@ -429,7 +433,7 @@ toon_render_source = face_source[
     face_source.index("private func drawClockHub")
 ]
 check(
-    cel_render_source.index('rig.draw(Image("season1-body-normal")')
+    cel_render_source.index('body.draw(Image("season1-body-normal")')
     < cel_render_source.index("drawArm(")
     and cel_render_source.count("pivot: Self.clockHub") == 2
     and cel_render_source.rindex("drawClockHub(")
@@ -437,7 +441,7 @@ check(
     "2D hands do not share one front-layer clock hub",
 )
 check(
-    toon_render_source.index('rig.draw(Image("season1-3d-body")')
+    toon_render_source.index('body.draw(Image("season1-3d-body")')
     < toon_render_source.index("drawArm(")
     and toon_render_source.count("pivot: Self.clockHub") == 2
     and toon_render_source.rindex("drawClockHub(")
@@ -445,9 +449,13 @@ check(
     "Toon-3D hands do not share one front-layer clock hub",
 )
 check(
-    'private static let clockHub = CGPoint(x: 360, y: 498)' in face_source
-    and "private static let hourHandLength: CGFloat = 250" in face_source
-    and "private static let minuteHandLength: CGFloat = 340" in face_source
+    "x: PatrickClockLayout.hubX, y: PatrickClockLayout.hubY" in face_source
+    and "CGFloat(PatrickClockLayout.hourLength)" in face_source
+    and "CGFloat(PatrickClockLayout.minuteLength)" in face_source
+    and "static let hubX = 360.0" in shared_source
+    and "static let hubY = 498.0" in shared_source
+    and "static let hourLength = 250.0" in shared_source
+    and "static let minuteLength = 340.0" in shared_source
     and not any(
         obsolete in face_source
         for obsolete in (
@@ -478,19 +486,34 @@ for image_name in obsolete_runtime_images:
         f'obsolete asset "{image_name}" is still referenced by runtime source',
     )
     legacy_png = APP / "Assets.xcassets" / f"{image_name}.imageset" / f"{image_name}.png"
+    legacy_contents = legacy_png.parent / "Contents.json"
     check(
-        legacy_png.is_file(),
-        f"legacy asset was deleted instead of merely retired: {legacy_png.relative_to(ROOT)}",
+        not legacy_png.exists() and not legacy_contents.exists(),
+        f"retired legacy asset reappeared in the app catalog: {legacy_png.parent.relative_to(ROOT)}",
     )
 
-approved_assets = (
+# The rebuilt web atlas is a separate workstream. Native files remain local to
+# the asset catalog; neither their presence nor this check approves old artwork.
+sync_source = (ROOT / "tools" / "sync_xcode_assets.py").read_text(encoding="utf-8")
+chroma_source = (ROOT / "tools" / "chroma.py").read_text(encoding="utf-8")
+check(
+    "READ_ONLY = True" in sync_source
+    and "def inspect_retained_assets()" in sync_source
+    and not any(writer in sync_source for writer in ("shutil.copy", ".write_text(", ".write_bytes(", ".mkdir("))
+    and 'ROOT / "preview"' not in sync_source,
+    "retired runtime sync must only inspect retained native files",
+)
+check('parser.add_argument("--output"' in chroma_source and 'runtime_roots' in chroma_source,
+      "legacy chroma exporter lost its explicit non-runtime output guard")
+
+retained_legacy_assets = (
     "season1-body-normal",
     "season1-hour-arm",
     "season1-minute-arm",
     "season1-3d-body",
     "season1-3d-arm",
 )
-for asset_name in approved_assets:
+for asset_name in retained_legacy_assets:
     image_set = APP / "Assets.xcassets" / f"{asset_name}.imageset"
     contents = load_json(image_set / "Contents.json")
     filenames = [
@@ -503,7 +526,7 @@ for asset_name in approved_assets:
         f"{asset_name} asset catalog metadata is inconsistent",
     )
     png = image_set / f"{asset_name}.png"
-    check(png.is_file(), f"approved layer is missing: {png.relative_to(ROOT)}")
+    check(png.is_file(), f"retained native layer is missing: {png.relative_to(ROOT)}")
     if png.is_file():
         data = png.read_bytes()
         check(data.startswith(b"\x89PNG\r\n\x1a\n"), f"{asset_name} is not a PNG")
@@ -524,5 +547,6 @@ if errors:
 
 print(
     f"PASS: {checks} watch-surface checks "
-    "(pairing, protocol, privacy, project, targets, UI, assets)."
+    "(pairing, protocol, privacy, project, targets, UI, retained native assets)."
 )
+print("Source checks only: no Apple SDK build, on-device validation, or new animation approval is implied.")

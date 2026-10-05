@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E50000000000000000000001 /* PatrickAnimationCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000011 /* PatrickAnimationCatalog.swift */; };
+		E50000000000000000000002 /* PatrickAnimationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000012 /* PatrickAnimationPolicy.swift */; };
+		E50000000000000000000003 /* PatrickAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000013 /* PatrickAnimationPlayer.swift */; };
+		E50000000000000000000004 /* PatrickAnimatedFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000014 /* PatrickAnimatedFaceView.swift */; };
+		E50000000000000000000005 /* Animation in Resources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000015 /* Animation */; };
 		B20000000000000000000014 /* PatrickFaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000007 /* PatrickFaceApp.swift */; };
 		B20000000000000000000015 /* PatrickFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000008 /* PatrickFaceView.swift */; };
 		B20000000000000000000016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000009 /* Assets.xcassets */; };
@@ -18,6 +23,12 @@
 		D40000000000000000000002 /* PatrickWatchWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000011 /* PatrickWatchWire.swift */; };
 		D40000000000000000000003 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000012 /* PrivacyInfo.xcprivacy */; };
 		D40000000000000000000004 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000012 /* PrivacyInfo.xcprivacy */; };
+		F73ABBB0E6F9DA959FC6B8C8 /* PatrickExperience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637F53302A661A55B96CCE4 /* PatrickExperience.swift */; };
+		F7F1558A7AE8BFE6C88D4F88 /* PatrickExperience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637F53302A661A55B96CCE4 /* PatrickExperience.swift */; };
+		F764BD62D273E4C57FA0EB8D /* PatrickExperienceResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60CC995B04602C187DF14B3 /* PatrickExperienceResources.swift */; };
+		F74DDCF6036CB4E6D7A3D51C /* PatrickHealthPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F640784EB99093FF39C02D5D /* PatrickHealthPanel.swift */; };
+		F733DD87744DC26C040E6735 /* Experience in Resources */ = {isa = PBXBuildFile; fileRef = F63594D1E859059522C6A43D /* Experience */; };
+		F795F888AB6CCB5ABE0F5A94 /* PatrickClockArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F697F29DEB82B6467940181A /* PatrickClockArtwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +56,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E50000000000000000000011 /* PatrickAnimationCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickAnimationCatalog.swift; sourceTree = "<group>"; };
+		E50000000000000000000012 /* PatrickAnimationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickAnimationPolicy.swift; sourceTree = "<group>"; };
+		E50000000000000000000013 /* PatrickAnimationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickAnimationPlayer.swift; sourceTree = "<group>"; };
+		E50000000000000000000014 /* PatrickAnimatedFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickAnimatedFaceView.swift; sourceTree = "<group>"; };
+		E50000000000000000000015 /* Animation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animation; sourceTree = "<group>"; };
 		B20000000000000000000006 /* PatrickFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatrickFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20000000000000000000007 /* PatrickFaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFaceApp.swift; sourceTree = "<group>"; };
 		B20000000000000000000008 /* PatrickFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFaceView.swift; sourceTree = "<group>"; };
@@ -59,6 +75,11 @@
 		D40000000000000000000010 /* PatrickWatchReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickWatchReceiver.swift; sourceTree = "<group>"; };
 		D40000000000000000000011 /* PatrickWatchWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickWatchWire.swift; sourceTree = "<group>"; };
 		D40000000000000000000012 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		F637F53302A661A55B96CCE4 /* PatrickExperience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickExperience.swift"; sourceTree = SOURCE_ROOT; };
+		F60CC995B04602C187DF14B3 /* PatrickExperienceResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickExperienceResources.swift"; sourceTree = SOURCE_ROOT; };
+		F640784EB99093FF39C02D5D /* PatrickHealthPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatrickFace/PatrickHealthPanel.swift"; sourceTree = SOURCE_ROOT; };
+		F63594D1E859059522C6A43D /* Experience */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "PatrickFace/Experience"; sourceTree = SOURCE_ROOT; };
+		F697F29DEB82B6467940181A /* PatrickClockArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickClockArtwork.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +113,18 @@
 		B2000000000000000000000C /* PatrickFace */ = {
 			isa = PBXGroup;
 			children = (
+				F697F29DEB82B6467940181A /* PatrickClockArtwork.swift */,
+				F63594D1E859059522C6A43D /* Experience */,
+				F640784EB99093FF39C02D5D /* PatrickHealthPanel.swift */,
+				F60CC995B04602C187DF14B3 /* PatrickExperienceResources.swift */,
+				F637F53302A661A55B96CCE4 /* PatrickExperience.swift */,
 				B20000000000000000000007 /* PatrickFaceApp.swift */,
 				B20000000000000000000008 /* PatrickFaceView.swift */,
+				E50000000000000000000011 /* PatrickAnimationCatalog.swift */,
+				E50000000000000000000012 /* PatrickAnimationPolicy.swift */,
+				E50000000000000000000013 /* PatrickAnimationPlayer.swift */,
+				E50000000000000000000014 /* PatrickAnimatedFaceView.swift */,
+				E50000000000000000000015 /* Animation */,
 				C30000000000000000000010 /* PatrickShared.swift */,
 				B20000000000000000000009 /* Assets.xcassets */,
 				B2000000000000000000000A /* Info.plist */,
@@ -182,6 +213,7 @@
 					B20000000000000000000002 = {
 						CreatedOnToolsVersion = 16.0;
 						SystemCapabilities = {
+							com.apple.HealthKit = { enabled = 1; };
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
@@ -222,7 +254,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F733DD87744DC26C040E6735 /* Experience in Resources */,
 				B20000000000000000000016 /* Assets.xcassets in Resources */,
+				E50000000000000000000005 /* Animation in Resources */,
 				D40000000000000000000003 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,8 +276,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F795F888AB6CCB5ABE0F5A94 /* PatrickClockArtwork.swift in Sources */,
+				F74DDCF6036CB4E6D7A3D51C /* PatrickHealthPanel.swift in Sources */,
+				F764BD62D273E4C57FA0EB8D /* PatrickExperienceResources.swift in Sources */,
+				F73ABBB0E6F9DA959FC6B8C8 /* PatrickExperience.swift in Sources */,
 				B20000000000000000000014 /* PatrickFaceApp.swift in Sources */,
 				B20000000000000000000015 /* PatrickFaceView.swift in Sources */,
+				E50000000000000000000001 /* PatrickAnimationCatalog.swift in Sources */,
+				E50000000000000000000002 /* PatrickAnimationPolicy.swift in Sources */,
+				E50000000000000000000003 /* PatrickAnimationPlayer.swift in Sources */,
+				E50000000000000000000004 /* PatrickAnimatedFaceView.swift in Sources */,
 				C30000000000000000000001 /* PatrickShared.swift in Sources */,
 				D40000000000000000000001 /* PatrickWatchReceiver.swift in Sources */,
 				D40000000000000000000002 /* PatrickWatchWire.swift in Sources */,
@@ -254,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F1558A7AE8BFE6C88D4F88 /* PatrickExperience.swift in Sources */,
 				C30000000000000000000002 /* PatrickFaceComplications.swift in Sources */,
 				C30000000000000000000003 /* PatrickShared.swift in Sources */,
 			);
@@ -314,6 +357,7 @@
 				INFOPLIST_FILE = PatrickFace/Info.plist;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.watchkitapp;
+				PROVISIONING_PROFILE_SPECIFIER = "$(PATRICK_WATCH_PROFILE)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -337,6 +381,7 @@
 				INFOPLIST_FILE = PatrickFace/Info.plist;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.watchkitapp;
+				PROVISIONING_PROFILE_SPECIFIER = "$(PATRICK_WATCH_PROFILE)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -364,6 +409,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.watchkitapp.complications;
+				PROVISIONING_PROFILE_SPECIFIER = "$(PATRICK_COMPLICATION_PROFILE)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -391,6 +437,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.watchkitapp.complications;
+				PROVISIONING_PROFILE_SPECIFIER = "$(PATRICK_COMPLICATION_PROFILE)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

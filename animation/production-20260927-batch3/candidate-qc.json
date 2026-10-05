@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "batch": "20260927-batch3",
+  "items": [
+    {
+      "id": "charging-space-v1",
+      "jobId": "charging-space",
+      "path": "animation/charging-space-v1/atlas-generated.png",
+      "sha256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22",
+      "width": 1223,
+      "height": 1286,
+      "mode": "RGBA",
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "sourceModified": false,
+      "status": "development-review",
+      "artApproved": false,
+      "technicalStatus": "regions-valid-art-not-approved",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zeroPercent": 45.984,
+        "nonzeroPixels": 849551,
+        "edgeMaximum": {
+          "top": 0,
+          "bottom": 1,
+          "left": 1,
+          "right": 10
+        }
+      },
+      "regions": {
+        "path": "animation/charging-space-v1/regions-v1.json",
+        "sha256": "2449e95c7f53a09414a1f02c6035fbedf0927cbfcceeba0d6063876fe66dd1e7",
+        "canvas": {
+          "width": 900,
+          "height": 900,
+          "anchorPixels": [
+            450,
+            792
+          ],
+          "anchorNormalized": [
+            0.5,
+            0.88
+          ]
+        },
+        "coreCount": 12,
+        "coreThreshold": 128,
+        "coreMinimumPixels": 10000,
+        "assignedPixels": 849551,
+        "unassignedPixels": 0,
+        "discardedPixels": 0,
+        "detachedComponentCount": 2025,
+        "furthestDetached": {
+          "bounds": [
+            0,
+            132,
+            1,
+            135
+          ],
+          "pixelCount": 3,
+          "frame": 1,
+          "distanceFromCore": 103,
+          "nearestCoreCandidates": [
+            1
+          ],
+          "maxAlpha": 1
+        },
+        "coreWidthRange": [
+          270,
+          285
+        ],
+        "coreHeightRange": [
+          367,
+          376
+        ],
+        "framesWithStrongCoreAtSourceEdge": []
+      },
+      "visualReview": {
+        "status": "static-alpha-and-real-1x-reviewed-with-issues",
+        "method": "Original image inspected; readonly in-memory proper RGBA alpha_composite onto black and white. No source image rewritten.",
+        "observation": "太空服、電池、頭盔與泡泡完整可辨；白眼白黑瞳，閉眼粉色眼皮。疲倦到抱電池再精神回來的表演可讀。第5→6格側傾到回正較大，身形/泡泡/電池角度並非固定逐像素一致，首尾不是無縫循環。",
+        "knownIssues": [
+          "第5→6格側傾回正過渡需正常速度檢查",
+          "首尾電池與表情不同",
+          "2,025個離散部件包含道具與低alpha淡點，未丟棄"
+        ],
+        "artApproved": false
+      },
+      "normalSpeedReview": {
+        "status": "reviewed-with-issues-art-not-approved",
+        "reviewer": "Browser QA agent; actual performance.now playback and timestamped draws inspected.",
+        "reportPath": "output/playwright/experience-new-actions/report.json",
+        "sequencePath": "output/playwright/experience-new-actions/charging-sequence.png",
+        "recordingPath": "output/playwright/experience-new-actions/runtime-new-actions-live-1x.webm",
+        "speed": 1,
+        "runtimeFrameCount": 12,
+        "durationMs": 2900,
+        "clipScale": 2.0995334370139966,
+        "realClock": true,
+        "visitedEveryRuntimeFrame": true,
+        "stoppedAtLastFrame": true,
+        "autoReplayObserved": false,
+        "observation": "太空充電第5→6格（1061→1244ms）由左傾閉眼突然回正睜眼，過渡仍明顯偏跳；頭身與電池角度略變。動作可讀，不作美術批准。",
+        "artApproved": false
+      },
+      "runtimeUsage": [
+        {
+          "clipId": "charging",
+          "frameCount": 12,
+          "sourceFrameIndices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "status": "development-review",
+          "isRetouchedArt": false
+        }
+      ]
+    },
+    {
+      "id": "feeding-chef-v1",
+      "jobId": "feeding-chef",
+      "path": "animation/feeding-chef-v1/atlas-generated.png",
+      "sha256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "sourceModified": false,
+      "status": "development-review",
+      "artApproved": false,
+      "technicalStatus": "regions-valid-art-not-approved",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zeroPercent": 49.4727,
+        "nonzeroPixels": 794550,
+        "edgeMaximum": {
+          "top": 1,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        }
+      },
+      "regions": {
+        "path": "animation/feeding-chef-v1/regions-v1.json",
+        "sha256": "4346965a107da3c2ed9c8ed807c5537599506093a188b865ae013d1025822714",
+        "canvas": {
+          "width": 600,
+          "height": 600,
+          "anchorPixels": [
+            300,
+            528
+          ],
+          "anchorNormalized": [
+            0.5,
+            0.88
+          ]
+        },
+        "coreCount": 12,
+        "coreThreshold": 128,
+        "coreMinimumPixels": 10000,
+        "assignedPixels": 794550,
+        "unassignedPixels": 0,
+        "discardedPixels": 0,
+        "detachedComponentCount": 310,
+        "furthestDetached": {
+          "bounds": [
+            964,
+            923,
+            965,
+            925
+          ],
+          "pixelCount": 2,
+          "frame": 11,
+          "distanceFromCore": 93,
+          "nearestCoreCandidates": [
+            11
+          ],
+          "maxAlpha": 1
+        },
+        "coreWidthRange": [
+          269,
+          275
+        ],
+        "coreHeightRange": [
+          397,
+          400
+        ],
+        "framesWithStrongCoreAtSourceEdge": []
+      },
+      "visualReview": {
+        "status": "static-alpha-and-real-1x-reviewed-with-issues",
+        "method": "Original image inspected; readonly in-memory proper RGBA alpha_composite onto black and white. No source image rewritten.",
+        "observation": "白色廚師帽、白眼白黑瞳、粉色閉眼皮；拿餅乾、送嘴、咬一口、鼓腮、放低可辨。第7–11格有咬痕，第12格盤上餅乾恢復完整是原畫連續性問題。",
+        "knownIssues": [
+          "第12格餅乾恢復完整，原圖未修",
+          "日常開發版本只用第1–11格，一次後停末姿；候選保留12格",
+          "嘴與餅乾接觸、鼓腮/放手過渡需正常速度檢查"
+        ],
+        "artApproved": false
+      },
+      "normalSpeedReview": {
+        "status": "reviewed-with-issues-art-not-approved",
+        "reviewer": "Browser QA agent; actual performance.now playback and timestamped draws inspected.",
+        "reportPath": "output/playwright/experience-new-actions/report.json",
+        "sequencePath": "output/playwright/experience-new-actions/feed-sequence.png",
+        "recordingPath": "output/playwright/experience-new-actions/runtime-new-actions-live-1x.webm",
+        "speed": 1,
+        "runtimeFrameCount": 11,
+        "durationMs": 2720,
+        "clipScale": 1.4354066985645932,
+        "realClock": true,
+        "visitedEveryRuntimeFrame": true,
+        "stoppedAtLastFrame": true,
+        "autoReplayObserved": false,
+        "observation": "第3–6格舉餅入口，第7–10格缺口/鼓腮，第11格放低手；runtime確實停在已咬餅乾，没有播放原第12格復原。帽頭與身形仍略變；動作可讀但未獲美術批准。",
+        "artApproved": false
+      },
+      "runtimeUsage": [
+        {
+          "clipId": "feed",
+          "frameCount": 11,
+          "sourceFrameIndices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "status": "development-review",
+          "isRetouchedArt": false
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "inspectedNewAtlases": 2,
+    "newSourceFrames": 24,
+    "newClockLayerKit": {
+      "source": "experience/clock/layers-v1.png",
+      "layers": 3,
+      "countedAsAnimationFrames": false
+    },
+    "generatedJobs": 2,
+    "failedJobs": 6,
+    "newAudioCues": 6,
+    "userApprovedNewAtlases": 0,
+    "sourcePngsModified": 0,
+    "unassignedNonzeroAlphaPixels": 0,
+    "discardedSourcePixels": 0,
+    "normalSpeedPlaybackCasesPassed": 2,
+    "normalSpeedArtReview": "two-new-runtime-clips-reviewed-with-issues-not-approved"
+  },
+  "generationLedgerSnapshot": {
+    "path": "animation/production-20260927-batch3/generation-ledger.json",
+    "sha256": "ff23b64988e9477f835fb7fb9b6fa8d48db97ef8af2998e994d4f3f81c2fd4b5",
+    "status": "development-integrated-browser-verified-art-pending",
+    "jobCount": 8,
+    "jobStatuses": [
+      {
+        "id": "charging-space",
+        "status": "candidate-and-development-runtime"
+      },
+      {
+        "id": "charging-cozy",
+        "status": "generation-failed"
+      },
+      {
+        "id": "feeding-chef",
+        "status": "candidate-and-development-runtime"
+      },
+      {
+        "id": "summer-fan",
+        "status": "generation-failed"
+      },
+      {
+        "id": "focus-professor",
+        "status": "generation-failed"
+      },
+      {
+        "id": "bath-spa",
+        "status": "generation-failed"
+      },
+      {
+        "id": "holiday-gift",
+        "status": "generation-failed"
+      },
+      {
+        "id": "birthday-suit",
+        "status": "generation-failed"
+      }
+    ],
+    "allArtworkComplete": false
+  },
+  "developmentPlaybackSelections": [
+    {
+      "clipId": "focus",
+      "originalFrames": 16,
+      "runtimeSourceFramesOneBased": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "excludedFramesOneBased": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "meaning": "Playback selection only. Original source art and full review candidate are unchanged; excluded drawing problems are not repainted."
+    },
+    {
+      "clipId": "celebrate",
+      "originalFrames": 16,
+      "runtimeSourceFramesOneBased": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "excludedFramesOneBased": [
+        16
+      ],
+      "meaning": "Playback selection only. Original source art and full review candidate are unchanged; excluded drawing problems are not repainted."
+    },
+    {
+      "clipId": "bath",
+      "originalFrames": 8,
+      "runtimeSourceFramesOneBased": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "excludedFramesOneBased": [
+        5
+      ],
+      "meaning": "Playback selection only. Original source art and full review candidate are unchanged; excluded drawing problems are not repainted."
+    },
+    {
+      "clipId": "feed",
+      "originalFrames": 12,
+      "runtimeSourceFramesOneBased": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "excludedFramesOneBased": [
+        12
+      ],
+      "meaning": "Playback selection only. Original source art and full review candidate are unchanged; excluded drawing problems are not repainted."
+    }
+  ],
+  "artApproved": false,
+  "limits": [
+    "開發整合並非使用者批准",
+    "以frameIndices避開壞格不是修圖，完整原稿仍待重做",
+    "正常速度/小尺寸/原生真機驗證分開記錄",
+    "音效WAV技術檢查不等於真機聽感驗收"
+  ],
+  "clockReview": {
+    "status": "development-draft-art-not-approved",
+    "sourceSha256": "e2e7d7812b8d1d78c87b067b408d7ae63edc1713ce44d7cb4d0530260e40e810",
+    "regionsSha256": "d8121c7a5f9c910c9e54fdd649f92ae86a8042e163e946d602a8d2f8b6a12958",
+    "bodyStageAnchor": [
+      416,
+      854
+    ],
+    "sharedPivot": [
+      416,
+      690
+    ],
+    "handDisplayLengths": {
+      "hour": 115,
+      "minute": 140
+    },
+    "technicalGeometry": "validated",
+    "artApproved": false,
+    "knownIssues": [
+      "手臂接合仍需美術審查",
+      "朝上的手臂仍可能碰到大笑嘴輪廓，不能稱完全避免遮臉",
+      "閉嘴修圖生成失敗，沒有替代新圖"
+    ],
+    "closedSmileRevision": "experience/clock/closed-smile-revision.json"
+  }
+}

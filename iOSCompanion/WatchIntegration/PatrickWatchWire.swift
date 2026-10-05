@@ -24,6 +24,7 @@ enum PatrickWatchWire {
         case openWatchFace = "open-watch-face"
         case startTimer = "start-timer"
         case stopTimer = "stop-timer"
+        case updateExperience = "update-experience"
     }
 
     enum Theme: String, Codable, Sendable {
@@ -70,6 +71,7 @@ enum PatrickWatchWire {
         var sleepMode: SleepMode
         var demoMode: Bool
         var updatedAt: Date
+        var experience: PatrickExperienceState? = nil
 
         static func initial(theme: PatrickTheme) -> Settings {
             Settings(
@@ -107,6 +109,7 @@ enum PatrickWatchWire {
         var previewState: VisualState?
         var timer: TimerSnapshot?
         var deepLink: URL?
+        var careAction: PatrickCareAction?
     }
 
     struct Acknowledgement: Codable, Equatable, Sendable {

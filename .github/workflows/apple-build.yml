@@ -1,0 +1,50 @@
+name: Apple build validation
+
+'on':
+  push:
+    branches:
+      - codex/apple-watch-integration
+  workflow_dispatch:
+    inputs:
+      unsigned_device_archive:
+        description: Also build and inspect an unsigned iPhone + Watch device archive (not installable)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: apple-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  simulator-build:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - name: Read repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Build unsigned Apple simulator apps
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/patrick-ci-logs"
+          set -o pipefail
+          bash tools/build_apple_simulators.sh 2>&1 | tee "$RUNNER_TEMP/patrick-ci-logs/simulator.log"
+      - name: Inspect unsigned device archive
+        if: ${{ github.event_name == 'push' || inputs.unsigned_device_archive }}
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 tools/archive_apple.py --build-number "$GITHUB_RUN_NUMBER" 2>&1 | tee "$RUNNER_TEMP/patrick-ci-logs/archive.log"
+      - name: Keep private build diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apple-build-diagnostics-${{ github.run_number }}
+          path: ${{ runner.temp }}/patrick-ci-logs/*.log
+          retention-days: 7
+          if-no-files-found: warn

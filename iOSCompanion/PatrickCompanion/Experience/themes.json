@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "defaultOutfitID": "auto",
+  "defaultSceneOutfits": {
+    "awake": "classic",
+    "sleeping": "star-pajamas",
+    "charging": "space-charging",
+    "exercise": "sport",
+    "focus": "professor",
+    "bath": "bath",
+    "celebrate": "party"
+  },
+  "defaultActionOutfits": {
+    "feed": "chef",
+    "wake": "star-pajamas",
+    "yawn": "star-pajamas",
+    "pet": "classic",
+    "celebrate": "party"
+  },
+  "outfits": [
+    {
+      "id": "classic",
+      "title": "原味小脾氣",
+      "scene": "awake",
+      "clipId": "pet",
+      "actions": {
+        "pet": "pet",
+        "surprise": "pet"
+      },
+      "ambience": "none",
+      "accent": "#f4a9c5",
+      "status": "development-review",
+      "reviewClipId": "pet-batch2-candidate",
+      "description": "被摸到先嫌棄、抱臂，再忍不住偷笑。"
+    },
+    {
+      "id": "star-pajamas",
+      "title": "星星抱枕睡衣",
+      "scene": "sleeping",
+      "clipId": "idle-blink-normal",
+      "actions": {
+        "idle": [
+          "idle-blink-normal",
+          "idle-blink-slow",
+          "idle-blink-double"
+        ],
+        "pet": "idle-blink-slow",
+        "yawn": "yawn",
+        "wake": "wake"
+      },
+      "ambience": "stars",
+      "accent": "#c4b4f0",
+      "status": "development-review",
+      "reviewClipId": "blink-batch2-candidate",
+      "description": "戴星星睡帽、抱著枕頭，偶爾眨眼。進入睡前情境會打一次哈欠，也能手動叫醒。"
+    },
+    {
+      "id": "mint-pajamas",
+      "title": "薄荷條紋睡衣",
+      "scene": "sleeping",
+      "clipId": "bedtime-mint",
+      "actions": {
+        "pet": "bedtime-mint"
+      },
+      "ambience": "none",
+      "accent": "#95d5bd",
+      "status": "development-review",
+      "reviewClipId": "mint-pajama-batch2-candidate",
+      "description": "把薄荷條紋睡衣的毯子拉高，眨眨眼，舒服地歇著。"
+    },
+    {
+      "id": "moon-robe",
+      "title": "月亮睡袍",
+      "scene": "sleeping",
+      "clipId": "bedtime-moon",
+      "actions": {
+        "pet": "bedtime-moon"
+      },
+      "ambience": "stars",
+      "accent": "#d7cda8",
+      "status": "development-review",
+      "reviewClipId": "moon-robe-batch2-candidate",
+      "description": "穿深藍月亮睡袍，認真整理衣襟，最後露出一點微笑。"
+    },
+    {
+      "id": "space-charging",
+      "title": "泡泡補給員",
+      "scene": "charging",
+      "clipId": "charging",
+      "actions": {
+        "pet": "charging",
+        "charging": "charging"
+      },
+      "ambience": "bubbles",
+      "accent": "#a9ead1",
+      "status": "development-review",
+      "reviewClipId": "charging-space-batch3-candidate",
+      "description": "穿上太空補給服，抱緊電池枕。頭盔放在旁邊，泡泡慢慢浮起。"
+    },
+    {
+      "id": "classic-charging",
+      "title": "原味充電抱枕",
+      "scene": "charging",
+      "clipId": "charging-classic",
+      "actions": {
+        "pet": "charging-classic",
+        "charging": "charging-classic"
+      },
+      "ambience": "bubbles",
+      "accent": "#9dd7d3",
+      "status": "development-review",
+      "reviewClipId": "charging-batch2-candidate",
+      "description": "原味短褲也保留：抱著小電池，從犯睏慢慢回神，周圍有泡泡陪伴。"
+    },
+    {
+      "id": "sport",
+      "title": "頭帶小健將",
+      "scene": "exercise",
+      "clipId": "exercise",
+      "actions": {
+        "pet": "exercise",
+        "exercise": "exercise"
+      },
+      "ambience": "none",
+      "accent": "#ffc47e",
+      "status": "development-review",
+      "reviewClipId": "exercise-batch2-candidate",
+      "description": "戴上運動頭帶，舉起啞鈴，再放下來吐口氣。"
+    },
+    {
+      "id": "professor",
+      "title": "正裝小教授",
+      "scene": "focus",
+      "clipId": "focus",
+      "actions": {
+        "pet": "focus",
+        "focus": "focus"
+      },
+      "ambience": "none",
+      "accent": "#adc5ea",
+      "status": "development-review",
+      "reviewClipId": "focus-candidate",
+      "description": "一本正經穿好正裝，扶回滑下來的眼鏡。"
+    },
+    {
+      "id": "party",
+      "title": "一本正經派對帽",
+      "scene": "celebrate",
+      "clipId": "celebrate",
+      "actions": {
+        "pet": "celebrate",
+        "celebrate": "celebrate"
+      },
+      "ambience": "confetti",
+      "accent": "#ddc5fb",
+      "status": "development-review",
+      "reviewClipId": "celebrate-candidate",
+      "description": "帽子戴好，吹一下派對哨，跟你一起慶祝。"
+    },
+    {
+      "id": "bath",
+      "title": "浴帽與小鴨",
+      "scene": "bath",
+      "clipId": "bath",
+      "actions": {
+        "pet": "bath",
+        "bath": "bath"
+      },
+      "ambience": "bubbles",
+      "accent": "#bdc2ef",
+      "status": "development-review",
+      "reviewClipId": "bath-candidate",
+      "description": "浴帽、小鴨和泡泡，手動切換到泡澡休息時間。"
+    },
+    {
+      "id": "chef",
+      "title": "小廚師圍裙",
+      "scene": "awake",
+      "clipId": "feed",
+      "actions": {
+        "feed": "feed"
+      },
+      "ambience": "none",
+      "accent": "#b1e2cb",
+      "status": "development-review",
+      "reviewClipId": "feeding-chef-batch3-candidate",
+      "description": "戴廚師帽、繫上薄荷圍裙，拿起點心咬一口，再慢慢嚼。"
+    }
+  ],
+  "artApproval": "All new outfits remain reviewable; runtime integration is not automatic art approval."
+}

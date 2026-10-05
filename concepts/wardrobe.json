@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "charging-cel-v1",
+      "title": "補充一點能量",
+      "category": "日常",
+      "mood": "開心",
+      "scene": "charging",
+      "tags": [
+        "電池枕頭",
+        "軟墊",
+        "泡泡"
+      ],
+      "description": "上一批獲得正向回饋的充電概念。",
+      "image": "concepts/2026-09-27/charging-cel-v1.png",
+      "status": "concept-review",
+      "sha256": "da69bf66f43548c51119f5bf27a21fa6700100b724057db555cf2a485c579984",
+      "style": "2D",
+      "version": 1
+    },
+    {
+      "id": "fitness-toon-v1",
+      "title": "下一組，再一起來",
+      "category": "休閒",
+      "mood": "得意",
+      "scene": "exercise",
+      "tags": [
+        "運動頭帶",
+        "毛巾",
+        "小啞鈴"
+      ],
+      "description": "運動陪伴造型，尚未接上實際健身資料。",
+      "image": "concepts/2026-09-27/fitness-toon-v1.png",
+      "status": "concept-review",
+      "sha256": "983e3c03bf9e5bc993499135fed295975425ad46d508db696105014046579bfc",
+      "style": "3D",
+      "version": 1
+    },
+    {
+      "id": "bedtime-cel-v1",
+      "title": "星星晚安",
+      "category": "睡前",
+      "mood": "放鬆",
+      "scene": "sleeping",
+      "tags": [
+        "星星睡衣",
+        "長睡帽",
+        "星星吊飾",
+        "枕頭"
+      ],
+      "description": "星星睡衣方向保留；眼部配色錯誤已退回修改。",
+      "image": null,
+      "status": "revision-blocked",
+      "sha256": null,
+      "style": "2D",
+      "version": 2,
+      "previous": {
+        "image": "concepts/2026-09-27/bedtime-cel-v1.png",
+        "title": "星星晚安",
+        "sha256": "b8457fc9e9a604af9143d0f40b8f34fbdb72788778507d2436587592e20b246f",
+        "version": 1,
+        "status": "concept-review",
+        "style": "2D",
+        "verdict": "revise",
+        "note": "使用者指出眼白為藍色；原圖閉眼眼皮也誤染紫色。需改為粉色眼皮；睜眼時白眼白、黑瞳。",
+        "reviewedAt": "2026-09-27T10:24:34.556527+00:00"
+      },
+      "generationNote": "單張修眼本輪被圖片工具攔截，尚無新單張。八格哈欠已修眼，可到動畫樣片頁查看。",
+      "changeNote": "眼白必須白色、瞳孔黑色、眼皮粉色。已修眼的八格動畫另外待審，不能把原單張算已修好。"
+    },
+    {
+      "id": "serious-suit",
+      "title": "今天很正經",
+      "category": "工作",
+      "mood": "嚴肅",
+      "scene": "focus",
+      "tags": [
+        "圓框眼鏡",
+        "深藍正裝",
+        "領帶",
+        "筆記板"
+      ],
+      "description": "擬重做：過大的西裝、拿反的文件板與一本正經的誇張姿態。",
+      "image": null,
+      "status": "revision-blocked",
+      "generationNote": "已收到不喜歡的意見；本輪重畫服務未產生新圖，待補。",
+      "style": "2D",
+      "version": 2,
+      "previous": {
+        "image": "concepts/2026-09-27-wardrobe/serious-suit.png",
+        "title": "今天很正經",
+        "sha256": "23b5a96cd2c376e0ad5883c8f7f92d8c1201ccd5b2258d82d3c0a9385434a402",
+        "verdict": "rejected",
+        "note": "",
+        "reviewedAt": "2026-09-27T09:34:01.146Z",
+        "version": 1,
+        "status": "concept-review",
+        "style": "2D"
+      },
+      "changeNote": "擬重做：過大的西裝、拿反的文件板與一本正經的誇張姿態。"
+    },
+    {
+      "id": "after-work",
+      "title": "今天先到這裡",
+      "category": "工作",
+      "mood": "疲倦",
+      "scene": "rest",
+      "tags": [
+        "方框眼鏡",
+        "鬆開的領帶",
+        "捲袖襯衫",
+        "咖啡杯"
+      ],
+      "description": "擬重做：改成2D癱在坐墊上的姿態，領帶掛到頭頂、咖啡杯歪掉。",
+      "image": null,
+      "status": "revision-blocked",
+      "generationNote": "已收到不喜歡的意見；本輪重畫服務未產生新圖，待補。",
+      "style": "2D",
+      "version": 2,
+      "previous": {
+        "image": "concepts/2026-09-27-wardrobe/after-work.png",
+        "title": "今天先到這裡",
+        "sha256": "cc95ff57a77a9a71c9696406b9d4ae5e1b5badb19a9224af281273cdb78b0801",
+        "verdict": "rejected",
+        "note": "",
+        "reviewedAt": "2026-09-27T09:34:09.177Z",
+        "version": 1,
+        "status": "concept-review",
+        "style": "3D"
+      },
+      "changeNote": "擬重做：改成2D癱在坐墊上的姿態，領帶掛到頭頂、咖啡杯歪掉。"
+    },
+    {
+      "id": "mint-striped-pajamas",
+      "title": "再睡五分鐘",
+      "category": "睡前",
+      "mood": "不耐煩",
+      "scene": "sleeping",
+      "tags": [
+        "薄荷條紋睡衣",
+        "軟睡帽",
+        "抱枕"
+      ],
+      "description": "晨光來了也不想起床，睡眼惺忪地抱緊枕頭。",
+      "image": "concepts/2026-09-27-wardrobe/mint-striped-pajamas.png",
+      "status": "generation-blocked",
+      "generationNote": "本輪圖片服務輸出檢查攔截，未生成。",
+      "style": "2D",
+      "version": 1
+    },
+    {
+      "id": "navy-moon-robe",
+      "title": "夜裡的思想家",
+      "category": "睡前",
+      "mood": "沉思",
+      "scene": "sleeping",
+      "tags": [
+        "月亮睡袍",
+        "月牙睡帽",
+        "小書"
+      ],
+      "description": "穿上深藍睡袍，想一想宇宙，也想一想明天吃什麼。",
+      "image": "concepts/2026-09-27-wardrobe/navy-moon-robe.png",
+      "status": "generation-blocked",
+      "generationNote": "本輪圖片服務輸出檢查攔截，未生成。",
+      "style": "3D",
+      "version": 1
+    },
+    {
+      "id": "summer-pajamas",
+      "title": "刷牙也要放空",
+      "category": "睡前",
+      "mood": "發呆",
+      "scene": "sleeping",
+      "tags": [
+        "短袖夏日睡衣",
+        "小花短褲",
+        "牙刷",
+        "軟拖鞋"
+      ],
+      "description": "另一套輕薄的睡前造型，發呆時也能把日常小物帶進來。",
+      "image": "concepts/2026-09-27-wardrobe/summer-pajamas.png",
+      "status": "generation-blocked",
+      "generationNote": "本輪圖片服務輸出檢查攔截，未生成。",
+      "style": "2D",
+      "version": 1
+    },
+    {
+      "id": "bath-duck",
+      "title": "泡泡裡放空",
+      "category": "休閒",
+      "mood": "放鬆",
+      "scene": "bath",
+      "tags": [
+        "泡泡浴缸",
+        "浴帽",
+        "黃色小鴨",
+        "泡泡"
+      ],
+      "description": "手動切換的泡澡場景草稿；不代表手錶已偵測到泡澡。",
+      "image": "concepts/2026-09-27-wardrobe/bath-duck.png",
+      "status": "concept-review",
+      "generationNote": "靜態概念，尚未拆層動畫。",
+      "sha256": "665f065a72174db273e118edbbd5a705e102c07ecd2582c154645027e4e210c0",
+      "style": "2D",
+      "version": 1
+    },
+    {
+      "id": "detective",
+      "title": "事情沒有那麼簡單",
+      "category": "日常",
+      "mood": "懷疑",
+      "scene": "awake",
+      "tags": [
+        "偵探帽",
+        "短風衣",
+        "放大鏡"
+      ],
+      "description": "看什麼都有點可疑，適合找東西、提醒和小任務的情境。",
+      "image": "concepts/2026-09-27-wardrobe/detective.png",
+      "status": "concept-review",
+      "generationNote": "靜態概念，尚未拆層動畫。",
+      "sha256": "23f9d971f39a4f2486ca08b372899339141efacdd725eff823e2ad5b6fb0cd48",
+      "style": "2D",
+      "version": 1
+    },
+    {
+      "id": "street-confident",
+      "title": "今天我說了算",
+      "category": "日常",
+      "mood": "得意",
+      "scene": "awake",
+      "tags": [
+        "反戴棒球帽",
+        "墨鏡",
+        "寬鬆外套"
+      ],
+      "description": "擬重做：3D滑板失衡，姿態還要逞強，讓得意表情有笑點。",
+      "image": null,
+      "status": "revision-blocked",
+      "generationNote": "已收到不喜歡的意見；本輪重畫服務未產生新圖，待補。",
+      "style": "3D",
+      "version": 2,
+      "previous": {
+        "image": "concepts/2026-09-27-wardrobe/street-confident.png",
+        "title": "今天我說了算",
+        "sha256": "9078ffb8d4ce3ecf21a318fe83cea9ff151c8faa21ec9c9d0d7af5363c1487b2",
+        "verdict": "rejected",
+        "note": "",
+        "reviewedAt": "2026-09-27T09:34:14.585Z",
+        "version": 1,
+        "status": "concept-review",
+        "style": "3D"
+      },
+      "changeNote": "擬重做：3D滑板失衡，姿態還要逞強，讓得意表情有笑點。"
+    }
+  ]
+}

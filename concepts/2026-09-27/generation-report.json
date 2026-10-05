@@ -1,0 +1,74 @@
+{
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "path": "bedtime-cel-v1.png",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        33,
+        24,
+        1106,
+        1272
+      ],
+      "sha256": "b8457fc9e9a604af9143d0f40b8f34fbdb72788778507d2436587592e20b246f",
+      "status": "pending-user-review",
+      "readiness": "concept-only; not layered or rigged"
+    },
+    {
+      "path": "charging-cel-v1.png",
+      "size": [
+        1223,
+        1286
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        0,
+        45,
+        1222,
+        1286
+      ],
+      "sha256": "da69bf66f43548c51119f5bf27a21fa6700100b724057db555cf2a485c579984",
+      "status": "pending-user-review",
+      "readiness": "concept-only; not layered or rigged"
+    },
+    {
+      "path": "fitness-toon-v1.png",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaBounds": [
+        45,
+        15,
+        1083,
+        1344
+      ],
+      "sha256": "983e3c03bf9e5bc993499135fed295975425ad46d508db696105014046579bfc",
+      "status": "pending-user-review",
+      "readiness": "concept-only; not layered or rigged"
+    }
+  ],
+  "notGenerated": [
+    {
+      "name": "festival-toon-v1",
+      "reason": "Image service output safety check rejected this attempt; no replacement image generated."
+    }
+  ]
+}

@@ -13,6 +13,9 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
         var theme: PatrickTheme?
         var sleepMode: PatrickWatchWire.SleepMode?
         var previewState: PatrickWatchWire.VisualState?
+        var experience: PatrickExperienceState?
+        var careAction: PatrickCareAction?
+        var playSound = false
     }
 
     static let shared = PatrickWatchReceiver()
@@ -23,7 +26,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
     private let session = WCSession.default
     private let defaults: UserDefaults
     private var latestSettings: PatrickWatchWire.Settings?
-    private var latestTimer: PatrickWatchWire.TimerSnapshot?
+    @Published private(set) var latestTimer: PatrickWatchWire.TimerSnapshot?
     private var pendingEnvelope: PatrickWatchWire.Envelope?
     private var currentTheme: (() -> PatrickTheme)?
     private var onControlApplied: ((AppliedState) -> Void)?
@@ -67,7 +70,8 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
                 AppliedState(
                     theme: settings.theme.watchTheme,
                     sleepMode: settings.sleepMode,
-                    previewState: settings.previewState
+                    previewState: settings.previewState,
+                    experience: settings.experience
                 )
             )
         }
@@ -80,7 +84,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
         session.activate()
     }
 
-    func sendSnapshot(theme: PatrickTheme) {
+    func sendSnapshot(theme: PatrickTheme, experience: PatrickExperienceState? = nil) {
         var settings = latestSettings
             ?? PatrickWatchWire.Settings.initial(theme: theme)
         let wireTheme = PatrickWatchWire.Theme(theme)
@@ -90,13 +94,18 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
             settings.updatedAt = .now
         }
         settings.version = PatrickWatchWire.settingsSchemaVersion
+        if let experience, settings.experience != experience {
+            settings.experience = experience
+            settings.revision &+= 1
+            settings.updatedAt = .now
+        }
         settings.demoMode = false
         latestSettings = settings
         persist(settings)
 
         let envelope = PatrickWatchWire.Envelope.snapshot(
             settings: settings,
-            timer: latestTimer
+            timer: settings.experience?.activity == nil ? latestTimer : nil
         )
         deliver(envelope)
     }
@@ -190,6 +199,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
             var staleState = false
 
             if let settings = envelope.settings {
+                let localExperience = effectiveSettings.experience ?? PatrickExperienceState.load(from: defaults)
                 if settings.revision >= effectiveSettings.revision {
                     effectiveSettings = settings
                     update.theme = settings.theme.watchTheme
@@ -198,6 +208,9 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
                 } else {
                     staleState = true
                 }
+                if let incoming = settings.experience, incoming.isNewer(than: localExperience) {
+                    effectiveSettings.experience = incoming; update.experience = incoming
+                } else { effectiveSettings.experience = localExperience }
             }
 
             if let timer = envelope.timer {
@@ -208,7 +221,8 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
                 apply(
                     command,
                     to: &effectiveSettings,
-                    stateAllowed: !staleState,
+                    stateAllowed: !staleState || update.experience != nil,
+                    actionAllowed: abs(envelope.sentAt.timeIntervalSinceNow) <= 120,
                     update: &update
                 )
             }
@@ -216,6 +230,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
             if update.theme != nil
                 || update.sleepMode != nil
                 || update.previewState != nil
+                || update.experience != nil || update.careAction != nil || update.playSound
             {
                 latestSettings = effectiveSettings
                 persist(effectiveSettings)
@@ -255,6 +270,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
         _ command: PatrickWatchWire.Command,
         to settings: inout PatrickWatchWire.Settings,
         stateAllowed: Bool,
+        actionAllowed: Bool,
         update: inout AppliedState
     ) {
         switch command.name {
@@ -274,8 +290,9 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
                 update.previewState = state
             }
         case .playThemeSound:
-            WKInterfaceDevice.current().play(.notification)
+            update.playSound = actionAllowed
         case .openWatchFace:
+            guard actionAllowed else { return }
             requestedRoute = command.deepLink
             onOpenFace?()
             NotificationCenter.default.post(
@@ -287,7 +304,9 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
                 setTimer(timer)
             }
         case .stopTimer:
-            setTimer(nil)
+            setTimer(command.timer)
+        case .updateExperience:
+            if stateAllowed && actionAllowed { update.careAction = command.careAction }
         }
     }
 

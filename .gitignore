@@ -41,3 +41,7 @@ temp/
 
 # Preserved rejected/legacy package snapshot (local only)
 delivery/theme-pack-before-rebuild-*/
+
+# Local visual verification output (not theme assets)
+/output/playwright/
+/.playwright-cli/

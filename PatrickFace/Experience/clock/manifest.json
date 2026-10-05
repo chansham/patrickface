@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "version": 1,
+  "status": "development-review",
+  "title": "原味手臂時計",
+  "source": {
+    "path": "experience/clock/layers-v1.png",
+    "sha256": "e2e7d7812b8d1d78c87b067b408d7ae63edc1713ce44d7cb4d0530260e40e810",
+    "width": 1902,
+    "height": 827
+  },
+  "frameRegions": {
+    "path": "experience/clock/regions-v1.json",
+    "sha256": "d8121c7a5f9c910c9e54fdd649f92ae86a8042e163e946d602a8d2f8b6a12958",
+    "version": 1
+  },
+  "canvas": {
+    "width": 896,
+    "height": 896,
+    "anchorPixels": [
+      448,
+      788
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8794642857142857
+    ]
+  },
+  "body": {
+    "regionIndex": 0,
+    "anchorPixels": [
+      448,
+      788
+    ],
+    "stageAnchor": [
+      416,
+      854
+    ],
+    "pixelScale": 0.8051948051948052
+  },
+  "hands": [
+    {
+      "id": "hour",
+      "regionIndex": 1,
+      "pivotPixels": [
+        347,
+        694
+      ],
+      "tipPixels": [
+        643,
+        691
+      ],
+      "lengthPixels": 296.0152023123137,
+      "displayLength": 115,
+      "sourceDirectionDegrees": -0.5806805858927059
+    },
+    {
+      "id": "minute",
+      "regionIndex": 2,
+      "pivotPixels": [
+        316,
+        694
+      ],
+      "tipPixels": [
+        720,
+        677
+      ],
+      "lengthPixels": 404.357515077932,
+      "displayLength": 140,
+      "sourceDirectionDegrees": -2.4095395317886092
+    }
+  ],
+  "layout": {
+    "coordinateSize": [
+      832,
+      992
+    ],
+    "pivot": [
+      416,
+      690
+    ],
+    "sourceDirectionDegrees": 0
+  },
+  "rules": {
+    "primaryDigitalTime": true,
+    "classicClockOutfitOnly": true,
+    "hideHandsDuringCharacterAction": true,
+    "resumeUsingCurrentDate": true,
+    "secondHand": false,
+    "idleArmWobble": false
+  },
+  "notes": "Actual time angles. Body lifted40px; pivot on belly. Hands shortened to preserve eyes and digital time; upward arm may overlap bottom of the open smile. Closed-mouth source revision was blocked, so no edited PNG exists. Artwork remains pending review."
+}

@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Edit target: the attached transparent Patrick clock layer kit. Precise targeted game-art correction. Keep the same three separate components, the same seated body silhouette, matching coral-pink skin, white eyes black pupils, original cartoon style, green shorts/purple flowers, two feet and the two detached arm drawings. Change ONLY the facial mouth on the LEFT body: replace the huge open mouth with a small CLOSED friendly curved smile immediately below the eyes, around the upper chest. No open mouth, no teeth, no tongue. The smile must end high enough that the lower chest and entire round belly remain clear pink space, for two rotating clock arms to pivot over the belly without hiding the face. Leave all other body proportions and both isolated flippers unchanged. Preserve genuinely transparent background, all three complete components separated by transparent margins. No watch frame, lettering, numbers, shadows or added objects. This is the same Patrick Star cartoon character; maintain original-series clean 2D linework. Do not zoom or crop any component.",
+  "input": "experience/clock/layers-v1.png",
+  "status": "generation-blocked",
+  "outputExists": false,
+  "error": {
+    "httpStatus": 400,
+    "code": "moderation_blocked",
+    "stage": "output",
+    "requestID": "b81b6656-9bcb-476a-b533-ec3462045f3f",
+    "message": "Your request was rejected by the safety system."
+  },
+  "next": "No alternate provider or image manipulation used; current original remains review-only."
+}

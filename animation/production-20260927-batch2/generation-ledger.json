@@ -1,0 +1,207 @@
+{
+  "batch": "20260927-batch2",
+  "tool": "built-in image_gen",
+  "status": "candidate-delivery-complete-art-review-pending",
+  "reference": "animation/yawn-v1/atlas-eyes-v2.png",
+  "jobs": [
+    {
+      "id": "blink",
+      "title": "抱枕眨眼",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "reviewGroup": "idle",
+      "prompt": "Create an EIGHT-frame subtle idle BLINK animation atlas, exact FOUR columns TWO rows, reading row-major. Lock the entire full-body seated pose to the reference upper-left drawing: character hugging pillow, sleepy half-open eyes. Only eyelids and pupils change; body, mouth, arms, pillow, hat, yellow star, feet are absolutely identical in all eight cells. 1 half-open resting eyes; 2 lids start closing; 3 lids nearly shut; 4 fully closed soft pink lids with clear black eye line; 5 fully closed hold; 6 lids start opening; 7 nearly returned; 8 EXACT match frame1. Do not bob the body, deform pillow or hat, change camera or create a yawn. Neutral white eye whites stay white where exposed. Both eyes blink together. The eight images should align exactly if overlaid, except for changing eye drawings.\nUse the attached approved reference atlas solely to match Patrick Star's exact 2D cel character, coral pink skin, lavender star-pattern pajamas, long drooping nightcap with a small yellow star, and cream pillow. WHITE sclera, BLACK pupils, PINK eyelids always; never blue or purple eyeballs. Dark clean smooth cartoon outlines, no chroma-key colored fringing or stray pixels. Every cell uses an identical locked orthographic front three-quarter camera, identical head/body size, scale, framing and ground anchor. The full seated character stays centered at x=50% with soles at y=88% of each square cell, crown at roughly y=12%; generous transparent margin all sides. The pillow, hat and costume star placements remain consistent. No whole-character slide, zoom, rotation, body resizing or camera movement. Only deliberately described body-part articulation, eyes and mouth change. True transparency outside the character. No grid lines, numbers, labels, arrows, scenery, UI, letters or watermark. Clean warm friendly cartoon, not realistic or grotesque.",
+      "directory": "animation/blink-v2",
+      "sourcePath": "<USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-4740c008-3718-46dd-a303-6fbc3fab1da8.png",
+      "workspacePath": "animation/blink-v2/atlas-generated.png",
+      "status": "candidate-manual-review",
+      "outputHint": "Generated images are saved to <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af as <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-4740c008-3718-46dd-a303-6fbc3fab1da8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "candidateClipId": "blink-batch2-candidate",
+      "frameRegions": {
+        "path": "animation/blink-v2/regions-v1.json",
+        "sha256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e",
+        "version": 1
+      },
+      "sha256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "reviewPath": "animation/blink-v2/REVIEW.md",
+      "artApproved": false,
+      "presentationScale": 1.2626832018038332
+    },
+    {
+      "id": "pet",
+      "title": "被戳後先嫌棄再偷笑",
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "reviewGroup": "interaction",
+      "prompt": "TWELVE-frame 4 columns ×3 rows row-major animated reaction, in classic lime-green shorts with purple flowers, NO pajamas, hat or pillow. One short genuine acting sequence after being poked: resting seated with hands on knees; eyes shift toward the poke; one eyebrow rises; cheek pulls into indignant squint; mouth pouts; arms briefly fold; stern sideways look; tries not to smile; corner of mouth curls; short cheeky grin; unfolds hands; exact initial seated pose. Body and ground remain stable. EXPRESSIVE not constantly cute. Each successive frame changes real facial and flipper drawings smoothly, not whole sprite translation.\nMatch the attached approved reference's recognizable Patrick Star face and clean 2D cel drawing style. Each drawing genuinely changes limbs/eyes/mouth as specified. White exposed sclera, black pupils, coral-pink eyelids. Every cell is identical square size, same fixed orthographic camera, constant character head/body scale and seated ground anchor at x50%, y88%; minimum8% transparent margin around entire silhouette including all props. No clipped limbs/hat/feet, no colored halos or stray pixels. Maintain same costume pattern and prop shape across frames. Exact row-major sequence on true transparent background; no grid, labels, numbers, scenery, captions, arrows or watermark. No body slide, camera motion, stretching entire character, or artificial scale changes. No human fingers, realism or grotesque details.",
+      "directory": "animation/pet-v2",
+      "sourcePath": "<USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-d2112148-5bbc-4ac2-97ee-37a5e082ee9b.png",
+      "workspacePath": "animation/pet-v2/atlas-generated.png",
+      "status": "candidate-manual-review",
+      "outputHint": "Generated images are saved to <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af as <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-d2112148-5bbc-4ac2-97ee-37a5e082ee9b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "candidateClipId": "pet-batch2-candidate",
+      "frameRegions": {
+        "path": "animation/pet-v2/regions-v1.json",
+        "sha256": "82ae7279f09a2777a4f9be149c593d20dee58ddd6f9ae4c90771b691aac4d9e5",
+        "version": 1
+      },
+      "sha256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b",
+      "reviewPath": "animation/pet-v2/REVIEW.md",
+      "artApproved": false,
+      "presentationScale": 2.165745856353591
+    },
+    {
+      "id": "feed",
+      "title": "偷吃一口餅乾",
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "reviewGroup": "interaction",
+      "prompt": "SIXTEEN-frame 4×4 row-major animation, classic lime-green shorts purple flowers, no pajamas/hat/pillow. A small cream bowl with one round cookie on lap throughout rest. Seated Patrick spots cookie; reaches one flipper; grasps cookie with rounded flipper (no human fingers); lifts in four gradual poses; opens mouth; brings cookie to mouth; ONE bite visibly removes bite chunk; chews in three different mouth/cheek drawings; swallows; smug half-smile; lowers remaining cookie; cookie rests back in bowl; hands return. Frame1 and16 same seated proportions and anchor. Cookie may remain bitten at end (continuity not fake magically restored). One smooth short sequence; minimal prop, consistent size and contact.\nMatch the attached approved reference's recognizable Patrick Star face and clean 2D cel drawing style. Each drawing genuinely changes limbs/eyes/mouth as specified. White exposed sclera, black pupils, coral-pink eyelids. Every cell is identical square size, same fixed orthographic camera, constant character head/body scale and seated ground anchor at x50%, y88%; minimum8% transparent margin around entire silhouette including all props. No clipped limbs/hat/feet, no colored halos or stray pixels. Maintain same costume pattern and prop shape across frames. Exact row-major sequence on true transparent background; no grid, labels, numbers, scenery, captions, arrows or watermark. No body slide, camera motion, stretching entire character, or artificial scale changes. No human fingers, realism or grotesque details.",
+      "directory": "animation/feed-v2",
+      "status": "generation-failed",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID a6e3cd1c-9987-4813-9ff3-d2ec16032292.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+    },
+    {
+      "id": "charging",
+      "title": "抱著電池回神",
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "reviewGroup": "scene",
+      "prompt": "TWELVE-frame 4×3 row-major character acting animation. Classic green shorts with purple flowers, no sleep hat/pillow. Seated Patrick holds a small rounded turquoise toy battery upright on lap (simple lightning icon, no text). Begins sleepy and slumped shoulders; eyes notice battery; rounded flippers hug it closer across several genuine articulation poses; eyes open progressively and mouth changes from tired line to silly proud smile; straightens his upper posture slightly without changing character scale or seat anchor; satisfied cheek puff; returns hands to resting hold and a calm smile. Battery stays same size/location under hand contact, no pure glowing particle substitute for character acting. Do not depict electrical danger or real cable plugs in body.\nMatch the attached approved reference's recognizable Patrick Star face and clean 2D cel drawing style. Each drawing genuinely changes limbs/eyes/mouth as specified. White exposed sclera, black pupils, coral-pink eyelids. Every cell is identical square size, same fixed orthographic camera, constant character head/body scale and seated ground anchor at x50%, y88%; minimum8% transparent margin around entire silhouette including all props. No clipped limbs/hat/feet, no colored halos or stray pixels. Maintain same costume pattern and prop shape across frames. Exact row-major sequence on true transparent background; no grid, labels, numbers, scenery, captions, arrows or watermark. No body slide, camera motion, stretching entire character, or artificial scale changes. No human fingers, realism or grotesque details.",
+      "directory": "animation/charging-v2",
+      "sourcePath": "<USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-fd565fac-ecc6-435f-8eb7-1094c362ad67.png",
+      "workspacePath": "animation/charging-v2/atlas-generated.png",
+      "status": "candidate-manual-review",
+      "outputHint": "Generated images are saved to <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af as <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-fd565fac-ecc6-435f-8eb7-1094c362ad67.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "candidateClipId": "charging-batch2-candidate",
+      "frameRegions": {
+        "path": "animation/charging-v2/regions-v1.json",
+        "sha256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
+        "version": 1
+      },
+      "sha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "reviewPath": "animation/charging-v2/REVIEW.md",
+      "artApproved": false,
+      "presentationScale": 2.0552486187845305
+    },
+    {
+      "id": "exercise",
+      "title": "最後一下啞鈴",
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "reviewGroup": "scene",
+      "prompt": "SIXTEEN-frame 4×4 row-major cartoon exercise animation. Patrick in classic green shorts with purple flowers, white sports headband, tiny purple wristbands, no pajamas/pillow. Seated stable cross-legged on ground holding ONE small orange dumbbell with near flipper at knee. One controlled humorous curl: ready; focuses determined eyebrows; slowly bends flipper lifting dumbbell through 5 clearly different joint poses; at top face comically serious; holds then one confident smug look; gradually lowers through4poses; relaxes eyebrows and breathes out; exact original resting pose. Dumbbell firmly gripped in soft rounded flipper without human fingers, no floating, no body lifting/whole sprite bounce. Head/body/feet scale remains fixed; use clean bent flipper silhouettes.\nMatch the attached approved reference's recognizable Patrick Star face and clean 2D cel drawing style. Each drawing genuinely changes limbs/eyes/mouth as specified. White exposed sclera, black pupils, coral-pink eyelids. Every cell is identical square size, same fixed camera, constant character head/body scale and seated ground anchor at x50%, y88%; minimum8% transparent margin around entire silhouette including all props. No clipped limbs/hat/feet, no colored halos or stray pixels. Maintain same costume pattern and prop shape across frames. Exact row-major sequence on true transparent background; no grid, labels, numbers, scenery, captions, arrows or watermark. No body slide, camera motion, stretching entire character, or artificial scale changes. No human fingers, realism or grotesque details.",
+      "directory": "animation/exercise-v2",
+      "sourcePath": "<USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-dc34105e-8ec3-4c18-ad34-f7610ac312b0.png",
+      "workspacePath": "animation/exercise-v2/atlas-generated.png",
+      "status": "candidate-manual-review",
+      "outputHint": "Generated images are saved to <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af as <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-dc34105e-8ec3-4c18-ad34-f7610ac312b0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "candidateClipId": "exercise-batch2-candidate",
+      "frameRegions": {
+        "path": "animation/exercise-v2/regions-v1.json",
+        "sha256": "1561eae78deaed2c58cfdecebb42cc385eb744451fa0628321b17a7674966e6a",
+        "version": 1
+      },
+      "sha256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+      "reviewPath": "animation/exercise-v2/REVIEW.md",
+      "artApproved": false,
+      "presentationScale": 2.6541666666666663,
+      "presentationNote": "Single scale for all16 frames multiplied by1.4 to match apparent character size. No per-frame rescaling; source and regions unchanged."
+    },
+    {
+      "id": "mint-pajama",
+      "title": "薄荷條紋睡衣・拉好毯子",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "reviewGroup": "scene",
+      "directory": "animation/mint-pajama-v1",
+      "prompt": "Use case: illustration-story. Asset type: EIGHT-frame 4 columns by 2 rows animation atlas, ordered left-to-right top-to-bottom, true transparent background. Input image is STYLE AND CHARACTER REFERENCE only, not the action to duplicate. Match the approved reference Patrick Star face, coral-pink skin and clean 2D cel outline. White sclera, black pupils, pink eyelids. Same fixed camera, same seated body proportions and scale across all eight drawings. Both feet fully visible; ground anchor x50% y88% of each cell; generous 10% transparent padding around every limb, accessory and crown. Each frame genuinely redraws only the described acting parts. No whole-character wobble/slide/zoom, no floating props, no human fingers. No text, labels, numbers, arrows, scenery, grid or watermark. Do not crop any silhouette. Friendly non-realistic cartoon, no grotesque details. New outfit: mint-green and cream striped long-sleeve pajamas with matching soft nightcap. A small cream blanket lies on knees. Seated action: 1 rests flippers on blanket; 2 grasps upper blanket corners; 3 begins pulling up; 4 pulls blanket snug against belly; 5 settles into a contented smile; 6 slowly closes eyelids; 7 reopens sleepily; 8 rests holding the pulled-up blanket. Blanket shape changes only due to flipper contact; seated head/feet size stays fixed. Clear eight successive poses, no yawn.",
+      "status": "candidate-manual-review",
+      "sourcePath": "<USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-522d2c05-120c-497d-a678-988cce398bec.png",
+      "workspacePath": "animation/mint-pajama-v1/atlas-generated.png",
+      "outputHint": "Generated images are saved to <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af as <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-522d2c05-120c-497d-a678-988cce398bec.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "candidateClipId": "mint-pajama-batch2-candidate",
+      "frameRegions": {
+        "path": "animation/mint-pajama-v1/regions-v1.json",
+        "sha256": "1b04aa20669bc7870ed2207eec648d4853ce599dbfebcef7360013950565ecf7",
+        "version": 1
+      },
+      "sha256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b",
+      "reviewPath": "animation/mint-pajama-v1/REVIEW.md",
+      "artApproved": false,
+      "presentationScale": 1.2626832018038332
+    },
+    {
+      "id": "moon-robe",
+      "title": "月亮睡袍・一本正經收心",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "reviewGroup": "scene",
+      "directory": "animation/moon-robe-v1",
+      "prompt": "Use case: illustration-story. Asset type: EIGHT-frame 4 columns by 2 rows animation atlas, ordered left-to-right top-to-bottom, true transparent background. Input image is STYLE AND CHARACTER REFERENCE only, not the action to duplicate. Match the approved reference Patrick Star face, coral-pink skin and clean 2D cel outline. White sclera, black pupils, pink eyelids. Same fixed camera, same seated body proportions and scale across all eight drawings. Both feet fully visible; ground anchor x50% y88% of each cell; generous 10% transparent padding around every limb, accessory and crown. Each frame genuinely redraws only the described acting parts. No whole-character wobble/slide/zoom, no floating props, no human fingers. No text, labels, numbers, arrows, scenery, grid or watermark. Do not crop any silhouette. Friendly non-realistic cartoon, no grotesque details. New outfit: dark navy bedtime robe with small cream crescent moon patches, a soft belt and rounded slippers, no pillow, no nightcap. Patrick sits firmly with unimpressed serious face. Acting sequence: 1 hands beside lap; 2 glances down at loose lapel; 3 left flipper reaches lapel; 4 pulls robe lapel closed; 5 other flipper pats the fold; 6 holds dignified stern expression; 7 eyes soften with one sleepy slow blink; 8 hands settle on lap with wry knowing half-smile. No costume transformation; belt and patches fixed; only flipper gestures and face change.",
+      "status": "candidate-manual-review",
+      "sourcePath": "<USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-9956952e-9fa4-4eeb-b2f3-ad9d382906b9.png",
+      "workspacePath": "animation/moon-robe-v1/atlas-generated.png",
+      "outputHint": "Generated images are saved to <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af as <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-9956952e-9fa4-4eeb-b2f3-ad9d382906b9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "candidateClipId": "moon-robe-batch2-candidate",
+      "frameRegions": {
+        "path": "animation/moon-robe-v1/regions-v1.json",
+        "sha256": "e0fa2f4e099f86cee8648a5a3ddedb6b1ed2a1e96279dac0fe0e7fa4fd6d8906",
+        "version": 1
+      },
+      "sha256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f",
+      "reviewPath": "animation/moon-robe-v1/REVIEW.md",
+      "artApproved": false,
+      "presentationScale": 1.3167981961668547
+    },
+    {
+      "id": "summer-pajama",
+      "title": "清爽短袖睡衣・扇一口涼風",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "reviewGroup": "scene",
+      "directory": "animation/summer-pajama-v1",
+      "prompt": "Use case: illustration-story. Asset type: EIGHT-frame 4 columns by 2 rows animation atlas, ordered left-to-right top-to-bottom, true transparent background. Input image is STYLE AND CHARACTER REFERENCE only, not the action to duplicate. Match the approved reference Patrick Star face, coral-pink skin and clean 2D cel outline. White sclera, black pupils, pink eyelids. Same fixed camera, same seated body proportions and scale across all eight drawings. Both feet fully visible; ground anchor x50% y88% of each cell; generous 10% transparent padding around every limb, accessory and crown. Each frame genuinely redraws only the described acting parts. No whole-character wobble/slide/zoom, no floating props, no human fingers. No text, labels, numbers, arrows, scenery, grid or watermark. Do not crop any silhouette. Friendly non-realistic cartoon, no grotesque details. New outfit: pale apricot short-sleeve pajama shirt and cream shorts with tiny simple coral dots, no hat or pillow. Small light-blue folded paper hand fan held by rounded near flipper. Patrick seated after a warm day, amused rather than babyish. Eight successive poses: 1 fan held at chest angled slightly out; 2 flipper lifts fan near cheek; 3 gentle inward fan stroke with distinct bent flipper; 4 end stroke; 5 outward return stroke; 6 end return; 7 lowers fan to initial chest position; 8 exact frame1 resting pose with relaxed half-smile. Face briefly closes eyes enjoying cool air then reopens. Fan stays same size, connected to flipper; no detached air symbols. Body/feet/camera fixed; a true hand action, not entire sprite sway.",
+      "status": "generation-failed",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 651f5ee6-60c6-46d7-ad51-efa936743954.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+    }
+  ],
+  "summary": {
+    "requestedJobs": 8,
+    "generatedAtlases": 6,
+    "generatedOriginalFrames": 64,
+    "failedJobs": 2,
+    "newCandidateClips": 6,
+    "artApproved": false,
+    "nativeSynced": false,
+    "automatedTechnicalChecksPassed": true,
+    "scopeNote": "Six generated animation candidates delivered for manual review. Existing artwork defects and missing assets remain; not full project completion or native installation."
+  },
+  "validation": {
+    "contours": {
+      "path": "output/playwright/batch2-contours/report.json",
+      "passed": true,
+      "caseCount": 5,
+      "framesChecked": 136
+    },
+    "reviewUI": {
+      "path": "output/playwright/batch2-candidates/report.json",
+      "passed": true,
+      "caseCount": 4
+    },
+    "normalSpeed": {
+      "path": "output/playwright/batch2-normal-speed/report.json",
+      "passed": true,
+      "caseCount": 6
+    }
+  },
+  "reviewUrl": "http://127.0.0.1:8765/preview/?review=candidates&group=new&v=20260927-batch2-review1"
+}
