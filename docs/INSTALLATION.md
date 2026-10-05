@@ -32,10 +32,10 @@
 
 1. 列出當時 Xcode 和 SDK，檢查共享 `PatrickFace`／`PatrickCompanion` schemes。
 2. 實際編譯並執行三組 Foundation 測試：原生舊規則、atlas／輪廓／排程規則、陪伴狀態／照顧／計時／日期去重。
-3. 無簽名編譯 Watch App＋complication、iPhone App＋widget，再用 `build-for-testing` 編譯 XCTest target。這一步尚不啟動模擬器跑 XCTest。
+3. 無簽名編譯 Watch App＋complication、iPhone App＋widget，再用 `build-for-testing` 編譯 XCTest target。隨後從已安裝且 scheme 支援的 iPhone 模擬器選取 UDID，以同一份產物執行 `test-without-building`；沒有可用 runtime 時明確失敗，不下載替代 runtime。
 4. 用 [check_apple_bundle.py](../tools/check_apple_bundle.py) 檢查 **產出的** iPhone App 內確實有 `Watch/PatrickFace.app` 與兩個 extensions、bundle IDs／四產品版本一致、所有逐幀與 Experience 資源的 SHA 正確。
 
-手動 workflow 可勾選 `unsigned_device_archive`，再對 `generic/platform=iOS` 做無簽名 Release archive，檢查實際 archive 內的 Watch payload。無簽名 simulator／device archive 均不能裝到手錶或提交 TestFlight。workflow 只保留編譯紀錄為目前私有 repo 的診斷 artifact，7天到期；不上传 IPA、不發公開 release，也不提交 Apple。出錯時保留原始 compiler／project 錯誤供修復。
+手動 workflow 可勾選 `unsigned_device_archive`，私人開發分支 push 則在前述驗證通過後自動對 `generic/platform=iOS` 做無簽名 Release archive，檢查實際 archive 內的 Watch payload。無簽名 simulator／device archive 均不能裝到手錶或提交 TestFlight。workflow 只保留編譯紀錄與 XCTest result bundle 為目前私有 repo 的診斷 artifact，7天到期；不上传 IPA、不發公開 release，也不提交 Apple。出錯時保留原始 compiler／project 錯誤供修復。
 
 真正啟動前需把這份具體版本放到私有倉庫，並確認目前可用的 macOS 額度；手動入口要求 workflow 已在預設分支。[I20] 借到 Mac 時，也可從根目錄執行 `bash tools/build_apple_simulators.sh`。要實際跑模擬器 XCTest，另用 `iOSCompanion/tools/verify_companion_on_mac.sh`，它只選已安裝的 iPhone runtime，不自行下載。
 

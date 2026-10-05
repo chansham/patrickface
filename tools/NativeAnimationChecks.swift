@@ -37,7 +37,26 @@ struct NativeAnimationChecks {
             var quietPolicy = PatrickAnimationPolicy()
             require(quietPolicy.transition(to: quiet, at: start) == nil, "Quiet sleep entry should remain still")
             require(quietPolicy.transition(to: asleep, at: start.addingTimeInterval(30)) == nil, "Waking wrist must not replay a quiet scene")
+            var unseenPolicy = PatrickAnimationPolicy()
+            _ = unseenPolicy.transition(to: awake, at: start)
+            quiet.sleeping = false
+            _ = unseenPolicy.transition(to: quiet, at: start.addingTimeInterval(10))
+            var resumed = awake; resumed.completedTimerID = "expired-while-quiet"
+            require(unseenPolicy.transition(to: resumed, at: start.addingTimeInterval(70)) == nil,
+                    "Completion first observed after an unpolled quiet interval must not perform")
+            require(unseenPolicy.transition(to: resumed, at: start.addingTimeInterval(71)) == nil,
+                    "Quiet completion must remain consumed on the next foreground tick")
+            resumed.completedTimerID = "new-foreground-completion"
+            require(unseenPolicy.transition(to: resumed, at: start.addingTimeInterval(90)) == "celebrate",
+                    "A new completion during continuous foreground must still perform")
         }
+
+        var visibility = PatrickCompletionVisibility()
+        require(!visibility.update(allowsMotion: true), "Cold entry must settle existing deadlines first")
+        require(visibility.update(allowsMotion: true), "Continuous foreground admits fresh completions")
+        require(!visibility.update(allowsMotion: false), "Settings sheet, wrist down or background is quiet")
+        require(!visibility.update(allowsMotion: true), "Quiet resume must settle missed deadlines first")
+        require(visibility.update(allowsMotion: true), "Quiet resume must not swallow later foreground completions")
 
         var scenePolicy = PatrickAnimationPolicy()
         _ = scenePolicy.transition(to: awake, at: start)
@@ -73,6 +92,18 @@ struct NativeAnimationChecks {
                 "Early timer cancellation celebrated")
         require(timerTracker.update(id: nil, running: false, paused: false, endsAt: nil, at: end).completedTimerID == nil,
                 "Cancelled timer reappeared at its old deadline")
+        var quietTracker = PatrickAnimationTimerTracker()
+        _ = quietTracker.update(id: "quiet-v1", running: true, paused: false, endsAt: end, at: start)
+        require(quietTracker.update(id: "quiet-v1", running: true, paused: false, endsAt: end,
+                                    at: end.addingTimeInterval(1), allowCompletion: false).completedTimerID == nil,
+                "Legacy timer first seen expired after quiet must be consumed silently")
+        require(quietTracker.update(id: "quiet-v1", running: true, paused: false, endsAt: end,
+                                    at: end.addingTimeInterval(2)).completedTimerID == nil,
+                "Legacy timer cannot reappear inside its 60-second detection window")
+        let nextEnd = end.addingTimeInterval(30)
+        _ = quietTracker.update(id: "visible-v1", running: true, paused: false, endsAt: nextEnd, at: end.addingTimeInterval(3))
+        require(quietTracker.update(id: "visible-v1", running: true, paused: false, endsAt: nextEnd,
+                                    at: nextEnd).completedTimerID == "visible-v1", "A different visible legacy timer still completes")
 
         let base: [String: Any] = [
             "id": "yawn", "title": "哈欠", "category": "scene",

@@ -58,10 +58,10 @@ final class PatrickAppModel: ObservableObject {
         persistExperience()
     }
 
-    func performCare(_ action: PatrickCareAction) {
+    func performCare(_ action: PatrickCareAction, allowEffects: Bool = true) {
         guard experience.perform(action) else { careNotice = "稍等一下，再\(action.title)"; return }
-        requestedAction = action
-        activationSequence &+= 1
+        requestedAction = allowEffects ? action : nil
+        if allowEffects { activationSequence &+= 1 }
         careNotice = action == .feed ? "吃了一口，飽足 \(Int(experience.care.satiety.rounded()))" : "\(action.title)，親密 \(experience.care.bond)"
         persistExperience()
     }
@@ -74,10 +74,11 @@ final class PatrickAppModel: ObservableObject {
         return true
     }
 
-    func refreshExperience(at date: Date = .now, allowEffects: Bool) {
+    func refreshExperience(at date: Date = .now, allowEffects: Bool, observeCalendar: Bool = true) {
+        if !allowEffects { completedActivityID = nil }
         let revision = experience.revision
         _ = experience.updateCare(at: date)
-        if let celebration = experience.observeCalendar(PatrickExperienceResources.calendar(), at: date, allowCelebration: allowEffects) {
+        if observeCalendar, let celebration = experience.observeCalendar(PatrickExperienceResources.calendar(), at: date, allowCelebration: allowEffects) {
             careNotice = celebration; calendarCelebrationSequence &+= 1
         }
         if experience.revision != revision { persistExperience() }

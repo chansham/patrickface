@@ -12,9 +12,16 @@
 
 ## 此次雲端工作
 
-只在私人倉庫的獨立分支跑無簽名：Foundation邏輯測試、Watch與iPhone simulator建置、XCTest編譯，以及iPhone包含Watch／小工具／資源的實際產物檢查。編譯通過後再做unsigned device archive。診斷log保留7日。
+只在私人倉庫的獨立分支跑無簽名：Foundation邏輯測試、Watch與iPhone simulator建置、XCTest，以及iPhone包含Watch／小工具／資源的實際產物檢查。編譯通過後再做unsigned device archive。診斷log與XCTest result bundle保留7日；XCTest執行使用已安裝runtime，不下載額外系統。
 
-狀態：首個commit為13effb6。舊帳號push因workflow scope不足而被拒（未建立分支）；目前改用使用者指定的chansham上傳私人倉庫。尚無Apple編譯通過證據。
+上傳：舊帳號push因workflow scope不足而被拒（未建立分支）；目前已改用使用者指定的chansham，PRIVATE倉庫的main保存原基礎395d34c，開發分支已上傳整合版本及偵探候選1c78849。舊倉庫未改動。
+
+| Apple 執行 | 版本 | 已取得的證據 |
+|---|---|---|
+| [首輪](https://github.com/chansham/patrickface/actions/runs/37253494668) | 1c78849 | Xcode 26.6／Apple SDK 26.5確實啟動；首個Foundation編譯在PatrickShared.swift guard尾隨closure語法失敗，尚未建置App |
+| [第二輪](https://github.com/chansham/patrickface/actions/runs/37253740741) | 23600d1 | 1503項Foundation規則、109項動畫、51項體驗檢查實跑通過；Watch SwiftUI畫面因過長expression無法在合理時間type-check而失敗，尚未進手機建置或archive |
+
+原始log保存在本機`output/apple-build/`；不把第一次失敗當作帳號或額度阻擋，因runner已實際執行編譯。
 
 ## 仍未完成
 

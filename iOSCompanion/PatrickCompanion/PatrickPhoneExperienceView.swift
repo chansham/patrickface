@@ -12,6 +12,7 @@ import SwiftUI
     @State private var visible = false
     @State private var showSettings = false
     @State private var surpriseExpiresAt: Date?
+    @State private var completionVisibility = PatrickCompletionVisibility()
     private var active: Bool { visible && scenePhase == .active && !showSettings }
     private var scene: String {
         if model.experience.settings.scene != .automatic { return model.experience.settings.scene.rawValue }
@@ -21,7 +22,7 @@ import SwiftUI
     private var outfit: PatrickOutfitCatalog.Outfit? {
         PatrickExperienceResources.outfit(model.experience.settings, scene: scene, from: outfits)
     }
-    var body: some View {
+    private var pageSurface: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 18) {
@@ -102,16 +103,27 @@ import SwiftUI
                     }
                 }
         }
+    }
+
+    private var appearanceSurface: some View {
+        pageSurface
         .onAppear {
             visible = true; outfits = PatrickExperienceResources.outfits(); player.load(); clockArtwork.load(); configure()
             player.onClipStarted = { id in
                 guard !id.hasPrefix("idle-blink-") else { return }; feedback.play(id, settings: model.experience.settings, active: active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled) }
         }
-        .onDisappear { visible = false; surpriseExpiresAt = nil; player.suspend(); feedback.stop() }
+        .onDisappear {
+            visible = false; _ = completionVisibility.update(allowsMotion: false)
+            surpriseExpiresAt = nil; player.suspend(); feedback.stop()
+        }
         .onChange(of: scenePhase) { _, _ in configure(); if !active { feedback.stop() } }
         .onChange(of: showSettings) { _, _ in configure(); if !active { feedback.stop() } }
         .onChange(of: reduceMotion) { _, _ in configure(); if reduceMotion { feedback.stop() } }
         .onReceive(NotificationCenter.default.publisher(for: .NSProcessInfoPowerStateDidChange)) { _ in configure(); if ProcessInfo.processInfo.isLowPowerModeEnabled { feedback.stop() } }
+    }
+
+    private var actionSurface: some View {
+        appearanceSurface
         .onChange(of: model.experience.settings) { _, _ in configure(); if !model.experience.settings.soundEnabled { feedback.stop() } }
         .onChange(of: model.experience.settings.scene) { _, next in
             configure(); if next == .bath || next == .celebrate { player.playEvent(next.rawValue) }
@@ -123,10 +135,15 @@ import SwiftUI
                 if !player.isPlaying || player.currentClipID?.hasPrefix("idle-blink-") == true { feedback.play(action.rawValue, settings: model.experience.settings, active: active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled) }
             }
         }
+    }
+
+    var body: some View {
+        actionSurface
         .task(id: active) {
             guard active else { return }
             while !Task.isCancelled {
-                model.refreshExperience(allowEffects: !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled); configure()
+                configure()
+                model.refreshExperience(allowEffects: !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled)
                 do { try await Task.sleep(for: .seconds(2)) } catch { return }
             }
         }
@@ -149,6 +166,10 @@ import SwiftUI
         }
     }
     private func configure() {
+        let allowsMotion = active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled
+        if !completionVisibility.update(allowsMotion: allowsMotion) {
+            model.refreshExperience(allowEffects: false, observeCalendar: false)
+        }
         if !active || reduceMotion || ProcessInfo.processInfo.isLowPowerModeEnabled {
             surpriseExpiresAt = nil
             model.refreshExperience()

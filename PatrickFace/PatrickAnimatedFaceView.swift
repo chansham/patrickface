@@ -14,6 +14,7 @@ struct PatrickAnimatedFaceView: View {
     @State private var requestedClip: String?
     @State private var visible = false
     @State private var timerTracker = PatrickAnimationTimerTracker()
+    @State private var completionVisibility = PatrickCompletionVisibility()
     @StateObject private var feedback = PatrickFeedback()
     @StateObject private var clockArtwork = PatrickClockArtwork()
     @State private var outfits: [PatrickOutfitCatalog.Outfit] = []
@@ -26,7 +27,7 @@ struct PatrickAnimatedFaceView: View {
 
     private var monitoring: Bool { visible && scenePhase == .active && !wristDown && !showingActions }
 
-    var body: some View {
+    private var faceSurface: some View {
         GeometryReader { geometry in
             let unit = min(geometry.size.width / 416, geometry.size.height / 496)
             let width = 416 * unit, height = 496 * unit
@@ -99,6 +100,10 @@ struct PatrickAnimatedFaceView: View {
             .accessibilityAction(named: Text("摸摸派大星")) { model.performCare(.pet) }
             .accessibilityAction(named: Text("餵一口")) { model.performCare(.feed) }
         }
+    }
+
+    private var appearanceSurface: some View {
+        faceSurface
         .background(.black)
         .ignoresSafeArea()
         .onAppear {
@@ -111,31 +116,43 @@ struct PatrickAnimatedFaceView: View {
                 guard !id.hasPrefix("idle-blink-") else { return }
                 feedback.play(id, settings: model.experience.settings, active: monitoring && !reduceMotion && !lowPower)
             }
-            model.refreshExperience(allowEffects: monitoring && !reduceMotion && !lowPower)
             refreshContext()
+            model.refreshExperience(allowEffects: monitoring && !reduceMotion && !lowPower)
             configureOutfit()
             playRequestedClipIfVisible()
         }
         .onDisappear {
             visible = false
+            _ = completionVisibility.update(allowsMotion: false)
             surpriseExpiresAt = nil
             player.suspend()
             feedback.stop()
             WKInterfaceDevice.current().isBatteryMonitoringEnabled = false
         }
+    }
+
+    private var environmentSurface: some View {
+        appearanceSurface
         .onChange(of: scenePhase) { _, _ in
-            if scenePhase != .active { requestedSurprise = false }
+            if scenePhase != .active { consumeQuietRequests() }
             refreshContext(); if !monitoring { feedback.stop() }
         }
         .onChange(of: wristDown) { _, _ in
-            if wristDown { requestedSurprise = false; feedback.stop() }
+            if wristDown { consumeQuietRequests(); feedback.stop() }
             refreshContext()
         }
-        .onChange(of: reduceMotion) { _, _ in refreshContext(); if reduceMotion { feedback.stop() } }
+        .onChange(of: reduceMotion) { _, _ in
+            if reduceMotion { consumeQuietRequests(); feedback.stop() }
+            refreshContext()
+        }
         .onChange(of: model.petScene) { _, _ in refreshContext() }
         .onChange(of: model.sleepMode) { _, _ in refreshContext() }
         .onChange(of: model.previewState) { _, _ in refreshContext() }
         .onChange(of: model.companionTimer) { _, _ in refreshContext() }
+    }
+
+    private var actionSurface: some View {
+        environmentSurface
         .onChange(of: model.activationSequence) { _, _ in
             refreshContext()
             if let action = model.requestedAction {
@@ -145,11 +162,16 @@ struct PatrickAnimatedFaceView: View {
         }
         .onChange(of: model.calendarCelebrationSequence) { _, _ in player.playEvent("celebrate") }
         .onChange(of: model.soundSequence) { _, _ in feedback.play("pet", settings: model.experience.settings, active: monitoring && !reduceMotion && !lowPower) }
+    }
+
+    private var settingsSurface: some View {
+        actionSurface
         .onChange(of: model.experience.settings) { _, _ in refreshContext(); configureOutfit(); if !model.experience.settings.soundEnabled { feedback.stop() } }
         .onChange(of: model.experience.settings.scene) { _, next in
             refreshContext()
             let event = next == .sleeping ? "yawn" : next == .awake ? "wake" : next.rawValue
-            if showingActions { requestedClip = player.eventClips?[event] }
+            if scenePhase != .active || wristDown || reduceMotion || lowPower { requestedClip = nil }
+            else if showingActions { requestedClip = player.eventClips?[event] }
             else if monitoring && (next == .bath || next == .celebrate) { player.playEvent(event) }
         }
         .onChange(of: model.experience.activity) { _, _ in refreshContext(); configureOutfit() }
@@ -161,16 +183,20 @@ struct PatrickAnimatedFaceView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: .NSProcessInfoPowerStateDidChange)) { _ in
             lowPower = ProcessInfo.processInfo.isLowPowerModeEnabled
-            if lowPower { feedback.stop() }
+            if lowPower { consumeQuietRequests(); feedback.stop() }
             refreshContext()
         }
+    }
+
+    var body: some View {
+        settingsSurface
         .task(id: monitoring) {
             guard monitoring else { return }
             // WKInterfaceDevice exposes charging state when monitoring is enabled.
             // Poll only while the app is visible, for state entry and timer expiry.
             while !Task.isCancelled {
-                model.refreshExperience(allowEffects: !reduceMotion && !lowPower)
                 refreshContext()
+                model.refreshExperience(allowEffects: !reduceMotion && !lowPower)
                 do { try await Task.sleep(nanoseconds: 5_000_000_000) }
                 catch { return }
             }
@@ -219,7 +245,12 @@ struct PatrickAnimatedFaceView: View {
                     } else {
                         Picker("種類", selection: $activityKind) { ForEach(PatrickActivityKind.allCases) { Text($0.title).tag($0) } }
                         Picker("分鐘", selection: $activityMinutes) { ForEach([1, 3, 5, 10, 15, 25, 30, 60], id: \.self) { Text("\($0)分鐘").tag($0) } }
-                        Button("開始陪伴") { model.updateExperience { $0.start(activityKind, minutes: activityMinutes) }; showingActions = false }
+                        Button("開始陪伴") {
+                            model.updateExperience { $0.start(activityKind, minutes: activityMinutes) }
+                            configureOutfit()
+                            requestedClip = player.eventClips?[activityKind.clipID]
+                            showingActions = false
+                        }
                     }
                     Text("本機倒數，不記錄心率、距離或健身訓練。").font(.footnote).foregroundStyle(.secondary)
                 }
@@ -308,17 +339,27 @@ struct PatrickAnimatedFaceView: View {
     private func playRequestedClipIfVisible() {
         // A watch sheet may cover the presenting view. Wait for both dismissal
         // and onAppear, in either order, before consuming its selected action.
-        if wristDown || scenePhase != .active { requestedSurprise = false }
+        if wristDown || scenePhase != .active { consumeQuietRequests(); return }
         guard monitoring else { return }
         if let action = requestedCare {
-            requestedCare = nil; model.performCare(action)
+            requestedCare = nil; model.performCare(action, allowEffects: !reduceMotion && !lowPower)
         }
         if requestedSurprise {
             requestedSurprise = false; findSurprise()
         }
+        guard !reduceMotion && !lowPower else { requestedClip = nil; return }
         guard let id = requestedClip else { return }
         requestedClip = nil
         player.play(id)
+    }
+
+    private func consumeQuietRequests() {
+        requestedClip = nil
+        requestedSurprise = false
+        if let action = requestedCare {
+            requestedCare = nil
+            model.performCare(action, allowEffects: false)
+        }
     }
 
     private func findSurprise() {
@@ -339,6 +380,13 @@ struct PatrickAnimatedFaceView: View {
         let device = WKInterfaceDevice.current()
         device.isBatteryMonitoringEnabled = visible && scenePhase != .background
         lowPower = ProcessInfo.processInfo.isLowPowerModeEnabled
+        let allowsMotion = monitoring && !reduceMotion && !lowPower
+        let continuous = completionVisibility.update(allowsMotion: allowsMotion)
+        if !continuous {
+            // Reconcile only deadlines before admitting new foreground effects.
+            // Birthday/holiday entry remains a separate, visible-date decision.
+            model.refreshExperience(at: date, allowEffects: false, observeCalendar: false)
+        }
         let charging = device.batteryState == .charging || device.batteryState == .full
             || model.previewState == .charging
         let automaticSleeping = model.experience.settings.isSleepTime(date) || model.previewState == .sleeping
@@ -348,7 +396,7 @@ struct PatrickAnimatedFaceView: View {
         if model.experience.activity != nil { timerTracker = PatrickAnimationTimerTracker() }
         let timerState = timerTracker.update(id: timer?.id.uuidString,
             running: timer?.status == .running, paused: timer?.status == .paused,
-            endsAt: timer?.endsAt, at: date)
+            endsAt: timer?.endsAt, at: date, allowCompletion: continuous)
         let activity = model.experience.activity
         let localRunning = activity?.status == .running
         let localFocus = localRunning && activity?.kind != .exercise

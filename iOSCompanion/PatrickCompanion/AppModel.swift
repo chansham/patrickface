@@ -121,6 +121,7 @@ final class AppModel: ObservableObject {
     }
 
     func refreshExperience(allowEffects: Bool = false, observeCalendar: Bool = true) {
+        if !allowEffects { completedActivityID = nil }
         let revision = experience.revision
         _ = experience.updateCare()
         if observeCalendar, let celebration = experience.observeCalendar(PatrickExperienceResources.calendar(), allowCelebration: allowEffects) {

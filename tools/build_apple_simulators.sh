@@ -81,9 +81,23 @@ xcodebuild \
   build
 
 python3 "$ROOT/tools/check_apple_bundle.py" "$DERIVED_ROOT/phone/Build/Products/Debug-iphonesimulator/PatrickCompanion.app"
-# Compile XCTest target too, without booting a device or downloading a runtime.
+# Compile once, then execute on an already installed simulator. Never download a runtime.
 xcodebuild -workspace "$PHONE_WORKSPACE" -scheme PatrickCompanion -configuration Debug \
   -destination 'generic/platform=iOS Simulator' -derivedDataPath "$DERIVED_ROOT/phone" \
   CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY= DEVELOPMENT_TEAM= build-for-testing
 
-echo "Unsigned simulator builds, native pure-logic tests and embedded bundle checks completed. XCTest was compiled but not run. No signed package was produced."
+xcrun simctl list devices available -j > "$DERIVED_ROOT/test-simulators.json"
+xcodebuild -workspace "$PHONE_WORKSPACE" -scheme PatrickCompanion -showdestinations \
+  | tee "$DERIVED_ROOT/test-destinations.txt"
+IOS_TEST_DEVICE_ID="$(python3 "$ROOT/tools/select_apple_simulator.py" \
+  --devices "$DERIVED_ROOT/test-simulators.json" --destinations "$DERIVED_ROOT/test-destinations.txt")"
+DIAGNOSTICS_ROOT="${RUNNER_TEMP:-$DERIVED_ROOT}/patrick-ci-logs"
+mkdir -p "$DIAGNOSTICS_ROOT"
+TEST_RESULTS="$DIAGNOSTICS_ROOT/contracts-$(basename "$DERIVED_ROOT").xcresult"
+echo "XCTest result bundle: $TEST_RESULTS"
+xcodebuild -workspace "$PHONE_WORKSPACE" -scheme PatrickCompanion -configuration Debug \
+  -destination "platform=iOS Simulator,id=$IOS_TEST_DEVICE_ID" -destination-timeout 120 \
+  -derivedDataPath "$DERIVED_ROOT/phone" -parallel-testing-enabled NO \
+  -resultBundlePath "$TEST_RESULTS" test-without-building
+
+echo "Unsigned simulator builds, native pure-logic tests, XCTest execution and embedded bundle checks completed. No signed package was produced."

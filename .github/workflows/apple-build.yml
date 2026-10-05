@@ -45,6 +45,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: apple-build-diagnostics-${{ github.run_number }}
-          path: ${{ runner.temp }}/patrick-ci-logs/*.log
+          path: |
+            ${{ runner.temp }}/patrick-ci-logs/*.log
+            ${{ runner.temp }}/patrick-ci-logs/*.xcresult
           retention-days: 7
           if-no-files-found: warn

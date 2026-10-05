@@ -23,6 +23,13 @@ import Foundation
         check(id != nil && state.activity?.status == .completed, "Foreground catchup completes state")
         check(state.care.bond == 5, "One completion reward")
         check(state.reconcile(at: now.addingTimeInterval(1000)) == nil && state.care.bond == 5, "Completion cannot repeat")
+        var quietCompletion = PatrickExperienceState()
+        quietCompletion.start(.focus, seconds: 60, at: now)
+        check(quietCompletion.reconcile(at: now.addingTimeInterval(90)) != nil, "Quiet expiry still settles its state")
+        check(quietCompletion.activity?.status == .completed && quietCompletion.care.bond == 1,
+              "Quiet expiry retains exactly one completion reward")
+        check(quietCompletion.reconcile(at: now.addingTimeInterval(91)) == nil && quietCompletion.care.bond == 1,
+              "Foreground observation cannot reward a quiet completion twice")
         state.start(.exercise, seconds: 30, at: now)
         state.cancel(at: now.addingTimeInterval(10))
         check(state.activity?.status == .cancelled, "Cancel has its own terminal state")
