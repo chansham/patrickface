@@ -20,6 +20,7 @@
 |---|---|---|
 | [首輪](https://github.com/chansham/patrickface/actions/runs/37253494668) | 1c78849 | Xcode 26.6／Apple SDK 26.5確實啟動；首個Foundation編譯在PatrickShared.swift guard尾隨closure語法失敗，尚未建置App |
 | [第二輪](https://github.com/chansham/patrickface/actions/runs/37253740741) | 23600d1 | 1503項Foundation規則、109項動畫、51項體驗檢查實跑通過；Watch SwiftUI畫面因過長expression無法在合理時間type-check而失敗，尚未進手機建置或archive |
+| [第三輪](https://github.com/chansham/patrickface/actions/runs/37254061355) | a6d0de5 | Watch與iPhone雙平台建置、widget／complication、實際嵌入包及素材SHA通過；Foundation 1503／129／54項通過；iPhone Air／iOS 26.5模擬器實跑XCTest 7項，存檔時間精度比較1項失敗，archive尚未執行 |
 
 原始log保存在本機`output/apple-build/`；不把第一次失敗當作帳號或額度阻擋，因runner已實際執行編譯。
 

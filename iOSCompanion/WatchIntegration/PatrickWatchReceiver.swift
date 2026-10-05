@@ -91,13 +91,13 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
         if settings.theme != wireTheme {
             settings.theme = wireTheme
             settings.revision &+= 1
-            settings.updatedAt = .now
+            settings.updatedAt = Date(timeIntervalSince1970: Date.now.timeIntervalSince1970.rounded(.down))
         }
         settings.version = PatrickWatchWire.settingsSchemaVersion
         if let experience, settings.experience != experience {
             settings.experience = experience
             settings.revision &+= 1
-            settings.updatedAt = .now
+            settings.updatedAt = Date(timeIntervalSince1970: Date.now.timeIntervalSince1970.rounded(.down))
         }
         settings.demoMode = false
         latestSettings = settings
@@ -222,7 +222,9 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
                     command,
                     to: &effectiveSettings,
                     stateAllowed: !staleState || update.experience != nil,
-                    actionAllowed: abs(envelope.sentAt.timeIntervalSinceNow) <= 120,
+                    actionAllowed: command.name == .playThemeSound
+                        ? PatrickImmediateSoundPolicy.isFresh(envelope.sentAt)
+                        : abs(envelope.sentAt.timeIntervalSinceNow) <= 120,
                     update: &update
                 )
             }

@@ -115,6 +115,19 @@ struct PatrickSurpriseState: Codable, Equatable, Sendable {
     var line: String { Self.lines[((lineIndex % Self.lines.count) + Self.lines.count) % Self.lines.count] }
 }
 
+enum PatrickImmediateSoundPolicy {
+    static let maximumRequestAge: TimeInterval = 3
+    static func isFresh(_ requestedAt: Date, now: Date = .now) -> Bool {
+        (0...maximumRequestAge).contains(now.timeIntervalSince(requestedAt))
+    }
+    static func allows(active: Bool, presentationActive: Bool, enabled: Bool,
+                       reduceMotion: Bool, lowPower: Bool, requestedAt: Date? = nil, now: Date = .now) -> Bool {
+        guard active && presentationActive && enabled && !reduceMotion && !lowPower else { return false }
+        guard let requestedAt else { return true }
+        return isFresh(requestedAt, now: now)
+    }
+}
+
 struct PatrickExperienceState: Codable, Equatable, Sendable {
     static let storageKey = "patrick.experience.native.v1"
     var version = 1

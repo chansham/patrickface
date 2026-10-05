@@ -81,7 +81,7 @@ enum PatrickWatchWire {
                 previewState: .normal,
                 sleepMode: .automatic,
                 demoMode: false,
-                updatedAt: .now
+                updatedAt: Date(timeIntervalSince1970: Date.now.timeIntervalSince1970.rounded(.down))
             )
         }
     }

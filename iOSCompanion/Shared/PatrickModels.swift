@@ -113,7 +113,7 @@ struct PatrickSettings: Codable, Equatable, Sendable {
             previewState: .normal,
             sleepMode: .automatic,
             demoMode: false,
-            updatedAt: .now
+            updatedAt: Date(timeIntervalSince1970: Date.now.timeIntervalSince1970.rounded(.down))
         )
     }
 
@@ -121,7 +121,10 @@ struct PatrickSettings: Codable, Equatable, Sendable {
         var copy = self
         copy.version = Self.schemaVersion
         copy.revision &+= 1
-        copy.updatedAt = date
+        // v1 serializes this legacy metadata as ISO 8601 whole seconds.
+        // Keep the returned state identical to disk/wire; revision orders
+        // changes within a second. Experience timestamps retain epoch ms.
+        copy.updatedAt = Date(timeIntervalSince1970: date.timeIntervalSince1970.rounded(.down))
         return copy
     }
 }

@@ -17,6 +17,11 @@ struct PendingPatrickAction: Codable, Equatable, Sendable {
     var id: UUID
     var kind: Kind
     var createdAt: Date
+    // Optional local precision; old v1 actions retain their ISO 8601 date.
+    var createdAtMS: Double? = nil
+    var effectiveCreatedAt: Date {
+        createdAtMS.map { Date(timeIntervalSince1970: $0 / 1000) } ?? createdAt
+    }
 }
 
 /// Stores only user-selected presentation state. No account, analytics, location,
@@ -121,7 +126,9 @@ final class PatrickSharedStore: @unchecked Sendable {
                 [PendingPatrickAction].self,
                 forKey: PatrickAppGroup.pendingActionsKey
             ) ?? []
-            actions.append(PendingPatrickAction(id: UUID(), kind: kind, createdAt: .now))
+            let now = Date.now
+            actions.append(PendingPatrickAction(id: UUID(), kind: kind, createdAt: now,
+                                               createdAtMS: now.timeIntervalSince1970 * 1000))
             actions = Array(actions.suffix(20))
             encode(actions, forKey: PatrickAppGroup.pendingActionsKey)
         }

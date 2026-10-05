@@ -114,6 +114,7 @@ import SwiftUI
         }
         .onDisappear {
             visible = false; _ = completionVisibility.update(allowsMotion: false)
+            model.setSoundPresentationActive(false)
             surpriseExpiresAt = nil; player.suspend(); feedback.stop()
         }
         .onChange(of: scenePhase) { _, _ in configure(); if !active { feedback.stop() } }
@@ -167,6 +168,7 @@ import SwiftUI
     }
     private func configure() {
         let allowsMotion = active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled
+        model.setSoundPresentationActive(allowsMotion && model.experience.settings.soundEnabled)
         if !completionVisibility.update(allowsMotion: allowsMotion) {
             model.refreshExperience(allowEffects: false, observeCalendar: false)
         }

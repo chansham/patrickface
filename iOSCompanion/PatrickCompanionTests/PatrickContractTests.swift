@@ -16,14 +16,14 @@ final class PatrickContractTests: XCTestCase {
         XCTAssertEqual(effective.remainingSeconds, 40)
     }
     func testExperienceWireRoundTripUsesMilliseconds() throws {
-        let now = Date(timeIntervalSince1970: 1_800_000_000)
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
         var experience = PatrickExperienceState()
         experience.start(.exercise, seconds: 90, at: now)
         var settings = PatrickSettings.defaults; settings.experience = experience
         let original = PatrickMessageEnvelope.command(PatrickCommandPayload(name: .updateExperience, careAction: .pet), settings: settings)
         let decoded = try PatrickMessageEnvelope.decode(original.encoded())
         XCTAssertEqual(decoded.settings?.experience, experience)
-        XCTAssertEqual(decoded.settings?.experience?.activity?.endsAtMS, 1_800_000_090_000)
+        XCTAssertEqual(decoded.settings?.experience?.activity?.endsAtMS, 1_800_000_090_375)
         XCTAssertEqual(decoded.command?.careAction, .pet)
     }
     func testOldSnapshotWithoutExperienceRemainsReadable() throws {
@@ -79,6 +79,44 @@ final class PatrickContractTests: XCTestCase {
 
         XCTAssertEqual(store.loadSettings(), value)
         XCTAssertEqual(value.revision, 1)
+    }
+
+    func testLegacyTimestampMatchesDiskAndWireWithoutLosingRevisionOrder() throws {
+        let now = Date(timeIntervalSince1970: 1_800_000_000.875)
+        let first = PatrickSettings.defaults.nextRevision(at: now)
+        let second = first.nextRevision(at: now.addingTimeInterval(0.1))
+        XCTAssertEqual(first.updatedAt.timeIntervalSince1970, 1_800_000_000)
+        XCTAssertEqual(second.updatedAt, first.updatedAt)
+        XCTAssertEqual(second.revision, first.revision + 1)
+        let decoded = try PatrickMessageEnvelope.decode(PatrickMessageEnvelope.snapshot(settings: first).encoded())
+        XCTAssertEqual(decoded.settings, first)
+        let suiteName = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suiteName)!
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+        let store = PatrickSharedStore(defaults: defaults)
+        store.saveSettings(first)
+        XCTAssertEqual(store.loadSettings(), first)
+        let json = try JSONSerialization.jsonObject(with: XCTUnwrap(defaults.data(forKey: PatrickAppGroup.settingsKey))) as! [String: Any]
+        let timestamp = try XCTUnwrap(json["updatedAt"] as? String)
+        XCTAssertTrue(timestamp.hasSuffix("Z") && !timestamp.contains("."), "Existing v1 ISO 8601 shape remains unchanged")
+    }
+
+    func testPendingSoundPreservesPrecisionAndReadsOldActions() throws {
+        let now = Date(timeIntervalSince1970: 1_800_000_000.875)
+        let action = PendingPatrickAction(id: UUID(), kind: .playThemeSound, createdAt: now,
+                                          createdAtMS: now.timeIntervalSince1970 * 1000)
+        let encoder = JSONEncoder(); encoder.dateEncodingStrategy = .iso8601
+        let decoder = JSONDecoder(); decoder.dateDecodingStrategy = .iso8601
+        let data = try encoder.encode(action)
+        let decoded = try decoder.decode(PendingPatrickAction.self, from: data)
+        XCTAssertEqual(decoded.createdAt.timeIntervalSince1970, 1_800_000_000)
+        XCTAssertEqual(decoded.effectiveCreatedAt, now)
+        XCTAssertTrue(decoded.effectiveCreatedAt > now.addingTimeInterval(-0.1), "A fresh request must not appear older than the latest quiet boundary")
+        var old = try JSONSerialization.jsonObject(with: data) as! [String: Any]
+        old.removeValue(forKey: "createdAtMS")
+        let migrated = try decoder.decode(PendingPatrickAction.self, from: JSONSerialization.data(withJSONObject: old))
+        XCTAssertNil(migrated.createdAtMS)
+        XCTAssertEqual(migrated.effectiveCreatedAt, decoded.createdAt)
     }
 
     func testDuplicateWatchMessageIsRejected() {

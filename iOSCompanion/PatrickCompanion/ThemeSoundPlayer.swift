@@ -1,16 +1,32 @@
 import AVFoundation
+import Combine
 import Foundation
+import UIKit
 
 @MainActor
 final class ThemeSoundPlayer {
     private var engine: AVAudioEngine?
     private var player: AVAudioPlayerNode?
     private var playbackID: UUID?
+    private var cancellables = Set<AnyCancellable>()
+
+    init() {
+        // UIKit notifications also protect legacy callers outside the new page.
+        NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
+            .merge(with: NotificationCenter.default.publisher(for: .NSProcessInfoPowerStateDidChange),
+                   NotificationCenter.default.publisher(for: UIAccessibility.reduceMotionStatusDidChangeNotification))
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in Task { @MainActor in self?.stop() } }
+            .store(in: &cancellables)
+    }
 
     /// Generates a short original two-note cue at runtime. No copyrighted audio
     /// or microphone input is bundled or recorded.
-    func play(for theme: PatrickTheme) throws {
+    @discardableResult
+    func play(for theme: PatrickTheme, allowEffects: Bool) throws -> Bool {
         stop()
+        guard allowEffects, UIApplication.shared.applicationState == .active,
+              !UIAccessibility.isReduceMotionEnabled, !ProcessInfo.processInfo.isLowPowerModeEnabled else { return false }
 
         let sampleRate = 44_100.0
         let duration = 0.48
@@ -65,6 +81,7 @@ final class ThemeSoundPlayer {
             guard self?.playbackID == playbackID else { return }
             self?.stop()
         }
+        return true
     }
 
     func stop() {

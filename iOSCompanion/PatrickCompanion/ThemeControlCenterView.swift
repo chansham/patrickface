@@ -109,7 +109,7 @@ struct ThemeControlCenterView: View {
 
                         HStack(spacing: 12) {
                             Button {
-                                model.playThemeSound()
+                                model.playThemeSound(manual: true)
                             } label: {
                                 Label("Theme Sound", systemImage: "speaker.wave.2.fill")
                                     .frame(maxWidth: .infinity, minHeight: 44)

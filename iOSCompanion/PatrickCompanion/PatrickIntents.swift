@@ -1,6 +1,7 @@
 import AppIntents
 import Foundation
 import WidgetKit
+import UIKit
 
 enum PatrickSleepIntentChoice: String, AppEnum {
     case automatic
@@ -53,7 +54,7 @@ struct PlayPatrickThemeSoundIntent: AppIntent {
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         await PatrickIntentExecutor.queueForegroundAction(.playThemeSound)
-        return .result(dialog: "Opening Patrick to play the theme cue.")
+        return .result(dialog: "已開啟派大星；音效會遵守前景與靜音設定。")
     }
 }
 
@@ -129,6 +130,13 @@ private enum PatrickIntentExecutor {
     }
 
     static func queueForegroundAction(_ action: PendingPatrickAction.Kind) async {
+        if action == .playThemeSound {
+            let active = await MainActor.run {
+                UIApplication.shared.applicationState == .active
+                    && !UIAccessibility.isReduceMotionEnabled && !ProcessInfo.processInfo.isLowPowerModeEnabled
+            }
+            guard active else { return }
+        }
         store.enqueue(action)
         let settings = store.loadSettings()
         let command: PatrickCommandPayload

@@ -44,4 +44,5 @@ delivery/theme-pack-before-rebuild-*/
 
 # Local visual verification output (not theme assets)
 /output/playwright/
+/output/apple-build/
 /.playwright-cli/

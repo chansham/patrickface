@@ -7,6 +7,16 @@ import Foundation
         let now = Date(timeIntervalSince1970: 1_800_000_000)
         var state = PatrickExperienceState()
         check(!state.settings.soundEnabled && state.settings.hapticsEnabled, "Default sound must be opt in")
+        check(PatrickImmediateSoundPolicy.allows(active: true, presentationActive: true, enabled: true,
+            reduceMotion: false, lowPower: false), "Visible manual sound remains available")
+        for quietFlag in 0..<5 {
+            check(!PatrickImmediateSoundPolicy.allows(active: quietFlag != 0, presentationActive: quietFlag != 1,
+                enabled: quietFlag != 2, reduceMotion: quietFlag == 3, lowPower: quietFlag == 4),
+                "Every quiet gate independently suppresses legacy sound")
+        }
+        check(PatrickImmediateSoundPolicy.isFresh(now, now: now.addingTimeInterval(3)), "Fresh sound handoff boundary")
+        check(!PatrickImmediateSoundPolicy.isFresh(now, now: now.addingTimeInterval(3.001)), "Queued sound must expire instead of replaying on foreground")
+        check(!PatrickImmediateSoundPolicy.isFresh(now.addingTimeInterval(1), now: now), "Future sound timestamp cannot bypass freshness")
         let actionID = UUID()
         check(state.perform(.feed, id: actionID, at: now), "First feed")
         check(!state.perform(.feed, id: actionID, at: now.addingTimeInterval(5)), "Retransmission rewarded twice")

@@ -1,6 +1,7 @@
 import Combine
 import Foundation
 import WidgetKit
+import UIKit
 
 @MainActor
 final class AppModel: ObservableObject {
@@ -26,6 +27,8 @@ final class AppModel: ObservableObject {
 
     private let store: PatrickSharedStore
     private let soundPlayer = ThemeSoundPlayer()
+    private var soundPresentationActive = false
+    private var lastQuietSoundAt = Date.now
     private let forcedDemoMode: Bool
     private var cancellables = Set<AnyCancellable>()
     private var timerCompletionTask: Task<Void, Never>?
@@ -211,10 +214,19 @@ final class AppModel: ObservableObject {
         WidgetCenter.shared.reloadAllTimelines()
     }
 
-    func playThemeSound(sendToWatch: Bool = true) {
-        guard experience.settings.soundEnabled else { notice = "先在設定開啟音效"; return }
+    func setSoundPresentationActive(_ active: Bool) {
+        soundPresentationActive = active
+        if !active { lastQuietSoundAt = .now; soundPlayer.stop() }
+    }
+
+    func playThemeSound(sendToWatch: Bool = true, manual: Bool = false, requestedAt: Date? = nil) {
+        if let requestedAt, requestedAt < lastQuietSoundAt { return }
+        guard PatrickImmediateSoundPolicy.allows(active: UIApplication.shared.applicationState == .active,
+            presentationActive: manual || soundPresentationActive, enabled: experience.settings.soundEnabled,
+            reduceMotion: UIAccessibility.isReduceMotionEnabled, lowPower: ProcessInfo.processInfo.isLowPowerModeEnabled,
+            requestedAt: requestedAt) else { return }
         do {
-            try soundPlayer.play(for: settings.theme)
+            guard try soundPlayer.play(for: settings.theme, allowEffects: true) else { return }
             notice = "Played the locally generated \(settings.theme.displayName) cue."
         } catch {
             notice = error.localizedDescription
@@ -375,7 +387,7 @@ final class AppModel: ObservableObject {
         for action in store.consumePendingActions() {
             switch action.kind {
             case .playThemeSound:
-                playThemeSound(sendToWatch: false)
+                playThemeSound(sendToWatch: false, requestedAt: action.effectiveCreatedAt)
             case .openWatchFace:
                 openWatchFace(sendToWatch: false)
             }

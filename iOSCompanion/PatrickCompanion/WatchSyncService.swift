@@ -241,7 +241,8 @@ final class WatchSyncService: NSObject, ObservableObject {
                 if expired {
                     current.careAction = nil
                 }
-                if !(expired && (command.name == .playThemeSound || command.name == .openWatchFace)) { onCommandReceived?(current) }
+                let staleSound = command.name == .playThemeSound && !PatrickImmediateSoundPolicy.isFresh(envelope.sentAt)
+                if !staleSound && !(expired && (command.name == .playThemeSound || command.name == .openWatchFace)) { onCommandReceived?(current) }
             }
 
             return try? PatrickMessageEnvelope.acknowledgement(
