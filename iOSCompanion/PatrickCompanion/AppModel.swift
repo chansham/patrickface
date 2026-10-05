@@ -112,6 +112,14 @@ final class AppModel: ObservableObject {
         notice = "\(action.title) · 飽足 \(Int(experience.care.satiety.rounded())) · 親密 \(experience.care.bond)"
     }
 
+    @discardableResult
+    func findSurprise() -> Bool {
+        guard let line = experience.findSurprise() else { notice = "小驚喜歇一分鐘，再來看看"; return false }
+        notice = line
+        saveExperience()
+        return true
+    }
+
     func refreshExperience(allowEffects: Bool = false, observeCalendar: Bool = true) {
         let revision = experience.revision
         _ = experience.updateCare()

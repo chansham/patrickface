@@ -66,6 +66,14 @@ final class PatrickAppModel: ObservableObject {
         persistExperience()
     }
 
+    @discardableResult
+    func findSurprise() -> Bool {
+        guard let line = experience.findSurprise() else { careNotice = "小驚喜歇一分鐘，再來看看"; return false }
+        careNotice = line
+        persistExperience()
+        return true
+    }
+
     func refreshExperience(at date: Date = .now, allowEffects: Bool) {
         let revision = experience.revision
         _ = experience.updateCare(at: date)

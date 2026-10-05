@@ -11,6 +11,7 @@ import SwiftUI
     @State private var restingID: String?
     @State private var visible = false
     @State private var showSettings = false
+    @State private var surpriseExpiresAt: Date?
     private var active: Bool { visible && scenePhase == .active && !showSettings }
     private var scene: String {
         if model.experience.settings.scene != .automatic { return model.experience.settings.scene.rawValue }
@@ -35,6 +36,9 @@ import SwiftUI
                         if model.experience.settings.ambienceEnabled {
                             PatrickSceneAmbience(scene: scene, motionAllowed: active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled)
                         }
+                        if surpriseExpiresAt != nil && model.experience.settings.ambienceEnabled && active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled {
+                            PatrickSceneAmbience(scene: "bath", motionAllowed: true)
+                        }
                         if model.experience.settings.faceMode == .arms && clockArtwork.manifest != nil && !player.isPlaying {
                             PatrickOrganicClock(artwork: clockArtwork, dimmed: false)
                                 .frame(width: side, height: side * 496 / 416)
@@ -57,6 +61,8 @@ import SwiftUI
                             Button(action.title) { model.performCare(action) }.buttonStyle(.borderedProminent)
                         }
                     }
+                    Button("找個小驚喜", action: findSurprise).buttonStyle(.bordered)
+                    if let surprise = model.experience.surprise { Text(surprise.line).font(.callout).multilineTextAlignment(.center) }
                     HStack { Text("飽足 \(Int(model.experience.care.satiety.rounded()))"); Spacer(); Text("親密 \(model.experience.care.bond)") }
                     Picker("角色心情", selection: setting(\.mood)) { ForEach(PatrickMood.allCases) { Text($0.title).tag($0) } }
                     Picker("陪伴情境", selection: setting(\.scene)) { ForEach(PatrickExperienceScene.allCases) { Text($0.title).tag($0) } }
@@ -101,7 +107,7 @@ import SwiftUI
             player.onClipStarted = { id in
                 guard !id.hasPrefix("idle-blink-") else { return }; feedback.play(id, settings: model.experience.settings, active: active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled) }
         }
-        .onDisappear { visible = false; player.suspend(); feedback.stop() }
+        .onDisappear { visible = false; surpriseExpiresAt = nil; player.suspend(); feedback.stop() }
         .onChange(of: scenePhase) { _, _ in configure(); if !active { feedback.stop() } }
         .onChange(of: showSettings) { _, _ in configure(); if !active { feedback.stop() } }
         .onChange(of: reduceMotion) { _, _ in configure(); if reduceMotion { feedback.stop() } }
@@ -124,9 +130,29 @@ import SwiftUI
                 do { try await Task.sleep(for: .seconds(2)) } catch { return }
             }
         }
+        .task(id: surpriseExpiresAt) {
+            guard surpriseExpiresAt != nil else { return }
+            do { try await Task.sleep(nanoseconds: 3_000_000_000) } catch { return }
+            surpriseExpiresAt = nil
+        }
+    }
+    private func findSurprise() {
+        guard model.findSurprise(), active, !reduceMotion, !ProcessInfo.processInfo.isLowPowerModeEnabled else { return }
+        surpriseExpiresAt = .now.addingTimeInterval(3)
+        if let id = outfit?.surpriseClipID,
+           let clip = player.clips.first(where: { $0.id == id }),
+           player.unavailableReason(for: clip) == nil, clip.durationsMs.reduce(0, +) <= 10_000 {
+            player.play(id)
+        }
+        if !player.isPlaying || player.currentClipID?.hasPrefix("idle-blink-") == true {
+            feedback.play("bubble", settings: model.experience.settings, active: true)
+        }
     }
     private func configure() {
-        if !active || reduceMotion || ProcessInfo.processInfo.isLowPowerModeEnabled { model.refreshExperience() }
+        if !active || reduceMotion || ProcessInfo.processInfo.isLowPowerModeEnabled {
+            surpriseExpiresAt = nil
+            model.refreshExperience()
+        }
         player.eventClips = PatrickExperienceResources.eventClips(model.experience.settings, outfit: outfit, from: outfits)
         player.idleClips = outfit?.idleClips ?? []
         if restingID != outfit?.clipId { restingID = outfit?.clipId; _ = player.selectRestingClip(restingID) }

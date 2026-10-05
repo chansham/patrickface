@@ -5,7 +5,7 @@
 ## 現在已知與待確認
 
 - 使用者沒有 MacBook；目前使用 iPhone 13 Pro，計畫換 iPhone 18 Pro Max，Watch 為使用者提供的 Series 12 46 mm。OS 小版本與 Apple Developer Program 會員狀態仍待確認。此套裝按普通配對 iPhone＋Watch 開發。
-- 私人 GitHub 倉庫 `<GITHUB_USER>/patrickface` 已只讀確認為 **PRIVATE**、預設分支 `main`；查詢時沒有已登記的 workflow 或 run。沒有更改可見度、推送、上傳或啟動 CI。
+- 2026-10-05 使用者指定改用 `chansham` 並完成登入授權；新建 `chansham/patrickface` 已確認 **PRIVATE**。目前以獨立開發分支準備 Apple 編譯，實際進度見 [本次紀錄](APPLE-BUILD-20261005.md)。原 `<GITHUB_USER>/patrickface` 保留。
 - Windows 已接好原生首頁、數字時間、逐幀素材、原味手臂時計、衣服／情境／心情、照顧、音效／觸覺、作息、生日與確切日期節日、陪伴倒數及手機同步的源碼。iPhone widget、Watch complication 改讀同一份陪伴狀態；舊整圖晃動頁不再是首頁。
 - Watch 健康摘要只在按下按鈕後請求 **read-only** 今日步數、最近心率及 HRV，附資料時間；沒有樣本顯示「尚無資料」，不推斷拒絕權限或人的心情，不啟動假健身 session。
 - **所有上述原生修改尚未在 Apple SDK 編譯或實機跑過。**素材為本輪授權接入的開發稿；新衣服、時計關節和動作過渡仍可審改。不可把網頁通過或源碼檢查通過寫成 Watch 已完成安裝。

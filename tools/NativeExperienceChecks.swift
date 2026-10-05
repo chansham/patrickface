@@ -48,6 +48,29 @@ import Foundation
         _ = offlineFeed.updateCare(at: now)
         _ = offlineFeed.perform(.feed, at: now.addingTimeInterval(3600))
         check(offlineFeed.care.satiety == 100, "Decay must precede feed saturation after an offline shortcut")
+        var surprise = PatrickExperienceState(); surprise.settings.outfitID = "chef"
+        let firstLine = surprise.findSurprise(at: now)
+        check(firstLine == PatrickSurpriseState.lines[0] && surprise.journal.count == 1, "First surprise records one personal line")
+        let surpriseRevision = surprise.revision
+        check(surprise.findSurprise(at: now.addingTimeInterval(59.999)) == nil, "Surprise cooldown before boundary")
+        check(surprise.revision == surpriseRevision && surprise.journal.count == 1, "Cooldown makes no state or journal write")
+        check(surprise.findSurprise(at: now.addingTimeInterval(-60)) == nil, "Clock rollback does not bypass cooldown")
+        let surpriseData = try JSONEncoder().encode(surprise)
+        var restoredSurprise = try JSONDecoder().decode(PatrickExperienceState.self, from: surpriseData)
+        check(restoredSurprise.findSurprise(at: now.addingTimeInterval(30)) == nil, "Transferred snapshot retains cooldown")
+        let suiteName = "patrick.native-checks.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suiteName)!
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+        surprise.save(to: defaults)
+        var diskSurprise = PatrickExperienceState.load(from: defaults)
+        check(diskSurprise == surprise && diskSurprise.findSurprise(at: now.addingTimeInterval(30)) == nil, "Local reload retains discovery without replay")
+        check(restoredSurprise.findSurprise(at: now.addingTimeInterval(60)) == PatrickSurpriseState.lines[1], "Cooldown boundary unlocks a different line")
+        check(restoredSurprise.settings.outfitID == "chef" && restoredSurprise.care == surprise.care, "Surprise does not change costume or invent care rewards")
+        check(restoredSurprise.journal.last?.text == "小驚喜：\(PatrickSurpriseState.lines[1])", "Second discovery journals the actual line")
+        var oldSave = try JSONSerialization.jsonObject(with: surpriseData) as! [String: Any]
+        oldSave.removeValue(forKey: "surprise")
+        let migrated = try JSONDecoder().decode(PatrickExperienceState.self, from: JSONSerialization.data(withJSONObject: oldSave))
+        check(migrated.surprise == nil && migrated.settings == surprise.settings && migrated.journal == surprise.journal, "Old v1 saves decode without losing settings or journal")
         var calendar = Calendar(identifier: .gregorian); calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         let birthday = calendar.date(from: DateComponents(year: 2028, month: 2, day: 29, hour: 23))!
         var celebration = PatrickExperienceState(); celebration.settings.birthdayMMDD = "02-29"
@@ -72,6 +95,8 @@ import Foundation
             let pajamas = catalog.outfits.first { $0.id == "star-pajamas" }
             check(pajamas?.idleClips.count == 3, "Array action supports all three idle rhythms")
             check(pajamas?.actionClips["yawn"] == "yawn", "String action remains supported")
+            check(pajamas?.surpriseClipID == "idle-blink-slow", "Surprise reuses a same-costume reaction")
+            check(catalog.outfits.first { $0.id == "chef" }?.surpriseClipID == nil, "No reaction means no borrowed costume or fake feeding animation")
         }
         if CommandLine.arguments.count > 2 {
             let calendarData = try JSONDecoder().decode(PatrickCelebrationCalendar.self, from: Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[2])))

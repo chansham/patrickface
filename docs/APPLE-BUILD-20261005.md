@@ -1,6 +1,6 @@
 # 2026-10-05 Apple 編譯接續
 
-使用者要求繼續前輪工作；依先前提出的私人 GitHub 路線，準備 `codex/apple-watch-integration` 獨立分支。既有 main 不變，沒有 App Store／TestFlight 發布。
+使用者要求繼續前輪工作；依先前提出的私人 GitHub 路線，準備 `codex/apple-watch-integration` 獨立分支。使用者後來明確選擇改用 chansham；已完成該帳號 repo/workflow 授權，並在 chansham/patrickface 建立 PRIVATE 倉庫。舊帳號倉庫未更改，沒有 App Store／TestFlight 發布。
 
 ## 本機實際復查
 
@@ -14,8 +14,8 @@
 
 只在私人倉庫的獨立分支跑無簽名：Foundation邏輯測試、Watch與iPhone simulator建置、XCTest編譯，以及iPhone包含Watch／小工具／資源的實際產物檢查。編譯通過後再做unsigned device archive。診斷log保留7日。
 
-狀態：分支已在本機準備，等待推送取得run結果。此記錄尚無Apple編譯通過的證據。
+狀態：首個commit為13effb6。舊帳號push因workflow scope不足而被拒（未建立分支）；目前改用使用者指定的chansham上傳私人倉庫。尚無Apple編譯通過證據。
 
 ## 仍未完成
 
-沒有簽名IPA、Apple裝置安裝或耗電驗收。Apple Developer會員／簽名資料尚未確認。新美術仍未全部修好或批准，來源生成失敗項仍在素材清單；網頁小彩蛋尚未全部移植原生。所有後續結果會附實際run連結和commit，避免把準備當作成功。
+沒有簽名IPA、Apple裝置安裝或耗電驗收。Apple Developer會員／簽名資料尚未確認。新美術仍未全部修好或批准，來源生成失敗項仍在素材清單；原生已補「找個小驚喜」入口、六句輪替、60秒冷卻與日記；同衣服現有反應和短泡泡不在背景／腕下補播，待Apple環境驗證。所有後續結果會附實際run連結和commit，避免把準備當作成功。

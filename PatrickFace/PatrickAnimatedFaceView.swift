@@ -19,6 +19,8 @@ struct PatrickAnimatedFaceView: View {
     @State private var outfits: [PatrickOutfitCatalog.Outfit] = []
     @State private var restingClipID: String?
     @State private var requestedCare: PatrickCareAction?
+    @State private var requestedSurprise = false
+    @State private var surpriseExpiresAt: Date?
     @State private var activityKind: PatrickActivityKind = .focus
     @State private var activityMinutes = 5
 
@@ -33,6 +35,9 @@ struct PatrickAnimatedFaceView: View {
                 Color.black
                 if model.experience.settings.ambienceEnabled && !wristDown {
                     PatrickSceneAmbience(scene: resolvedScene, motionAllowed: monitoring && !reduceMotion && !lowPower)
+                }
+                if surpriseExpiresAt != nil && model.experience.settings.ambienceEnabled && monitoring && !reduceMotion && !lowPower {
+                    PatrickSceneAmbience(scene: "bath", motionAllowed: true)
                 }
                 if model.experience.settings.faceMode == .arms && clockArtwork.manifest != nil && !player.isPlaying {
                     PatrickOrganicClock(artwork: clockArtwork, dimmed: wristDown)
@@ -72,7 +77,7 @@ struct PatrickAnimatedFaceView: View {
                 }
                 PatrickIndependentClock(width: width, height: height, dimmed: wristDown, settings: model.experience.settings)
                     .allowsHitTesting(false)
-                Text("\(model.experience.settings.mood.title) · \(player.isPlaying ? player.message : model.careNotice)")
+                Text("\(model.experience.settings.mood.title) · \(player.isPlaying && surpriseExpiresAt == nil ? player.message : model.careNotice)")
                     .font(.system(size: max(8, width * 0.04)))
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
@@ -113,12 +118,19 @@ struct PatrickAnimatedFaceView: View {
         }
         .onDisappear {
             visible = false
+            surpriseExpiresAt = nil
             player.suspend()
             feedback.stop()
             WKInterfaceDevice.current().isBatteryMonitoringEnabled = false
         }
-        .onChange(of: scenePhase) { _, _ in refreshContext(); if !monitoring { feedback.stop() } }
-        .onChange(of: wristDown) { _, _ in refreshContext(); if wristDown { feedback.stop() } }
+        .onChange(of: scenePhase) { _, _ in
+            if scenePhase != .active { requestedSurprise = false }
+            refreshContext(); if !monitoring { feedback.stop() }
+        }
+        .onChange(of: wristDown) { _, _ in
+            if wristDown { requestedSurprise = false; feedback.stop() }
+            refreshContext()
+        }
         .onChange(of: reduceMotion) { _, _ in refreshContext(); if reduceMotion { feedback.stop() } }
         .onChange(of: model.petScene) { _, _ in refreshContext() }
         .onChange(of: model.sleepMode) { _, _ in refreshContext() }
@@ -163,6 +175,11 @@ struct PatrickAnimatedFaceView: View {
                 catch { return }
             }
         }
+        .task(id: surpriseExpiresAt) {
+            guard surpriseExpiresAt != nil else { return }
+            do { try await Task.sleep(nanoseconds: 3_000_000_000) } catch { return }
+            surpriseExpiresAt = nil
+        }
         .sheet(isPresented: $showingActions) { actionMenu }
     }
 
@@ -174,6 +191,8 @@ struct PatrickAnimatedFaceView: View {
                     ForEach(PatrickCareAction.allCases) { action in
                         Button(action.title) { requestedCare = action; showingActions = false }
                     }
+                    Button("找個小驚喜") { requestedSurprise = true; showingActions = false }
+                    if let surprise = model.experience.surprise { Text(surprise.line).font(.footnote).foregroundStyle(.secondary) }
                 }
                 Section("心情、情境與衣服") {
                     Picker("角色心情", selection: setting(\.mood)) {
@@ -289,13 +308,31 @@ struct PatrickAnimatedFaceView: View {
     private func playRequestedClipIfVisible() {
         // A watch sheet may cover the presenting view. Wait for both dismissal
         // and onAppear, in either order, before consuming its selected action.
+        if wristDown || scenePhase != .active { requestedSurprise = false }
         guard monitoring else { return }
         if let action = requestedCare {
             requestedCare = nil; model.performCare(action)
         }
+        if requestedSurprise {
+            requestedSurprise = false; findSurprise()
+        }
         guard let id = requestedClip else { return }
         requestedClip = nil
         player.play(id)
+    }
+
+    private func findSurprise() {
+        guard model.findSurprise(), monitoring, !reduceMotion, !lowPower else { return }
+        surpriseExpiresAt = .now.addingTimeInterval(3)
+        // Own-outfit reaction only. This does not claim a new animation exists.
+        if let id = currentOutfit?.surpriseClipID,
+           let clip = player.clips.first(where: { $0.id == id }),
+           player.unavailableReason(for: clip) == nil, clip.durationsMs.reduce(0, +) <= 10_000 {
+            player.play(id)
+        }
+        if !player.isPlaying || player.currentClipID?.hasPrefix("idle-blink-") == true {
+            feedback.play("bubble", settings: model.experience.settings, active: true)
+        }
     }
 
     private func refreshContext(at date: Date = .now) {
@@ -333,7 +370,10 @@ struct PatrickAnimatedFaceView: View {
         else if model.petScene == .resting { status = .resting }
         else { status = .ready }
         model.setStatus(status)
-        if !monitoring || reduceMotion || lowPower { model.refreshExperience(allowEffects: false) }
+        if !monitoring || reduceMotion || lowPower {
+            surpriseExpiresAt = nil
+            model.refreshExperience(allowEffects: false)
+        }
     }
 }
 

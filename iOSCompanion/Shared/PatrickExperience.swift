@@ -100,6 +100,21 @@ struct PatrickJournalEntry: Codable, Equatable, Identifiable, Sendable {
     var at: Date { Date(timeIntervalSince1970: atMS / 1000) }
 }
 
+struct PatrickSurpriseState: Codable, Equatable, Sendable {
+    static let cooldownSeconds: TimeInterval = 60
+    static let lines = [
+        "我今天的計畫：先想一想。",
+        "這顆泡泡看起來很有主見。",
+        "我有在認真，只是看不出來。",
+        "休息也是一項重要工作。",
+        "我沒發呆，我在等靈感。",
+        "點心還沒來，我先陪你。"
+    ]
+    var lastDiscoveredAtMS: Double
+    var lineIndex: Int
+    var line: String { Self.lines[((lineIndex % Self.lines.count) + Self.lines.count) % Self.lines.count] }
+}
+
 struct PatrickExperienceState: Codable, Equatable, Sendable {
     static let storageKey = "patrick.experience.native.v1"
     var version = 1
@@ -112,6 +127,8 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
     var journal: [PatrickJournalEntry] = []
     var processedActionIDs: [UUID] = []
     var calendarCelebrationKeys: [String]?
+    // Optional so existing v1 saves and WatchConnectivity snapshots still decode.
+    var surprise: PatrickSurpriseState?
 
     mutating func changed(at date: Date = .now) {
         revision &+= 1; updatedAtMS = date.timeIntervalSince1970 * 1000
@@ -120,6 +137,22 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
     mutating func record(_ text: String, at date: Date) {
         journal.append(PatrickJournalEntry(atMS: date.timeIntervalSince1970 * 1000, text: text))
         journal = Array(journal.suffix(60))
+    }
+
+    /// Persist the discovery, not a playback request. Receiving a snapshot or
+    /// returning from the background must never replay an old surprise.
+    @discardableResult
+    mutating func findSurprise(at date: Date = .now) -> String? {
+        let now = date.timeIntervalSince1970 * 1000
+        guard now.isFinite else { return nil }
+        if let previous = surprise, previous.lastDiscoveredAtMS.isFinite,
+           now - previous.lastDiscoveredAtMS < PatrickSurpriseState.cooldownSeconds * 1000 { return nil }
+        let count = PatrickSurpriseState.lines.count
+        let index = surprise.map { (($0.lineIndex % count) + count + 1) % count } ?? 0
+        let value = PatrickSurpriseState(lastDiscoveredAtMS: now, lineIndex: index)
+        surprise = value
+        record("小驚喜：\(value.line)", at: date); changed(at: date)
+        return value.line
     }
 
     @discardableResult
@@ -252,6 +285,8 @@ struct PatrickOutfitCatalog: Decodable, Sendable {
         var reviewClipId: String?
         var actionClips: [String: String] { (actions ?? [:]).compactMapValues { $0.clips.first } }
         var idleClips: [String] { actions?["idle"]?.clips ?? [] }
+        // Never borrow another outfit's reaction or reinterpret a feed as a pet.
+        var surpriseClipID: String? { actionClips["surprise"] ?? actionClips["pet"] ?? idleClips.first }
     }
     var schemaVersion: Int
     var defaultOutfitID: String
