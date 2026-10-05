@@ -4,6 +4,9 @@ name: Apple build validation
   push:
     branches:
       - codex/apple-watch-integration
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
   workflow_dispatch:
     inputs:
       unsigned_device_archive:
@@ -29,6 +32,7 @@ jobs:
           persist-credentials: false
           fetch-depth: 1
       - name: Build unsigned Apple simulator apps
+        id: simulator
         shell: bash
         run: |
           mkdir -p "$RUNNER_TEMP/patrick-ci-logs"
@@ -40,6 +44,17 @@ jobs:
         run: |
           set -o pipefail
           python3 tools/archive_apple.py --build-number "$GITHUB_RUN_NUMBER" 2>&1 | tee "$RUNNER_TEMP/patrick-ci-logs/archive.log"
+      - name: Capture native simulator screens
+        if: ${{ always() && steps.simulator.outcome == 'success' }}
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 tools/capture_apple_simulators.py \
+            --phone-app "$PATRICK_PHONE_SIM_APP" \
+            --watch-app "$PATRICK_WATCH_SIM_APP" \
+            --phone-udid "$PATRICK_TEST_PHONE_UDID" \
+            --output "$RUNNER_TEMP/patrick-ci-logs/native-screens" \
+            2>&1 | tee "$RUNNER_TEMP/patrick-ci-logs/capture.log"
       - name: Keep private build diagnostics
         if: always()
         uses: actions/upload-artifact@v4
@@ -48,5 +63,6 @@ jobs:
           path: |
             ${{ runner.temp }}/patrick-ci-logs/*.log
             ${{ runner.temp }}/patrick-ci-logs/*.xcresult
+            ${{ runner.temp }}/patrick-ci-logs/native-screens/
           retention-days: 7
           if-no-files-found: warn

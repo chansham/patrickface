@@ -21,9 +21,10 @@
 | [首輪](https://github.com/chansham/patrickface/actions/runs/37253494668) | 1c78849 | Xcode 26.6／Apple SDK 26.5確實啟動；首個Foundation編譯在PatrickShared.swift guard尾隨closure語法失敗，尚未建置App |
 | [第二輪](https://github.com/chansham/patrickface/actions/runs/37253740741) | 23600d1 | 1503項Foundation規則、109項動畫、51項體驗檢查實跑通過；Watch SwiftUI畫面因過長expression無法在合理時間type-check而失敗，尚未進手機建置或archive |
 | [第三輪](https://github.com/chansham/patrickface/actions/runs/37254061355) | a6d0de5 | Watch與iPhone雙平台建置、widget／complication、實際嵌入包及素材SHA通過；Foundation 1503／129／54項通過；iPhone Air／iOS 26.5模擬器實跑XCTest 7項，存檔時間精度比較1項失敗，archive尚未執行 |
+| [第四輪：通過](https://github.com/chansham/patrickface/actions/runs/37254670555) | f6daa08 | Foundation 1503／129／63項通過；兩端App與兩個extension編譯通過；iPhone Air／iOS 26.5上9項XCTest全過；Release裝置archive成功，實際封存包內4個product版本／ID／所有素材SHA通過。無簽名，不可安裝或提交 |
 
 原始log保存在本機`output/apple-build/`；不把第一次失敗當作帳號或額度阻擋，因runner已實際執行編譯。
 
 ## 仍未完成
 
-沒有簽名IPA、Apple裝置安裝或耗電驗收。Apple Developer會員／簽名資料尚未確認。新美術仍未全部修好或批准，來源生成失敗項仍在素材清單；原生已補「找個小驚喜」入口、六句輪替、60秒冷卻與日記；同衣服現有反應和短泡泡不在背景／腕下補播，待Apple環境驗證。所有後續結果會附實際run連結和commit，避免把準備當作成功。
+沒有簽名IPA、Apple裝置安裝或耗電驗收。使用者已確認只有一般Apple帳號，沒有付費Developer會員；不預設TestFlight條件已具備。新美術仍未全部修好或批准，來源生成失敗項仍在素材清單；原生已補「找個小驚喜」入口、六句輪替、60秒冷卻與日記，並修正背景完成補播及過期音效。Apple編譯和邏輯測試已通過，原生畫面另準備用真正simctl截圖審閱。這些仍不代表實機聲音、動畫效能、跨裝置同步或素材美術已驗收。

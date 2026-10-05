@@ -100,4 +100,12 @@ xcodebuild -workspace "$PHONE_WORKSPACE" -scheme PatrickCompanion -configuration
   -derivedDataPath "$DERIVED_ROOT/phone" -parallel-testing-enabled NO \
   -resultBundlePath "$TEST_RESULTS" test-without-building
 
+if [[ -n "${GITHUB_ENV:-}" ]]; then
+  {
+    echo "PATRICK_PHONE_SIM_APP=$DERIVED_ROOT/phone/Build/Products/Debug-iphonesimulator/PatrickCompanion.app"
+    echo "PATRICK_WATCH_SIM_APP=$DERIVED_ROOT/watch/Build/Products/Debug-watchsimulator/PatrickFace.app"
+    echo "PATRICK_TEST_PHONE_UDID=$IOS_TEST_DEVICE_ID"
+  } >> "$GITHUB_ENV"
+fi
+
 echo "Unsigned simulator builds, native pure-logic tests, XCTest execution and embedded bundle checks completed. No signed package was produced."
