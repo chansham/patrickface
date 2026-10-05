@@ -253,7 +253,7 @@ struct PatrickDeepLink: Equatable, Sendable {
         let theme: PatrickTheme?
         if let rawTheme = items["theme"] {
             guard let parsedTheme = rawTheme
-                .map { $0.lowercased() }
+                .map({ $0.lowercased() })
                 .flatMap(PatrickTheme.init(rawValue:))
             else {
                 return nil
