@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "batch": "20261005-detective",
+  "tool": "built-in image_gen",
+  "status": "candidate-browser-verified-colour-revision-required",
+  "allArtworkComplete": false,
+  "artApproved": false,
+  "requests": [
+    {
+      "id": "detective-original",
+      "status": "candidate-generated-colour-issue",
+      "prompt": "Use case: illustration-story. Create a transparent PNG sprite atlas of TWELVE consecutive hand-drawn animation keyframes of Patrick Star from SpongeBob in a detective costume. Supporting reference image is STYLE ONLY: preserve its simple original-series 2D cartoon linework and coral-pink character design, not its clothes or battery. EXACT4columns by3rows in row-major order. Each frame occupies its own equal-size square with generous transparent margins, full hat/head/feet/props intact, no overlaps between frames. Character seated front facing in a small brown deerstalker cap, tan short detective cape over his green/purple-flower shorts. Both white sclera and black pupils, never colored eye whites. A round hand magnifying glass with dark short handle stays entirely attached to his right flipper and is never in front of his face. Keep identical seated body mass, scale, camera, cap, cloth pattern and foot baseline across ALL12frames. Do not draw 12 unrelated poses or move/scale the whole picture. Acting sequence:1 magnifier held low beside right thigh, calmly unimpressed;2 eyes glance toward magnifier;3 right elbow bends slightly;4 magnifier rises to lower chest;5 eyebrow lifts;6 magnifier held toward viewer BELOW his face, intent serious look;7 eyelids narrow suspiciously;8 left eyebrow arches independently with closed-mouth tiny smirk;9 right elbow starts lowering;10 magnifier reaches thigh;11 briefly blinks both eyes, hat/body still;12 eyes reopen to same pose, glass and expression as frame1. Small natural facial and flipper progression, physically coherent grip and cause/effect. No added bubbles, stars, shadows, background color, frame borders, grid marks, captions, labels or text. Natural light outlines, matte cel colors, no realism, plush or grotesque details. Transparent alpha background. All components belonging to each character frame must be close together so contour extraction preserves the prop. Character about70%cellheight with headroom15% and footroom15%. Carefully repeat proportions; cap tip and feet must never touch atlas edge. ONE atlas,12different drawn frames.",
+      "reference": "concepts/2026-09-27/charging-cel-v1.png",
+      "sourcePath": "<USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-5d4d72ab-1a6e-4b87-8d0d-288a41764fba.png",
+      "workspacePath": "animation/detective-v1/atlas-generated-v1.png",
+      "sha256": "90f181e3887b9ec3cf64a5ef2260abae25ec70f2bdb676308d81ba4c1d822d0a",
+      "sourceFrames": 12,
+      "knownIssues": [
+        "Purple eyelids in frames1/7/10/11/12 instead of coral-pink skin. Sclera visible below remain white.",
+        "Magnifier size and cap/head shape vary slightly. Full contour and normal-speed check pending."
+      ],
+      "runtimeApproved": false
+    },
+    {
+      "id": "detective-eyelid-correction",
+      "status": "generation-blocked",
+      "prompt": "Precise color-only edit to this12-frame transparent sprite atlas. Keep ALL12frames, exact same layout, anatomy, clothes, props, pose sequence, outlines, white sclera, black pupils, facial expression, camera and transparency. The current purple/lavender UPPER AND LOWER EYELIDS are a production error. In every frame where eyelids are visible, recolor the purple/lavender eyelid skin to the SAME coral-pink skin color as the surrounding Patrick forehead/face. Particularly frame1,7,10,11,12, including fully closed eyelids in11. This is skin, not eyeshadow. Keep eyes' sclera pure white and pupils black, while preserving the black closed-eye crease. Do NOT recolor the purple flowers on green shorts; those flowers MUST stay purple. Do not add details, redraw limbs, resize character, crop any head/foot, change frame count, paint background, or change hat/magnifier. Color correction only. Genuine transparent background preserved.",
+      "reference": "animation/detective-v1/atlas-generated-v1.png",
+      "outputExists": false,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 4b3ea3cd-38b9-4279-8dfd-60f54afaf4f9.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+    }
+  ],
+  "metadata": {
+    "path": "animation/detective-v1/regions-v1.json",
+    "sha256": "f0c8d52ab17df9bfc6fc64e8c96d52ed559fc12a6540051daf1910df5ba877ab",
+    "allSourcePixelsPreserved": true
+  },
+  "qualityReview": {
+    "path": "animation/production-20261005/candidate-qc.json",
+    "notes": "animation/detective-v1/REVIEW.md",
+    "normalSpeedReview": "reviewed-known-art-issues-not-approved",
+    "artApproved": false,
+    "browserReports": {
+      "contours": "output/playwright/20261005-detective-contours/report.json",
+      "normalSpeed": "output/playwright/20261005-detective-live/report.json",
+      "isolation": "output/playwright/20261005-detective-isolation/report.json"
+    },
+    "sourceUnchanged": true
+  },
+  "candidateCatalog": {
+    "path": "animation/candidates.json",
+    "clipId": "detective-20261005-candidate",
+    "batch": "20261005-detective",
+    "mainCatalogChanged": false,
+    "nativeSynced": false
+  }
+}

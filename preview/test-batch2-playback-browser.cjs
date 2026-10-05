@@ -11,10 +11,10 @@ const runtimeMode = process.env.QA_RUNTIME === '1';
 const catalog = JSON.parse(fs.readFileSync(path.join(root, runtimeMode ? 'animation/catalog.json' : 'animation/candidates.json'), 'utf8'));
 const requestedIds = process.env.QA_CLIP_IDS?.split(',');
 const clips = catalog.clips.filter(clip => requestedIds ? requestedIds.includes(clip.id) : clip.batch === (process.env.QA_BATCH || '20260927-batch2'));
-const montageStem = runtimeMode ? 'runtime-new-actions' : 'six-new-candidates';
+const montageStem = process.env.QA_MONTAGE_STEM || (runtimeMode ? 'runtime-new-actions' : 'six-new-candidates');
 assert.ok(clips.length > 0, 'new batch must exist before this live-art check');
 fs.mkdirSync(output, { recursive: true });
-const report = { startedAt: new Date().toISOString(), url: address + (runtimeMode ? '' : '?review=candidates'), speed: 1,
+const report = { startedAt: new Date().toISOString(), url: address + (runtimeMode ? '' : '?review=candidates' + (process.env.QA_GROUP_NEW === '1' ? '&group=new' : '')), speed: 1,
   artQualityApproved: false, clock: 'real browser performance.now; no fake clock', cases: [] };
 const escape = value => String(value).replace(/[&<>\"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[character]);
 const html = (title, cards, columns = 4) => `<!doctype html><meta charset="utf-8"><style>body{margin:0;padding:24px;background:#18151e;color:#eee3ee;font:14px "Segoe UI","Microsoft JhengHei",sans-serif}h1{font-size:23px;font-weight:500;margin:0 0 8px}p{color:#bca8c4;margin:0 0 20px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(${columns},1fr);gap:14px}figure{margin:0;padding:10px;background:#25202b;border:1px solid #4a3a4f;border-radius:15px}img{display:block;width:100%;height:auto;border-radius:12px}figcaption{font-size:12px;line-height:1.6;padding:9px 2px 2px}</style><h1>${escape(title)}</h1><p>實際 1 倍播放擷取 · 全段固定尺度與腳底 · 待修候選，尚未批准</p><div class="grid">${cards.join('')}</div>`;
@@ -48,6 +48,7 @@ const html = (title, cards, columns = 4) => `<!doctype html><meta charset="utf-8
     if (runtimeMode) await page.locator('#toggle-review').click();
     const optionIds = await page.locator('#clip-select option').evaluateAll(items => items.map(item => item.value));
     assert.ok(clips.every(clip => optionIds.includes(clip.id)), 'all requested clips are available for manual review');
+    if (process.env.QA_GROUP_NEW === '1') assert.deepEqual(optionIds, clips.map(clip => clip.id), 'new filter must show exactly the latest requested batch');
     const montage = [];
     for (const clip of clips) {
       const item = { id: clip.id, title: clip.title, frameCount: clip.frameCount, durationMs: clip.durationsMs.reduce((a, b) => a + b, 0), scale: clip.scale, passed: false };
@@ -88,7 +89,7 @@ const html = (title, cards, columns = 4) => `<!doctype html><meta charset="utf-8
     report.passed = true;
   } catch (error) { report.error = error.stack; report.passed = false; console.error(error.stack); process.exitCode = 1; }
   finally {
-    await page.close(); await context.close(); await page.video().saveAs(path.join(output, `${runtimeMode ? 'runtime-new-actions' : 'six-clips'}-live-1x.webm`));
+    await page.close(); await context.close(); await page.video().saveAs(path.join(output, `${process.env.QA_MONTAGE_STEM || (runtimeMode ? 'runtime-new-actions' : 'six-clips')}-live-1x.webm`));
     await browser.close(); report.finishedAt = new Date().toISOString(); report.pageErrors = errors;
     fs.writeFileSync(path.join(output, 'report.json'), JSON.stringify(report, null, 2));
   }

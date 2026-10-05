@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "batch": "20261005-detective",
+  "items": [
+    {
+      "id": "detective-v1",
+      "path": "animation/detective-v1/atlas-generated-v1.png",
+      "sha256": "90f181e3887b9ec3cf64a5ef2260abae25ec70f2bdb676308d81ba4c1d822d0a",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGBA",
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "sourceModified": false,
+      "status": "quality-revision-required",
+      "artApproved": false,
+      "runtimeApproved": false,
+      "technicalStatus": "regions-valid-art-not-approved",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zeroPercent": 61.3945,
+        "nonzeroPixels": 607083,
+        "edgeMaximum": {
+          "top": 0,
+          "bottom": 1,
+          "left": 0,
+          "right": 0
+        }
+      },
+      "regions": {
+        "path": "animation/detective-v1/regions-v1.json",
+        "sha256": "f0c8d52ab17df9bfc6fc64e8c96d52ed559fc12a6540051daf1910df5ba877ab",
+        "canvas": {
+          "width": 812,
+          "height": 812,
+          "anchorPixels": [
+            406,
+            715
+          ],
+          "anchorNormalized": [
+            0.5,
+            0.8805418719211823
+          ]
+        },
+        "coreCount": 12,
+        "coreThreshold": 128,
+        "coreMinimumPixels": 10000,
+        "assignedPixels": 607083,
+        "unassignedPixels": 0,
+        "discardedPixels": 0,
+        "detachedComponentCount": 2542,
+        "furthestDetached": {
+          "bounds": [
+            1101,
+            39,
+            1102,
+            41
+          ],
+          "pixelCount": 2,
+          "frame": 3,
+          "distanceFromCore": 119,
+          "nearestCoreCandidates": [
+            3
+          ],
+          "maxAlpha": 1
+        },
+        "canvasRatio": 2.2430939226519335,
+        "explicitCanvasRatioLimit": 3,
+        "coreWidthRange": [
+          219,
+          270
+        ],
+        "coreHeightRange": [
+          331,
+          336
+        ],
+        "framesWithStrongCoreAtSourceEdge": []
+      },
+      "visualReview": {
+        "status": "static-alpha-and-real-1x-reviewed-colour-revision-required",
+        "method": "Original image inspected; read-only in-memory RGBA alpha_composite on black and white; original PNG unchanged.",
+        "eyes": "第1/7/10/11/12格為紫色眼皮；可見眼白仍白、瞳孔黑。第11格完全閉眼的皮膚也是紫色。",
+        "prop": "放大鏡一直由手持；第6格向前伸時鏡面變大，可能表現前伸，但尺寸和收回過渡仍需正常速度審查。",
+        "silhouette": "帽子、披風、手腳、鏡面與柄均保留；高度331–336px，未檢到強輪廓碰源PNG外緣。帽／頭與身形仍略變，不能稱像素固定。",
+        "loop": "第1/12格接近回位但手、帽與輪廓非完全相同；未批准無縫循環。",
+        "artApproved": false
+      },
+      "normalSpeedReview": {
+        "status": "reviewed-with-colour-and-transition-issues-art-not-approved",
+        "reviewer": "Browser QA agent inspected actual timestamped playback frames.",
+        "reportPath": "output/playwright/20261005-detective-live/report.json",
+        "sequencePath": "output/playwright/20261005-detective-live/detective-20261005-candidate-sequence.png",
+        "recordingPath": "output/playwright/20261005-detective-live/detective-live-1x.webm",
+        "speed": 1,
+        "realClock": true,
+        "runtimeFrameCount": 12,
+        "durationMs": 3100,
+        "visitedEveryFrame": true,
+        "stoppedAtLastFrame": true,
+        "autoReplayObserved": false,
+        "observation": "帽子、頭腳完整；1/7/10/11/12紫色眼皮清楚可見、眼白仍白。5→6放大鏡前伸變大，6→7收回突然，8→9放下缺中間過渡；頭身大致穩定但仍輕微形變。",
+        "artApproved": false
+      },
+      "candidateClipId": "detective-20261005-candidate",
+      "scale": 2.2430939226519335,
+      "mainCatalogIncluded": false,
+      "nativeSynced": false,
+      "browserContourReview": {
+        "reportPath": "output/playwright/20261005-detective-contours/report.json",
+        "sourceFrames": 12,
+        "rgbaMismatchPixels": 0,
+        "neighborBleedPixels": 0,
+        "missingStrongCorePixels": 0,
+        "sameSourceForMain200pxAndThumbnails": true,
+        "commonCanvas": [
+          812,
+          812
+        ],
+        "fixedPixelScale": 1.838674033149171,
+        "stageFootAnchor": [
+          416,
+          893.632
+        ],
+        "visibleStageY": [
+          276,
+          893
+        ],
+        "artApproved": false
+      }
+    }
+  ],
+  "summary": {
+    "generatedAtlases": 1,
+    "sourceFrames": 12,
+    "successfulColorRevisions": 0,
+    "blockedColorRevisions": 1,
+    "sourcePngsModified": 0,
+    "unassignedPixels": 0,
+    "discardedPixels": 0,
+    "artApproved": false,
+    "allArtworkComplete": false,
+    "browserCheckGroupsPassed": 3,
+    "normalSpeedPlaybackPassed": true
+  },
+  "generationLedgerSnapshot": {
+    "path": "animation/production-20261005/generation-ledger.json",
+    "sha256": "c4876afdcb6031881fda71db44b4f3fecd09fb07f1c3e69c602613a4cbe53458",
+    "status": "candidate-browser-verified-colour-revision-required",
+    "requestCount": 2
+  },
+  "isolation": {
+    "mainCatalogSha256": "bb06318beafa0a8abf3c30dd68b32f600020b7ea8de752812af6299bc59ceaa0",
+    "themesSha256": "964a6290f7accca808131923780f3ba1defcd3c5d8125655f7d0e4c7a0563b10",
+    "nativeSynced": false,
+    "reportPath": "output/playwright/20261005-detective-isolation/report.json",
+    "reviewPersistenceAndMainStateIsolationPassed": true,
+    "mainCatalogStillUnchanged": true,
+    "themesStillUnchanged": true,
+    "watchContainsDetective": false,
+    "iphoneContainsDetective": false
+  },
+  "artApproved": false
+}

@@ -10,6 +10,8 @@ const output = process.env.QA_OUTPUT || path.join(root, 'output/playwright/conto
 const address = process.env.PREVIEW_URL || 'http://127.0.0.1:8765/preview/';
 const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 const catalogs = [read('animation/catalog.json'), read('animation/candidates.json')];
+const requestedClipIDs = process.env.QA_CLIP_IDS?.split(',');
+if (requestedClipIDs) assert.ok(requestedClipIDs.every(id => catalogs.some(catalog => catalog.clips.some(clip => clip.id === id))), 'each requested clip must exist');
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
 const report = { startedAt: new Date().toISOString(), artQualityApproved: false,
   scope: 'Real source pixels, contour ownership, shared render canvas, fixed scale/foot anchor, failure isolation and old review preservation.', cases: [] };
@@ -31,6 +33,7 @@ async function capture(page, id, frame) {
   if (process.env.CHROMIUM_EXECUTABLE_PATH) launch.executablePath = process.env.CHROMIUM_EXECUTABLE_PATH;
   const browser = await chromium.launch(launch);
   async function test(name, body) {
+    if (process.env.QA_CASE_FILTER && !new RegExp(process.env.QA_CASE_FILTER).test(name)) return;
     const item = { name, passed: false }, context = await browser.newContext({ viewport: { width: 1440, height: 1100 }, timezoneId: 'Asia/Hong_Kong', acceptDownloads: true });
     const page = await context.newPage(), errors = [];
     page.on('pageerror', error => errors.push(error.message));
@@ -61,8 +64,11 @@ async function capture(page, id, frame) {
     await test('all-real-contours-source-pixels-ownership-and-three-views', async (page, item) => {
       item.clips = [];
       for (let catalogIndex = 0; catalogIndex < catalogs.length; catalogIndex++) {
-        const catalog = catalogs[catalogIndex]; await ready(page, catalogIndex === 1);
-        for (const clip of catalog.clips.filter(clip => clip.frameRegions)) {
+        const catalog = catalogs[catalogIndex];
+        const selected = catalog.clips.filter(clip => clip.frameRegions && (!requestedClipIDs || requestedClipIDs.includes(clip.id)));
+        if (!selected.length) continue;
+        await ready(page, catalogIndex === 1);
+        for (const clip of selected) {
           const bytes = fs.readFileSync(path.join(root, clip.frameRegions.path));
           assert.equal(hash(bytes), clip.frameRegions.sha256); const metadata = JSON.parse(bytes);
           await page.locator('#clip-select').selectOption(clip.id);

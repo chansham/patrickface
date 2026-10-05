@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "version": 1,
-  "updatedAt": "2026-09-27",
+  "updatedAt": "2026-10-05",
   "reviewOnly": true,
   "master": {
     "id": "patrick-candidate-review-v1",
@@ -651,6 +651,70 @@
       "frameRegions": {
         "path": "animation/feeding-chef-v1/regions-v1.json",
         "sha256": "4346965a107da3c2ed9c8ed807c5537599506093a188b865ae013d1025822714",
+        "version": 1
+      },
+      "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "detective-20261005-candidate",
+      "title": "偵探巡查 · 紫眼皮待修",
+      "category": "顏色待修審稿",
+      "version": 1,
+      "batch": "20261005-detective",
+      "reviewGroup": "scene",
+      "atlas": "animation/detective-v1/atlas-generated-v1.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "durationsMs": [
+        500,
+        180,
+        180,
+        180,
+        180,
+        260,
+        220,
+        240,
+        180,
+        200,
+        180,
+        600
+      ],
+      "sha256": "90f181e3887b9ec3cf64a5ef2260abae25ec70f2bdb676308d81ba4c1d822d0a",
+      "anchorNormalized": [
+        0.5,
+        0.8805418719211823
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 2.2430939226519335,
+      "status": "quality-revision-required",
+      "artApproved": false,
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "偵探帽、短披風與放大鏡12格原稿。第1/7/10/11/12格眼皮是紫色，眼白仍白；改粉色修訂未成功。放大鏡前伸時尺寸變大，收回及首尾仍需審。只供獨立候選審稿，未加入日常或原生包。",
+      "frameLabels": [
+        "紫眼皮待修",
+        "看向放大鏡",
+        "開始抬手",
+        "舉至胸前",
+        "抬眉觀察",
+        "前伸：鏡面變大",
+        "紫眼皮待修／懷疑",
+        "單側抬眉微笑",
+        "開始放下",
+        "紫眼皮待修",
+        "閉眼皮紫色待修",
+        "紫眼皮待修／回位"
+      ],
+      "frameRegions": {
+        "path": "animation/detective-v1/regions-v1.json",
+        "sha256": "f0c8d52ab17df9bfc6fc64e8c96d52ed559fc12a6540051daf1910df5ba877ab",
         "version": 1
       },
       "renderingRevision": "contour-v1"

@@ -28,7 +28,7 @@ async function sameFrame(page){return page.evaluate(()=>{
 });}
 (async()=>{
  const launch={headless:true};if(process.env.CHROMIUM_EXECUTABLE_PATH)launch.executablePath=process.env.CHROMIUM_EXECUTABLE_PATH;const browser=await chromium.launch(launch);
- async function test(name,options,body){const result={name,passed:false};const context=await browser.newContext({viewport:{width:1440,height:1100},timezoneId:'Asia/Hong_Kong',acceptDownloads:true,...options});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ async function test(name,options,body){if(process.env.QA_CASE_FILTER&&!new RegExp(process.env.QA_CASE_FILTER).test(name))return;const result={name,passed:false};const context=await browser.newContext({viewport:{width:1440,height:1100},timezoneId:'Asia/Hong_Kong',acceptDownloads:true,...options});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
   try{
    await page.addInitScript(values=>{
     for(const[key,value]of Object.entries(values))if(localStorage.getItem(key)===null)localStorage.setItem(key,value);
@@ -66,7 +66,7 @@ async function sameFrame(page){return page.evaluate(()=>{
    for(const[key,value]of Object.entries(protectedValues))assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),value);
   });
   await test('candidate-review-hash-namespace-and-export',{},async(page,result)=>{
-   const clip=catalog.clips[0];const mainKey=`patrick.animation-review.${clip.id}.v${clip.version}.${clip.sha256}`;const candidateKey=`patrick.animation-candidate-review.${clip.id}.v${clip.version}.${clip.sha256}`;
+   const clip=process.env.QA_TARGET_CLIP?catalog.clips.find(clip=>clip.id===process.env.QA_TARGET_CLIP):catalog.clips[0];assert.ok(clip,'requested candidate must exist');const mainKey=`patrick.animation-review.${clip.id}.v${clip.version}.${clip.sha256}`;const candidateKey=`patrick.animation-candidate-review.${clip.id}.v${clip.version}.${clip.sha256}`;
    const existing=JSON.stringify({asset:clip.id,version:clip.version,sha256:clip.sha256,frames:{2:'liked'},note:'main namespace must remain separate'});
    await page.addInitScript(({key,value})=>{if(localStorage.getItem(key)===null)localStorage.setItem(key,value);},{key:mainKey,value:existing});
    await ready(page);await page.locator('#clip-select').selectOption(clip.id);assert.equal(await page.locator('#review-note').inputValue(),'');
@@ -74,7 +74,7 @@ async function sameFrame(page){return page.evaluate(()=>{
    const downloadPromise=page.waitForEvent('download');await page.locator('#export-review').click();const download=await downloadPromise;const target=path.join(output,'candidate-review-export.json');await download.saveAs(target);
    const exported=JSON.parse(fs.readFileSync(target,'utf8'));assert.equal(exported.reviewMode,'candidates');assert.equal(exported.catalog,'animation/candidates.json');assert.equal(exported.clips.length,catalog.clips.length);const saved=exported.clips.find(item=>item.asset===clip.id);assert.equal(saved.sha256,clip.sha256);assert.equal(saved.qualityStatus,clip.status);assert.equal(saved.sections.action.frames[2],'revise');assert.match(saved.sections.action.note,/身形/);assert.match(saved.sections.outfit.note,/彩邊/);assert.equal(await page.evaluate(key=>localStorage.getItem(key),mainKey),existing);
    assert.ok(await page.evaluate(key=>localStorage.getItem(key),candidateKey));for(const[key,value]of Object.entries(protectedValues))assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),value);
-   await ready(page);assert.match(await page.locator('#review-note').inputValue(),/身形/);await page.locator('[data-review-scope=outfit]').click();assert.match(await page.locator('#review-note').inputValue(),/彩邊/);assert.equal(await page.evaluate(key=>localStorage.getItem(key),mainKey),existing);result.candidateStorageKey=candidateKey;
+   await ready(page);await page.locator('#clip-select').selectOption(clip.id);assert.match(await page.locator('#review-note').inputValue(),/身形/);await page.locator('[data-review-scope=outfit]').click();assert.match(await page.locator('#review-note').inputValue(),/彩邊/);assert.equal(await page.evaluate(key=>localStorage.getItem(key),mainKey),existing);result.candidateStorageKey=candidateKey;
   });
   await test('candidate-filters-preserve-current-frame-and-all-reviews',{},async(page,result)=>{
    await ready(page);assert.equal(await page.locator('#candidate-filters').isVisible(),true);
