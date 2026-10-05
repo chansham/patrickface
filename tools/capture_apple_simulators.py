@@ -8,9 +8,12 @@ Example (after build_apple_simulators.sh has built both products):
     --phone-udid "$IOS_TEST_DEVICE_ID" --output /tmp/patrick-ci-logs/native-screens
 
 No build, download, signing, real-device operation, erase or unpair is performed.
-An existing watch paired with the supplied phone is preferred. Otherwise an
-available, unpaired watch is tried directly. If that fails, only two unpaired
-simulators may be shut down temporarily and paired; --no-pairing disables this.
+The requested Watch size defaults to 46 mm (42 or any can be selected). Within
+that size, an existing pair with the supplied phone or an unpaired Watch is used.
+If none is free, a named QA simulator is created using an installed compatible
+runtime/device type. A separate QA phone can be created if pairing is necessary
+and the supplied phone already has a companion; existing pairs are never removed.
+--no-pairing disables creating simulator pairs. No runtime is downloaded.
 The supplied iPhone is captured first, so a missing watch runtime preserves its
 evidence. Each invocation creates a new run directory and never reuses old PNGs.
 
@@ -58,6 +61,7 @@ def version(value: str) -> tuple[int, ...]:
 
 def devices(payload: dict, platform: str, minimum: str = "0") -> list[dict]:
     runtimes = {x["identifier"]: x for x in payload.get("runtimes", [])}
+    types = {x["identifier"]: x for x in payload.get("devicetypes", [])}
     result = []
     for runtime_id, entries in payload.get("devices", {}).items():
         match = re.fullmatch(r"com\.apple\.CoreSimulator\.SimRuntime\." + platform + r"-(\d+(?:-\d+)*)", runtime_id)
@@ -67,9 +71,13 @@ def devices(payload: dict, platform: str, minimum: str = "0") -> list[dict]:
         for entry in entries:
             if entry.get("isAvailable") is not True or not UUID.fullmatch(str(entry.get("udid", ""))):
                 continue
-            if platform == "iOS" and not entry.get("name", "").startswith("iPhone"):
+            device_type = types.get(entry.get("deviceTypeIdentifier"), {})
+            if platform == "iOS" and (device_type.get("productFamily") != "iPhone" if device_type
+                                      else not entry.get("name", "").startswith("iPhone")):
                 continue
-            result.append({**entry, "runtime": runtime_id, "runtimeVersion": match[1]})
+            result.append({**entry, "runtime": runtime_id, "runtimeVersion": match[1],
+                           "deviceTypeName": device_type.get("name", entry.get("name", "")),
+                           "modelIdentifier": device_type.get("modelIdentifier")})
     return result
 
 
@@ -89,23 +97,72 @@ def pair_members(payload: dict) -> list[tuple[str, str, str]]:
     return result
 
 
-def select_watch(payload: dict, phone_id: str, minimum: str) -> dict:
+def matches_watch_size(item: dict, size: str) -> bool:
+    label = item.get("deviceTypeName", item.get("name", "")).replace(" ", "").lower()
+    return size == "any" or f"{size}mm" in label
+
+
+def select_watch(payload: dict, phone_id: str, minimum: str, size: str = "any") -> dict:
     pairs = pair_members(payload)
     target = phone_id.upper()
     candidates = []
     for item in devices(payload, "watchOS", minimum):
+        if not matches_watch_size(item, size):
+            continue
         watch = item["udid"].upper()
         partners = [phone for _, paired_watch, phone in pairs if paired_watch == watch]
         # Do not borrow a watch belonging to another simulator phone.
         if any(phone != target for phone in partners):
             continue
         # Prefer the user's 46 mm target when it does not disturb an existing pair.
-        key = (target in partners, "46mm" in item.get("name", "").replace(" ", ""),
+        key = (target in partners, matches_watch_size(item, "46"),
                item.get("state") == "Booted", version(item["runtimeVersion"]), item.get("name", ""), watch)
         candidates.append((key, item))
     if not candidates:
         raise CaptureError("No available installed watchOS simulator meets the app minimum OS and safe-pairing constraints; no runtime was downloaded")
     return max(candidates, key=lambda candidate: candidate[0])[1]
+
+
+def watch_creation_spec(payload: dict, minimum: str, size: str) -> tuple[dict, dict]:
+    """Only combinations explicitly advertised by an installed watchOS runtime."""
+    types = {x["identifier"]: x for x in payload.get("devicetypes", [])}
+    candidates = []
+    for runtime in payload.get("runtimes", []):
+        runtime_id = runtime.get("identifier", "")
+        match = re.fullmatch(r"com\.apple\.CoreSimulator\.SimRuntime\.watchOS-(\d+(?:-\d+)*)", runtime_id)
+        if not match or runtime.get("isAvailable") is not True or version(match[1]) < version(minimum):
+            continue
+        for supported in runtime.get("supportedDeviceTypes", []):
+            identifier = supported.get("identifier") if isinstance(supported, dict) else supported
+            device_type = types.get(identifier)
+            if not device_type or device_type.get("productFamily") != "Apple Watch" or not matches_watch_size(device_type, size):
+                continue
+            runtime_version = version(match[1])
+            if not version(device_type.get("minRuntimeVersionString", "0")) <= runtime_version <= version(device_type.get("maxRuntimeVersionString", "65535.255.255")):
+                continue
+            key = (runtime_version, matches_watch_size(device_type, "46"),
+                   version(device_type.get("minRuntimeVersionString", "0")), device_type["name"])
+            candidates.append((key, device_type, runtime))
+    if not candidates:
+        raise CaptureError(f"No installed watchOS runtime explicitly supports a {size} mm QA device; no runtime was downloaded")
+    _, device_type, runtime = max(candidates, key=lambda item: item[0])
+    return device_type, runtime
+
+
+def create_qa_device(runner: Runner, device_type: dict, runtime: dict, platform: str, minimum: str) -> dict:
+    name = f"Patrick QA {device_type['name']} {runner.output.name}"
+    created = runner.simctl("create", name, device_type["identifier"], runtime["identifier"], timeout=60)
+    identifier = created.stdout.strip()
+    if not UUID.fullmatch(identifier):
+        raise CaptureError("simctl create did not return an explicit simulator UUID")
+    record = {"udid": identifier, "name": name, "deviceTypeName": device_type["name"],
+              "deviceTypeIdentifier": device_type["identifier"], "runtime": runtime["identifier"]}
+    runner.report.setdefault("createdSimulators", []).append(record)
+    inventory = runner.inventory(f"devices-after-create-{len(runner.report['createdSimulators'])}.json")
+    selected = next((d for d in devices(inventory, platform, minimum) if d["udid"].upper() == identifier.upper()), None)
+    if not selected:
+        raise CaptureError("Created simulator is not available on the requested installed runtime")
+    return selected
 
 
 def can_pair(payload: dict, phone: str, watch: str) -> bool:
@@ -232,10 +289,18 @@ def capture(runner: Runner, label: str, device: dict, app: dict, delays: list[fl
 
 
 def capture_watch(runner: Runner, args, phone: dict, app: dict, delays: list[float]) -> dict:
-    result = {"status": "blocked", "visualReview": "pending", "attempts": [], "pairing": "not-needed"}
+    size = getattr(args, "watch_size", "46")
+    result = {"status": "blocked", "visualReview": "pending", "attempts": [], "pairing": "not-needed",
+              "requestedSizeMM": size, "deviceSelection": "existing"}
     try:
         inventory = runner.inventory("devices-before-watch.json")
-        watch = select_watch(inventory, phone["udid"], app["minimumOS"])
+        pair_members(inventory)  # Refuse unknown pairing state before creating anything.
+        try:
+            watch = select_watch(inventory, phone["udid"], app["minimumOS"], size)
+        except CaptureError:
+            device_type, runtime = watch_creation_spec(inventory, app["minimumOS"], size)
+            watch = create_qa_device(runner, device_type, runtime, "watchOS", app["minimumOS"])
+            result["deviceSelection"] = "created-qa-watch"
         result["device"] = watch
         first = capture(runner, "watch", watch, app, delays, args.boot_timeout)
         result["attempts"].append(first)
@@ -245,23 +310,41 @@ def capture_watch(runner: Runner, args, phone: dict, app: dict, delays: list[flo
         if args.no_pairing:
             raise CaptureError("Watch direct launch/capture failed and simulator pairing was disabled")
         inventory = runner.inventory("devices-before-pair.json")
-        if not can_pair(inventory, phone["udid"], watch["udid"]):
-            raise CaptureError("Watch direct launch/capture failed; an existing pair prevents a safe new pairing. No existing pair was removed")
+        pairs = pair_members(inventory)
+        if any(w == watch["udid"].upper() for _, w, _ in pairs):
+            raise CaptureError("Watch direct launch/capture failed on an already-paired Watch; no existing pair was changed")
+        pair_phone = phone
+        if any(p == phone["udid"].upper() for _, _, p in pairs):
+            # The original test phone and its companion remain untouched. A new
+            # installed-runtime phone is used only for this QA Watch's pairing.
+            device_type = next((t for t in inventory.get("devicetypes", [])
+                                if t.get("identifier") == phone.get("deviceTypeIdentifier")), None)
+            runtime = next((r for r in inventory.get("runtimes", [])
+                            if r.get("identifier") == phone["runtime"] and r.get("isAvailable") is True), None)
+            if not device_type or not runtime:
+                raise CaptureError("No installed type/runtime is available to create a separate QA pairing phone")
+            pair_phone = create_qa_device(runner, device_type, runtime, "iOS", "0")
+            inventory = runner.inventory("devices-before-qa-pair.json")
+        if not can_pair(inventory, pair_phone["udid"], watch["udid"]):
+            raise CaptureError("A pre-existing pair prevents safe QA pairing; no existing pair was removed")
+        result["pairingPhone"] = pair_phone
         result["pairing"] = "attempted-with-two-unpaired-simulators"
         # Only the explicit test phone and the selected unpaired watch are touched.
         # simctl is authoritative about platform compatibility; failure is reported.
-        for item in (watch, phone):
+        for item in (watch, pair_phone):
             current = next((d for values in inventory.get("devices", {}).values() for d in values
                             if d.get("udid", "").upper() == item["udid"].upper()), None)
             if current and current.get("state") != "Shutdown":
                 runner.simctl("shutdown", item["udid"], timeout=60)
         try:
-            paired = runner.simctl("pair", watch["udid"], phone["udid"], timeout=120)
+            paired = runner.simctl("pair", watch["udid"], pair_phone["udid"], timeout=120)
             result["pairing"] = "created"
             result["pairOutput"] = paired.stdout.strip()
         finally:
-            # Return the explicit test phone to its booted state even if pairing fails.
-            boot(runner, phone, args.boot_timeout)
+            # Restore only the phone participating in this new QA pair.
+            boot(runner, pair_phone, args.boot_timeout)
+        if pair_phone["udid"] != phone["udid"]:
+            runner.simctl("install", pair_phone["udid"], str(args.phone_app.expanduser().resolve()), timeout=120)
         second = capture(runner, "watch-paired", watch, app, delays, args.boot_timeout)
         result["attempts"].append(second)
         result["status"] = second["status"]
@@ -277,8 +360,9 @@ def run(args) -> int:
     root = args.output.expanduser().resolve()
     output = root / (datetime.now(timezone.utc).strftime("run-%Y%m%dT%H%M%SZ-") + str(os.getpid()))
     output.mkdir(parents=True, exist_ok=False)
-    report = {"schemaVersion": 1, "startedAt": utc_now(), "status": "failed", "visualReview": "pending",
+    report = {"schemaVersion": 2, "startedAt": utc_now(), "status": "failed", "visualReview": "pending",
               "captureIsNotVisualApproval": True, "commands": [],
+              "requestedWatchSizeMM": getattr(args, "watch_size", "46"), "createdSimulators": [],
               "phone": {"status": "blocked"}, "watch": {"status": "blocked"},
               "limitations": ["PNG capture and process liveness do not prove foreground UI or correct artwork. Inspect every PNG.",
                               "No real device, WatchConnectivity correctness, signing or installation eligibility is tested."]}
@@ -288,7 +372,7 @@ def run(args) -> int:
             raise CaptureError("Capture requires macOS and an existing Xcode installation; no runtime or tool will be downloaded")
         phone_app = app_info(args.phone_app.expanduser().resolve(), "iOS")
         runner.command(["xcodebuild", "-version"])
-        for topic in ((), ("bootstatus",), ("launch",), ("pair",), ("io",)):
+        for topic in ((), ("bootstatus",), ("launch",), ("pair",), ("create",), ("io",)):
             runner.simctl("help", *topic, required=False)
         inventory = runner.inventory("devices-initial.json")
         eligible = devices(inventory, "iOS", phone_app["minimumOS"])
@@ -345,6 +429,95 @@ def self_test() -> int:
             data["pairs"] = []
             with self.assertRaises(CaptureError): pair_members(data)
 
+        def test_requested_size_wins_over_smaller_existing_pair(self):
+            phone, a, b, data = self.payload()
+            entries = list(data["devices"].values())[1]
+            entries[0]["name"] = "Apple Watch Series 11 (42mm)"
+            entries[1]["name"] = "Apple Watch Series 11 (46mm)"
+            self.assertEqual(select_watch(data, phone, "10", "46")["udid"], b)
+            self.assertEqual(select_watch(data, phone, "10", "42")["udid"], a)
+            data["pairs"]["another"] = {"watch": {"udid": b}, "phone": {"udid": "00000000-0000-0000-0000-000000000004"}}
+            with self.assertRaises(CaptureError): select_watch(data, phone, "10", "46")
+
+        def test_creation_uses_only_installed_supported_size_and_runtime(self):
+            _, _, _, data = self.payload()
+            older = {"identifier": "watch10", "name": "Apple Watch Series 10 (46mm)",
+                     "productFamily": "Apple Watch", "minRuntimeVersionString": "11"}
+            newer = {"identifier": "watch11", "name": "Apple Watch Series 11 (46mm)",
+                     "productFamily": "Apple Watch", "minRuntimeVersionString": "26"}
+            unsupported = {"identifier": "watch12", "name": "Apple Watch Series 12 (46mm)",
+                           "productFamily": "Apple Watch", "minRuntimeVersionString": "27"}
+            data["devicetypes"] = [older, newer, unsupported]
+            data["runtimes"][1]["supportedDeviceTypes"] = [older, newer]
+            selected, runtime = watch_creation_spec(data, "10", "46")
+            self.assertEqual(selected["identifier"], "watch11")
+            self.assertTrue(runtime["identifier"].endswith("watchOS-26-0"))
+            with self.assertRaises(CaptureError): watch_creation_spec(data, "10", "42")
+            with self.assertRaises(CaptureError): watch_creation_spec(data, "27", "46")
+            data["runtimes"][1]["isAvailable"] = False
+            with self.assertRaises(CaptureError): watch_creation_spec(data, "10", "46")
+
+        def test_created_device_records_real_type_not_qa_display_name(self):
+            phone, _, b, data = self.payload()
+            data["devicetypes"] = [{"identifier": "watch11", "name": "Apple Watch Series 11 (46mm)",
+                                    "productFamily": "Apple Watch", "modelIdentifier": "Watch7,18"}]
+            created = list(data["devices"].values())[1][1]
+            created.update(name="Patrick QA session", deviceTypeIdentifier="watch11")
+            with tempfile.TemporaryDirectory() as temporary:
+                runner = Runner(Path(temporary), {"commands": []})
+                with patch.object(runner, "simctl", return_value=subprocess.CompletedProcess([], 0, b + "\n", "")) as command, \
+                     patch.object(runner, "inventory", return_value=data):
+                    item = create_qa_device(runner, data["devicetypes"][0], data["runtimes"][1], "watchOS", "10")
+                self.assertEqual(command.call_args.args[0], "create")
+                self.assertEqual(item["deviceTypeName"], "Apple Watch Series 11 (46mm)")
+                self.assertEqual(item["modelIdentifier"], "Watch7,18")
+                self.assertTrue(matches_watch_size(item, "46"))
+                self.assertEqual(runner.report["createdSimulators"][0]["udid"], b)
+
+        def test_created_qa_phone_is_recognized_by_type(self):
+            phone, _, _, data = self.payload()
+            data["devicetypes"] = [{"identifier": "phone17", "name": "iPhone 17 Pro",
+                                    "productFamily": "iPhone", "modelIdentifier": "iPhone18,1"}]
+            created = list(data["devices"].values())[0][0]
+            created.update(name="Patrick QA iPhone 17 Pro session", deviceTypeIdentifier="phone17")
+            with tempfile.TemporaryDirectory() as temporary:
+                runner = Runner(Path(temporary), {"commands": []})
+                with patch.object(runner, "simctl", return_value=subprocess.CompletedProcess([], 0, phone + "\n", "")), \
+                     patch.object(runner, "inventory", return_value=data):
+                    item = create_qa_device(runner, data["devicetypes"][0], data["runtimes"][0], "iOS", "17")
+                self.assertEqual(item["udid"], phone)
+                self.assertEqual(item["deviceTypeName"], "iPhone 17 Pro")
+                self.assertEqual(item["modelIdentifier"], "iPhone18,1")
+
+        def test_pairing_uses_new_phone_without_unpairing_original(self):
+            phone, a, b, data = self.payload()
+            phone_entry = list(data["devices"].values())[0][0]
+            phone_entry["deviceTypeIdentifier"] = "iphone-type"
+            data["devicetypes"] = [{"identifier": "iphone-type", "name": "iPhone Fixture", "productFamily": "iPhone"}]
+            watch_entry = list(data["devices"].values())[1][1]
+            watch_entry.update(name="Apple Watch Series 11 (46mm)", state="Shutdown")
+            new_phone_id = "00000000-0000-0000-0000-000000000004"
+            new_phone = {**phone_entry, "udid": new_phone_id, "name": "Patrick QA iPhone Fixture", "state": "Shutdown"}
+            list(data["devices"].values())[0].append(new_phone)
+            selected_phone = devices(data, "iOS")[0]
+            selected_qa_phone = next(x for x in devices(data, "iOS") if x["udid"] == new_phone_id)
+            with tempfile.TemporaryDirectory() as temporary:
+                runner = Runner(Path(temporary), {"commands": []})
+                args = argparse.Namespace(watch_size="46", boot_timeout=30, no_pairing=False, phone_app=Path("Phone.app"))
+                with patch.object(runner, "inventory", return_value=data), \
+                     patch.object(runner, "simctl", return_value=subprocess.CompletedProcess([], 0, "new-pair", "")) as command, \
+                     patch(__name__ + ".capture", side_effect=[{"status": "failed"}, {"status": "captured"}]), \
+                     patch(__name__ + ".create_qa_device", return_value=selected_qa_phone) as create, \
+                     patch(__name__ + ".boot"):
+                    result = capture_watch(runner, args, selected_phone, {"minimumOS": "10"}, [0])
+                self.assertEqual(result["status"], "captured")
+                self.assertEqual(result["pairingPhone"]["udid"], new_phone_id)
+                create.assert_called_once()
+                calls = [call.args for call in command.call_args_list]
+                self.assertIn(("pair", b, new_phone_id), calls)
+                self.assertFalse(any(call[0] in ("unpair", "delete", "erase") for call in calls))
+                self.assertFalse(any(call[0] == "shutdown" and call[1] == phone for call in calls))
+
         def test_compiled_platform_is_required(self):
             with tempfile.TemporaryDirectory() as temporary:
                 app = Path(temporary) / "Fixture.app"
@@ -398,6 +571,8 @@ def main() -> int:
     parser.add_argument("--output", type=Path)
     parser.add_argument("--delays", default="3,8", help="Seconds after each successful app launch, comma separated (default: 3,8)")
     parser.add_argument("--boot-timeout", type=float, default=240)
+    parser.add_argument("--watch-size", choices=("46", "42", "any"), default="46",
+                        help="Required Watch case size; no silent fallback to another size (default: 46)")
     parser.add_argument("--no-pairing", action="store_true", help="Never create even a new simulator-only pair")
     parser.add_argument("--self-test", action="store_true", help="Run local pure fixtures, without Xcode or simulators")
     args = parser.parse_args()

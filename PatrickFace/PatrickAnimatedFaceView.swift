@@ -104,8 +104,9 @@ struct PatrickAnimatedFaceView: View {
 
     private var appearanceSurface: some View {
         faceSurface
-        .background(.black)
-        .ignoresSafeArea()
+        // Keep the digital clock and fixed-aspect artwork below watchOS's time.
+        // Only the backdrop extends behind the system status area and corners.
+        .background { Color.black.ignoresSafeArea() }
         .onAppear {
             visible = true
             WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
