@@ -1,13 +1,13 @@
 import { frameAt } from '../preview/player-core.js?v=20261006-layouts1';
 import { validateLayouts } from '../preview/layout-core.js?v=20261006-layouts1';
-import { resource,decodeJSON,loadClip,frameGeometry } from './render-core.js?v=20261006-size3';
+import { resource,decodeJSON,loadClip,frameGeometry } from './render-core.js?v=20261006-size4';
 const $=selector=>document.querySelector(selector),repo=new URL('../',import.meta.url);
-const auditPath='animation/production-20261006-scale/body-scale-audit.json',storageKey='patrick.size-review.v1';
+const auditPath='animation/production-20261006-scale/body-scale-audit.json',repairAuditPath='animation/production-20261006-repair/body-scale-audit.json',storageKey='patrick.size-review.v1';
 const params=new URLSearchParams(location.search),candidateMode=params.get('review')==='candidates';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const state={tab:'overview',playing:false,raf:null,started:0,head:360,body:650,guides:true,bounds:false,landmarks:false,pair:[{id:'pet',index:0},{id:'exercise',index:0}],layoutClip:'pet',layoutFrame:0,calibrationClip:null,calibrationFrame:0};
 window.__patrickSizeReview={status:'loading',state};
-let clips=[],candidateClips=[],layouts=[],catalog,outfits=[],audit=null,notes={},beforeCatalog=null,calibrationClips=[];
+let clips=[],candidateClips=[],layouts=[],catalog,outfits=[],audit=null,auditReports=[],notes={},beforeCatalog=null,calibrationClips=[];
 try{const value=JSON.parse(localStorage.getItem(storageKey));if(value?.version===1&&value.notes&&typeof value.notes==='object')notes=value.notes;}catch{}
 const element=(tag,className,text)=>{const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;};
 const clipByID=id=>clips.find(clip=>clip.id===id);
@@ -31,14 +31,16 @@ function draw(canvas,clip,index,layout){
   ctx.fillStyle='#ab99b5';ctx.font=`${layout.dateFontSize}px "Microsoft JhengHei", sans-serif`;ctx.fillText('10/6（週二）',...layout.dateCenter);
   if(layout.informationRect){const[x,y,w,h]=layout.informationRect;ctx.textAlign='left';ctx.font='42px "Microsoft JhengHei",sans-serif';ctx.fillText('陪伴倒數',x+24,y+100);ctx.font='72px "Segoe UI",sans-serif';ctx.fillText('—:—',x+24,y+180);ctx.font='38px "Microsoft JhengHei",sans-serif';ctx.fillText('還沒開始',x+24,y+255);ctx.font='42px "Microsoft JhengHei",sans-serif';ctx.fillText('飽足 60%',x+24,y+360);}
   if(state.bounds){ctx.save();ctx.strokeStyle='#f3c68d';ctx.lineWidth=2;ctx.setLineDash([9,8]);ctx.strokeRect(...geometry.bounds);ctx.restore();}
+  canvas.dataset.footLine='';
   if(state.landmarks){
-    const entry=sourceAudit(clip),measure=entry?.frames?.find(value=>value.sourceFrame===geometry.sourceIndex)?.source;
+    const measure=sourceMeasurement(clip,geometry.sourceIndex);
     if(measure){const [dx,dy]=clip.metadata.frames[geometry.sourceIndex].translation;
       const point=value=>[geometry.rect[0]+(value[0]+dx)*geometry.pixelScale,geometry.rect[1]+(value[1]+dy)*geometry.pixelScale];
       for(const [key,color]of [['faceCaliperPoints','#ff92c2'],['eyeLowerRimPoints','#8ae0ff']]){
-        const points=measure[key]?.map(point);if(!points||points.length!==2)continue;ctx.save();ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(...points[0]);ctx.lineTo(...points[1]);ctx.stroke();for(const p of points){ctx.beginPath();ctx.arc(...p,4,0,Math.PI*2);ctx.fill();}ctx.restore();
+        const points=validPoints(measure[key])?measure[key].map(point):null;if(!points)continue;ctx.save();ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(...points[0]);ctx.lineTo(...points[1]);ctx.stroke();for(const p of points){ctx.beginPath();ctx.arc(...p,4,0,Math.PI*2);ctx.fill();}ctx.restore();
       }
-      if(Number.isFinite(measure.eyeToFoot)&&measure.eyeLowerRimPoints?.length===2){const eyes=measure.eyeLowerRimPoints.map(point),mid=[(eyes[0][0]+eyes[1][0])/2,(eyes[0][1]+eyes[1][1])/2];ctx.save();ctx.strokeStyle='#a8dfba';ctx.setLineDash([6,6]);ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(...mid);ctx.lineTo(mid[0],geometry.anchor[1]);ctx.stroke();ctx.restore();}
+      const footPoints=measuredFootPoints(measure);
+      if(footPoints){const endpoints=footPoints.map(point);ctx.save();ctx.strokeStyle='#a8dfba';ctx.setLineDash([6,6]);ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(...endpoints[0]);ctx.lineTo(...endpoints[1]);ctx.stroke();ctx.restore();canvas.dataset.footLine=JSON.stringify(endpoints);}
     }
   }
   if(state.guides){
@@ -51,10 +53,30 @@ function draw(canvas,clip,index,layout){
   canvas.dataset.frame=String(index);canvas.dataset.sourceFrame=String(geometry.sourceIndex);canvas.dataset.clip=clip.id;canvas.dataset.layout=layout.id;
   canvas.dataset.pixelScale=String(geometry.pixelScale);canvas.dataset.anchor=JSON.stringify(geometry.anchor);canvas.dataset.rect=JSON.stringify(geometry.rect);
 }
-function sourceAudit(clip){const entry=audit?.clips?.find(value=>value.id===clip.id&&value.catalog===(clip.catalogKind||'catalog'));return entry&&entry.sourceSha256===clip.sha256&&entry.regionsSha256===clip.frameRegions.sha256?entry:null;}
-function auditEntry(clip){const entry=audit?.clips?.find(value=>value.id===clip.id&&value.catalog===(clip.catalogKind||'catalog'));if(!entry)return{entry:null,stale:false};return{entry,stale:!sourceAudit(clip)||(Number.isFinite(entry.calibration?.currentScale)&&entry.calibration.currentScale!==clip.scale)};}
-function visibleMetrics(clip,index){const sourceIndex=clip.frameIndices[index],frame=sourceAudit(clip)?.frames?.find(value=>value.sourceFrame===sourceIndex);const factor=frameGeometry(clip,index,catalog.master,layouts[0]).pixelScale*200/832;
-  return Object.fromEntries(['faceWidth','eyeSeparation','eyeToFoot'].map(key=>[key,Number.isFinite(frame?.source?.[key])?frame.source[key]*factor:null]));}
+const validPoint=value=>Array.isArray(value)&&value.length===2&&value.every(Number.isFinite);
+const validPoints=value=>Array.isArray(value)&&value.length===2&&value.every(validPoint);
+function measuredFootPoints(measure){
+  if(!Number.isFinite(measure?.eyeToFoot)||measure.eyeToFoot<0)return null;
+  let points=measure.eyeToFootPoints;
+  if(points!==undefined){
+    if(!validPoints(points)||Math.abs(points[1][0]-points[0][0])>1e-6||Math.abs(points[1][1]-points[0][1]-measure.eyeToFoot)>1e-5)return null;
+    return points;
+  }
+  // The original audit defines this scalar as footY - eyeMidpointY.
+  // Reconstruct that measured baseline; the render anchor can include a cushion.
+  if(!validPoint(measure.eyeMidpoint))return null;
+  return [measure.eyeMidpoint,[measure.eyeMidpoint[0],measure.eyeMidpoint[1]+measure.eyeToFoot]];
+}
+function auditEntry(clip){
+  const matches=auditReports.filter(report=>report.path!==repairAuditPath||clip.catalogKind==='candidates').flatMap(report=>(report.data?.clips||[]).filter(value=>value&&value.id===clip.id&&value.catalog===(clip.catalogKind||'catalog')).map(entry=>({entry,report})));
+  const exact=matches.find(({entry})=>entry.sourceSha256===clip.sha256&&entry.regionsSha256===clip.frameRegions.sha256);
+  if(exact)return{...exact,stale:false,scaleChanged:Number.isFinite(exact.entry.calibration?.currentScale)&&exact.entry.calibration.currentScale!==clip.scale};
+  return{entry:null,report:matches[0]?.report||null,stale:matches.length>0,scaleChanged:false};
+}
+function sourceAudit(clip){return auditEntry(clip).entry;}
+function sourceMeasurement(clip,index){const frames=sourceAudit(clip)?.frames;return Array.isArray(frames)?frames.find(frame=>frame.sourceFrame===index)?.source:null;}
+function visibleMetrics(clip,index){const measure=sourceMeasurement(clip,clip.frameIndices[index]),factor=frameGeometry(clip,index,catalog.master,layouts[0]).pixelScale*200/832;
+  return Object.fromEntries(['faceWidth','eyeSeparation','eyeToFoot'].map(key=>[key,Number.isFinite(measure?.[key])&&measure[key]>=0&&(key!=='eyeToFoot'||measuredFootPoints(measure))?measure[key]*factor:null]));}
 function describeMetrics(value,prefix=''){
   const result=[];if(!value||typeof value!=='object')return result;
   for(const[key,item]of Object.entries(value)){
@@ -78,7 +100,11 @@ function facts(card,clip,index,reference={id:'yawn',index:0}){
     measurement.append(row);
   }node.append(measurement,element('small','',`200 px 內容舞台 · ${isReference?'此格作參考':`參考：${referenceClip.title}第${reference.index+1}格`}`),element('small','', '眼線至腳底受坐姿影響；遮擋的身體寬度不猜測。'));
   const details=element('details');details.append(element('summary','', '查看來源與量測細節'));details.append(element('small','',`來源第 ${geometry.sourceIndex+1} 格 · 主預覽整段倍率 ${clip.scale.toFixed(6)}`),element('small','',`1 source px → ${geometry.pixelScale.toFixed(4)} stage px；可見輪廓 ${geometry.bounds[2].toFixed(1)} × ${geometry.bounds[3].toFixed(1)} stage px（含衣帽與道具）`),element('small','',`PNG ${clip.sha256}`),element('small','',`輪廓 ${clip.frameRegions.sha256}`));
-  const{entry,stale}=auditEntry(clip);details.append(element('small','',!entry?'臉部／軀幹量測尚未提供。':stale?'這份量測與目前素材版本不同，只保留作歷史參考。':`量測來源格：${(entry.referenceFrame??0)+1}；以下數值保留原量測欄位及單位。`));
+  const{entry,report,stale,scaleChanged}=auditEntry(clip);
+  node.append(element('small','measurement-source',stale?'量測版本不符，本圖未套用。':entry?`量測來源：${report.label}`:'尚未有對應本圖的獨立量測。'));
+  details.append(element('small','',stale?'圖片或輪廓 SHA 不同，數字與尺線均未套用。':!entry?'臉部／軀幹量測尚未提供。':`量測來源格：${(entry.referenceFrame??0)+1}；以下數值保留原量測欄位及單位。`));
+  if(report){const link=element('a','',`${report.label} · 查看原資料 ↗`);link.href=new URL(report.path,repo);details.append(link);}
+  if(scaleChanged)details.append(element('small','', '畫面數值按目前整段倍率重新換算；以下報告保留原本倍率的數字。'));
   if(entry)for(const line of describeMetrics(entry.measurements))details.append(element('small','',line));node.append(details);
   const flags=card.querySelector('.flags');flags.replaceChildren();
   if(stale)flags.append(element('li','', '量測版本已過期，需重新核對。'));
@@ -141,7 +167,19 @@ function configureRevisionReview(){
   if(params.has('right')&&requested?.catalogKind!=='candidates')$('#revision-status').textContent='指定的新稿尚未成功載入。目前顯示可用候選，請確認右側名稱。';
 }
 
-async function loadAudit(){try{audit=decodeJSON(await resource(auditPath,repo));if(audit.schemaVersion!==1||!Array.isArray(audit.clips))throw new Error('schema');$('#audit-source').textContent=`獨立量測：${auditPath} · ${audit.generatedAt||'日期未提供'}。資料與圖片版本逐項核對。`;}catch{audit=null;$('#audit-source').textContent='獨立臉部／軀幹量測尚未讀入；目前只顯示實際播放幾何與可見輪廓。';}window.__patrickSizeReview.auditLoaded=Boolean(audit);}
+async function loadAudit(){
+  const definitions=[{path:auditPath,label:'舊版量測快照',selector:'#audit-source'}];
+  if(candidateMode)definitions.unshift({path:repairAuditPath,label:'本輪改稿量測',selector:'#repair-audit-source'});
+  auditReports=await Promise.all(definitions.map(async definition=>{
+    const node=$(definition.selector);node.hidden=false;
+    try{const data=decodeJSON(await resource(definition.path,repo));if(data.schemaVersion!==1||!Array.isArray(data.clips))throw new Error('格式不支援');
+      node.textContent=`${definition.label}：${definition.path} · ${data.generatedAt||'日期未提供'}。按圖片與輪廓版本核對。`;
+      return{...definition,data};
+    }catch(error){node.textContent=`${definition.label}未讀入，對應數字與尺線留空；其他量測及圖稿仍可查看。`;return{...definition,data:null,error:error.message};}
+  }));
+  audit=auditReports.find(report=>report.path===auditPath)?.data||null;
+  Object.assign(window.__patrickSizeReview,{auditLoaded:Boolean(audit),auditSources:auditReports.map(({path,label,data,error})=>({path,label,loaded:Boolean(data),error}))});
+}
 async function start(){
   const [rawCatalog,rawThemes,rawLayouts]=await Promise.all(['animation/catalog.json','experience/themes.json','experience/layouts.json'].map(async path=>decodeJSON(await resource(path,repo))));catalog=rawCatalog;layouts=validateLayouts(rawLayouts);const cache=new Map(),failures=[];
   const inputs=catalog.clips.filter(clip=>clip.atlas).map(clip=>({...clip,catalogKind:'catalog'}));
@@ -161,7 +199,7 @@ async function start(){
   $('#calibration-clip').addEventListener('change',()=>{state.calibrationClip=$('#calibration-clip').value;state.calibrationFrame=0;syncCalibration();});$('#calibration-frame').addEventListener('input',()=>{state.calibrationFrame=Number($('#calibration-frame').value);syncCalibration();});
   for(const id of ['head','body'])$(`#${id}-line`).addEventListener('input',()=>{state[id]=Number($(`#${id}-line`).value);$(`#${id}-value`).textContent=String(state[id]);redraw();});
   for(const id of ['guides','bounds','landmarks'])$(`#${id}`).addEventListener('change',()=>{state[id]=$(`#${id}`).checked;redraw();});$('#play-pair').addEventListener('click',play);$('#stop-pair').addEventListener('click',stop);reduced.addEventListener('change',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});stop();
-  $('#note-clip').addEventListener('change',loadNote);$('#note').addEventListener('input',saveNote);$('#note-verdict').addEventListener('change',saveNote);$('#export').addEventListener('click',()=>{const value={schemaVersion:1,exportedAt:new Date().toISOString(),artApproval:false,notes:Object.values(notes),currentRendering:Object.fromEntries(clips.map(clip=>[clip.id,renderIdentity(clip)])),auditPath,auditGeneratedAt:audit?.generatedAt||null};const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const link=element('a');link.href=url;link.download='patrick-size-review.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+  $('#note-clip').addEventListener('change',loadNote);$('#note').addEventListener('input',saveNote);$('#note-verdict').addEventListener('change',saveNote);$('#export').addEventListener('click',()=>{const value={schemaVersion:1,exportedAt:new Date().toISOString(),artApproval:false,notes:Object.values(notes),currentRendering:Object.fromEntries(clips.map(clip=>[clip.id,renderIdentity(clip)])),auditPath,auditGeneratedAt:audit?.generatedAt||null,auditSources:auditReports.map(({path,label,data})=>({path,label,loaded:Boolean(data),generatedAt:data?.generatedAt||null}))};const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const link=element('a');link.href=url;link.download='patrick-size-review.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
   $('#loading').hidden=true;if(failures.length){$('#error').hidden=false;$('#error').textContent=`${failures.length}段載入失敗：${failures.map(value=>`${value.id}（${value.error}）`).join('、')}。其他素材仍可比較。`;}
   Object.assign(window.__patrickSizeReview,{status:'ready',candidateMode,candidateClipIDs:candidateClips.map(clip=>clip.id),clipIDs:clips.map(clip=>clip.id),outfitIDs:outfits.map(value=>value.id),failures,geometry:(id,index,layoutID)=>{const geometry=frameGeometry(clipByID(id),index,catalog.master,layouts.find(value=>value.id===layoutID));return{rect:geometry.rect,anchor:geometry.anchor,pixelScale:geometry.pixelScale,bounds:geometry.bounds};}});
 }

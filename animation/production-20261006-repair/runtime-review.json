@@ -8,8 +8,8 @@
   "checks": [
     {
       "report": "output/playwright/20261006-revisions/report.json",
-      "passedCases": 5,
-      "sha256": "1efe0951791c88d6f227615e0cb7a07389c84160e140693bec3f546190534440"
+      "passedCases": 7,
+      "sha256": "d454cbc46d169e019569ed58d03c4f3888899c79d12c7e801de440f690024b43"
     },
     {
       "report": "output/playwright/20261006-repair-contours/report.json",
@@ -79,5 +79,28 @@
       "Chef final cookie becomes whole; frame5-to6 withdrawal remains abrupt.",
       "Exercise source drawings retain small shape and position differences; user art review pending."
     ]
+  },
+  "bodyMeasurementReview": {
+    "path": "animation/production-20261006-repair/body-scale-audit.json",
+    "sha256": "e81a14f4647ed062fa85b8ed75b8684f393b3d72e4dfad9de55fb18394bc1222",
+    "totals": {
+      "uniqueSources": 3,
+      "sourceFrames": 44,
+      "clipVariants": 3,
+      "measuredSourceFrames": 21,
+      "unmeasuredSourceFrames": 23,
+      "measuredSourceFramesByMetric": {
+        "faceWidth": 14,
+        "eyeSeparation": 21,
+        "eyeToFoot": 21
+      }
+    },
+    "sourceCoordinatesVisuallyChecked": true,
+    "chefFootBaselineSourceY": 374,
+    "chefRenderAnchorSourceY": 409,
+    "footLineUsesTrueBaseline": true,
+    "unknownsRemainNull": true,
+    "legacy172FrameAuditUnchanged": true,
+    "browserReviewVersion": "20261006-size4"
   }
 }

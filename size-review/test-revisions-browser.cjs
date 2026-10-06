@@ -7,6 +7,8 @@ const output = process.env.QA_OUTPUT || path.join(root, 'output/playwright/20261
 const address = process.env.PREVIEW_URL || 'http://127.0.0.1:8765/';
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'animation/catalog.json')));
 const candidates = JSON.parse(fs.readFileSync(path.join(root, 'animation/candidates.json')));
+const repairAuditPath = 'animation/production-20261006-repair/body-scale-audit.json';
+const repairAudit = JSON.parse(fs.readFileSync(path.join(root, repairAuditPath)));
 const wanted = process.env.REVIEW_IDS?.split(',').filter(Boolean);
 const revisions = candidates.clips.filter(clip => clip.atlas && clip.comparisonClipId && (!wanted || wanted.includes(clip.id)));
 const storageKey = 'patrick.size-review.v1';
@@ -46,6 +48,7 @@ const report = { startedAt: new Date().toISOString(), artApproval: false, cases:
       assert.equal(await page.evaluate(() => __patrickSizeReview.candidateMode), false);
       assert.deepEqual(await page.evaluate(() => __patrickSizeReview.candidateClipIDs), []);
       assert.ok(!requests.some(url => url.includes('/animation/candidates.json')));
+      assert.ok(!requests.some(url => url.includes(repairAuditPath)));
       assert.deepEqual(await page.evaluate(() => Object.fromEntries(Object.entries(localStorage))), seeded);
       await page.locator('#note-clip').selectOption('focus');
       assert.equal(await page.locator('#note').inputValue(), oldNote.text);
@@ -63,6 +66,32 @@ const report = { startedAt: new Date().toISOString(), artApproval: false, cases:
       assert.equal(await page.locator('#outfit-grid .card').count(), 11);
       assert.deepEqual(await page.evaluate(() => Object.fromEntries(Object.entries(localStorage))), seeded);
       await page.locator('#guides').uncheck();
+      const audited = repairAudit.clips.find(entry => entry.catalog === 'candidates' && entry.id === clip.id);
+      assert.ok(audited && audited.sourceSha256 === clip.sha256 && audited.regionsSha256 === clip.frameRegions.sha256);
+      const regions = JSON.parse(fs.readFileSync(path.join(root, clip.frameRegions.path)));
+      const sourceScale = 665.6 * clip.scale / regions.canvas.width;
+      const expectedMetrics = index => {
+        const sourceIndex = clip.frameIndices?.[index] ?? index;
+        const source = audited.frames.find(frame => frame.sourceFrame === sourceIndex)?.source;
+        return ['faceWidth', 'eyeSeparation', 'eyeToFoot'].map(key => Number.isFinite(source?.[key]) ? `${(source[key] * sourceScale * 200 / 832).toFixed(1)} px` : '未能量測');
+      };
+      assert.deepEqual(await page.locator('[data-side="1"] .measurement-row strong').allTextContents(), expectedMetrics(0));
+      assert.match(await page.locator('[data-side="1"] .measurement-source').textContent(), /本輪改稿量測/);
+      assert.match(await page.locator('[data-side="0"] .measurement-source').textContent(), /舊版量測快照/);
+      if (clip.id.startsWith('focus-') || clip.id.startsWith('chef-')) {
+        assert.ok(expectedMetrics(0).every(value => value !== '未能量測'), 'Verified first frame must show all three metrics');
+        await page.locator('#landmarks').check();
+        const first = audited.frames[0].source, geometry = await page.evaluate(id => __patrickSizeReview.geometry(id, 0, 'classic'), clip.id);
+        const line = JSON.parse(await page.locator('[data-side="1"] canvas').first().getAttribute('data-foot-line'));
+        const [dx, dy] = regions.frames[0].translation;
+        const expected = first.eyeToFootPoints.map(([x, y]) => [geometry.rect[0] + (x + dx) * sourceScale, geometry.rect[1] + (y + dy) * sourceScale]);
+        line.forEach((point, i) => point.forEach((value, axis) => assert.ok(Math.abs(value - expected[i][axis]) < 1e-7)));
+        assert.ok(Math.abs((line[1][1] - line[0][1]) / sourceScale - first.eyeToFoot) < 1e-7);
+        if (clip.id.startsWith('chef-')) assert.ok(geometry.anchor[1] - line[1][1] > 50, 'True feet end above the cushion render anchor');
+        result.measuredFootLine = line;
+        await page.locator('#compare-grid').screenshot({ path: path.join(output, clip.id + '-measured-first.png') });
+        await page.locator('#landmarks').uncheck();
+      }
       await page.locator('#compare-grid').screenshot({ path: path.join(output, clip.id + '-old-new-first.png') });
       result.geometry = await page.evaluate(id => {
         const select = document.querySelector('#frame-1');
@@ -74,6 +103,7 @@ const report = { startedAt: new Date().toISOString(), artApproval: false, cases:
       assert.equal(new Set(result.geometry.map(value => JSON.stringify(value.anchor))).size, 1);
       for (let index = 0; index < clip.frameCount; index++) {
         await page.locator('#frame-1').fill(String(index)); await page.locator('#frame-1').dispatchEvent('input');
+        assert.deepEqual(await page.locator('[data-side="1"] .measurement-row strong').allTextContents(), expectedMetrics(index), 'Unavailable or occluded metrics must stay empty');
         const views = await page.locator('[data-side="1"] canvas').evaluateAll(nodes => nodes.map(node => ({ frame: node.dataset.frame, rect: node.dataset.rect, pixels: node.getContext('2d').getImageData(0, 238, 832, 754).data.some((value, i) => i % 4 !== 3 && value > 35) })));
         assert.ok(views.every(view => view.frame === String(index) && view.pixels));
         assert.equal(views[0].rect, views[1].rect);
@@ -99,6 +129,42 @@ const report = { startedAt: new Date().toISOString(), artApproval: false, cases:
       assert.equal(await page.evaluate(() => __patrickSizeReview.state.playing), false);
       assert.deepEqual(await page.evaluate(() => Object.fromEntries(Object.entries(localStorage))), seeded);
       result.sourceSha256 = clip.sha256; result.regionsSha256 = clip.frameRegions.sha256;
+    });
+    await check('repair-audit-hashes-fail-closed-without-old-metric-fallback', async result => {
+      result.rejected = [];
+      const url = new URL(repairAuditPath, address).href;
+      for (const [id, field] of [['focus-repair-20261006', 'sourceSha256'], ['chef-repair-20261006', 'regionsSha256']]) {
+        const altered = structuredClone(repairAudit), target = altered.clips.find(entry => entry.id === id);
+        target[field] = '0'.repeat(64);
+        await page.route(url, route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(altered) }));
+        const clip = revisions.find(value => value.id === id);
+        await page.goto(address + `size-review/?review=candidates&left=${clip.comparisonClipId}&right=${id}`); await ready();
+        assert.deepEqual(await page.locator('[data-side="1"] .measurement-row strong').allTextContents(), ['未能量測', '未能量測', '未能量測']);
+        assert.match(await page.locator('[data-side="1"] .measurement-source').textContent(), /版本不符/);
+        assert.notEqual(await page.locator('[data-side="0"] .measurement-row strong').first().textContent(), '未能量測');
+        await page.locator('#guides').uncheck();
+        const before = await page.locator('[data-side="1"] canvas').first().evaluate(canvas => canvas.toDataURL());
+        await page.locator('#landmarks').check();
+        assert.equal(await page.locator('[data-side="1"] canvas').first().evaluate(canvas => canvas.toDataURL()), before, 'A stale report must not draw any measurement pixels');
+        assert.equal(await page.locator('[data-side="1"] canvas').first().getAttribute('data-foot-line'), '');
+        await page.unroute(url); result.rejected.push({ id, field });
+      }
+      assert.deepEqual(await page.evaluate(() => Object.fromEntries(Object.entries(localStorage))), seeded);
+    });
+    await check('repair-audit-unavailable-isolated-from-old-snapshot', async result => {
+      const url = new URL(repairAuditPath, address).href;
+      await page.route(url, route => route.fulfill({ status: 404, body: 'Unavailable fixture' }));
+      await page.goto(address + 'size-review/?review=candidates&left=feed&right=chef-repair-20261006'); await ready();
+      assert.deepEqual(await page.locator('[data-side="1"] .measurement-row strong').allTextContents(), ['未能量測', '未能量測', '未能量測']);
+      assert.notEqual(await page.locator('[data-side="0"] .measurement-row strong').first().textContent(), '未能量測');
+      assert.match(await page.locator('#repair-audit-source').textContent(), /未讀入/);
+      result.sources = await page.evaluate(() => __patrickSizeReview.auditSources);
+      assert.equal(result.sources.find(source => source.path === repairAuditPath).loaded, false);
+      assert.equal(result.sources.find(source => source.path !== repairAuditPath).loaded, true);
+      await page.unroute(url);
+      assert.deepEqual(await page.evaluate(() => Object.fromEntries(Object.entries(localStorage))), seeded);
+      // Leave the real report loaded for the following persistence check.
+      await page.reload(); await ready();
     });
     await check('candidate-note-isolated-and-exported-with-old-note', async result => {
       const clip = revisions.at(-1); await page.locator('#note-clip').selectOption(clip.id);
