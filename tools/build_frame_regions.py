@@ -29,6 +29,63 @@ SOURCES = (
     ("animation/wake-v1/atlas-generated.png", 4, 2),
 )
 
+# Reviewed against the actual feet, not a general remedy for animation jitter.
+# The hash gate prevents this stationary seated-pose rule reaching new artwork,
+# including future running/jumping poses with intentional ground movement.
+REVIEWED_SUPPORT_POLICIES = {
+    ("animation/exercise-v2/atlas-generated.png",
+     "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f"): {
+        "id": "exercise-v2-feet-12px-20261006",
+        "kind": "fixed-bottom-core-band",
+        "depthPixels": 12,
+        "reason": "Visually inspected seated feet: the original lower-15-percent band also included the lowered dumbbell. The bottom 12 source pixels contain both feet and exclude that prop.",
+    },
+}
+
+
+def apply_reviewed_support_policy(data: dict, alpha: np.ndarray, policy: dict) -> None:
+    """Register an explicitly reviewed support band; keep mask, canvas and scale.
+
+    This only changes integer translation. It does not repaint, resize, discard
+    pixels, smooth body motion, or infer a policy for unreviewed source atlases.
+    """
+    depth = policy.get("depthPixels")
+    if (policy.get("kind") != "fixed-bottom-core-band" or isinstance(depth, bool)
+            or not isinstance(depth, int) or depth <= 0):
+        raise ValueError("invalid reviewed support-band policy")
+    target_x, target_y = data["canvas"]["anchorPixels"]
+    updates = []
+    for frame in data["frames"]:
+        left, top, right, bottom = frame["diagnostics"]["coreBounds"]
+        if depth > bottom - top:
+            raise ValueError("reviewed support band exceeds the character core")
+        start = bottom - depth
+        support = []
+        for row in frame["rows"]:
+            y = row[0]
+            if not start <= y < bottom:
+                continue
+            for x0, x1 in zip(row[1::2], row[2::2]):
+                x0, x1 = max(left, x0), min(right, x1)
+                if x0 < x1:
+                    support.extend((np.flatnonzero(alpha[y, x0:x1] >= 128) + x0).tolist())
+        if not support:
+            raise ValueError("reviewed support band contains no strong pixels")
+        anchor = [round_positive((min(support) + max(support) + 1) / 2), bottom]
+        translation = [target_x - anchor[0], target_y - anchor[1]]
+        x, y, w, h = frame["sourceBounds"]
+        placement = [x + translation[0], y + translation[1]]
+        if not (0 <= placement[0] <= placement[0] + w <= data["canvas"]["width"]
+                and 0 <= placement[1] <= placement[1] + h <= data["canvas"]["height"]):
+            raise ValueError("reviewed anchor would exceed the unchanged common canvas")
+        updates.append((frame, anchor, translation, placement, start))
+    for frame, anchor, translation, placement, start in updates:
+        frame["anchorSource"] = anchor
+        frame["translation"] = translation
+        frame["placement"] = placement
+        frame["diagnostics"]["supportBandStartY"] = start
+    data["diagnostics"]["supportAnchorPolicy"] = dict(policy)
+
 
 def normalized_source(relative: str) -> str:
     """Accept explicit project paths, never traversal or an absolute/drive path."""
@@ -375,6 +432,16 @@ def run_source(relative: str, columns: int, rows: int, check: bool,
                           "width": width, "height": height}
     if len(data["frames"]) != columns * rows:
         raise ValueError("metadata frame count does not match the explicit source grid")
+    policy = REVIEWED_SUPPORT_POLICIES.get((relative, source_sha))
+    if policy:
+        if check:
+            from copy import deepcopy
+            expected = deepcopy(data)
+            apply_reviewed_support_policy(expected, alpha, policy)
+            if expected != data:
+                raise ValueError("metadata does not apply the reviewed source-specific support policy")
+        else:
+            apply_reviewed_support_policy(data, alpha, policy)
     result = validate_regions(data, alpha)
     if source_path.read_bytes() != before:
         raise ValueError("source bytes changed during analysis; not writing metadata")

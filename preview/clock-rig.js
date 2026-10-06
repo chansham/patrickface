@@ -1,4 +1,4 @@
-import { clockAngles } from './experience-core.js?v=20260927-experience2';
+import { clockAngles } from './experience-core.js?v=20261006-layouts1';
 
 export function createClockRig(manifest, frames) {
   const finitePair = value => Array.isArray(value) && value.length === 2 && value.every(Number.isFinite);
@@ -10,10 +10,12 @@ export function createClockRig(manifest, frames) {
   for (const hand of hands) if (!finitePair(hand.pivotPixels) || !Number.isFinite(hand.lengthPixels) || hand.lengthPixels <= 0
       || !Number.isFinite(hand.displayLength) || hand.displayLength <= 0) throw new Error('手臂時鐘的手臂長度無效');
   return {
-    draw(contexts, date) {
+    draw(contexts, date, transform = [1, 0, 0]) {
       const angles = clockAngles(date);
       for (const context of contexts) {
         context.save(); context.fillStyle = '#070609'; context.fillRect(0, 0, 832, 992);
+        context.translate(transform[1], transform[2]); context.scale(transform[0], transform[0]);
+        context.save();
         context.translate(body.stageAnchor[0], body.stageAnchor[1]); context.scale(body.pixelScale, body.pixelScale);
         context.drawImage(frames[body.regionIndex], -body.anchorPixels[0], -body.anchorPixels[1]); context.restore();
         for (const hand of hands) {
@@ -22,6 +24,7 @@ export function createClockRig(manifest, frames) {
           const scale = hand.displayLength / hand.lengthPixels; context.scale(scale, scale);
           context.drawImage(frames[hand.regionIndex], -hand.pivotPixels[0], -hand.pivotPixels[1]); context.restore();
         }
+        context.restore();
       }
       return angles;
     }

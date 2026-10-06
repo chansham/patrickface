@@ -63,6 +63,34 @@ const stored = page => page.evaluate(() => JSON.parse(localStorage.getItem('patr
       assert.equal(await page.evaluate(() => localStorage.getItem('patrick.animation-review.patrick-bedtime-yawn-v1.v2')), legacy);
       item.outfitIds = outfits.map(outfit => outfit.id); item.journal = exportPath; await page.screenshot({ path: path.join(output, 'main-care-desktop.png'), fullPage: true });
     });
+    await test('exercise-labels-pause-and-reload', {}, async (page, item) => {
+      await ready(page);
+      item.kinds = [];
+      for (const kind of ['walking', 'running', 'strength']) {
+        await page.locator('[data-experience-tab=timer]').click();
+        await page.locator('#activity-kind').selectOption(kind);
+        await page.locator('#activity-minutes').fill('1');
+        await page.locator('#start-activity').click();
+        assert.equal((await stored(page)).activity.kind, kind);
+        assert.equal(await page.locator('#scene').inputValue(), 'exercise');
+        assert.equal(await page.locator('#face').getAttribute('data-clip'), 'exercise', 'current shared artwork is used honestly');
+        await page.clock.runFor(4500);
+        await page.locator('#pause-activity').click();
+        const left = (await stored(page)).activity.remainingMs;
+        await page.clock.runFor(20000);
+        await ready(page);
+        await page.locator('[data-experience-tab=timer]').click();
+        assert.equal((await stored(page)).activity.kind, kind);
+        assert.equal((await stored(page)).activity.remainingMs, left);
+        assert.equal((await stored(page)).activity.paused, true);
+        assert.match(await page.locator('#timer-status').textContent(), /暫停/);
+        await page.locator('#resume-activity').click();
+        assert.equal((await stored(page)).activity.paused, false);
+        await page.locator('#stop-timer').click();
+        assert.equal((await stored(page)).activity, null);
+        item.kinds.push(kind);
+      }
+    });
     await test('timer-pause-resume-reload-completion-and-cancel', {}, async (page, item) => {
       await ready(page); await page.locator('[data-experience-tab=timer]').click(); await page.locator('#activity-kind').selectOption('exercise'); await page.locator('#activity-minutes').fill('0.2'); await page.locator('#start-activity').click();
       await page.clock.runFor(5000); await page.locator('#pause-activity').click(); const left = (await stored(page)).activity.remainingMs; assert.ok(left >= 6500 && left <= 7500);

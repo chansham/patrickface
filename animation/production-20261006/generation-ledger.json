@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "tool": "built-in image_gen",
+  "allArtworkComplete": false,
+  "artApproved": false,
+  "requests": [
+    {
+      "id": "jogging-athletic-v1",
+      "status": "generation-blocked",
+      "prompt": "Use case: illustration-story.\nAsset type: production animation sprite atlas for a private Apple Watch character companion.\nCreate ONE transparent PNG atlas, exactly 4 columns by 3 rows, TWELVE consecutive hand-drawn frames of Patrick Star from SpongeBob doing a jaunty in-place jogging cycle. Reference image is only for character identity and friendly cel-cartoon finish, not its seated pose, cushion or battery.\nCostume: teal athletic zip vest with white side trim over his familiar green shorts with purple flowers, coral headband, simple coral-pink feet without shoes. Cheerfully determined, occasionally deadpan, not babyish.\nFull body, front three-quarter view facing slightly right in every frame; identical scale, torso volume, head size, clothing and camera. Every cell has equal dimensions and generous transparent margins. No head, foot, arm or clothing touching any cell or canvas boundary. Transparent background, no floor/shadows/text/grid lines.\nAnimation: 1 left foot leading, right foot behind, opposite arm swing; 2 weight settles on left foot; 3 right knee comes forward; 4 right foot passes under hips; 5 right knee lifted; 6 right foot extends forward; 7 right foot lands leading, left behind; 8 weight settles on right; 9 left knee comes forward; 10 left foot passes under hips; 11 left knee lifted; 12 left foot extends forward just before returning to frame1. Arms counter-swing at bent elbows with coherent anatomy. Torso stays registered to the same centre; actual limbs and expressions are DRAWN in differing sequential poses, never whole-picture swaying or rotating.\nKeep white eye sclera, black pupils, coral-pink eyelid skin, same closed confident smile, five-point starfish anatomy with two arms and two feet; no extra limbs. Clean black cartoon outlines and flat saturated cel colors close to original animation, not realistic, grotesque or plush. Character about 65 percent of each cell height, consistent across all twelve frames. Output only the complete transparent 12-frame atlas.",
+      "reference": "concepts/2026-09-27/charging-cel-v1.png",
+      "outputExists": false,
+      "error": {
+        "code": "moderation_blocked",
+        "stage": "output",
+        "requestID": "c8141958-1a82-48f6-9aec-707350872600"
+      }
+    },
+    {
+      "id": "raincoat-observe-v1",
+      "status": "generation-blocked",
+      "prompt": "Use case: illustration-story. Make a complete transparent animation sprite atlas for a private Apple Watch companion, with exactly EIGHT consecutive drawn frames in four columns and two rows.\nSubject: Patrick Star from SpongeBob in a yellow raincoat, hood folded behind his neck, green wellington boots, holding a small closed navy umbrella. Use the attached image only as a visual reference for Patrick's identity and warm 2D cartoon finish, not its clothing or seated pose.\nHe stands facing the viewer at a slight three-quarter angle. Whole head, full body, boots, coat, both flippers and umbrella intact in every frame. All eight drawings use the same size, camera, body proportions, clothing details, foot baseline and colour palette. Generous transparent space around each figure and between figures. No borders, labels, numbers, background scenery or puddles.\nActing sequence: frame1 both boots planted, umbrella held vertically beside right boot, an unimpressed look; frame2 glance down at umbrella; frame3 eyebrows rise and right flipper lifts the closed umbrella slightly; frame4 tiny surprised open mouth, umbrella at same lifted height; frame5 left flipper reaches out palm-up to feel for rain; frame6 looks up with one eyebrow raised while palm stays out; frame7 left flipper lowers, mouth closes in a knowing smile; frame8 both flippers and umbrella return to frame1 positions. Only small sequential motions; draw genuinely different poses, no whole-image swaying. Umbrella stays CLOSED in every frame and remains visibly gripped. No water drops or detached decorations.\nWhite eye sclera and black pupils, coral-pink eyelids matching face skin. Matte flat cel colours and clean black outlines, expressive original cartoon feel, no photorealism or grotesque texture. Use a genuinely transparent alpha background. Character occupies about65percent of each equal cell height so tips never touch edges.",
+      "reference": "concepts/2026-09-27/charging-cel-v1.png",
+      "outputExists": false,
+      "error": {
+        "code": "moderation_blocked",
+        "stage": "output",
+        "requestID": "8301565d-7056-43f4-a8ae-0e730d552701"
+      }
+    }
+  ]
+}

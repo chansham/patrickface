@@ -5,6 +5,7 @@
     "scene": "auto",
     "mood": "calm",
     "faceMode": "digital",
+    "layoutID": "classic",
     "soundEnabled": false,
     "hapticsEnabled": true,
     "use24Hour": true,
@@ -37,10 +38,12 @@
     "digital",
     "arms"
   ],
+  "allowedLayoutIDs": ["classic", "bold", "theater", "activity"],
   "timeEncoding": "Epoch milliseconds for exchanged timestamps; seconds for durations. Convert explicitly at native Date boundaries.",
   "themesPath": "experience/themes.json",
   "soundsPath": "experience/audio/manifest.json",
   "clockPath": "experience/clock/manifest.json",
+  "layoutsPath": "experience/layouts.json",
   "rules": {
     "feedCooldownSeconds": 3,
     "timerMinimumSeconds": 10,
@@ -48,6 +51,9 @@
     "timerKinds": [
       "focus",
       "exercise",
+      "walking",
+      "running",
+      "strength",
       "breathing"
     ],
     "journalLimit": 60,

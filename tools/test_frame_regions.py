@@ -7,7 +7,8 @@ from unittest.mock import patch
 import numpy as np
 
 from build_frame_regions import (SOURCES, build_regions, confined_source,
-                                 normalized_source, selected_sources, validate_regions)
+                                 normalized_source, selected_sources, validate_regions,
+                                 apply_reviewed_support_policy)
 
 
 def fixture():
@@ -100,6 +101,43 @@ class FrameRegionTests(unittest.TestCase):
         data["frames"][0]["translation"][0] += 1
         with self.assertRaisesRegex(ValueError, "translation"):
             validate_regions(data, alpha)
+
+    def test_reviewed_foot_band_excludes_low_prop_without_changing_pixels(self):
+        alpha = np.zeros((80, 120), dtype=np.uint8)
+        alpha[10:60, 40:80] = 255  # stationary body
+        alpha[60:66, 45:75] = 255  # feet
+        alpha[52:62, 15:42] = 255  # held prop pollutes the broad support band
+        data = build_regions(alpha, 1, 1, min_core_pixels=50)
+        before = deepcopy(data)
+        policy = {"id": "fixture-feet", "kind": "fixed-bottom-core-band", "depthPixels": 4}
+        apply_reviewed_support_policy(data, alpha, policy)
+        self.assertNotEqual(before["frames"][0]["anchorSource"][0], 60)
+        self.assertEqual(data["frames"][0]["anchorSource"], [60, 66])
+        self.assertEqual(data["canvas"], before["canvas"])
+        for key in ("rows", "sourceBounds"):
+            self.assertEqual(data["frames"][0][key], before["frames"][0][key])
+        self.assertEqual(validate_regions(data, alpha)["assignedPixels"], int((alpha > 0).sum()))
+        corrected = deepcopy(data)
+        apply_reviewed_support_policy(data, alpha, policy)
+        self.assertEqual(data, corrected)
+
+    def test_invalid_reviewed_band_fails_without_partial_translation(self):
+        data = build_regions(fixture(), 2, 1, min_core_pixels=50)
+        before = deepcopy(data)
+        for depth in (True, 0, -1, 18):
+            with self.subTest(depth=depth), self.assertRaises(ValueError):
+                apply_reviewed_support_policy(data, fixture(), {
+                    "kind": "fixed-bottom-core-band", "depthPixels": depth})
+            self.assertEqual(data, before)
+
+    def test_reviewed_anchor_cannot_expand_or_overflow_the_canvas(self):
+        data = build_regions(fixture(), 2, 1, min_core_pixels=50)
+        data["canvas"]["anchorPixels"][0] = 0
+        before = deepcopy(data)
+        with self.assertRaisesRegex(ValueError, "unchanged common canvas"):
+            apply_reviewed_support_policy(data, fixture(), {
+                "kind": "fixed-bottom-core-band", "depthPixels": 3})
+        self.assertEqual(data, before)
 
 
 if __name__ == "__main__":

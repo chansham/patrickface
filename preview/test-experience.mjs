@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { newExperience, restoreExperience, careAction, careNow, startActivity, pauseActivity, resumeActivity, timerRemaining,
-  finishActivity, cancelActivity, appendJournal, claimEgg, clockAngles, isSleepMinute } from './experience-core.js';
+  finishActivity, cancelActivity, controlActivity, appendJournal, claimEgg, clockAngles, isSleepMinute, isExerciseKind, TIMER_KINDS } from './experience-core.js';
 import { validBirthday } from './pet-core.js';
 const now = 1800000000000;
 let state = newExperience(now);
@@ -21,6 +21,39 @@ assert.equal(state.activity, null); assert.equal(state.journal.length, before, '
 assert.equal(startActivity(state, 'breathing', 0, now).activity.durationMs, 10000);
 assert.equal(startActivity(state, 'focus', 999999, now).activity.durationMs, 7200000);
 assert.equal(startActivity(state, 'sensor-workout', 30, now), state);
+for (const kind of ['exercise', 'walking', 'running', 'strength']) {
+  let session = startActivity(newExperience(now), kind, 45, now);
+  session = pauseActivity(session, now + 12000);
+  session = restoreExperience(session, now + 3600000);
+  assert.equal(session.activity.kind, kind, 'restore retains the selected exercise label');
+  assert.equal(timerRemaining(session.activity, now + 3600000), 33000, 'absence does not consume a paused session');
+  assert.equal(isExerciseKind(session.activity.kind), true, 'new labels retain the exercise scene');
+  session = resumeActivity(session, now + 3600000);
+  session = finishActivity(session, now + 3633000);
+  assert.equal(session.journal.length, 1);
+  assert.ok(session.journal[0].text.startsWith(TIMER_KINDS[kind]));
+  assert.equal(finishActivity(restoreExperience(session, now + 7200000), now + 7200000).journal.length, 1);
+  assert.equal(cancelActivity(session).activity, null);
+}
+assert.equal(isExerciseKind('focus'), false);
+assert.equal(isExerciseKind('breathing'), false);
+for (const action of ['pause', 'resume', 'cancel']) {
+  const ended = controlActivity(startActivity(newExperience(now), 'running', 30, now), action, now + 30000);
+  assert.equal(ended.status, 'completed', 'the real deadline wins over a late control');
+  assert.equal(ended.state.journal.filter(entry => entry.type === 'complete').length, 1);
+  assert.equal(ended.state.journal.filter(entry => entry.type === 'cancel').length, 0);
+  assert.equal(controlActivity(ended.state, action, now + 31000).state, ended.state, 'duplicate controls do not add a second completion');
+}
+let controlled = controlActivity(startActivity(newExperience(now), 'walking', 60, now), 'pause', now + 10000);
+assert.equal(controlled.status, 'paused');
+assert.equal(controlActivity(controlled.state, 'pause', now + 50000).state, controlled.state);
+controlled = controlActivity(controlled.state, 'resume', now + 50000);
+assert.equal(controlled.state.activity.endsAt, now + 100000);
+assert.equal(controlActivity(controlled.state, 'resume', now + 60000).state, controlled.state);
+controlled = controlActivity(controlled.state, 'cancel', now + 65000);
+assert.equal(controlled.status, 'cancelled');
+assert.equal(controlActivity(controlled.state, 'cancel', now + 66000).status, 'no-active');
+assert.equal(controlled.state.journal.length, 1);
 let claim = claimEgg(state, 'three-taps', 45000, now); assert.equal(claim.claimed, true);
 claim = claimEgg(claim.state, 'three-taps', 45000, now + 44999); assert.equal(claim.claimed, false);
 assert.equal(claimEgg(restoreExperience(claim.state, now - 1000), 'three-taps', 45000, now - 1000).claimed, false, 'clock rollback must not bypass cooldown');

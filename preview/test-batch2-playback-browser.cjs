@@ -80,7 +80,7 @@ const html = (title, cards, columns = 4) => `<!doctype html><meta charset="utf-8
       console.log(`PASS live-1x ${clip.id} (${frames.length} frames)`);
     }
     assert.deepEqual(errors, []);
-    fs.writeFileSync(path.join(output, `${montageStem}.html`), html(runtimeMode ? '新充電與投餵｜開發試玩，畫稿待審' : '本批候選｜動作與造型待審', montage, Math.min(3, clips.length)));
+    fs.writeFileSync(path.join(output, `${montageStem}.html`), html(process.env.QA_TITLE || (runtimeMode ? '動作試玩｜畫稿待審' : '本批候選｜動作與造型待審'), montage, Math.min(3, clips.length)));
     const relativeOutput = path.relative(root, output).split(path.sep).join('/');
     const evidence = await context.newPage(); await evidence.setViewportSize({ width: 1120, height: 1000 });
     for (const clip of clips) { await evidence.goto(new URL(`../${relativeOutput}/${clip.id}-sequence.html`, address).href); await evidence.screenshot({ path: path.join(output, `${clip.id}-sequence.png`), fullPage: true }); }

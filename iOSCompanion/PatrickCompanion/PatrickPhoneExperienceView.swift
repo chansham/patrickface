@@ -16,7 +16,7 @@ import SwiftUI
     private var active: Bool { visible && scenePhase == .active && !showSettings }
     private var scene: String {
         if model.experience.settings.scene != .automatic { return model.experience.settings.scene.rawValue }
-        if let value = model.experience.activity, value.status == .running { return value.kind == .exercise ? "exercise" : "focus" }
+        if let value = model.experience.activity, value.status == .running { return value.kind.sceneID }
         return model.experience.settings.isSleepTime(.now) ? "sleeping" : "awake"
     }
     private var outfit: PatrickOutfitCatalog.Outfit? {
@@ -26,33 +26,18 @@ import SwiftUI
         NavigationStack {
             ScrollView {
                 VStack(spacing: 18) {
-                    TimelineView(.everyMinute) { tick in
-                        VStack(spacing: 5) {
-                            Text(time(tick.date)).font(.system(size: 48, weight: .medium, design: .rounded)).monospacedDigit()
-                            if model.experience.settings.showDate { Text(tick.date.formatted(date: .abbreviated, time: .omitted)).foregroundStyle(.secondary) }
-                        }
-                    }
-                    GeometryReader { geo in
-                        let side = min(geo.size.width, geo.size.height)
+                    ZStack {
+                        Color.black
                         if model.experience.settings.ambienceEnabled {
                             PatrickSceneAmbience(scene: scene, motionAllowed: active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled)
                         }
                         if surpriseExpiresAt != nil && model.experience.settings.ambienceEnabled && active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled {
                             PatrickSceneAmbience(scene: "bath", motionAllowed: true)
                         }
-                        if model.experience.settings.faceMode == .arms && clockArtwork.manifest != nil && !player.isPlaying {
-                            PatrickOrganicClock(artwork: clockArtwork, dimmed: false)
-                                .frame(width: side, height: side * 496 / 416)
-                                .offset(y: -side * 0.19)
-                        } else if let image = player.image {
-                            let w = side * CGFloat(min(1, player.cellAspectRatio) * player.drawingScale)
-                            let h = side * CGFloat(min(1, 1 / player.cellAspectRatio) * player.drawingScale)
-                            Image(decorative: image, scale: 1).resizable().interpolation(.high)
-                                .frame(width: w, height: h)
-                                .position(x: side * CGFloat(player.masterAnchor[0]) + w * CGFloat(0.5 - player.anchor[0]),
-                                          y: side * CGFloat(player.masterAnchor[1]) + h * CGFloat(0.5 - player.anchor[1]))
-                        } else { Text("這套造型的素材尚未載入").frame(width: side, height: side) }
-                    }.frame(width: 300, height: 300).clipped()
+                        PatrickLayoutFace(player: player, artwork: clockArtwork, experience: model.experience,
+                                          active: active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled)
+                    }.aspectRatio(416.0 / 496.0, contentMode: .fit).frame(maxWidth: 300)
+                        .clipShape(RoundedRectangle(cornerRadius: 44))
                         .contentShape(Rectangle()).onTapGesture { model.performCare(.pet) }
                         .accessibilityLabel("摸摸派大星").accessibilityAddTraits(.isButton)
                     Text("\(outfit?.title ?? "派大星") · \(model.experience.settings.mood.title)").font(.headline)
@@ -95,6 +80,7 @@ import SwiftUI
                             Toggle("24小時制", isOn: setting(\.use24Hour))
                             Toggle("顯示日期", isOn: setting(\.showDate))
                             Toggle("場景點綴", isOn: setting(\.ambienceEnabled))
+                            PatrickLayoutPicker(settings: Binding(get: { model.experience.settings }, set: { value in model.updateExperience { $0.settings = value } }))
                             Picker("讀時", selection: setting(\.faceMode)) { ForEach(PatrickFaceMode.allCases) { Text($0.title).tag($0) } }
                             if clockArtwork.manifest == nil { Text(clockArtwork.message).font(.footnote) }
                             PatrickSchedulePreferences(settings: Binding(get: { model.experience.settings }, set: { value in model.updateExperience { $0.settings = value } }))

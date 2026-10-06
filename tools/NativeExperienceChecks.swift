@@ -53,6 +53,39 @@ import Foundation
         state.start(.exercise, minutes: Int.max, at: now)
         check(state.activity?.durationSeconds == 7200, "Unbounded shortcut minutes cannot overflow")
         check(state.activity?.remaining(at: now.addingTimeInterval(-300)) == 7200, "Clock rollback cannot extend duration")
+        for kind in PatrickActivityKind.allCases {
+            var activityState = PatrickExperienceState()
+            activityState.start(kind, seconds: 120, at: now)
+            let restored = try JSONDecoder().decode(PatrickExperienceState.self, from: JSONEncoder().encode(activityState))
+            check(restored.activity?.kind == kind && restored.journal.first?.text == "開始\(kind.title)", "Activity kind survives reload and journal")
+            check(kind.clipID == kind.sceneID && kind.sceneID == (kind.isExercise ? "exercise" : "focus"), "Activity uses the existing appropriate artwork family")
+        }
+        for kind in [PatrickActivityKind.walking, .running, .strength] {
+            check(kind.isExercise && kind.clipID == "exercise", "Named exercise timers must not invent ungenerated animations")
+        }
+        var controls = PatrickExperienceState()
+        check(controls.controlActivity(.pause, at: now) == .noActiveActivity && controls.revision == 0, "Empty shortcut cannot claim it paused a timer")
+        controls.start(.walking, seconds: 120, at: now)
+        let originalID = controls.activity?.id
+        check(controls.controlActivity(.pause, at: now.addingTimeInterval(30)) == .paused, "Pause shortcut")
+        let pausedRevision = controls.revision
+        check(controls.controlActivity(.pause, at: now.addingTimeInterval(500)) == .alreadyPaused && controls.revision == pausedRevision, "Repeated pause does not write or decay")
+        controls = try JSONDecoder().decode(PatrickExperienceState.self, from: JSONEncoder().encode(controls))
+        check(controls.controlActivity(.resume, at: now.addingTimeInterval(600)) == .resumed, "Resume survives persistence")
+        check(controls.activity?.id == originalID && controls.activity?.endsAt == now.addingTimeInterval(690), "Resume retains identity and frozen remaining duration")
+        let resumedRevision = controls.revision
+        check(controls.controlActivity(.resume, at: now.addingTimeInterval(620)) == .alreadyRunning && controls.revision == resumedRevision && controls.activity?.endsAt == now.addingTimeInterval(690), "Repeated resume cannot extend session")
+        check(controls.controlActivity(.cancel, at: now.addingTimeInterval(630)) == .cancelled && controls.care.bond == 0, "Early cancellation has no completion reward")
+        let cancelledRevision = controls.revision
+        check(controls.controlActivity(.resume, at: now.addingTimeInterval(640)) == .noActiveActivity && controls.revision == cancelledRevision, "Cancelled session cannot be resumed")
+        check(controls.journal.map(\.text) == ["開始散步陪伴", "暫停散步陪伴", "繼續散步陪伴", "結束散步陪伴"], "Only actual control transitions are journalled")
+        for command in PatrickActivityControl.allCases {
+            var elapsed = PatrickExperienceState(); elapsed.start(.running, seconds: 60, at: now)
+            check(elapsed.controlActivity(command, at: now.addingTimeInterval(60)) == .completed, "Deadline wins over a late control")
+            check(elapsed.activity?.status == .completed && elapsed.care.bond == 1, "Exactly one completion reward at deadline")
+            let revision = elapsed.revision
+            check(elapsed.controlActivity(command, at: now.addingTimeInterval(61)) == .completed && elapsed.revision == revision && elapsed.care.bond == 1, "Repeated late controls are idempotent")
+        }
         for index in 0..<80 { state.record("Entry \(index)", at: now) }
         check(state.journal.count == 60, "Journal bound")
         var decay = PatrickExperienceState()
@@ -88,6 +121,17 @@ import Foundation
         oldSave.removeValue(forKey: "surprise")
         let migrated = try JSONDecoder().decode(PatrickExperienceState.self, from: JSONSerialization.data(withJSONObject: oldSave))
         check(migrated.surprise == nil && migrated.settings == surprise.settings && migrated.journal == surprise.journal, "Old v1 saves decode without losing settings or journal")
+        var oldSettings = try JSONSerialization.jsonObject(with: JSONEncoder().encode(surprise.settings)) as! [String: Any]
+        oldSettings.removeValue(forKey: "layoutID")
+        let legacySettings = try JSONDecoder().decode(PatrickExperienceSettings.self, from: JSONSerialization.data(withJSONObject: oldSettings))
+        check(legacySettings.layoutID == nil && legacySettings.effectiveLayoutID == "classic" && legacySettings.outfitID == "chef", "Older settings retain outfit and use classic layout")
+        for layoutID in ["classic", "bold", "theater", "activity"] {
+            var settings = legacySettings; settings.layoutID = layoutID
+            let restored = try JSONDecoder().decode(PatrickExperienceSettings.self, from: JSONEncoder().encode(settings))
+            check(restored == settings && restored.effectiveLayoutID == layoutID, "Each layout survives persistence and sync encoding")
+        }
+        var unknownLayout = legacySettings; unknownLayout.layoutID = "future-layout"
+        check(unknownLayout.effectiveLayoutID == "classic" && unknownLayout.outfitID == "chef", "Unknown layout falls back without changing outfit")
         var calendar = Calendar(identifier: .gregorian); calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         let birthday = calendar.date(from: DateComponents(year: 2028, month: 2, day: 29, hour: 23))!
         var celebration = PatrickExperienceState(); celebration.settings.birthdayMMDD = "02-29"

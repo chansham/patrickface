@@ -1,0 +1,6699 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "artApproved": false,
+  "sourcePixelsEdited": false,
+  "catalogs": [
+    {
+      "path": "animation/catalog.json",
+      "sha256": "7a483a08eced0bcbe2768fd2f7bda571987016a17dd8c2dc9642fe49188976e0",
+      "clipCount": 15,
+      "uniqueSourceCount": 13,
+      "playbackFrameOccurrences": 160,
+      "errors": [],
+      "warnings": [
+        {
+          "code": "source-outer-edge",
+          "message": "Original art touches the outer PNG edge; extraction cannot reconstruct pixels outside the source.",
+          "clipId": "celebrate",
+          "sourceFrame": 15
+        }
+      ]
+    },
+    {
+      "path": "animation/candidates.json",
+      "sha256": "6420fad92c219142413df97a3040f05654ea11d1d8add74698a317d11509724f",
+      "clipCount": 14,
+      "uniqueSourceCount": 14,
+      "playbackFrameOccurrences": 164,
+      "errors": [],
+      "warnings": [
+        {
+          "code": "source-outer-edge",
+          "message": "Original art touches the outer PNG edge; extraction cannot reconstruct pixels outside the source.",
+          "clipId": "celebrate-candidate",
+          "sourceFrame": 15
+        }
+      ]
+    }
+  ],
+  "atlases": [
+    {
+      "source": "animation/yawn-v1/atlas-eyes-v2.png",
+      "sha256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372",
+      "regions": "animation/yawn-v1/regions-v1.json",
+      "regionsSha256": "bf9a23db553f5e6c85d7e784fa5b4fb36fd9588c7edbbf3ed7add342075eb22f",
+      "sourceHashMatches": true,
+      "frameCount": 8,
+      "canvas": {
+        "width": 652,
+        "height": 652,
+        "anchorPixels": [
+          326,
+          574
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8803680981595092
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 765871,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        412,
+        426
+      ],
+      "strongPixelAreaRange": [
+        89611,
+        97876
+      ],
+      "areaMaxMinRatio": 1.092232,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 91279,
+          "strongBounds": [
+            53,
+            16,
+            407,
+            442
+          ],
+          "coreBounds": [
+            53,
+            16,
+            407,
+            442
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 389.7786,
+          "allStrongCentroidAfterTranslation": [
+            340.8375,
+            394.6629
+          ],
+          "anchorSource": [
+            216,
+            442
+          ],
+          "translation": [
+            110,
+            132
+          ]
+        },
+        {
+          "strongPixelArea": 90693,
+          "strongBounds": [
+            493,
+            20,
+            831,
+            442
+          ],
+          "coreBounds": [
+            493,
+            20,
+            831,
+            442
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 371.4796,
+          "allStrongCentroidAfterTranslation": [
+            335.942,
+            397.0063
+          ],
+          "anchorSource": [
+            657,
+            442
+          ],
+          "translation": [
+            -331,
+            132
+          ]
+        },
+        {
+          "strongPixelArea": 89611,
+          "strongBounds": [
+            951,
+            19,
+            1293,
+            442
+          ],
+          "coreBounds": [
+            951,
+            19,
+            1293,
+            442
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 381.3638,
+          "allStrongCentroidAfterTranslation": [
+            336.5911,
+            393.8792
+          ],
+          "anchorSource": [
+            1108,
+            442
+          ],
+          "translation": [
+            -782,
+            132
+          ]
+        },
+        {
+          "strongPixelArea": 91164,
+          "strongBounds": [
+            1399,
+            23,
+            1740,
+            442
+          ],
+          "coreBounds": [
+            1399,
+            23,
+            1740,
+            442
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 389.1199,
+          "allStrongCentroidAfterTranslation": [
+            339.9053,
+            393.4478
+          ],
+          "anchorSource": [
+            1558,
+            442
+          ],
+          "translation": [
+            -1232,
+            132
+          ]
+        },
+        {
+          "strongPixelArea": 97876,
+          "strongBounds": [
+            60,
+            456,
+            421,
+            882
+          ],
+          "coreBounds": [
+            60,
+            456,
+            421,
+            882
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 399.7601,
+          "allStrongCentroidAfterTranslation": [
+            340.2825,
+            385.5246
+          ],
+          "anchorSource": [
+            218,
+            882
+          ],
+          "translation": [
+            108,
+            -308
+          ]
+        },
+        {
+          "strongPixelArea": 89741,
+          "strongBounds": [
+            518,
+            461,
+            847,
+            882
+          ],
+          "coreBounds": [
+            518,
+            461,
+            847,
+            882
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.5851,
+          "allStrongCentroidAfterTranslation": [
+            332.5255,
+            393.9483
+          ],
+          "anchorSource": [
+            676,
+            882
+          ],
+          "translation": [
+            -350,
+            -308
+          ]
+        },
+        {
+          "strongPixelArea": 91560,
+          "strongBounds": [
+            939,
+            470,
+            1295,
+            882
+          ],
+          "coreBounds": [
+            939,
+            470,
+            1295,
+            882
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 387.8956,
+          "allStrongCentroidAfterTranslation": [
+            338.9772,
+            398.1055
+          ],
+          "anchorSource": [
+            1106,
+            882
+          ],
+          "translation": [
+            -780,
+            -308
+          ]
+        },
+        {
+          "strongPixelArea": 90409,
+          "strongBounds": [
+            1384,
+            459,
+            1739,
+            882
+          ],
+          "coreBounds": [
+            1384,
+            459,
+            1739,
+            882
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 390.6611,
+          "allStrongCentroidAfterTranslation": [
+            341.7541,
+            395.6469
+          ],
+          "anchorSource": [
+            1547,
+            882
+          ],
+          "translation": [
+            -1221,
+            -308
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/blink-v2/atlas-generated.png",
+      "sha256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "regions": "animation/blink-v2/regions-v1.json",
+      "regionsSha256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e",
+      "sourceHashMatches": true,
+      "frameCount": 8,
+      "canvas": {
+        "width": 560,
+        "height": 560,
+        "anchorPixels": [
+          280,
+          493
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8803571428571428
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 779678,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        427,
+        429
+      ],
+      "strongPixelAreaRange": [
+        91833,
+        93073
+      ],
+      "areaMaxMinRatio": 1.013503,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 92251,
+          "strongBounds": [
+            53,
+            16,
+            408,
+            443
+          ],
+          "coreBounds": [
+            53,
+            16,
+            408,
+            443
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 343.1381,
+          "allStrongCentroidAfterTranslation": [
+            294.4131,
+            312.3689
+          ],
+          "anchorSource": [
+            217,
+            443
+          ],
+          "translation": [
+            63,
+            50
+          ]
+        },
+        {
+          "strongPixelArea": 91833,
+          "strongBounds": [
+            494,
+            16,
+            844,
+            443
+          ],
+          "coreBounds": [
+            494,
+            16,
+            844,
+            443
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 339.8112,
+          "allStrongCentroidAfterTranslation": [
+            293.89,
+            312.3226
+          ],
+          "anchorSource": [
+            657,
+            443
+          ],
+          "translation": [
+            -377,
+            50
+          ]
+        },
+        {
+          "strongPixelArea": 92137,
+          "strongBounds": [
+            926,
+            16,
+            1275,
+            443
+          ],
+          "coreBounds": [
+            926,
+            16,
+            1275,
+            443
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 335.7664,
+          "allStrongCentroidAfterTranslation": [
+            292.6159,
+            312.7264
+          ],
+          "anchorSource": [
+            1090,
+            443
+          ],
+          "translation": [
+            -810,
+            50
+          ]
+        },
+        {
+          "strongPixelArea": 92288,
+          "strongBounds": [
+            1369,
+            16,
+            1719,
+            444
+          ],
+          "coreBounds": [
+            1369,
+            16,
+            1719,
+            444
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 336.4039,
+          "allStrongCentroidAfterTranslation": [
+            293.0015,
+            311.5698
+          ],
+          "anchorSource": [
+            1533,
+            444
+          ],
+          "translation": [
+            -1253,
+            49
+          ]
+        },
+        {
+          "strongPixelArea": 93073,
+          "strongBounds": [
+            53,
+            453,
+            408,
+            882
+          ],
+          "coreBounds": [
+            53,
+            453,
+            408,
+            882
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 341.9979,
+          "allStrongCentroidAfterTranslation": [
+            294.7038,
+            311.0709
+          ],
+          "anchorSource": [
+            217,
+            882
+          ],
+          "translation": [
+            63,
+            -389
+          ]
+        },
+        {
+          "strongPixelArea": 93048,
+          "strongBounds": [
+            489,
+            453,
+            841,
+            882
+          ],
+          "coreBounds": [
+            489,
+            453,
+            841,
+            882
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 338.265,
+          "allStrongCentroidAfterTranslation": [
+            293.747,
+            311.0509
+          ],
+          "anchorSource": [
+            653,
+            882
+          ],
+          "translation": [
+            -373,
+            -389
+          ]
+        },
+        {
+          "strongPixelArea": 92855,
+          "strongBounds": [
+            925,
+            453,
+            1279,
+            882
+          ],
+          "coreBounds": [
+            925,
+            453,
+            1279,
+            882
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 341.624,
+          "allStrongCentroidAfterTranslation": [
+            294.9754,
+            310.9109
+          ],
+          "anchorSource": [
+            1088,
+            882
+          ],
+          "translation": [
+            -808,
+            -389
+          ]
+        },
+        {
+          "strongPixelArea": 92833,
+          "strongBounds": [
+            1369,
+            453,
+            1721,
+            882
+          ],
+          "coreBounds": [
+            1369,
+            453,
+            1721,
+            882
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 339.7202,
+          "allStrongCentroidAfterTranslation": [
+            294.0632,
+            310.9157
+          ],
+          "anchorSource": [
+            1532,
+            882
+          ],
+          "translation": [
+            -1252,
+            -389
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/pet-v2/atlas-generated.png",
+      "sha256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b",
+      "regions": "animation/pet-v2/regions-v1.json",
+      "regionsSha256": "82ae7279f09a2777a4f9be149c593d20dee58ddd6f9ae4c90771b691aac4d9e5",
+      "sourceHashMatches": true,
+      "frameCount": 12,
+      "canvas": {
+        "width": 784,
+        "height": 784,
+        "anchorPixels": [
+          392,
+          690
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8801020408163265
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 673195,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        332,
+        341
+      ],
+      "strongPixelAreaRange": [
+        51377,
+        53746
+      ],
+      "areaMaxMinRatio": 1.04611,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 52535,
+          "strongBounds": [
+            52,
+            15,
+            312,
+            356
+          ],
+          "coreBounds": [
+            52,
+            15,
+            312,
+            356
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 416.393,
+          "allStrongCentroidAfterTranslation": [
+            394.9194,
+            558.4001
+          ],
+          "anchorSource": [
+            182,
+            356
+          ],
+          "translation": [
+            210,
+            334
+          ]
+        },
+        {
+          "strongPixelArea": 53110,
+          "strongBounds": [
+            418,
+            15,
+            679,
+            356
+          ],
+          "coreBounds": [
+            418,
+            15,
+            679,
+            356
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 420.7749,
+          "allStrongCentroidAfterTranslation": [
+            395.9981,
+            557.429
+          ],
+          "anchorSource": [
+            549,
+            356
+          ],
+          "translation": [
+            -157,
+            334
+          ]
+        },
+        {
+          "strongPixelArea": 51653,
+          "strongBounds": [
+            788,
+            25,
+            1049,
+            357
+          ],
+          "coreBounds": [
+            788,
+            25,
+            1049,
+            357
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 429.5744,
+          "allStrongCentroidAfterTranslation": [
+            396.7382,
+            560.0417
+          ],
+          "anchorSource": [
+            919,
+            357
+          ],
+          "translation": [
+            -527,
+            333
+          ]
+        },
+        {
+          "strongPixelArea": 52043,
+          "strongBounds": [
+            1155,
+            21,
+            1414,
+            356
+          ],
+          "coreBounds": [
+            1155,
+            21,
+            1414,
+            356
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 430.3438,
+          "allStrongCentroidAfterTranslation": [
+            398.6667,
+            558.647
+          ],
+          "anchorSource": [
+            1285,
+            356
+          ],
+          "translation": [
+            -893,
+            334
+          ]
+        },
+        {
+          "strongPixelArea": 52290,
+          "strongBounds": [
+            54,
+            376,
+            315,
+            715
+          ],
+          "coreBounds": [
+            54,
+            376,
+            315,
+            715
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 416.361,
+          "allStrongCentroidAfterTranslation": [
+            394.7417,
+            556.577
+          ],
+          "anchorSource": [
+            185,
+            715
+          ],
+          "translation": [
+            207,
+            -25
+          ]
+        },
+        {
+          "strongPixelArea": 52443,
+          "strongBounds": [
+            420,
+            376,
+            681,
+            715
+          ],
+          "coreBounds": [
+            420,
+            376,
+            681,
+            715
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 419.0601,
+          "allStrongCentroidAfterTranslation": [
+            395.7818,
+            556.4018
+          ],
+          "anchorSource": [
+            551,
+            715
+          ],
+          "translation": [
+            -159,
+            -25
+          ]
+        },
+        {
+          "strongPixelArea": 52290,
+          "strongBounds": [
+            787,
+            376,
+            1047,
+            715
+          ],
+          "coreBounds": [
+            787,
+            376,
+            1047,
+            715
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 413.9559,
+          "allStrongCentroidAfterTranslation": [
+            393.3011,
+            556.2505
+          ],
+          "anchorSource": [
+            917,
+            715
+          ],
+          "translation": [
+            -525,
+            -25
+          ]
+        },
+        {
+          "strongPixelArea": 51377,
+          "strongBounds": [
+            1149,
+            376,
+            1409,
+            714
+          ],
+          "coreBounds": [
+            1149,
+            376,
+            1409,
+            714
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 413.8653,
+          "allStrongCentroidAfterTranslation": [
+            392.8172,
+            558.0708
+          ],
+          "anchorSource": [
+            1279,
+            714
+          ],
+          "translation": [
+            -887,
+            -24
+          ]
+        },
+        {
+          "strongPixelArea": 52575,
+          "strongBounds": [
+            54,
+            728,
+            316,
+            1067
+          ],
+          "coreBounds": [
+            54,
+            728,
+            316,
+            1067
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 404.0851,
+          "allStrongCentroidAfterTranslation": [
+            392.1886,
+            557.3965
+          ],
+          "anchorSource": [
+            185,
+            1067
+          ],
+          "translation": [
+            207,
+            -377
+          ]
+        },
+        {
+          "strongPixelArea": 53746,
+          "strongBounds": [
+            419,
+            732,
+            682,
+            1067
+          ],
+          "coreBounds": [
+            419,
+            732,
+            682,
+            1067
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 422.6856,
+          "allStrongCentroidAfterTranslation": [
+            396.9503,
+            558.3533
+          ],
+          "anchorSource": [
+            551,
+            1067
+          ],
+          "translation": [
+            -159,
+            -377
+          ]
+        },
+        {
+          "strongPixelArea": 52012,
+          "strongBounds": [
+            784,
+            730,
+            1047,
+            1067
+          ],
+          "coreBounds": [
+            784,
+            730,
+            1047,
+            1067
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 407.6627,
+          "allStrongCentroidAfterTranslation": [
+            390.523,
+            560.6781
+          ],
+          "anchorSource": [
+            916,
+            1067
+          ],
+          "translation": [
+            -524,
+            -377
+          ]
+        },
+        {
+          "strongPixelArea": 52295,
+          "strongBounds": [
+            1148,
+            729,
+            1411,
+            1067
+          ],
+          "coreBounds": [
+            1148,
+            729,
+            1411,
+            1067
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 412.1332,
+          "allStrongCentroidAfterTranslation": [
+            392.6201,
+            560.2497
+          ],
+          "anchorSource": [
+            1280,
+            1067
+          ],
+          "translation": [
+            -888,
+            -377
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/charging-v2/atlas-generated.png",
+      "sha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "regions": "animation/charging-v2/regions-v1.json",
+      "regionsSha256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
+      "sourceHashMatches": true,
+      "frameCount": 12,
+      "canvas": {
+        "width": 744,
+        "height": 744,
+        "anchorPixels": [
+          372,
+          655
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8803763440860215
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 627951,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        308,
+        330
+      ],
+      "strongPixelAreaRange": [
+        45846,
+        49998
+      ],
+      "areaMaxMinRatio": 1.090564,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 48054,
+          "strongBounds": [
+            57,
+            28,
+            302,
+            354
+          ],
+          "coreBounds": [
+            57,
+            28,
+            302,
+            354
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 403.9452,
+          "allStrongCentroidAfterTranslation": [
+            371.0886,
+            528.0946
+          ],
+          "anchorSource": [
+            180,
+            354
+          ],
+          "translation": [
+            192,
+            301
+          ]
+        },
+        {
+          "strongPixelArea": 46880,
+          "strongBounds": [
+            426,
+            30,
+            667,
+            354
+          ],
+          "coreBounds": [
+            426,
+            30,
+            667,
+            354
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 397.8507,
+          "allStrongCentroidAfterTranslation": [
+            369.7308,
+            528.5189
+          ],
+          "anchorSource": [
+            548,
+            354
+          ],
+          "translation": [
+            -176,
+            301
+          ]
+        },
+        {
+          "strongPixelArea": 46936,
+          "strongBounds": [
+            791,
+            28,
+            1031,
+            354
+          ],
+          "coreBounds": [
+            791,
+            28,
+            1031,
+            354
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 394.1588,
+          "allStrongCentroidAfterTranslation": [
+            369.0975,
+            528.233
+          ],
+          "anchorSource": [
+            912,
+            354
+          ],
+          "translation": [
+            -540,
+            301
+          ]
+        },
+        {
+          "strongPixelArea": 47215,
+          "strongBounds": [
+            1160,
+            31,
+            1398,
+            354
+          ],
+          "coreBounds": [
+            1160,
+            31,
+            1398,
+            354
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 405.9053,
+          "allStrongCentroidAfterTranslation": [
+            372.7963,
+            527.3486
+          ],
+          "anchorSource": [
+            1280,
+            354
+          ],
+          "translation": [
+            -908,
+            301
+          ]
+        },
+        {
+          "strongPixelArea": 46849,
+          "strongBounds": [
+            65,
+            387,
+            304,
+            701
+          ],
+          "coreBounds": [
+            65,
+            387,
+            304,
+            701
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 406.103,
+          "allStrongCentroidAfterTranslation": [
+            370.3292,
+            527.8355
+          ],
+          "anchorSource": [
+            185,
+            701
+          ],
+          "translation": [
+            187,
+            -46
+          ]
+        },
+        {
+          "strongPixelArea": 45846,
+          "strongBounds": [
+            432,
+            392,
+            668,
+            700
+          ],
+          "coreBounds": [
+            432,
+            392,
+            668,
+            700
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 403.0615,
+          "allStrongCentroidAfterTranslation": [
+            370.4548,
+            528.6963
+          ],
+          "anchorSource": [
+            550,
+            700
+          ],
+          "translation": [
+            -178,
+            -45
+          ]
+        },
+        {
+          "strongPixelArea": 46097,
+          "strongBounds": [
+            797,
+            385,
+            1034,
+            701
+          ],
+          "coreBounds": [
+            797,
+            385,
+            1034,
+            701
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 396.6015,
+          "allStrongCentroidAfterTranslation": [
+            369.1087,
+            527.0449
+          ],
+          "anchorSource": [
+            916,
+            701
+          ],
+          "translation": [
+            -544,
+            -46
+          ]
+        },
+        {
+          "strongPixelArea": 47298,
+          "strongBounds": [
+            1164,
+            373,
+            1401,
+            701
+          ],
+          "coreBounds": [
+            1164,
+            373,
+            1401,
+            701
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 394.2921,
+          "allStrongCentroidAfterTranslation": [
+            370.0654,
+            524.9947
+          ],
+          "anchorSource": [
+            1283,
+            701
+          ],
+          "translation": [
+            -911,
+            -46
+          ]
+        },
+        {
+          "strongPixelArea": 49998,
+          "strongBounds": [
+            66,
+            731,
+            309,
+            1061
+          ],
+          "coreBounds": [
+            66,
+            731,
+            309,
+            1061
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 403.6695,
+          "allStrongCentroidAfterTranslation": [
+            372.2104,
+            522.6975
+          ],
+          "anchorSource": [
+            188,
+            1061
+          ],
+          "translation": [
+            184,
+            -406
+          ]
+        },
+        {
+          "strongPixelArea": 47561,
+          "strongBounds": [
+            429,
+            740,
+            671,
+            1062
+          ],
+          "coreBounds": [
+            429,
+            740,
+            671,
+            1062
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 397.4108,
+          "allStrongCentroidAfterTranslation": [
+            370.2777,
+            527.9859
+          ],
+          "anchorSource": [
+            551,
+            1062
+          ],
+          "translation": [
+            -179,
+            -407
+          ]
+        },
+        {
+          "strongPixelArea": 47706,
+          "strongBounds": [
+            794,
+            736,
+            1035,
+            1062
+          ],
+          "coreBounds": [
+            794,
+            736,
+            1035,
+            1062
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 400.2087,
+          "allStrongCentroidAfterTranslation": [
+            370.8577,
+            527.2463
+          ],
+          "anchorSource": [
+            916,
+            1062
+          ],
+          "translation": [
+            -544,
+            -407
+          ]
+        },
+        {
+          "strongPixelArea": 47483,
+          "strongBounds": [
+            1159,
+            737,
+            1401,
+            1062
+          ],
+          "coreBounds": [
+            1159,
+            737,
+            1401,
+            1062
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 395.3268,
+          "allStrongCentroidAfterTranslation": [
+            370.4274,
+            527.8789
+          ],
+          "anchorSource": [
+            1281,
+            1062
+          ],
+          "translation": [
+            -909,
+            -407
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/charging-space-v1/atlas-generated.png",
+      "sha256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22",
+      "regions": "animation/charging-space-v1/regions-v1.json",
+      "regionsSha256": "2449e95c7f53a09414a1f02c6035fbedf0927cbfcceeba0d6063876fe66dd1e7",
+      "sourceHashMatches": true,
+      "frameCount": 12,
+      "canvas": {
+        "width": 900,
+        "height": 900,
+        "anchorPixels": [
+          450,
+          792
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.88
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 849551,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        367,
+        376
+      ],
+      "strongPixelAreaRange": [
+        59550,
+        68119
+      ],
+      "areaMaxMinRatio": 1.143896,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 60210,
+          "strongBounds": [
+            22,
+            36,
+            308,
+            404
+          ],
+          "coreBounds": [
+            22,
+            36,
+            304,
+            404
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 447.091,
+          "allStrongCentroidAfterTranslation": [
+            454.9932,
+            654.1621
+          ],
+          "anchorSource": [
+            165,
+            404
+          ],
+          "translation": [
+            285,
+            388
+          ]
+        },
+        {
+          "strongPixelArea": 62518,
+          "strongBounds": [
+            334,
+            35,
+            626,
+            404
+          ],
+          "coreBounds": [
+            334,
+            35,
+            617,
+            404
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 443.1211,
+          "allStrongCentroidAfterTranslation": [
+            456.3325,
+            651.2174
+          ],
+          "anchorSource": [
+            477,
+            404
+          ],
+          "translation": [
+            -27,
+            388
+          ]
+        },
+        {
+          "strongPixelArea": 60830,
+          "strongBounds": [
+            641,
+            36,
+            919,
+            404
+          ],
+          "coreBounds": [
+            641,
+            36,
+            911,
+            404
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 430.3093,
+          "allStrongCentroidAfterTranslation": [
+            452.2985,
+            648.922
+          ],
+          "anchorSource": [
+            778,
+            404
+          ],
+          "translation": [
+            -328,
+            388
+          ]
+        },
+        {
+          "strongPixelArea": 59550,
+          "strongBounds": [
+            935,
+            37,
+            1210,
+            404
+          ],
+          "coreBounds": [
+            935,
+            37,
+            1205,
+            404
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 437.3451,
+          "allStrongCentroidAfterTranslation": [
+            453.3524,
+            650.9517
+          ],
+          "anchorSource": [
+            1071,
+            404
+          ],
+          "translation": [
+            -621,
+            388
+          ]
+        },
+        {
+          "strongPixelArea": 68119,
+          "strongBounds": [
+            23,
+            463,
+            321,
+            830
+          ],
+          "coreBounds": [
+            23,
+            463,
+            307,
+            830
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 419.0561,
+          "allStrongCentroidAfterTranslation": [
+            451.9426,
+            643.8432
+          ],
+          "anchorSource": [
+            167,
+            830
+          ],
+          "translation": [
+            283,
+            -38
+          ]
+        },
+        {
+          "strongPixelArea": 61290,
+          "strongBounds": [
+            339,
+            457,
+            618,
+            830
+          ],
+          "coreBounds": [
+            339,
+            457,
+            617,
+            830
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 442.7094,
+          "allStrongCentroidAfterTranslation": [
+            454.4343,
+            650.9249
+          ],
+          "anchorSource": [
+            480,
+            830
+          ],
+          "translation": [
+            -30,
+            -38
+          ]
+        },
+        {
+          "strongPixelArea": 61617,
+          "strongBounds": [
+            640,
+            458,
+            922,
+            830
+          ],
+          "coreBounds": [
+            640,
+            458,
+            913,
+            830
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 453.8955,
+          "allStrongCentroidAfterTranslation": [
+            456.7312,
+            648.9073
+          ],
+          "anchorSource": [
+            778,
+            830
+          ],
+          "translation": [
+            -328,
+            -38
+          ]
+        },
+        {
+          "strongPixelArea": 61230,
+          "strongBounds": [
+            935,
+            454,
+            1218,
+            830
+          ],
+          "coreBounds": [
+            935,
+            454,
+            1205,
+            830
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 455.6276,
+          "allStrongCentroidAfterTranslation": [
+            458.1118,
+            648.6337
+          ],
+          "anchorSource": [
+            1072,
+            830
+          ],
+          "translation": [
+            -622,
+            -38
+          ]
+        },
+        {
+          "strongPixelArea": 64653,
+          "strongBounds": [
+            26,
+            873,
+            331,
+            1243
+          ],
+          "coreBounds": [
+            26,
+            873,
+            311,
+            1243
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 453.7974,
+          "allStrongCentroidAfterTranslation": [
+            460.0188,
+            648.7777
+          ],
+          "anchorSource": [
+            171,
+            1243
+          ],
+          "translation": [
+            279,
+            -451
+          ]
+        },
+        {
+          "strongPixelArea": 61736,
+          "strongBounds": [
+            341,
+            873,
+            631,
+            1243
+          ],
+          "coreBounds": [
+            341,
+            873,
+            624,
+            1243
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 448.6369,
+          "allStrongCentroidAfterTranslation": [
+            458.4286,
+            650.7081
+          ],
+          "anchorSource": [
+            481,
+            1243
+          ],
+          "translation": [
+            -31,
+            -451
+          ]
+        },
+        {
+          "strongPixelArea": 61252,
+          "strongBounds": [
+            640,
+            871,
+            917,
+            1243
+          ],
+          "coreBounds": [
+            640,
+            871,
+            912,
+            1243
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 440.5272,
+          "allStrongCentroidAfterTranslation": [
+            454.791,
+            649.4968
+          ],
+          "anchorSource": [
+            778,
+            1243
+          ],
+          "translation": [
+            -328,
+            -451
+          ]
+        },
+        {
+          "strongPixelArea": 60538,
+          "strongBounds": [
+            934,
+            874,
+            1212,
+            1243
+          ],
+          "coreBounds": [
+            934,
+            874,
+            1206,
+            1243
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 438.3011,
+          "allStrongCentroidAfterTranslation": [
+            456.0946,
+            650.1784
+          ],
+          "anchorSource": [
+            1071,
+            1243
+          ],
+          "translation": [
+            -621,
+            -451
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/exercise-v2/atlas-generated.png",
+      "sha256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+      "regions": "animation/exercise-v2/regions-v1.json",
+      "regionsSha256": "d35a5757a30cc481996886d55b7c3e5517431ad425ff2664c313382be83b07ad",
+      "sourceHashMatches": true,
+      "frameCount": 16,
+      "canvas": {
+        "width": 728,
+        "height": 728,
+        "anchorPixels": [
+          364,
+          641
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8804945054945055
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 514482,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        237,
+        241
+      ],
+      "strongPixelAreaRange": [
+        28061,
+        29636
+      ],
+      "areaMaxMinRatio": 1.056128,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 28853,
+          "strongBounds": [
+            71,
+            11,
+            293,
+            249
+          ],
+          "coreBounds": [
+            71,
+            11,
+            293,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.4251,
+          "allStrongCentroidAfterTranslation": [
+            359.3851,
+            552.0309
+          ],
+          "anchorSource": [
+            196,
+            249
+          ],
+          "translation": [
+            168,
+            392
+          ]
+        },
+        {
+          "strongPixelArea": 28488,
+          "strongBounds": [
+            462,
+            12,
+            677,
+            249
+          ],
+          "coreBounds": [
+            462,
+            12,
+            677,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.389,
+          "allStrongCentroidAfterTranslation": [
+            359.5838,
+            549.9156
+          ],
+          "anchorSource": [
+            581,
+            249
+          ],
+          "translation": [
+            -217,
+            392
+          ]
+        },
+        {
+          "strongPixelArea": 28127,
+          "strongBounds": [
+            863,
+            12,
+            1061,
+            249
+          ],
+          "coreBounds": [
+            863,
+            12,
+            1061,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.503,
+          "allStrongCentroidAfterTranslation": [
+            361.5059,
+            547.8694
+          ],
+          "anchorSource": [
+            965,
+            249
+          ],
+          "translation": [
+            -601,
+            392
+          ]
+        },
+        {
+          "strongPixelArea": 28744,
+          "strongBounds": [
+            1248,
+            11,
+            1445,
+            249
+          ],
+          "coreBounds": [
+            1248,
+            11,
+            1445,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.5826,
+          "allStrongCentroidAfterTranslation": [
+            360.2794,
+            546.0978
+          ],
+          "anchorSource": [
+            1349,
+            249
+          ],
+          "translation": [
+            -985,
+            392
+          ]
+        },
+        {
+          "strongPixelArea": 29376,
+          "strongBounds": [
+            99,
+            265,
+            294,
+            505
+          ],
+          "coreBounds": [
+            99,
+            265,
+            294,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 371.0901,
+          "allStrongCentroidAfterTranslation": [
+            361.1552,
+            544.1196
+          ],
+          "anchorSource": [
+            197,
+            505
+          ],
+          "translation": [
+            167,
+            136
+          ]
+        },
+        {
+          "strongPixelArea": 29342,
+          "strongBounds": [
+            482,
+            265,
+            678,
+            505
+          ],
+          "coreBounds": [
+            482,
+            265,
+            678,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.684,
+          "allStrongCentroidAfterTranslation": [
+            359.7383,
+            544.06
+          ],
+          "anchorSource": [
+            582,
+            505
+          ],
+          "translation": [
+            -218,
+            136
+          ]
+        },
+        {
+          "strongPixelArea": 28876,
+          "strongBounds": [
+            864,
+            265,
+            1061,
+            505
+          ],
+          "coreBounds": [
+            864,
+            265,
+            1061,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.3204,
+          "allStrongCentroidAfterTranslation": [
+            360.2339,
+            545.2473
+          ],
+          "anchorSource": [
+            966,
+            505
+          ],
+          "translation": [
+            -602,
+            136
+          ]
+        },
+        {
+          "strongPixelArea": 28674,
+          "strongBounds": [
+            1241,
+            265,
+            1445,
+            505
+          ],
+          "coreBounds": [
+            1241,
+            265,
+            1445,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.0245,
+          "allStrongCentroidAfterTranslation": [
+            360.9166,
+            546.7045
+          ],
+          "anchorSource": [
+            1349,
+            505
+          ],
+          "translation": [
+            -985,
+            136
+          ]
+        },
+        {
+          "strongPixelArea": 28442,
+          "strongBounds": [
+            90,
+            520,
+            294,
+            761
+          ],
+          "coreBounds": [
+            90,
+            520,
+            294,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.938,
+          "allStrongCentroidAfterTranslation": [
+            361.2459,
+            547.3267
+          ],
+          "anchorSource": [
+            198,
+            761
+          ],
+          "translation": [
+            166,
+            -120
+          ]
+        },
+        {
+          "strongPixelArea": 28414,
+          "strongBounds": [
+            469,
+            520,
+            678,
+            761
+          ],
+          "coreBounds": [
+            469,
+            520,
+            678,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.4402,
+          "allStrongCentroidAfterTranslation": [
+            361.5029,
+            548.4936
+          ],
+          "anchorSource": [
+            581,
+            761
+          ],
+          "translation": [
+            -217,
+            -120
+          ]
+        },
+        {
+          "strongPixelArea": 28432,
+          "strongBounds": [
+            850,
+            520,
+            1062,
+            761
+          ],
+          "coreBounds": [
+            850,
+            520,
+            1062,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.2065,
+          "allStrongCentroidAfterTranslation": [
+            361.316,
+            548.9466
+          ],
+          "anchorSource": [
+            965,
+            761
+          ],
+          "translation": [
+            -601,
+            -120
+          ]
+        },
+        {
+          "strongPixelArea": 28061,
+          "strongBounds": [
+            1235,
+            521,
+            1445,
+            761
+          ],
+          "coreBounds": [
+            1235,
+            521,
+            1445,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.7541,
+          "allStrongCentroidAfterTranslation": [
+            362.6501,
+            549.5818
+          ],
+          "anchorSource": [
+            1348,
+            761
+          ],
+          "translation": [
+            -984,
+            -120
+          ]
+        },
+        {
+          "strongPixelArea": 29636,
+          "strongBounds": [
+            76,
+            776,
+            294,
+            1016
+          ],
+          "coreBounds": [
+            76,
+            776,
+            294,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 371.5998,
+          "allStrongCentroidAfterTranslation": [
+            362.93,
+            549.4869
+          ],
+          "anchorSource": [
+            197,
+            1016
+          ],
+          "translation": [
+            167,
+            -375
+          ]
+        },
+        {
+          "strongPixelArea": 28942,
+          "strongBounds": [
+            458,
+            776,
+            678,
+            1016
+          ],
+          "coreBounds": [
+            458,
+            776,
+            678,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 372.0018,
+          "allStrongCentroidAfterTranslation": [
+            360.9472,
+            551.1812
+          ],
+          "anchorSource": [
+            580,
+            1016
+          ],
+          "translation": [
+            -216,
+            -375
+          ]
+        },
+        {
+          "strongPixelArea": 28981,
+          "strongBounds": [
+            842,
+            776,
+            1062,
+            1016
+          ],
+          "coreBounds": [
+            842,
+            776,
+            1062,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 371.4376,
+          "allStrongCentroidAfterTranslation": [
+            360.4689,
+            551.109
+          ],
+          "anchorSource": [
+            964,
+            1016
+          ],
+          "translation": [
+            -600,
+            -375
+          ]
+        },
+        {
+          "strongPixelArea": 28937,
+          "strongBounds": [
+            1225,
+            776,
+            1445,
+            1016
+          ],
+          "coreBounds": [
+            1225,
+            776,
+            1445,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.9712,
+          "allStrongCentroidAfterTranslation": [
+            359.9307,
+            551.3151
+          ],
+          "anchorSource": [
+            1348,
+            1016
+          ],
+          "translation": [
+            -984,
+            -375
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/focus-v1/atlas-generated.png",
+      "sha256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "regions": "animation/focus-v1/regions-v1.json",
+      "regionsSha256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909",
+      "sourceHashMatches": true,
+      "frameCount": 16,
+      "canvas": {
+        "width": 644,
+        "height": 644,
+        "anchorPixels": [
+          322,
+          567
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8804347826086957
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 638819,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        241,
+        280
+      ],
+      "strongPixelAreaRange": [
+        32819,
+        39766
+      ],
+      "areaMaxMinRatio": 1.211676,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 39169,
+          "strongBounds": [
+            89,
+            10,
+            325,
+            290
+          ],
+          "coreBounds": [
+            89,
+            10,
+            325,
+            290
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 338.4055,
+          "allStrongCentroidAfterTranslation": [
+            321.7231,
+            459.9055
+          ],
+          "anchorSource": [
+            207,
+            290
+          ],
+          "translation": [
+            115,
+            277
+          ]
+        },
+        {
+          "strongPixelArea": 38943,
+          "strongBounds": [
+            443,
+            11,
+            679,
+            290
+          ],
+          "coreBounds": [
+            443,
+            11,
+            679,
+            290
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 338.2107,
+          "allStrongCentroidAfterTranslation": [
+            321.9531,
+            460.4566
+          ],
+          "anchorSource": [
+            561,
+            290
+          ],
+          "translation": [
+            -239,
+            277
+          ]
+        },
+        {
+          "strongPixelArea": 39330,
+          "strongBounds": [
+            793,
+            10,
+            1031,
+            290
+          ],
+          "coreBounds": [
+            793,
+            10,
+            1031,
+            290
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 336.9362,
+          "allStrongCentroidAfterTranslation": [
+            321.9051,
+            460.3677
+          ],
+          "anchorSource": [
+            912,
+            290
+          ],
+          "translation": [
+            -590,
+            277
+          ]
+        },
+        {
+          "strongPixelArea": 39651,
+          "strongBounds": [
+            1145,
+            10,
+            1383,
+            290
+          ],
+          "coreBounds": [
+            1145,
+            10,
+            1383,
+            290
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 334.9812,
+          "allStrongCentroidAfterTranslation": [
+            322.0963,
+            459.6335
+          ],
+          "anchorSource": [
+            1264,
+            290
+          ],
+          "translation": [
+            -942,
+            277
+          ]
+        },
+        {
+          "strongPixelArea": 38546,
+          "strongBounds": [
+            88,
+            297,
+            325,
+            569
+          ],
+          "coreBounds": [
+            88,
+            297,
+            325,
+            569
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 334.8857,
+          "allStrongCentroidAfterTranslation": [
+            321.8004,
+            462.2496
+          ],
+          "anchorSource": [
+            207,
+            569
+          ],
+          "translation": [
+            115,
+            -2
+          ]
+        },
+        {
+          "strongPixelArea": 38522,
+          "strongBounds": [
+            444,
+            297,
+            680,
+            569
+          ],
+          "coreBounds": [
+            444,
+            297,
+            680,
+            569
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 332.7842,
+          "allStrongCentroidAfterTranslation": [
+            322.3988,
+            462.5497
+          ],
+          "anchorSource": [
+            562,
+            569
+          ],
+          "translation": [
+            -240,
+            -2
+          ]
+        },
+        {
+          "strongPixelArea": 39766,
+          "strongBounds": [
+            796,
+            298,
+            1031,
+            569
+          ],
+          "coreBounds": [
+            796,
+            298,
+            1031,
+            569
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 330.9978,
+          "allStrongCentroidAfterTranslation": [
+            317.9111,
+            461.6022
+          ],
+          "anchorSource": [
+            914,
+            569
+          ],
+          "translation": [
+            -592,
+            -2
+          ]
+        },
+        {
+          "strongPixelArea": 38998,
+          "strongBounds": [
+            1148,
+            298,
+            1385,
+            569
+          ],
+          "coreBounds": [
+            1148,
+            298,
+            1385,
+            569
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 331.1993,
+          "allStrongCentroidAfterTranslation": [
+            320.5836,
+            462.4479
+          ],
+          "anchorSource": [
+            1267,
+            569
+          ],
+          "translation": [
+            -945,
+            -2
+          ]
+        },
+        {
+          "strongPixelArea": 37825,
+          "strongBounds": [
+            89,
+            571,
+            323,
+            837
+          ],
+          "coreBounds": [
+            89,
+            571,
+            323,
+            837
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 326.2152,
+          "allStrongCentroidAfterTranslation": [
+            319.7759,
+            463.805
+          ],
+          "anchorSource": [
+            206,
+            837
+          ],
+          "translation": [
+            116,
+            -270
+          ]
+        },
+        {
+          "strongPixelArea": 37594,
+          "strongBounds": [
+            446,
+            571,
+            680,
+            837
+          ],
+          "coreBounds": [
+            446,
+            571,
+            680,
+            837
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 326.7075,
+          "allStrongCentroidAfterTranslation": [
+            320.3798,
+            464.1423
+          ],
+          "anchorSource": [
+            563,
+            837
+          ],
+          "translation": [
+            -241,
+            -270
+          ]
+        },
+        {
+          "strongPixelArea": 37684,
+          "strongBounds": [
+            797,
+            571,
+            1031,
+            838
+          ],
+          "coreBounds": [
+            797,
+            571,
+            1031,
+            838
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 326.0095,
+          "allStrongCentroidAfterTranslation": [
+            320.2978,
+            462.9409
+          ],
+          "anchorSource": [
+            914,
+            838
+          ],
+          "translation": [
+            -592,
+            -271
+          ]
+        },
+        {
+          "strongPixelArea": 36667,
+          "strongBounds": [
+            1154,
+            572,
+            1385,
+            838
+          ],
+          "coreBounds": [
+            1154,
+            572,
+            1385,
+            838
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 328.4531,
+          "allStrongCentroidAfterTranslation": [
+            320.8708,
+            464.194
+          ],
+          "anchorSource": [
+            1270,
+            838
+          ],
+          "translation": [
+            -948,
+            -271
+          ]
+        },
+        {
+          "strongPixelArea": 33273,
+          "strongBounds": [
+            90,
+            840,
+            317,
+            1082
+          ],
+          "coreBounds": [
+            90,
+            840,
+            317,
+            1082
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 340.347,
+          "allStrongCentroidAfterTranslation": [
+            321.7199,
+            473.2559
+          ],
+          "anchorSource": [
+            204,
+            1082
+          ],
+          "translation": [
+            118,
+            -515
+          ]
+        },
+        {
+          "strongPixelArea": 32967,
+          "strongBounds": [
+            446,
+            840,
+            671,
+            1082
+          ],
+          "coreBounds": [
+            446,
+            840,
+            671,
+            1082
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 331.5175,
+          "allStrongCentroidAfterTranslation": [
+            321.2657,
+            473.2452
+          ],
+          "anchorSource": [
+            559,
+            1082
+          ],
+          "translation": [
+            -237,
+            -515
+          ]
+        },
+        {
+          "strongPixelArea": 32975,
+          "strongBounds": [
+            800,
+            840,
+            1027,
+            1082
+          ],
+          "coreBounds": [
+            800,
+            840,
+            1027,
+            1082
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 337.9563,
+          "allStrongCentroidAfterTranslation": [
+            321.1217,
+            473.4494
+          ],
+          "anchorSource": [
+            914,
+            1082
+          ],
+          "translation": [
+            -592,
+            -515
+          ]
+        },
+        {
+          "strongPixelArea": 32819,
+          "strongBounds": [
+            1154,
+            841,
+            1381,
+            1082
+          ],
+          "coreBounds": [
+            1154,
+            841,
+            1381,
+            1082
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 325.9543,
+          "allStrongCentroidAfterTranslation": [
+            318.7012,
+            474.1449
+          ],
+          "anchorSource": [
+            1268,
+            1082
+          ],
+          "translation": [
+            -946,
+            -515
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/celebrate-v1/atlas-generated.png",
+      "sha256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8",
+      "regions": "animation/celebrate-v1/regions-v1.json",
+      "regionsSha256": "4d6ae47ddf460ee798861f3db55a67753897b3359afb64b04d9dfa921e5a7e99",
+      "sourceHashMatches": true,
+      "frameCount": 16,
+      "canvas": {
+        "width": 836,
+        "height": 836,
+        "anchorPixels": [
+          418,
+          736
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8803827751196173
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 475709,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        250,
+        254
+      ],
+      "strongPixelAreaRange": [
+        25038,
+        28506
+      ],
+      "areaMaxMinRatio": 1.138509,
+      "sourceEdgeFramesOneBased": [
+        16
+      ],
+      "frames": [
+        {
+          "strongPixelArea": 25038,
+          "strongBounds": [
+            110,
+            3,
+            287,
+            257
+          ],
+          "coreBounds": [
+            110,
+            3,
+            287,
+            257
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 438.8335,
+          "allStrongCentroidAfterTranslation": [
+            419.5433,
+            643.0731
+          ],
+          "anchorSource": [
+            199,
+            257
+          ],
+          "translation": [
+            219,
+            479
+          ]
+        },
+        {
+          "strongPixelArea": 26150,
+          "strongBounds": [
+            494,
+            3,
+            670,
+            257
+          ],
+          "coreBounds": [
+            494,
+            3,
+            670,
+            257
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 435.9664,
+          "allStrongCentroidAfterTranslation": [
+            419.5193,
+            641.013
+          ],
+          "anchorSource": [
+            582,
+            257
+          ],
+          "translation": [
+            -164,
+            479
+          ]
+        },
+        {
+          "strongPixelArea": 25966,
+          "strongBounds": [
+            877,
+            4,
+            1053,
+            257
+          ],
+          "coreBounds": [
+            877,
+            4,
+            1053,
+            257
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 436.1498,
+          "allStrongCentroidAfterTranslation": [
+            418.7501,
+            641.8189
+          ],
+          "anchorSource": [
+            965,
+            257
+          ],
+          "translation": [
+            -547,
+            479
+          ]
+        },
+        {
+          "strongPixelArea": 25936,
+          "strongBounds": [
+            1263,
+            4,
+            1441,
+            257
+          ],
+          "coreBounds": [
+            1263,
+            4,
+            1441,
+            257
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 434.2346,
+          "allStrongCentroidAfterTranslation": [
+            418.1241,
+            642.081
+          ],
+          "anchorSource": [
+            1352,
+            257
+          ],
+          "translation": [
+            -934,
+            479
+          ]
+        },
+        {
+          "strongPixelArea": 26674,
+          "strongBounds": [
+            110,
+            262,
+            288,
+            512
+          ],
+          "coreBounds": [
+            110,
+            262,
+            288,
+            512
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 432.6804,
+          "allStrongCentroidAfterTranslation": [
+            419.9687,
+            640.9469
+          ],
+          "anchorSource": [
+            199,
+            512
+          ],
+          "translation": [
+            219,
+            224
+          ]
+        },
+        {
+          "strongPixelArea": 27326,
+          "strongBounds": [
+            493,
+            261,
+            704,
+            512
+          ],
+          "coreBounds": [
+            493,
+            261,
+            704,
+            512
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 433.0824,
+          "allStrongCentroidAfterTranslation": [
+            422.7005,
+            639.8391
+          ],
+          "anchorSource": [
+            582,
+            512
+          ],
+          "translation": [
+            -164,
+            224
+          ]
+        },
+        {
+          "strongPixelArea": 28167,
+          "strongBounds": [
+            877,
+            262,
+            1136,
+            512
+          ],
+          "coreBounds": [
+            877,
+            262,
+            1136,
+            512
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 431.5987,
+          "allStrongCentroidAfterTranslation": [
+            426.7014,
+            639.1053
+          ],
+          "anchorSource": [
+            966,
+            512
+          ],
+          "translation": [
+            -548,
+            224
+          ]
+        },
+        {
+          "strongPixelArea": 28506,
+          "strongBounds": [
+            1260,
+            262,
+            1525,
+            512
+          ],
+          "coreBounds": [
+            1260,
+            262,
+            1525,
+            512
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 430.5909,
+          "allStrongCentroidAfterTranslation": [
+            427.2826,
+            638.9611
+          ],
+          "anchorSource": [
+            1349,
+            512
+          ],
+          "translation": [
+            -931,
+            224
+          ]
+        },
+        {
+          "strongPixelArea": 26939,
+          "strongBounds": [
+            110,
+            516,
+            296,
+            767
+          ],
+          "coreBounds": [
+            110,
+            516,
+            296,
+            767
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 432.2716,
+          "allStrongCentroidAfterTranslation": [
+            421.2775,
+            640.9964
+          ],
+          "anchorSource": [
+            198,
+            767
+          ],
+          "translation": [
+            220,
+            -31
+          ]
+        },
+        {
+          "strongPixelArea": 26454,
+          "strongBounds": [
+            493,
+            516,
+            670,
+            767
+          ],
+          "coreBounds": [
+            493,
+            516,
+            670,
+            767
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 431.0078,
+          "allStrongCentroidAfterTranslation": [
+            419.7763,
+            642.0439
+          ],
+          "anchorSource": [
+            582,
+            767
+          ],
+          "translation": [
+            -164,
+            -31
+          ]
+        },
+        {
+          "strongPixelArea": 26059,
+          "strongBounds": [
+            877,
+            516,
+            1054,
+            767
+          ],
+          "coreBounds": [
+            877,
+            516,
+            1054,
+            767
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 431.2119,
+          "allStrongCentroidAfterTranslation": [
+            418.8937,
+            642.4801
+          ],
+          "anchorSource": [
+            966,
+            767
+          ],
+          "translation": [
+            -548,
+            -31
+          ]
+        },
+        {
+          "strongPixelArea": 25902,
+          "strongBounds": [
+            1262,
+            516,
+            1439,
+            767
+          ],
+          "coreBounds": [
+            1262,
+            516,
+            1439,
+            767
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 429.3903,
+          "allStrongCentroidAfterTranslation": [
+            418.8254,
+            642.7599
+          ],
+          "anchorSource": [
+            1351,
+            767
+          ],
+          "translation": [
+            -933,
+            -31
+          ]
+        },
+        {
+          "strongPixelArea": 26635,
+          "strongBounds": [
+            110,
+            772,
+            288,
+            1023
+          ],
+          "coreBounds": [
+            110,
+            772,
+            288,
+            1023
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 429.4745,
+          "allStrongCentroidAfterTranslation": [
+            418.3361,
+            641.3723
+          ],
+          "anchorSource": [
+            199,
+            1023
+          ],
+          "translation": [
+            219,
+            -287
+          ]
+        },
+        {
+          "strongPixelArea": 26044,
+          "strongBounds": [
+            493,
+            772,
+            671,
+            1023
+          ],
+          "coreBounds": [
+            493,
+            772,
+            671,
+            1023
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 432.351,
+          "allStrongCentroidAfterTranslation": [
+            419.6698,
+            643.1278
+          ],
+          "anchorSource": [
+            582,
+            1023
+          ],
+          "translation": [
+            -164,
+            -287
+          ]
+        },
+        {
+          "strongPixelArea": 25914,
+          "strongBounds": [
+            877,
+            772,
+            1054,
+            1023
+          ],
+          "coreBounds": [
+            877,
+            772,
+            1054,
+            1023
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 431.149,
+          "allStrongCentroidAfterTranslation": [
+            418.8064,
+            642.7064
+          ],
+          "anchorSource": [
+            966,
+            1023
+          ],
+          "translation": [
+            -548,
+            -287
+          ]
+        },
+        {
+          "strongPixelArea": 25107,
+          "strongBounds": [
+            1263,
+            773,
+            1440,
+            1024
+          ],
+          "coreBounds": [
+            1263,
+            773,
+            1440,
+            1024
+          ],
+          "sourceEdgeStrongPixels": 4,
+          "headSilhouetteCenterAfterTranslation": 432.5762,
+          "allStrongCentroidAfterTranslation": [
+            419.3789,
+            642.8198
+          ],
+          "anchorSource": [
+            1352,
+            1024
+          ],
+          "translation": [
+            -934,
+            -288
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/bath-v1/atlas-generated.png",
+      "sha256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd",
+      "regions": "animation/bath-v1/regions-v1.json",
+      "regionsSha256": "a4ed3fe2ce93cf2e44e3869d00c96d5c56e042b6911f904fbb58de827b614738",
+      "sourceHashMatches": true,
+      "frameCount": 8,
+      "canvas": {
+        "width": 744,
+        "height": 744,
+        "anchorPixels": [
+          372,
+          655
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8803763440860215
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 720834,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        406,
+        410
+      ],
+      "strongPixelAreaRange": [
+        83439,
+        86666
+      ],
+      "areaMaxMinRatio": 1.038675,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 84657,
+          "strongBounds": [
+            42,
+            11,
+            402,
+            421
+          ],
+          "coreBounds": [
+            42,
+            11,
+            402,
+            421
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 411.1306,
+          "allStrongCentroidAfterTranslation": [
+            376.7545,
+            485.7331
+          ],
+          "anchorSource": [
+            222,
+            421
+          ],
+          "translation": [
+            150,
+            234
+          ]
+        },
+        {
+          "strongPixelArea": 83439,
+          "strongBounds": [
+            487,
+            14,
+            846,
+            421
+          ],
+          "coreBounds": [
+            487,
+            14,
+            846,
+            421
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 412.8987,
+          "allStrongCentroidAfterTranslation": [
+            378.1183,
+            486.6606
+          ],
+          "anchorSource": [
+            667,
+            421
+          ],
+          "translation": [
+            -295,
+            234
+          ]
+        },
+        {
+          "strongPixelArea": 85834,
+          "strongBounds": [
+            930,
+            13,
+            1290,
+            421
+          ],
+          "coreBounds": [
+            930,
+            13,
+            1290,
+            421
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 425.5337,
+          "allStrongCentroidAfterTranslation": [
+            379.2238,
+            484.5907
+          ],
+          "anchorSource": [
+            1110,
+            421
+          ],
+          "translation": [
+            -738,
+            234
+          ]
+        },
+        {
+          "strongPixelArea": 84606,
+          "strongBounds": [
+            1375,
+            15,
+            1734,
+            421
+          ],
+          "coreBounds": [
+            1375,
+            15,
+            1734,
+            421
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 441.2351,
+          "allStrongCentroidAfterTranslation": [
+            384.6361,
+            485.5537
+          ],
+          "anchorSource": [
+            1555,
+            421
+          ],
+          "translation": [
+            -1183,
+            234
+          ]
+        },
+        {
+          "strongPixelArea": 86412,
+          "strongBounds": [
+            42,
+            455,
+            402,
+            864
+          ],
+          "coreBounds": [
+            42,
+            455,
+            402,
+            864
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 434.4847,
+          "allStrongCentroidAfterTranslation": [
+            381.7936,
+            482.9727
+          ],
+          "anchorSource": [
+            222,
+            864
+          ],
+          "translation": [
+            150,
+            -209
+          ]
+        },
+        {
+          "strongPixelArea": 86666,
+          "strongBounds": [
+            487,
+            455,
+            846,
+            864
+          ],
+          "coreBounds": [
+            487,
+            455,
+            846,
+            864
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 431.5195,
+          "allStrongCentroidAfterTranslation": [
+            380.3672,
+            482.9568
+          ],
+          "anchorSource": [
+            666,
+            864
+          ],
+          "translation": [
+            -294,
+            -209
+          ]
+        },
+        {
+          "strongPixelArea": 84153,
+          "strongBounds": [
+            930,
+            458,
+            1289,
+            865
+          ],
+          "coreBounds": [
+            930,
+            458,
+            1289,
+            865
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 424.104,
+          "allStrongCentroidAfterTranslation": [
+            380.285,
+            485.5364
+          ],
+          "anchorSource": [
+            1110,
+            865
+          ],
+          "translation": [
+            -738,
+            -210
+          ]
+        },
+        {
+          "strongPixelArea": 84182,
+          "strongBounds": [
+            1374,
+            456,
+            1733,
+            865
+          ],
+          "coreBounds": [
+            1374,
+            456,
+            1733,
+            865
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 410.873,
+          "allStrongCentroidAfterTranslation": [
+            376.8836,
+            485.773
+          ],
+          "anchorSource": [
+            1553,
+            865
+          ],
+          "translation": [
+            -1181,
+            -210
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/wake-v1/atlas-generated.png",
+      "sha256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4",
+      "regions": "animation/wake-v1/regions-v1.json",
+      "regionsSha256": "54adb188c1bf5e72b5d94deb80c7123052ad36cdecc60d5fc0278b41f0e32b65",
+      "sourceHashMatches": true,
+      "frameCount": 8,
+      "canvas": {
+        "width": 652,
+        "height": 652,
+        "anchorPixels": [
+          326,
+          574
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8803680981595092
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 777162,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        428,
+        432
+      ],
+      "strongPixelAreaRange": [
+        90674,
+        93861
+      ],
+      "areaMaxMinRatio": 1.035148,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 92186,
+          "strongBounds": [
+            54,
+            14,
+            410,
+            444
+          ],
+          "coreBounds": [
+            54,
+            14,
+            410,
+            444
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 392.4212,
+          "allStrongCentroidAfterTranslation": [
+            341.4643,
+            391.8131
+          ],
+          "anchorSource": [
+            217,
+            444
+          ],
+          "translation": [
+            109,
+            130
+          ]
+        },
+        {
+          "strongPixelArea": 91562,
+          "strongBounds": [
+            498,
+            13,
+            844,
+            444
+          ],
+          "coreBounds": [
+            498,
+            13,
+            844,
+            444
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 383.7263,
+          "allStrongCentroidAfterTranslation": [
+            338.4582,
+            390.9184
+          ],
+          "anchorSource": [
+            661,
+            444
+          ],
+          "translation": [
+            -335,
+            130
+          ]
+        },
+        {
+          "strongPixelArea": 92371,
+          "strongBounds": [
+            947,
+            13,
+            1288,
+            444
+          ],
+          "coreBounds": [
+            947,
+            13,
+            1288,
+            444
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 382.138,
+          "allStrongCentroidAfterTranslation": [
+            336.1587,
+            388.948
+          ],
+          "anchorSource": [
+            1106,
+            444
+          ],
+          "translation": [
+            -780,
+            130
+          ]
+        },
+        {
+          "strongPixelArea": 93861,
+          "strongBounds": [
+            1388,
+            12,
+            1728,
+            444
+          ],
+          "coreBounds": [
+            1388,
+            12,
+            1728,
+            444
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 380.9281,
+          "allStrongCentroidAfterTranslation": [
+            334.9479,
+            387.7652
+          ],
+          "anchorSource": [
+            1547,
+            444
+          ],
+          "translation": [
+            -1221,
+            130
+          ]
+        },
+        {
+          "strongPixelArea": 93534,
+          "strongBounds": [
+            62,
+            454,
+            409,
+            884
+          ],
+          "coreBounds": [
+            62,
+            454,
+            409,
+            884
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 386.3476,
+          "allStrongCentroidAfterTranslation": [
+            338.2095,
+            387.5366
+          ],
+          "anchorSource": [
+            220,
+            884
+          ],
+          "translation": [
+            106,
+            -310
+          ]
+        },
+        {
+          "strongPixelArea": 92878,
+          "strongBounds": [
+            506,
+            455,
+            845,
+            884
+          ],
+          "coreBounds": [
+            506,
+            455,
+            845,
+            884
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 381.3624,
+          "allStrongCentroidAfterTranslation": [
+            335.0701,
+            388.6549
+          ],
+          "anchorSource": [
+            664,
+            884
+          ],
+          "translation": [
+            -338,
+            -310
+          ]
+        },
+        {
+          "strongPixelArea": 90674,
+          "strongBounds": [
+            938,
+            456,
+            1287,
+            884
+          ],
+          "coreBounds": [
+            938,
+            456,
+            1287,
+            884
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 383.9918,
+          "allStrongCentroidAfterTranslation": [
+            338.3392,
+            392.3793
+          ],
+          "anchorSource": [
+            1103,
+            884
+          ],
+          "translation": [
+            -777,
+            -310
+          ]
+        },
+        {
+          "strongPixelArea": 91117,
+          "strongBounds": [
+            1379,
+            455,
+            1729,
+            884
+          ],
+          "coreBounds": [
+            1379,
+            455,
+            1729,
+            884
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 388.9785,
+          "allStrongCentroidAfterTranslation": [
+            341.5427,
+            391.7905
+          ],
+          "anchorSource": [
+            1541,
+            884
+          ],
+          "translation": [
+            -1215,
+            -310
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/mint-pajama-v1/atlas-generated.png",
+      "sha256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b",
+      "regions": "animation/mint-pajama-v1/regions-v1.json",
+      "regionsSha256": "1b04aa20669bc7870ed2207eec648d4853ce599dbfebcef7360013950565ecf7",
+      "sourceHashMatches": true,
+      "frameCount": 8,
+      "canvas": {
+        "width": 560,
+        "height": 560,
+        "anchorPixels": [
+          280,
+          493
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8803571428571428
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 770377,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        415,
+        434
+      ],
+      "strongPixelAreaRange": [
+        88650,
+        94364
+      ],
+      "areaMaxMinRatio": 1.064456,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 92242,
+          "strongBounds": [
+            55,
+            9,
+            405,
+            443
+          ],
+          "coreBounds": [
+            55,
+            9,
+            405,
+            443
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 336.8735,
+          "allStrongCentroidAfterTranslation": [
+            283.2996,
+            310.5401
+          ],
+          "anchorSource": [
+            226,
+            443
+          ],
+          "translation": [
+            54,
+            50
+          ]
+        },
+        {
+          "strongPixelArea": 91637,
+          "strongBounds": [
+            504,
+            18,
+            839,
+            444
+          ],
+          "coreBounds": [
+            504,
+            18,
+            839,
+            444
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 320.9384,
+          "allStrongCentroidAfterTranslation": [
+            281.2195,
+            313.3005
+          ],
+          "anchorSource": [
+            672,
+            444
+          ],
+          "translation": [
+            -392,
+            49
+          ]
+        },
+        {
+          "strongPixelArea": 94364,
+          "strongBounds": [
+            950,
+            14,
+            1297,
+            443
+          ],
+          "coreBounds": [
+            950,
+            14,
+            1297,
+            443
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 333.8497,
+          "allStrongCentroidAfterTranslation": [
+            282.2877,
+            310.0783
+          ],
+          "anchorSource": [
+            1119,
+            443
+          ],
+          "translation": [
+            -839,
+            50
+          ]
+        },
+        {
+          "strongPixelArea": 90584,
+          "strongBounds": [
+            1411,
+            18,
+            1750,
+            443
+          ],
+          "coreBounds": [
+            1411,
+            18,
+            1750,
+            443
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 334.4819,
+          "allStrongCentroidAfterTranslation": [
+            284.4483,
+            312.2041
+          ],
+          "anchorSource": [
+            1576,
+            443
+          ],
+          "translation": [
+            -1296,
+            50
+          ]
+        },
+        {
+          "strongPixelArea": 91528,
+          "strongBounds": [
+            55,
+            454,
+            403,
+            879
+          ],
+          "coreBounds": [
+            55,
+            454,
+            403,
+            879
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 332.9651,
+          "allStrongCentroidAfterTranslation": [
+            284.8795,
+            311.8343
+          ],
+          "anchorSource": [
+            226,
+            879
+          ],
+          "translation": [
+            54,
+            -386
+          ]
+        },
+        {
+          "strongPixelArea": 90239,
+          "strongBounds": [
+            505,
+            466,
+            848,
+            881
+          ],
+          "coreBounds": [
+            505,
+            466,
+            848,
+            881
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 322.5991,
+          "allStrongCentroidAfterTranslation": [
+            279.6529,
+            315.447
+          ],
+          "anchorSource": [
+            677,
+            881
+          ],
+          "translation": [
+            -397,
+            -388
+          ]
+        },
+        {
+          "strongPixelArea": 89875,
+          "strongBounds": [
+            951,
+            461,
+            1294,
+            881
+          ],
+          "coreBounds": [
+            951,
+            461,
+            1294,
+            881
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 328.5701,
+          "allStrongCentroidAfterTranslation": [
+            282.0178,
+            314.2424
+          ],
+          "anchorSource": [
+            1122,
+            881
+          ],
+          "translation": [
+            -842,
+            -388
+          ]
+        },
+        {
+          "strongPixelArea": 88650,
+          "strongBounds": [
+            1408,
+            466,
+            1751,
+            881
+          ],
+          "coreBounds": [
+            1408,
+            466,
+            1751,
+            881
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 331.8134,
+          "allStrongCentroidAfterTranslation": [
+            282.5889,
+            314.7733
+          ],
+          "anchorSource": [
+            1575,
+            881
+          ],
+          "translation": [
+            -1295,
+            -388
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/moon-robe-v1/atlas-generated.png",
+      "sha256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f",
+      "regions": "animation/moon-robe-v1/regions-v1.json",
+      "regionsSha256": "e0fa2f4e099f86cee8648a5a3ddedb6b1ed2a1e96279dac0fe0e7fa4fd6d8906",
+      "sourceHashMatches": true,
+      "frameCount": 8,
+      "canvas": {
+        "width": 584,
+        "height": 584,
+        "anchorPixels": [
+          292,
+          514
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8801369863013698
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 679204,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        404,
+        411
+      ],
+      "strongPixelAreaRange": [
+        79371,
+        83065
+      ],
+      "areaMaxMinRatio": 1.046541,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 82082,
+          "strongBounds": [
+            63,
+            27,
+            388,
+            438
+          ],
+          "coreBounds": [
+            63,
+            27,
+            388,
+            438
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 303.8391,
+          "allStrongCentroidAfterTranslation": [
+            289.9456,
+            355.4032
+          ],
+          "anchorSource": [
+            226,
+            438
+          ],
+          "translation": [
+            66,
+            76
+          ]
+        },
+        {
+          "strongPixelArea": 83065,
+          "strongBounds": [
+            507,
+            27,
+            831,
+            438
+          ],
+          "coreBounds": [
+            507,
+            27,
+            831,
+            438
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 313.8589,
+          "allStrongCentroidAfterTranslation": [
+            291.2498,
+            353.7682
+          ],
+          "anchorSource": [
+            669,
+            438
+          ],
+          "translation": [
+            -377,
+            76
+          ]
+        },
+        {
+          "strongPixelArea": 81557,
+          "strongBounds": [
+            950,
+            27,
+            1275,
+            438
+          ],
+          "coreBounds": [
+            950,
+            27,
+            1275,
+            438
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 311.5407,
+          "allStrongCentroidAfterTranslation": [
+            288.405,
+            354.0907
+          ],
+          "anchorSource": [
+            1113,
+            438
+          ],
+          "translation": [
+            -821,
+            76
+          ]
+        },
+        {
+          "strongPixelArea": 81144,
+          "strongBounds": [
+            1400,
+            27,
+            1723,
+            438
+          ],
+          "coreBounds": [
+            1400,
+            27,
+            1723,
+            438
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 312.2637,
+          "allStrongCentroidAfterTranslation": [
+            289.4558,
+            354.0068
+          ],
+          "anchorSource": [
+            1562,
+            438
+          ],
+          "translation": [
+            -1270,
+            76
+          ]
+        },
+        {
+          "strongPixelArea": 79371,
+          "strongBounds": [
+            64,
+            454,
+            388,
+            858
+          ],
+          "coreBounds": [
+            64,
+            454,
+            388,
+            858
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 317.1339,
+          "allStrongCentroidAfterTranslation": [
+            296.6985,
+            356.4438
+          ],
+          "anchorSource": [
+            226,
+            858
+          ],
+          "translation": [
+            66,
+            -344
+          ]
+        },
+        {
+          "strongPixelArea": 80859,
+          "strongBounds": [
+            508,
+            454,
+            831,
+            858
+          ],
+          "coreBounds": [
+            508,
+            454,
+            831,
+            858
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 293.8979,
+          "allStrongCentroidAfterTranslation": [
+            289.9262,
+            356.3499
+          ],
+          "anchorSource": [
+            670,
+            858
+          ],
+          "translation": [
+            -378,
+            -344
+          ]
+        },
+        {
+          "strongPixelArea": 80978,
+          "strongBounds": [
+            951,
+            454,
+            1275,
+            858
+          ],
+          "coreBounds": [
+            951,
+            454,
+            1275,
+            858
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 291.7679,
+          "allStrongCentroidAfterTranslation": [
+            289.9617,
+            356.1554
+          ],
+          "anchorSource": [
+            1113,
+            858
+          ],
+          "translation": [
+            -821,
+            -344
+          ]
+        },
+        {
+          "strongPixelArea": 80905,
+          "strongBounds": [
+            1395,
+            454,
+            1719,
+            858
+          ],
+          "coreBounds": [
+            1395,
+            454,
+            1719,
+            858
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 288.4003,
+          "allStrongCentroidAfterTranslation": [
+            290.0495,
+            356.2644
+          ],
+          "anchorSource": [
+            1557,
+            858
+          ],
+          "translation": [
+            -1265,
+            -344
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/feeding-chef-v1/atlas-generated.png",
+      "sha256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66",
+      "regions": "animation/feeding-chef-v1/regions-v1.json",
+      "regionsSha256": "4346965a107da3c2ed9c8ed807c5537599506093a188b865ae013d1025822714",
+      "sourceHashMatches": true,
+      "frameCount": 12,
+      "canvas": {
+        "width": 600,
+        "height": 600,
+        "anchorPixels": [
+          300,
+          528
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.88
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 794550,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        397,
+        400
+      ],
+      "strongPixelAreaRange": [
+        60849,
+        63886
+      ],
+      "areaMaxMinRatio": 1.04991,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 61794,
+          "strongBounds": [
+            27,
+            10,
+            296,
+            407
+          ],
+          "coreBounds": [
+            27,
+            10,
+            296,
+            407
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 328.8036,
+          "allStrongCentroidAfterTranslation": [
+            308.341,
+            379.6303
+          ],
+          "anchorSource": [
+            159,
+            407
+          ],
+          "translation": [
+            141,
+            121
+          ]
+        },
+        {
+          "strongPixelArea": 62127,
+          "strongBounds": [
+            341,
+            9,
+            613,
+            406
+          ],
+          "coreBounds": [
+            341,
+            9,
+            613,
+            406
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 332.2037,
+          "allStrongCentroidAfterTranslation": [
+            310.4325,
+            379.774
+          ],
+          "anchorSource": [
+            473,
+            406
+          ],
+          "translation": [
+            -173,
+            122
+          ]
+        },
+        {
+          "strongPixelArea": 61623,
+          "strongBounds": [
+            654,
+            9,
+            926,
+            407
+          ],
+          "coreBounds": [
+            654,
+            9,
+            926,
+            407
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 331.9979,
+          "allStrongCentroidAfterTranslation": [
+            311.434,
+            378.8237
+          ],
+          "anchorSource": [
+            786,
+            407
+          ],
+          "translation": [
+            -486,
+            121
+          ]
+        },
+        {
+          "strongPixelArea": 60849,
+          "strongBounds": [
+            968,
+            9,
+            1240,
+            406
+          ],
+          "coreBounds": [
+            968,
+            9,
+            1240,
+            406
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 339.1472,
+          "allStrongCentroidAfterTranslation": [
+            314.3089,
+            379.9653
+          ],
+          "anchorSource": [
+            1100,
+            406
+          ],
+          "translation": [
+            -800,
+            122
+          ]
+        },
+        {
+          "strongPixelArea": 62882,
+          "strongBounds": [
+            27,
+            425,
+            300,
+            825
+          ],
+          "coreBounds": [
+            27,
+            425,
+            300,
+            825
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 337.6429,
+          "allStrongCentroidAfterTranslation": [
+            311.4924,
+            375.8454
+          ],
+          "anchorSource": [
+            159,
+            825
+          ],
+          "translation": [
+            141,
+            -297
+          ]
+        },
+        {
+          "strongPixelArea": 62358,
+          "strongBounds": [
+            341,
+            425,
+            615,
+            825
+          ],
+          "coreBounds": [
+            341,
+            425,
+            615,
+            825
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 339.5996,
+          "allStrongCentroidAfterTranslation": [
+            313.5812,
+            376.5683
+          ],
+          "anchorSource": [
+            473,
+            825
+          ],
+          "translation": [
+            -173,
+            -297
+          ]
+        },
+        {
+          "strongPixelArea": 63551,
+          "strongBounds": [
+            654,
+            425,
+            929,
+            825
+          ],
+          "coreBounds": [
+            654,
+            425,
+            929,
+            825
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 341.7054,
+          "allStrongCentroidAfterTranslation": [
+            312.5156,
+            376.1474
+          ],
+          "anchorSource": [
+            786,
+            825
+          ],
+          "translation": [
+            -486,
+            -297
+          ]
+        },
+        {
+          "strongPixelArea": 63690,
+          "strongBounds": [
+            968,
+            426,
+            1242,
+            825
+          ],
+          "coreBounds": [
+            968,
+            426,
+            1242,
+            825
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 338.892,
+          "allStrongCentroidAfterTranslation": [
+            311.9444,
+            376.7371
+          ],
+          "anchorSource": [
+            1100,
+            825
+          ],
+          "translation": [
+            -800,
+            -297
+          ]
+        },
+        {
+          "strongPixelArea": 63882,
+          "strongBounds": [
+            27,
+            840,
+            302,
+            1238
+          ],
+          "coreBounds": [
+            27,
+            840,
+            302,
+            1238
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 340.5629,
+          "allStrongCentroidAfterTranslation": [
+            311.5457,
+            376.4495
+          ],
+          "anchorSource": [
+            159,
+            1238
+          ],
+          "translation": [
+            141,
+            -710
+          ]
+        },
+        {
+          "strongPixelArea": 63886,
+          "strongBounds": [
+            341,
+            840,
+            615,
+            1238
+          ],
+          "coreBounds": [
+            341,
+            840,
+            615,
+            1238
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 335.0853,
+          "allStrongCentroidAfterTranslation": [
+            309.5959,
+            376.8307
+          ],
+          "anchorSource": [
+            473,
+            1238
+          ],
+          "translation": [
+            -173,
+            -710
+          ]
+        },
+        {
+          "strongPixelArea": 61785,
+          "strongBounds": [
+            654,
+            840,
+            929,
+            1238
+          ],
+          "coreBounds": [
+            654,
+            840,
+            929,
+            1238
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 324.5149,
+          "allStrongCentroidAfterTranslation": [
+            313.1116,
+            379.208
+          ],
+          "anchorSource": [
+            786,
+            1238
+          ],
+          "translation": [
+            -486,
+            -710
+          ]
+        },
+        {
+          "strongPixelArea": 61288,
+          "strongBounds": [
+            968,
+            840,
+            1242,
+            1238
+          ],
+          "coreBounds": [
+            968,
+            840,
+            1242,
+            1238
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 337.6067,
+          "allStrongCentroidAfterTranslation": [
+            314.0736,
+            379.3654
+          ],
+          "anchorSource": [
+            1100,
+            1238
+          ],
+          "translation": [
+            -800,
+            -710
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/yawn-v3/atlas-generated.png",
+      "sha256": "5a2d1def5ee4ab2440cccde0ff10ca01b59926fb569fcce16701129ed4a90798",
+      "regions": "animation/yawn-v3/regions-v1.json",
+      "regionsSha256": "9cc7069d3e8fa282323e8e9fa0ab26dc7f539b875ee3ce19d151db3238d773a7",
+      "sourceHashMatches": true,
+      "frameCount": 16,
+      "canvas": {
+        "width": 460,
+        "height": 460,
+        "anchorPixels": [
+          230,
+          405
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8804347826086957
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 827780,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        294,
+        307
+      ],
+      "strongPixelAreaRange": [
+        46151,
+        52104
+      ],
+      "areaMaxMinRatio": 1.12899,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 46257,
+          "strongBounds": [
+            35,
+            10,
+            287,
+            309
+          ],
+          "coreBounds": [
+            35,
+            10,
+            287,
+            309
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 274.7324,
+          "allStrongCentroidAfterTranslation": [
+            240.9205,
+            278.5049
+          ],
+          "anchorSource": [
+            151,
+            309
+          ],
+          "translation": [
+            79,
+            96
+          ]
+        },
+        {
+          "strongPixelArea": 46424,
+          "strongBounds": [
+            354,
+            10,
+            603,
+            308
+          ],
+          "coreBounds": [
+            354,
+            10,
+            603,
+            308
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 271.861,
+          "allStrongCentroidAfterTranslation": [
+            239.9414,
+            279.5508
+          ],
+          "anchorSource": [
+            471,
+            308
+          ],
+          "translation": [
+            -241,
+            97
+          ]
+        },
+        {
+          "strongPixelArea": 46577,
+          "strongBounds": [
+            677,
+            10,
+            924,
+            309
+          ],
+          "coreBounds": [
+            677,
+            10,
+            924,
+            309
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 271.1992,
+          "allStrongCentroidAfterTranslation": [
+            239.9529,
+            278.4975
+          ],
+          "anchorSource": [
+            794,
+            309
+          ],
+          "translation": [
+            -564,
+            96
+          ]
+        },
+        {
+          "strongPixelArea": 46874,
+          "strongBounds": [
+            1005,
+            11,
+            1248,
+            309
+          ],
+          "coreBounds": [
+            1005,
+            11,
+            1248,
+            309
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 269.2497,
+          "allStrongCentroidAfterTranslation": [
+            238.8514,
+            277.5871
+          ],
+          "anchorSource": [
+            1119,
+            309
+          ],
+          "translation": [
+            -889,
+            96
+          ]
+        },
+        {
+          "strongPixelArea": 46865,
+          "strongBounds": [
+            37,
+            316,
+            282,
+            619
+          ],
+          "coreBounds": [
+            37,
+            316,
+            282,
+            619
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 269.1962,
+          "allStrongCentroidAfterTranslation": [
+            239.51,
+            276.4224
+          ],
+          "anchorSource": [
+            152,
+            619
+          ],
+          "translation": [
+            78,
+            -214
+          ]
+        },
+        {
+          "strongPixelArea": 48058,
+          "strongBounds": [
+            358,
+            315,
+            609,
+            619
+          ],
+          "coreBounds": [
+            358,
+            315,
+            609,
+            619
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 272.5313,
+          "allStrongCentroidAfterTranslation": [
+            240.1787,
+            275.7769
+          ],
+          "anchorSource": [
+            474,
+            619
+          ],
+          "translation": [
+            -244,
+            -214
+          ]
+        },
+        {
+          "strongPixelArea": 47911,
+          "strongBounds": [
+            680,
+            316,
+            933,
+            620
+          ],
+          "coreBounds": [
+            680,
+            316,
+            933,
+            620
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 273.0147,
+          "allStrongCentroidAfterTranslation": [
+            239.8167,
+            275.5463
+          ],
+          "anchorSource": [
+            797,
+            620
+          ],
+          "translation": [
+            -567,
+            -215
+          ]
+        },
+        {
+          "strongPixelArea": 48507,
+          "strongBounds": [
+            1004,
+            315,
+            1251,
+            619
+          ],
+          "coreBounds": [
+            1004,
+            315,
+            1251,
+            619
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 272.0412,
+          "allStrongCentroidAfterTranslation": [
+            239.5267,
+            275.019
+          ],
+          "anchorSource": [
+            1120,
+            619
+          ],
+          "translation": [
+            -890,
+            -214
+          ]
+        },
+        {
+          "strongPixelArea": 52104,
+          "strongBounds": [
+            36,
+            620,
+            294,
+            927
+          ],
+          "coreBounds": [
+            36,
+            620,
+            294,
+            927
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 276.091,
+          "allStrongCentroidAfterTranslation": [
+            238.1638,
+            270.0722
+          ],
+          "anchorSource": [
+            153,
+            927
+          ],
+          "translation": [
+            77,
+            -522
+          ]
+        },
+        {
+          "strongPixelArea": 48349,
+          "strongBounds": [
+            365,
+            624,
+            612,
+            927
+          ],
+          "coreBounds": [
+            365,
+            624,
+            612,
+            927
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 268.9317,
+          "allStrongCentroidAfterTranslation": [
+            240.0223,
+            275.3672
+          ],
+          "anchorSource": [
+            481,
+            927
+          ],
+          "translation": [
+            -251,
+            -522
+          ]
+        },
+        {
+          "strongPixelArea": 48472,
+          "strongBounds": [
+            677,
+            627,
+            934,
+            927
+          ],
+          "coreBounds": [
+            677,
+            627,
+            934,
+            927
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 274.6088,
+          "allStrongCentroidAfterTranslation": [
+            241.2877,
+            276.9989
+          ],
+          "anchorSource": [
+            797,
+            927
+          ],
+          "translation": [
+            -567,
+            -522
+          ]
+        },
+        {
+          "strongPixelArea": 47669,
+          "strongBounds": [
+            1002,
+            626,
+            1252,
+            927
+          ],
+          "coreBounds": [
+            1002,
+            626,
+            1252,
+            927
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 270.8957,
+          "allStrongCentroidAfterTranslation": [
+            240.3638,
+            276.6422
+          ],
+          "anchorSource": [
+            1120,
+            927
+          ],
+          "translation": [
+            -890,
+            -522
+          ]
+        },
+        {
+          "strongPixelArea": 46151,
+          "strongBounds": [
+            35,
+            931,
+            287,
+            1225
+          ],
+          "coreBounds": [
+            35,
+            931,
+            287,
+            1225
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 273.5567,
+          "allStrongCentroidAfterTranslation": [
+            240.8748,
+            279.9164
+          ],
+          "anchorSource": [
+            152,
+            1225
+          ],
+          "translation": [
+            78,
+            -820
+          ]
+        },
+        {
+          "strongPixelArea": 46266,
+          "strongBounds": [
+            356,
+            931,
+            606,
+            1226
+          ],
+          "coreBounds": [
+            356,
+            931,
+            606,
+            1226
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 270.5491,
+          "allStrongCentroidAfterTranslation": [
+            240.022,
+            280.0352
+          ],
+          "anchorSource": [
+            474,
+            1226
+          ],
+          "translation": [
+            -244,
+            -821
+          ]
+        },
+        {
+          "strongPixelArea": 46442,
+          "strongBounds": [
+            677,
+            931,
+            923,
+            1226
+          ],
+          "coreBounds": [
+            677,
+            931,
+            923,
+            1226
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 267.1489,
+          "allStrongCentroidAfterTranslation": [
+            238.9884,
+            280.5074
+          ],
+          "anchorSource": [
+            795,
+            1226
+          ],
+          "translation": [
+            -565,
+            -821
+          ]
+        },
+        {
+          "strongPixelArea": 46207,
+          "strongBounds": [
+            997,
+            932,
+            1247,
+            1226
+          ],
+          "coreBounds": [
+            997,
+            932,
+            1247,
+            1226
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 272.5496,
+          "allStrongCentroidAfterTranslation": [
+            239.6443,
+            280.4635
+          ],
+          "anchorSource": [
+            1115,
+            1226
+          ],
+          "translation": [
+            -885,
+            -821
+          ]
+        }
+      ]
+    },
+    {
+      "source": "animation/detective-v1/atlas-generated-v1.png",
+      "sha256": "90f181e3887b9ec3cf64a5ef2260abae25ec70f2bdb676308d81ba4c1d822d0a",
+      "regions": "animation/detective-v1/regions-v1.json",
+      "regionsSha256": "f0c8d52ab17df9bfc6fc64e8c96d52ed559fc12a6540051daf1910df5ba877ab",
+      "sourceHashMatches": true,
+      "frameCount": 12,
+      "canvas": {
+        "width": 812,
+        "height": 812,
+        "anchorPixels": [
+          406,
+          715
+        ],
+        "anchorNormalized": [
+          0.5,
+          0.8805418719211823
+        ]
+      },
+      "coverage": {
+        "assignedPixels": 607083,
+        "overlapPixels": 0,
+        "unassignedPixels": 0,
+        "status": "METADATA_VALID_ART_NOT_APPROVED"
+      },
+      "coreHeightRange": [
+        331,
+        336
+      ],
+      "strongPixelAreaRange": [
+        44321,
+        47103
+      ],
+      "areaMaxMinRatio": 1.062769,
+      "sourceEdgeFramesOneBased": [],
+      "frames": [
+        {
+          "strongPixelArea": 46421,
+          "strongBounds": [
+            61,
+            24,
+            331,
+            357
+          ],
+          "coreBounds": [
+            61,
+            24,
+            331,
+            357
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 418.5891,
+          "allStrongCentroidAfterTranslation": [
+            401.9324,
+            584.1367
+          ],
+          "anchorSource": [
+            214,
+            357
+          ],
+          "translation": [
+            192,
+            358
+          ]
+        },
+        {
+          "strongPixelArea": 46909,
+          "strongBounds": [
+            425,
+            23,
+            693,
+            357
+          ],
+          "coreBounds": [
+            425,
+            23,
+            693,
+            357
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 407.3396,
+          "allStrongCentroidAfterTranslation": [
+            399.451,
+            583.175
+          ],
+          "anchorSource": [
+            577,
+            357
+          ],
+          "translation": [
+            -171,
+            358
+          ]
+        },
+        {
+          "strongPixelArea": 45981,
+          "strongBounds": [
+            805,
+            21,
+            1043,
+            357
+          ],
+          "coreBounds": [
+            805,
+            21,
+            1043,
+            357
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 406.2264,
+          "allStrongCentroidAfterTranslation": [
+            397.8681,
+            580.57
+          ],
+          "anchorSource": [
+            933,
+            357
+          ],
+          "translation": [
+            -527,
+            358
+          ]
+        },
+        {
+          "strongPixelArea": 44321,
+          "strongBounds": [
+            1183,
+            22,
+            1402,
+            357
+          ],
+          "coreBounds": [
+            1183,
+            22,
+            1402,
+            357
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 407.3183,
+          "allStrongCentroidAfterTranslation": [
+            402.4618,
+            579.9882
+          ],
+          "anchorSource": [
+            1292,
+            357
+          ],
+          "translation": [
+            -886,
+            358
+          ]
+        },
+        {
+          "strongPixelArea": 44631,
+          "strongBounds": [
+            111,
+            378,
+            331,
+            711
+          ],
+          "coreBounds": [
+            111,
+            378,
+            331,
+            711
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 401.1609,
+          "allStrongCentroidAfterTranslation": [
+            401.5506,
+            579.9188
+          ],
+          "anchorSource": [
+            221,
+            711
+          ],
+          "translation": [
+            185,
+            4
+          ]
+        },
+        {
+          "strongPixelArea": 46404,
+          "strongBounds": [
+            460,
+            380,
+            688,
+            711
+          ],
+          "coreBounds": [
+            460,
+            380,
+            688,
+            711
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 402.9286,
+          "allStrongCentroidAfterTranslation": [
+            398.5795,
+            578.8247
+          ],
+          "anchorSource": [
+            577,
+            711
+          ],
+          "translation": [
+            -171,
+            4
+          ]
+        },
+        {
+          "strongPixelArea": 45528,
+          "strongBounds": [
+            818,
+            377,
+            1045,
+            711
+          ],
+          "coreBounds": [
+            818,
+            377,
+            1045,
+            711
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 406.4024,
+          "allStrongCentroidAfterTranslation": [
+            401.0869,
+            579.9916
+          ],
+          "anchorSource": [
+            933,
+            711
+          ],
+          "translation": [
+            -527,
+            4
+          ]
+        },
+        {
+          "strongPixelArea": 45703,
+          "strongBounds": [
+            1179,
+            377,
+            1405,
+            711
+          ],
+          "coreBounds": [
+            1179,
+            377,
+            1405,
+            711
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 408.0437,
+          "allStrongCentroidAfterTranslation": [
+            401.1511,
+            580.1351
+          ],
+          "anchorSource": [
+            1293,
+            711
+          ],
+          "translation": [
+            -887,
+            4
+          ]
+        },
+        {
+          "strongPixelArea": 47103,
+          "strongBounds": [
+            71,
+            731,
+            332,
+            1063
+          ],
+          "coreBounds": [
+            71,
+            731,
+            332,
+            1063
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 410.4118,
+          "allStrongCentroidAfterTranslation": [
+            402.0541,
+            583.9157
+          ],
+          "anchorSource": [
+            213,
+            1063
+          ],
+          "translation": [
+            193,
+            -348
+          ]
+        },
+        {
+          "strongPixelArea": 46597,
+          "strongBounds": [
+            424,
+            732,
+            694,
+            1063
+          ],
+          "coreBounds": [
+            424,
+            732,
+            694,
+            1063
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 409.7203,
+          "allStrongCentroidAfterTranslation": [
+            400.7875,
+            584.8584
+          ],
+          "anchorSource": [
+            576,
+            1063
+          ],
+          "translation": [
+            -170,
+            -348
+          ]
+        },
+        {
+          "strongPixelArea": 46663,
+          "strongBounds": [
+            780,
+            731,
+            1049,
+            1063
+          ],
+          "coreBounds": [
+            780,
+            731,
+            1049,
+            1063
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 413.1919,
+          "allStrongCentroidAfterTranslation": [
+            401.963,
+            584.1461
+          ],
+          "anchorSource": [
+            931,
+            1063
+          ],
+          "translation": [
+            -525,
+            -348
+          ]
+        },
+        {
+          "strongPixelArea": 46209,
+          "strongBounds": [
+            1141,
+            732,
+            1411,
+            1063
+          ],
+          "coreBounds": [
+            1141,
+            732,
+            1411,
+            1063
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 412.4756,
+          "allStrongCentroidAfterTranslation": [
+            399.963,
+            584.7348
+          ],
+          "anchorSource": [
+            1295,
+            1063
+          ],
+          "translation": [
+            -889,
+            -348
+          ]
+        }
+      ]
+    }
+  ],
+  "exerciseAnchorCorrection": {
+    "beforeRegions": "animation/production-20261006/exercise-regions-before-anchor-fix.json",
+    "beforeSha256": "1561eae78deaed2c58cfdecebb42cc385eb744451fa0628321b17a7674966e6a",
+    "afterRegions": "animation/exercise-v2/regions-v1.json",
+    "afterSha256": "d35a5757a30cc481996886d55b7c3e5517431ad425ff2664c313382be83b07ad",
+    "canvasUnchanged": true,
+    "sourceBoundsUnchanged": true,
+    "sourceRowMasksUnchanged": true,
+    "verticalAnchorsUnchanged": true,
+    "perFrameResize": false,
+    "policy": {
+      "id": "exercise-v2-feet-12px-20261006",
+      "kind": "fixed-bottom-core-band",
+      "depthPixels": 12,
+      "reason": "Visually inspected seated feet: the original lower-15-percent band also included the lowered dumbbell. The bottom 12 source pixels contain both feet and exclude that prop."
+    },
+    "independentUpperHeadCenterRangeSourcePixels": {
+      "before": 18.6128,
+      "after": 2.6814
+    },
+    "frames": [
+      {
+        "frameOneBased": 1,
+        "before": {
+          "strongPixelArea": 28853,
+          "strongBounds": [
+            71,
+            11,
+            293,
+            249
+          ],
+          "coreBounds": [
+            71,
+            11,
+            293,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 386.4251,
+          "allStrongCentroidAfterTranslation": [
+            375.3851,
+            552.0309
+          ],
+          "anchorSource": [
+            180,
+            249
+          ],
+          "translation": [
+            184,
+            392
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28853,
+          "strongBounds": [
+            71,
+            11,
+            293,
+            249
+          ],
+          "coreBounds": [
+            71,
+            11,
+            293,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.4251,
+          "allStrongCentroidAfterTranslation": [
+            359.3851,
+            552.0309
+          ],
+          "anchorSource": [
+            196,
+            249
+          ],
+          "translation": [
+            168,
+            392
+          ]
+        }
+      },
+      {
+        "frameOneBased": 2,
+        "before": {
+          "strongPixelArea": 28488,
+          "strongBounds": [
+            462,
+            12,
+            677,
+            249
+          ],
+          "coreBounds": [
+            462,
+            12,
+            677,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 368.389,
+          "allStrongCentroidAfterTranslation": [
+            358.5838,
+            549.9156
+          ],
+          "anchorSource": [
+            582,
+            249
+          ],
+          "translation": [
+            -218,
+            392
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28488,
+          "strongBounds": [
+            462,
+            12,
+            677,
+            249
+          ],
+          "coreBounds": [
+            462,
+            12,
+            677,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.389,
+          "allStrongCentroidAfterTranslation": [
+            359.5838,
+            549.9156
+          ],
+          "anchorSource": [
+            581,
+            249
+          ],
+          "translation": [
+            -217,
+            392
+          ]
+        }
+      },
+      {
+        "frameOneBased": 3,
+        "before": {
+          "strongPixelArea": 28127,
+          "strongBounds": [
+            863,
+            12,
+            1061,
+            249
+          ],
+          "coreBounds": [
+            863,
+            12,
+            1061,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 368.503,
+          "allStrongCentroidAfterTranslation": [
+            360.5059,
+            547.8694
+          ],
+          "anchorSource": [
+            966,
+            249
+          ],
+          "translation": [
+            -602,
+            392
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28127,
+          "strongBounds": [
+            863,
+            12,
+            1061,
+            249
+          ],
+          "coreBounds": [
+            863,
+            12,
+            1061,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.503,
+          "allStrongCentroidAfterTranslation": [
+            361.5059,
+            547.8694
+          ],
+          "anchorSource": [
+            965,
+            249
+          ],
+          "translation": [
+            -601,
+            392
+          ]
+        }
+      },
+      {
+        "frameOneBased": 4,
+        "before": {
+          "strongPixelArea": 28744,
+          "strongBounds": [
+            1248,
+            11,
+            1445,
+            249
+          ],
+          "coreBounds": [
+            1248,
+            11,
+            1445,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 368.5826,
+          "allStrongCentroidAfterTranslation": [
+            359.2794,
+            546.0978
+          ],
+          "anchorSource": [
+            1350,
+            249
+          ],
+          "translation": [
+            -986,
+            392
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28744,
+          "strongBounds": [
+            1248,
+            11,
+            1445,
+            249
+          ],
+          "coreBounds": [
+            1248,
+            11,
+            1445,
+            249
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.5826,
+          "allStrongCentroidAfterTranslation": [
+            360.2794,
+            546.0978
+          ],
+          "anchorSource": [
+            1349,
+            249
+          ],
+          "translation": [
+            -985,
+            392
+          ]
+        }
+      },
+      {
+        "frameOneBased": 5,
+        "before": {
+          "strongPixelArea": 29376,
+          "strongBounds": [
+            99,
+            265,
+            294,
+            505
+          ],
+          "coreBounds": [
+            99,
+            265,
+            294,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.0901,
+          "allStrongCentroidAfterTranslation": [
+            360.1552,
+            544.1196
+          ],
+          "anchorSource": [
+            198,
+            505
+          ],
+          "translation": [
+            166,
+            136
+          ]
+        },
+        "after": {
+          "strongPixelArea": 29376,
+          "strongBounds": [
+            99,
+            265,
+            294,
+            505
+          ],
+          "coreBounds": [
+            99,
+            265,
+            294,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 371.0901,
+          "allStrongCentroidAfterTranslation": [
+            361.1552,
+            544.1196
+          ],
+          "anchorSource": [
+            197,
+            505
+          ],
+          "translation": [
+            167,
+            136
+          ]
+        }
+      },
+      {
+        "frameOneBased": 6,
+        "before": {
+          "strongPixelArea": 29342,
+          "strongBounds": [
+            482,
+            265,
+            678,
+            505
+          ],
+          "coreBounds": [
+            482,
+            265,
+            678,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.684,
+          "allStrongCentroidAfterTranslation": [
+            359.7383,
+            544.06
+          ],
+          "anchorSource": [
+            582,
+            505
+          ],
+          "translation": [
+            -218,
+            136
+          ]
+        },
+        "after": {
+          "strongPixelArea": 29342,
+          "strongBounds": [
+            482,
+            265,
+            678,
+            505
+          ],
+          "coreBounds": [
+            482,
+            265,
+            678,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.684,
+          "allStrongCentroidAfterTranslation": [
+            359.7383,
+            544.06
+          ],
+          "anchorSource": [
+            582,
+            505
+          ],
+          "translation": [
+            -218,
+            136
+          ]
+        }
+      },
+      {
+        "frameOneBased": 7,
+        "before": {
+          "strongPixelArea": 28876,
+          "strongBounds": [
+            864,
+            265,
+            1061,
+            505
+          ],
+          "coreBounds": [
+            864,
+            265,
+            1061,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.3204,
+          "allStrongCentroidAfterTranslation": [
+            360.2339,
+            545.2473
+          ],
+          "anchorSource": [
+            966,
+            505
+          ],
+          "translation": [
+            -602,
+            136
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28876,
+          "strongBounds": [
+            864,
+            265,
+            1061,
+            505
+          ],
+          "coreBounds": [
+            864,
+            265,
+            1061,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.3204,
+          "allStrongCentroidAfterTranslation": [
+            360.2339,
+            545.2473
+          ],
+          "anchorSource": [
+            966,
+            505
+          ],
+          "translation": [
+            -602,
+            136
+          ]
+        }
+      },
+      {
+        "frameOneBased": 8,
+        "before": {
+          "strongPixelArea": 28674,
+          "strongBounds": [
+            1241,
+            265,
+            1445,
+            505
+          ],
+          "coreBounds": [
+            1241,
+            265,
+            1445,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.0245,
+          "allStrongCentroidAfterTranslation": [
+            359.9166,
+            546.7045
+          ],
+          "anchorSource": [
+            1350,
+            505
+          ],
+          "translation": [
+            -986,
+            136
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28674,
+          "strongBounds": [
+            1241,
+            265,
+            1445,
+            505
+          ],
+          "coreBounds": [
+            1241,
+            265,
+            1445,
+            505
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.0245,
+          "allStrongCentroidAfterTranslation": [
+            360.9166,
+            546.7045
+          ],
+          "anchorSource": [
+            1349,
+            505
+          ],
+          "translation": [
+            -985,
+            136
+          ]
+        }
+      },
+      {
+        "frameOneBased": 9,
+        "before": {
+          "strongPixelArea": 28442,
+          "strongBounds": [
+            90,
+            520,
+            294,
+            761
+          ],
+          "coreBounds": [
+            90,
+            520,
+            294,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.938,
+          "allStrongCentroidAfterTranslation": [
+            361.2459,
+            547.3267
+          ],
+          "anchorSource": [
+            198,
+            761
+          ],
+          "translation": [
+            166,
+            -120
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28442,
+          "strongBounds": [
+            90,
+            520,
+            294,
+            761
+          ],
+          "coreBounds": [
+            90,
+            520,
+            294,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.938,
+          "allStrongCentroidAfterTranslation": [
+            361.2459,
+            547.3267
+          ],
+          "anchorSource": [
+            198,
+            761
+          ],
+          "translation": [
+            166,
+            -120
+          ]
+        }
+      },
+      {
+        "frameOneBased": 10,
+        "before": {
+          "strongPixelArea": 28414,
+          "strongBounds": [
+            469,
+            520,
+            678,
+            761
+          ],
+          "coreBounds": [
+            469,
+            520,
+            678,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 369.4402,
+          "allStrongCentroidAfterTranslation": [
+            360.5029,
+            548.4936
+          ],
+          "anchorSource": [
+            582,
+            761
+          ],
+          "translation": [
+            -218,
+            -120
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28414,
+          "strongBounds": [
+            469,
+            520,
+            678,
+            761
+          ],
+          "coreBounds": [
+            469,
+            520,
+            678,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.4402,
+          "allStrongCentroidAfterTranslation": [
+            361.5029,
+            548.4936
+          ],
+          "anchorSource": [
+            581,
+            761
+          ],
+          "translation": [
+            -217,
+            -120
+          ]
+        }
+      },
+      {
+        "frameOneBased": 11,
+        "before": {
+          "strongPixelArea": 28432,
+          "strongBounds": [
+            850,
+            520,
+            1062,
+            761
+          ],
+          "coreBounds": [
+            850,
+            520,
+            1062,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 380.2065,
+          "allStrongCentroidAfterTranslation": [
+            371.316,
+            548.9466
+          ],
+          "anchorSource": [
+            955,
+            761
+          ],
+          "translation": [
+            -591,
+            -120
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28432,
+          "strongBounds": [
+            850,
+            520,
+            1062,
+            761
+          ],
+          "coreBounds": [
+            850,
+            520,
+            1062,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.2065,
+          "allStrongCentroidAfterTranslation": [
+            361.316,
+            548.9466
+          ],
+          "anchorSource": [
+            965,
+            761
+          ],
+          "translation": [
+            -601,
+            -120
+          ]
+        }
+      },
+      {
+        "frameOneBased": 12,
+        "before": {
+          "strongPixelArea": 28061,
+          "strongBounds": [
+            1235,
+            521,
+            1445,
+            761
+          ],
+          "coreBounds": [
+            1235,
+            521,
+            1445,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 381.7541,
+          "allStrongCentroidAfterTranslation": [
+            373.6501,
+            549.5818
+          ],
+          "anchorSource": [
+            1337,
+            761
+          ],
+          "translation": [
+            -973,
+            -120
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28061,
+          "strongBounds": [
+            1235,
+            521,
+            1445,
+            761
+          ],
+          "coreBounds": [
+            1235,
+            521,
+            1445,
+            761
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.7541,
+          "allStrongCentroidAfterTranslation": [
+            362.6501,
+            549.5818
+          ],
+          "anchorSource": [
+            1348,
+            761
+          ],
+          "translation": [
+            -984,
+            -120
+          ]
+        }
+      },
+      {
+        "frameOneBased": 13,
+        "before": {
+          "strongPixelArea": 29636,
+          "strongBounds": [
+            76,
+            776,
+            294,
+            1016
+          ],
+          "coreBounds": [
+            76,
+            776,
+            294,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 386.5998,
+          "allStrongCentroidAfterTranslation": [
+            377.93,
+            549.4869
+          ],
+          "anchorSource": [
+            182,
+            1016
+          ],
+          "translation": [
+            182,
+            -375
+          ]
+        },
+        "after": {
+          "strongPixelArea": 29636,
+          "strongBounds": [
+            76,
+            776,
+            294,
+            1016
+          ],
+          "coreBounds": [
+            76,
+            776,
+            294,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 371.5998,
+          "allStrongCentroidAfterTranslation": [
+            362.93,
+            549.4869
+          ],
+          "anchorSource": [
+            197,
+            1016
+          ],
+          "translation": [
+            167,
+            -375
+          ]
+        }
+      },
+      {
+        "frameOneBased": 14,
+        "before": {
+          "strongPixelArea": 28942,
+          "strongBounds": [
+            458,
+            776,
+            678,
+            1016
+          ],
+          "coreBounds": [
+            458,
+            776,
+            678,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 387.0018,
+          "allStrongCentroidAfterTranslation": [
+            375.9472,
+            551.1812
+          ],
+          "anchorSource": [
+            565,
+            1016
+          ],
+          "translation": [
+            -201,
+            -375
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28942,
+          "strongBounds": [
+            458,
+            776,
+            678,
+            1016
+          ],
+          "coreBounds": [
+            458,
+            776,
+            678,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 372.0018,
+          "allStrongCentroidAfterTranslation": [
+            360.9472,
+            551.1812
+          ],
+          "anchorSource": [
+            580,
+            1016
+          ],
+          "translation": [
+            -216,
+            -375
+          ]
+        }
+      },
+      {
+        "frameOneBased": 15,
+        "before": {
+          "strongPixelArea": 28981,
+          "strongBounds": [
+            842,
+            776,
+            1062,
+            1016
+          ],
+          "coreBounds": [
+            842,
+            776,
+            1062,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 386.4376,
+          "allStrongCentroidAfterTranslation": [
+            375.4689,
+            551.109
+          ],
+          "anchorSource": [
+            949,
+            1016
+          ],
+          "translation": [
+            -585,
+            -375
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28981,
+          "strongBounds": [
+            842,
+            776,
+            1062,
+            1016
+          ],
+          "coreBounds": [
+            842,
+            776,
+            1062,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 371.4376,
+          "allStrongCentroidAfterTranslation": [
+            360.4689,
+            551.109
+          ],
+          "anchorSource": [
+            964,
+            1016
+          ],
+          "translation": [
+            -600,
+            -375
+          ]
+        }
+      },
+      {
+        "frameOneBased": 16,
+        "before": {
+          "strongPixelArea": 28937,
+          "strongBounds": [
+            1225,
+            776,
+            1445,
+            1016
+          ],
+          "coreBounds": [
+            1225,
+            776,
+            1445,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 386.9712,
+          "allStrongCentroidAfterTranslation": [
+            375.9307,
+            551.3151
+          ],
+          "anchorSource": [
+            1332,
+            1016
+          ],
+          "translation": [
+            -968,
+            -375
+          ]
+        },
+        "after": {
+          "strongPixelArea": 28937,
+          "strongBounds": [
+            1225,
+            776,
+            1445,
+            1016
+          ],
+          "coreBounds": [
+            1225,
+            776,
+            1445,
+            1016
+          ],
+          "sourceEdgeStrongPixels": 0,
+          "headSilhouetteCenterAfterTranslation": 370.9712,
+          "allStrongCentroidAfterTranslation": [
+            359.9307,
+            551.3151
+          ],
+          "anchorSource": [
+            1348,
+            1016
+          ],
+          "translation": [
+            -984,
+            -375
+          ]
+        }
+      }
+    ],
+    "remainingArtIssues": [
+      "Frame 5 wrist/forearm silhouette changes abruptly.",
+      "Head/body shapes still vary; no original drawing was corrected.",
+      "First and last artwork are not identical; seamless loop is unapproved."
+    ]
+  },
+  "totals": {
+    "uniqueAtlases": 15,
+    "originalFrames": 172,
+    "nonzeroAlphaPixelsPreservedExactlyOnce": 10502246,
+    "missingPixels": 0,
+    "overlapPixels": 0
+  },
+  "persistedUserFeedback": {
+    "path": "feedback/2026-09-27-wardrobe-review.json",
+    "sha256": "f746eabe42cc9e138154614ddca67dae0501672a34ac494d04b7d8396f6f71d2",
+    "approvalGranted": false,
+    "reviews": [
+      {
+        "concept": "serious-suit",
+        "verdict": "rejected",
+        "note": "",
+        "image": "concepts/2026-09-27-wardrobe/serious-suit.png",
+        "sha256": "23b5a96cd2c376e0ad5883c8f7f92d8c1201ccd5b2258d82d3c0a9385434a402",
+        "fingerprintStillMatches": true
+      },
+      {
+        "concept": "after-work",
+        "verdict": "rejected",
+        "note": "",
+        "image": "concepts/2026-09-27-wardrobe/after-work.png",
+        "sha256": "cc95ff57a77a9a71c9696406b9d4ae5e1b5badb19a9224af281273cdb78b0801",
+        "fingerprintStillMatches": true
+      },
+      {
+        "concept": "street-confident",
+        "verdict": "rejected",
+        "note": "",
+        "image": "concepts/2026-09-27-wardrobe/street-confident.png",
+        "sha256": "9078ffb8d4ce3ecf21a318fe83cea9ff151c8faa21ec9c9d0d7af5363c1487b2",
+        "fingerprintStillMatches": true
+      }
+    ],
+    "interpretation": "Only these explicit exported verdicts are counted. Unmarked concepts are not accepted; browser-only state was not read by this filesystem audit."
+  },
+  "generationSnapshot": {
+    "path": "animation/production-20261006/generation-ledger.json",
+    "sha256": "2f1bfbb2d5eaa014f9dfd2566c51330035445df61d1b8aa75eb596c38cf03975",
+    "allArtworkComplete": false,
+    "requests": [
+      {
+        "id": "jogging-athletic-v1",
+        "status": "generation-blocked",
+        "outputExists": false,
+        "error": {
+          "code": "moderation_blocked",
+          "stage": "output",
+          "requestID": "c8141958-1a82-48f6-9aec-707350872600"
+        }
+      },
+      {
+        "id": "raincoat-observe-v1",
+        "status": "generation-blocked",
+        "outputExists": false,
+        "error": {
+          "code": "moderation_blocked",
+          "stage": "output",
+          "requestID": "8301565d-7056-43f4-a8ae-0e730d552701"
+        }
+      }
+    ]
+  },
+  "exerciseNormalSpeedReview": {
+    "status": "playback-technical-pass-position-improved-art-revision-pending",
+    "report": "output/playwright/20261006-exercise-anchor/report.json",
+    "reportSha256": "877a13a1292ff45ede48b421863fe5f29ff4ae7be850e14c0f944a080dedaf14",
+    "clock": "real browser performance.now; no fake clock",
+    "speed": 1,
+    "passed": true,
+    "observedFrames": 16,
+    "durationMs": 3380,
+    "stoppedAtLastFrame": true,
+    "autoReplayObserved": false,
+    "artApproved": false,
+    "sequence": "output/playwright/20261006-exercise-anchor/exercise-sequence.png",
+    "video": "output/playwright/20261006-exercise-anchor/exercise-fixed-anchor-live-1x.webm",
+    "visualObservations": [
+      "Frames 1 to 2 no longer show the old approximately 44-stage-pixel whole-body jump; frames 10 to 11 also keep the feet registered.",
+      "Frame 5 raised forearm remains disproportionately thin/long.",
+      "Frames 10 to 12 wrist/grip morph as the dumbbell lowers.",
+      "Frames 13 to 14 change abruptly from exhaling to the forward expression."
+    ]
+  },
+  "limitations": [
+    "Strong-alpha area includes props and changes with acting; variation is not an automatic defect verdict.",
+    "Correct contour conservation does not establish correct ownership of every artistic detail or usable animation.",
+    "Foot/upper-head measurements are source-pixel diagnostics, not a claim that original artwork is motion-consistent.",
+    "Normal-speed playback is separately reviewed; no browser playback is performed by this tool."
+  ]
+}

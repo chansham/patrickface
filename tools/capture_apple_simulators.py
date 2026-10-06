@@ -44,6 +44,7 @@ import zlib
 
 
 UUID = re.compile(r"^[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$")
+LAYOUT_IDS = ("classic", "bold", "theater", "activity")
 
 
 class CaptureError(RuntimeError):
@@ -258,13 +259,18 @@ def boot(runner: Runner, item: dict, timeout: float) -> None:
     runner.simctl("bootstatus", item["udid"], "-b", timeout=timeout)
 
 
-def capture(runner: Runner, label: str, device: dict, app: dict, delays: list[float], boot_timeout: float) -> dict:
+def capture(runner: Runner, label: str, device: dict, app: dict, delays: list[float], boot_timeout: float,
+            layout: str | None = None) -> dict:
     result = {"device": device, "app": app, "status": "failed", "screenshots": [],
               "visualReview": "pending", "startedAt": utc_now()}
     try:
+        if layout is not None and layout not in LAYOUT_IDS:
+            raise CaptureError("Unknown layout override")
         boot(runner, device, boot_timeout)
         runner.simctl("install", device["udid"], app["path"], timeout=120)
-        launch = runner.simctl("launch", "--terminate-running-process", device["udid"], app["bundleID"], timeout=90)
+        arguments = ("--patrick-preview-layout", layout) if layout else ()
+        result["requestedLayout"] = layout
+        launch = runner.simctl("launch", "--terminate-running-process", device["udid"], app["bundleID"], *arguments, timeout=90)
         match = re.search(r"^" + re.escape(app["bundleID"]) + r":\s*(\d+)\s*$", launch.stdout, re.MULTILINE)
         if not match:
             raise CaptureError("simctl launch did not report the requested app's process ID")
@@ -381,17 +387,32 @@ def run(args) -> int:
             raise CaptureError("The supplied phone UDID is not an available installed iPhone simulator compatible with this build")
         report["phone"] = capture(runner, "phone", phone, phone_app, args.delays, args.boot_timeout)
         # A broken/missing watch product must not prevent the iPhone capture above.
+        watch_app = None
         try:
             watch_app = app_info(args.watch_app.expanduser().resolve(), "watchOS")
             report["watch"] = capture_watch(runner, args, phone, watch_app, args.delays)
         except (CaptureError, OSError) as error:
             report["watch"]["error"] = str(error)
+        # Explicit simulator-only view overrides. No preferences, real devices or
+        # source image pixels are changed; successful captures still need review.
+        for key, device, app in (("phone", phone, phone_app),
+                                 ("watch", report["watch"].get("device"), watch_app)):
+            if report[key]["status"] != "captured" or not app or not device:
+                continue
+            if getattr(args, "layouts", []):
+                report[key]["layouts"] = {
+                    layout: capture(runner, f"{key}-layout-{layout}", device, app, [3], args.boot_timeout, layout)
+                    for layout in args.layouts
+                }
         runner.inventory("devices-final.json")
     except (CaptureError, OSError, ValueError) as error:
         report["error"] = str(error)
     finally:
         count = sum(report[key].get("status") == "captured" for key in ("phone", "watch"))
-        report["status"] = "captured" if count == 2 and "error" not in report else "partial" if count else "failed"
+        layouts_ok = all(set(report[key].get("layouts", {})) == set(getattr(args, "layouts", []))
+                         and all(item["status"] == "captured" for item in report[key].get("layouts", {}).values())
+                         for key in ("phone", "watch"))
+        report["status"] = "captured" if count == 2 and layouts_ok and "error" not in report else "partial" if count else "failed"
         report["finishedAt"] = utc_now()
         (output / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"Native capture: {report['status']}; visual review: pending; report: {output / 'report.json'}", flush=True)
@@ -540,6 +561,25 @@ def self_test() -> int:
                 path.write_bytes(png[:-3])
                 with self.assertRaises(CaptureError): png_info(path)
 
+        def test_layout_override_uses_launch_argument_and_rejects_unknown_id(self):
+            phone, _, _, data = self.payload()
+            device = devices(data, "iOS")[0]
+            app = {"path": "Phone.app", "bundleID": "example.fixture", "executable": "Fixture"}
+            with tempfile.TemporaryDirectory() as temporary:
+                runner = Runner(Path(temporary), {"commands": []})
+                with patch(__name__ + ".boot"), patch(__name__ + ".png_info", return_value={"width": 1, "height": 1}), \
+                     patch.object(runner, "simctl", return_value=subprocess.CompletedProcess([], 0, "example.fixture: 123\n", "")) as command, \
+                     patch.object(runner, "command", return_value=subprocess.CompletedProcess([], 0, "123 Fixture", "")):
+                    result = capture(runner, "phone-layout-activity", device, app, [0], 30, "activity")
+                    self.assertEqual(result["status"], "captured")
+                    self.assertEqual(result["requestedLayout"], "activity")
+                    self.assertIn(("launch", "--terminate-running-process", phone, "example.fixture", "--patrick-preview-layout", "activity"),
+                                  [call.args for call in command.call_args_list])
+                    command.reset_mock()
+                    invalid = capture(runner, "invalid", device, app, [0], 30, "not-a-layout")
+                    self.assertEqual(invalid["status"], "failed")
+                    command.assert_not_called()
+
         def test_watch_failure_preserves_phone_capture_and_returns_partial(self):
             phone, _, _, data = self.payload()
             phone_info = {"minimumOS": "17", "bundleID": "example.fixture"}
@@ -574,6 +614,8 @@ def main() -> int:
     parser.add_argument("--watch-size", choices=("46", "42", "any"), default="46",
                         help="Required Watch case size; no silent fallback to another size (default: 46)")
     parser.add_argument("--no-pairing", action="store_true", help="Never create even a new simulator-only pair")
+    parser.add_argument("--layouts", nargs="+", choices=LAYOUT_IDS, default=[],
+                        help="Also launch each simulator-only layout override and capture its real screen")
     parser.add_argument("--self-test", action="store_true", help="Run local pure fixtures, without Xcode or simulators")
     args = parser.parse_args()
     if args.self_test:

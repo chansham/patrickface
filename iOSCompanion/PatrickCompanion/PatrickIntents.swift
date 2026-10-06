@@ -77,6 +77,7 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
         AppShortcut(intent: PatrickSceneIntent(), phrases: ["設定\(.applicationName)情境"], shortTitle: "陪伴情境", systemImageName: "moon.stars.fill")
         AppShortcut(intent: PatrickMoodIntent(), phrases: ["設定\(.applicationName)心情"], shortTitle: "角色心情", systemImageName: "face.smiling")
         AppShortcut(intent: PatrickTimerIntent(), phrases: ["開始\(.applicationName)陪伴計時"], shortTitle: "陪伴計時", systemImageName: "timer")
+        AppShortcut(intent: PatrickTimerControlIntent(), phrases: ["控制\(.applicationName)陪伴計時"], shortTitle: "控制陪伴計時", systemImageName: "pause.circle")
 
         AppShortcut(
             intent: SetPatrickSleepModeIntent(),
@@ -176,9 +177,14 @@ enum PatrickMoodChoice: String, AppEnum {
     static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [.calm: "平靜", .happy: "開心", .serious: "認真", .tired: "睏倦", .grumpy: "有點不耐煩", .low: "低落"]
 }
 enum PatrickActivityChoice: String, AppEnum {
-    case focus, breathing, exercise
+    case focus, breathing, exercise, walking, running, strength
     static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "陪伴種類")
-    static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [.focus: "專注", .breathing: "呼吸休息", .exercise: "運動陪伴"]
+    static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [.focus: "專注", .breathing: "呼吸休息", .exercise: "運動陪伴", .walking: "散步陪伴", .running: "跑步陪伴", .strength: "肌力陪伴"]
+}
+enum PatrickActivityControlChoice: String, AppEnum {
+    case pause, resume, cancel
+    static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "計時控制")
+    static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [.pause: "暫停", .resume: "繼續", .cancel: "結束"]
 }
 struct PatrickCareIntent: AppIntent {
     static var title: LocalizedStringResource = "照顧派大星"
@@ -217,6 +223,19 @@ struct PatrickTimerIntent: AppIntent {
         return .result(dialog: "陪伴倒數已開始。")
     }
 }
+struct PatrickTimerControlIntent: AppIntent {
+    static var title: LocalizedStringResource = "控制派大星陪伴計時"
+    static var description = IntentDescription("暫停、繼續或結束現有陪伴倒數，並同步至配對手錶；不啟動或結束Apple健身訓練。")
+    // The phone app reconciles its local Live Activity while opening. There is
+    // no promise that a Shortcuts process can keep the app alive in background.
+    static var openAppWhenRun = true
+    @Parameter(title: "操作") var action: PatrickActivityControlChoice
+    static var parameterSummary: some ParameterSummary { Summary("\(\.$action)派大星陪伴計時") }
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let result = await PatrickExperienceIntentExecutor.control(PatrickActivityControl(rawValue: action.rawValue)!)
+        return .result(dialog: "\(result.message)")
+    }
+}
 @MainActor private enum PatrickExperienceIntentExecutor {
     static func care(_ action: PatrickCareAction) -> Bool {
         var state = PatrickSharedStore.shared.loadExperience()
@@ -226,6 +245,13 @@ struct PatrickTimerIntent: AppIntent {
     static func change(_ mutation: (inout PatrickExperienceState) -> Void) {
         var state = PatrickSharedStore.shared.loadExperience()
         mutation(&state); state.changed(); send(state)
+    }
+    static func control(_ command: PatrickActivityControl) -> PatrickActivityControlResult {
+        var state = PatrickSharedStore.shared.loadExperience()
+        let previousRevision = state.revision
+        let result = state.controlActivity(command)
+        if state.revision != previousRevision { send(state) }
+        return result
     }
     private static func send(_ state: PatrickExperienceState, action: PatrickCareAction? = nil) {
         let store = PatrickSharedStore.shared

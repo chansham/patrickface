@@ -152,21 +152,19 @@ final class AppModel: ObservableObject {
     }
 
     func toggleExperiencePause() async {
-        if experience.activity?.status == .paused { experience.resume() } else { experience.pause() }
-        saveExperience()
-        if let value = experience.activity {
-            if value.status == .completed { synchronizeActivityPresentation(); return }
-            timer = PatrickTimerSnapshot(id: value.id, status: value.status == .paused ? .paused : .running,
-                title: value.kind.title, startedAt: value.startedAt, endsAt: value.endsAt, remainingSeconds: value.remaining(at: .now))
-            store.saveTimer(timer)
-            await activityController.update(timer: timer, settings: settings)
-        }
+        let revision = experience.revision
+        let result = experience.controlActivity(experience.activity?.status == .paused ? .resume : .pause)
+        if experience.revision != revision { saveExperience() }
+        synchronizeActivityPresentation()
+        notice = result.message
     }
 
     func cancelExperienceActivity() async {
-        experience.cancel(); saveExperience()
-        timer = .inactive; store.saveTimer(timer)
-        await activityController.endAll(finalStatus: "已結束陪伴計時")
+        let revision = experience.revision
+        let result = experience.controlActivity(.cancel)
+        if experience.revision != revision { saveExperience() }
+        synchronizeActivityPresentation()
+        notice = result.message
     }
 
     private func saveExperience(action: PatrickCareAction? = nil) {

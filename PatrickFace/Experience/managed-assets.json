@@ -96,8 +96,15 @@
     {
       "source": "experience/contract.json",
       "destination": "contract.json",
-      "sha256": "9fba01ed56ade7672f388be4350bc58d48c0575ceb8e078995bceac6086676cd",
-      "bytes": 3306,
+      "sha256": "2ae40fa5c40d4a551f9dc5aa5277194cd303a43ccd50ebebb3f3ce1311320864",
+      "bytes": 3501,
+      "active": true
+    },
+    {
+      "source": "experience/layouts.json",
+      "destination": "layouts.json",
+      "sha256": "4f48aacbcc0d24cae5a9033992fcb6791f7ae328b60d122a5cea821c23b283bb",
+      "bytes": 2090,
       "active": true
     },
     {

@@ -67,6 +67,8 @@ def source_files(project_root: Path, source: Path) -> tuple[dict, list]:
     required_paths = ["themesPath", "soundsPath", "clockPath"]
     if "calendarPath" in contract:
         required_paths.append("calendarPath")
+    if "layoutsPath" in contract:
+        required_paths.append("layoutsPath")
     for key in required_paths:
         path = contract.get(key)
         parts = relative_parts(path)
@@ -78,6 +80,16 @@ def source_files(project_root: Path, source: Path) -> tuple[dict, list]:
                 warnings.append("Clock drawing is unavailable; only digital time is usable.")
             else:
                 raise ValueError(f"Required source resource is missing: {path}")
+    if "layoutsPath" in contract:
+        layout_name = "/".join(relative_parts(contract["layoutsPath"])[1:])
+        layouts = objects[layout_name]
+        items = layouts.get("layouts", [])
+        identifiers = [item.get("id") for item in items if isinstance(item, dict)]
+        if (layouts.get("schemaVersion") != 1 or layouts.get("coordinateSize") != [832, 992]
+                or len(identifiers) != len(items) or len(identifiers) != len(set(identifiers))
+                or set(identifiers) != set(contract.get("allowedLayoutIDs", []))
+                or layouts.get("defaultLayoutID") != contract.get("settings", {}).get("layoutID")):
+            raise ValueError("Layout catalog and settings contract disagree.")
     audio = validate_audio(project_root)
     if audio["errors"]:
         raise ValueError("Audio validation failed: " + "; ".join(audio["errors"]))

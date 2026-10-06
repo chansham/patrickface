@@ -31,7 +31,6 @@ struct PatrickAnimatedFaceView: View {
         GeometryReader { geometry in
             let unit = min(geometry.size.width / 416, geometry.size.height / 496)
             let width = 416 * unit, height = 496 * unit
-            let square = width * 0.8
             ZStack(alignment: .topLeading) {
                 Color.black
                 if model.experience.settings.ambienceEnabled && !wristDown {
@@ -40,44 +39,15 @@ struct PatrickAnimatedFaceView: View {
                 if surpriseExpiresAt != nil && model.experience.settings.ambienceEnabled && monitoring && !reduceMotion && !lowPower {
                     PatrickSceneAmbience(scene: "bath", motionAllowed: true)
                 }
-                if model.experience.settings.faceMode == .arms && clockArtwork.manifest != nil && !player.isPlaying {
-                    PatrickOrganicClock(artwork: clockArtwork, dimmed: wristDown)
-                        .frame(width: width, height: height)
-                        .contentShape(Rectangle())
-                        .onTapGesture { model.performCare(.pet) }
-                        .onLongPressGesture(minimumDuration: 0.45) { showingActions = true }
-                } else if let image = player.image {
-                    let drawingWidth = square * CGFloat(min(1, player.cellAspectRatio) * player.drawingScale)
-                    let drawingHeight = square * CGFloat(min(1, 1 / player.cellAspectRatio) * player.drawingScale)
-                    // Same fixed square for every frame. No scale/rotation animation.
-                    ZStack {
-                        Image(decorative: image, scale: 1)
-                            .resizable()
-                            .interpolation(.high)
-                            .frame(width: drawingWidth, height: drawingHeight)
-                            // Register source anchor to master; 0.88 is a baseline,
-                            // not the centre of the image on the watch screen.
-                            .position(x: square * CGFloat(player.masterAnchor[0]) + drawingWidth * CGFloat(0.5 - player.anchor[0]),
-                                      y: square * CGFloat(player.masterAnchor[1]) + drawingHeight * CGFloat(0.5 - player.anchor[1]))
-                    }
-                    .frame(width: square, height: square)
-                    .clipped()
-                    .position(x: width * 0.5, y: height * 0.25 + square * 0.5)
-                    .opacity(wristDown ? 0.55 : 1)
+                PatrickLayoutFace(player: player, artwork: clockArtwork, experience: model.experience,
+                                  dimmed: wristDown, active: monitoring && !reduceMotion && !lowPower)
+                    .frame(width: width, height: height)
                     .contentShape(Rectangle())
                     .onTapGesture { model.performCare(.pet) }
                     .onLongPressGesture(minimumDuration: 0.45) { showingActions = true }
                     .accessibilityLabel("摸摸派大星")
                     .accessibilityAddTraits(.isButton)
-                } else {
-                    Text("動作畫稿尚未準備")
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                        .frame(width: square, height: square)
-                        .position(x: width * 0.5, y: height * 0.25 + square * 0.5)
-                }
-                PatrickIndependentClock(width: width, height: height, dimmed: wristDown, settings: model.experience.settings)
-                    .allowsHitTesting(false)
+                if PatrickFaceLayoutSpec.presentationID(model.experience.settings) != "theater" {
                 Text("\(model.experience.settings.mood.title) · \(player.isPlaying && surpriseExpiresAt == nil ? player.message : model.careNotice)")
                     .font(.system(size: max(8, width * 0.04)))
                     .foregroundStyle(.secondary)
@@ -85,6 +55,7 @@ struct PatrickAnimatedFaceView: View {
                     .multilineTextAlignment(.center)
                     .frame(width: width * 0.72)
                     .position(x: width * 0.46, y: height * 0.955)
+                }
                 if scenePhase == .active && !wristDown {
                     Button { showingActions = true } label: {
                         Image(systemName: "ellipsis.circle.fill").font(.title3)
@@ -240,9 +211,9 @@ struct PatrickAnimatedFaceView: View {
                             Text("\(activity.kind.title) \(Int(activity.remaining(at: tick.date)) / 60):\(String(format: "%02d", Int(activity.remaining(at: tick.date)) % 60))").monospacedDigit()
                         }
                         Button(activity.status == .paused ? "繼續" : "暫停") {
-                            model.updateExperience { if activity.status == .paused { $0.resume() } else { $0.pause() } }
+                            model.controlActivity(activity.status == .paused ? .resume : .pause)
                         }
-                        Button("結束計時", role: .destructive) { model.updateExperience { $0.cancel() } }
+                        Button("結束計時", role: .destructive) { model.controlActivity(.cancel) }
                     } else {
                         Picker("種類", selection: $activityKind) { ForEach(PatrickActivityKind.allCases) { Text($0.title).tag($0) } }
                         Picker("分鐘", selection: $activityMinutes) { ForEach([1, 3, 5, 10, 15, 25, 30, 60], id: \.self) { Text("\($0)分鐘").tag($0) } }
@@ -253,7 +224,7 @@ struct PatrickAnimatedFaceView: View {
                             showingActions = false
                         }
                     }
-                    Text("本機倒數，不記錄心率、距離或健身訓練。").font(.footnote).foregroundStyle(.secondary)
+                    Text("本機倒數，不記錄心率、距離或健身訓練。散步、跑步與肌力目前共用運動造型。").font(.footnote).foregroundStyle(.secondary)
                 }
                 Section("這套造型的動作") {
                     ForEach(availableOutfitClips) { actionButton($0) }
@@ -265,6 +236,7 @@ struct PatrickAnimatedFaceView: View {
                     Toggle("24小時制", isOn: setting(\.use24Hour))
                     Toggle("顯示日期", isOn: setting(\.showDate))
                     Toggle("場景點綴", isOn: setting(\.ambienceEnabled))
+                    PatrickLayoutPicker(settings: Binding(get: { model.experience.settings }, set: { value in model.updateExperience { $0.settings = value } }))
                     Picker("讀時", selection: setting(\.faceMode)) { ForEach(PatrickFaceMode.allCases) { Text($0.title).tag($0) } }
                     if clockArtwork.manifest == nil { Text(clockArtwork.message).font(.footnote) }
                     Text("手臂時計使用原味造型；動作時顯示所選衣服，數字時間一直保留。").font(.footnote)
@@ -301,7 +273,7 @@ struct PatrickAnimatedFaceView: View {
     private var resolvedScene: String {
         let selection = model.experience.settings.scene
         if selection != .automatic { return selection.rawValue }
-        if let activity = model.experience.activity, activity.status == .running { return activity.kind == .exercise ? "exercise" : "focus" }
+        if let activity = model.experience.activity, activity.status == .running { return activity.kind.sceneID }
         let device = WKInterfaceDevice.current()
         if device.batteryState == .charging || device.batteryState == .full || model.previewState == .charging { return "charging" }
         if model.experience.settings.isSleepTime(.now) || model.previewState == .sleeping { return "sleeping" }
@@ -400,8 +372,8 @@ struct PatrickAnimatedFaceView: View {
             endsAt: timer?.endsAt, at: date, allowCompletion: continuous)
         let activity = model.experience.activity
         let localRunning = activity?.status == .running
-        let localFocus = localRunning && activity?.kind != .exercise
-        let localExercise = localRunning && activity?.kind == .exercise
+        let localFocus = localRunning && activity?.kind.isExercise == false
+        let localExercise = localRunning && activity?.kind.isExercise == true
         configureOutfit()
         player.update(PatrickAnimationContext(
             active: monitoring, wristDown: wristDown,
@@ -422,35 +394,6 @@ struct PatrickAnimatedFaceView: View {
         if !monitoring || reduceMotion || lowPower {
             surpriseExpiresAt = nil
             model.refreshExperience(allowEffects: false)
-        }
-    }
-}
-
-private struct PatrickIndependentClock: View {
-    let width: CGFloat
-    let height: CGFloat
-    let dimmed: Bool
-    let settings: PatrickExperienceSettings
-
-    var body: some View {
-        // The clock has its own schedule; missing art, pause and errors cannot stop it.
-        TimelineView(.everyMinute) { timeline in
-            let parts = Calendar.current.dateComponents([.hour, .minute], from: timeline.date)
-            ZStack(alignment: .topLeading) {
-            let hour = parts.hour ?? 0
-            Text(String(format: "%02d:%02d", settings.use24Hour ? hour : (hour % 12 == 0 ? 12 : hour % 12), parts.minute ?? 0))
-                .font(.system(size: width * 0.145, weight: .medium, design: .rounded))
-                .monospacedDigit()
-                .foregroundStyle(.white.opacity(dimmed ? 0.72 : 1))
-                .position(x: width * 0.5, y: height * 0.11)
-                .accessibilityLabel("現在時間")
-            if settings.showDate { Text(timeline.date.formatted(.dateTime.month().day().weekday(.abbreviated)))
-                .font(.system(size: width * 0.042))
-                .foregroundStyle(.secondary)
-                .position(x: width * 0.5, y: height * 0.19)
-            }
-            }
-            .frame(width: width, height: height)
         }
     }
 }

@@ -11,6 +11,9 @@ struct TimerControlView: View {
                 Section("一起做一件事") {
                     Picker("種類", selection: $kind) { ForEach(PatrickActivityKind.allCases) { Text($0.title).tag($0) } }
                     Stepper("\(minutes)分鐘", value: $minutes, in: 1...120)
+                    if kind.isExercise {
+                        Text("散步、跑步與肌力是陪伴倒數的種類，目前共用運動造型。").font(.footnote).foregroundStyle(.secondary)
+                    }
                     if let activity = model.experience.activity, activity.status == .running || activity.status == .paused {
                         TimelineView(.periodic(from: .now, by: 1)) { tick in
                             let seconds = Int(activity.remaining(at: tick.date))

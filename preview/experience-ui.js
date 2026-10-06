@@ -1,6 +1,7 @@
-import { EXPERIENCE_KEY, TIMER_KINDS, restoreExperience, careNow, careAction, appendJournal, timerRemaining,
-  startActivity, pauseActivity, resumeActivity, finishActivity, cancelActivity, claimEgg, isSleepMinute } from './experience-core.js?v=20260927-experience2';
-import { holidayFor } from './pet-core.js?v=20260927-experience2';
+import { EXPERIENCE_KEY, TIMER_KINDS, isExerciseKind, restoreExperience, careNow, careAction, appendJournal, timerRemaining,
+  startActivity, controlActivity, finishActivity, claimEgg, isSleepMinute } from './experience-core.js?v=20261006-layouts1';
+import { holidayFor } from './pet-core.js?v=20261006-layouts1';
+import { DEFAULT_LAYOUT, validateLayouts } from './layout-core.js?v=20261006-layouts1';
 
 const $ = selector => document.querySelector(selector);
 export async function createExperience({ repo, revision, clips, read, write, getPet, setPet, player, shell }) {
@@ -22,7 +23,17 @@ export async function createExperience({ repo, revision, clips, read, write, get
   async function json(path) {
     try { const url = new URL(path, repo); url.searchParams.set('v', revision); const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(10000) }); return response.ok ? await response.json() : null; } catch { return null; }
   }
-  const [themes, sounds] = await Promise.all([json('experience/themes.json'), json('experience/audio/manifest.json')]);
+  const [themes, sounds, layoutManifest] = await Promise.all([json('experience/themes.json'), json('experience/audio/manifest.json'), json('experience/layouts.json')]);
+  let layouts = [DEFAULT_LAYOUT];
+  try { layouts = validateLayouts(layoutManifest); } catch { $('#layout-description').textContent = '版式資料未載入，先使用經典版。'; }
+  const layout = () => layouts.find(value => value.id === experience.settings.layoutID) || layouts[0];
+  for (const value of layouts) {
+    const option = document.createElement('option'); option.value = value.id; option.textContent = value.title; $('#face-layout').append(option);
+  }
+  $('#layout-picker').hidden = false;
+  $('#face-layout').addEventListener('change', event => {
+    experience.settings.layoutID = event.target.value; save(); updatePreferences();
+  });
   const available = id => clips.find(clip => clip.id === id && clip.available);
   const outfits = (Array.isArray(themes?.outfits) ? themes.outfits : []).filter(outfit => typeof outfit.id === 'string' && available(outfit.clipId));
   if (!outfits.length) {
@@ -36,7 +47,7 @@ export async function createExperience({ repo, revision, clips, read, write, get
   function resolvedScene() {
     if (player.state.scene !== 'auto') return player.state.scene;
     const activity = experience.activity;
-    if (activity && !activity.completedAt) return activity.kind === 'exercise' ? 'exercise' : 'focus';
+    if (activity && !activity.completedAt) return isExerciseKind(activity.kind) ? 'exercise' : 'focus';
     const date = new Date(), minute = date.getHours() * 60 + date.getMinutes();
     return isSleepMinute(minute, experience.settings.sleepStartMinutes, experience.settings.sleepEndMinutes) ? 'sleeping' : 'awake';
   }
@@ -148,7 +159,7 @@ export async function createExperience({ repo, revision, clips, read, write, get
   }
   function startTimer(kind, seconds, event) {
     gesture(event); experience = startActivity(experience, kind, seconds); journal('timer', `開始${TIMER_KINDS[kind]}陪伴。`);
-    player.changeScene(kind === 'exercise' ? 'exercise' : 'focus');
+    player.changeScene(isExerciseKind(kind) ? 'exercise' : 'focus');
     $('#activity-kind').value = kind; $('#activity-minutes').value = String(seconds / 60);
     switchTab('timer'); say(kind === 'breathing' ? '照自己的步調，慢慢來。' : '開始了，我在旁邊。'); feedback('start', event); refresh();
   }
@@ -176,6 +187,17 @@ export async function createExperience({ repo, revision, clips, read, write, get
       $('#breath-guide').style.setProperty('--breath-scale', activity.paused || player.quiet() ? '1' : String(phase < 4000 ? 1 + phase / 4000 * .18 : 1.18 - (phase - 4000) / 6000 * .18));
     }
     shell.report.activity = activity ? { id: activity.id, kind: activity.kind, paused: activity.paused, remainingMs: timerRemaining(activity, now), completedAt: activity.completedAt } : null;
+    updateLayoutInfo(now);
+  }
+  function updateLayoutInfo(now = Date.now()) {
+    const activity = experience.activity, seconds = Math.ceil(timerRemaining(activity, now) / 1000), care = careNow(experience.care, now);
+    for (const panel of document.querySelectorAll('.layout-information')) {
+      panel.querySelector('[data-layout-title]').textContent = activity ? TIMER_KINDS[activity.kind].replace('陪伴', '') : '陪伴倒數';
+      panel.querySelector('[data-layout-countdown]').textContent = activity ? `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}` : '—:—';
+      panel.querySelector('[data-layout-state]').textContent = !activity ? '還沒開始' : activity.completedAt !== null ? '這段完成了' : activity.paused ? '已暫停' : '一起慢慢來';
+      panel.querySelector('[data-layout-progress]').value = activity ? 1 - timerRemaining(activity, now) / activity.durationMs : 0;
+      panel.querySelector('[data-layout-care]').textContent = `飽足 ${Math.round(care.satiety)}%`;
+    }
   }
   function renderJournal() {
     const list = $('#local-journal'); list.replaceChildren();
@@ -203,7 +225,7 @@ export async function createExperience({ repo, revision, clips, read, write, get
     overlayContexts.forEach(context => context?.clearRect(0, 0, 832, 992));
     const quiet = player.quiet();
     const arms = clockRig && experience.settings.clockMode === 'arms' && !player.state.playing;
-    if (arms && !document.hidden) shell.report.armAngles = clockRig.draw(overlayContexts, new Date());
+    if (arms && !document.hidden) shell.report.armAngles = clockRig.draw(overlayContexts, new Date(), layout().characterTransform);
     shell.report.armClockActive = Boolean(arms && !document.hidden);
     if (quiet) { audio?.pause(); shell.report.ambienceActive = false; shell.report.clockMode = experience.settings.clockMode; return; }
     const scene = resolvedScene(), ambience = time < effectUntil ? transientEffect : ['charging', 'bath'].includes(scene) ? 'bubbles' : outfit().ambience;
@@ -250,6 +272,8 @@ export async function createExperience({ repo, revision, clips, read, write, get
     }
   }
   function updatePreferences() {
+    $('#face-layout').value = layout().id; $('#layout-description').textContent = layout().description;
+    player.setLayout(layout()); updateLayoutInfo();
     shell.setClockPreferences?.({ timeFormat: experience.settings.timeFormat, showDate: experience.settings.showDate });
     $('#sound-enabled').checked = experience.settings.sound; $('#haptics-enabled').checked = experience.settings.haptics;
     $('#ambience-enabled').checked = experience.settings.bubbles; $('#date-enabled').checked = experience.settings.showDate;
@@ -276,8 +300,14 @@ export async function createExperience({ repo, revision, clips, read, write, get
   $('#start-activity').addEventListener('click', event => startTimer($('#activity-kind').value, Number($('#activity-minutes').value) * 60, event));
   $('#exercise-timer').addEventListener('click', event => startTimer('exercise', 300, event));
   $('#breath-timer').addEventListener('click', event => startTimer('breathing', 60, event));
-  $('#pause-activity').addEventListener('click', () => { experience = pauseActivity(experience); save(); refresh(); });
-  $('#resume-activity').addEventListener('click', event => { gesture(event); experience = resumeActivity(experience); save(); refresh(); });
+  function controlTimer(action) {
+    const result = controlActivity(experience, action);
+    experience = result.state; save(); refresh();
+    if (result.status === 'completed') say('這一段已經完成了。');
+    return result;
+  }
+  $('#pause-activity').addEventListener('click', () => controlTimer('pause'));
+  $('#resume-activity').addEventListener('click', event => { gesture(event); controlTimer('resume'); });
   $('#birthday').value = getPet().birthday;
   $('#birthday').addEventListener('change', event => { setPet({ type: 'birthday', value: event.target.value }); $('#birthday').value = getPet().birthday; journal('birthday', getPet().birthday ? `記住生日 ${getPet().birthday}。` : '已清除生日。'); refresh(); });
   $('#export-journal').addEventListener('click', () => {
@@ -293,7 +323,7 @@ export async function createExperience({ repo, revision, clips, read, write, get
   return { experienceKey: EXPERIENCE_KEY, defaultClip: () => available(outfit().clipId), actionClip, idleClips: () => actionClips('idle'), resolvedScene,
     petAction, feedAction, refresh, sceneChanged, prepareScene() { actionOutfitId = null; }, quietChanged: startVisuals, frameChanged() { if (!visualRAF) drawVisuals(performance.now()); },
     focusTimer: event => startTimer('focus', 1500, event),
-    cancelTimer() { const existed = experience.activity; experience = cancelActivity(experience); if (existed) journal('cancel', '這一段先結束，沒有算作完成。'); else save(); refresh(); },
+    cancelTimer() { controlTimer('cancel'); },
     moodChanged(value) { setPet({ type: 'mood', value }); journal('mood', `今天的心情：${$('#mood').selectedOptions[0].textContent}。`); say(value === 'tired' || value === 'low' ? '今天慢一點也沒關係。' : '好，我記住了。'); refresh(); },
     heartbeat, calendarMoment,
     setClockRig(rig) { clockRig = rig; updatePreferences(); },

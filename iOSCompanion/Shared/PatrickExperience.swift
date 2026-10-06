@@ -29,6 +29,9 @@ struct PatrickExperienceSettings: Codable, Equatable, Sendable {
     var scene: PatrickExperienceScene = .automatic
     var mood: PatrickMood = .calm
     var faceMode: PatrickFaceMode = .digital
+    // Optional for v1 archives and WatchConnectivity peers made before layouts.
+    var layoutID: String?
+    var effectiveLayoutID: String { ["classic", "bold", "theater", "activity"].contains(layoutID ?? "") ? layoutID! : "classic" }
     var soundEnabled = false
     var hapticsEnabled = true
     var use24Hour = true
@@ -57,12 +60,38 @@ enum PatrickCareAction: String, CaseIterable, Codable, Identifiable, Sendable {
 }
 
 enum PatrickActivityKind: String, CaseIterable, Codable, Identifiable, Sendable {
-    case focus, breathing, exercise
+    case focus, breathing, exercise, walking, running, strength
     var id: String { rawValue }
     var title: String {
-        switch self { case .focus: "專注"; case .breathing: "呼吸休息"; case .exercise: "運動陪伴" }
+        switch self {
+        case .focus: "專注"
+        case .breathing: "呼吸休息"
+        case .exercise: "運動陪伴"
+        case .walking: "散步陪伴"
+        case .running: "跑步陪伴"
+        case .strength: "肌力陪伴"
+        }
     }
-    var clipID: String { self == .focus || self == .breathing ? "focus" : "exercise" }
+    var isExercise: Bool { self != .focus && self != .breathing }
+    var clipID: String { isExercise ? "exercise" : "focus" }
+    var sceneID: String { isExercise ? "exercise" : "focus" }
+}
+
+enum PatrickActivityControl: String, CaseIterable, Sendable { case pause, resume, cancel }
+
+enum PatrickActivityControlResult: Equatable, Sendable {
+    case paused, resumed, cancelled, alreadyPaused, alreadyRunning, completed, noActiveActivity
+    var message: String {
+        switch self {
+        case .paused: "陪伴倒數已暫停。"
+        case .resumed: "陪伴倒數已繼續。"
+        case .cancelled: "已結束陪伴倒數。"
+        case .alreadyPaused: "陪伴倒數已經暫停。"
+        case .alreadyRunning: "陪伴倒數已經在進行。"
+        case .completed: "這次陪伴倒數已完成。"
+        case .noActiveActivity: "目前沒有正在進行的陪伴倒數。"
+        }
+    }
 }
 
 struct PatrickLocalActivity: Codable, Equatable, Sendable {
@@ -215,6 +244,27 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
         guard var value = activity, value.status == .running || value.status == .paused else { return }
         value.status = .cancelled; value.endsAt = nil; value.remainingSeconds = 0
         activity = value; record("結束\(value.kind.title)", at: date); changed(at: date)
+    }
+
+    /// A shared control path for Shortcuts and phone controls. Settle an elapsed
+    /// deadline first; a late cancel is not allowed to erase a completed session.
+    /// Repeated pause/resume commands do not advance revision or move a deadline.
+    @discardableResult
+    mutating func controlActivity(_ command: PatrickActivityControl, at date: Date = .now) -> PatrickActivityControlResult {
+        if reconcile(at: date) != nil { return .completed }
+        guard let value = activity else { return .noActiveActivity }
+        if value.status == .completed { return .completed }
+        guard value.status == .running || value.status == .paused else { return .noActiveActivity }
+        switch command {
+        case .pause:
+            guard value.status == .running else { return .alreadyPaused }
+            pause(at: date); record("暫停\(value.kind.title)", at: date); return .paused
+        case .resume:
+            guard value.status == .paused else { return .alreadyRunning }
+            resume(at: date); record("繼續\(value.kind.title)", at: date); return .resumed
+        case .cancel:
+            cancel(at: date); return .cancelled
+        }
     }
 
     /// Returns the completed ID once. Call on foreground and while visible.

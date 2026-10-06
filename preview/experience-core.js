@@ -1,11 +1,13 @@
+import { layoutID } from './layout-core.js?v=20261006-layouts1';
 // Local companion state. None of these values represent health or sensor data.
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const number = (value, fallback) => Number.isFinite(value) ? value : fallback;
-export const TIMER_KINDS = Object.freeze({ focus: '專心', exercise: '運動陪伴', breathing: '呼吸' });
+export const TIMER_KINDS = Object.freeze({ focus: '專心', exercise: '運動陪伴', walking: '散步', running: '跑步', strength: '肌力', breathing: '呼吸' });
+export const isExerciseKind = kind => ['exercise', 'walking', 'running', 'strength'].includes(kind);
 export const EXPERIENCE_KEY = 'patrick.experience.v1';
 export function newExperience(now = Date.now()) {
   return { version: 1, outfitId: 'auto', settings: { sound: false, haptics: true, timeFormat: '24', clockMode: 'digital', bubbles: true, showDate: true,
-    sleepStartMinutes: 1320, sleepEndMinutes: 360, holidaysEnabled: true },
+    sleepStartMinutes: 1320, sleepEndMinutes: 360, holidaysEnabled: true, layoutID: 'classic' },
     care: { satiety: 60, bond: 0, updatedAt: now }, journal: [], activity: null, easterEggs: {} };
 }
 export function restoreExperience(raw, now = Date.now()) {
@@ -15,7 +17,7 @@ export function restoreExperience(raw, now = Date.now()) {
   base.outfitId = typeof raw.outfitId === 'string' ? raw.outfitId.slice(0, 100) : 'auto';
   base.settings = { sound: preferences.sound === true, haptics: preferences.haptics !== false,
     timeFormat: preferences.timeFormat === '12' ? '12' : '24', clockMode: preferences.clockMode === 'arms' ? 'arms' : 'digital',
-    bubbles: preferences.bubbles !== false, showDate: preferences.showDate !== false, holidaysEnabled: preferences.holidaysEnabled !== false,
+    bubbles: preferences.bubbles !== false, showDate: preferences.showDate !== false, holidaysEnabled: preferences.holidaysEnabled !== false, layoutID: layoutID(preferences.layoutID),
     sleepStartMinutes: clamp(Math.floor(number(preferences.sleepStartMinutes, 1320)), 0, 1439),
     sleepEndMinutes: clamp(Math.floor(number(preferences.sleepEndMinutes, 360)), 0, 1439) };
   base.care = { satiety: clamp(number(raw.care?.satiety, 60), 0, 100), bond: clamp(number(raw.care?.bond, 0), 0, 100),
@@ -75,6 +77,17 @@ export function finishActivity(state, now = Date.now()) {
   return appendJournal(next, 'complete', `${TIMER_KINDS[state.activity.kind]}完成了 ${Math.round(state.activity.durationMs / 1000)} 秒。`, now);
 }
 export function cancelActivity(state) { return { ...state, activity: null }; }
+export function controlActivity(state, action, now = Date.now()) {
+  if (!['pause', 'resume', 'cancel'].includes(action)) return { state, status: 'invalid' };
+  const settled = finishActivity(state, now), activity = settled.activity;
+  if (!activity) return { state: settled, status: 'no-active' };
+  if (activity.completedAt !== null) return { state: settled, status: 'completed' };
+  if (action === 'pause') return activity.paused ? { state: settled, status: 'already-paused' }
+    : { state: pauseActivity(settled, now), status: 'paused' };
+  if (action === 'resume') return !activity.paused ? { state: settled, status: 'already-running' }
+    : { state: resumeActivity(settled, now), status: 'resumed' };
+  return { state: appendJournal(cancelActivity(settled), 'cancel', '這一段先結束，沒有算作完成。', now), status: 'cancelled' };
+}
 export function claimEgg(state, id, cooldownMs, now = Date.now()) {
   const previous = state.easterEggs[id];
   if (Number.isFinite(previous) && Math.max(0, now - previous) < cooldownMs) return { state, claimed: false };

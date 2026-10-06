@@ -58,6 +58,22 @@ class ExperienceSyncTests(unittest.TestCase):
             synchronize(self.root)
         self.assertEqual(contract.read_bytes(), b"local edit")
 
+    def test_missing_or_mismatched_layout_contract_blocks_copy(self):
+        self.contract.update(layoutsPath="experience/layouts.json", allowedLayoutIDs=["classic", "bold", "theater", "activity"])
+        self.contract["settings"]["layoutID"] = "classic"
+        (self.source / "contract.json").write_text(json.dumps(self.contract), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "Required source resource is missing"):
+            synchronize(self.root)
+        self.assertFalse((self.root / "PatrickFace").exists())
+        layouts = json.loads((ROOT / "experience/layouts.json").read_text(encoding="utf-8"))
+        layouts["layouts"][-1]["id"] = "unrecognized"
+        (self.source / "layouts.json").write_text(json.dumps(layouts), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "Layout catalog and settings contract disagree"):
+            synchronize(self.root)
+        self.assertFalse((self.root / "PatrickFace").exists())
+        (self.source / "layouts.json").write_bytes((ROOT / "experience/layouts.json").read_bytes())
+        self.assertEqual(synchronize(self.root)["status"], "SYNCED")
+
     def test_hash_mismatch_or_traversal_prevents_any_destination_write(self):
         manifest = self.source / "audio/manifest.json"
         original = manifest.read_bytes()

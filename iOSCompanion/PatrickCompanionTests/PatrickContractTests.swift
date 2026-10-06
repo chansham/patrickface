@@ -2,6 +2,44 @@ import XCTest
 @testable import PatrickCompanion
 
 final class PatrickContractTests: XCTestCase {
+    func testNamedExerciseTimersSurviveWatchEnvelopeAndPersistence() throws {
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
+        let suiteName = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suiteName)!
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+        let store = PatrickSharedStore(defaults: defaults)
+        for kind in [PatrickActivityKind.walking, .running, .strength] {
+            var experience = PatrickExperienceState()
+            experience.start(kind, seconds: 120, at: now)
+            XCTAssertEqual(experience.controlActivity(.pause, at: now.addingTimeInterval(30)), .paused)
+            store.saveExperience(experience)
+            XCTAssertEqual(store.loadExperience(), experience)
+            var settings = PatrickSettings.defaults; settings.experience = experience
+            let decoded = try PatrickMessageEnvelope.decode(PatrickMessageEnvelope.snapshot(settings: settings).encoded())
+            let incoming = try XCTUnwrap(decoded.settings?.experience)
+            XCTAssertEqual(incoming.activity?.kind, kind)
+            XCTAssertEqual(incoming.activity?.remainingSeconds, 90)
+            XCTAssertEqual(kind.sceneID, "exercise")
+            XCTAssertEqual(kind.clipID, "exercise", "Specific labels share existing exercise art")
+        }
+    }
+
+    func testLateTimerControlCompletesOnceAndKeepsCompanionPresentationConsistent() throws {
+        let now = Date(timeIntervalSince1970: 1_800_000_000)
+        for command in PatrickActivityControl.allCases {
+            var state = PatrickExperienceState()
+            state.start(.running, seconds: 60, at: now)
+            XCTAssertEqual(state.controlActivity(command, at: now.addingTimeInterval(60)), .completed)
+            let revision = state.revision
+            XCTAssertEqual(state.controlActivity(command, at: now.addingTimeInterval(61)), .completed)
+            XCTAssertEqual(state.revision, revision)
+            XCTAssertEqual(state.care.bond, 1)
+            XCTAssertEqual(state.journal.filter { $0.text == "完成跑步陪伴" }.count, 1)
+            let presentation = PatrickTimerSnapshot.resolving(.inactive, experience: state, at: now.addingTimeInterval(61))
+            XCTAssertEqual(presentation.status, .complete)
+        }
+    }
+
     func testNewExperienceTimerWinsOverLegacyTimerInSameEnvelope() {
         let now = Date(timeIntervalSince1970: 1_800_000_000)
         let old = PatrickTimerSnapshot(id: UUID(), status: .running, title: "Old timer A", startedAt: now,

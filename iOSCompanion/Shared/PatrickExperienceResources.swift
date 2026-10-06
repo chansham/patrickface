@@ -9,6 +9,11 @@ import UIKit
 #endif
 
 enum PatrickExperienceResources {
+    static func layouts(bundle: Bundle = .main) -> [PatrickFaceLayoutSpec] {
+        guard let url = url("layouts.json", bundle: bundle), let data = try? Data(contentsOf: url),
+              let value = try? JSONDecoder().decode(PatrickFaceLayoutCatalog.self, from: data), value.isValid else { return [.classic] }
+        return value.layouts
+    }
     static func calendar(bundle: Bundle = .main) -> PatrickCelebrationCalendar? {
         guard let url = url("calendar.json", bundle: bundle), let data = try? Data(contentsOf: url),
               let value = try? JSONDecoder().decode(PatrickCelebrationCalendar.self, from: data), value.schemaVersion == 1 else { return nil }
@@ -119,5 +124,150 @@ final class PatrickFeedback: ObservableObject {
             player?.volume = Float(entry["gain"] as? Double ?? 0.35)
             player?.play()
         } catch { stop() }
+    }
+}
+
+
+/// One shared manifest controls both apps and the web preview; transforms are whole-clip.
+struct PatrickFaceLayoutCatalog: Decodable {
+    let schemaVersion: Int
+    let coordinateSize: [Double]
+    let layouts: [PatrickFaceLayoutSpec]
+    var isValid: Bool {
+        schemaVersion == 1 && coordinateSize == [832, 992]
+            && Set(layouts.map(\.id)) == Set(["classic", "bold", "theater", "activity"])
+            && layouts.count == 4 && layouts.allSatisfy(\.isValid)
+    }
+}
+struct PatrickFaceLayoutSpec: Decodable, Identifiable {
+    let id: String
+    let title: String
+    let description: String
+    let characterTransform: [Double]
+    let timeCenter: [Double]
+    let timeFontSize: Double
+    let dateCenter: [Double]
+    let dateFontSize: Double
+    let informationRect: [Double]?
+    var isValid: Bool {
+        characterTransform.count == 3 && characterTransform.allSatisfy(\.isFinite)
+            && characterTransform[0] > 0 && characterTransform[0] <= 1
+            && timeCenter.count == 2 && timeCenter.allSatisfy(\.isFinite)
+            && dateCenter.count == 2 && dateCenter.allSatisfy(\.isFinite)
+            && (80...180).contains(timeFontSize) && (20...40).contains(dateFontSize)
+            && (informationRect == nil || (informationRect!.count == 4 && informationRect!.allSatisfy(\.isFinite)))
+    }
+    static let classic = PatrickFaceLayoutSpec(id: "classic", title: "經典陪伴", description: "上方看時間，中央看角色。",
+        characterTransform: [1, 0, 0], timeCenter: [416, 109], timeFontSize: 108,
+        dateCenter: [416, 205], dateFontSize: 28, informationRect: nil)
+    static let available = PatrickExperienceResources.layouts()
+    static func resolve(_ id: String) -> PatrickFaceLayoutSpec { available.first { $0.id == id } ?? .classic }
+    static func presentationID(_ settings: PatrickExperienceSettings) -> String {
+        #if DEBUG && targetEnvironment(simulator)
+        let arguments = ProcessInfo.processInfo.arguments
+        if let index = arguments.firstIndex(of: "--patrick-preview-layout"), arguments.indices.contains(index + 1),
+           ["classic", "bold", "theater", "activity"].contains(arguments[index + 1]) { return arguments[index + 1] }
+        #endif
+        return settings.effectiveLayoutID
+    }
+}
+struct PatrickLayoutPicker: View {
+    @Binding var settings: PatrickExperienceSettings
+    var body: some View {
+        Picker("錶面版式", selection: Binding(get: { settings.effectiveLayoutID }, set: { settings.layoutID = $0 })) {
+            ForEach(PatrickFaceLayoutSpec.available) { Text($0.title).tag($0.id) }
+        }
+        Text(PatrickFaceLayoutSpec.resolve(settings.effectiveLayoutID).description).font(.footnote).foregroundStyle(.secondary)
+    }
+}
+
+/// Numeric clock always has its own timeline, even if an animation cannot load.
+/// The image, hand rig and anchor all receive the SAME layout transform.
+@MainActor struct PatrickLayoutFace: View {
+    @ObservedObject var player: PatrickAnimationPlayer
+    @ObservedObject var artwork: PatrickClockArtwork
+    let experience: PatrickExperienceState
+    var dimmed = false
+    var active = true
+    private var layout: PatrickFaceLayoutSpec { .resolve(PatrickFaceLayoutSpec.presentationID(experience.settings)) }
+    var body: some View {
+        GeometryReader { geometry in
+            let unit = min(geometry.size.width / 832, geometry.size.height / 992)
+            let width = 832 * unit, height = 992 * unit
+            ZStack(alignment: .topLeading) {
+                character(unit: unit)
+                    .frame(width: width, height: height, alignment: .topLeading)
+                    .scaleEffect(CGFloat(layout.characterTransform[0]), anchor: .topLeading)
+                    .offset(x: layout.characterTransform[1] * unit, y: layout.characterTransform[2] * unit)
+                digitalClock(unit: unit)
+                if let rect = layout.informationRect {
+                    PatrickLayoutActivity(experience: experience, active: active && !dimmed, unit: unit)
+                        .frame(width: rect[2] * unit, height: rect[3] * unit)
+                        .position(x: (rect[0] + rect[2] / 2) * unit, y: (rect[1] + rect[3] / 2) * unit)
+                }
+            }
+            .frame(width: width, height: height)
+            .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+        }
+    }
+    @ViewBuilder private func character(unit: CGFloat) -> some View {
+        if experience.settings.faceMode == .arms && artwork.manifest != nil && !player.isPlaying {
+            PatrickOrganicClock(artwork: artwork, dimmed: dimmed).frame(width: 832 * unit, height: 992 * unit)
+        } else if let image = player.image {
+            let side = 665.6 * unit
+            let w = side * CGFloat(min(1, player.cellAspectRatio) * player.drawingScale)
+            let h = side * CGFloat(min(1, 1 / player.cellAspectRatio) * player.drawingScale)
+            Image(decorative: image, scale: 1).resizable().interpolation(.high)
+                .frame(width: w, height: h)
+                .position(x: 83.2 * unit + side * CGFloat(player.masterAnchor[0]) + w * CGFloat(0.5 - player.anchor[0]),
+                          y: 248 * unit + side * CGFloat(player.masterAnchor[1]) + h * CGFloat(0.5 - player.anchor[1]))
+                .opacity(dimmed ? 0.55 : 1)
+        } else {
+            Text("動作畫稿尚未準備").font(.footnote).foregroundStyle(.secondary)
+                .frame(width: 665.6 * unit, height: 665.6 * unit).position(x: 416 * unit, y: 580.8 * unit)
+        }
+    }
+    private func digitalClock(unit: CGFloat) -> some View {
+        TimelineView(.everyMinute) { tick in
+            let parts = Calendar.current.dateComponents([.hour, .minute], from: tick.date)
+            let hour = parts.hour ?? 0, settings = experience.settings
+            ZStack(alignment: .topLeading) {
+                HStack(alignment: .firstTextBaseline, spacing: 7 * unit) {
+                    Text(String(format: "%02d:%02d", settings.use24Hour ? hour : (hour % 12 == 0 ? 12 : hour % 12), parts.minute ?? 0))
+                        .font(.system(size: layout.timeFontSize * unit, weight: layout.id == "bold" ? .semibold : .medium, design: .rounded)).monospacedDigit()
+                    if !settings.use24Hour { Text(hour < 12 ? "AM" : "PM").font(.system(size: 24 * unit)) }
+                }
+                .foregroundStyle(.white.opacity(dimmed ? 0.72 : 1))
+                .position(x: layout.timeCenter[0] * unit, y: layout.timeCenter[1] * unit)
+                .accessibilityLabel("現在時間")
+                if settings.showDate {
+                    Text(tick.date.formatted(.dateTime.month().day().weekday(.abbreviated)))
+                        .font(.system(size: max(8, layout.dateFontSize * unit))).foregroundStyle(.secondary)
+                        .position(x: layout.dateCenter[0] * unit, y: layout.dateCenter[1] * unit)
+                }
+            }.frame(width: 832 * unit, height: 992 * unit)
+        }.allowsHitTesting(false)
+    }
+}
+
+private struct PatrickLayoutActivity: View {
+    let experience: PatrickExperienceState
+    let active: Bool
+    let unit: CGFloat
+    var body: some View {
+        TimelineView(.periodic(from: .now, by: active && experience.activity?.status == .running ? 1 : 60)) { tick in
+            let activity = experience.activity
+            let seconds = Int(ceil(activity?.remaining(at: tick.date) ?? 0))
+            VStack(alignment: .leading, spacing: max(3, 18 * unit)) {
+                Text(activity?.kind.title.replacingOccurrences(of: "陪伴", with: "") ?? "陪伴倒數").font(.system(size: max(8, 42 * unit))).lineLimit(2)
+                Text(activity == nil ? "—:—" : String(format: "%02d:%02d", seconds / 60, seconds % 60))
+                    .font(.system(size: max(14, 72 * unit), weight: .medium, design: .rounded)).monospacedDigit().minimumScaleFactor(0.8).lineLimit(1)
+                Text(activity == nil ? "還沒開始" : activity?.status == .paused ? "已暫停" : activity?.status == .completed ? "這段完成了" : activity?.status == .cancelled ? "已結束" : "一起慢慢來")
+                    .font(.system(size: max(8, 38 * unit))).lineLimit(2)
+                ProgressView(value: activity.map { 1 - $0.remaining(at: tick.date) / max(1, $0.durationSeconds) } ?? 0).tint(.pink)
+                Text("飽足 \(Int(experience.care.satiety.rounded()))%").font(.system(size: max(8, 42 * unit)))
+            }.foregroundStyle(.secondary).padding(.leading, 25 * unit)
+                .overlay(alignment: .leading) { Rectangle().fill(Color.pink.opacity(0.35)).frame(width: max(0.5, unit)) }
+        }.allowsHitTesting(false)
     }
 }

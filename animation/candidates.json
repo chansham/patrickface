@@ -458,7 +458,7 @@
       "frameLabels": [],
       "frameRegions": {
         "path": "animation/exercise-v2/regions-v1.json",
-        "sha256": "1561eae78deaed2c58cfdecebb42cc385eb744451fa0628321b17a7674966e6a",
+        "sha256": "d35a5757a30cc481996886d55b7c3e5517431ad425ff2664c313382be83b07ad",
         "version": 1
       },
       "renderingRevision": "contour-v1"

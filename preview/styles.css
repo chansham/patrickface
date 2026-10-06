@@ -15,3 +15,13 @@
 @media(max-width:760px){.experience-panel{margin-top:25px;padding:19px 18px}.outfit-grid{max-height:none}.experience-panel .timer-controls button{padding:10px 12px}body[data-experience=active] .editing{display:block}.activity-display output{font-size:23px}.preferences-grid{grid-template-columns:1fr 1fr}}
 
 .preferences-grid label[for^="sleep-"]{flex-direction:column;align-items:stretch;gap:7px}.experience-panel input[type=time]{width:100%;min-width:0;background:#2a232f;border:1px solid #59435f;border-radius:10px;color:#efdeed;padding:9px}
+
+/* Shared watch layouts: typography is independent of animation and scaled by screen width. */
+.layout-picker{border-bottom:1px solid #48394d;margin:0 0 24px;padding-bottom:15px}.layout-picker label{margin:0;font-size:13px}.layout-picker p{margin:10px 0 0;font-size:11px;color:#bba4c4;line-height:1.7}
+.screen[data-layout] .digital-time{left:var(--time-x);top:var(--time-y);font-size:var(--time-size);transform:translate(-50%,-50%);line-height:1.1;white-space:nowrap;letter-spacing:-.045em}
+.screen[data-layout] .watch-date{left:var(--date-x);top:var(--date-y);width:80%;font-size:var(--date-size);transform:translate(-50%,-50%);white-space:nowrap;line-height:1.2;z-index:2}
+.screen[data-layout=bold] .digital-time{font-weight:620}.screen[data-layout=theater] .digital-time{letter-spacing:-.04em}.screen[data-layout=theater] .companion-speech{bottom:22%}
+.layout-information{position:absolute;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:2.5cqw;border-left:1px solid #85608077;padding-left:3cqw;font-size:3.6cqw;color:#cbb6d1;pointer-events:none}
+.layout-information strong{font-size:7.8cqw;font-weight:550;color:#fff0f9;font-variant-numeric:tabular-nums;letter-spacing:-.055em}.layout-information progress{width:100%;height:3px;margin:0 0 2cqw}.layout-information [data-layout-state]{font-size:3.1cqw}.screen[data-layout=activity] .companion-speech{bottom:5%}
+
+.layout-information{gap:2.2cqw;font-size:5cqw}.layout-information strong{font-size:8.65cqw}.layout-information [data-layout-state]{font-size:4.55cqw}

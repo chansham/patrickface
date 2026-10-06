@@ -1,8 +1,9 @@
-import { STAGE, normalizeClip, sourceRect, destinationRect, validateFrameRegions, frameAt, isIdleClip, IdleScheduler, restoreEvents, bedtimeRemaining, automaticAllowed, reviewKey, cleanReview } from './player-core.js?v=20260927-experience2';
-import { newPet, restorePet, dispatch, resolveScene, MOODS } from './pet-core.js?v=20260927-experience2';
-import { createExperience } from './experience-ui.js?v=20260927-experience2';
-import { EXPERIENCE_KEY } from './experience-core.js?v=20260927-experience2';
-import { createClockRig } from './clock-rig.js?v=20260927-experience2';
+import { STAGE, normalizeClip, sourceRect, destinationRect, validateFrameRegions, frameAt, isIdleClip, IdleScheduler, restoreEvents, bedtimeRemaining, automaticAllowed, reviewKey, cleanReview } from './player-core.js?v=20261006-layouts1';
+import { newPet, restorePet, dispatch, resolveScene, MOODS } from './pet-core.js?v=20261006-layouts1';
+import { createExperience } from './experience-ui.js?v=20261006-layouts1';
+import { EXPERIENCE_KEY } from './experience-core.js?v=20261006-layouts1';
+import { createClockRig } from './clock-rig.js?v=20261006-layouts1';
+import { DEFAULT_LAYOUT, transformRect, applyLayoutDOM } from './layout-core.js?v=20261006-layouts1';
 
 const $ = selector => document.querySelector(selector);
 const shell = window.__patrickPreviewShell;
@@ -12,6 +13,7 @@ const revision = `${shell.build}-${new URL(location.href).searchParams.get('retr
 const repo = new URL('../', import.meta.url);
 const keys = { settings: 'patrick.animation-player.v1', events: 'patrick.animation-events.v1', pet: 'patrick.pet.v1', experience: EXPERIENCE_KEY };
 let experienceUI = null;
+let faceLayout = DEFAULT_LAYOUT;
 let storageAvailable = true;
 function read(key) { try { return JSON.parse(localStorage.getItem(key)); } catch { storageAvailable = false; return null; } }
 function write(key, value) {
@@ -205,7 +207,7 @@ function display(index) {
   state.frame = index;
   for (let i = 0; i < contexts.length; i++) {
     contexts[i].clearRect(0, 0, STAGE.width, STAGE.height);
-    if (clip?.available) drawCell(contexts[i], clip, index, destinationRect(clip, catalog.master));
+    if (clip?.available) drawCell(contexts[i], clip, index, transformRect(destinationRect(clip, catalog.master), faceLayout));
     canvases[i].dataset.frame = String(index); canvases[i].dataset.clip = clip?.id || '';
   }
   shell.report.frames++; shell.report.currentClip = clip?.id; shell.report.currentFrame = index;
@@ -434,6 +436,7 @@ $('#export-review').addEventListener('click', () => {
 
 if (!candidateMode) experienceUI = await createExperience({ repo, revision, clips, read, write, getPet: () => pet, setPet: savePet, shell,
   player: { state, quiet: () => document.hidden || blocked(), noCatchupBefore: () => noCatchupBefore,
+    setLayout(layout) { faceLayout = layout; applyLayoutDOM(layout); shell.report.layout = layout; if (state.clip) display(state.frame); },
     play: playClip, select: clip => selectClip(clip), hold: holdReview, changeScene: applyScene,
     resume() { pause(); state.reviewing = false; idle.reset(); controls(); },
     thumbnail(context, clip, rectangle) {

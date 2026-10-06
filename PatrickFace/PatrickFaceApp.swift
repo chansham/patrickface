@@ -58,6 +58,13 @@ final class PatrickAppModel: ObservableObject {
         persistExperience()
     }
 
+    func controlActivity(_ command: PatrickActivityControl) {
+        let revision = experience.revision
+        let result = experience.controlActivity(command)
+        if experience.revision != revision { persistExperience() }
+        careNotice = result.message
+    }
+
     func performCare(_ action: PatrickCareAction, allowEffects: Bool = true) {
         guard experience.perform(action) else { careNotice = "稍等一下，再\(action.title)"; return }
         requestedAction = allowEffects ? action : nil

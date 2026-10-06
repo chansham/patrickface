@@ -17,3 +17,15 @@
 正常速度補查已完成：真實瀏覽器 1×、3380 ms，16 幀均到、停末幀、不自動重播。調整後主體約 577–585 畫布像素高，展示尺寸與其他候選較合理；彎舉、放下與吐氣清楚，原稿的小幅身形變化仍保留。這是可讀的候選動作，並非正式美術批准。證據見 [正常速報告](../../output/playwright/batch2-normal-speed/report.json) 和 [連續影格](../../output/playwright/batch2-normal-speed/exercise-batch2-candidate-sequence.png)。
 
 機讀資料：[本批 candidate-qc.json](../production-20260927-batch2/candidate-qc.json)。
+
+## 2026-10-06 定位缺陷修正
+
+本輪重新實看正確 alpha 合成的原圖，確認雙腳基本在原位，但舊輪廓 sidecar 用核心下方 15% 的 x 範圍定水平 anchor，混入低垂的啞鈴。第 1 格 anchor 相對原名義格為 180 px，第 2 格為 198 px；第 11 格與結尾又回到 180–187 px，這是額外的整人左右跳動，不應全部歸因於原畫。
+
+已使用逐格**原核心底部 12 px、實際雙腳範圍**重新定水平 anchor；此规则以來源 SHA 限定在這張坐姿圖，不能拿來消除日後跑步／跳躍的真實位移。所有 row masks、sourceBounds、原 PNG、728×728 畫布、垂直定位及整段比例不變，只改整數水平平移。514,482 個非透明像素仍完整且唯一分配，沒有捨棄道具或吐氣雲。
+
+以獨立的上部 20% 頭輪廓作量測，水平中心範圍由 18.6128 降到 2.6814 原圖像素；這不是要求頭部完全固定。核心高度 237–241 px、強 alpha 面積 28,061–29,636 px 保持原樣；第 5 格前臂／手腕、動作轉折及非完全一致的首尾仍待美術修正。
+
+新 regions SHA-256：`d35a5757a30cc481996886d55b7c3e5517431ad425ff2664c313382be83b07ad`。可恢復的 [舊定位](../production-20261006/exercise-regions-before-anchor-fix.json) 與 [完整前後逐格證據](../production-20261006/contour-audit.json) 均保留。輪廓工具 12 項測試通過，來源與兩目錄驗證通過。
+
+修正後[正常 1× 播放](../../output/playwright/20261006-exercise-anchor/report.json)使用真實瀏覽器時鐘，16 格／3380 ms 全部到達並停末格，沒有自動重播。實看實播擷取的[連續幀](../../output/playwright/20261006-exercise-anchor/exercise-sequence.png)：第 1→2 格不再見舊約 44 stage px 的整人跳，第 10→11 格腳底也穩；但第 5 格前臂仍較細長、第 10–12 格握持收回仍有形變、第 13→14 格喘氣轉回正臉仍偏快。結論是「播放技術通過、定位改善，原畫過渡待修」，不是美術批准。

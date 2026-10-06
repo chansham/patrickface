@@ -55,6 +55,7 @@ jobs:
             --phone-app "$PATRICK_PHONE_SIM_APP" \
             --watch-app "$PATRICK_WATCH_SIM_APP" \
             --phone-udid "$PATRICK_TEST_PHONE_UDID" \
+            --layouts classic bold theater activity \
             --output "$RUNNER_TEMP/patrick-ci-logs/native-screens" \
             2>&1 | tee "$RUNNER_TEMP/patrick-ci-logs/capture.log"
       - name: Keep private build diagnostics
