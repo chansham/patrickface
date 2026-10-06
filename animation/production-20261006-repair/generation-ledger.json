@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "tool": "built-in image_gen",
+  "artApproved": false,
+  "requests": [
+    {
+      "id": "focus-proportions-v2",
+      "prompt": "Use case: identity-preserve.\nAsset type: revised transparent character animation atlas for a personal watch app.\nInput image 1 is the edit target: Patrick Star in navy formal jacket, round black glasses, white shirt, red tie, green floral shorts, holding a small cream spiral notepad. Input image 2 is ONLY a seated body-proportion and clean cel drawing reference; do not copy its pajamas, hat, pillow or yawning.\nRedraw target as a clean sixteen-frame animation sheet, FOUR columns by FOUR rows. Repair the compressed torso: give the seated body natural belly and jacket volume below the face, while keeping Patrick recognizable and keeping head/face size constant through all sixteen drawings. The last row must not shrink. Preserve the outfit, glasses, notepad, coral skin, white sclera, black pupils and coral eyelids. Serious, slightly deadpan personality.\nSequence: 1 attentive neutral holding notepad; 2 gaze drops to notes; 3 thoughtful squint; 4 glasses start sliding down; 5 notices; 6 looks over lowered glasses; 7 right arm begins lifting naturally from jacket sleeve; 8 fingertips approach outside glasses rim; 9 gently pushes the rim upward without covering or crossing through an eye; 10 pushes to normal position; 11 hand starts lowering; 12 hand midway down; 13 returns hand to notepad; 14 slight satisfied closed-mouth smile; 15 blink; 16 returns exactly to the first neutral drawing. Notepad remains supported by the other arm throughout.\nFixed camera, identical anatomical dimensions and identical feet baseline in all cells, no zoom, no per-frame stretching. Every full character has generous transparent space around head and feet and between neighbors; approximately 65% cell height. Soft thick starfish arms, consistent wrist thickness and continuous sleeve contact, exactly two arms and two feet. Actual distinct limb and facial drawings; no whole-body swaying. Clear flat 2D cel colors and black outlines close to the supplied art. Transparent alpha background, no grid, labels, numbers, detached specks, realistic textures or added props.",
+      "references": [
+        "animation/focus-v1/atlas-generated.png",
+        "animation/yawn-v1/atlas-eyes-v2.png"
+      ],
+      "status": "candidate-needs-body-proportion-revision",
+      "output": "animation/focus-v2/atlas-generated.png",
+      "selectedForReview": true,
+      "qc": "animation/production-20261006-repair/focus-v2-qc.json",
+      "promotedToMain": false,
+      "runtimeReview": "animation/production-20261006-repair/runtime-review.json"
+    },
+    {
+      "id": "chef-proportions-v2",
+      "prompt": "Use case: identity-preserve.\nAsset type: repaired transparent twelve-frame character animation atlas.\nImage 1 is the EDIT TARGET: the seated Patrick Star chef eating one cookie, with mint apron, white chef hat, cream plate, green floral shorts and dark cushion. Image 2 is ONLY a reference for Patrick's readable face-to-body proportions and flat cel finish; do not add its pajamas, pillow or hat.\nRepair two specific problems in image 1: the face reads too narrow/small under the tall chef hat, and the bitten cookie incorrectly becomes whole again at the end. Widen the head/face about 15 percent relative to the unchanged torso, with naturally spaced large white eyes and black pupils. Make the chef hat roughly 30 percent shorter, compact and softly puffed. Preserve the coral starfish identity, mint apron and existing accessories. Maintain these SAME repaired anatomical proportions in all twelve drawings; do not stretch the whole character or separately fit each drawing.\nRedraw exactly TWELVE frames in FOUR columns by THREE rows. Fixed front three-quarter camera and seated feet/cushion baseline, full intact head and feet, generous transparent margins so no neighboring drawings touch. Sequence: 1 holds intact cookie near chest, other arm supports plate; 2 looks at cookie; 3 raises it toward mouth; 4 opens mouth; 5 takes one bite with cookie clearly at lips; 6 withdraws cookie with a visible missing crescent; 7 chews with small cheek bulge; 8 content blink; 9 swallows and smiles; 10 lowers the same bitten cookie toward the plate; 11 places that bitten cookie on the plate; 12 both arms settle while the SAME visibly bitten cookie rests on the plate. After frame5 the missing bite stays in the same position and never regrows. This is one event, not a loop.\nReal sequential hand and mouth poses, not image swaying. Exactly two soft thick starfish arms and two feet; continuous hand-cookie/plate contact; mouth and eyes stay attached consistently. White eye whites, black pupils, coral eyelids including closed eyes. Clean 2D cartoon cel art and black outlines, no realistic textures. Transparent alpha background, no frame lines, numbers, text or loose debris.",
+      "references": [
+        "animation/feeding-chef-v1/atlas-generated.png",
+        "animation/yawn-v1/atlas-eyes-v2.png"
+      ],
+      "status": "candidate-needs-cookie-revision",
+      "output": "animation/feeding-chef-v2/atlas-generated.png",
+      "initialVisualFinding": "Final cookie still looks whole; further edit required.",
+      "selectedForReview": true,
+      "qc": "animation/production-20261006-repair/feeding-chef-v2-qc.json",
+      "promotedToMain": false,
+      "runtimeReview": "animation/production-20261006-repair/runtime-review.json"
+    },
+    {
+      "id": "focus-last-row-v3",
+      "prompt": "Use case: precise-object-edit.\nEdit this 4-column by 4-row sixteen-frame Patrick Star animation atlas. Change ONLY the lower row (frames 13,14,15,16). The other twelve drawings and their positions must stay unchanged.\nThe last row is wrongly compressed vertically: its torso between eyes and feet is about 8 percent shorter despite having the same face width. REDRAW the final four characters to match the full seated torso, jacket length, belly volume and feet placement of frame1. Do not simply enlarge or stretch the last-row pictures: retain identical head width, eye spacing, arm thickness and feet size. Restore the missing torso length below the face. At frame16, the entire neutral character, notepad and outfit should match frame1 exactly in anatomy and local pose. Frame13 has hand settled on notepad, frame14 slight satisfied smile, frame15 gentle blink, frame16 first neutral pose. Keep navy jacket, white shirt, red tie, round glasses, cream notepad, coral skin, white sclera, black pupils and coral eyelids.\nPreserve exactly sixteen separate complete characters in reading order, transparent alpha background and clean black-outlined 2D cel style. Keep complete head and feet and all transparent separation between adjacent characters. No extra text, props, grid, zoom or per-frame fitting.",
+      "references": [
+        "animation/focus-v2/atlas-generated.png"
+      ],
+      "status": "not-selected-body-proportions-and-source-edge",
+      "output": "animation/focus-v3/atlas-generated.png",
+      "selectedForReview": false,
+      "qc": "animation/production-20261006-repair/focus-v3-qc.json",
+      "promotedToMain": false
+    },
+    {
+      "id": "chef-cookie-v3",
+      "prompt": "Use case: precise-object-edit.\nEdit ONLY the cookie on the plate in the BOTTOM RIGHT drawing (frame12) of this 4 by 3 Patrick Star chef animation atlas. It is incorrectly drawn as an unbroken oval. Replace that cookie with a clearly BITTEN cookie: a large crescent-shaped bite missing from its FRONT LEFT edge, with three small tooth scallops, showing the cream plate through the missing area. The bite must be obvious even when the character is small. It is the same cookie already bitten in frames6 through11, now resting flat on the plate. No new cookie appears.\nKeep the other ELEVEN frames unchanged. Keep the entire bottom-right character, head, eyes, hat, apron, hands, plate, cushion, body size and position unchanged. Maintain the same twelve-frame 4-column 3-row arrangement, image dimensions and transparent alpha background. Only repair that single cookie's missing-bite silhouette; no labels, extra props or other changes.",
+      "references": [
+        "animation/feeding-chef-v2/atlas-generated.png"
+      ],
+      "status": "not-selected-cookie-still-whole",
+      "output": "animation/feeding-chef-v3/atlas-generated.png",
+      "selectedForReview": false,
+      "qc": "animation/production-20261006-repair/feeding-chef-v3-qc.json",
+      "promotedToMain": false
+    },
+    {
+      "id": "exercise-grip-v3",
+      "prompt": "Use case: precise-object-edit.\nRepair this existing sixteen-frame Patrick Star seated dumbbell-curl animation atlas, 4 columns by 4 rows. Preserve the character, orange dumbbell, purple wristbands, white-purple headband, green floral shorts, seated legs and clean 2D cartoon style. Keep exactly sixteen drawings in the same reading order. This is a limb anatomy and continuity repair, not a new outfit.\nCorrect frame5 (first drawing in second row): the lifting forearm is unnaturally thin and long; redraw it as a soft thick starfish arm continuously connected at the shoulder and wristband, matching frames4 and6 in thickness and volume. Correct frames10,11,12: maintain a believable continuous mitten-hand grip AROUND the same dumbbell handle, with both orange end weights on one straight axis; the handle must not merge into or pierce the arm. Keep hand, wristband and arm thickness stable as the elbow slowly extends to lower the weight. Preserve frame13's small comic exhale puff. In frame14 show a relaxed partially reopened eye expression between the closed-eye exhale in13 and resting15, rather than an abrupt startled expression. Frames15 and16 settle into the original starting pose.\nMaintain unchanged anatomical head width, torso, leg/foot size and foot baseline in every frame; do not resize each character to its cell or sway the whole drawing. The motion should come from actual elbow/shoulder and face poses. Exactly two arms and two feet. Keep full head tip and feet with transparent margins, and enough separation between neighbors. White sclera, black pupils, coral-pink eyelids. Transparent alpha background everywhere outside characters, no painted scenery, grid, labels, numbers or new objects.",
+      "references": [
+        "animation/exercise-v2/atlas-generated.png"
+      ],
+      "status": "candidate-technical-playback-passed-art-review-pending",
+      "output": "animation/exercise-v3/atlas-generated.png",
+      "selectedForReview": true,
+      "qc": "animation/production-20261006-repair/exercise-v3-qc.json",
+      "promotedToMain": false,
+      "runtimeReview": "animation/production-20261006-repair/runtime-review.json"
+    },
+    {
+      "id": "focus-square-v4",
+      "prompt": "Use case: illustration-story.\nCreate a NEW SQUARE 1536 by 1536 transparent animation atlas of the supplied Patrick Star professor design. The supplied wide atlas is a character/outfit/style REFERENCE ONLY. Do NOT reuse its cramped 4:3 page layout or its squashed bottom-row anatomy.\nArrange TWELVE drawings in THREE COLUMNS and FOUR ROWS on the new square page. Each cell has generous empty margins: character head-to-foot height about 70% of the cell height, with at least 12% blank space ABOVE and BELOW every character including the last row. The same neutral body construction is reused for every drawing: identical head width, full belly volume, long enough navy jacket torso, identical soft feet and exactly the same seated foot baseline. No row-specific shrinking, no zooming, no cutoff feet. The neutral final body is precisely the same shape and size as the first.\nPatrick wears a navy formal jacket, white shirt, red tie, green purple-flower shorts, round black glasses and holds a small cream spiral notepad. Keep serious/deadpan expressive character, white sclera, black pupils, coral skin and coral eyelids. Clean black outlines and flat 2D cel cartoon finish.\nDraw actual sequential poses, reading left to right: 1 neutral holding notepad; 2 looking down to read; 3 glasses slowly slide down; 4 notices them; 5 right arm rises from sleeve, other hand still supports notepad; 6 hand approaches outer glasses rim; 7 pushes glasses up without covering eyes; 8 begins lowering arm; 9 arm halfway down; 10 hand returns to notepad; 11 gentle blink; 12 same neutral pose as frame1. Preserve soft continuous shoulder, elbow and hand anatomy; no jump between hand-up and hand-down poses. Exactly twelve full-body drawings, no grid lines, numbers, captions, detached artifacts or background scenery. Transparent alpha background.",
+      "references": [
+        "animation/focus-v2/atlas-generated.png"
+      ],
+      "status": "generation-blocked",
+      "outputExists": false,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 204c5414-ec9a-40d3-a589-60ec6656f061.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+    },
+    {
+      "id": "chef-cookie-v4",
+      "prompt": "Use case: precise-object-edit.\nIn this exact 12-frame transparent Patrick Star chef sprite sheet, repair the LAST, bottom-right frame only. The little cookie on its cream plate must be a visibly HALF-EATEN cookie, not a complete oval. Remove the LEFT HALF of that orange cookie entirely, replacing that area with the cream plate underneath. The remaining right half has a concave jagged tooth-bitten cut edge facing left, with a large unmistakable empty area, like a bitten crescent. A few tiny edge bumps are NOT enough: half of the cookie must be absent. Cookie location is approximately x1090,y1115 within this 1254-square input, on the last character's plate, below the pink shell emblem.\nDo not alter any character body, face, eyes, clothes, hat, arm, plate, cushion, proportions, framing, colors or positions. Keep the first11 frames unchanged. Preserve the 4-column by3-row sheet and genuine transparent alpha outside all characters. This is only the missing-cookie-piece repair in the final frame; no other change.",
+      "references": [
+        "animation/feeding-chef-v2/atlas-generated.png"
+      ],
+      "status": "generation-blocked",
+      "outputExists": false,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 97a3d4dc-eee0-4653-87c2-4f21ae760633.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+    }
+  ],
+  "summary": {
+    "requests": 7,
+    "outputs": 5,
+    "selectedRevisionAtlases": 3,
+    "reviewFrames": 44,
+    "additionalUnselectedRevisionAtlases": 2,
+    "blockedRequests": 2,
+    "artApproved": false,
+    "mainCatalogChanged": false
+  }
+}

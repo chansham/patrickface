@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-06T03:04:30.137766+00:00",
+  "status": "technical-playback-passed-art-revisions-remain",
+  "artApproved": false,
+  "mainCatalogChanged": false,
+  "nativeResourcesChanged": false,
+  "checks": [
+    {
+      "report": "output/playwright/20261006-revisions/report.json",
+      "passedCases": 5,
+      "sha256": "1efe0951791c88d6f227615e0cb7a07389c84160e140693bec3f546190534440"
+    },
+    {
+      "report": "output/playwright/20261006-repair-contours/report.json",
+      "passedCases": 5,
+      "sha256": "591b1e2e76fa356e9e8213bb18576b816d0fcfe5cfd320cd39e1ca993444210d"
+    }
+  ],
+  "normalSpeedCaptureReport": "output/playwright/20261006-revisions/live-capture-report.json",
+  "candidates": [
+    {
+      "id": "focus-repair-20261006",
+      "source": "animation/focus-v2/atlas-generated.png",
+      "sha256": "7ee112183d2c9e5d911bf89cedc8b4afba705f6a72659838410daa934939322f",
+      "regionsSha256": "8732301545958390356e0f50ee941af86633098a4c66ae2c1abbf9b35c394550",
+      "method": "preserve-source-pixel-density-from-comparison",
+      "oldClip": "focus-candidate",
+      "oldSource": "animation/focus-v1/atlas-generated.png",
+      "oldCanvas": 644,
+      "newCanvas": 560,
+      "oldScale": 1.7790055248618784,
+      "newScale": 1.5469613259668507,
+      "perFrameScaling": false,
+      "note": "Same source PNG dimensions; old clip scale multiplied by new contour canvas / old contour canvas. This is not anatomical approval.",
+      "normalSpeedFramesCaptured": 16,
+      "endedAtLast": true
+    },
+    {
+      "id": "chef-repair-20261006",
+      "source": "animation/feeding-chef-v2/atlas-generated.png",
+      "sha256": "cf5115d199e0d0cbc8bac8983cec04fed215dcb4bafc0734e8e6bad9dbbfa8a0",
+      "regionsSha256": "ff42dd28e45e875925d561f53a827573158184b738ddefd13c8616c7c6d88772",
+      "method": "preserve-source-pixel-density-from-comparison",
+      "oldClip": "feeding-chef-batch3-candidate",
+      "oldSource": "animation/feeding-chef-v1/atlas-generated.png",
+      "oldCanvas": 600,
+      "newCanvas": 668,
+      "oldScale": 1.4354066985645932,
+      "newScale": 1.5980861244019138,
+      "perFrameScaling": false,
+      "note": "Same source PNG dimensions; old clip scale multiplied by new contour canvas / old contour canvas. This is not anatomical approval.",
+      "normalSpeedFramesCaptured": 12,
+      "endedAtLast": true
+    },
+    {
+      "id": "exercise-repair-20261006",
+      "source": "animation/exercise-v3/atlas-generated.png",
+      "sha256": "0a3fdcd7fc489fb89457b76145ce3e249f2a401c3ffc0a1a566872cb7da1627f",
+      "regionsSha256": "60b52d9cf086221cfe3f30731b3665bd657d81096b69f8392377ddfd6edf13d5",
+      "method": "preserve-source-pixel-density-from-comparison",
+      "oldClip": "exercise-batch2-candidate",
+      "oldSource": "animation/exercise-v2/atlas-generated.png",
+      "oldCanvas": 728,
+      "newCanvas": 416,
+      "oldScale": 2.6541666666666663,
+      "newScale": 1.5166666666666666,
+      "perFrameScaling": false,
+      "note": "Same source PNG dimensions; old clip scale multiplied by new contour canvas / old contour canvas. This is not anatomical approval.",
+      "normalSpeedFramesCaptured": 16,
+      "endedAtLast": true
+    }
+  ],
+  "manualVisualReview": {
+    "performed": true,
+    "evidence": "Three live-1x-frames.png contact sheets in the capture report directory, inspected after foreground actual 1x playback.",
+    "remaining": [
+      "Formal last row shortens the torso.",
+      "Chef final cookie becomes whole; frame5-to6 withdrawal remains abrupt.",
+      "Exercise source drawings retain small shape and position differences; user art review pending."
+    ]
+  }
+}

@@ -1,0 +1,1227 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-06",
+  "frameIndexBasis": "one-based",
+  "status": "candidate-needs-revision-new-source-edge-risk",
+  "artApproved": false,
+  "bodyScaleResolved": false,
+  "catalogIntegrated": false,
+  "normalSpeedReview": "not-performed",
+  "source": {
+    "path": "animation/focus-v3/atlas-generated.png",
+    "sha256": "fe7121a215d6fa547cf09564f74d67802999199766d976c750bc73bb64b5991f",
+    "width": 1448,
+    "height": 1086
+  },
+  "sourceUnchanged": true,
+  "regions": {
+    "path": "animation/focus-v3/regions-v1.json",
+    "sha256": "5ec47b699bf2561871a3a4badf637f861d5aa3fda0b1dc734bec1ba452b8b8f5"
+  },
+  "canvas": {
+    "width": 512,
+    "height": 512,
+    "anchorPixels": [
+      256,
+      451
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.880859375
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 672842,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "coreBounds": [
+        84,
+        6,
+        329,
+        285
+      ],
+      "coreWidthPx": 245,
+      "coreHeightPx": 279,
+      "sourceBounds": [
+        81,
+        0,
+        251,
+        292
+      ],
+      "anchorSource": [
+        207,
+        285
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": 118.75,
+      "eyeLowerRimSeparationPx": 34.514489710844636,
+      "eyeLineToActualFootPx": 149.5,
+      "eyeWhiteBounds": [
+        [
+          179,
+          104,
+          210,
+          136
+        ],
+        [
+          214,
+          105,
+          244,
+          137
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          194.0,
+          135.0
+        ],
+        [
+          228.5,
+          136.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          146,
+          134
+        ],
+        [
+          264,
+          137
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "coreBounds": [
+        443,
+        6,
+        688,
+        285
+      ],
+      "coreWidthPx": 245,
+      "coreHeightPx": 279,
+      "sourceBounds": [
+        439,
+        0,
+        252,
+        318
+      ],
+      "anchorSource": [
+        566,
+        285
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": 113.0,
+      "eyeLowerRimSeparationPx": 36.013886210738214,
+      "eyeLineToActualFootPx": 158.5,
+      "eyeWhiteBounds": [
+        [
+          535,
+          114,
+          568,
+          127
+        ],
+        [
+          571,
+          115,
+          604,
+          128
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          551.0,
+          126.0
+        ],
+        [
+          587.0,
+          127.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          509,
+          125
+        ],
+        [
+          621,
+          128
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 3,
+      "coreBounds": [
+        800,
+        5,
+        1046,
+        286
+      ],
+      "coreWidthPx": 246,
+      "coreHeightPx": 281,
+      "sourceBounds": [
+        797,
+        0,
+        285,
+        292
+      ],
+      "anchorSource": [
+        923,
+        286
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": 114.0,
+      "eyeLowerRimSeparationPx": 36.013886210738214,
+      "eyeLineToActualFootPx": 155.5,
+      "eyeWhiteBounds": [
+        [
+          893,
+          119,
+          927,
+          131
+        ],
+        [
+          929,
+          119,
+          963,
+          132
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          909.5,
+          130.0
+        ],
+        [
+          945.5,
+          131.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          866,
+          129
+        ],
+        [
+          979,
+          132
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 4,
+      "coreBounds": [
+        1159,
+        5,
+        1406,
+        285
+      ],
+      "coreWidthPx": 247,
+      "coreHeightPx": 280,
+      "sourceBounds": [
+        1155,
+        0,
+        256,
+        291
+      ],
+      "anchorSource": [
+        1283,
+        285
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 38.51298482330343,
+      "eyeLineToActualFootPx": 144.5,
+      "eyeWhiteBounds": [
+        [
+          1250,
+          127,
+          1285,
+          141
+        ],
+        [
+          1289,
+          127,
+          1323,
+          142
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1267.0,
+          140.0
+        ],
+        [
+          1305.5,
+          141.0
+        ]
+      ],
+      "faceUnavailableReason": "visible-pink-face-edges-not-found"
+    },
+    {
+      "sourceFrame": 5,
+      "coreBounds": [
+        84,
+        289,
+        331,
+        563
+      ],
+      "coreWidthPx": 247,
+      "coreHeightPx": 274,
+      "sourceBounds": [
+        81,
+        286,
+        259,
+        306
+      ],
+      "anchorSource": [
+        208,
+        563
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": 121.75,
+      "eyeLowerRimSeparationPx": 37.5532954612508,
+      "eyeLineToActualFootPx": 148.0,
+      "eyeWhiteBounds": [
+        [
+          176,
+          402,
+          211,
+          417
+        ],
+        [
+          214,
+          402,
+          248,
+          415
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          193.0,
+          416.0
+        ],
+        [
+          230.5,
+          414.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          147,
+          418
+        ],
+        [
+          268,
+          412
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 6,
+      "coreBounds": [
+        443,
+        290,
+        687,
+        563
+      ],
+      "coreWidthPx": 244,
+      "coreHeightPx": 273,
+      "sourceBounds": [
+        440,
+        287,
+        254,
+        325
+      ],
+      "anchorSource": [
+        565,
+        563
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 34.0,
+      "eyeLineToActualFootPx": 151.0,
+      "eyeWhiteBounds": [
+        [
+          536,
+          375,
+          568,
+          413
+        ],
+        [
+          570,
+          375,
+          602,
+          413
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          551.5,
+          412.0
+        ],
+        [
+          585.5,
+          412.0
+        ]
+      ],
+      "faceUnavailableReason": "visible-pink-face-edges-not-found"
+    },
+    {
+      "sourceFrame": 7,
+      "coreBounds": [
+        794,
+        290,
+        1045,
+        563
+      ],
+      "coreWidthPx": 251,
+      "coreHeightPx": 273,
+      "sourceBounds": [
+        790,
+        286,
+        258,
+        310
+      ],
+      "anchorSource": [
+        923,
+        563
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 34.514489710844636,
+      "eyeLineToActualFootPx": 152.5,
+      "eyeWhiteBounds": [
+        [
+          894,
+          375,
+          926,
+          412
+        ],
+        [
+          929,
+          375,
+          960,
+          411
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          909.5,
+          411.0
+        ],
+        [
+          944.0,
+          410.0
+        ]
+      ],
+      "faceUnavailableReason": "visible-pink-face-edges-not-found"
+    },
+    {
+      "sourceFrame": 8,
+      "coreBounds": [
+        1160,
+        288,
+        1407,
+        563
+      ],
+      "coreWidthPx": 247,
+      "coreHeightPx": 275,
+      "sourceBounds": [
+        1157,
+        285,
+        253,
+        282
+      ],
+      "anchorSource": [
+        1284,
+        563
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToActualFootPx": null,
+      "eyeUnavailableReason": "hand overlaps face"
+    },
+    {
+      "sourceFrame": 9,
+      "coreBounds": [
+        83,
+        565,
+        330,
+        831
+      ],
+      "coreWidthPx": 247,
+      "coreHeightPx": 266,
+      "sourceBounds": [
+        80,
+        563,
+        258,
+        272
+      ],
+      "anchorSource": [
+        207,
+        831
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToActualFootPx": null,
+      "eyeUnavailableReason": "hand overlaps face"
+    },
+    {
+      "sourceFrame": 10,
+      "coreBounds": [
+        443,
+        567,
+        688,
+        831
+      ],
+      "coreWidthPx": 245,
+      "coreHeightPx": 264,
+      "sourceBounds": [
+        435,
+        563,
+        257,
+        270
+      ],
+      "anchorSource": [
+        566,
+        831
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToActualFootPx": null,
+      "eyeUnavailableReason": "hand overlaps face"
+    },
+    {
+      "sourceFrame": 11,
+      "coreBounds": [
+        800,
+        567,
+        1046,
+        832
+      ],
+      "coreWidthPx": 246,
+      "coreHeightPx": 265,
+      "sourceBounds": [
+        795,
+        564,
+        254,
+        273
+      ],
+      "anchorSource": [
+        923,
+        832
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToActualFootPx": null,
+      "eyeUnavailableReason": "hand overlaps face"
+    },
+    {
+      "sourceFrame": 12,
+      "coreBounds": [
+        1160,
+        567,
+        1407,
+        832
+      ],
+      "coreWidthPx": 247,
+      "coreHeightPx": 265,
+      "sourceBounds": [
+        1157,
+        564,
+        253,
+        273
+      ],
+      "anchorSource": [
+        1283,
+        832
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": 121.0,
+      "eyeLowerRimSeparationPx": 35.0,
+      "eyeLineToActualFootPx": 144.0,
+      "eyeWhiteBounds": [
+        [
+          1255,
+          657,
+          1287,
+          689
+        ],
+        [
+          1291,
+          657,
+          1321,
+          689
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1270.5,
+          688.0
+        ],
+        [
+          1305.5,
+          688.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          1224,
+          688
+        ],
+        [
+          1344,
+          688
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 13,
+      "coreBounds": [
+        82,
+        830,
+        330,
+        1085
+      ],
+      "coreWidthPx": 248,
+      "coreHeightPx": 255,
+      "sourceBounds": [
+        79,
+        826,
+        255,
+        260
+      ],
+      "anchorSource": [
+        206,
+        1085
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": 117.75,
+      "eyeLowerRimSeparationPx": 37.013511046643494,
+      "eyeLineToActualFootPx": 144.5,
+      "eyeWhiteBounds": [
+        [
+          175,
+          929,
+          208,
+          941
+        ],
+        [
+          212,
+          931,
+          245,
+          942
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          191.0,
+          940.0
+        ],
+        [
+          228.0,
+          941.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          148,
+          939
+        ],
+        [
+          265,
+          942
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 14,
+      "coreBounds": [
+        441,
+        832,
+        689,
+        1085
+      ],
+      "coreWidthPx": 248,
+      "coreHeightPx": 253,
+      "sourceBounds": [
+        436,
+        826,
+        257,
+        260
+      ],
+      "anchorSource": [
+        565,
+        1085
+      ],
+      "sourceBottomEdgeStrongRuns": [],
+      "sourceBottomEdgeStrongPixels": 0,
+      "faceWidthPx": 121.25,
+      "eyeLowerRimSeparationPx": 40.697051490249265,
+      "eyeLineToActualFootPx": 139.0,
+      "eyeWhiteBounds": [
+        [
+          536,
+          925,
+          565,
+          945
+        ],
+        [
+          577,
+          929,
+          605,
+          949
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          550.0,
+          944.0
+        ],
+        [
+          590.5,
+          948.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          506,
+          940
+        ],
+        [
+          626,
+          952
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 15,
+      "coreBounds": [
+        799,
+        832,
+        1045,
+        1086
+      ],
+      "coreWidthPx": 246,
+      "coreHeightPx": 254,
+      "sourceBounds": [
+        794,
+        827,
+        254,
+        259
+      ],
+      "anchorSource": [
+        922,
+        1086
+      ],
+      "sourceBottomEdgeStrongRuns": [
+        {
+          "xRange": [
+            875,
+            961
+          ],
+          "strongPixels": 30,
+          "maximumAlpha": 253
+        }
+      ],
+      "sourceBottomEdgeStrongPixels": 30,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToActualFootPx": null,
+      "eyeUnavailableReason": "closed eyes",
+      "footUnavailableReason": "Strong silhouette reaches original PNG bottom boundary; a complete anatomical foot baseline cannot be confirmed. Do not use the clipped canvas boundary as a measured foot."
+    },
+    {
+      "sourceFrame": 16,
+      "coreBounds": [
+        1160,
+        829,
+        1407,
+        1086
+      ],
+      "coreWidthPx": 247,
+      "coreHeightPx": 257,
+      "sourceBounds": [
+        1157,
+        823,
+        254,
+        263
+      ],
+      "anchorSource": [
+        1284,
+        1086
+      ],
+      "sourceBottomEdgeStrongRuns": [
+        {
+          "xRange": [
+            1237,
+            1254
+          ],
+          "strongPixels": 17,
+          "maximumAlpha": 251
+        },
+        {
+          "xRange": [
+            1310,
+            1323
+          ],
+          "strongPixels": 13,
+          "maximumAlpha": 246
+        }
+      ],
+      "sourceBottomEdgeStrongPixels": 30,
+      "faceWidthPx": 120.75,
+      "eyeLowerRimSeparationPx": 34.0,
+      "eyeLineToActualFootPx": null,
+      "eyeWhiteBounds": [
+        [
+          1256,
+          919,
+          1287,
+          948
+        ],
+        [
+          1290,
+          919,
+          1321,
+          948
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1271.0,
+          947.0
+        ],
+        [
+          1305.0,
+          947.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          1224,
+          947
+        ],
+        [
+          1344,
+          947
+        ]
+      ],
+      "footUnavailableReason": "Strong silhouette reaches original PNG bottom boundary; a complete anatomical foot baseline cannot be confirmed. Do not use the clipped canvas boundary as a measured foot."
+    }
+  ],
+  "reference": {
+    "sourceFrame": 1,
+    "referenceEyeWhiteBounds": [
+      [
+        179,
+        104,
+        210,
+        136
+      ],
+      [
+        214,
+        105,
+        244,
+        137
+      ]
+    ],
+    "sourceSha256": "fe7121a215d6fa547cf09564f74d67802999199766d976c750bc73bb64b5991f"
+  },
+  "summary": {
+    "sourceFrames": 16,
+    "measuredFaceFrames": 8,
+    "measuredEyeActualFootFrames": 10,
+    "coreHeightFirstLast": [
+      279,
+      257
+    ],
+    "coreHeightFirstLastChangePercent": -7.885304659498205,
+    "firstRowMeanHeight": 279.75,
+    "lastRowMeanHeight": 254.75,
+    "rowMeanHeightChangePercent": -8.936550491510275,
+    "previousV2Summary": {
+      "sourceFrames": 16,
+      "measuredFaceFrames": 7,
+      "measuredEyeFootFrames": 11,
+      "coreHeightFirstLast": {
+        "first": 276,
+        "last": 253,
+        "changePercent": -8.333333333333337
+      },
+      "coreWidthFirstLast": {
+        "first": 242,
+        "last": 241,
+        "changePercent": -0.4132231404958664
+      },
+      "coreHeightFirstLastRowMeans": {
+        "first": 276.75,
+        "last": 249.75,
+        "changePercent": -9.756097560975608
+      },
+      "oldCoreHeightFirstLast": {
+        "first": 280,
+        "last": 241,
+        "changePercent": -13.928571428571423
+      },
+      "oldCoreHeightFirstLastRowMeans": {
+        "first": 279.75,
+        "last": 241.75,
+        "changePercent": -13.583556747095626
+      },
+      "faceWidthFirstLast": {
+        "first": 116.75,
+        "last": 118.75,
+        "changePercent": 1.7130620985010614
+      },
+      "eyeSeparationFirstLast": {
+        "first": 35.014282800023196,
+        "last": 34.5,
+        "changePercent": -1.4687800488743852
+      },
+      "eyeLineToFootFirstLast": {
+        "first": 148.5,
+        "last": 136.0,
+        "changePercent": -8.417508417508412
+      },
+      "sourceEdgeStrongPixels": 0
+    },
+    "sourceBottomEdgeStrongPixels": 60
+  },
+  "sourcePixelDrift": {
+    "previousSource": {
+      "path": "animation/focus-v2/atlas-generated.png",
+      "sha256": "7ee112183d2c9e5d911bf89cedc8b4afba705f6a72659838410daa934939322f",
+      "width": 1448,
+      "height": 1086
+    },
+    "currentSource": {
+      "path": "animation/focus-v3/atlas-generated.png",
+      "sha256": "fe7121a215d6fa547cf09564f74d67802999199766d976c750bc73bb64b5991f",
+      "width": 1448,
+      "height": 1086
+    },
+    "registration": "1:1 source pixels, each frame integer translated by existing region anchor; no scaling or warping",
+    "limitation": "Registration isolates residual artwork/pixel differences, not same raw atlas coordinates. RGB differences at alpha0 are ignored. A nonzero error is evidence of changed pixels, not proof every change is perceptually harmful.",
+    "frames": [
+      {
+        "sourceFrame": 1,
+        "coreWidthChangePx": 3,
+        "coreHeightChangePx": 3,
+        "sourceAnchorChangePx": [
+          1,
+          1
+        ],
+        "registeredStrongMaskIoU": 0.971391867187114,
+        "registeredNonzeroUnionPixels": 43434,
+        "registeredExactRgbaMismatchPixels": 43151,
+        "registeredCompositeErrorMean8bit": 29.385532785177915,
+        "registeredCompositeErrorOver8PixelPercent": 58.82948762290627,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 2,
+        "coreWidthChangePx": 3,
+        "coreHeightChangePx": 2,
+        "sourceAnchorChangePx": [
+          1,
+          0
+        ],
+        "registeredStrongMaskIoU": 0.9724305845896559,
+        "registeredNonzeroUnionPixels": 43428,
+        "registeredExactRgbaMismatchPixels": 42970,
+        "registeredCompositeErrorMean8bit": 23.890360132149567,
+        "registeredCompositeErrorOver8PixelPercent": 60.07722387545805,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 3,
+        "coreWidthChangePx": 5,
+        "coreHeightChangePx": 4,
+        "sourceAnchorChangePx": [
+          0,
+          2
+        ],
+        "registeredStrongMaskIoU": 0.9619197173422318,
+        "registeredNonzeroUnionPixels": 43706,
+        "registeredExactRgbaMismatchPixels": 43460,
+        "registeredCompositeErrorMean8bit": 38.308411320166506,
+        "registeredCompositeErrorOver8PixelPercent": 63.49494552949258,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 4,
+        "coreWidthChangePx": 4,
+        "coreHeightChangePx": 3,
+        "sourceAnchorChangePx": [
+          1,
+          1
+        ],
+        "registeredStrongMaskIoU": 0.9708716600963644,
+        "registeredNonzeroUnionPixels": 43853,
+        "registeredExactRgbaMismatchPixels": 43606,
+        "registeredCompositeErrorMean8bit": 28.40870037799517,
+        "registeredCompositeErrorOver8PixelPercent": 57.58261546697815,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 5,
+        "coreWidthChangePx": 3,
+        "coreHeightChangePx": 3,
+        "sourceAnchorChangePx": [
+          1,
+          1
+        ],
+        "registeredStrongMaskIoU": 0.9695046972603414,
+        "registeredNonzeroUnionPixels": 43468,
+        "registeredExactRgbaMismatchPixels": 43132,
+        "registeredCompositeErrorMean8bit": 30.22525323542432,
+        "registeredCompositeErrorOver8PixelPercent": 61.93743544341154,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 6,
+        "coreWidthChangePx": 4,
+        "coreHeightChangePx": 3,
+        "sourceAnchorChangePx": [
+          1,
+          1
+        ],
+        "registeredStrongMaskIoU": 0.9730811111955228,
+        "registeredNonzeroUnionPixels": 42381,
+        "registeredExactRgbaMismatchPixels": 41984,
+        "registeredCompositeErrorMean8bit": 29.063272522156836,
+        "registeredCompositeErrorOver8PixelPercent": 55.83580237534503,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 7,
+        "coreWidthChangePx": 4,
+        "coreHeightChangePx": 2,
+        "sourceAnchorChangePx": [
+          0,
+          1
+        ],
+        "registeredStrongMaskIoU": 0.9722919505606158,
+        "registeredNonzeroUnionPixels": 44696,
+        "registeredExactRgbaMismatchPixels": 44266,
+        "registeredCompositeErrorMean8bit": 25.231965814129335,
+        "registeredCompositeErrorOver8PixelPercent": 55.28939252671592,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 8,
+        "coreWidthChangePx": 5,
+        "coreHeightChangePx": 3,
+        "sourceAnchorChangePx": [
+          1,
+          1
+        ],
+        "registeredStrongMaskIoU": 0.9731011884384018,
+        "registeredNonzeroUnionPixels": 43672,
+        "registeredExactRgbaMismatchPixels": 43342,
+        "registeredCompositeErrorMean8bit": 27.006310048839808,
+        "registeredCompositeErrorOver8PixelPercent": 57.43629872352912,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 9,
+        "coreWidthChangePx": 5,
+        "coreHeightChangePx": 4,
+        "sourceAnchorChangePx": [
+          1,
+          2
+        ],
+        "registeredStrongMaskIoU": 0.9633646245059289,
+        "registeredNonzeroUnionPixels": 43121,
+        "registeredExactRgbaMismatchPixels": 43027,
+        "registeredCompositeErrorMean8bit": 38.07528975819577,
+        "registeredCompositeErrorOver8PixelPercent": 59.691205533596836,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 10,
+        "coreWidthChangePx": 6,
+        "coreHeightChangePx": 2,
+        "sourceAnchorChangePx": [
+          0,
+          1
+        ],
+        "registeredStrongMaskIoU": 0.9677329554082097,
+        "registeredNonzeroUnionPixels": 42176,
+        "registeredExactRgbaMismatchPixels": 41978,
+        "registeredCompositeErrorMean8bit": 27.45597251706271,
+        "registeredCompositeErrorOver8PixelPercent": 58.73361340284456,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 11,
+        "coreWidthChangePx": 5,
+        "coreHeightChangePx": 3,
+        "sourceAnchorChangePx": [
+          0,
+          2
+        ],
+        "registeredStrongMaskIoU": 0.9638396124050569,
+        "registeredNonzeroUnionPixels": 42252,
+        "registeredExactRgbaMismatchPixels": 42058,
+        "registeredCompositeErrorMean8bit": 34.358889979065644,
+        "registeredCompositeErrorOver8PixelPercent": 55.8000454212824,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 12,
+        "coreWidthChangePx": 5,
+        "coreHeightChangePx": 4,
+        "sourceAnchorChangePx": [
+          0,
+          2
+        ],
+        "registeredStrongMaskIoU": 0.9654072930637447,
+        "registeredNonzeroUnionPixels": 42086,
+        "registeredExactRgbaMismatchPixels": 41950,
+        "registeredCompositeErrorMean8bit": 34.23682555087982,
+        "registeredCompositeErrorOver8PixelPercent": 59.30359085963003,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 13,
+        "coreWidthChangePx": 6,
+        "coreHeightChangePx": 7,
+        "sourceAnchorChangePx": [
+          0,
+          3
+        ],
+        "registeredStrongMaskIoU": 0.9340179784676492,
+        "registeredNonzeroUnionPixels": 41144,
+        "registeredExactRgbaMismatchPixels": 41046,
+        "registeredCompositeErrorMean8bit": 56.056284265561565,
+        "registeredCompositeErrorOver8PixelPercent": 70.74840597888576,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 14,
+        "coreWidthChangePx": 7,
+        "coreHeightChangePx": 5,
+        "sourceAnchorChangePx": [
+          0,
+          3
+        ],
+        "registeredStrongMaskIoU": 0.9308641329917926,
+        "registeredNonzeroUnionPixels": 41098,
+        "registeredExactRgbaMismatchPixels": 40945,
+        "registeredCompositeErrorMean8bit": 52.206962942006754,
+        "registeredCompositeErrorOver8PixelPercent": 67.2617491766428,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 15,
+        "coreWidthChangePx": 7,
+        "coreHeightChangePx": 4,
+        "sourceAnchorChangePx": [
+          0,
+          2
+        ],
+        "registeredStrongMaskIoU": 0.9390195507817667,
+        "registeredNonzeroUnionPixels": 40494,
+        "registeredExactRgbaMismatchPixels": 40355,
+        "registeredCompositeErrorMean8bit": 44.396434494324744,
+        "registeredCompositeErrorOver8PixelPercent": 66.52027831424112,
+        "identicalRgbaAfterIntegerRegistration": false
+      },
+      {
+        "sourceFrame": 16,
+        "coreWidthChangePx": 6,
+        "coreHeightChangePx": 4,
+        "sourceAnchorChangePx": [
+          0,
+          2
+        ],
+        "registeredStrongMaskIoU": 0.9506075637088943,
+        "registeredNonzeroUnionPixels": 41178,
+        "registeredExactRgbaMismatchPixels": 40961,
+        "registeredCompositeErrorMean8bit": 40.936313799592746,
+        "registeredCompositeErrorOver8PixelPercent": 58.55969346245703,
+        "identicalRgbaAfterIntegerRegistration": false
+      }
+    ]
+  },
+  "methods": [
+    "Whole silhouette includes clothes, hands and notebook; it is not bare torso height.",
+    "White-eye reference boxes selected on current source. Hand-occluded8-11 and closed15 are unmeasured.",
+    "Foot proxies15/16 are unavailable because strong silhouette reaches original source edge; no comparison pretends this boundary is a complete foot.",
+    "All nonzero-alpha source pixels preserved. Translation-only metadata cannot recover pixels beyond original PNG.",
+    "No PNG, per-frame scale, catalog or existing size audit edited."
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "kind": "defect-persists",
+      "message": "Last row remains vertically shorter; small size recovery does not restore consistent torso proportions."
+    },
+    {
+      "sourceFrames": [
+        15,
+        16
+      ],
+      "kind": "new-source-edge-risk",
+      "message": "30 strong pixels per frame reach last PNG row1085, maximum alpha253/251. Complete outer foot contours cannot be confirmed."
+    },
+    {
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "kind": "unrequested-drift",
+      "message": "Non-target first12 silhouettes widened2-6px and grew2-4px. Not an exact last-row-only edit."
+    },
+    {
+      "sourceFrames": [
+        11,
+        12
+      ],
+      "kind": "preserve",
+      "message": "Hand-lowering intermediate poses from v2 remain."
+    }
+  ],
+  "recommendation": "Keep v2 as the safer candidate while retaining v3 as failed/partial repair evidence; do not replace active artwork or claim consistency resolved."
+}

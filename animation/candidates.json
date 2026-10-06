@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "version": 1,
-  "updatedAt": "2026-10-05",
+  "updatedAt": "2026-10-06",
   "reviewOnly": true,
   "master": {
     "id": "patrick-candidate-review-v1",
@@ -736,6 +736,199 @@
         "version": 1
       },
       "renderingRevision": "contour-v1"
+    },
+    {
+      "id": "focus-repair-20261006",
+      "title": "正裝・收手改稿（身形待修）",
+      "category": "修訂稿待審",
+      "version": 1,
+      "atlas": "animation/focus-v2/atlas-generated.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "durationsMs": [
+        450,
+        190,
+        180,
+        180,
+        180,
+        230,
+        180,
+        180,
+        180,
+        230,
+        180,
+        190,
+        200,
+        170,
+        170,
+        450
+      ],
+      "sha256": "7ee112183d2c9e5d911bf89cedc8b4afba705f6a72659838410daa934939322f",
+      "anchorNormalized": [
+        0.5,
+        0.8803571428571428
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.5469613259668507,
+      "status": "quality-revision-required",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "第11、12格新增收手中間姿勢；最後一列身體仍短約10%，不可當作比例已修好。完整16格保留審稿。",
+      "frameRegions": {
+        "path": "animation/focus-v2/regions-v1.json",
+        "sha256": "8732301545958390356e0f50ee941af86633098a4c66ae2c1abbf9b35c394550",
+        "version": 1
+      },
+      "renderingRevision": "repair-20261006-v1",
+      "batch": "20261006-repair",
+      "comparisonClipId": "focus",
+      "artApproved": false,
+      "scaleProvenance": {
+        "method": "preserve-source-pixel-density-from-comparison",
+        "oldClip": "focus-candidate",
+        "oldSource": "animation/focus-v1/atlas-generated.png",
+        "oldCanvas": 644,
+        "newCanvas": 560,
+        "oldScale": 1.7790055248618784,
+        "newScale": 1.5469613259668507,
+        "perFrameScaling": false,
+        "note": "Same source PNG dimensions; old clip scale multiplied by new contour canvas / old contour canvas. This is not anatomical approval."
+      }
+    },
+    {
+      "id": "chef-repair-20261006",
+      "title": "小廚師・臉部比例改稿",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261006-repair",
+      "reviewGroup": "interaction",
+      "atlas": "animation/feeding-chef-v2/atlas-generated.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "durationsMs": [
+        500,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        600
+      ],
+      "sha256": "cf5115d199e0d0cbc8bac8983cec04fed215dcb4bafc0734e8e6bad9dbbfa8a0",
+      "anchorNormalized": [
+        0.5,
+        0.8802395209580839
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.5980861244019138,
+      "status": "quality-revision-required",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "臉部橫截較旧稿寬約24%，帽高約減8%；下放手增加過渡。第12格餅乾仍變回完整，尚未修好，全部12格保留審稿。",
+      "frameRegions": {
+        "path": "animation/feeding-chef-v2/regions-v1.json",
+        "sha256": "ff42dd28e45e875925d561f53a827573158184b738ddefd13c8616c7c6d88772",
+        "version": 1
+      },
+      "renderingRevision": "repair-20261006-v1",
+      "comparisonClipId": "feed",
+      "artApproved": false,
+      "scaleProvenance": {
+        "method": "preserve-source-pixel-density-from-comparison",
+        "oldClip": "feeding-chef-batch3-candidate",
+        "oldSource": "animation/feeding-chef-v1/atlas-generated.png",
+        "oldCanvas": 600,
+        "newCanvas": 668,
+        "oldScale": 1.4354066985645932,
+        "newScale": 1.5980861244019138,
+        "perFrameScaling": false,
+        "note": "Same source PNG dimensions; old clip scale multiplied by new contour canvas / old contour canvas. This is not anatomical approval."
+      }
+    },
+    {
+      "id": "exercise-repair-20261006",
+      "title": "運動・手腕與握持改稿",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261006-repair",
+      "reviewGroup": "scene",
+      "atlas": "animation/exercise-v3/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "durationsMs": [
+        450,
+        150,
+        150,
+        150,
+        150,
+        150,
+        180,
+        220,
+        260,
+        160,
+        160,
+        160,
+        230,
+        180,
+        180,
+        450
+      ],
+      "sha256": "0a3fdcd7fc489fb89457b76145ce3e249f2a401c3ffc0a1a566872cb7da1627f",
+      "anchorNormalized": [
+        0.5,
+        0.8798076923076923
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.5166666666666666,
+      "status": "quality-revision-required",
+      "scenes": [
+        "sleeping"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "修訂手腕、握持及吐氣後表情；16格同倍率，落點已重新核對。仍須以正常速度審核動作接續及握持自然度，未獲美術批准。",
+      "frameRegions": {
+        "path": "animation/exercise-v3/regions-v1.json",
+        "sha256": "60b52d9cf086221cfe3f30731b3665bd657d81096b69f8392377ddfd6edf13d5",
+        "version": 1
+      },
+      "renderingRevision": "repair-20261006-v1",
+      "comparisonClipId": "exercise",
+      "artApproved": false,
+      "scaleProvenance": {
+        "method": "preserve-source-pixel-density-from-comparison",
+        "oldClip": "exercise-batch2-candidate",
+        "oldSource": "animation/exercise-v2/atlas-generated.png",
+        "oldCanvas": 728,
+        "newCanvas": 416,
+        "oldScale": 2.6541666666666663,
+        "newScale": 1.5166666666666666,
+        "perFrameScaling": false,
+        "note": "Same source PNG dimensions; old clip scale multiplied by new contour canvas / old contour canvas. This is not anatomical approval."
+      }
     }
   ]
 }

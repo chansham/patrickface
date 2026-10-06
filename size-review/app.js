@@ -1,18 +1,25 @@
 import { frameAt } from '../preview/player-core.js?v=20261006-layouts1';
 import { validateLayouts } from '../preview/layout-core.js?v=20261006-layouts1';
-import { resource,decodeJSON,loadClip,frameGeometry } from './render-core.js?v=20261006-size2';
+import { resource,decodeJSON,loadClip,frameGeometry } from './render-core.js?v=20261006-size3';
 const $=selector=>document.querySelector(selector),repo=new URL('../',import.meta.url);
 const auditPath='animation/production-20261006-scale/body-scale-audit.json',storageKey='patrick.size-review.v1';
+const params=new URLSearchParams(location.search),candidateMode=params.get('review')==='candidates';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const state={tab:'overview',playing:false,raf:null,started:0,head:360,body:650,guides:true,bounds:false,landmarks:false,pair:[{id:'pet',index:0},{id:'exercise',index:0}],layoutClip:'pet',layoutFrame:0,calibrationClip:null,calibrationFrame:0};
 window.__patrickSizeReview={status:'loading',state};
-let clips=[],layouts=[],catalog,outfits=[],audit=null,notes={},beforeCatalog=null,calibrationClips=[];
+let clips=[],candidateClips=[],layouts=[],catalog,outfits=[],audit=null,notes={},beforeCatalog=null,calibrationClips=[];
 try{const value=JSON.parse(localStorage.getItem(storageKey));if(value?.version===1&&value.notes&&typeof value.notes==='object')notes=value.notes;}catch{}
 const element=(tag,className,text)=>{const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;};
 const clipByID=id=>clips.find(clip=>clip.id===id);
-const renderIdentity=clip=>({sourceSha256:clip.sha256,regionsSha256:clip.frameRegions.sha256,scale:clip.scale,masterAnchor:catalog.master.anchorNormalized});
-const noteKey=clip=>`${clip.id}:${clip.version}:${clip.sha256}:${clip.frameRegions.sha256}:${clip.scale}`;
-function fillOptions(select){for(const clip of clips){const option=element('option','',clip.title);option.value=clip.id;select.append(option);}}
+const renderIdentity=clip=>({sourceSha256:clip.sha256,regionsSha256:clip.frameRegions.sha256,scale:clip.scale,masterAnchor:catalog.master.anchorNormalized,catalog:clip.catalogKind||'catalog'});
+const noteKey=clip=>`${clip.catalogKind==='candidates'?'candidate:':''}${clip.id}:${clip.version}:${clip.sha256}:${clip.frameRegions.sha256}:${clip.scale}`;
+function fillOptions(select){
+  const groups=candidateMode?['catalog','candidates']:['catalog'];
+  for(const kind of groups){const available=clips.filter(clip=>clip.catalogKind===kind);if(!available.length)continue;
+    const parent=candidateMode?element('optgroup'):select;if(candidateMode){parent.label=kind==='catalog'?'目前日常':'待審改稿';select.append(parent);}
+    for(const clip of available){const option=element('option','',clip.title);option.value=clip.id;parent.append(option);}
+  }
+}
 function canvasView(parent,clip,index,layout,size='small'){
   const wrap=element('div','viewport'),canvas=element('canvas',`watch-canvas ${size}`);canvas.width=832;canvas.height=992;canvas.dataset.clip=clip.id;canvas.dataset.frame=index;canvas.dataset.layout=layout.id;
   canvas.setAttribute('aria-label',`${clip.title}第${index+1}格，同尺規${layout.title}`);wrap.append(canvas,element('div','viewport-label',size==='large'?'放大檢視 · 固定舞台':'200 px 同尺規'));parent.append(wrap);return canvas;
@@ -44,8 +51,8 @@ function draw(canvas,clip,index,layout){
   canvas.dataset.frame=String(index);canvas.dataset.sourceFrame=String(geometry.sourceIndex);canvas.dataset.clip=clip.id;canvas.dataset.layout=layout.id;
   canvas.dataset.pixelScale=String(geometry.pixelScale);canvas.dataset.anchor=JSON.stringify(geometry.anchor);canvas.dataset.rect=JSON.stringify(geometry.rect);
 }
-function sourceAudit(clip){const entry=audit?.clips?.find(value=>value.id===clip.id);return entry&&entry.sourceSha256===clip.sha256&&entry.regionsSha256===clip.frameRegions.sha256?entry:null;}
-function auditEntry(clip){const entry=audit?.clips?.find(value=>value.id===clip.id);if(!entry)return{entry:null,stale:false};return{entry,stale:!sourceAudit(clip)||(Number.isFinite(entry.calibration?.currentScale)&&entry.calibration.currentScale!==clip.scale)};}
+function sourceAudit(clip){const entry=audit?.clips?.find(value=>value.id===clip.id&&value.catalog===(clip.catalogKind||'catalog'));return entry&&entry.sourceSha256===clip.sha256&&entry.regionsSha256===clip.frameRegions.sha256?entry:null;}
+function auditEntry(clip){const entry=audit?.clips?.find(value=>value.id===clip.id&&value.catalog===(clip.catalogKind||'catalog'));if(!entry)return{entry:null,stale:false};return{entry,stale:!sourceAudit(clip)||(Number.isFinite(entry.calibration?.currentScale)&&entry.calibration.currentScale!==clip.scale)};}
 function visibleMetrics(clip,index){const sourceIndex=clip.frameIndices[index],frame=sourceAudit(clip)?.frames?.find(value=>value.sourceFrame===sourceIndex);const factor=frameGeometry(clip,index,catalog.master,layouts[0]).pixelScale*200/832;
   return Object.fromEntries(['faceWidth','eyeSeparation','eyeToFoot'].map(key=>[key,Number.isFinite(frame?.source?.[key])?frame.source[key]*factor:null]));}
 function describeMetrics(value,prefix=''){
@@ -60,7 +67,8 @@ function describeMetrics(value,prefix=''){
 }
 function facts(card,clip,index,reference={id:'yawn',index:0}){
   const geometry=frameGeometry(clip,index,catalog.master,layouts[0]),node=card.querySelector('.facts');node.replaceChildren();
-  node.append(element('div','',`第 ${index+1}/${clip.frameCount} 格`));
+  node.append(element('div','clip-origin',clip.catalogKind==='candidates'?'待審改稿 · 尚未換入日常':'目前日常版本'),element('div','',`第 ${index+1}/${clip.frameCount} 格`));
+  if(clip.catalogKind==='candidates'&&clip.description)node.append(element('p','candidate-description',clip.description));
   const metric=visibleMetrics(clip,index),referenceClip=clipByID(reference.id)||clip,ref=visibleMetrics(referenceClip,reference.index),isReference=clip.id===referenceClip.id&&index===reference.index;
   const measurement=element('div','body-measurements');
   for(const [key,label]of [['faceWidth','臉部大小'],['eyeSeparation','兩眼下緣間距'],['eyeToFoot','眼線至腳底']]){
@@ -90,7 +98,7 @@ function syncCompare(){for(let side=0;side<2;side++){const value=state.pair[side
 function buildLayouts(){fillOptions($('#layout-clip'));for(const layout of layouts){const card=element('article','card');card.dataset.layout=layout.id;card.append(element('h3','',layout.title),element('small','',layout.description));const viewports=element('div','compare-viewports'),clip=clipByID(state.layoutClip);canvasView(viewports,clip,0,layout,'large');canvasView(viewports,clip,0,layout);card.append(viewports);$('#layout-grid').append(card);}syncLayouts();}
 function syncLayouts(){const clip=clipByID(state.layoutClip);$('#layout-clip').value=clip.id;$('#layout-frame').max=clip.frameCount-1;$('#layout-frame').value=state.layoutFrame;$('#layout-frame-value').textContent=`${state.layoutFrame+1}/${clip.frameCount}`;for(const card of document.querySelectorAll('#layout-grid .card'))for(const canvas of card.querySelectorAll('canvas'))draw(canvas,clip,state.layoutFrame,layouts.find(layout=>layout.id===card.dataset.layout));}
 function buildCalibration(){
-  calibrationClips=clips.filter(clip=>{const old=beforeCatalog?.clips?.find(item=>item.id===clip.id);return old&&old.sha256===clip.sha256&&old.frameRegions?.sha256===clip.frameRegions.sha256&&Number.isFinite(old.scale)&&old.scale>0&&old.scale!==clip.scale;});
+  calibrationClips=clips.filter(clip=>{if(clip.catalogKind!=='catalog')return false;const old=beforeCatalog?.clips?.find(item=>item.id===clip.id);return old&&old.sha256===clip.sha256&&old.frameRegions?.sha256===clip.frameRegions.sha256&&Number.isFinite(old.scale)&&old.scale>0&&old.scale!==clip.scale;});
   if(!calibrationClips.length){$('#calibration-status').textContent='目前沒有可核對的倍率修正快照。原圖或輪廓版本不同時，不會假裝只是改了大小。';$('#calibration-clip').disabled=true;$('#calibration-frame').disabled=true;return;}
   for(const clip of calibrationClips){const option=element('option','',clip.title);option.value=clip.id;$('#calibration-clip').append(option);}state.calibrationClip=calibrationClips[0].id;
   for(const version of ['previous','current']){const card=element('article','card');card.dataset.calibrationVersion=version;card.append(element('h3','',version==='previous'?'校準前':'目前'),element('small','calibration-scale'));const viewports=element('div','compare-viewports'),clip=calibrationClips[0];canvasView(viewports,clip,0,layouts[0],'large');canvasView(viewports,clip,0,layouts[0]);card.append(viewports);$('#calibration-grid').append(card);}syncCalibration();
@@ -110,22 +118,51 @@ function play(){if(reduced.matches||document.hidden)return;stop();state.playing=
   const tick=now=>{if(!state.playing)return;const elapsed=now-state.started;let running=false;for(const value of state.pair){const clip=clipByID(value.id);value.index=frameAt(clip,elapsed);if(elapsed<clip.totalMs)running=true;}syncCompare();if(running)state.raf=requestAnimationFrame(tick);else stop();};state.raf=requestAnimationFrame(tick);
 }
 function loadNote(){const clip=clipByID($('#note-clip').value),note=notes[noteKey(clip)];$('#note-verdict').value=note?.verdict||'pending';$('#note').value=note?.text||'';}
-function saveNote(){const clip=clipByID($('#note-clip').value);notes[noteKey(clip)]={clipID:clip.id,clipVersion:clip.version,rendering:renderIdentity(clip),verdict:$('#note-verdict').value,text:$('#note').value.slice(0,4000),updatedAt:new Date().toISOString(),artApproval:false};try{localStorage.setItem(storageKey,JSON.stringify({version:1,notes}));$('#save-state').textContent='尺寸意見已保存在本機。';}catch{$('#save-state').textContent='目前不能保存，請匯出意見留存。';}}
+function saveNote(){const clip=clipByID($('#note-clip').value);notes[noteKey(clip)]={clipID:clip.id,clipVersion:clip.version,catalog:clip.catalogKind||'catalog',rendering:renderIdentity(clip),verdict:$('#note-verdict').value,text:$('#note').value.slice(0,4000),updatedAt:new Date().toISOString(),artApproval:false};try{localStorage.setItem(storageKey,JSON.stringify({version:1,notes}));$('#save-state').textContent='尺寸意見已保存在本機。';}catch{$('#save-state').textContent='目前不能保存，請匯出意見留存。';}}
+
+function chooseRevision(id){
+  stop();const clip=clipByID(id);if(!clip||clip.catalogKind!=='candidates')return;
+  const previous=clipByID(clip.comparisonClipId);
+  if(previous?.catalogKind==='catalog')state.pair[0]={id:previous.id,index:0};
+  state.pair[1]={id:clip.id,index:0};state.layoutClip=clip.id;state.layoutFrame=0;
+  $('#revision-select').value=clip.id;
+  $('#revision-status').textContent=previous?`原版本參考：${previous.title}；改稿：${clip.title}`:'這份候選尚未指定舊稿，可在左邊自行選擇比較對象。';
+  $('#note-clip').value=clip.id;loadNote();switchTab('compare');
+}
+function configureRevisionReview(){
+  if(!candidateMode)return;$('#revision-banner').hidden=false;$('#revision-entry').textContent='新舊改稿對照';
+  const select=$('#revision-select');
+  for(const clip of candidateClips){const option=element('option','',clip.title);option.value=clip.id;select.append(option);}
+  select.disabled=!candidateClips.length;select.addEventListener('change',()=>chooseRevision(select.value));
+  if(!candidateClips.length){$('#revision-status').textContent='目前沒有成功載入的待審畫稿；日常素材仍可比較。';return;}
+  const requested=clipByID(params.get('right')),latest=candidateClips.filter(clip=>clipByID(clip.comparisonClipId)).at(-1)||candidateClips.at(-1);
+  chooseRevision(requested?.catalogKind==='candidates'?requested.id:latest.id);
+  const left=clipByID(params.get('left'));if(left){state.pair[0]={id:left.id,index:0};syncCompare();}
+  if(params.has('right')&&requested?.catalogKind!=='candidates')$('#revision-status').textContent='指定的新稿尚未成功載入。目前顯示可用候選，請確認右側名稱。';
+}
+
 async function loadAudit(){try{audit=decodeJSON(await resource(auditPath,repo));if(audit.schemaVersion!==1||!Array.isArray(audit.clips))throw new Error('schema');$('#audit-source').textContent=`獨立量測：${auditPath} · ${audit.generatedAt||'日期未提供'}。資料與圖片版本逐項核對。`;}catch{audit=null;$('#audit-source').textContent='獨立臉部／軀幹量測尚未讀入；目前只顯示實際播放幾何與可見輪廓。';}window.__patrickSizeReview.auditLoaded=Boolean(audit);}
 async function start(){
   const [rawCatalog,rawThemes,rawLayouts]=await Promise.all(['animation/catalog.json','experience/themes.json','experience/layouts.json'].map(async path=>decodeJSON(await resource(path,repo))));catalog=rawCatalog;layouts=validateLayouts(rawLayouts);const cache=new Map(),failures=[];
-  const loaded=await Promise.all(catalog.clips.filter(clip=>clip.atlas).map(async clip=>{try{return await loadClip(clip,repo,cache);}catch(error){failures.push({id:clip.id,error:error.message});return null;}}));clips=loaded.filter(Boolean);if(!clips.length)throw new Error('沒有可讀取的主預覽素材');
+  const inputs=catalog.clips.filter(clip=>clip.atlas).map(clip=>({...clip,catalogKind:'catalog'}));
+  if(candidateMode){try{const candidates=decodeJSON(await resource('animation/candidates.json',repo));
+    if(!candidates.reviewOnly||!Array.isArray(candidates.clips))throw new Error('待審目錄格式無效');
+    if(JSON.stringify(candidates.master?.anchorNormalized)!==JSON.stringify(catalog.master?.anchorNormalized))throw new Error('待審與日常的落位基線不同，暫不能放進同尺規對照');
+    const ids=new Set(inputs.map(clip=>clip.id));
+    for(const clip of candidates.clips.filter(clip=>clip.atlas)){if(ids.has(clip.id)){failures.push({id:clip.id,error:'待審識別碼與其他版本重複'});continue;}ids.add(clip.id);inputs.push({...clip,catalogKind:'candidates'});}
+  }catch(error){failures.push({id:'candidates',error:error.message});}}
+  const loaded=await Promise.all(inputs.map(async clip=>{try{return await loadClip(clip,repo,cache);}catch(error){failures.push({id:clip.id,error:error.message});return null;}}));clips=loaded.filter(Boolean);candidateClips=clips.filter(clip=>clip.catalogKind==='candidates');if(!clips.some(clip=>clip.catalogKind==='catalog'))throw new Error('沒有可讀取的主預覽素材');
   outfits=rawThemes.outfits.filter(value=>clipByID(value.clipId));if(!clipByID(state.pair[0].id))state.pair[0].id=clips[0].id;if(!clipByID(state.pair[1].id))state.pair[1].id=clips.at(-1).id;state.layoutClip=state.pair[0].id;
   await loadAudit();try{beforeCatalog=decodeJSON(await resource('animation/production-20261006-scale/catalog-before.json',repo));}catch{}
-  $('#summary').textContent=`${outfits.length} 套造型 · ${clips.length} 段播放版本。以下全部固定為 200 px 視窗，沿用經典版同一舞台。`;
-  buildOverview();buildCompare();buildLayouts();buildCalibration();fillOptions($('#note-clip'));loadNote();
+  $('#summary').textContent=`${outfits.length} 套造型 · ${clips.filter(clip=>clip.catalogKind==='catalog').length} 段播放版本。以下全部固定為 200 px 視窗，沿用經典版同一舞台。`;
+  buildOverview();buildCompare();buildLayouts();buildCalibration();fillOptions($('#note-clip'));loadNote();configureRevisionReview();
   for(const button of document.querySelectorAll('[data-tab]'))button.addEventListener('click',()=>switchTab(button.dataset.tab));
   $('#overview-frame').addEventListener('change',updateOverview);$('#layout-clip').addEventListener('change',()=>{state.layoutClip=$('#layout-clip').value;state.layoutFrame=0;syncLayouts();});$('#layout-frame').addEventListener('input',()=>{state.layoutFrame=Number($('#layout-frame').value);syncLayouts();});
   $('#calibration-clip').addEventListener('change',()=>{state.calibrationClip=$('#calibration-clip').value;state.calibrationFrame=0;syncCalibration();});$('#calibration-frame').addEventListener('input',()=>{state.calibrationFrame=Number($('#calibration-frame').value);syncCalibration();});
   for(const id of ['head','body'])$(`#${id}-line`).addEventListener('input',()=>{state[id]=Number($(`#${id}-line`).value);$(`#${id}-value`).textContent=String(state[id]);redraw();});
   for(const id of ['guides','bounds','landmarks'])$(`#${id}`).addEventListener('change',()=>{state[id]=$(`#${id}`).checked;redraw();});$('#play-pair').addEventListener('click',play);$('#stop-pair').addEventListener('click',stop);reduced.addEventListener('change',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});stop();
   $('#note-clip').addEventListener('change',loadNote);$('#note').addEventListener('input',saveNote);$('#note-verdict').addEventListener('change',saveNote);$('#export').addEventListener('click',()=>{const value={schemaVersion:1,exportedAt:new Date().toISOString(),artApproval:false,notes:Object.values(notes),currentRendering:Object.fromEntries(clips.map(clip=>[clip.id,renderIdentity(clip)])),auditPath,auditGeneratedAt:audit?.generatedAt||null};const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const link=element('a');link.href=url;link.download='patrick-size-review.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
-  $('#loading').hidden=true;if(failures.length){$('#error').hidden=false;$('#error').textContent=`${failures.length}段載入失敗：${failures.map(value=>value.id).join('、')}。其他素材仍可比較。`;}
-  Object.assign(window.__patrickSizeReview,{status:'ready',clipIDs:clips.map(clip=>clip.id),outfitIDs:outfits.map(value=>value.id),failures,geometry:(id,index,layoutID)=>{const geometry=frameGeometry(clipByID(id),index,catalog.master,layouts.find(value=>value.id===layoutID));return{rect:geometry.rect,anchor:geometry.anchor,pixelScale:geometry.pixelScale,bounds:geometry.bounds};}});
+  $('#loading').hidden=true;if(failures.length){$('#error').hidden=false;$('#error').textContent=`${failures.length}段載入失敗：${failures.map(value=>`${value.id}（${value.error}）`).join('、')}。其他素材仍可比較。`;}
+  Object.assign(window.__patrickSizeReview,{status:'ready',candidateMode,candidateClipIDs:candidateClips.map(clip=>clip.id),clipIDs:clips.map(clip=>clip.id),outfitIDs:outfits.map(value=>value.id),failures,geometry:(id,index,layoutID)=>{const geometry=frameGeometry(clipByID(id),index,catalog.master,layouts.find(value=>value.id===layoutID));return{rect:geometry.rect,anchor:geometry.anchor,pixelScale:geometry.pixelScale,bounds:geometry.bounds};}});
 }
 start().catch(error=>{stop();$('#error').hidden=false;$('#error').textContent=error.message;$('#loading').hidden=true;window.__patrickSizeReview.status='error';window.__patrickSizeReview.error=error.message;});

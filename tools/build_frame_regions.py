@@ -40,6 +40,13 @@ REVIEWED_SUPPORT_POLICIES = {
         "depthPixels": 12,
         "reason": "Visually inspected seated feet: the original lower-15-percent band also included the lowered dumbbell. The bottom 12 source pixels contain both feet and exclude that prop.",
     },
+    ("animation/exercise-v3/atlas-generated.png",
+     "0a3fdcd7fc489fb89457b76145ce3e249f2a401c3ffc0a1a566872cb7da1627f"): {
+        "id": "exercise-v3-reviewed-support-12px-20261006",
+        "kind": "fixed-bottom-core-band",
+        "depthPixels": 12,
+        "reason": "Separately inspected all 16 seated frames on this exact new source: visible feet share the core bottom. The lowest 12-pixel support silhouette also includes shorts and minor dumbbell overlap; it is not an anatomical foot-only mask. This narrower reviewed support band reduces registered top-head horizontal range from 21 to 3 source pixels, without per-frame scaling or smoothing. Do not apply to another source hash.",
+    },
 }
 
 

@@ -1,0 +1,745 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-06T02:53:56.138827+00:00",
+  "status": "metadata-valid-visual-improvements-pending-normal-speed-review",
+  "artApproved": false,
+  "catalogIntegratedByThisReview": false,
+  "source": {
+    "path": "animation/exercise-v3/atlas-generated.png",
+    "sha256": "0a3fdcd7fc489fb89457b76145ce3e249f2a401c3ffc0a1a566872cb7da1627f",
+    "width": 1536,
+    "height": 1024
+  },
+  "previousSource": {
+    "path": "animation/exercise-v2/atlas-generated.png",
+    "sha256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f"
+  },
+  "sourceUnchanged": true,
+  "regions": {
+    "path": "animation/exercise-v3/regions-v1.json",
+    "sha256": "60b52d9cf086221cfe3f30731b3665bd657d81096b69f8392377ddfd6edf13d5"
+  },
+  "beforeRegions": {
+    "path": "animation/exercise-v3/regions-before-support-policy.json",
+    "sha256": "88528747b175be4304da7c4bb95971e1f26f2a9fe9ba5533b8283e2c80bf072a"
+  },
+  "canvas": {
+    "width": 416,
+    "height": 416,
+    "anchorPixels": [
+      208,
+      366
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8798076923076923
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 512356,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "frameCount": 16,
+    "sourcePixelsRepainted": 0,
+    "sourcePixelsResampled": 0
+  },
+  "supportPolicy": {
+    "id": "exercise-v3-reviewed-support-12px-20261006",
+    "kind": "fixed-bottom-core-band",
+    "depthPixels": 12,
+    "reason": "Separately inspected all 16 seated frames on this exact new source: visible feet share the core bottom. The lowest 12-pixel support silhouette also includes shorts and minor dumbbell overlap; it is not an anatomical foot-only mask. This narrower reviewed support band reduces registered top-head horizontal range from 21 to 3 source pixels, without per-frame scaling or smoothing. Do not apply to another source hash."
+  },
+  "registrationMeasurement": {
+    "method": "For each frame, median of alpha>=128 silhouette row midpoints in the first 60 source rows below core top. This tracks the upper-head silhouette horizontally, not eye expression or full-body bounding-box center. Compared with the same unchanged masks/canvas; only integer translation differs.",
+    "beforeLower15Percent": {
+      "xRangeSourcePixels": 21.0,
+      "maximumAdjacentStepSourcePixels": 18.0,
+      "firstToLastSourcePixels": 0.5
+    },
+    "afterReviewed12PixelSupport": {
+      "xRangeSourcePixels": 3.0,
+      "maximumAdjacentStepSourcePixels": 2.0,
+      "firstToLastSourcePixels": 1.5
+    },
+    "verticalTranslationChanged": false,
+    "limits": "Residual horizontal3px range /2px adjacent movement and vertical4px range /2px adjacent movement remain. This includes source drawing drift or pose deformation; no per-frame scaling or smoothing is used.",
+    "verticalHeadBandBeforeAndAfter": {
+      "rangeSourcePixels": 4.0,
+      "maximumAdjacentStepSourcePixels": 2.0,
+      "firstToLastSourcePixels": -4.0,
+      "changedByPolicy": false
+    }
+  },
+  "supportVisualFinding": "All 16 seated poses have visible feet reaching core bottom. Bottom12 rows also contain shorts and some dumbbell overlap (notably1/12-16); call this support placement, never an anatomical-foot-only measurement. Lower15% also includes the changing lowered prop and creates false horizontal registration shifts.",
+  "firstLastEyes": {
+    "sourceFrames": [
+      1,
+      16
+    ],
+    "confirmedOnSHA": "0a3fdcd7fc489fb89457b76145ce3e249f2a401c3ffc0a1a566872cb7da1627f",
+    "observation": "Both half-open with visible white eyes and black pupils on this exact file. Source13 is closed. Initial claim that16isfullyclosed was not confirmed.",
+    "loopApproval": false
+  },
+  "renderScaleNote": {
+    "previousCanvas": 728,
+    "newCanvas": 416,
+    "previousRuntimeScale": 2.6541666666666663,
+    "scalePreservingPreviousSourcePixelDensity": 1.5166666666666666,
+    "explanation": "N changes are transparent padding, not body resizing. Root must update whole-clip scale consistently if integrating; this reviewer did not edit any catalog."
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "coreBounds": [
+        70,
+        11,
+        295,
+        249
+      ],
+      "supportBandY": [
+        237,
+        249
+      ],
+      "supportBandOuterX": [
+        116,
+        277
+      ],
+      "beforeAnchor": [
+        180,
+        249
+      ],
+      "afterAnchor": [
+        197,
+        249
+      ],
+      "beforeTranslation": [
+        28,
+        117
+      ],
+      "afterTranslation": [
+        11,
+        117
+      ],
+      "upperHeadMidlineProxySourceX": 203.5,
+      "upperHeadMidlineBeforeCanvasX": 231.5,
+      "upperHeadMidlineAfterCanvasX": 214.5,
+      "visualReview": "半睜白眼黑瞳，靜止握啞鈴；可作回位參考。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 157.5
+    },
+    {
+      "sourceFrame": 2,
+      "coreBounds": [
+        459,
+        11,
+        679,
+        249
+      ],
+      "supportBandY": [
+        237,
+        249
+      ],
+      "supportBandOuterX": [
+        502,
+        660
+      ],
+      "beforeAnchor": [
+        582,
+        249
+      ],
+      "afterAnchor": [
+        581,
+        249
+      ],
+      "beforeTranslation": [
+        -374,
+        117
+      ],
+      "afterTranslation": [
+        -373,
+        117
+      ],
+      "upperHeadMidlineProxySourceX": 587.5,
+      "upperHeadMidlineBeforeCanvasX": 213.5,
+      "upperHeadMidlineAfterCanvasX": 214.5,
+      "visualReview": "凝神、啞鈴抬起，眼睛張大。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 157.5
+    },
+    {
+      "sourceFrame": 3,
+      "coreBounds": [
+        859,
+        11,
+        1062,
+        249
+      ],
+      "supportBandY": [
+        237,
+        249
+      ],
+      "supportBandOuterX": [
+        887,
+        1044
+      ],
+      "beforeAnchor": [
+        966,
+        249
+      ],
+      "afterAnchor": [
+        966,
+        249
+      ],
+      "beforeTranslation": [
+        -758,
+        117
+      ],
+      "afterTranslation": [
+        -758,
+        117
+      ],
+      "upperHeadMidlineProxySourceX": 971.5,
+      "upperHeadMidlineBeforeCanvasX": 213.5,
+      "upperHeadMidlineAfterCanvasX": 213.5,
+      "visualReview": "屈臂繼續抬啞鈴。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 157.5
+    },
+    {
+      "sourceFrame": 4,
+      "coreBounds": [
+        1241,
+        10,
+        1446,
+        249
+      ],
+      "supportBandY": [
+        237,
+        249
+      ],
+      "supportBandOuterX": [
+        1270,
+        1428
+      ],
+      "beforeAnchor": [
+        1350,
+        249
+      ],
+      "afterAnchor": [
+        1349,
+        249
+      ],
+      "beforeTranslation": [
+        -1142,
+        117
+      ],
+      "afterTranslation": [
+        -1141,
+        117
+      ],
+      "upperHeadMidlineProxySourceX": 1354.0,
+      "upperHeadMidlineBeforeCanvasX": 212.0,
+      "upperHeadMidlineAfterCanvasX": 213.0,
+      "visualReview": "握持抬高，眼皮較放鬆。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 156.5
+    },
+    {
+      "sourceFrame": 5,
+      "coreBounds": [
+        92,
+        264,
+        296,
+        505
+      ],
+      "supportBandY": [
+        493,
+        505
+      ],
+      "supportBandOuterX": [
+        119,
+        276
+      ],
+      "beforeAnchor": [
+        199,
+        505
+      ],
+      "afterAnchor": [
+        198,
+        505
+      ],
+      "beforeTranslation": [
+        9,
+        -139
+      ],
+      "afterTranslation": [
+        10,
+        -139
+      ],
+      "upperHeadMidlineProxySourceX": 205.0,
+      "upperHeadMidlineBeforeCanvasX": 214.0,
+      "upperHeadMidlineAfterCanvasX": 215.0,
+      "visualReview": "相對v2懸垂多餘手臂形狀縮短，屈肘到護腕／握拳的連接較清楚；仍需正常速度看輪廓連續。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 154.5
+    },
+    {
+      "sourceFrame": 6,
+      "coreBounds": [
+        472,
+        264,
+        679,
+        505
+      ],
+      "supportBandY": [
+        493,
+        505
+      ],
+      "supportBandOuterX": [
+        502,
+        660
+      ],
+      "beforeAnchor": [
+        582,
+        505
+      ],
+      "afterAnchor": [
+        581,
+        505
+      ],
+      "beforeTranslation": [
+        -374,
+        -139
+      ],
+      "afterTranslation": [
+        -373,
+        -139
+      ],
+      "upperHeadMidlineProxySourceX": 588.5,
+      "upperHeadMidlineBeforeCanvasX": 214.5,
+      "upperHeadMidlineAfterCanvasX": 215.5,
+      "visualReview": "維持屈肘握持，半睜眼。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 154.5
+    },
+    {
+      "sourceFrame": 7,
+      "coreBounds": [
+        856,
+        264,
+        1063,
+        505
+      ],
+      "supportBandY": [
+        493,
+        505
+      ],
+      "supportBandOuterX": [
+        887,
+        1044
+      ],
+      "beforeAnchor": [
+        966,
+        505
+      ],
+      "afterAnchor": [
+        966,
+        505
+      ],
+      "beforeTranslation": [
+        -758,
+        -139
+      ],
+      "afterTranslation": [
+        -758,
+        -139
+      ],
+      "upperHeadMidlineProxySourceX": 972.25,
+      "upperHeadMidlineBeforeCanvasX": 214.25,
+      "upperHeadMidlineAfterCanvasX": 214.25,
+      "visualReview": "啞鈴开始放低。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 154.5
+    },
+    {
+      "sourceFrame": 8,
+      "coreBounds": [
+        1235,
+        264,
+        1446,
+        505
+      ],
+      "supportBandY": [
+        493,
+        505
+      ],
+      "supportBandOuterX": [
+        1271,
+        1428
+      ],
+      "beforeAnchor": [
+        1350,
+        505
+      ],
+      "afterAnchor": [
+        1350,
+        505
+      ],
+      "beforeTranslation": [
+        -1142,
+        -139
+      ],
+      "afterTranslation": [
+        -1142,
+        -139
+      ],
+      "upperHeadMidlineProxySourceX": 1356.0,
+      "upperHeadMidlineBeforeCanvasX": 214.0,
+      "upperHeadMidlineAfterCanvasX": 214.0,
+      "visualReview": "啞鈴繼續放低，手／護腕與道具連接可見。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 154.5
+    },
+    {
+      "sourceFrame": 9,
+      "coreBounds": [
+        82,
+        520,
+        295,
+        761
+      ],
+      "supportBandY": [
+        749,
+        761
+      ],
+      "supportBandOuterX": [
+        119,
+        276
+      ],
+      "beforeAnchor": [
+        198,
+        761
+      ],
+      "afterAnchor": [
+        198,
+        761
+      ],
+      "beforeTranslation": [
+        10,
+        -395
+      ],
+      "afterTranslation": [
+        10,
+        -395
+      ],
+      "upperHeadMidlineProxySourceX": 204.5,
+      "upperHeadMidlineBeforeCanvasX": 214.5,
+      "upperHeadMidlineAfterCanvasX": 214.5,
+      "visualReview": "降至腿側。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 154.5
+    },
+    {
+      "sourceFrame": 10,
+      "coreBounds": [
+        460,
+        520,
+        679,
+        761
+      ],
+      "supportBandY": [
+        749,
+        761
+      ],
+      "supportBandOuterX": [
+        502,
+        660
+      ],
+      "beforeAnchor": [
+        582,
+        761
+      ],
+      "afterAnchor": [
+        581,
+        761
+      ],
+      "beforeTranslation": [
+        -374,
+        -395
+      ],
+      "afterTranslation": [
+        -373,
+        -395
+      ],
+      "upperHeadMidlineProxySourceX": 588.0,
+      "upperHeadMidlineBeforeCanvasX": 214.0,
+      "upperHeadMidlineAfterCanvasX": 215.0,
+      "visualReview": "新稿握拳與啞鈴兩端相接；未見獨立漂浮手或第三手。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 154.5
+    },
+    {
+      "sourceFrame": 11,
+      "coreBounds": [
+        843,
+        520,
+        1063,
+        761
+      ],
+      "supportBandY": [
+        749,
+        761
+      ],
+      "supportBandOuterX": [
+        887,
+        1043
+      ],
+      "beforeAnchor": [
+        952,
+        761
+      ],
+      "afterAnchor": [
+        965,
+        761
+      ],
+      "beforeTranslation": [
+        -744,
+        -395
+      ],
+      "afterTranslation": [
+        -757,
+        -395
+      ],
+      "upperHeadMidlineProxySourceX": 972.0,
+      "upperHeadMidlineBeforeCanvasX": 228.0,
+      "upperHeadMidlineAfterCanvasX": 215.0,
+      "visualReview": "新稿啞鈴靠近左腳，拳與道具接合可辨。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 154.5
+    },
+    {
+      "sourceFrame": 12,
+      "coreBounds": [
+        1226,
+        520,
+        1446,
+        761
+      ],
+      "supportBandY": [
+        749,
+        761
+      ],
+      "supportBandOuterX": [
+        1269,
+        1428
+      ],
+      "beforeAnchor": [
+        1334,
+        761
+      ],
+      "afterAnchor": [
+        1349,
+        761
+      ],
+      "beforeTranslation": [
+        -1126,
+        -395
+      ],
+      "afterTranslation": [
+        -1141,
+        -395
+      ],
+      "upperHeadMidlineProxySourceX": 1356.0,
+      "upperHeadMidlineBeforeCanvasX": 230.0,
+      "upperHeadMidlineAfterCanvasX": 215.0,
+      "visualReview": "啞鈴到腿上；下緣與左腳重疊，不能當作foot-only支撐帶。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 154.5
+    },
+    {
+      "sourceFrame": 13,
+      "coreBounds": [
+        71,
+        775,
+        297,
+        1017
+      ],
+      "supportBandY": [
+        1005,
+        1017
+      ],
+      "supportBandOuterX": [
+        117,
+        276
+      ],
+      "beforeAnchor": [
+        180,
+        1017
+      ],
+      "afterAnchor": [
+        197,
+        1017
+      ],
+      "beforeTranslation": [
+        28,
+        -651
+      ],
+      "afterTranslation": [
+        11,
+        -651
+      ],
+      "upperHeadMidlineProxySourceX": 205.0,
+      "upperHeadMidlineBeforeCanvasX": 233.0,
+      "upperHeadMidlineAfterCanvasX": 216.0,
+      "visualReview": "雙眼閉合、吐氣；氣團為本格道具，不應丟棄。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 153.5
+    },
+    {
+      "sourceFrame": 14,
+      "coreBounds": [
+        455,
+        775,
+        679,
+        1017
+      ],
+      "supportBandY": [
+        1005,
+        1017
+      ],
+      "supportBandOuterX": [
+        502,
+        660
+      ],
+      "beforeAnchor": [
+        564,
+        1017
+      ],
+      "afterAnchor": [
+        581,
+        1017
+      ],
+      "beforeTranslation": [
+        -356,
+        -651
+      ],
+      "afterTranslation": [
+        -373,
+        -651
+      ],
+      "upperHeadMidlineProxySourceX": 588.5,
+      "upperHeadMidlineBeforeCanvasX": 232.5,
+      "upperHeadMidlineAfterCanvasX": 215.5,
+      "visualReview": "相對v2睜大眼改為半睜眼，較接近休息回位表情。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 153.5
+    },
+    {
+      "sourceFrame": 15,
+      "coreBounds": [
+        839,
+        775,
+        1063,
+        1017
+      ],
+      "supportBandY": [
+        1005,
+        1017
+      ],
+      "supportBandOuterX": [
+        885,
+        1044
+      ],
+      "beforeAnchor": [
+        948,
+        1017
+      ],
+      "afterAnchor": [
+        965,
+        1017
+      ],
+      "beforeTranslation": [
+        -740,
+        -651
+      ],
+      "afterTranslation": [
+        -757,
+        -651
+      ],
+      "upperHeadMidlineProxySourceX": 972.5,
+      "upperHeadMidlineBeforeCanvasX": 232.5,
+      "upperHeadMidlineAfterCanvasX": 215.5,
+      "visualReview": "休息半睜眼。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 153.5
+    },
+    {
+      "sourceFrame": 16,
+      "coreBounds": [
+        1222,
+        775,
+        1446,
+        1017
+      ],
+      "supportBandY": [
+        1005,
+        1017
+      ],
+      "supportBandOuterX": [
+        1269,
+        1427
+      ],
+      "beforeAnchor": [
+        1332,
+        1017
+      ],
+      "afterAnchor": [
+        1348,
+        1017
+      ],
+      "beforeTranslation": [
+        -1124,
+        -651
+      ],
+      "afterTranslation": [
+        -1140,
+        -651
+      ],
+      "upperHeadMidlineProxySourceX": 1356.0,
+      "upperHeadMidlineBeforeCanvasX": 232.0,
+      "upperHeadMidlineAfterCanvasX": 216.0,
+      "visualReview": "本SHA實看為半睜白眼黑瞳，並非完全閉眼；和第1格表情近似，但姿勢不是逐像素相同。",
+      "rowsAndPixelOwnershipUnchanged": true,
+      "upperHeadBandCenterCanvasY": 153.5
+    }
+  ],
+  "proofs": [
+    {
+      "path": "animation/exercise-v3/qc-feet-bottom-12.png",
+      "sha256": "b7df0e46fdc0b1e9c9fc881f61ead50eb203678db92fd44692523460ae91f98e"
+    },
+    {
+      "path": "animation/exercise-v3/qc-support-extrema-detail.png",
+      "sha256": "153dc8130f6cfc2141bf3cf650e05c0ff9382797b9266835f7345043d9466876"
+    },
+    {
+      "path": "animation/exercise-v3/qc-v2-v3-contact-sheet.png",
+      "sha256": "3052378dbea0e8bbea996ef47c7972725b092a7a2b6e64dc70f37ff7b434d379"
+    },
+    {
+      "path": "animation/exercise-v3/qc-registered-16.png",
+      "sha256": "0ab2bc9072607c54b126869452423f464009d3f17695fb3650a9da1a1d4a47d0"
+    }
+  ],
+  "tests": {
+    "sourceMetadataCheck": "PASS",
+    "frameRegionsFixtures": 12,
+    "frameRegionContractFixtures": 6,
+    "sourceSHAAfterReview": "0a3fdcd7fc489fb89457b76145ce3e249f2a401c3ffc0a1a566872cb7da1627f"
+  },
+  "pending": [
+    "Normal-speed playback review of5arm and10-12grip transitions.",
+    "Body proportions and selected clip scale remain separate from registration.",
+    "No native build, device installation or blanket art approval from this review."
+  ]
+}

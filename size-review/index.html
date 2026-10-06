@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#18151e"><link rel="icon" href="data:,"><title>派大星 · 同尺規看大小</title><link rel="stylesheet" href="./styles.css?v=20261006-size2"></head>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#18151e"><link rel="icon" href="data:,"><title>派大星 · 同尺規看大小</title><link rel="stylesheet" href="./styles.css?v=20261006-size3"></head>
 <body><main>
-<header><a href="../preview/">← 回到日常預覽</a><span>SIZE STUDY / 尺寸審稿</span><a href="../preview/?review=candidates">動作審稿 ↗</a></header>
+<header><a href="../preview/">← 回到日常預覽</a><span>SIZE STUDY / 尺寸審稿</span><a id="revision-entry" href="?review=candidates">新舊改稿對照 ↗</a><a href="../preview/?review=candidates">動作審稿 ↗</a></header>
 <section class="intro"><p class="eyebrow">把差異放在同一把尺上</p><h1>大小一致，要看角色本身。</h1><p>同一視窗、同一落位基線與主預覽倍率。帽子、衣服與道具會保留；每張圖都不會自動放大填滿卡片。</p><p class="notice">這是尺寸對照，並非美術批准。時間固定為 10:10，方便比較；200 px 是內容舞台寬度；原生手錶另有系統安全區，這裡不代表真機 1:1 大小。</p></section>
 <div id="error" role="alert" hidden></div><p id="loading" role="status">正在讀取實際圖稿與輪廓…</p>
+<section id="revision-banner" class="revision-banner" hidden><h2>新舊改稿對照</h2><p>待審改稿還沒有換進日常造型。兩邊使用同一舞台與實際整段倍率；可以停在不同畫格，看頭身、手勢與表情是否改善。</p><label>改稿配對<select id="revision-select"></select></label><p id="revision-status" class="hint"></p><a href="./">只看目前日常造型 ↗</a></section>
 <section class="controls" aria-label="共用尺規"><div class="tabs" role="tablist"><button data-tab="overview" role="tab" aria-selected="true">全部造型</button><button data-tab="compare" role="tab" aria-selected="false">兩段／跨幀比較</button><button data-tab="calibration" role="tab" aria-selected="false">校準前／目前</button><button data-tab="layouts" role="tab" aria-selected="false">四款版式</button></div>
 <div class="ruler-controls"><label><input id="guides" type="checkbox" checked> 共用尺規</label><label><input id="landmarks" type="checkbox"> 臉部／眼線量測</label><label><input id="bounds" type="checkbox"> 可見輪廓框</label><label>頭部參考 <input id="head-line" type="range" min="240" max="540" value="360"><output id="head-value">360</output></label><label>身體參考 <input id="body-line" type="range" min="500" max="800" value="650"><output id="body-value">650</output></label></div><p class="hint">虛線是可移動的共用水平尺規，不是骨架；底線來自播放定位，部分造型包含坐墊，不能當作真腳底。量測線顯示眼下緣的臉寬（粉色）與兩眼下緣間距（藍色）。輪廓框包含帽子、道具，不能當作臉或身體大小。</p>
 </section>
@@ -14,4 +15,4 @@
 <details class="method"><summary>量測來源與限制</summary><p id="audit-source">獨立臉部／軀幹量測尚未載入。</p><p>播放幾何直接使用目前主預覽的固定倍率、輪廓遮罩與落位基線。沒有逐格縮放，也沒有為不同卡片另外 fit。臉部／軀幹量測若只能使用可見代理值，會保留其限制；未知不會填成一致。</p><a id="audit-file" href="../animation/production-20261006-scale/body-scale-audit.json">查看原始量測資料 ↗</a></details>
 <section class="review"><h2>記下哪裡太大、太小或突然跳動</h2><label>記錄對象<select id="note-clip"></select></label><label>意見<select id="note-verdict"><option value="pending">待比較</option><option value="revise">尺寸需要調整</option><option value="acceptable">目前尺寸可接受</option></select></label><label for="note">具體格數與差異</label><textarea id="note" rows="3" placeholder="例如：第1→2格頭突然變大；跟原味造型比，臉寬明顯較小。"></textarea><div class="review-actions"><span id="save-state" role="status">意見存於本機，與其他審稿分開。</span><button id="export">匯出尺寸意見</button></div></section>
 <footer>同一尺規保留差異。尺寸量測、播放正常與畫稿批准是分開的判斷。</footer>
-</main><script type="module" src="./app.js?v=20261006-size2"></script></body></html>
+</main><script type="module" src="./app.js?v=20261006-size3"></script></body></html>
