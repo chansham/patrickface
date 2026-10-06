@@ -2,6 +2,8 @@
 
 使用者暫時無法連接手機，要求先補素材、運動、軟件適配與錶盤版本。本輪不是安裝，也沒有把所有素材標為完成或批准。
 
+後續的「人物本體大小」校準已另完成，見[本體盤點](BODY-SCALE-AUDIT-20261006.md)及[原生實測](RENDER-SCALE-CROSSCHECK-20261006.md)。該版本Apple run37403688597已通過；最新試裝輸入為[build9及校驗資料](INSTALLATION.md)。以下build7／8資料保留為當次整合的歷史證據。
+
 ## 實際變更
 
 | 項目 | 本輪完成 | 仍未完成 |
@@ -38,6 +40,6 @@
 - 本機：`output/apple-build/run-37400635967-artifacts/patrick-unsigned-resigning-input-8/PatrickCompanion-unsigned.ipa`。
 - 版本1.0／build8，45,251,085 bytes；SHA256：`d3011b73a023144ebc2593fa3e226bd0bd33c643f1cae872b6a1e2393615729a`。
 - 下載後再次依manifest逐項核對156個項目的原始bytes、類型、Unix權限與符號連結；四產品的ID／版本／平台正確，checksum檔吻合。結果保存於同目錄`local-verification.json`。
-- `signed=false`、`directlyInstallable=false`。它是後續Windows重簽的輸入，不能直接裝入Watch；Apple帳號、實際權限、Watch端安裝和續期尚未驗證。舊build6／7保留為歷史產物，後续試裝應以build8或更新已驗版本為準。
+- `signed=false`、`directlyInstallable=false`。它是後續Windows重簽的歷史輸入，不能直接裝入Watch；Apple帳號、實際權限、Watch端安裝和續期尚未驗證。build6／7／8保留為歷史產物，後續試裝以build9或更新已驗版本為準。
 
 截圖覆寫參數僅在DEBUG simulator有效，不保存、不傳同步；正式裝置版忽略它。未登入Apple帳號、未簽名、未安裝至使用者Watch。使用者已說稍後再試裝，待其方便時接續Windows路線。

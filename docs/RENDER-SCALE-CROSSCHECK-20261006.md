@@ -1,12 +1,12 @@
 # 2026-10-06 角色尺度：Web／原生獨立交叉核對
 
-本報告按 2026-10-06 最新 catalog／版式重新量測，讀取程式、原圖、輪廓 sidecar 與既有 Apple simulator PNG。這份量測沒有改 PNG、catalog、倍率或 bundle；另依本輪任務，在原生 DEBUG simulator 與截圖工具加入純診斷 probe，尚待 Apple 執行，未改渲染幾何。
+本報告按 2026-10-06 最新 catalog／版式重新量測，讀取程式、原圖、輪廓 sidecar 與既有 Apple simulator PNG。這份量測沒有改 PNG、catalog、倍率或 bundle；另依本輪任務，在原生 DEBUG simulator 與截圖工具加入純診斷 probe；Apple run 37403688597 已完成，實測結果見下節，未改渲染幾何。
 
 ## 結論
 
 - 同一內容舞台內，Web 與 Swift 的輪廓來源順序、固定畫布、clip.scale、落位基線錨點及版式 transform 數學一致。實際執行 JS 與獨立轉錄的 Swift 計算，共 348 個矩形比較，最大座標差 1.14e-13 px（浮點尾差）。這不是重新執行 SwiftUI。
 - 15 個主目錄播放變體、14 個候選變體，共 324 個有序播放位置已核對。重複眨眼／主候選共用原圖不算新原畫。全部 4 版式的 alpha≥128 全輪廓未超出完整矩形舞台；這不表示本體大小一致、未遮數字或通過圓角裁切。
-- 兩端原生主 catalog、所有主目錄 PNG/regions、layouts.json 目前逐 bytes 相同。**本輪新倍率與版式已同步兩端，逐 bytes 核對通過；但尚須重建並取得新 probe。之後若再調倍率或 sidecar，兩端都必須重新同步、SHA驗證、重建。**候選不是原生運行目錄，不應把候選直接導入當批准。
+- 兩端原生主 catalog、所有主目錄 PNG/regions、layouts.json 目前逐 bytes 相同。**本輪新倍率與版式已同步兩端，逐 bytes 核對通過；同一版本已經 Apple 重建，並取得 6 份有效 probe。之後若再調倍率或 sidecar，兩端都必須重新同步、SHA驗證、重建。**候選不是原生運行目錄，不應把候選直接導入當批准。
 - 大部分 clip.scale 恰好是 N／舊格最長邊，用來抵消輪廓畫布留白；exercise 多乘 1.4。本輪 celebrate／派對全段再乘 1.30，charging／太空充電全段乘 1.10，主／候選一致；activity 資訊欄 x=476。其餘沒有逐格縮放。這些數值與輪廓尺寸不能單獨證明不同服裝本體等大，仍需語義 landmark 與肉眼核对。
 
 ## 計算鏈
@@ -62,9 +62,50 @@
 
 已讀取 run37400000919 的真實416×496 Watch截图。RGB色差門檻測得 yawn 彩色外框：classic 168×204px、bold 115×141px、theater 159×194px、activity 93×114px。後三者分別接近 classic×0.69／0.95／0.56，與版式契約相符。classic同來源顏色門檻按完整416內容舞台計應約261.1×319.7px，截圖約為其0.64倍。
 
-**416×496整張原生PNG ≠ 416×496內容舞台。** Watch外層先把416:496舞台fit進系統提供的安全GeometryReader，內層再以832×992座標畫；黑背景延伸到安全區，但角色不延伸。上述截圖可反推有效舞台寬約267px，不能單憑PNG確定具體safeAreaInsets或點數。本輪已加僅 DEBUG simulator 的 probe，下一次 Apple QA 將記錄Geometry尺寸、safeAreaInsets、screenScale、實際前景／腕下狀態。`--watch-geometry` 會核對本次程序、版式與時間；尚未取得新值，不能將上述反推值當實測。取得後再把Web模擬器設成同一可用區；不應為追平完整Web舞台而任意把某些clip放大，否則會混淆平台可用区與角色比例。
+**416×496整張原生PNG ≠ 416×496內容舞台。** Watch外層先把416:496舞台fit進系統提供的安全GeometryReader，內層再以832×992座標畫；黑背景延伸到安全區，但角色不延伸。先前截圖反推有效舞台寬約267px；本輪新 probe 實測為266.70968px，確認差異來自可用內容區。若要做跨平台實際尺寸對照，Web需使用同樣內容區；不應為追平完整Web舞台而任意把某些clip放大，否則會混淆平台可用區與角色比例。
+
+## 本輪 Apple 實測：5組畫面、6份有效診斷
+
+[Apple run 37403688597](https://github.com/chansham/patrickface/actions/runs/37403688597) 的 head 為 `ed8388362ef8f7f062a7256a21f6c2058b785973`。模擬器建置、12項真正XCTest、裝置archive與截圖步驟全部通過；Foundation為1503／129／102項。實際環境是 **Apple Watch Series 11 46mm、watchOS 26.4**，Xcode 26.6／Watch simulator SDK 26.5；不是使用者的Series12或OS27實機證據。
+
+預設畫面3秒／8秒各一張，加classic、bold、theater、activity各一張，共5組6張。六份probe均核對本次bundleID、程序PID、要求版式、launch後ISO／epoch時間、幾何算術、PNG尺寸與檔案SHA，結果6/6有效。原始probe及每張PNG的來源、雜湊與逐項驗證保存在 [NATIVE-GEOMETRY-RUN-37403688597.json](NATIVE-GEOMETRY-RUN-37403688597.json)。`animation/production-20261006-scale/renderer-crosscheck.json`保留原先pre-CI量測狀態，不以舊報告假冒這次執行結果。
+
+五組的幾何數值一致：
+
+|量測|實際值|
+|---|---|
+|螢幕|208×248 pt，scale=2，即416×496 px|
+|GeometryReader可用尺寸|204×159 pt；全局起點(2,53) pt|
+|safeAreaInsets|上53、下36、左2、右2 pt|
+|外層416座標unit|0.3205645161|
+|內層832座標unit|0.1602822581|
+|實際內容舞台|133.35484×159 pt＝266.70968×318 px|
+|舞台在全螢幕中的起點|(74.64516,106) px|
+|實際觀測狀態|active、visible=true、monitoring=true；wristDown=false、reduceMotion=false、lowPower=false|
+
+這個內容舞台相對完整416×496舞台的比例是 **0.641129**。因此原先yawn完整舞台的alpha輪廓高309.2–319.7px，投影至這個實際內容區約198.2–204.9px；原生PNG的彩色外框高204px，與此前公式一致。帽子、坐墊與道具仍包含在總輪廓內，不能當身體尺寸。新JSON亦列出每個主／候選動作在實測viewport下的預期值，清楚標示是公式投影，並非每個動作都另拍原生截圖。
+
+六張Watch PNG已逐張實看：人物正立、頭腳完整，自訂數字和系統時間分行，日期及人物分開；activity人物與資訊欄分離。classic／bold／theater／activity彩色外框分別168×204、115×141、159×194、93×114px，符合版式倍率。**theater與activity底部沒有classic／bold可見的省略號按鈕**；本次未點擊檢查入口，不以active狀態宣稱所有互動可達。預設3秒及8秒PNG相同，不能當逐幀播放或腕下／常顯驗證。另一位覆核者另實看手機activity單張，確認數字／日期、人物與資訊分離及頭腳完整，沒有據此聲稱全部手機畫面已人工驗收。
+
+建置來源核對：main／candidate catalog、layouts與收集工具同head；Swift工作樹與commit只有CRLF/LF差異，文字一致。56項source→原生bundle在該commit內逐bytes相同，CI對實際iPhone＋內嵌Watch的模擬器／archive資源SHA檢查均通過。截圖啟動同job、同head的獨立Debug Watch產物，資源複製有log；未另取回該安裝副本的完整資源hash manifest，這一界線保留。此輪沒有真機安裝、音效或所有動作的原生驗收。
+
+診斷原件位置：`output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/`。
 
 ## 護欄與下一步
+
+### 本輪來源量測與瀏覽器驗證
+
+最新來源報告盤點15張图集／172格獨立原畫，120格取得可見臉寬與眼下緣間距，52格因閉眼、遮擋或追蹤不可靠而未量測；眼線至可確認足底為100格。太空服、小廚師的坐墊底不能算人物腳底，已撤回該高度數值；正裝遮手的來源第8–11格亦不計臉部數值。這不是172格原畫全部通過的結論。
+
+六張主要參考圖的原始座標尺線由兩人獨立實看。派對第8格在經典／運動版已實看，長哨完整且與資訊欄分開；校準仍保留原畫頭身比例差，沒有藝術批准。
+
+- 8項量測fixtures通過：透明留白、帽子／分離道具、20%本體縮小、共用眨眼去重、來源SHA漂移、遮擋及坐墊假足底。
+- 5項輪廓瀏覽器檢查通過，包含144px共同比例縮圖、來源錯誤隔離及審稿意見版本：`output/playwright/20261006-scale-regions-final/report.json`。
+- 3項版式檢查通過，涵蓋612組正在使用的來源姿勢×版式、讀時避讓與小視窗：`output/playwright/20261006-scale-layouts/report.json`。612不是獨立原畫數。
+- 5項尺寸頁檢查通過，三段與主預覽的角色像素比較一致；最後坐墊／正裝遮擋專項回歸通過：`output/playwright/20261006-size-review/report.json`、`landmark-followup-report.json`。
+- 新12格伸展生成未取得輸出，新增原畫0張；提示與原錯誤保留於`animation/production-20261006-scale/generation-ledger.json`。
+
+以上技術檢查、人工尺線覆核及生成結果互不替代；Windows瀏覽器結果也不代替Apple模擬器或真機。
 
 - 當前29變體全部滿足原生scale 0.1…4、每幀16…30000ms、全段≤120000ms的限制。Web只要求scale為正有限值，未共用上限；未來校準值須同時通過兩端驗證，不能只靠Web能顯示。
 - catalog.master.scale現在為1，兩端目前都沒有使用此欄位；有效倍率是clip.scale。不要把未實作的master.scale當新全局調節器。

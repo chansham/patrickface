@@ -6,7 +6,9 @@
 
 使用者已說稍後再連接手機，本輪先完成四款App內錶面、啞鈴定位、散步／跑步／肌力陪伴分類、計時控制捷徑及首次暫停Live Activity修復。`8582124`的[Apple run37400635967](https://github.com/chansham/patrickface/actions/runs/37400635967)全部成功：1734項Foundation、12項XCTest、12項封裝測試、四產品編譯、無簽名裝置封存及兩端四版式截圖。下文10月5日結果保留為歷史。
 
-最新輸入為[未簽名build8](../output/apple-build/run-37400635967-artifacts/patrick-unsigned-resigning-input-8/PatrickCompanion-unsigned.ipa)，版本1.0，45,251,085 bytes；SHA256 `d3011b73a023144ebc2593fa3e226bd0bd33c643f1cae872b6a1e2393615729a`。下載後156項內容及四產品已逐項核對，報告與manifest／checksum放在同目錄。它仍需重簽，不能直接安裝；沒有操作Apple登入、Sideloadly或使用者裝置。詳見[本輪整合紀錄](INTEGRATION-20261006.md)。
+追加角色大小校準後，`ed83883`的[Apple run37403688597](https://github.com/chansham/patrickface/actions/runs/37403688597)再次全部成功：1734項Foundation、12項XCTest、12項封裝測試、四產品編譯與封存、兩端四版式截圖。Watch模擬器6次幾何紀錄確認共同內容舞台266.70968×318像素，並非整張416×496截圖；詳見[原生大小實測](RENDER-SCALE-CROSSCHECK-20261006.md)。
+
+最新輸入為[未簽名build9](../output/apple-build/run-37403688597-artifacts/patrick-unsigned-resigning-input-9/PatrickCompanion-unsigned.ipa)，版本1.0，45,251,616 bytes；SHA256 `4427faedb439e0244620fb894895948f594a3f010946dc675485d14656cea19b`。下載後156項內容及四產品已逐項核對，報告與manifest／checksum放在同目錄。它仍需重簽，不能直接安裝；沒有操作Apple登入、Sideloadly或使用者裝置。build8保留歷史，下一次試裝使用build9或之後已驗版本。
 
 ## 現在已知與待確認
 

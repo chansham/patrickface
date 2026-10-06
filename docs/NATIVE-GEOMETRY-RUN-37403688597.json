@@ -1,0 +1,2638 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-06T02:30:58.359700+00:00",
+  "run": {
+    "id": "37403688597",
+    "headSHA": "ed8388362ef8f7f062a7256a21f6c2058b785973",
+    "url": "https://github.com/chansham/patrickface/actions/runs/37403688597",
+    "conclusion": "success"
+  },
+  "captureReport": {
+    "path": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/report.json",
+    "sha256": "826df0c5affefd16b2c731e82c234771201683d64fec07910f8d52983d232a88",
+    "geometryEvidence": {
+      "requested": true,
+      "captured": 6,
+      "screenshots": 6,
+      "status": "complete"
+    }
+  },
+  "sourceAtBuild": [
+    {
+      "path": "animation/catalog.json",
+      "commitSHA256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+      "workingTreeSHA256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+      "byteEqual": true,
+      "textEqualAfterLineEndingNormalization": true
+    },
+    {
+      "path": "animation/candidates.json",
+      "commitSHA256": "846a64323d72256e8ec1b366186d058e6748ab7a895b583904352be794603c89",
+      "workingTreeSHA256": "846a64323d72256e8ec1b366186d058e6748ab7a895b583904352be794603c89",
+      "byteEqual": true,
+      "textEqualAfterLineEndingNormalization": true
+    },
+    {
+      "path": "experience/layouts.json",
+      "commitSHA256": "1485ab8b0dbbba19881f38a1b1566e34332f8a6c21c512635f2c335a68b52577",
+      "workingTreeSHA256": "1485ab8b0dbbba19881f38a1b1566e34332f8a6c21c512635f2c335a68b52577",
+      "byteEqual": true,
+      "textEqualAfterLineEndingNormalization": true
+    },
+    {
+      "path": "PatrickFace/PatrickAnimatedFaceView.swift",
+      "commitSHA256": "b3a840b31945fd694ba29d5afc9a2675a5d5d04995833cfce669798a1828c3da",
+      "workingTreeSHA256": "60ccf264537bbc2cfb6686086ba05885406d4be6e3f25eee92121b6780e9090b",
+      "byteEqual": false,
+      "textEqualAfterLineEndingNormalization": true
+    },
+    {
+      "path": "PatrickFace/PatrickAnimationPlayer.swift",
+      "commitSHA256": "3f77ace5c6bf00c11b3e0960c908b21c31b57d9561284e4350d5040c9fea52dc",
+      "workingTreeSHA256": "3fa369fad46260a260218d6a6c8308f288df1310cf89ba09e460ef061baa1f9f",
+      "byteEqual": false,
+      "textEqualAfterLineEndingNormalization": true
+    },
+    {
+      "path": "iOSCompanion/Shared/PatrickExperienceResources.swift",
+      "commitSHA256": "40baa8773237cf7433e079ad7c1c60b4673086a9bbd7b35c3e9dcaf6407778af",
+      "workingTreeSHA256": "677974bf5cf65c337459db2df48c0b4bef11c54d1c793071b73ab230db477511",
+      "byteEqual": false,
+      "textEqualAfterLineEndingNormalization": true
+    },
+    {
+      "path": "tools/capture_apple_simulators.py",
+      "commitSHA256": "a1ed26f9c00f6d37f195b8af9bf440d731bfddddba4430d989e457b047cdfade",
+      "workingTreeSHA256": "a1ed26f9c00f6d37f195b8af9bf440d731bfddddba4430d989e457b047cdfade",
+      "byteEqual": true,
+      "textEqualAfterLineEndingNormalization": true
+    }
+  ],
+  "sourceBundleChecksAtBuild": [
+    {
+      "source": "animation/bath-v1/atlas-generated.png",
+      "destination": "PatrickFace/Animation/bath-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd",
+      "commitDestinationSHA256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd"
+    },
+    {
+      "source": "animation/bath-v1/regions-v1.json",
+      "destination": "PatrickFace/Animation/bath-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "a4ed3fe2ce93cf2e44e3869d00c96d5c56e042b6911f904fbb58de827b614738",
+      "commitDestinationSHA256": "a4ed3fe2ce93cf2e44e3869d00c96d5c56e042b6911f904fbb58de827b614738"
+    },
+    {
+      "source": "animation/blink-v2/atlas-generated.png",
+      "destination": "PatrickFace/Animation/blink-v2/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "commitDestinationSHA256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926"
+    },
+    {
+      "source": "animation/blink-v2/regions-v1.json",
+      "destination": "PatrickFace/Animation/blink-v2/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e",
+      "commitDestinationSHA256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e"
+    },
+    {
+      "source": "animation/catalog.json",
+      "destination": "PatrickFace/Animation/catalog.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+      "commitDestinationSHA256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7"
+    },
+    {
+      "source": "animation/celebrate-v1/atlas-generated.png",
+      "destination": "PatrickFace/Animation/celebrate-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8",
+      "commitDestinationSHA256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8"
+    },
+    {
+      "source": "animation/celebrate-v1/regions-v1.json",
+      "destination": "PatrickFace/Animation/celebrate-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "4d6ae47ddf460ee798861f3db55a67753897b3359afb64b04d9dfa921e5a7e99",
+      "commitDestinationSHA256": "4d6ae47ddf460ee798861f3db55a67753897b3359afb64b04d9dfa921e5a7e99"
+    },
+    {
+      "source": "animation/charging-space-v1/atlas-generated.png",
+      "destination": "PatrickFace/Animation/charging-space-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22",
+      "commitDestinationSHA256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22"
+    },
+    {
+      "source": "animation/charging-space-v1/regions-v1.json",
+      "destination": "PatrickFace/Animation/charging-space-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "2449e95c7f53a09414a1f02c6035fbedf0927cbfcceeba0d6063876fe66dd1e7",
+      "commitDestinationSHA256": "2449e95c7f53a09414a1f02c6035fbedf0927cbfcceeba0d6063876fe66dd1e7"
+    },
+    {
+      "source": "animation/charging-v2/atlas-generated.png",
+      "destination": "PatrickFace/Animation/charging-v2/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "commitDestinationSHA256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678"
+    },
+    {
+      "source": "animation/charging-v2/regions-v1.json",
+      "destination": "PatrickFace/Animation/charging-v2/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
+      "commitDestinationSHA256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119"
+    },
+    {
+      "source": "animation/exercise-v2/atlas-generated.png",
+      "destination": "PatrickFace/Animation/exercise-v2/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+      "commitDestinationSHA256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f"
+    },
+    {
+      "source": "animation/exercise-v2/regions-v1.json",
+      "destination": "PatrickFace/Animation/exercise-v2/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "d35a5757a30cc481996886d55b7c3e5517431ad425ff2664c313382be83b07ad",
+      "commitDestinationSHA256": "d35a5757a30cc481996886d55b7c3e5517431ad425ff2664c313382be83b07ad"
+    },
+    {
+      "source": "animation/feeding-chef-v1/atlas-generated.png",
+      "destination": "PatrickFace/Animation/feeding-chef-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66",
+      "commitDestinationSHA256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66"
+    },
+    {
+      "source": "animation/feeding-chef-v1/regions-v1.json",
+      "destination": "PatrickFace/Animation/feeding-chef-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "4346965a107da3c2ed9c8ed807c5537599506093a188b865ae013d1025822714",
+      "commitDestinationSHA256": "4346965a107da3c2ed9c8ed807c5537599506093a188b865ae013d1025822714"
+    },
+    {
+      "source": "animation/focus-v1/atlas-generated.png",
+      "destination": "PatrickFace/Animation/focus-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "commitDestinationSHA256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755"
+    },
+    {
+      "source": "animation/focus-v1/regions-v1.json",
+      "destination": "PatrickFace/Animation/focus-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909",
+      "commitDestinationSHA256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909"
+    },
+    {
+      "source": "animation/mint-pajama-v1/atlas-generated.png",
+      "destination": "PatrickFace/Animation/mint-pajama-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b",
+      "commitDestinationSHA256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b"
+    },
+    {
+      "source": "animation/mint-pajama-v1/regions-v1.json",
+      "destination": "PatrickFace/Animation/mint-pajama-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "1b04aa20669bc7870ed2207eec648d4853ce599dbfebcef7360013950565ecf7",
+      "commitDestinationSHA256": "1b04aa20669bc7870ed2207eec648d4853ce599dbfebcef7360013950565ecf7"
+    },
+    {
+      "source": "animation/moon-robe-v1/atlas-generated.png",
+      "destination": "PatrickFace/Animation/moon-robe-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f",
+      "commitDestinationSHA256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f"
+    },
+    {
+      "source": "animation/moon-robe-v1/regions-v1.json",
+      "destination": "PatrickFace/Animation/moon-robe-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "e0fa2f4e099f86cee8648a5a3ddedb6b1ed2a1e96279dac0fe0e7fa4fd6d8906",
+      "commitDestinationSHA256": "e0fa2f4e099f86cee8648a5a3ddedb6b1ed2a1e96279dac0fe0e7fa4fd6d8906"
+    },
+    {
+      "source": "animation/pet-v2/atlas-generated.png",
+      "destination": "PatrickFace/Animation/pet-v2/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b",
+      "commitDestinationSHA256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b"
+    },
+    {
+      "source": "animation/pet-v2/regions-v1.json",
+      "destination": "PatrickFace/Animation/pet-v2/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "82ae7279f09a2777a4f9be149c593d20dee58ddd6f9ae4c90771b691aac4d9e5",
+      "commitDestinationSHA256": "82ae7279f09a2777a4f9be149c593d20dee58ddd6f9ae4c90771b691aac4d9e5"
+    },
+    {
+      "source": "animation/wake-v1/atlas-generated.png",
+      "destination": "PatrickFace/Animation/wake-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4",
+      "commitDestinationSHA256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4"
+    },
+    {
+      "source": "animation/wake-v1/regions-v1.json",
+      "destination": "PatrickFace/Animation/wake-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "54adb188c1bf5e72b5d94deb80c7123052ad36cdecc60d5fc0278b41f0e32b65",
+      "commitDestinationSHA256": "54adb188c1bf5e72b5d94deb80c7123052ad36cdecc60d5fc0278b41f0e32b65"
+    },
+    {
+      "source": "animation/yawn-v1/atlas-eyes-v2.png",
+      "destination": "PatrickFace/Animation/yawn-v1/atlas-eyes-v2.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372",
+      "commitDestinationSHA256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372"
+    },
+    {
+      "source": "animation/yawn-v1/regions-v1.json",
+      "destination": "PatrickFace/Animation/yawn-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "bf9a23db553f5e6c85d7e784fa5b4fb36fd9588c7edbbf3ed7add342075eb22f",
+      "commitDestinationSHA256": "bf9a23db553f5e6c85d7e784fa5b4fb36fd9588c7edbbf3ed7add342075eb22f"
+    },
+    {
+      "source": "experience/layouts.json",
+      "destination": "PatrickFace/Experience/layouts.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "1485ab8b0dbbba19881f38a1b1566e34332f8a6c21c512635f2c335a68b52577",
+      "commitDestinationSHA256": "1485ab8b0dbbba19881f38a1b1566e34332f8a6c21c512635f2c335a68b52577"
+    },
+    {
+      "source": "animation/bath-v1/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/bath-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd",
+      "commitDestinationSHA256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd"
+    },
+    {
+      "source": "animation/bath-v1/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/bath-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "a4ed3fe2ce93cf2e44e3869d00c96d5c56e042b6911f904fbb58de827b614738",
+      "commitDestinationSHA256": "a4ed3fe2ce93cf2e44e3869d00c96d5c56e042b6911f904fbb58de827b614738"
+    },
+    {
+      "source": "animation/blink-v2/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/blink-v2/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "commitDestinationSHA256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926"
+    },
+    {
+      "source": "animation/blink-v2/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/blink-v2/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e",
+      "commitDestinationSHA256": "c290a0bdf9e990ebb9bc57ebbf8eb6bb7ad6ab642ecef85ef0b819f73909856e"
+    },
+    {
+      "source": "animation/catalog.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/catalog.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+      "commitDestinationSHA256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7"
+    },
+    {
+      "source": "animation/celebrate-v1/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/celebrate-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8",
+      "commitDestinationSHA256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8"
+    },
+    {
+      "source": "animation/celebrate-v1/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/celebrate-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "4d6ae47ddf460ee798861f3db55a67753897b3359afb64b04d9dfa921e5a7e99",
+      "commitDestinationSHA256": "4d6ae47ddf460ee798861f3db55a67753897b3359afb64b04d9dfa921e5a7e99"
+    },
+    {
+      "source": "animation/charging-space-v1/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/charging-space-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22",
+      "commitDestinationSHA256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22"
+    },
+    {
+      "source": "animation/charging-space-v1/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/charging-space-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "2449e95c7f53a09414a1f02c6035fbedf0927cbfcceeba0d6063876fe66dd1e7",
+      "commitDestinationSHA256": "2449e95c7f53a09414a1f02c6035fbedf0927cbfcceeba0d6063876fe66dd1e7"
+    },
+    {
+      "source": "animation/charging-v2/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/charging-v2/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "commitDestinationSHA256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678"
+    },
+    {
+      "source": "animation/charging-v2/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/charging-v2/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
+      "commitDestinationSHA256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119"
+    },
+    {
+      "source": "animation/exercise-v2/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/exercise-v2/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+      "commitDestinationSHA256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f"
+    },
+    {
+      "source": "animation/exercise-v2/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/exercise-v2/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "d35a5757a30cc481996886d55b7c3e5517431ad425ff2664c313382be83b07ad",
+      "commitDestinationSHA256": "d35a5757a30cc481996886d55b7c3e5517431ad425ff2664c313382be83b07ad"
+    },
+    {
+      "source": "animation/feeding-chef-v1/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/feeding-chef-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66",
+      "commitDestinationSHA256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66"
+    },
+    {
+      "source": "animation/feeding-chef-v1/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/feeding-chef-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "4346965a107da3c2ed9c8ed807c5537599506093a188b865ae013d1025822714",
+      "commitDestinationSHA256": "4346965a107da3c2ed9c8ed807c5537599506093a188b865ae013d1025822714"
+    },
+    {
+      "source": "animation/focus-v1/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/focus-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "commitDestinationSHA256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755"
+    },
+    {
+      "source": "animation/focus-v1/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/focus-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909",
+      "commitDestinationSHA256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909"
+    },
+    {
+      "source": "animation/mint-pajama-v1/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/mint-pajama-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b",
+      "commitDestinationSHA256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b"
+    },
+    {
+      "source": "animation/mint-pajama-v1/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/mint-pajama-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "1b04aa20669bc7870ed2207eec648d4853ce599dbfebcef7360013950565ecf7",
+      "commitDestinationSHA256": "1b04aa20669bc7870ed2207eec648d4853ce599dbfebcef7360013950565ecf7"
+    },
+    {
+      "source": "animation/moon-robe-v1/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/moon-robe-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f",
+      "commitDestinationSHA256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f"
+    },
+    {
+      "source": "animation/moon-robe-v1/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/moon-robe-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "e0fa2f4e099f86cee8648a5a3ddedb6b1ed2a1e96279dac0fe0e7fa4fd6d8906",
+      "commitDestinationSHA256": "e0fa2f4e099f86cee8648a5a3ddedb6b1ed2a1e96279dac0fe0e7fa4fd6d8906"
+    },
+    {
+      "source": "animation/pet-v2/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/pet-v2/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b",
+      "commitDestinationSHA256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b"
+    },
+    {
+      "source": "animation/pet-v2/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/pet-v2/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "82ae7279f09a2777a4f9be149c593d20dee58ddd6f9ae4c90771b691aac4d9e5",
+      "commitDestinationSHA256": "82ae7279f09a2777a4f9be149c593d20dee58ddd6f9ae4c90771b691aac4d9e5"
+    },
+    {
+      "source": "animation/wake-v1/atlas-generated.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/wake-v1/atlas-generated.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4",
+      "commitDestinationSHA256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4"
+    },
+    {
+      "source": "animation/wake-v1/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/wake-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "54adb188c1bf5e72b5d94deb80c7123052ad36cdecc60d5fc0278b41f0e32b65",
+      "commitDestinationSHA256": "54adb188c1bf5e72b5d94deb80c7123052ad36cdecc60d5fc0278b41f0e32b65"
+    },
+    {
+      "source": "animation/yawn-v1/atlas-eyes-v2.png",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/yawn-v1/atlas-eyes-v2.png",
+      "byteEqual": true,
+      "commitSourceSHA256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372",
+      "commitDestinationSHA256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372"
+    },
+    {
+      "source": "animation/yawn-v1/regions-v1.json",
+      "destination": "iOSCompanion/PatrickCompanion/Animation/yawn-v1/regions-v1.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "bf9a23db553f5e6c85d7e784fa5b4fb36fd9588c7edbbf3ed7add342075eb22f",
+      "commitDestinationSHA256": "bf9a23db553f5e6c85d7e784fa5b4fb36fd9588c7edbbf3ed7add342075eb22f"
+    },
+    {
+      "source": "experience/layouts.json",
+      "destination": "iOSCompanion/PatrickCompanion/Experience/layouts.json",
+      "byteEqual": true,
+      "commitSourceSHA256": "1485ab8b0dbbba19881f38a1b1566e34332f8a6c21c512635f2c335a68b52577",
+      "commitDestinationSHA256": "1485ab8b0dbbba19881f38a1b1566e34332f8a6c21c512635f2c335a68b52577"
+    }
+  ],
+  "buildEvidence": {
+    "simulatorLogSHA256": "be8825a1192172584d8ad790d660adf230f0d1ef23441f58b4d9533f2c3a0e5e",
+    "archiveLogSHA256": "fd88c8c30e32bc1bca1e60c7722369e3973834b998260f65a25cd7222f35354c",
+    "xcode": "26.6 (17F113)",
+    "watchSimulatorSDK": "26.5",
+    "xctestPassed": 12,
+    "foundationChecks": [
+      1503,
+      129,
+      102
+    ],
+    "embeddedAppBundleSHAValidation": "Passed for actual iPhone app with embedded Watch in simulator and device archive.",
+    "captureProductBoundary": "Screenshots launch standalone Debug-watchsimulator PatrickFace.app from the same build directory/job/head; resource copy is logged. Its own post-install resource hash manifest was not captured separately."
+  },
+  "watchDevice": {
+    "dataPath": "/Users/runner/Library/Developer/CoreSimulator/Devices/BDADBF56-4804-4874-AFC3-99551888BB56/data",
+    "dataPathSize": 4096,
+    "logPath": "/Users/runner/Library/Logs/CoreSimulator/BDADBF56-4804-4874-AFC3-99551888BB56",
+    "udid": "BDADBF56-4804-4874-AFC3-99551888BB56",
+    "isAvailable": true,
+    "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Series-11-46mm",
+    "state": "Shutdown",
+    "name": "Apple Watch Series 11 (46mm)",
+    "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-26-4",
+    "runtimeVersion": "26-4",
+    "deviceTypeName": "Apple Watch Series 11 (46mm)",
+    "modelIdentifier": "Watch7,18"
+  },
+  "groups": 5,
+  "screenshots": [
+    {
+      "group": "default",
+      "requestedLayout": null,
+      "app": {
+        "path": "/Users/runner/work/_temp/patrick-simulator-build.PjBmYP/watch/Build/Products/Debug-watchsimulator/PatrickFace.app",
+        "bundleID": "com.chans.patrickface.companion.watchkitapp",
+        "executable": "PatrickFace",
+        "minimumOS": "10.0",
+        "platform": "WatchSimulator"
+      },
+      "pid": 12709,
+      "launchStartedAt": "2026-10-06T02:25:59.827748+00:00",
+      "screenshot": {
+        "path": "watch-01-3s.png",
+        "elapsedSeconds": 3.716,
+        "capturedAt": "2026-10-06T02:26:05.442794+00:00",
+        "width": 416,
+        "height": 496,
+        "bytes": 75405,
+        "sha256": "9c6a50d2516a82b08362eec7c4d5b417eef935a9e199dfa48f223980b4fe1975",
+        "localPath": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-01-3s.png"
+      },
+      "geometryProbe": {
+        "path": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-01-3s.geometry.json",
+        "sha256": "1470643d51b0e6e5f5c439460e1b0e3a7789bd0caf755837c23f7004fea1bfa1",
+        "payload": {
+          "bundleID": "com.chans.patrickface.companion.watchkitapp",
+          "debugSimulator": true,
+          "event": "change",
+          "kind": "patrick-watch-geometry",
+          "observation": {
+            "geometryFrameGlobalPoints": {
+              "height": 159,
+              "width": 204,
+              "x": 2,
+              "y": 53
+            },
+            "geometrySizePoints": {
+              "height": 159,
+              "width": 204
+            },
+            "innerUnit832": 0.16028225806451613,
+            "layoutID": "classic",
+            "lowPower": false,
+            "monitoring": true,
+            "outerUnit416": 0.32056451612903225,
+            "reduceMotion": false,
+            "safeAreaInsetsPoints": {
+              "bottom": 36,
+              "leading": 2,
+              "top": 53,
+              "trailing": 2
+            },
+            "scenePhase": "active",
+            "screenBoundsPoints": {
+              "height": 248,
+              "width": 208,
+              "x": 0,
+              "y": 0
+            },
+            "screenScale": 2,
+            "stageOriginInGeometryPoints": {
+              "x": 35.322580645161295,
+              "y": 0
+            },
+            "stageSizePixels": {
+              "height": 318,
+              "width": 266.7096774193548
+            },
+            "stageSizePoints": {
+              "height": 159,
+              "width": 133.3548387096774
+            },
+            "visible": true,
+            "wristDown": false
+          },
+          "processID": 12709,
+          "recordedAt": "2026-10-06T02:26:02.250Z",
+          "recordedAtEpochMS": 1791253562250.049,
+          "schemaVersion": 1
+        }
+      },
+      "identityFreshnessArithmeticAndScreenshotSizeVerified": true,
+      "stageOriginScreenPixels": [
+        74.64516129032259,
+        106
+      ],
+      "coloredBounds": [
+        131,
+        188,
+        299,
+        392
+      ],
+      "coloredSize": [
+        168,
+        204
+      ],
+      "visualReview": {
+        "inspected": true,
+        "scope": "Static captured view: character upright, head and feet visible; digital time separated from system time and character.",
+        "ellipsisVisible": true,
+        "limitations": "No taps or animation sequence exercised by these PNGs; absence of an ellipsis in theater/activity is preserved, not treated as entry-point coverage."
+      }
+    },
+    {
+      "group": "default",
+      "requestedLayout": null,
+      "app": {
+        "path": "/Users/runner/work/_temp/patrick-simulator-build.PjBmYP/watch/Build/Products/Debug-watchsimulator/PatrickFace.app",
+        "bundleID": "com.chans.patrickface.companion.watchkitapp",
+        "executable": "PatrickFace",
+        "minimumOS": "10.0",
+        "platform": "WatchSimulator"
+      },
+      "pid": 12709,
+      "launchStartedAt": "2026-10-06T02:25:59.827748+00:00",
+      "screenshot": {
+        "path": "watch-02-8s.png",
+        "elapsedSeconds": 8.466,
+        "capturedAt": "2026-10-06T02:26:10.192860+00:00",
+        "width": 416,
+        "height": 496,
+        "bytes": 75405,
+        "sha256": "9c6a50d2516a82b08362eec7c4d5b417eef935a9e199dfa48f223980b4fe1975",
+        "localPath": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-02-8s.png"
+      },
+      "geometryProbe": {
+        "path": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-02-8s.geometry.json",
+        "sha256": "1470643d51b0e6e5f5c439460e1b0e3a7789bd0caf755837c23f7004fea1bfa1",
+        "payload": {
+          "bundleID": "com.chans.patrickface.companion.watchkitapp",
+          "debugSimulator": true,
+          "event": "change",
+          "kind": "patrick-watch-geometry",
+          "observation": {
+            "geometryFrameGlobalPoints": {
+              "height": 159,
+              "width": 204,
+              "x": 2,
+              "y": 53
+            },
+            "geometrySizePoints": {
+              "height": 159,
+              "width": 204
+            },
+            "innerUnit832": 0.16028225806451613,
+            "layoutID": "classic",
+            "lowPower": false,
+            "monitoring": true,
+            "outerUnit416": 0.32056451612903225,
+            "reduceMotion": false,
+            "safeAreaInsetsPoints": {
+              "bottom": 36,
+              "leading": 2,
+              "top": 53,
+              "trailing": 2
+            },
+            "scenePhase": "active",
+            "screenBoundsPoints": {
+              "height": 248,
+              "width": 208,
+              "x": 0,
+              "y": 0
+            },
+            "screenScale": 2,
+            "stageOriginInGeometryPoints": {
+              "x": 35.322580645161295,
+              "y": 0
+            },
+            "stageSizePixels": {
+              "height": 318,
+              "width": 266.7096774193548
+            },
+            "stageSizePoints": {
+              "height": 159,
+              "width": 133.3548387096774
+            },
+            "visible": true,
+            "wristDown": false
+          },
+          "processID": 12709,
+          "recordedAt": "2026-10-06T02:26:02.250Z",
+          "recordedAtEpochMS": 1791253562250.049,
+          "schemaVersion": 1
+        }
+      },
+      "identityFreshnessArithmeticAndScreenshotSizeVerified": true,
+      "stageOriginScreenPixels": [
+        74.64516129032259,
+        106
+      ],
+      "coloredBounds": [
+        131,
+        188,
+        299,
+        392
+      ],
+      "coloredSize": [
+        168,
+        204
+      ],
+      "visualReview": {
+        "inspected": true,
+        "scope": "Static captured view: character upright, head and feet visible; digital time separated from system time and character.",
+        "ellipsisVisible": true,
+        "limitations": "No taps or animation sequence exercised by these PNGs; absence of an ellipsis in theater/activity is preserved, not treated as entry-point coverage."
+      }
+    },
+    {
+      "group": "classic",
+      "requestedLayout": "classic",
+      "app": {
+        "path": "/Users/runner/work/_temp/patrick-simulator-build.PjBmYP/watch/Build/Products/Debug-watchsimulator/PatrickFace.app",
+        "bundleID": "com.chans.patrickface.companion.watchkitapp",
+        "executable": "PatrickFace",
+        "minimumOS": "10.0",
+        "platform": "WatchSimulator"
+      },
+      "pid": 14453,
+      "launchStartedAt": "2026-10-06T02:26:36.091332+00:00",
+      "screenshot": {
+        "path": "watch-layout-classic-01-3s.png",
+        "elapsedSeconds": 3.68,
+        "capturedAt": "2026-10-06T02:26:40.395349+00:00",
+        "width": 416,
+        "height": 496,
+        "bytes": 75405,
+        "sha256": "9c6a50d2516a82b08362eec7c4d5b417eef935a9e199dfa48f223980b4fe1975",
+        "localPath": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-layout-classic-01-3s.png"
+      },
+      "geometryProbe": {
+        "path": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-layout-classic-01-3s.geometry.json",
+        "sha256": "ce06dcd6bcdc1f07bc0c0944544defc6c36b27ab7c3eb53c52c022eda58cc38e",
+        "payload": {
+          "bundleID": "com.chans.patrickface.companion.watchkitapp",
+          "debugSimulator": true,
+          "event": "change",
+          "kind": "patrick-watch-geometry",
+          "observation": {
+            "geometryFrameGlobalPoints": {
+              "height": 159,
+              "width": 204,
+              "x": 2,
+              "y": 53
+            },
+            "geometrySizePoints": {
+              "height": 159,
+              "width": 204
+            },
+            "innerUnit832": 0.16028225806451613,
+            "layoutID": "classic",
+            "lowPower": false,
+            "monitoring": true,
+            "outerUnit416": 0.32056451612903225,
+            "reduceMotion": false,
+            "safeAreaInsetsPoints": {
+              "bottom": 36,
+              "leading": 2,
+              "top": 53,
+              "trailing": 2
+            },
+            "scenePhase": "active",
+            "screenBoundsPoints": {
+              "height": 248,
+              "width": 208,
+              "x": 0,
+              "y": 0
+            },
+            "screenScale": 2,
+            "stageOriginInGeometryPoints": {
+              "x": 35.322580645161295,
+              "y": 0
+            },
+            "stageSizePixels": {
+              "height": 318,
+              "width": 266.7096774193548
+            },
+            "stageSizePoints": {
+              "height": 159,
+              "width": 133.3548387096774
+            },
+            "visible": true,
+            "wristDown": false
+          },
+          "processID": 14453,
+          "recordedAt": "2026-10-06T02:26:37.117Z",
+          "recordedAtEpochMS": 1791253597116.7358,
+          "schemaVersion": 1
+        }
+      },
+      "identityFreshnessArithmeticAndScreenshotSizeVerified": true,
+      "stageOriginScreenPixels": [
+        74.64516129032259,
+        106
+      ],
+      "coloredBounds": [
+        131,
+        188,
+        299,
+        392
+      ],
+      "coloredSize": [
+        168,
+        204
+      ],
+      "visualReview": {
+        "inspected": true,
+        "scope": "Static captured view: character upright, head and feet visible; digital time separated from system time and character.",
+        "ellipsisVisible": true,
+        "limitations": "No taps or animation sequence exercised by these PNGs; absence of an ellipsis in theater/activity is preserved, not treated as entry-point coverage."
+      }
+    },
+    {
+      "group": "bold",
+      "requestedLayout": "bold",
+      "app": {
+        "path": "/Users/runner/work/_temp/patrick-simulator-build.PjBmYP/watch/Build/Products/Debug-watchsimulator/PatrickFace.app",
+        "bundleID": "com.chans.patrickface.companion.watchkitapp",
+        "executable": "PatrickFace",
+        "minimumOS": "10.0",
+        "platform": "WatchSimulator"
+      },
+      "pid": 15168,
+      "launchStartedAt": "2026-10-06T02:26:41.543801+00:00",
+      "screenshot": {
+        "path": "watch-layout-bold-01-3s.png",
+        "elapsedSeconds": 4.896,
+        "capturedAt": "2026-10-06T02:26:46.941217+00:00",
+        "width": 416,
+        "height": 496,
+        "bytes": 49763,
+        "sha256": "6ea23dcf7c16a8a384ab34fccd2a82d8379041b5b4080aa242a6961494d8590c",
+        "localPath": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-layout-bold-01-3s.png"
+      },
+      "geometryProbe": {
+        "path": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-layout-bold-01-3s.geometry.json",
+        "sha256": "c3fd9796a9ce63173e3520b5fb565b83b8fc94ee1fd4be68283c5922c712dcf5",
+        "payload": {
+          "bundleID": "com.chans.patrickface.companion.watchkitapp",
+          "debugSimulator": true,
+          "event": "change",
+          "kind": "patrick-watch-geometry",
+          "observation": {
+            "geometryFrameGlobalPoints": {
+              "height": 159,
+              "width": 204,
+              "x": 2,
+              "y": 53
+            },
+            "geometrySizePoints": {
+              "height": 159,
+              "width": 204
+            },
+            "innerUnit832": 0.16028225806451613,
+            "layoutID": "bold",
+            "lowPower": false,
+            "monitoring": true,
+            "outerUnit416": 0.32056451612903225,
+            "reduceMotion": false,
+            "safeAreaInsetsPoints": {
+              "bottom": 36,
+              "leading": 2,
+              "top": 53,
+              "trailing": 2
+            },
+            "scenePhase": "active",
+            "screenBoundsPoints": {
+              "height": 248,
+              "width": 208,
+              "x": 0,
+              "y": 0
+            },
+            "screenScale": 2,
+            "stageOriginInGeometryPoints": {
+              "x": 35.322580645161295,
+              "y": 0
+            },
+            "stageSizePixels": {
+              "height": 318,
+              "width": 266.7096774193548
+            },
+            "stageSizePoints": {
+              "height": 159,
+              "width": 133.3548387096774
+            },
+            "visible": true,
+            "wristDown": false
+          },
+          "processID": 15168,
+          "recordedAt": "2026-10-06T02:26:42.418Z",
+          "recordedAtEpochMS": 1791253602417.714,
+          "schemaVersion": 1
+        }
+      },
+      "identityFreshnessArithmeticAndScreenshotSizeVerified": true,
+      "stageOriginScreenPixels": [
+        74.64516129032259,
+        106
+      ],
+      "coloredBounds": [
+        155,
+        256,
+        270,
+        397
+      ],
+      "coloredSize": [
+        115,
+        141
+      ],
+      "visualReview": {
+        "inspected": true,
+        "scope": "Static captured view: character upright, head and feet visible; digital time separated from system time and character.",
+        "ellipsisVisible": true,
+        "limitations": "No taps or animation sequence exercised by these PNGs; absence of an ellipsis in theater/activity is preserved, not treated as entry-point coverage."
+      }
+    },
+    {
+      "group": "theater",
+      "requestedLayout": "theater",
+      "app": {
+        "path": "/Users/runner/work/_temp/patrick-simulator-build.PjBmYP/watch/Build/Products/Debug-watchsimulator/PatrickFace.app",
+        "bundleID": "com.chans.patrickface.companion.watchkitapp",
+        "executable": "PatrickFace",
+        "minimumOS": "10.0",
+        "platform": "WatchSimulator"
+      },
+      "pid": 15334,
+      "launchStartedAt": "2026-10-06T02:26:48.429177+00:00",
+      "screenshot": {
+        "path": "watch-layout-theater-01-3s.png",
+        "elapsedSeconds": 4.371,
+        "capturedAt": "2026-10-06T02:26:53.269134+00:00",
+        "width": 416,
+        "height": 496,
+        "bytes": 68005,
+        "sha256": "9f35778becc5e44802b0f97f7ea65021dfdf7ce9c016a1d20cb5d38a8a63d820",
+        "localPath": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-layout-theater-01-3s.png"
+      },
+      "geometryProbe": {
+        "path": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-layout-theater-01-3s.geometry.json",
+        "sha256": "dcd1a7df783ae199a1a7b424eb88d1a0970db522ccc6f1c5d7e5020f5bc954d0",
+        "payload": {
+          "bundleID": "com.chans.patrickface.companion.watchkitapp",
+          "debugSimulator": true,
+          "event": "change",
+          "kind": "patrick-watch-geometry",
+          "observation": {
+            "geometryFrameGlobalPoints": {
+              "height": 159,
+              "width": 204,
+              "x": 2,
+              "y": 53
+            },
+            "geometrySizePoints": {
+              "height": 159,
+              "width": 204
+            },
+            "innerUnit832": 0.16028225806451613,
+            "layoutID": "theater",
+            "lowPower": false,
+            "monitoring": true,
+            "outerUnit416": 0.32056451612903225,
+            "reduceMotion": false,
+            "safeAreaInsetsPoints": {
+              "bottom": 36,
+              "leading": 2,
+              "top": 53,
+              "trailing": 2
+            },
+            "scenePhase": "active",
+            "screenBoundsPoints": {
+              "height": 248,
+              "width": 208,
+              "x": 0,
+              "y": 0
+            },
+            "screenScale": 2,
+            "stageOriginInGeometryPoints": {
+              "x": 35.322580645161295,
+              "y": 0
+            },
+            "stageSizePixels": {
+              "height": 318,
+              "width": 266.7096774193548
+            },
+            "stageSizePoints": {
+              "height": 159,
+              "width": 133.3548387096774
+            },
+            "visible": true,
+            "wristDown": false
+          },
+          "processID": 15334,
+          "recordedAt": "2026-10-06T02:26:49.416Z",
+          "recordedAtEpochMS": 1791253609415.7668,
+          "schemaVersion": 1
+        }
+      },
+      "identityFreshnessArithmeticAndScreenshotSizeVerified": true,
+      "stageOriginScreenPixels": [
+        74.64516129032259,
+        106
+      ],
+      "coloredBounds": [
+        135,
+        170,
+        294,
+        364
+      ],
+      "coloredSize": [
+        159,
+        194
+      ],
+      "visualReview": {
+        "inspected": true,
+        "scope": "Static captured view: character upright, head and feet visible; digital time separated from system time and character.",
+        "ellipsisVisible": false,
+        "limitations": "No taps or animation sequence exercised by these PNGs; absence of an ellipsis in theater/activity is preserved, not treated as entry-point coverage."
+      }
+    },
+    {
+      "group": "activity",
+      "requestedLayout": "activity",
+      "app": {
+        "path": "/Users/runner/work/_temp/patrick-simulator-build.PjBmYP/watch/Build/Products/Debug-watchsimulator/PatrickFace.app",
+        "bundleID": "com.chans.patrickface.companion.watchkitapp",
+        "executable": "PatrickFace",
+        "minimumOS": "10.0",
+        "platform": "WatchSimulator"
+      },
+      "pid": 15584,
+      "launchStartedAt": "2026-10-06T02:27:02.971364+00:00",
+      "screenshot": {
+        "path": "watch-layout-activity-01-3s.png",
+        "elapsedSeconds": 4.698,
+        "capturedAt": "2026-10-06T02:27:09.069563+00:00",
+        "width": 416,
+        "height": 496,
+        "bytes": 45414,
+        "sha256": "a9d027a0989b9800c438fad0b3efc5466055c8b46927e6394a5dce0a620d33cd",
+        "localPath": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-layout-activity-01-3s.png"
+      },
+      "geometryProbe": {
+        "path": "output/apple-build/run-37403688597-artifacts/apple-build-diagnostics-9/native-screens/run-20261006T022433Z-10280/watch-layout-activity-01-3s.geometry.json",
+        "sha256": "a962c15c6141606c41690a6e849e946c13828711d8769d80deded08a5f592749",
+        "payload": {
+          "bundleID": "com.chans.patrickface.companion.watchkitapp",
+          "debugSimulator": true,
+          "event": "change",
+          "kind": "patrick-watch-geometry",
+          "observation": {
+            "geometryFrameGlobalPoints": {
+              "height": 159,
+              "width": 204,
+              "x": 2,
+              "y": 53
+            },
+            "geometrySizePoints": {
+              "height": 159,
+              "width": 204
+            },
+            "innerUnit832": 0.16028225806451613,
+            "layoutID": "activity",
+            "lowPower": false,
+            "monitoring": true,
+            "outerUnit416": 0.32056451612903225,
+            "reduceMotion": false,
+            "safeAreaInsetsPoints": {
+              "bottom": 36,
+              "leading": 2,
+              "top": 53,
+              "trailing": 2
+            },
+            "scenePhase": "active",
+            "screenBoundsPoints": {
+              "height": 248,
+              "width": 208,
+              "x": 0,
+              "y": 0
+            },
+            "screenScale": 2,
+            "stageOriginInGeometryPoints": {
+              "x": 35.322580645161295,
+              "y": 0
+            },
+            "stageSizePixels": {
+              "height": 318,
+              "width": 266.7096774193548
+            },
+            "stageSizePoints": {
+              "height": 159,
+              "width": 133.3548387096774
+            },
+            "visible": true,
+            "wristDown": false
+          },
+          "processID": 15584,
+          "recordedAt": "2026-10-06T02:27:04.902Z",
+          "recordedAtEpochMS": 1791253624901.719,
+          "schemaVersion": 1
+        }
+      },
+      "identityFreshnessArithmeticAndScreenshotSizeVerified": true,
+      "stageOriginScreenPixels": [
+        74.64516129032259,
+        106
+      ],
+      "coloredBounds": [
+        109,
+        265,
+        202,
+        379
+      ],
+      "coloredSize": [
+        93,
+        114
+      ],
+      "visualReview": {
+        "inspected": true,
+        "scope": "Static captured view: character upright, head and feet visible; digital time separated from system time and character.",
+        "ellipsisVisible": false,
+        "limitations": "No taps or animation sequence exercised by these PNGs; absence of an ellipsis in theater/activity is preserved, not treated as entry-point coverage."
+      }
+    }
+  ],
+  "contentStageWidthTo416ScreenRatio": 0.6411290322580645,
+  "sourcePixelProjectionAtMeasuredViewport": [
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "yawn",
+      "sourcePixelToNativeClassicPixel": 0.481099756337055,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            158.28181983489105,
+            173.67701203767686
+          ],
+          "alpha128WholeContourHeightPixels": [
+            198.21309961086666,
+            204.9484961995854
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            109.21445568607481,
+            119.83713830599703
+          ],
+          "alpha128WholeContourHeightPixels": [
+            136.767038731498,
+            141.41446237771393
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            150.3677288431465,
+            164.993161435793
+          ],
+          "alpha128WholeContourHeightPixels": [
+            188.30244463032332,
+            194.7010713896061
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            88.637819107539,
+            97.25912674109905
+          ],
+          "alpha128WholeContourHeightPixels": [
+            110.99933578208534,
+            114.77115787176784
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "idle-blink-normal",
+      "sourcePixelToNativeClassicPixel": 0.48109975633705504,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            167.9038149616322,
+            170.79041349965453
+          ],
+          "alpha128WholeContourHeightPixels": [
+            205.4295959559225,
+            206.39179546859663
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            115.85363232352621,
+            117.84538531476161
+          ],
+          "alpha128WholeContourHeightPixels": [
+            141.74642120958652,
+            142.41033887333165
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            159.50862421355058,
+            162.2508928246718
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.15811615812638,
+            196.0722056951668
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            94.02613637851404,
+            95.64263155980655
+          ],
+          "alpha128WholeContourHeightPixels": [
+            115.04057373531661,
+            115.57940546241412
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "idle-blink-slow",
+      "sourcePixelToNativeClassicPixel": 0.48109975633705504,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            167.9038149616322,
+            170.79041349965453
+          ],
+          "alpha128WholeContourHeightPixels": [
+            205.4295959559225,
+            206.39179546859663
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            115.85363232352621,
+            117.84538531476161
+          ],
+          "alpha128WholeContourHeightPixels": [
+            141.74642120958652,
+            142.41033887333165
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            159.50862421355058,
+            162.2508928246718
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.15811615812638,
+            196.0722056951668
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            94.02613637851404,
+            95.64263155980655
+          ],
+          "alpha128WholeContourHeightPixels": [
+            115.04057373531661,
+            115.57940546241412
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "idle-blink-double",
+      "sourcePixelToNativeClassicPixel": 0.48109975633705504,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            167.9038149616322,
+            170.79041349965453
+          ],
+          "alpha128WholeContourHeightPixels": [
+            205.4295959559225,
+            206.39179546859663
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            115.85363232352621,
+            117.84538531476161
+          ],
+          "alpha128WholeContourHeightPixels": [
+            141.74642120958652,
+            142.41033887333165
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            159.50862421355058,
+            162.2508928246718
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.15811615812638,
+            196.0722056951668
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            94.02613637851404,
+            95.64263155980655
+          ],
+          "alpha128WholeContourHeightPixels": [
+            115.04057373531661,
+            115.57940546241412
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "pet",
+      "sourcePixelToNativeClassicPixel": 0.5894136517554802,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            152.6581358046694,
+            155.01579041169128
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.68533238281944,
+            200.99005524861877
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            105.33411370522188,
+            106.96089538406697
+          ],
+          "alpha128WholeContourHeightPixels": [
+            135.0228793441454,
+            138.68313812154693
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            145.02522901443592,
+            147.26500089110672
+          ],
+          "alpha128WholeContourHeightPixels": [
+            185.90106576367845,
+            190.9405524861878
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            85.48855605061487,
+            86.80884263054713
+          ],
+          "alpha128WholeContourHeightPixels": [
+            109.5837861343789,
+            112.55443093922652
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "charging-classic",
+      "sourcePixelToNativeClassicPixel": 0.5894136517554803,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            139.10162181429334,
+            144.40634468009267
+          ],
+          "alpha128WholeContourHeightPixels": [
+            181.53940474068796,
+            194.5065050793085
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            95.9801190518624,
+            99.64037782926394
+          ],
+          "alpha128WholeContourHeightPixels": [
+            125.26218927107467,
+            134.20948850472286
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            132.14654072357865,
+            137.18602744608802
+          ],
+          "alpha128WholeContourHeightPixels": [
+            172.46243450365355,
+            184.7811798253431
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            77.89690821600428,
+            80.8675530208519
+          ],
+          "alpha128WholeContourHeightPixels": [
+            101.66206665478526,
+            108.92364284441278
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "charging",
+      "sourcePixelToNativeClassicPixel": 0.5475221993678824,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            150.56860482616764,
+            166.99427080720412
+          ],
+          "alpha128WholeContourHeightPixels": [
+            200.94064716801282,
+            205.86834696232378
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            103.89233733005567,
+            115.22604685697083
+          ],
+          "alpha128WholeContourHeightPixels": [
+            138.64904654592883,
+            142.0491594040034
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            143.04017458485924,
+            158.6445572668439
+          ],
+          "alpha128WholeContourHeightPixels": [
+            190.89361480961216,
+            195.57492961420758
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            84.31841870265389,
+            93.51679165203431
+          ],
+          "alpha128WholeContourHeightPixels": [
+            112.52676241408719,
+            115.28627429890133
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "exercise",
+      "sourcePixelToNativeClassicPixel": 0.7779032258064514,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            151.69112903225803,
+            172.69451612903225
+          ],
+          "alpha128WholeContourHeightPixels": [
+            184.363064516129,
+            187.4746774193548
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            104.66687903225804,
+            119.15921612903225
+          ],
+          "alpha128WholeContourHeightPixels": [
+            127.210514516129,
+            129.3575274193548
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            144.10657258064512,
+            164.05979032258062
+          ],
+          "alpha128WholeContourHeightPixels": [
+            175.14491129032254,
+            178.10094354838705
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            84.94703225806451,
+            96.70892903225807
+          ],
+          "alpha128WholeContourHeightPixels": [
+            103.24331612903224,
+            104.9858193548387
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "focus",
+      "sourcePixelToNativeClassicPixel": 0.5894136517554803,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            136.15455355551595,
+            140.28044911780432
+          ],
+          "alpha128WholeContourHeightPixels": [
+            156.78403136695775,
+            165.0358224915345
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            93.946641953306,
+            96.79350989128497
+          ],
+          "alpha128WholeContourHeightPixels": [
+            108.18098164320084,
+            113.87471751915879
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            129.34682587774014,
+            133.2664266619141
+          ],
+          "alpha128WholeContourHeightPixels": [
+            148.94482979860985,
+            156.78403136695778
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            76.24654999108894,
+            78.55705150597043
+          ],
+          "alpha128WholeContourHeightPixels": [
+            87.79905756549634,
+            92.42006059525933
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "celebrate",
+      "sourcePixelToNativeClassicPixel": 0.7223387096774193,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            127.1316129032258,
+            191.41975806451615
+          ],
+          "alpha128WholeContourHeightPixels": [
+            180.58467741935485,
+            183.4740322580645
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            87.72081290322579,
+            132.07963306451612
+          ],
+          "alpha128WholeContourHeightPixels": [
+            124.60342741935483,
+            126.5970822580645
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            120.7750322580645,
+            181.84877016129033
+          ],
+          "alpha128WholeContourHeightPixels": [
+            171.5554435483871,
+            174.30033064516127
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            71.19370322580646,
+            107.19506451612905
+          ],
+          "alpha128WholeContourHeightPixels": [
+            101.12741935483872,
+            102.74545806451614
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "bath",
+      "sourcePixelToNativeClassicPixel": 0.48109975633705504,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            172.71481252500274,
+            173.19591228133982
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.32650107284434,
+            197.25090009819257
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            119.17322064225188,
+            119.50517947412446
+          ],
+          "alpha128WholeContourHeightPixels": [
+            134.77528574026258,
+            136.10312106775285
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            164.0790718987526,
+            164.5361166672728
+          ],
+          "alpha128WholeContourHeightPixels": [
+            185.56017601920212,
+            187.38835509328294
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            96.72029501400155,
+            96.98971087755031
+          ],
+          "alpha128WholeContourHeightPixels": [
+            109.38284060079283,
+            110.46050405498785
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "wake",
+      "sourcePixelToNativeClassicPixel": 0.481099756337055,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            163.09281739826164,
+            171.27151325599158
+          ],
+          "alpha128WholeContourHeightPixels": [
+            205.91069571225952,
+            207.83509473760776
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            112.53404400480052,
+            118.17734414663418
+          ],
+          "alpha128WholeContourHeightPixels": [
+            142.07838004145907,
+            143.40621536894935
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            154.93817652834855,
+            162.70793759319199
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.61516092664655,
+            197.44334000072737
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            91.33197774302653,
+            95.91204742335529
+          ],
+          "alpha128WholeContourHeightPixels": [
+            115.30998959886534,
+            116.38765305306036
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "bedtime-mint",
+      "sourcePixelToNativeClassicPixel": 0.48109975633705504,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            161.1684183729134,
+            168.38491471796925
+          ],
+          "alpha128WholeContourHeightPixels": [
+            199.65639887987783,
+            208.79729425028188
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            111.20620867731024,
+            116.18559115539877
+          ],
+          "alpha128WholeContourHeightPixels": [
+            137.76291522711568,
+            144.07013303269449
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            153.10999745426773,
+            159.96566898207078
+          ],
+          "alpha128WholeContourHeightPixels": [
+            189.67357893588394,
+            198.35742953776779
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            90.25431428883152,
+            94.2955522420628
+          ],
+          "alpha128WholeContourHeightPixels": [
+            111.8075833727316,
+            116.92648478015786
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "bedtime-moon",
+      "sourcePixelToNativeClassicPixel": 0.48109975633705504,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            155.39522129686878,
+            156.3574208095429
+          ],
+          "alpha128WholeContourHeightPixels": [
+            194.36430156017022,
+            197.7319998545296
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            107.22270269483946,
+            107.8866203585846
+          ],
+          "alpha128WholeContourHeightPixels": [
+            134.11136807651744,
+            136.4350798996254
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            147.62546023202535,
+            148.53954976906576
+          ],
+          "alpha128WholeContourHeightPixels": [
+            184.6460864821617,
+            187.8453998618031
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            87.02132392624652,
+            87.56015565334404
+          ],
+          "alpha128WholeContourHeightPixels": [
+            108.84400887369533,
+            110.72991991853658
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/catalog.json",
+      "clip": "feed",
+      "sourcePixelToNativeClassicPixel": 0.5104491433863251,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            137.3108195709214,
+            140.37351443123936
+          ],
+          "alpha128WholeContourHeightPixels": [
+            202.64830992437106,
+            204.17965735453004
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            94.74446550393577,
+            96.85772495755515
+          ],
+          "alpha128WholeContourHeightPixels": [
+            139.82733384781602,
+            140.8839635746257
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            130.44527859237533,
+            133.35483870967738
+          ],
+          "alpha128WholeContourHeightPixels": [
+            192.5158944281525,
+            193.97067448680352
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            76.89405895971599,
+            78.60916808149405
+          ],
+          "alpha128WholeContourHeightPixels": [
+            113.4830535576478,
+            114.34060811853684
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "candidate-yawn16",
+      "sourcePixelToNativeClassicPixel": 0.6693889943074004,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            162.6615256166983,
+            172.70236053130932
+          ],
+          "alpha128WholeContourHeightPixels": [
+            196.8003643263757,
+            205.5024212523719
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            112.23645267552182,
+            119.16462876660343
+          ],
+          "alpha128WholeContourHeightPixels": [
+            135.79225138519922,
+            141.7966706641366
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            154.52844933586337,
+            164.06724250474386
+          ],
+          "alpha128WholeContourHeightPixels": [
+            186.96034611005692,
+            195.2273001897533
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            91.09045434535106,
+            96.71332189753323
+          ],
+          "alpha128WholeContourHeightPixels": [
+            110.2082040227704,
+            115.08135590132828
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "focus-candidate",
+      "sourcePixelToNativeClassicPixel": 0.5894136517554803,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            132.61807164498308,
+            140.28044911780432
+          ],
+          "alpha128WholeContourHeightPixels": [
+            142.04869007307076,
+            165.0358224915345
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            91.50646943503831,
+            96.79350989128497
+          ],
+          "alpha128WholeContourHeightPixels": [
+            98.01359615041882,
+            113.87471751915879
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            125.98716806273391,
+            133.2664266619141
+          ],
+          "alpha128WholeContourHeightPixels": [
+            134.94625556941722,
+            156.78403136695778
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            74.26612012119053,
+            78.55705150597043
+          ],
+          "alpha128WholeContourHeightPixels": [
+            79.54726644091963,
+            92.42006059525933
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "celebrate-candidate",
+      "sourcePixelToNativeClassicPixel": 0.7223387096774193,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            127.1316129032258,
+            191.41975806451615
+          ],
+          "alpha128WholeContourHeightPixels": [
+            180.58467741935485,
+            183.4740322580645
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            87.72081290322579,
+            132.07963306451612
+          ],
+          "alpha128WholeContourHeightPixels": [
+            124.60342741935483,
+            126.5970822580645
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            120.7750322580645,
+            181.84877016129033
+          ],
+          "alpha128WholeContourHeightPixels": [
+            171.5554435483871,
+            174.30033064516127
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            71.19370322580646,
+            107.19506451612905
+          ],
+          "alpha128WholeContourHeightPixels": [
+            101.12741935483872,
+            102.74545806451614
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "bath-candidate",
+      "sourcePixelToNativeClassicPixel": 0.48109975633705504,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            172.71481252500274,
+            173.19591228133982
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.32650107284434,
+            197.25090009819257
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            119.17322064225188,
+            119.50517947412446
+          ],
+          "alpha128WholeContourHeightPixels": [
+            134.77528574026258,
+            136.10312106775285
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            164.0790718987526,
+            164.5361166672728
+          ],
+          "alpha128WholeContourHeightPixels": [
+            185.56017601920212,
+            187.38835509328294
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            96.72029501400155,
+            96.98971087755031
+          ],
+          "alpha128WholeContourHeightPixels": [
+            109.38284060079283,
+            110.46050405498785
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "wake-candidate",
+      "sourcePixelToNativeClassicPixel": 0.481099756337055,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            163.09281739826164,
+            171.27151325599158
+          ],
+          "alpha128WholeContourHeightPixels": [
+            205.91069571225952,
+            207.83509473760776
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            112.53404400480052,
+            118.17734414663418
+          ],
+          "alpha128WholeContourHeightPixels": [
+            142.07838004145907,
+            143.40621536894935
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            154.93817652834855,
+            162.70793759319199
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.61516092664655,
+            197.44334000072737
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            91.33197774302653,
+            95.91204742335529
+          ],
+          "alpha128WholeContourHeightPixels": [
+            115.30998959886534,
+            116.38765305306036
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "blink-batch2-candidate",
+      "sourcePixelToNativeClassicPixel": 0.48109975633705504,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            167.9038149616322,
+            170.79041349965453
+          ],
+          "alpha128WholeContourHeightPixels": [
+            205.4295959559225,
+            206.39179546859663
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            115.85363232352621,
+            117.84538531476161
+          ],
+          "alpha128WholeContourHeightPixels": [
+            141.74642120958652,
+            142.41033887333165
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            159.50862421355058,
+            162.2508928246718
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.15811615812638,
+            196.0722056951668
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            94.02613637851404,
+            95.64263155980655
+          ],
+          "alpha128WholeContourHeightPixels": [
+            115.04057373531661,
+            115.57940546241412
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "pet-batch2-candidate",
+      "sourcePixelToNativeClassicPixel": 0.5894136517554802,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            152.6581358046694,
+            155.01579041169128
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.68533238281944,
+            200.99005524861877
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            105.33411370522188,
+            106.96089538406697
+          ],
+          "alpha128WholeContourHeightPixels": [
+            135.0228793441454,
+            138.68313812154693
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            145.02522901443592,
+            147.26500089110672
+          ],
+          "alpha128WholeContourHeightPixels": [
+            185.90106576367845,
+            190.9405524861878
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            85.48855605061487,
+            86.80884263054713
+          ],
+          "alpha128WholeContourHeightPixels": [
+            109.5837861343789,
+            112.55443093922652
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "charging-batch2-candidate",
+      "sourcePixelToNativeClassicPixel": 0.5894136517554803,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            139.10162181429334,
+            144.40634468009267
+          ],
+          "alpha128WholeContourHeightPixels": [
+            181.53940474068796,
+            194.5065050793085
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            95.9801190518624,
+            99.64037782926394
+          ],
+          "alpha128WholeContourHeightPixels": [
+            125.26218927107467,
+            134.20948850472286
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            132.14654072357865,
+            137.18602744608802
+          ],
+          "alpha128WholeContourHeightPixels": [
+            172.46243450365355,
+            184.7811798253431
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            77.89690821600428,
+            80.8675530208519
+          ],
+          "alpha128WholeContourHeightPixels": [
+            101.66206665478526,
+            108.92364284441278
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "exercise-batch2-candidate",
+      "sourcePixelToNativeClassicPixel": 0.7779032258064514,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            151.69112903225803,
+            172.69451612903225
+          ],
+          "alpha128WholeContourHeightPixels": [
+            184.363064516129,
+            187.4746774193548
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            104.66687903225804,
+            119.15921612903225
+          ],
+          "alpha128WholeContourHeightPixels": [
+            127.210514516129,
+            129.3575274193548
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            144.10657258064512,
+            164.05979032258062
+          ],
+          "alpha128WholeContourHeightPixels": [
+            175.14491129032254,
+            178.10094354838705
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            84.94703225806451,
+            96.70892903225807
+          ],
+          "alpha128WholeContourHeightPixels": [
+            103.24331612903224,
+            104.9858193548387
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "mint-pajama-batch2-candidate",
+      "sourcePixelToNativeClassicPixel": 0.48109975633705504,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            161.1684183729134,
+            168.38491471796925
+          ],
+          "alpha128WholeContourHeightPixels": [
+            199.65639887987783,
+            208.79729425028188
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            111.20620867731024,
+            116.18559115539877
+          ],
+          "alpha128WholeContourHeightPixels": [
+            137.76291522711568,
+            144.07013303269449
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            153.10999745426773,
+            159.96566898207078
+          ],
+          "alpha128WholeContourHeightPixels": [
+            189.67357893588394,
+            198.35742953776779
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            90.25431428883152,
+            94.2955522420628
+          ],
+          "alpha128WholeContourHeightPixels": [
+            111.8075833727316,
+            116.92648478015786
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "moon-robe-batch2-candidate",
+      "sourcePixelToNativeClassicPixel": 0.48109975633705504,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            155.39522129686878,
+            156.3574208095429
+          ],
+          "alpha128WholeContourHeightPixels": [
+            194.36430156017022,
+            197.7319998545296
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            107.22270269483946,
+            107.8866203585846
+          ],
+          "alpha128WholeContourHeightPixels": [
+            134.11136807651744,
+            136.4350798996254
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            147.62546023202535,
+            148.53954976906576
+          ],
+          "alpha128WholeContourHeightPixels": [
+            184.6460864821617,
+            187.8453998618031
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            87.02132392624652,
+            87.56015565334404
+          ],
+          "alpha128WholeContourHeightPixels": [
+            108.84400887369533,
+            110.72991991853658
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "charging-space-batch3-candidate",
+      "sourcePixelToNativeClassicPixel": 0.5475221993678824,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            150.56860482616764,
+            166.99427080720412
+          ],
+          "alpha128WholeContourHeightPixels": [
+            200.94064716801282,
+            205.86834696232378
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            103.89233733005567,
+            115.22604685697083
+          ],
+          "alpha128WholeContourHeightPixels": [
+            138.64904654592883,
+            142.0491594040034
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            143.04017458485924,
+            158.6445572668439
+          ],
+          "alpha128WholeContourHeightPixels": [
+            190.89361480961216,
+            195.57492961420758
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            84.31841870265389,
+            93.51679165203431
+          ],
+          "alpha128WholeContourHeightPixels": [
+            112.52676241408719,
+            115.28627429890133
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "feeding-chef-batch3-candidate",
+      "sourcePixelToNativeClassicPixel": 0.5104491433863251,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            137.3108195709214,
+            140.37351443123936
+          ],
+          "alpha128WholeContourHeightPixels": [
+            202.64830992437106,
+            204.17965735453004
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            94.74446550393577,
+            96.85772495755515
+          ],
+          "alpha128WholeContourHeightPixels": [
+            139.82733384781602,
+            140.8839635746257
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            130.44527859237533,
+            133.35483870967738
+          ],
+          "alpha128WholeContourHeightPixels": [
+            192.5158944281525,
+            193.97067448680352
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            76.89405895971599,
+            78.60916808149405
+          ],
+          "alpha128WholeContourHeightPixels": [
+            113.4830535576478,
+            114.34060811853684
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    },
+    {
+      "catalog": "animation/candidates.json",
+      "clip": "detective-20261005-candidate",
+      "sourcePixelToNativeClassicPixel": 0.5894136517554802,
+      "byLayout": [
+        {
+          "layout": "classic",
+          "alpha128WholeContourWidthPixels": [
+            129.08158973445018,
+            159.14168597397966
+          ],
+          "alpha128WholeContourHeightPixels": [
+            195.09591873106396,
+            198.04298698984135
+          ]
+        },
+        {
+          "layout": "bold",
+          "alpha128WholeContourWidthPixels": [
+            89.06629691677061,
+            109.80776332204596
+          ],
+          "alpha128WholeContourHeightPixels": [
+            134.61618392443413,
+            136.64966102299053
+          ]
+        },
+        {
+          "layout": "theater",
+          "alpha128WholeContourWidthPixels": [
+            122.62751024772766,
+            151.18460167528067
+          ],
+          "alpha128WholeContourHeightPixels": [
+            185.34112279451077,
+            188.14083764034928
+          ]
+        },
+        {
+          "layout": "activity",
+          "alpha128WholeContourWidthPixels": [
+            72.28569025129211,
+            89.11934414542861
+          ],
+          "alpha128WholeContourHeightPixels": [
+            109.25371448939583,
+            110.90407271431117
+          ]
+        }
+      ],
+      "evidence": "Projection from measured viewport and source contours, not a screenshot of this clip."
+    }
+  ],
+  "limits": [
+    "Series 11 46mm simulator running watchOS 26.4, not the user physical Series 12 / OS27.",
+    "All probes active, visible, monitoring, wristDown false, reduceMotion false, lowPower false. Quiet/Always-On states were not exercised.",
+    "Six static screenshots verify layout placement only, not every clip, gestures, audio, installation or animation quality. Default 3s and 8s images are identical.",
+    "Theater/activity screenshots have no bottom ellipsis; entry-point reachability was not tested here.",
+    "Anchor denotes placement baseline, not anatomical foot when a cushion is present."
+  ]
+}
