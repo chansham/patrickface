@@ -5,6 +5,7 @@
 ## 2026-10-06 新增
 
 - **接續補上正裝修訂與首套跑步原畫**：[新舊並排](size-review/?review=candidates&left=exercise&right=running-first-20261006)／[本批28格審稿](preview/?review=candidates&group=new&v=20261006-repair2)。正裝12格，首末身長差改善但仍未一致；跑步16格含真實交替踏步、擺臂與收步吐氣，转向及收尾眼神待修。四版式、完整輪廓及正常1×播放已檢查，仍只供審稿，未替換日常或原生。四次內建圖片請求取得兩張圖集，另外兩次沒有輸出。見[接續紀錄](docs/FOLLOWUP-20261006.md)。
+- 本批來源`195ab0f`的Apple run37411536894已成功，1734項Foundation、12項XCTest、12項封裝fixtures與編譯／封存／capture步驟通過。新原生截圖未下載實看、新候選未換入原生、實機未安裝；不是美術批准或簽名安裝包。
 - **前一批三組實際改稿**：[新舊並排](size-review/?review=candidates&left=feed&right=chef-repair-20261006)／[全部逐格審閱](preview/?review=candidates)。正裝補收手過渡、小廚師調整臉與帽比例、運動修手腕／握持及吐氣後表情。三組共44張修訂影格，不是44個新動作，亦未替換日常或原生素材。
 - 正裝末列仍偏短、廚師末格餅乾仍變完整，明確保留待修。七次內建圖片請求取得五張修訂圖集，其中三張進審稿、兩張保留失敗修訂對照；最後兩次請求遭攔截而無輸出。見[本批修復紀錄](docs/REPAIR-20261006.md)與[完整提示／輸出紀錄](animation/production-20261006-repair/generation-ledger.json)。
 
@@ -40,7 +41,7 @@
 
 活躍圖集以完整輪廓遮罩取圖，共同畫布、固定落點；不按等距橫豎線切人物，不逐幀拉伸。原 PNG 與來源 SHA 保留。已知有問題的專注 13–16、慶祝 16、泡澡 5、餵食 12 不在日常播放順序中；**這是選格避開問題，不代表原畫已重畫修好**。
 
-本批生成成功 2 組、24 張新原畫；六組服裝／修稿沒有產出。時計另成功一份三層原畫，閉嘴修訂未產出。來源、提示、錯誤與保存位置見 [本批紀錄](animation/production-20260927-batch3/generation-ledger.json)、[時計紀錄](experience/clock/generation.json)、[時計修訂失敗](experience/clock/closed-smile-revision.json)。全部使用內建圖片工具，未切換其他生成管道。
+9月27日第三批生成成功 2 組、24 張新原畫；該批六組服裝／修稿沒有產出。時計另成功一份三層原畫，閉嘴修訂未產出。來源、提示、錯誤與保存位置見 [該批紀錄](animation/production-20260927-batch3/generation-ledger.json)、[時計紀錄](experience/clock/generation.json)、[時計修訂失敗](experience/clock/closed-smile-revision.json)。全部使用內建圖片工具，未切換其他生成管道。
 
 10 月 5 日另新增偵探候選，眼皮修色請求未取得輸出。來源、提示、已知問題及 QC 見 [偵探製作紀錄](animation/production-20261005/generation-ledger.json)。主體驗仍為 11 套造型、15 種播放編排，沒有把待修偵探稿算成已可穿造型。
 
