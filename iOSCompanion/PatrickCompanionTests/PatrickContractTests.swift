@@ -2,6 +2,29 @@ import XCTest
 @testable import PatrickCompanion
 
 final class PatrickContractTests: XCTestCase {
+    func testLiveActivityContentHonorsInitialRunningAndPausedSnapshots() {
+        let now = Date(timeIntervalSince1970: 1_800_000_000)
+        var settings = PatrickSettings.defaults
+        settings.theme = .faithful3D
+        var experience = PatrickExperienceState()
+        experience.start(.walking, seconds: 120, at: now)
+        let running = PatrickTimerSnapshot.resolving(.inactive, experience: experience, at: now)
+        let initial = PatrickActivityController.contentState(timer: running, settings: settings)
+        XCTAssertFalse(initial.isPaused)
+        XCTAssertEqual(initial.statusText, "Timer running")
+        XCTAssertEqual(initial.endsAt, now.addingTimeInterval(120))
+        XCTAssertEqual(initial.theme, settings.theme)
+
+        experience.controlActivity(.pause, at: now.addingTimeInterval(30))
+        let paused = PatrickTimerSnapshot.resolving(.inactive, experience: experience, at: now.addingTimeInterval(30))
+        let firstReceived = PatrickActivityController.contentState(timer: paused, settings: settings)
+        XCTAssertTrue(firstReceived.isPaused, "A first handoff may already be paused")
+        XCTAssertEqual(firstReceived.statusText, "Timer paused")
+        XCTAssertNil(firstReceived.endsAt, "Paused presentation must not count down")
+        XCTAssertEqual(firstReceived.theme, settings.theme)
+        XCTAssertEqual(firstReceived.visualState, settings.previewState)
+    }
+
     func testNamedExerciseTimersSurviveWatchEnvelopeAndPersistence() throws {
         let now = Date(timeIntervalSince1970: 1_800_000_000.375)
         let suiteName = "PatrickContractTests.\(UUID().uuidString)"

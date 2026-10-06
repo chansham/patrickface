@@ -17,6 +17,21 @@ final class PatrickActivityController: ObservableObject {
         activeActivityID = Activity<PatrickActivityAttributes>.activities.first?.id
     }
 
+    /// Initial handoff can already be paused. Creation and later updates must
+    /// describe the same snapshot without assuming every new presentation runs.
+    nonisolated static func contentState(
+        timer: PatrickTimerSnapshot,
+        settings: PatrickSettings
+    ) -> PatrickActivityAttributes.ContentState {
+        PatrickActivityAttributes.ContentState(
+            statusText: timer.status == .paused ? "Timer paused" : "Timer running",
+            theme: settings.theme,
+            visualState: settings.previewState,
+            endsAt: timer.endsAt,
+            isPaused: timer.status == .paused
+        )
+    }
+
     func start(
         timer: PatrickTimerSnapshot,
         settings: PatrickSettings
@@ -33,13 +48,7 @@ final class PatrickActivityController: ObservableObject {
             title: timer.title,
             startedAt: timer.startedAt
         )
-        let state = PatrickActivityAttributes.ContentState(
-            statusText: "Timer running",
-            theme: settings.theme,
-            visualState: settings.previewState,
-            endsAt: timer.endsAt,
-            isPaused: false
-        )
+        let state = Self.contentState(timer: timer, settings: settings)
 
         do {
             let activity = try Activity.request(
@@ -61,13 +70,7 @@ final class PatrickActivityController: ObservableObject {
         timer: PatrickTimerSnapshot,
         settings: PatrickSettings
     ) async {
-        let state = PatrickActivityAttributes.ContentState(
-            statusText: timer.status == .paused ? "Timer paused" : "Timer running",
-            theme: settings.theme,
-            visualState: settings.previewState,
-            endsAt: timer.endsAt,
-            isPaused: timer.status == .paused
-        )
+        let state = Self.contentState(timer: timer, settings: settings)
         let content = ActivityContent(
             state: state,
             staleDate: timer.endsAt
