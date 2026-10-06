@@ -14,6 +14,9 @@ If none is free, a named QA simulator is created using an installed compatible
 runtime/device type. A separate QA phone can be created if pairing is necessary
 and the supplied phone already has a companion; existing pairs are never removed.
 --no-pairing disables creating simulator pairs. No runtime is downloaded.
+--watch-geometry reads the Debug simulator-only Watch JSON probe after every
+Watch screenshot, including each layout. Missing/stale probes are reported as
+missing geometry evidence; a successful screenshot never implies probe success.
 The supplied iPhone is captured first, so a missing watch runtime preserves its
 evidence. Each invocation creates a new run directory and never reuses old PNGs.
 
@@ -31,6 +34,7 @@ import argparse
 from datetime import datetime, timezone
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import plistlib
@@ -45,6 +49,7 @@ import zlib
 
 UUID = re.compile(r"^[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$")
 LAYOUT_IDS = ("classic", "bold", "theater", "activity")
+WATCH_GEOMETRY_FILENAME = "patrick-watch-geometry.json"
 
 
 class CaptureError(RuntimeError):
@@ -259,8 +264,113 @@ def boot(runner: Runner, item: dict, timeout: float) -> None:
     runner.simctl("bootstatus", item["udid"], "-b", timeout=timeout)
 
 
+def validate_watch_geometry(payload: dict, *, bundle_id: str, pid: int, layout: str | None,
+                            launch_started_at: str) -> dict:
+    """Validate identity and arithmetic, never invent active or wrist state."""
+    if not isinstance(payload, dict) or payload.get("schemaVersion") != 1 or payload.get("kind") != "patrick-watch-geometry" \
+            or payload.get("debugSimulator") is not True or payload.get("bundleID") != bundle_id or payload.get("processID") != pid:
+        raise CaptureError("Geometry probe is not from this Debug simulator app process")
+    timestamp, epoch_ms = payload.get("recordedAt"), payload.get("recordedAtEpochMS")
+    if not isinstance(timestamp, str) or type(epoch_ms) not in (int, float) or not math.isfinite(epoch_ms):
+        raise CaptureError("Geometry probe has no valid ISO and epoch timestamps")
+    recorded = datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
+    launched = datetime.fromisoformat(launch_started_at.replace("Z", "+00:00"))
+    if recorded.tzinfo is None or launched.tzinfo is None or (recorded - launched).total_seconds() < -2 \
+            or (recorded - datetime.now(timezone.utc)).total_seconds() > 5:
+        raise CaptureError("Geometry probe timestamp is stale or invalid")
+    if abs(recorded.timestamp() * 1000 - epoch_ms) > 2:
+        raise CaptureError("Geometry probe ISO and epoch timestamps disagree")
+    value = payload.get("observation")
+    if not isinstance(value, dict) or value.get("layoutID") not in LAYOUT_IDS \
+            or (layout is not None and value["layoutID"] != layout):
+        raise CaptureError("Geometry probe is for a different layout")
+    if value.get("scenePhase") not in ("active", "inactive", "background", "unknown") \
+            or any(type(value.get(key)) is not bool for key in ("visible", "wristDown", "monitoring", "reduceMotion", "lowPower")):
+        raise CaptureError("Geometry probe has no recognizable actual lifecycle state")
+
+    def number(raw, low: float = -8192, high: float = 8192) -> float:
+        if type(raw) not in (int, float) or not math.isfinite(raw) or not low <= raw <= high:
+            raise CaptureError("Geometry probe contains an invalid or implausible measurement")
+        return float(raw)
+
+    def pair(key: str) -> tuple[float, float]:
+        item = value.get(key, {})
+        if not isinstance(item, dict): raise CaptureError("Geometry size is not an object")
+        return number(item.get("width"), 0.001), number(item.get("height"), 0.001)
+
+    width, height = pair("geometrySizePoints")
+    stage_width, stage_height = pair("stageSizePoints")
+    pixels = pair("stageSizePixels")
+    pair("screenBoundsPoints")
+    pair("geometryFrameGlobalPoints")
+    insets = value.get("safeAreaInsetsPoints", {})
+    if not isinstance(insets, dict): raise CaptureError("Geometry safe area is not an object")
+    for key in ("top", "leading", "bottom", "trailing"): number(insets.get(key), 0)
+    for key in ("screenBoundsPoints", "geometryFrameGlobalPoints", "stageOriginInGeometryPoints"):
+        item = value.get(key, {})
+        if not isinstance(item, dict): raise CaptureError("Geometry position is not an object")
+        for axis in ("x", "y"): number(item.get(axis))
+    scale = number(value.get("screenScale"), 0.5, 8)
+    unit = number(value.get("outerUnit416"), 0.000001, 20)
+    inner = number(value.get("innerUnit832"), 0.000001, 10)
+    expected = [(unit, min(width / 416, height / 496)), (inner, unit / 2),
+                (stage_width, 416 * unit), (stage_height, 496 * unit),
+                (pixels[0], stage_width * scale), (pixels[1], stage_height * scale),
+                (value["stageOriginInGeometryPoints"]["x"], (width - stage_width) / 2),
+                (value["stageOriginInGeometryPoints"]["y"], (height - stage_height) / 2)]
+    if any(not math.isclose(a, b, abs_tol=1e-6, rel_tol=1e-9) for a, b in expected):
+        raise CaptureError("Geometry probe stage arithmetic does not match the native renderer")
+    return payload
+
+
+def collect_watch_geometry(runner: Runner, device: dict, app: dict, pid: int, layout: str | None,
+                           launch_started_at: str, stem: str, screenshot: dict) -> dict:
+    result = {"status": "unavailable", "evidence": "No valid native geometry evidence was collected."}
+    try:
+        # The installed tool's own help must advertise the operation before use.
+        support = runner.report.get("geometryContainerSupport")
+        if support is None:
+            help_result = runner.simctl("help", "get_app_container", required=False)
+            help_text = help_result.stdout + help_result.stderr
+            support = {"supported": help_result.returncode == 0 and "get_app_container" in help_text
+                       and re.search(r"\bdata\b", help_text) is not None,
+                       "syntax": "simctl get_app_container <device> <bundle-id> data"}
+            runner.report["geometryContainerSupport"] = support
+        if not support["supported"]:
+            raise CaptureError("Installed simctl help does not confirm get_app_container with a data container")
+        command = runner.simctl("get_app_container", device["udid"], app["bundleID"], "data", required=False)
+        if command.returncode != 0:
+            raise CaptureError("simctl could not locate this app's data container")
+        raw_path = command.stdout.strip()
+        container = Path(raw_path)
+        if not container.is_absolute() or not container.is_dir():
+            raise CaptureError("simctl returned no existing absolute app data container")
+        container = container.resolve()
+        source = (container / "Documents" / WATCH_GEOMETRY_FILENAME).resolve()
+        source.relative_to(container)
+        if not source.is_file():
+            raise CaptureError("Debug simulator geometry file is missing; no geometry was inferred from the PNG")
+        if source.stat().st_size > 65536:
+            raise CaptureError("Geometry probe exceeds the diagnostic size limit")
+        raw = source.read_bytes()
+        payload = validate_watch_geometry(json.loads(raw), bundle_id=app["bundleID"], pid=pid,
+                                          layout=layout, launch_started_at=launch_started_at)
+        filename = f"{stem}.geometry.json"
+        (runner.output / filename).write_bytes(raw)
+        observation = payload["observation"]
+        scale = observation["screenScale"]
+        bounds = observation["screenBoundsPoints"]
+        return {"status": "captured", "path": filename, "sha256": hashlib.sha256(raw).hexdigest(),
+                "source": "App Documents Debug simulator probe", "payload": payload,
+                "screenMatchesScreenshot": abs(bounds["width"] * scale - screenshot["width"]) <= 1
+                    and abs(bounds["height"] * scale - screenshot["height"]) <= 1}
+    except (CaptureError, OSError, ValueError, TypeError, KeyError) as error:
+        result["reason"] = str(error)
+        return result
+
+
 def capture(runner: Runner, label: str, device: dict, app: dict, delays: list[float], boot_timeout: float,
-            layout: str | None = None) -> dict:
+            layout: str | None = None, *, geometry_probe: bool = False) -> dict:
     result = {"device": device, "app": app, "status": "failed", "screenshots": [],
               "visualReview": "pending", "startedAt": utc_now()}
     try:
@@ -270,6 +380,8 @@ def capture(runner: Runner, label: str, device: dict, app: dict, delays: list[fl
         runner.simctl("install", device["udid"], app["path"], timeout=120)
         arguments = ("--patrick-preview-layout", layout) if layout else ()
         result["requestedLayout"] = layout
+        launch_started_at = utc_now()
+        result["launchStartedAt"] = launch_started_at
         launch = runner.simctl("launch", "--terminate-running-process", device["udid"], app["bundleID"], *arguments, timeout=90)
         match = re.search(r"^" + re.escape(app["bundleID"]) + r":\s*(\d+)\s*$", launch.stdout, re.MULTILINE)
         if not match:
@@ -285,8 +397,12 @@ def capture(runner: Runner, label: str, device: dict, app: dict, delays: list[fl
             filename = f"{label}-{index:02d}-{delay:g}s.png"
             path = runner.output / filename
             runner.simctl("io", device["udid"], "screenshot", "--type=png", str(path), timeout=45)
-            result["screenshots"].append({"path": filename, "elapsedSeconds": round(time.monotonic() - launched, 3),
-                                          "capturedAt": utc_now(), **png_info(path)})
+            screenshot = {"path": filename, "elapsedSeconds": round(time.monotonic() - launched, 3),
+                          "capturedAt": utc_now(), **png_info(path)}
+            if geometry_probe:
+                screenshot["geometryProbe"] = collect_watch_geometry(runner, device, app, pid, layout,
+                    launch_started_at, path.stem, screenshot)
+            result["screenshots"].append(screenshot)
         result["status"] = "captured"
     except (CaptureError, OSError) as error:
         result["error"] = str(error)
@@ -308,7 +424,8 @@ def capture_watch(runner: Runner, args, phone: dict, app: dict, delays: list[flo
             watch = create_qa_device(runner, device_type, runtime, "watchOS", app["minimumOS"])
             result["deviceSelection"] = "created-qa-watch"
         result["device"] = watch
-        first = capture(runner, "watch", watch, app, delays, args.boot_timeout)
+        first = capture(runner, "watch", watch, app, delays, args.boot_timeout,
+                        geometry_probe=getattr(args, "watch_geometry", False))
         result["attempts"].append(first)
         if first["status"] == "captured":
             result["status"] = "captured"
@@ -351,7 +468,8 @@ def capture_watch(runner: Runner, args, phone: dict, app: dict, delays: list[flo
             boot(runner, pair_phone, args.boot_timeout)
         if pair_phone["udid"] != phone["udid"]:
             runner.simctl("install", pair_phone["udid"], str(args.phone_app.expanduser().resolve()), timeout=120)
-        second = capture(runner, "watch-paired", watch, app, delays, args.boot_timeout)
+        second = capture(runner, "watch-paired", watch, app, delays, args.boot_timeout,
+                         geometry_probe=getattr(args, "watch_geometry", False))
         result["attempts"].append(second)
         result["status"] = second["status"]
         if second["status"] != "captured":
@@ -401,7 +519,8 @@ def run(args) -> int:
                 continue
             if getattr(args, "layouts", []):
                 report[key]["layouts"] = {
-                    layout: capture(runner, f"{key}-layout-{layout}", device, app, [3], args.boot_timeout, layout)
+                    layout: capture(runner, f"{key}-layout-{layout}", device, app, [3], args.boot_timeout, layout,
+                                    geometry_probe=key == "watch" and getattr(args, "watch_geometry", False))
                     for layout in args.layouts
                 }
         runner.inventory("devices-final.json")
@@ -413,6 +532,13 @@ def run(args) -> int:
                          and all(item["status"] == "captured" for item in report[key].get("layouts", {}).values())
                          for key in ("phone", "watch"))
         report["status"] = "captured" if count == 2 and layouts_ok and "error" not in report else "partial" if count else "failed"
+        watch_captures = [*report["watch"].get("attempts", []), *report["watch"].get("layouts", {}).values()]
+        probes = [shot.get("geometryProbe", {}) for item in watch_captures for shot in item.get("screenshots", [])]
+        good = sum(probe.get("status") == "captured" for probe in probes)
+        requested = getattr(args, "watch_geometry", False)
+        report["geometryEvidence"] = {"requested": requested, "captured": good, "screenshots": len(probes),
+            "status": "not-requested" if not requested else "complete" if probes and good == len(probes)
+                else "partial" if good else "unavailable"}
         report["finishedAt"] = utc_now()
         (output / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"Native capture: {report['status']}; visual review: pending; report: {output / 'report.json'}", flush=True)
@@ -426,6 +552,89 @@ def self_test() -> int:
     from unittest.mock import patch
 
     class Fixtures(unittest.TestCase):
+        def geometry_payload(self, layout="classic"):
+            now = datetime.now(timezone.utc)
+            unit = 160 / 496
+            return {"schemaVersion": 1, "kind": "patrick-watch-geometry", "debugSimulator": True,
+                "bundleID": "example.fixture", "processID": 123, "recordedAt": now.isoformat(),
+                "recordedAtEpochMS": now.timestamp() * 1000, "event": "change",
+                "observation": {"layoutID": layout, "scenePhase": "inactive", "visible": True,
+                    "wristDown": True, "monitoring": False, "reduceMotion": False, "lowPower": False,
+                    "geometrySizePoints": {"width": 208, "height": 160},
+                    "geometryFrameGlobalPoints": {"x": 0, "y": 44, "width": 208, "height": 160},
+                    "safeAreaInsetsPoints": {"top": 28, "bottom": 16, "leading": 0, "trailing": 0},
+                    "outerUnit416": unit, "innerUnit832": unit / 2,
+                    "stageSizePoints": {"width": 416 * unit, "height": 160},
+                    "stageOriginInGeometryPoints": {"x": (208 - 416 * unit) / 2, "y": 0},
+                    "stageSizePixels": {"width": 832 * unit, "height": 320},
+                    "screenBoundsPoints": {"x": 0, "y": 0, "width": 208, "height": 248}, "screenScale": 2}}
+
+        def test_geometry_identity_freshness_and_arithmetic(self):
+            source = self.geometry_payload()
+            args = {"bundle_id": "example.fixture", "pid": 123, "layout": "classic", "launch_started_at": utc_now()}
+            self.assertEqual(validate_watch_geometry(source, **args), source)
+            self.assertTrue(source["observation"]["wristDown"])
+            self.assertEqual(source["observation"]["scenePhase"], "inactive")
+            for key, value in (("processID", 122), ("bundleID", "another.app"), ("debugSimulator", False),
+                               ("recordedAt", "2000-01-01T00:00:00Z"), ("recordedAtEpochMS", 0)):
+                with self.subTest(key=key), self.assertRaises(CaptureError):
+                    validate_watch_geometry({**source, key: value}, **args)
+            for key, value in (("layoutID", "bold"), ("screenScale", float("nan")), ("outerUnit416", 1),
+                               ("stageSizePixels", {"width": 416, "height": 496})):
+                with self.subTest(observation=key), self.assertRaises(CaptureError):
+                    validate_watch_geometry({**source, "observation": {**source["observation"], key: value}}, **args)
+
+        def test_geometry_collect_queries_help_then_copies_this_process(self):
+            with tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary); output = root / "qa"; output.mkdir()
+                container = root / "data"; documents = container / "Documents"; documents.mkdir(parents=True)
+                payload = self.geometry_payload("bold")
+                raw = json.dumps(payload).encode(); (documents / WATCH_GEOMETRY_FILENAME).write_bytes(raw)
+                runner = Runner(output, {"commands": []})
+                replies = [subprocess.CompletedProcess([], 0, "Usage: simctl get_app_container <device> <app> [data]", ""),
+                           subprocess.CompletedProcess([], 0, str(container), "")]
+                with patch.object(runner, "simctl", side_effect=replies) as command:
+                    result = collect_watch_geometry(runner, {"udid": "fixture-watch"}, {"bundleID": "example.fixture"},
+                        123, "bold", utc_now(), "watch-layout-bold", {"width": 416, "height": 496})
+                self.assertEqual([call.args for call in command.call_args_list],
+                    [("help", "get_app_container"), ("get_app_container", "fixture-watch", "example.fixture", "data")])
+                self.assertEqual(result["status"], "captured")
+                self.assertEqual((output / result["path"]).read_bytes(), raw)
+                self.assertTrue(result["screenMatchesScreenshot"])
+                self.assertTrue(result["payload"]["observation"]["wristDown"])
+
+        def test_geometry_missing_or_unsupported_is_not_capture_evidence(self):
+            with tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary); runner = Runner(root, {"commands": []})
+                common = (runner, {"udid": "fixture-watch"}, {"bundleID": "example.fixture"}, 123,
+                          "classic", utc_now(), "missing", {"width": 416, "height": 496})
+                with patch.object(runner, "simctl", return_value=subprocess.CompletedProcess([], 1, "", "unsupported")) as command:
+                    result = collect_watch_geometry(*common)
+                self.assertEqual(result["status"], "unavailable")
+                self.assertEqual(command.call_count, 1)
+                runner.report["geometryContainerSupport"] = {"supported": True}
+                with patch.object(runner, "simctl", return_value=subprocess.CompletedProcess([], 0, str(root), "")):
+                    result = collect_watch_geometry(*common)
+                self.assertEqual(result["status"], "unavailable")
+                self.assertIn("missing", result["reason"])
+                self.assertFalse((root / "missing.geometry.json").exists())
+
+        def test_every_layout_capture_collects_its_own_geometry(self):
+            _, watch, _, data = self.payload()
+            device = devices(data, "watchOS")[0]
+            app = {"path": "Watch.app", "bundleID": "example.fixture", "executable": "Fixture"}
+            with tempfile.TemporaryDirectory() as temporary:
+                runner = Runner(Path(temporary), {"commands": []})
+                with patch(__name__ + ".boot"), patch(__name__ + ".png_info", return_value={"width": 416, "height": 496}), \
+                     patch.object(runner, "simctl", return_value=subprocess.CompletedProcess([], 0, "example.fixture: 123\n", "")), \
+                     patch.object(runner, "command", return_value=subprocess.CompletedProcess([], 0, "123 Fixture", "")), \
+                     patch(__name__ + ".collect_watch_geometry", return_value={"status": "unavailable"}) as collect:
+                    for layout in LAYOUT_IDS:
+                        result = capture(runner, f"watch-{layout}", device, app, [0], 30, layout, geometry_probe=True)
+                        self.assertEqual(result["status"], "captured")
+                        self.assertEqual(result["screenshots"][0]["geometryProbe"]["status"], "unavailable")
+                self.assertEqual([call.args[4] for call in collect.call_args_list], list(LAYOUT_IDS))
+
         def payload(self):
             phone, a, b = (f"00000000-0000-0000-0000-{n:012d}" for n in (1, 2, 3))
             ios, watch = "com.apple.CoreSimulator.SimRuntime.iOS-26-0", "com.apple.CoreSimulator.SimRuntime.watchOS-26-0"
@@ -616,6 +825,8 @@ def main() -> int:
     parser.add_argument("--no-pairing", action="store_true", help="Never create even a new simulator-only pair")
     parser.add_argument("--layouts", nargs="+", choices=LAYOUT_IDS, default=[],
                         help="Also launch each simulator-only layout override and capture its real screen")
+    parser.add_argument("--watch-geometry", action="store_true",
+                        help="Read the Debug simulator Watch geometry probe after every Watch screenshot/layout; missing evidence is reported")
     parser.add_argument("--self-test", action="store_true", help="Run local pure fixtures, without Xcode or simulators")
     args = parser.parse_args()
     if args.self_test:

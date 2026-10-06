@@ -1,6 +1,6 @@
 // Real digital clocks and retry controls remain independent of artwork/modules.
 (() => {
-  const build = '20261006-layouts1';
+  const build = '20261006-size2';
   const candidates = new URL(location.href).searchParams.get('review') === 'candidates';
   if (candidates) {
     document.body.dataset.review = 'candidates';

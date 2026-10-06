@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-06",
+  "artApproved": false,
+  "method": "visible-face-eye-lower-rim-calipers-v1",
+  "coordinateSystem": "original PNG integer pixel coordinates; half-pixel eye-rim centers allowed",
+  "important": "Reference eye-white regions are semantic input. Per-frame tracking proposals remain expression-sensitive; unavailable/occluded frames are flagged, never filled from whole-body bounding boxes. No image or per-frame scale is changed.",
+  "sources": [
+    {
+      "sourcePath": "animation/yawn-v1/atlas-eyes-v2.png",
+      "sourceSha256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          185,
+          150,
+          224,
+          179
+        ],
+        [
+          226,
+          165,
+          264,
+          193
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-with-cushion",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null,
+      "referenceVisualReview": {
+        "sourceFrame": 0,
+        "status": "face-ROI-and-caliper-inspected",
+        "evidence": "output/playwright/20261006-size-review/landmark-reference-six.png",
+        "reviewers": "root and browser QA agent independently inspected actual source-coordinate overlays; foot-cushion issue corrected separately",
+        "doesNotApproveArtwork": true
+      }
+    },
+    {
+      "sourcePath": "animation/blink-v2/atlas-generated.png",
+      "sourceSha256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          185,
+          150,
+          225,
+          179
+        ],
+        [
+          226,
+          166,
+          264,
+          194
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-with-cushion",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null
+    },
+    {
+      "sourcePath": "animation/pet-v2/atlas-generated.png",
+      "sourceSha256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          152,
+          139,
+          189,
+          165
+        ],
+        [
+          192,
+          143,
+          228,
+          169
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-upright",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null
+    },
+    {
+      "sourcePath": "animation/charging-v2/atlas-generated.png",
+      "sourceSha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          156,
+          157,
+          190,
+          176
+        ],
+        [
+          192,
+          161,
+          223,
+          180
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-upright",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null
+    },
+    {
+      "sourcePath": "animation/charging-space-v1/atlas-generated.png",
+      "sourceSha256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          146,
+          161,
+          173,
+          183
+        ],
+        [
+          174,
+          155,
+          204,
+          178
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-upright",
+      "footBaselineVisible": false,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null,
+      "footBaselineUnavailableReason": "The contour anchor is the bottom of an opaque seat cushion, not the anatomical feet. No separate per-frame foot landmark has been approved.",
+      "referenceVisualReview": {
+        "sourceFrame": 0,
+        "status": "face-ROI-and-caliper-inspected",
+        "evidence": "output/playwright/20261006-size-review/landmark-reference-six.png",
+        "reviewers": "root and browser QA agent independently inspected actual source-coordinate overlays; foot-cushion issue corrected separately",
+        "doesNotApproveArtwork": true
+      }
+    },
+    {
+      "sourcePath": "animation/exercise-v2/atlas-generated.png",
+      "sourceSha256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          166,
+          99,
+          191,
+          117
+        ],
+        [
+          192,
+          101,
+          220,
+          121
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-upright",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null,
+      "referenceVisualReview": {
+        "sourceFrame": 0,
+        "status": "face-ROI-and-caliper-inspected",
+        "evidence": "output/playwright/20261006-size-review/landmark-reference-six.png",
+        "reviewers": "root and browser QA agent independently inspected actual source-coordinate overlays; foot-cushion issue corrected separately",
+        "doesNotApproveArtwork": true
+      }
+    },
+    {
+      "sourcePath": "animation/focus-v1/atlas-generated.png",
+      "sourceSha256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          181,
+          107,
+          213,
+          138
+        ],
+        [
+          217,
+          109,
+          248,
+          140
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-upright",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "exclusionReason": "Hand crosses the face/eye outline in source frames 8-11. Visible partial skin must not be reported as a smaller full face.",
+      "referenceVisualReview": {
+        "sourceFrame": 0,
+        "status": "face-ROI-and-caliper-inspected",
+        "evidence": "output/playwright/20261006-size-review/landmark-reference-six.png",
+        "reviewers": "root and browser QA agent independently inspected actual source-coordinate overlays; foot-cushion issue corrected separately",
+        "doesNotApproveArtwork": true
+      }
+    },
+    {
+      "sourcePath": "animation/celebrate-v1/atlas-generated.png",
+      "sourceSha256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          175,
+          110,
+          199,
+          130
+        ],
+        [
+          200,
+          111,
+          226,
+          130
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-upright",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null,
+      "referenceVisualReview": {
+        "sourceFrame": 0,
+        "status": "face-ROI-and-caliper-inspected",
+        "evidence": "output/playwright/20261006-size-review/landmark-reference-six.png",
+        "reviewers": "root and browser QA agent independently inspected actual source-coordinate overlays; foot-cushion issue corrected separately",
+        "doesNotApproveArtwork": true
+      }
+    },
+    {
+      "sourcePath": "animation/bath-v1/atlas-generated.png",
+      "sourceSha256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          187,
+          152,
+          218,
+          182
+        ],
+        [
+          221,
+          157,
+          258,
+          187
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-upright",
+      "footBaselineVisible": false,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null
+    },
+    {
+      "sourcePath": "animation/wake-v1/atlas-generated.png",
+      "sourceSha256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          187,
+          150,
+          227,
+          180
+        ],
+        [
+          229,
+          165,
+          268,
+          194
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-with-cushion",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "exclusionReason": "Hand crosses the eye/face contour; direct face width cannot be trusted."
+    },
+    {
+      "sourcePath": "animation/mint-pajama-v1/atlas-generated.png",
+      "sourceSha256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          186,
+          151,
+          226,
+          181
+        ],
+        [
+          228,
+          165,
+          268,
+          195
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-with-cushion",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null
+    },
+    {
+      "sourcePath": "animation/moon-robe-v1/atlas-generated.png",
+      "sourceSha256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          188,
+          144,
+          229,
+          174
+        ],
+        [
+          231,
+          153,
+          272,
+          181
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-with-cushion",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null
+    },
+    {
+      "sourcePath": "animation/feeding-chef-v1/atlas-generated.png",
+      "sourceSha256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          141,
+          120,
+          168,
+          171
+        ],
+        [
+          169,
+          119,
+          199,
+          171
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-upright",
+      "footBaselineVisible": false,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null,
+      "footBaselineUnavailableReason": "The contour anchor is the bottom of an opaque seat cushion, not the anatomical feet. No separate per-frame foot landmark has been approved.",
+      "referenceVisualReview": {
+        "sourceFrame": 0,
+        "status": "face-ROI-and-caliper-inspected",
+        "evidence": "output/playwright/20261006-size-review/landmark-reference-six.png",
+        "reviewers": "root and browser QA agent independently inspected actual source-coordinate overlays; foot-cushion issue corrected separately",
+        "doesNotApproveArtwork": true
+      }
+    },
+    {
+      "sourcePath": "animation/yawn-v3/atlas-generated.png",
+      "sourceSha256": "5a2d1def5ee4ab2440cccde0ff10ca01b59926fb569fcce16701129ed4a90798",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          129,
+          104,
+          155,
+          124
+        ],
+        [
+          157,
+          114,
+          184,
+          134
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-with-cushion",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null
+    },
+    {
+      "sourcePath": "animation/detective-v1/atlas-generated-v1.png",
+      "sourceSha256": "90f181e3887b9ec3cf64a5ef2260abae25ec70f2bdb676308d81ba4c1d822d0a",
+      "referenceFrame": 0,
+      "frameIndexBasis": "zero-based",
+      "referenceEyeWhiteBounds": [
+        [
+          181,
+          151,
+          208,
+          176
+        ],
+        [
+          208,
+          150,
+          239,
+          176
+        ]
+      ],
+      "selection": "manually selected reference eye-white components; lower rim, not pupil center",
+      "poseFamily": "seated-upright",
+      "footBaselineVisible": true,
+      "torsoWidth": null,
+      "torsoWidthUnavailableReason": "Clothing, arms, cushion or tub obscure a consistently comparable bare torso outline; no hidden anatomy is inferred.",
+      "excludedHeadFrames": [],
+      "exclusionReason": null
+    }
+  ]
+}

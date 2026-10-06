@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>本體尺規 · 來源座標覆核</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#16191e;color:#f4f3ed;font:16px/1.6 system-ui,sans-serif;padding:22px}h1{font-size:25px;margin:0}p{max-width:1100px;color:#bcc5d0}a{color:#a3d8ff}.grid{display:grid;grid-template-columns:repeat(3,minmax(300px,1fr));gap:18px}article{background:#242a32;border:1px solid #444c5c;border-radius:12px;padding:14px}h2{font-size:19px;margin:0 0 8px}canvas{display:block;width:100%;height:auto;background:#303740;border-radius:6px}select,button{background:#11161e;color:white;border:1px solid #758091;border-radius:5px;padding:7px}small{display:block;color:#bbc7d7}.warning{color:#ffd595}code{font-size:12px;overflow-wrap:anywhere}#status{padding:10px 0}.legend span{margin-right:20px}label{display:block;margin:8px 0}@media(max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(300px,1fr))}}@media(max-width:650px){.grid{grid-template-columns:1fr}}
+</style>
+<h1>本體尺規：直接覆核原圖座標</h1>
+<p>每張以原圖像素 1:1 畫進 400×500 檢查畫布；瀏覽器可能將畫布縮小。此頁用於辨認尺線與遮擋，跨造型實際呈現尺寸請看 <a href="../../size-review/">同舞台比較</a>。帽子與道具不當作頭寬；衣服下被遮住的身體不推算。閉眼、手遮眼或追蹤不確定時保留未量測。</p>
+<p class="legend"><span style="color:#ff9a9a">紅框：選到的眼白區域</span><span style="color:#57f5df">綠線：沿眼下緣的可見臉部横截</span><span style="color:#ffe57a">黃線：眼線至足底，僅姿勢代理</span></p>
+<label><input id="all" type="checkbox"> 顯示全部 15 張來源（預設先看 6 組主要比較）</label>
+<div id="status">正在核對圖檔 SHA…</div><div class="grid" id="grid"></div>
+<script type="module">
+const report=await fetch('./body-scale-audit.json',{cache:'no-store'}).then(r=>r.json());
+const keySources=['yawn-v1','celebrate-v1','charging-space-v1','focus-v1','feeding-chef-v1','exercise-v2'];
+const hash=async bytes=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(v=>v.toString(16).padStart(2,'0')).join('');
+const sourceRecords=[];
+for(const source of report.sources){
+ const clip=report.clips.find(c=>c.atlas===source.sourcePath&&c.catalog==='catalog')||report.clips.find(c=>c.atlas===source.sourcePath);
+ const pngBytes=await fetch('../../'+source.sourcePath,{cache:'no-store'}).then(r=>r.arrayBuffer());
+ if(await hash(pngBytes)!==source.sourceSha256)throw Error('來源SHA不符：'+source.sourcePath);
+ const regionsPath=source.sourcePath.slice(0,source.sourcePath.lastIndexOf('/')+1)+'regions-v1.json';
+ const metaBytes=await fetch('../../'+regionsPath,{cache:'no-store'}).then(r=>r.arrayBuffer());
+ if(await hash(metaBytes)!==source.regionsSha256)throw Error('輪廓SHA不符：'+regionsPath);
+ const metadata=JSON.parse(new TextDecoder().decode(metaBytes));
+ const image=await createImageBitmap(new Blob([pngBytes],{type:'image/png'}));
+ sourceRecords.push({source,clip,metadata,image});
+}
+function draw(record,index,canvas,details){
+ const {source,clip,metadata,image}=record, frame=metadata.frames[index], measurement=source.frames[index];
+ const c=canvas.getContext('2d');c.clearRect(0,0,400,500);
+ const [left,top,right,bottom]=frame.diagnostics.coreBounds;
+ const offset=[(400-(right-left))/2-left,25-top];
+ c.imageSmoothingEnabled=false;
+ // Only existing owned source pixels are displayed; no new raster is saved.
+ for(const row of frame.rows)for(let i=1;i<row.length;i+=2)c.drawImage(image,row[i],row[0],row[i+1]-row[i],1,row[i]+offset[0],row[0]+offset[1],row[i+1]-row[i],1);
+ const point=p=>[p[0]+offset[0],p[1]+offset[1]];
+ c.font='12px monospace';c.fillStyle='#f5f5f5';c.fillText(`source frame ${index+1}; origin ${offset.map(v=>v.toFixed(1)).join(', ')}`,8,488);
+ let description='';
+ if(measurement.source){
+  const m=measurement.source;c.lineWidth=1.5;c.strokeStyle='#ff9a9a';
+  for(const [x,y,r,b]of m.eyeWhiteBounds)c.strokeRect(x+offset[0],y+offset[1],r-x,b-y);
+  c.strokeStyle='#57f5df';c.lineWidth=2;
+  c.beginPath();m.faceCaliperPoints.map(point).forEach((p,i)=>i?c.lineTo(...p):c.moveTo(...p));c.stroke();
+  for(const p of m.faceCaliperPoints.map(point)){c.fillStyle='#57f5df';c.beginPath();c.arc(...p,3,0,Math.PI*2);c.fill();}
+  if(m.eyeToFoot!==null){
+   c.strokeStyle='#ffe57a';c.setLineDash([4,4]);c.beginPath();c.moveTo(...point(m.eyeMidpoint));c.lineTo(...point([m.eyeMidpoint[0],frame.anchorSource[1]]));c.stroke();c.setLineDash([]);
+  }
+  description=`來源臉橫截 ${m.faceWidth.toFixed(2)} px；兩眼下緣 ${m.eyeSeparation.toFixed(2)} px；眼線至足底 ${m.eyeToFoot===null?'未量（足底基準未確認）':m.eyeToFoot.toFixed(2)+' px'}。<br>臉線原座標：<code>${JSON.stringify(m.faceCaliperPoints)}</code><br>眼下緣原座標：<code>${JSON.stringify(m.eyeLowerRimPoints)}</code>`;
+ }else description='<span class="warning">未量測：'+measurement.flags.map(f=>f.message).join('；')+'</span>';
+ details.innerHTML=description+`<br><small>原圖第 ${index+1} 格；${clip.actualUsedSourceFrames.includes(index)?'這個主／候選clip使用此格':'主播放避開此格，原畫仍保留'}。沒有美術批准。</small>`;
+}
+function render(){
+ const grid=document.querySelector('#grid');grid.replaceChildren();
+ const selected=document.querySelector('#all').checked?sourceRecords:keySources.map(name=>sourceRecords.find(r=>r.source.sourcePath.includes('/'+name+'/')));
+ for(const record of selected){
+  const article=document.createElement('article');article.dataset.source=record.source.sourcePath;
+  const heading=document.createElement('h2');heading.textContent=record.clip.title;
+  const label=document.createElement('label');label.textContent='原圖影格 ';const select=document.createElement('select');
+  record.source.frames.forEach((frame,i)=>{const option=new Option(`第 ${i+1} 格${frame.source?'':' · 未量測'}`,String(i));select.add(option);});label.append(select);
+  const canvas=document.createElement('canvas');canvas.width=400;canvas.height=500;
+  const details=document.createElement('p');select.addEventListener('change',()=>draw(record,Number(select.value),canvas,details));
+  article.append(heading,label,canvas,details);grid.append(article);draw(record,0,canvas,details);
+ }
+}
+document.querySelector('#all').addEventListener('change',render);render();
+document.querySelector('#status').textContent=`${sourceRecords.length} 張原圖與輪廓 SHA 已核對。量測有 ${report.totals.measuredSourceFrames}/${report.totals.sourceFrames} 格可用代理；其餘明列未量測，不當作尺寸通過。`;
+window.__bodyScaleReview={ready:true,report,sourceRecords};
+</script></html>

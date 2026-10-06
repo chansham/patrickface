@@ -20,7 +20,12 @@ async function ready(page, candidates = true) {
   await page.goto(address + (candidates ? '?review=candidates' : ''), { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => ['ready', 'error'].includes(window.__patrickPreviewShell?.report.status));
   const state = await page.evaluate(() => window.__patrickPreviewShell.report);
-  assert.equal(state.status, 'ready', state.lastError); return state;
+  assert.equal(state.status, 'ready', state.lastError);
+  if (!candidates) {
+    await page.locator('#auto-idle').uncheck();
+    if (!await page.locator('#clip-select').isVisible()) await page.locator('#toggle-review').click();
+  }
+  return state;
 }
 async function capture(page, id, frame) {
   const stem = `${id}-frame-${frame + 1}`;
@@ -72,7 +77,7 @@ async function capture(page, id, frame) {
           const bytes = fs.readFileSync(path.join(root, clip.frameRegions.path));
           assert.equal(hash(bytes), clip.frameRegions.sha256); const metadata = JSON.parse(bytes);
           await page.locator('#clip-select').selectOption(clip.id);
-          assert.match(await page.locator('#clip-state').textContent(), /輪廓分離・固定腳底/);
+          assert.equal(await page.evaluate(id => window.__patrickPreviewShell.report.rendering[id].method, clip.id), 'contour-runs');
           assert.match(await page.locator('#review-revision').textContent(), /既有意見保留/);
           const extraction = await page.evaluate(({ clip, metadata }) => {
             const atlas = window.__regionAtlases.get(clip.id), frames = window.__regionFrames.get(clip.id);
@@ -130,7 +135,7 @@ async function capture(page, id, frame) {
                 if (same) for (let c = 0; c < 4; c++) if (p[i + c] !== q[i + c]) same = false;
               }
               const rect = targets[0].rect, pixelScale = rect[6] / metadata.canvas.width;
-              return { shared, same, rect, minY, maxY, smallWidth: b.getBoundingClientRect().width, pixelScale,
+              return { shared, same, rect, thumbRect: targets[2].rect, minY, maxY, smallWidth: b.getBoundingClientRect().width, pixelScale,
                 foot: [rect[4] + metadata.canvas.anchorPixels[0] * pixelScale, rect[5] + metadata.canvas.anchorPixels[1] * pixelScale] };
             }, { clip, frame, metadata });
             assert.equal(observed.shared, true, 'watch/200px/thumbnail must use the identical extracted frame object'); assert.equal(observed.same, true);
@@ -138,6 +143,11 @@ async function capture(page, id, frame) {
             assert.deepEqual(observed.rect.slice(0, 4), [0, 0, metadata.canvas.width, metadata.canvas.height]);
             if (destination) assert.deepEqual(observed.rect.slice(4), destination); else destination = observed.rect.slice(4);
             assert.ok(Math.abs(observed.pixelScale - 665.6 * clip.scale / metadata.canvas.width) < 1e-9, 'all frames must retain the catalog whole-clip scale; never refit each contour');
+            const thumbFactor = 144 / 992, thumbInsetX = (144 - 832 * thumbFactor) / 2;
+            const expectedThumb = [thumbInsetX + observed.rect[4] * thumbFactor, observed.rect[5] * thumbFactor,
+              observed.rect[6] * thumbFactor, observed.rect[7] * thumbFactor];
+            expectedThumb.forEach((value, i) => assert.ok(Math.abs(observed.thumbRect[4 + i] - value) < 1e-7,
+              'thumbnail must preserve actual stage scale across clips, never fit its transparent canvas'));
             assert.ok(Math.abs(observed.foot[0] - (83.2 + 665.6 * catalog.master.anchorNormalized[0])) < 1e-6);
             assert.ok(Math.abs(observed.foot[1] - (248 + 665.6 * catalog.master.anchorNormalized[1])) < 1e-6);
             assert.ok(observed.minY >= Math.floor(992 * .24), `${clip.id} frame ${frame + 1} enters time zone`);

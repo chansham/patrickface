@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "tool": "tools/sync_animation_bundle.py",
   "catalogSource": "animation/catalog.json",
-  "catalogSha256": "7a483a08eced0bcbe2768fd2f7bda571987016a17dd8c2dc9642fe49188976e0",
+  "catalogSha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
   "availableClipIds": [
     "yawn",
     "idle-blink-normal",
@@ -53,8 +53,8 @@
     {
       "source": "animation/catalog.json",
       "destination": "catalog.json",
-      "sha256": "7a483a08eced0bcbe2768fd2f7bda571987016a17dd8c2dc9642fe49188976e0",
-      "bytes": 23850,
+      "sha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+      "bytes": 24878,
       "active": true
     },
     {

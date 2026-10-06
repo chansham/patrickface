@@ -70,6 +70,12 @@ struct PatrickAnimatedFaceView: View {
             .contentShape(Rectangle())
             .accessibilityAction(named: Text("摸摸派大星")) { model.performCare(.pet) }
             .accessibilityAction(named: Text("餵一口")) { model.performCare(.feed) }
+            #if DEBUG && targetEnvironment(simulator)
+            .modifier(PatrickWatchGeometryProbe(geometry: geometry,
+                layoutID: PatrickFaceLayoutSpec.presentationID(model.experience.settings),
+                phase: scenePhase, visible: visible, wristDown: wristDown, monitoring: monitoring,
+                reduceMotion: reduceMotion, lowPower: lowPower))
+            #endif
         }
     }
 
@@ -397,3 +403,101 @@ struct PatrickAnimatedFaceView: View {
         }
     }
 }
+
+#if DEBUG && targetEnvironment(simulator)
+/// Diagnostics only: never compiled into device or Release products, and never
+/// writes preferences, changes scene state, or changes the available geometry.
+@MainActor private struct PatrickWatchGeometryProbe: ViewModifier {
+    let geometry: GeometryProxy
+    let layoutID: String
+    let phase: ScenePhase
+    let visible: Bool
+    let wristDown: Bool
+    let monitoring: Bool
+    let reduceMotion: Bool
+    let lowPower: Bool
+
+    private struct Observation: Codable, Equatable {
+        let layoutID: String
+        let scenePhase: String
+        let geometrySizePoints: [String: Double]
+        let geometryFrameGlobalPoints: [String: Double]
+        let safeAreaInsetsPoints: [String: Double]
+        let outerUnit416: Double
+        let innerUnit832: Double
+        let stageSizePoints: [String: Double]
+        let stageOriginInGeometryPoints: [String: Double]
+        let stageSizePixels: [String: Double]
+        let screenBoundsPoints: [String: Double]
+        let screenScale: Double
+        let visible: Bool
+        let wristDown: Bool
+        let monitoring: Bool
+        let reduceMotion: Bool
+        let lowPower: Bool
+    }
+
+    private struct Record: Encodable {
+        let schemaVersion = 1
+        let kind = "patrick-watch-geometry"
+        let debugSimulator = true
+        let bundleID: String
+        let processID: Int32
+        let recordedAt: String
+        let recordedAtEpochMS: Double
+        let event: String
+        let observation: Observation
+    }
+
+    private var observation: Observation {
+        let size = geometry.size, insets = geometry.safeAreaInsets
+        let global = geometry.frame(in: .global)
+        let device = WKInterfaceDevice.current()
+        let screen = device.screenBounds, scale = Double(device.screenScale)
+        let unit = min(Double(size.width) / 416, Double(size.height) / 496)
+        let width = 416 * unit, height = 496 * unit
+        let phaseName: String
+        switch phase {
+        case .active: phaseName = "active"
+        case .inactive: phaseName = "inactive"
+        case .background: phaseName = "background"
+        @unknown default: phaseName = "unknown"
+        }
+        return Observation(layoutID: layoutID, scenePhase: phaseName,
+            geometrySizePoints: ["width": Double(size.width), "height": Double(size.height)],
+            geometryFrameGlobalPoints: ["x": Double(global.minX), "y": Double(global.minY), "width": Double(global.width), "height": Double(global.height)],
+            safeAreaInsetsPoints: ["top": Double(insets.top), "leading": Double(insets.leading), "bottom": Double(insets.bottom), "trailing": Double(insets.trailing)],
+            outerUnit416: unit, innerUnit832: unit / 2,
+            stageSizePoints: ["width": width, "height": height],
+            stageOriginInGeometryPoints: ["x": (Double(size.width) - width) / 2, "y": (Double(size.height) - height) / 2],
+            stageSizePixels: ["width": width * scale, "height": height * scale],
+            screenBoundsPoints: ["x": Double(screen.minX), "y": Double(screen.minY), "width": Double(screen.width), "height": Double(screen.height)],
+            screenScale: scale, visible: visible, wristDown: wristDown, monitoring: monitoring,
+            reduceMotion: reduceMotion, lowPower: lowPower)
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .onAppear { write(event: "appear") }
+            .onChange(of: observation) { _, _ in write(event: "change") }
+    }
+
+    private func write(event: String) {
+        guard let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        do {
+            try FileManager.default.createDirectory(at: documents, withIntermediateDirectories: true)
+            let date = Date.now
+            let formatter = ISO8601DateFormatter()
+            formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+            let record = Record(bundleID: Bundle.main.bundleIdentifier ?? "unknown",
+                processID: ProcessInfo.processInfo.processIdentifier,
+                recordedAt: formatter.string(from: date), recordedAtEpochMS: date.timeIntervalSince1970 * 1000,
+                event: event, observation: observation)
+            let encoder = JSONEncoder(); encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+            try encoder.encode(record).write(to: documents.appendingPathComponent("patrick-watch-geometry.json"), options: .atomic)
+        } catch {
+            print("Patrick simulator geometry probe unavailable: \(error.localizedDescription)")
+        }
+    }
+}
+#endif

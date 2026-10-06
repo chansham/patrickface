@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "defaultLayoutID": "classic",
+  "coordinateSize": [
+    832,
+    992
+  ],
+  "layouts": [
+    {
+      "id": "classic",
+      "title": "經典陪伴",
+      "description": "上方看時間，中央看角色。",
+      "characterTransform": [
+        1,
+        0,
+        0
+      ],
+      "timeCenter": [
+        416,
+        109
+      ],
+      "timeFontSize": 108,
+      "dateCenter": [
+        416,
+        205
+      ],
+      "dateFontSize": 40,
+      "informationRect": null
+    },
+    {
+      "id": "bold",
+      "title": "一眼大字",
+      "description": "更大的時間，角色安靜坐在下方。",
+      "characterTransform": [
+        0.69,
+        128.96,
+        289
+      ],
+      "timeCenter": [
+        416,
+        185
+      ],
+      "timeFontSize": 172,
+      "dateCenter": [
+        416,
+        321
+      ],
+      "dateFontSize": 40,
+      "informationRect": null
+    },
+    {
+      "id": "theater",
+      "title": "角色劇場",
+      "description": "角色在上方演出，時間固定在底部。",
+      "characterTransform": [
+        0.95,
+        20.8,
+        -44
+      ],
+      "timeCenter": [
+        416,
+        881
+      ],
+      "timeFontSize": 118,
+      "dateCenter": [
+        416,
+        130
+      ],
+      "dateFontSize": 40,
+      "informationRect": null
+    },
+    {
+      "id": "activity",
+      "title": "運動資訊",
+      "description": "時間在上方；左邊陪伴，右邊看倒數與進度。",
+      "characterTransform": [
+        0.56,
+        8,
+        354
+      ],
+      "timeCenter": [
+        416,
+        109
+      ],
+      "timeFontSize": 120,
+      "dateCenter": [
+        416,
+        207
+      ],
+      "dateFontSize": 40,
+      "informationRect": [
+        450,
+        350,
+        310,
+        470
+      ]
+    }
+  ],
+  "renderingRule": "One uniform whole-stage character transform per layout. Every frame retains the same scale and anchor; candidate review always uses classic geometry."
+}

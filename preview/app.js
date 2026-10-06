@@ -1,9 +1,9 @@
-import { STAGE, normalizeClip, sourceRect, destinationRect, validateFrameRegions, frameAt, isIdleClip, IdleScheduler, restoreEvents, bedtimeRemaining, automaticAllowed, reviewKey, cleanReview } from './player-core.js?v=20261006-layouts1';
-import { newPet, restorePet, dispatch, resolveScene, MOODS } from './pet-core.js?v=20261006-layouts1';
-import { createExperience } from './experience-ui.js?v=20261006-layouts1';
-import { EXPERIENCE_KEY } from './experience-core.js?v=20261006-layouts1';
-import { createClockRig } from './clock-rig.js?v=20261006-layouts1';
-import { DEFAULT_LAYOUT, transformRect, applyLayoutDOM } from './layout-core.js?v=20261006-layouts1';
+import { STAGE, normalizeClip, sourceRect, destinationRect, validateFrameRegions, frameAt, isIdleClip, IdleScheduler, restoreEvents, bedtimeRemaining, automaticAllowed, reviewKey, cleanReview } from './player-core.js?v=20261006-size2';
+import { newPet, restorePet, dispatch, resolveScene, MOODS } from './pet-core.js?v=20261006-size2';
+import { createExperience } from './experience-ui.js?v=20261006-size2';
+import { EXPERIENCE_KEY } from './experience-core.js?v=20261006-size2';
+import { createClockRig } from './clock-rig.js?v=20261006-size2';
+import { DEFAULT_LAYOUT, transformRect, applyLayoutDOM } from './layout-core.js?v=20261006-size2';
 
 const $ = selector => document.querySelector(selector);
 const shell = window.__patrickPreviewShell;
@@ -96,7 +96,8 @@ async function loadRegions(clip, atlas) {
   });
   clip.renderCanvas = metadata.canvas; clip.regionsMetadata = metadata;
   clip.currentRendering = { method: 'contour-runs', renderingRevision: reference.version, regionsHash: hash,
-    sourceImageHash: clip.sha256, canvas: metadata.canvas, singleScale: 1 };
+    sourceImageHash: clip.sha256, canvas: metadata.canvas, singleScale: 1,
+    displayScale: clip.scale, displayCalibration: clip.displayCalibration || null };
   frameCanvases.set(clip.id, frames);
 }
 
@@ -260,18 +261,21 @@ function selectClip(clip, reviewMode = false) {
   pause(); if (reviewMode) state.reviewing = true;
   state.clip = clip; state.elapsed = 0;
   $('#clip-select').value = clip.id; $('#clip-title').textContent = clip.title;
-  $('#clip-state').textContent = experienceUI ? `${sceneNames[experienceUI.resolvedScene()] || '日常'}陪伴` : clip.available ? `${clip.frameCount} 格 · ${clip.renderCanvas ? '輪廓分離・固定腳底' : candidateMode ? '待修候選' : isIdleClip(clip) ? '待機動作' : '單次情境'}` : clip.loadError ? '載入失敗' : '畫稿待補';
+  $('#clip-state').textContent = experienceUI ? `${sceneNames[experienceUI.resolvedScene()] || '日常'}陪伴` : clip.available ? `${clip.frameCount} 格 · ${clip.renderCanvas ? '輪廓分離・固定落位' : candidateMode ? '待修候選' : isIdleClip(clip) ? '待機動作' : '單次情境'}` : clip.loadError ? '載入失敗' : '畫稿待補';
   $('#clip-description').textContent = candidateMode ? `已知問題：${clip.description || '待逐格檢查，尚未完成品質驗收。'}` : clip.description || '每段動作由獨立畫格組成。';
   $('#frames').replaceChildren(); buttons = [];
   if (clip.available) buttons = Array.from({ length: clip.frameCount }, (_, index) => {
     const button = document.createElement('button'); button.className = 'frame'; button.type = 'button';
     button.setAttribute('aria-label', `第 ${index + 1} 格：${clip.frameLabels[index] || clip.title}`);
     const thumb = document.createElement('canvas'); thumb.width = 144; thumb.height = 144; thumb.setAttribute('aria-hidden', 'true');
-    // The same common frame canvas serves both watches and every thumbnail.
-    const cellAspect = clip.renderCanvas ? clip.renderCanvas.width / clip.renderCanvas.height
-      : (clip.width / clip.columns) / (clip.height / clip.rows);
-    const tw = 144 * Math.min(1, cellAspect), th = 144 * Math.min(1, 1 / cellAspect);
-    drawCell(thumb.getContext('2d'), clip, index, [(144 - tw) / 2, (144 - th) / 2, tw, th]);
+    // Every thumbnail shows the SAME classic stage. Fitting each transparent
+    // extraction canvas independently hides actual size differences across looks.
+    const factor = 144 / STAGE.height, insetX = (144 - STAGE.width * factor) / 2;
+    const rectangle = destinationRect(clip, catalog.master);
+    const target = [insetX + rectangle[0] * factor, rectangle[1] * factor,
+      rectangle[2] * factor, rectangle[3] * factor];
+    thumb.dataset.scaleReference = 'classic-stage';
+    drawCell(thumb.getContext('2d'), clip, index, target);
     const number = document.createElement('span'); number.textContent = String(index + 1).padStart(2, '0'); button.append(thumb, number);
     button.addEventListener('click', () => selectFrame(index));
     button.addEventListener('keydown', event => { if (['ArrowLeft', 'ArrowRight'].includes(event.key)) { event.preventDefault(); selectFrame(index + (event.key === 'ArrowRight' ? 1 : -1)); buttons[state.frame].focus(); } });

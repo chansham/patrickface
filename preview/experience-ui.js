@@ -1,7 +1,7 @@
 import { EXPERIENCE_KEY, TIMER_KINDS, isExerciseKind, restoreExperience, careNow, careAction, appendJournal, timerRemaining,
-  startActivity, controlActivity, finishActivity, claimEgg, isSleepMinute } from './experience-core.js?v=20261006-layouts1';
-import { holidayFor } from './pet-core.js?v=20261006-layouts1';
-import { DEFAULT_LAYOUT, validateLayouts } from './layout-core.js?v=20261006-layouts1';
+  startActivity, controlActivity, finishActivity, claimEgg, isSleepMinute } from './experience-core.js?v=20261006-size2';
+import { holidayFor } from './pet-core.js?v=20261006-size2';
+import { DEFAULT_LAYOUT, validateLayouts } from './layout-core.js?v=20261006-size2';
 
 const $ = selector => document.querySelector(selector);
 export async function createExperience({ repo, revision, clips, read, write, getPet, setPet, player, shell }) {

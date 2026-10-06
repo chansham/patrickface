@@ -1,0 +1,131 @@
+import { frameAt } from '../preview/player-core.js?v=20261006-layouts1';
+import { validateLayouts } from '../preview/layout-core.js?v=20261006-layouts1';
+import { resource,decodeJSON,loadClip,frameGeometry } from './render-core.js?v=20261006-size2';
+const $=selector=>document.querySelector(selector),repo=new URL('../',import.meta.url);
+const auditPath='animation/production-20261006-scale/body-scale-audit.json',storageKey='patrick.size-review.v1';
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+const state={tab:'overview',playing:false,raf:null,started:0,head:360,body:650,guides:true,bounds:false,landmarks:false,pair:[{id:'pet',index:0},{id:'exercise',index:0}],layoutClip:'pet',layoutFrame:0,calibrationClip:null,calibrationFrame:0};
+window.__patrickSizeReview={status:'loading',state};
+let clips=[],layouts=[],catalog,outfits=[],audit=null,notes={},beforeCatalog=null,calibrationClips=[];
+try{const value=JSON.parse(localStorage.getItem(storageKey));if(value?.version===1&&value.notes&&typeof value.notes==='object')notes=value.notes;}catch{}
+const element=(tag,className,text)=>{const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;};
+const clipByID=id=>clips.find(clip=>clip.id===id);
+const renderIdentity=clip=>({sourceSha256:clip.sha256,regionsSha256:clip.frameRegions.sha256,scale:clip.scale,masterAnchor:catalog.master.anchorNormalized});
+const noteKey=clip=>`${clip.id}:${clip.version}:${clip.sha256}:${clip.frameRegions.sha256}:${clip.scale}`;
+function fillOptions(select){for(const clip of clips){const option=element('option','',clip.title);option.value=clip.id;select.append(option);}}
+function canvasView(parent,clip,index,layout,size='small'){
+  const wrap=element('div','viewport'),canvas=element('canvas',`watch-canvas ${size}`);canvas.width=832;canvas.height=992;canvas.dataset.clip=clip.id;canvas.dataset.frame=index;canvas.dataset.layout=layout.id;
+  canvas.setAttribute('aria-label',`${clip.title}第${index+1}格，同尺規${layout.title}`);wrap.append(canvas,element('div','viewport-label',size==='large'?'放大檢視 · 固定舞台':'200 px 同尺規'));parent.append(wrap);return canvas;
+}
+function draw(canvas,clip,index,layout){
+  const ctx=canvas.getContext('2d'),geometry=frameGeometry(clip,index,catalog.master,layout);
+  ctx.clearRect(0,0,832,992);ctx.fillStyle='#070609';ctx.fillRect(0,0,832,992);ctx.drawImage(geometry.source,0,0,geometry.source.width,geometry.source.height,...geometry.rect);
+  ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#faf6fb';ctx.font=`${layout.id==='bold'?600:480} ${layout.timeFontSize}px "Segoe UI", sans-serif`;ctx.fillText('10:10',...layout.timeCenter);
+  ctx.fillStyle='#ab99b5';ctx.font=`${layout.dateFontSize}px "Microsoft JhengHei", sans-serif`;ctx.fillText('10/6（週二）',...layout.dateCenter);
+  if(layout.informationRect){const[x,y,w,h]=layout.informationRect;ctx.textAlign='left';ctx.font='42px "Microsoft JhengHei",sans-serif';ctx.fillText('陪伴倒數',x+24,y+100);ctx.font='72px "Segoe UI",sans-serif';ctx.fillText('—:—',x+24,y+180);ctx.font='38px "Microsoft JhengHei",sans-serif';ctx.fillText('還沒開始',x+24,y+255);ctx.font='42px "Microsoft JhengHei",sans-serif';ctx.fillText('飽足 60%',x+24,y+360);}
+  if(state.bounds){ctx.save();ctx.strokeStyle='#f3c68d';ctx.lineWidth=2;ctx.setLineDash([9,8]);ctx.strokeRect(...geometry.bounds);ctx.restore();}
+  if(state.landmarks){
+    const entry=sourceAudit(clip),measure=entry?.frames?.find(value=>value.sourceFrame===geometry.sourceIndex)?.source;
+    if(measure){const [dx,dy]=clip.metadata.frames[geometry.sourceIndex].translation;
+      const point=value=>[geometry.rect[0]+(value[0]+dx)*geometry.pixelScale,geometry.rect[1]+(value[1]+dy)*geometry.pixelScale];
+      for(const [key,color]of [['faceCaliperPoints','#ff92c2'],['eyeLowerRimPoints','#8ae0ff']]){
+        const points=measure[key]?.map(point);if(!points||points.length!==2)continue;ctx.save();ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(...points[0]);ctx.lineTo(...points[1]);ctx.stroke();for(const p of points){ctx.beginPath();ctx.arc(...p,4,0,Math.PI*2);ctx.fill();}ctx.restore();
+      }
+      if(Number.isFinite(measure.eyeToFoot)&&measure.eyeLowerRimPoints?.length===2){const eyes=measure.eyeLowerRimPoints.map(point),mid=[(eyes[0][0]+eyes[1][0])/2,(eyes[0][1]+eyes[1][1])/2];ctx.save();ctx.strokeStyle='#a8dfba';ctx.setLineDash([6,6]);ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(...mid);ctx.lineTo(mid[0],geometry.anchor[1]);ctx.stroke();ctx.restore();}
+    }
+  }
+  if(state.guides){
+    const[s,tx,ty]=layout.characterTransform;
+    for(const [label,y,color]of[['頭',state.head*s+ty,'#e9b7d4'],['身',state.body*s+ty,'#8ccbe8'],['底',geometry.anchor[1],'#a8dfba']]){
+      ctx.save();ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=2;ctx.setLineDash([7,8]);ctx.globalAlpha=.65;ctx.beginPath();ctx.moveTo(40,y);ctx.lineTo(792,y);ctx.stroke();ctx.globalAlpha=1;ctx.font='26px "Microsoft JhengHei",sans-serif';ctx.textAlign='left';ctx.fillText(label,45,y-17);ctx.restore();
+    }
+    ctx.save();ctx.strokeStyle='#b79ac077';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(geometry.anchor[0],230);ctx.lineTo(geometry.anchor[0],940);ctx.stroke();ctx.restore();
+  }
+  canvas.dataset.frame=String(index);canvas.dataset.sourceFrame=String(geometry.sourceIndex);canvas.dataset.clip=clip.id;canvas.dataset.layout=layout.id;
+  canvas.dataset.pixelScale=String(geometry.pixelScale);canvas.dataset.anchor=JSON.stringify(geometry.anchor);canvas.dataset.rect=JSON.stringify(geometry.rect);
+}
+function sourceAudit(clip){const entry=audit?.clips?.find(value=>value.id===clip.id);return entry&&entry.sourceSha256===clip.sha256&&entry.regionsSha256===clip.frameRegions.sha256?entry:null;}
+function auditEntry(clip){const entry=audit?.clips?.find(value=>value.id===clip.id);if(!entry)return{entry:null,stale:false};return{entry,stale:!sourceAudit(clip)||(Number.isFinite(entry.calibration?.currentScale)&&entry.calibration.currentScale!==clip.scale)};}
+function visibleMetrics(clip,index){const sourceIndex=clip.frameIndices[index],frame=sourceAudit(clip)?.frames?.find(value=>value.sourceFrame===sourceIndex);const factor=frameGeometry(clip,index,catalog.master,layouts[0]).pixelScale*200/832;
+  return Object.fromEntries(['faceWidth','eyeSeparation','eyeToFoot'].map(key=>[key,Number.isFinite(frame?.source?.[key])?frame.source[key]*factor:null]));}
+function describeMetrics(value,prefix=''){
+  const result=[];if(!value||typeof value!=='object')return result;
+  for(const[key,item]of Object.entries(value)){
+    if(item===null)result.push(`${prefix}${key}：未知`);
+    else if(typeof item==='number')result.push(`${prefix}${key}：${Number(item.toFixed(3))}`);
+    else if(typeof item==='string'||typeof item==='boolean')result.push(`${prefix}${key}：${String(item)}`);
+    else if(Array.isArray(item)&&item.length<=4&&item.every(x=>typeof x==='number'))result.push(`${prefix}${key}：${item.map(x=>Number(x.toFixed(2))).join(' / ')}`);
+    else if(!Array.isArray(item))result.push(...describeMetrics(item,`${prefix}${key}.`));
+  }return result;
+}
+function facts(card,clip,index,reference={id:'yawn',index:0}){
+  const geometry=frameGeometry(clip,index,catalog.master,layouts[0]),node=card.querySelector('.facts');node.replaceChildren();
+  node.append(element('div','',`第 ${index+1}/${clip.frameCount} 格`));
+  const metric=visibleMetrics(clip,index),referenceClip=clipByID(reference.id)||clip,ref=visibleMetrics(referenceClip,reference.index),isReference=clip.id===referenceClip.id&&index===reference.index;
+  const measurement=element('div','body-measurements');
+  for(const [key,label]of [['faceWidth','臉部大小'],['eyeSeparation','兩眼下緣間距'],['eyeToFoot','眼線至腳底']]){
+    const value=metric[key],other=ref[key],row=element('div','measurement-row');row.append(element('span','',label));
+    row.append(element('strong','',value===null?'未能量測':`${value.toFixed(1)} px`));
+    if(value!==null&&other>0&&!isReference){const delta=(value/other-1)*100;row.append(element('small','',Math.abs(delta)<.5?'與參考接近':`比參考${delta>0?'大':'小'} ${Math.abs(delta).toFixed(0)}%`));}
+    measurement.append(row);
+  }node.append(measurement,element('small','',`200 px 內容舞台 · ${isReference?'此格作參考':`參考：${referenceClip.title}第${reference.index+1}格`}`),element('small','', '眼線至腳底受坐姿影響；遮擋的身體寬度不猜測。'));
+  const details=element('details');details.append(element('summary','', '查看來源與量測細節'));details.append(element('small','',`來源第 ${geometry.sourceIndex+1} 格 · 主預覽整段倍率 ${clip.scale.toFixed(6)}`),element('small','',`1 source px → ${geometry.pixelScale.toFixed(4)} stage px；可見輪廓 ${geometry.bounds[2].toFixed(1)} × ${geometry.bounds[3].toFixed(1)} stage px（含衣帽與道具）`),element('small','',`PNG ${clip.sha256}`),element('small','',`輪廓 ${clip.frameRegions.sha256}`));
+  const{entry,stale}=auditEntry(clip);details.append(element('small','',!entry?'臉部／軀幹量測尚未提供。':stale?'這份量測與目前素材版本不同，只保留作歷史參考。':`量測來源格：${(entry.referenceFrame??0)+1}；以下數值保留原量測欄位及單位。`));
+  if(entry)for(const line of describeMetrics(entry.measurements))details.append(element('small','',line));node.append(details);
+  const flags=card.querySelector('.flags');flags.replaceChildren();
+  if(stale)flags.append(element('li','', '量測版本已過期，需重新核對。'));
+  if(entry?.flags?.length)for(const flag of entry.flags){let message=typeof flag==='string'?flag:flag.message||flag.code;if(Array.isArray(flag.frameIndices)&&flag.frameIndices.length){const ids=flag.frameIndices;message+=`（來源第 ${ids.slice(0,10).map(i=>i+1).join('、')}${ids.length>10?'…':''} 格${ids.every(i=>!clip.frameIndices.includes(i))?'；主預覽未啟用這些格':''}）`;}flags.append(element('li','',message));}
+  else flags.append(element('li','',entry?'暫無自動旗標；仍需眼看頭身比例與動作變形。':'待補獨立頭身量測，不代表大小一致。'));
+}
+const overviewIndex=clip=>$('#overview-frame').value==='last'?clip.frameCount-1:$('#overview-frame').value==='middle'?Math.floor((clip.frameCount-1)/2):0;
+function updateOverview(){for(const card of document.querySelectorAll('#outfit-grid .card')){const clip=clipByID(card.dataset.clip),index=overviewIndex(clip);draw(card.querySelector('canvas'),clip,index,layouts[0]);facts(card,clip,index);}}
+function buildOverview(){for(const outfit of outfits){const clip=clipByID(outfit.clipId);if(!clip)continue;const card=element('article','card');card.dataset.clip=clip.id;card.append(element('h3','',outfit.title),element('small','',clip.title));canvasView(card,clip,0,layouts[0]);card.append(element('div','facts'),element('ul','flags'));const button=element('button','', '放到右邊比較 ↗');button.addEventListener('click',()=>{state.pair[1]={id:clip.id,index:0};syncCompare();switchTab('compare');});card.append(button);$('#outfit-grid').append(card);}updateOverview();}
+function buildCompare(){for(let side=0;side<2;side++){
+  const card=element('article','card comparison-card');card.dataset.side=String(side);const select=element('select');select.id=`compare-${side}`;select.setAttribute('aria-label',side===0?'左邊參考動作':'右邊比較動作');fillOptions(select);
+  const control=element('label','frame-control','畫格');const slider=element('input');slider.type='range';slider.min=0;slider.step=1;slider.id=`frame-${side}`;const count=element('output');count.id=`frame-value-${side}`;control.append(slider,count);
+  const pair=element('div','compare-viewports'),clip=clipByID(state.pair[side].id);canvasView(pair,clip,0,layouts[0],'large');canvasView(pair,clip,0,layouts[0]);card.append(element('h3','',side===0?'左邊 · 參考':'右邊 · 比較'),select,control,pair,element('div','facts'),element('ul','flags'));$('#compare-grid').append(card);
+  select.addEventListener('change',()=>{stop();state.pair[side]={id:select.value,index:0};syncCompare();});slider.addEventListener('input',()=>{stop();state.pair[side].index=Number(slider.value);syncCompare();});
+}syncCompare();}
+function syncCompare(){for(let side=0;side<2;side++){const value=state.pair[side],clip=clipByID(value.id),card=$(`[data-side="${side}"]`);const key=JSON.stringify([value,state.pair[0],state.head,state.body,state.guides,state.bounds,state.landmarks]);if(card.dataset.renderKey===key)continue;card.dataset.renderKey=key;$(`#compare-${side}`).value=clip.id;const slider=$(`#frame-${side}`);slider.max=clip.frameCount-1;slider.value=value.index;$(`#frame-value-${side}`).textContent=`${value.index+1}/${clip.frameCount}`;for(const canvas of card.querySelectorAll('canvas'))draw(canvas,clip,value.index,layouts[0]);facts(card,clip,value.index,state.pair[0]);}}
+function buildLayouts(){fillOptions($('#layout-clip'));for(const layout of layouts){const card=element('article','card');card.dataset.layout=layout.id;card.append(element('h3','',layout.title),element('small','',layout.description));const viewports=element('div','compare-viewports'),clip=clipByID(state.layoutClip);canvasView(viewports,clip,0,layout,'large');canvasView(viewports,clip,0,layout);card.append(viewports);$('#layout-grid').append(card);}syncLayouts();}
+function syncLayouts(){const clip=clipByID(state.layoutClip);$('#layout-clip').value=clip.id;$('#layout-frame').max=clip.frameCount-1;$('#layout-frame').value=state.layoutFrame;$('#layout-frame-value').textContent=`${state.layoutFrame+1}/${clip.frameCount}`;for(const card of document.querySelectorAll('#layout-grid .card'))for(const canvas of card.querySelectorAll('canvas'))draw(canvas,clip,state.layoutFrame,layouts.find(layout=>layout.id===card.dataset.layout));}
+function buildCalibration(){
+  calibrationClips=clips.filter(clip=>{const old=beforeCatalog?.clips?.find(item=>item.id===clip.id);return old&&old.sha256===clip.sha256&&old.frameRegions?.sha256===clip.frameRegions.sha256&&Number.isFinite(old.scale)&&old.scale>0&&old.scale!==clip.scale;});
+  if(!calibrationClips.length){$('#calibration-status').textContent='目前沒有可核對的倍率修正快照。原圖或輪廓版本不同時，不會假裝只是改了大小。';$('#calibration-clip').disabled=true;$('#calibration-frame').disabled=true;return;}
+  for(const clip of calibrationClips){const option=element('option','',clip.title);option.value=clip.id;$('#calibration-clip').append(option);}state.calibrationClip=calibrationClips[0].id;
+  for(const version of ['previous','current']){const card=element('article','card');card.dataset.calibrationVersion=version;card.append(element('h3','',version==='previous'?'校準前':'目前'),element('small','calibration-scale'));const viewports=element('div','compare-viewports'),clip=calibrationClips[0];canvasView(viewports,clip,0,layouts[0],'large');canvasView(viewports,clip,0,layouts[0]);card.append(viewports);$('#calibration-grid').append(card);}syncCalibration();
+}
+function syncCalibration(){
+  const current=clipByID(state.calibrationClip);if(!current)return;const old=beforeCatalog.clips.find(clip=>clip.id===current.id),previous={...current,scale:old.scale};
+  $('#calibration-clip').value=current.id;$('#calibration-frame').max=current.frameCount-1;$('#calibration-frame').value=state.calibrationFrame;$('#calibration-frame-value').textContent=`${state.calibrationFrame+1}/${current.frameCount}`;
+  $('#calibration-status').textContent=`整段倍率 ×${(current.scale/old.scale).toFixed(2)}。兩側是同一張原圖、同一輪廓、同一格及同一落位基線，只改整段固定倍率。`;
+  for(const version of ['previous','current']){const clip=version==='previous'?previous:current,card=$(`[data-calibration-version="${version}"]`);card.querySelector('.calibration-scale').textContent=`目錄倍率 ${clip.scale.toFixed(6)} · ${version==='previous'?'讀取校準前快照':'目前主預覽'}`;for(const canvas of card.querySelectorAll('canvas'))draw(canvas,clip,state.calibrationFrame,layouts[0]);}
+  const entry=auditEntry(current).entry,notes=entry?.calibration?.residualWarnings||entry?.flags?.map(value=>typeof value==='string'?value:value.message)||[];
+  $('#calibration-warnings').textContent=`${entry?.calibration?.reason||'這次只作有限尺寸校準，沒有改變原畫頭身比例。'} ${notes.join(' ')} 不能因此判定所有造型已一致。`;
+}
+function redraw(){if(state.tab==='overview')updateOverview();if(state.tab==='compare')syncCompare();if(state.tab==='layouts')syncLayouts();if(state.tab==='calibration')syncCalibration();}
+function switchTab(tab){stop();state.tab=tab;document.querySelectorAll('[data-tab]').forEach(node=>node.setAttribute('aria-selected',String(node.dataset.tab===tab)));document.querySelectorAll('[data-panel]').forEach(node=>node.hidden=node.dataset.panel!==tab);redraw();}
+function stop(){cancelAnimationFrame(state.raf);state.raf=null;state.playing=false;$('#stop-pair').disabled=true;$('#play-pair').disabled=reduced.matches;}
+function play(){if(reduced.matches||document.hidden)return;stop();state.playing=true;state.started=performance.now();$('#stop-pair').disabled=false;$('#play-pair').disabled=true;state.pair.forEach(value=>value.index=0);syncCompare();
+  const tick=now=>{if(!state.playing)return;const elapsed=now-state.started;let running=false;for(const value of state.pair){const clip=clipByID(value.id);value.index=frameAt(clip,elapsed);if(elapsed<clip.totalMs)running=true;}syncCompare();if(running)state.raf=requestAnimationFrame(tick);else stop();};state.raf=requestAnimationFrame(tick);
+}
+function loadNote(){const clip=clipByID($('#note-clip').value),note=notes[noteKey(clip)];$('#note-verdict').value=note?.verdict||'pending';$('#note').value=note?.text||'';}
+function saveNote(){const clip=clipByID($('#note-clip').value);notes[noteKey(clip)]={clipID:clip.id,clipVersion:clip.version,rendering:renderIdentity(clip),verdict:$('#note-verdict').value,text:$('#note').value.slice(0,4000),updatedAt:new Date().toISOString(),artApproval:false};try{localStorage.setItem(storageKey,JSON.stringify({version:1,notes}));$('#save-state').textContent='尺寸意見已保存在本機。';}catch{$('#save-state').textContent='目前不能保存，請匯出意見留存。';}}
+async function loadAudit(){try{audit=decodeJSON(await resource(auditPath,repo));if(audit.schemaVersion!==1||!Array.isArray(audit.clips))throw new Error('schema');$('#audit-source').textContent=`獨立量測：${auditPath} · ${audit.generatedAt||'日期未提供'}。資料與圖片版本逐項核對。`;}catch{audit=null;$('#audit-source').textContent='獨立臉部／軀幹量測尚未讀入；目前只顯示實際播放幾何與可見輪廓。';}window.__patrickSizeReview.auditLoaded=Boolean(audit);}
+async function start(){
+  const [rawCatalog,rawThemes,rawLayouts]=await Promise.all(['animation/catalog.json','experience/themes.json','experience/layouts.json'].map(async path=>decodeJSON(await resource(path,repo))));catalog=rawCatalog;layouts=validateLayouts(rawLayouts);const cache=new Map(),failures=[];
+  const loaded=await Promise.all(catalog.clips.filter(clip=>clip.atlas).map(async clip=>{try{return await loadClip(clip,repo,cache);}catch(error){failures.push({id:clip.id,error:error.message});return null;}}));clips=loaded.filter(Boolean);if(!clips.length)throw new Error('沒有可讀取的主預覽素材');
+  outfits=rawThemes.outfits.filter(value=>clipByID(value.clipId));if(!clipByID(state.pair[0].id))state.pair[0].id=clips[0].id;if(!clipByID(state.pair[1].id))state.pair[1].id=clips.at(-1).id;state.layoutClip=state.pair[0].id;
+  await loadAudit();try{beforeCatalog=decodeJSON(await resource('animation/production-20261006-scale/catalog-before.json',repo));}catch{}
+  $('#summary').textContent=`${outfits.length} 套造型 · ${clips.length} 段播放版本。以下全部固定為 200 px 視窗，沿用經典版同一舞台。`;
+  buildOverview();buildCompare();buildLayouts();buildCalibration();fillOptions($('#note-clip'));loadNote();
+  for(const button of document.querySelectorAll('[data-tab]'))button.addEventListener('click',()=>switchTab(button.dataset.tab));
+  $('#overview-frame').addEventListener('change',updateOverview);$('#layout-clip').addEventListener('change',()=>{state.layoutClip=$('#layout-clip').value;state.layoutFrame=0;syncLayouts();});$('#layout-frame').addEventListener('input',()=>{state.layoutFrame=Number($('#layout-frame').value);syncLayouts();});
+  $('#calibration-clip').addEventListener('change',()=>{state.calibrationClip=$('#calibration-clip').value;state.calibrationFrame=0;syncCalibration();});$('#calibration-frame').addEventListener('input',()=>{state.calibrationFrame=Number($('#calibration-frame').value);syncCalibration();});
+  for(const id of ['head','body'])$(`#${id}-line`).addEventListener('input',()=>{state[id]=Number($(`#${id}-line`).value);$(`#${id}-value`).textContent=String(state[id]);redraw();});
+  for(const id of ['guides','bounds','landmarks'])$(`#${id}`).addEventListener('change',()=>{state[id]=$(`#${id}`).checked;redraw();});$('#play-pair').addEventListener('click',play);$('#stop-pair').addEventListener('click',stop);reduced.addEventListener('change',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});stop();
+  $('#note-clip').addEventListener('change',loadNote);$('#note').addEventListener('input',saveNote);$('#note-verdict').addEventListener('change',saveNote);$('#export').addEventListener('click',()=>{const value={schemaVersion:1,exportedAt:new Date().toISOString(),artApproval:false,notes:Object.values(notes),currentRendering:Object.fromEntries(clips.map(clip=>[clip.id,renderIdentity(clip)])),auditPath,auditGeneratedAt:audit?.generatedAt||null};const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const link=element('a');link.href=url;link.download='patrick-size-review.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+  $('#loading').hidden=true;if(failures.length){$('#error').hidden=false;$('#error').textContent=`${failures.length}段載入失敗：${failures.map(value=>value.id).join('、')}。其他素材仍可比較。`;}
+  Object.assign(window.__patrickSizeReview,{status:'ready',clipIDs:clips.map(clip=>clip.id),outfitIDs:outfits.map(value=>value.id),failures,geometry:(id,index,layoutID)=>{const geometry=frameGeometry(clipByID(id),index,catalog.master,layouts.find(value=>value.id===layoutID));return{rect:geometry.rect,anchor:geometry.anchor,pixelScale:geometry.pixelScale,bounds:geometry.bounds};}});
+}
+start().catch(error=>{stop();$('#error').hidden=false;$('#error').textContent=error.message;$('#loading').hidden=true;window.__patrickSizeReview.status='error';window.__patrickSizeReview.error=error.message;});

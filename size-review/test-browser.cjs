@@ -1,0 +1,63 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const {chromium}=require(process.env.PLAYWRIGHT_PACKAGE||'playwright');
+const root=path.resolve(__dirname,'..'),output=process.env.QA_OUTPUT||path.join(root,'output/playwright/20261006-size-review');
+const address=process.env.PREVIEW_URL||'http://127.0.0.1:8765/',catalog=JSON.parse(fs.readFileSync(path.join(root,'animation/catalog.json')));
+const layouts=JSON.parse(fs.readFileSync(path.join(root,'experience/layouts.json'))).layouts;
+fs.mkdirSync(output,{recursive:true});const report={startedAt:new Date().toISOString(),artApproved:false,cases:[]};
+(async()=>{const browser=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_EXECUTABLE_PATH});const context=await browser.newContext({viewport:{width:1440,height:1100},acceptDownloads:true});const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+async function test(name,body){const item={name,passed:false};report.cases.push(item);try{await body(item);item.passed=true;console.log('PASS '+name);}catch(e){item.error=e.stack;console.error('FAIL '+name+': '+e.message);await page.screenshot({path:path.join(output,name+'-failure.png'),fullPage:true}).catch(()=>{});}}
+try{
+await page.goto(address+'size-review/');await page.waitForFunction(()=>['ready','error'].includes(window.__patrickSizeReview?.status));assert.equal(await page.evaluate(()=>__patrickSizeReview.status),'ready');
+await test('fixed-stage-and-scale-all-clips-four-layouts',async item=>{
+  const state=await page.evaluate(()=>({clipIDs:__patrickSizeReview.clipIDs,outfitIDs:__patrickSizeReview.outfitIDs,failures:__patrickSizeReview.failures,auditLoaded:__patrickSizeReview.auditLoaded}));assert.deepEqual(state.failures,[]);assert.equal(state.clipIDs.length,catalog.clips.filter(x=>x.atlas).length);assert.equal(state.outfitIDs.length,11);assert.equal(state.auditLoaded,true);item.catalog=state;
+  assert.ok((await page.locator('#outfit-grid canvas').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().width))).every(width=>width===200));
+  item.clips=await page.evaluate(({catalog,layouts})=>catalog.clips.filter(x=>x.atlas).map(clip=>({id:clip.id,layouts:layouts.map(layout=>{const all=Array.from({length:clip.frameCount},(_,i)=>__patrickSizeReview.geometry(clip.id,i,layout.id));return{id:layout.id,scales:[...new Set(all.map(x=>x.pixelScale))],anchors:[...new Set(all.map(x=>JSON.stringify(x.anchor)))],rectangles:[...new Set(all.map(x=>JSON.stringify(x.rect)))],first:all[0],last:all.at(-1)};})})),{catalog,layouts});
+  for(const clip of item.clips)for(const layout of clip.layouts){assert.equal(layout.scales.length,1,clip.id+' single source scale');assert.equal(layout.anchors.length,1,clip.id+' single foot anchor');assert.equal(layout.rectangles.length,1,clip.id+' no per-frame fit');const transform=layouts.find(x=>x.id===layout.id).characterTransform;assert.ok(Math.abs(layout.first.anchor[1]-(893.632*transform[0]+transform[2]))<1e-6);}
+  await page.locator('#guides').uncheck();await page.locator('#outfit-grid').screenshot({path:path.join(output,'outfits-first-200px.png')});await page.locator('#overview-frame').selectOption('last');await page.locator('#outfit-grid').screenshot({path:path.join(output,'outfits-last-200px.png')});
+});
+await test('actual-preview-pixel-match-three-outfits',async item=>{
+  await page.locator('[data-tab=compare]').click();const main=await context.newPage();await main.goto(address+'preview/');await main.waitForFunction(()=>window.__patrickPreviewShell?.report.status==='ready');await main.locator('#auto-idle').uncheck();await main.locator('#face-layout').selectOption('classic');await main.locator('#toggle-review').click();item.comparisons=[];
+  for(const id of ['pet','celebrate','focus']){
+    await main.locator('#clip-select').selectOption(id);await page.locator('#compare-0').selectOption(id);
+    const expected=await main.locator('#face').evaluate(canvas=>{const copy=document.createElement('canvas');copy.width=832;copy.height=992;const c=copy.getContext('2d');c.fillStyle='#070609';c.fillRect(0,0,832,992);c.drawImage(canvas,0,0);return copy.toDataURL('image/png');});
+    const comparison=await page.locator('[data-side="0"] canvas').first().evaluate(async(canvas,png)=>{const image=new Image();image.src=png;await image.decode();const copy=document.createElement('canvas');copy.width=832;copy.height=992;copy.getContext('2d').drawImage(image,0,0);const expected=copy.getContext('2d').getImageData(0,238,832,754).data,actual=canvas.getContext('2d').getImageData(0,238,832,754).data;let mismatches=0,maxDelta=0;for(let i=0;i<actual.length;i++){const d=Math.abs(actual[i]-expected[i]);maxDelta=Math.max(maxDelta,d);if(d>1)mismatches++;}return{mismatches,maxDelta};},expected);
+    assert.equal(comparison.mismatches,0,id+' uses actual main-stage pixels');item.comparisons.push({id,...comparison});
+  }await main.close();
+  await page.locator('#compare-0').selectOption('pet');await page.locator('#compare-1').selectOption('celebrate');await page.locator('#guides').check();await page.locator('#compare-grid').screenshot({path:path.join(output,'pet-vs-party-shared-ruler.png')});
+  await page.locator('#compare-1').selectOption('focus');await page.locator('#compare-grid').screenshot({path:path.join(output,'pet-vs-focus-shared-ruler.png')});
+  await page.locator('#compare-0').selectOption('idle-blink-normal');await page.locator('#compare-1').selectOption('yawn');await page.locator('#compare-grid').screenshot({path:path.join(output,'blink-vs-yawn-shared-ruler.png')});
+  await page.locator('#compare-1').selectOption('wake');await page.locator('#compare-grid').screenshot({path:path.join(output,'blink-vs-wake-shared-ruler.png')});
+});
+await test('live-once-paired-playback-and-quiet',async item=>{
+  await page.locator('#compare-0').selectOption('focus');await page.locator('#compare-1').selectOption('celebrate');
+  await page.evaluate(()=>{window.__pairObserved=[];window.__observePair=true;function tick(){if(!__observePair)return;const s=__patrickSizeReview.state;const value={at:performance.now(),frames:s.pair.map(x=>x.index),playing:s.playing};if(!__pairObserved.length||value.frames.join()!==__pairObserved.at(-1).frames.join())__pairObserved.push(value);requestAnimationFrame(tick);}requestAnimationFrame(tick);});
+  await page.locator('#play-pair').click();await page.waitForFunction(()=>!__patrickSizeReview.state.playing,{timeout:15000});
+  const end=await page.evaluate(()=>{__observePair=false;return{observed:__pairObserved,pair:__patrickSizeReview.state.pair};});item.observed=end.observed;assert.equal(end.pair[0].index,catalog.clips.find(x=>x.id==='focus').frameCount-1);assert.equal(end.pair[1].index,catalog.clips.find(x=>x.id==='celebrate').frameCount-1);
+  for(let side=0;side<2;side++){const observed=[...new Set(end.observed.map(x=>x.frames[side]))];const count=side===0?12:15;assert.deepEqual(observed,Array.from({length:count},(_,i)=>i));}await page.waitForTimeout(750);assert.equal(await page.evaluate(()=>__patrickSizeReview.state.playing),false);
+  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForFunction(()=>document.querySelector('#play-pair').disabled);await page.emulateMedia({reducedMotion:'no-preference'});await page.locator('#play-pair').click();await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));});assert.equal(await page.evaluate(()=>__patrickSizeReview.state.playing),false);await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});document.dispatchEvent(new Event('visibilitychange'));});assert.equal(await page.evaluate(()=>__patrickSizeReview.state.playing),false);
+});
+await test('finite-calibration-before-current-and-party-long-whistle',async item=>{
+  const before=JSON.parse(fs.readFileSync(path.join(root,'animation/production-20261006-scale/catalog-before.json')));
+  const changed=catalog.clips.filter(clip=>clip.atlas&&before.clips.some(old=>old.id===clip.id&&old.scale!==clip.scale));
+  await page.locator('[data-tab=calibration]').click();assert.equal(await page.locator('#calibration-clip option').count(),changed.length);assert.ok(changed.length>=2);item.changed=[];
+  for(const clip of changed){await page.locator('#calibration-clip').selectOption(clip.id);await page.locator('#calibration-frame').fill(String(Math.min(7,clip.frameCount-1)));await page.locator('#calibration-frame').dispatchEvent('input');
+    const views=await page.locator('#calibration-grid canvas').evaluateAll(nodes=>nodes.map(node=>({side:node.closest('.card').dataset.calibrationVersion,frame:node.dataset.frame,scale:Number(node.dataset.pixelScale),anchor:JSON.parse(node.dataset.anchor)})));
+    const previous=views.find(x=>x.side==='previous'),current=views.find(x=>x.side==='current'),old=before.clips.find(x=>x.id===clip.id);assert.ok(Math.abs(current.scale/previous.scale-clip.scale/old.scale)<1e-9);assert.equal(previous.frame,current.frame);assert.ok(Math.abs(previous.anchor[1]-current.anchor[1])<1e-8);item.changed.push({id:clip.id,multiplier:clip.scale/old.scale,views});
+    await page.locator('#calibration-grid').screenshot({path:path.join(output,clip.id+'-before-current.png')});
+  }
+  await page.locator('[data-tab=layouts]').click();await page.locator('#layout-clip').selectOption('celebrate');await page.locator('#layout-frame').fill('7');await page.locator('#layout-frame').dispatchEvent('input');await page.locator('#guides').uncheck();await page.locator('#landmarks').uncheck();
+  await page.locator('#layout-grid [data-layout="activity"]').first().screenshot({path:path.join(output,'party-frame8-activity.png')});
+  const geometry=await page.evaluate(()=>__patrickSizeReview.geometry('celebrate',7,'activity'));const panel=layouts.find(x=>x.id==='activity').informationRect;assert.ok(geometry.bounds[0]+geometry.bounds[2]<=panel[0],'long whistle stays left of information panel');item.partyFrame8=geometry;
+});
+await test('layouts-synchronized-small-mobile-and-isolated-review',async item=>{
+  const before=await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>key!=='patrick.size-review.v1')));
+  await page.locator('[data-tab=layouts]').click();await page.locator('#layout-clip').selectOption('focus');await page.locator('#layout-frame').fill('11');await page.locator('#layout-frame').dispatchEvent('input');
+  item.geometry=await page.locator('#layout-grid canvas').evaluateAll(nodes=>nodes.map(node=>({layout:node.dataset.layout,frame:node.dataset.frame,rect:node.dataset.rect,scale:node.dataset.pixelScale})));
+  for(const layout of layouts){const views=item.geometry.filter(x=>x.layout===layout.id);assert.equal(views.length,2);assert.equal(views[0].frame,'11');assert.equal(views[0].rect,views[1].rect);assert.equal(views[0].scale,views[1].scale);}
+  await page.locator('#layout-grid').screenshot({path:path.join(output,'focus-four-layouts.png')});await page.setViewportSize({width:390,height:900});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:path.join(output,'size-review-mobile.png'),fullPage:true});
+  await page.locator('#note-clip').selectOption('celebrate');await page.locator('#note-verdict').selectOption('revise');await page.locator('#note').fill('測試：同尺規仍偏小；不是自動批准。');
+  const download=page.waitForEvent('download');await page.locator('#export').click();const file=await download;await file.saveAs(path.join(output,'size-review-export.json'));const exported=JSON.parse(fs.readFileSync(path.join(output,'size-review-export.json')));assert.equal(exported.artApproval,false);assert.equal(exported.notes.at(-1).verdict,'revise');assert.equal(exported.notes.at(-1).rendering.sourceSha256,catalog.clips.find(x=>x.id==='celebrate').sha256);
+  assert.deepEqual(await page.evaluate(()=>Object.fromEntries(Object.entries(localStorage).filter(([key])=>key!=='patrick.size-review.v1'))),before);await page.reload();await page.waitForFunction(()=>__patrickSizeReview?.status==='ready');await page.locator('#note-clip').selectOption('celebrate');assert.equal(await page.locator('#note-verdict').inputValue(),'revise');assert.match(await page.locator('#note').inputValue(),/同尺規/);
+});assert.deepEqual(errors,[]);
+}finally{report.errors=errors;report.finishedAt=new Date().toISOString();fs.writeFileSync(path.join(output,'report.json'),JSON.stringify(report,null,2));await browser.close();}if(report.cases.some(x=>!x.passed))process.exitCode=1;
+})().catch(error=>{console.error(error);process.exitCode=1;});

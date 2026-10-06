@@ -1,4 +1,4 @@
-import { clockAngles } from './experience-core.js?v=20261006-layouts1';
+import { clockAngles } from './experience-core.js?v=20261006-size2';
 
 export function createClockRig(manifest, frames) {
   const finitePair = value => Array.isArray(value) && value.length === 2 && value.every(Number.isFinite);

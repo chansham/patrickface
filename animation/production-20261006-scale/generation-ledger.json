@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "tool": "built-in image_gen",
+  "artApproved": false,
+  "allArtworkComplete": false,
+  "requests": [
+    {
+      "id": "stretch-athletic-v1",
+      "prompt": "Use case: illustration-story.\nAsset type: transparent animation sprite atlas for a personal Apple Watch companion.\nDraw Patrick Star from SpongeBob performing one gentle seated shoulder-stretch routine, in exactly TWELVE consecutive drawings arranged four columns by three rows.\nThe supplied reference is only a character and 2D cel finish reference; do not copy its battery, bubbles or cushion. New outfit: turquoise short-sleeve athletic vest, plum wristbands, familiar green shorts with purple flowers, bare coral pink feet.\nFront three-quarter camera and seated position remain constant. Keep the anatomical head width, torso width, torso height and feet the SAME physical drawing size in all twelve cells. Keep the midpoint between planted feet on one identical baseline in every cell. Do not use cell-filling or frame-by-frame zoom. Each whole character occupies about 62% of its cell height, with generous transparent margins for raised arms, intact head tip and both feet.\nSequence: 1 relaxed arms beside belly; 2 right arm begins crossing chest; 3 right arm crosses horizontally in front of chest; 4 left arm lifts toward right forearm; 5 left hand supports right forearm and gently brings it closer; 6 holds the stretch with concentrated eyebrows; 7 closes eyes briefly while holding exactly the same anatomy; 8 opens eyes with relieved expression; 9 left hand releases; 10 right arm begins lowering; 11 both arms settle; 12 returns to the relaxed first pose.\nDraw the sequential limb poses and expressions, not whole-image swaying, rotating or scaling. Two arms and two feet only. Every visible eye has white sclera and black pupils; eyelids match coral face skin. Black cartoon outlines, clean flat cel colors close to the animated cartoon, expressive and slightly deadpan, no realistic or grotesque detail.\nTransparent alpha background throughout, no grid lines, numbers, captions, borders, shadows or detached decorations. Exact twelve separate whole-body frames, no overlapping neighbors.",
+      "reference": "concepts/2026-09-27/charging-cel-v1.png",
+      "status": "generation-blocked",
+      "outputExists": false,
+      "error": {
+        "code": "moderation_blocked",
+        "stage": "output",
+        "requestID": "cafa7c86-687a-4e49-8dc6-0317b8343109",
+        "message": "Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID cafa7c86-687a-4e49-8dc6-0317b8343109.",
+        "categories": [
+          "other"
+        ]
+      }
+    }
+  ]
+}

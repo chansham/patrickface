@@ -1,4 +1,4 @@
-import { layoutID } from './layout-core.js?v=20261006-layouts1';
+import { layoutID } from './layout-core.js?v=20261006-size2';
 // Local companion state. None of these values represent health or sensor data.
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const number = (value, fallback) => Number.isFinite(value) ? value : fallback;

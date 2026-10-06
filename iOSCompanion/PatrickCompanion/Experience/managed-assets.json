@@ -103,7 +103,7 @@
     {
       "source": "experience/layouts.json",
       "destination": "layouts.json",
-      "sha256": "4f48aacbcc0d24cae5a9033992fcb6791f7ae328b60d122a5cea821c23b283bb",
+      "sha256": "1485ab8b0dbbba19881f38a1b1566e34332f8a6c21c512635f2c335a68b52577",
       "bytes": 2090,
       "active": true
     },
