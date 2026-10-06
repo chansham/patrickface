@@ -58,7 +58,11 @@ Watch 選單、iPhone「計時」分頁和開始計時捷徑現在可選「散�
 - 原生互動修改的 `git diff --check` 通過。
 - `NativeExperienceChecks.swift` 新增 33 個計時種類／控制／截止／重載斷言，以及 6 個版式舊檔遷移、四種值 roundtrip 與未知值 fallback 斷言；`PatrickContractTests.swift` 新增 2 項真 XCTest，覆蓋 App Group 持久化、WC envelope 與過期控制的兼容計時呈現。
 
-**Windows 沒有 Swift／Apple SDK，新增 Swift 斷言與 XCTest 尚未在本輪執行。** 上述來源檢查不能替代編譯。下一次 Apple 檢查需執行新增測試，並在 simulator 實際試：散步開始→暫停→重開→繼續→結束；跑步到期後再結束；捷徑重複控制；配合四版式核對計時顯示。真機可連線後，再驗 Watch 同步、音效、健康讀取授權和安裝續期。此次沒有啟動 CI、推送、簽名或操作裝置。
+**本輪已取得新的Apple編譯證據。** `82389a9`／[run37400000919](https://github.com/chansham/patrickface/actions/runs/37400000919)通過1734項Foundation檢查（包括新增39個斷言）、11項XCTest（包括本轮新增2項）、雙平台和兩個extensions編譯、四版式真正模擬器截圖、無簽名封存與12項包裝測試。四版式兩端初始畫面已逐張實看；原生UI完整點按、Siri／捷徑執行、兩個真機間離線同步仍未測，不能用Foundation狀態機測試代替它們。
+
+追加只讀檢查找到並修正：首次同步已暫停的Watch倒數時，`PatrickActivityController.start`曾固定寫入「Timer running」及`isPaused=false`。現在建立與更新共用`contentState(timer:settings:)`，新增1個XCTest驗初次running／paused快照及截止時間。`8582124`／[run37400635967](https://github.com/chansham/patrickface/actions/runs/37400635967)已全部成功：Foundation1734項、XCTest12項（包含這個追加測例）及封裝測試12項均通過，兩端與extensions重新編譯，無簽名build8與四版式截圖已下載；完整156項包內容本機複核通過。詳見[整合紀錄](INTEGRATION-20261006.md)。
+
+真機可連線後，再驗散步開始→暫停→重開→繼續→結束、跑步到期後再結束、快捷重複控制、首次同步已暫停活動、音效、健康讀取授權和安裝續期。本輪有私人分支推送與macOS CI，未簽名或操作使用者裝置。
 
 ## Apple 一手依據（查閱 2026-10-06）
 

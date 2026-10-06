@@ -2,6 +2,12 @@
 
 首次資料查證：2026-09-27；帳號、安裝條件與 Apple 官方資料複核：2026-10-05。此文件提供可選路線與驗收門檻。私人 GitHub macOS runner 已完成下述無簽名編譯與測試；簽名、真機安裝仍未完成。沒有購買服務、建立 Apple 帳號或操作手錶。9 月 27 日的歷史資料與本次新增證據分別標示。
 
+## 2026-10-06 最新套件（取代下文build6作為下一次試裝輸入）
+
+使用者已說稍後再連接手機，本輪先完成四款App內錶面、啞鈴定位、散步／跑步／肌力陪伴分類、計時控制捷徑及首次暫停Live Activity修復。`8582124`的[Apple run37400635967](https://github.com/chansham/patrickface/actions/runs/37400635967)全部成功：1734項Foundation、12項XCTest、12項封裝測試、四產品編譯、無簽名裝置封存及兩端四版式截圖。下文10月5日結果保留為歷史。
+
+最新輸入為[未簽名build8](../output/apple-build/run-37400635967-artifacts/patrick-unsigned-resigning-input-8/PatrickCompanion-unsigned.ipa)，版本1.0，45,251,085 bytes；SHA256 `d3011b73a023144ebc2593fa3e226bd0bd33c643f1cae872b6a1e2393615729a`。下載後156項內容及四產品已逐項核對，報告與manifest／checksum放在同目錄。它仍需重簽，不能直接安裝；沒有操作Apple登入、Sideloadly或使用者裝置。詳見[本輪整合紀錄](INTEGRATION-20261006.md)。
+
 ## 現在已知與待確認
 
 - 使用者使用 Windows、沒有 Mac；目前使用 iPhone 13 Pro 及配對的 Watch，Watch 型號自報為 Series 12 46 mm，計畫換 iPhone 18 Pro Max。2026-10-05 已明確確認只有一般 Apple 帳號，**沒有付費 Apple Developer Program 會員**。實際 OS 小版本、Watch 型號號碼尚未讀取；詳見 [裝置紀錄](DEVICE-PROFILE-2026-09-27.md)。
