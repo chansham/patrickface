@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-06T03:57:49.562190+00:00",
+  "status": "technical-playback-passed-art-revisions-remain",
+  "artApproved": false,
+  "mainCatalogChanged": false,
+  "nativeResourcesChanged": false,
+  "checks": [
+    {
+      "report": "output/playwright/20261006-followup/report.json",
+      "passedCases": 7,
+      "sha256": "4cf3e9f7c82b159c1a188c1df0ebe78f2588c887e2180012a021d88156cf5f80"
+    },
+    {
+      "report": "output/playwright/20261006-followup-contours/report.json",
+      "passedCases": 5,
+      "sha256": "99d819f18b1bbbb5f35958c67a7605262a6194bc30fbfd1d58e9ead235bf689e"
+    }
+  ],
+  "normalSpeedCaptureReport": "output/playwright/20261006-followup/live-capture-report.json",
+  "normalSpeedCaptureSha256": "33408a8c3d871b065e16df550fa16366dac1062feb59ba673a579d0f8ea8ed9c",
+  "visualReview": {
+    "at": "2026-10-06T03:56:00.937423+00:00",
+    "artApproval": false,
+    "method": "Agent visual inspection of real foreground 1x per-draw contact sheets and large/200px first/last/four-layout screenshots; source art is unchanged.",
+    "browserCases": {
+      "passed": 7,
+      "total": 7,
+      "errors": []
+    },
+    "realTimePlayback": {
+      "frames": 28,
+      "allEndedAtLast": true
+    },
+    "layoutChecks": [
+      {
+        "id": "focus-followup-20261006",
+        "frames": 12,
+        "layouts": 4,
+        "minimumVerticalGapBelowDateStagePixels": {
+          "classic": 176.806625,
+          "bold": 224.43766499999992,
+          "theater": 187.585825,
+          "activity": 350.86358500000006
+        },
+        "auditPath": "animation/production-20261006-followup/body-scale-audit.json"
+      },
+      {
+        "id": "running-first-20261006",
+        "frames": 16,
+        "layouts": 4,
+        "minimumVerticalGapBelowDateStagePixels": {
+          "classic": 25.15776013513505,
+          "bold": 119.79994824324314,
+          "theater": 43.51940337837834,
+          "activity": 265.9402206756756
+        },
+        "auditPath": "animation/production-20261006-followup/body-scale-audit.json"
+      }
+    ],
+    "focus": {
+      "trueFootSourceY": 307,
+      "renderAnchorSourceY": 310,
+      "trueFootStageY": 888.6058082191781,
+      "anchorStageY": 893.632,
+      "notes": [
+        "Frame 8 to 9 visibly changes from a hand beside the face to hands on the notebook; transition still needs art review.",
+        "Last poses remain shorter than the first; fixed scale does not erase this source change.",
+        "First-frame face width 52.3 px versus old 50.4 px at 200 px content width; eye-to-foot 61.6 versus 67.2 px."
+      ]
+    },
+    "running": {
+      "eyeToFoot": "unavailable for every frame; stepping/support position is not body-height evidence",
+      "notes": [
+        "Real alternating leg/arm poses, recovery stance and exhale are visible.",
+        "Direction changes at 4 to 5 and 8 to 9 are conspicuous; final eye expression remains a review item.",
+        "First-frame face width 48.4 px versus seated exercise 55.9 px at 200 px content width (about 13 percent smaller). This is an explicit layout/scale compromise, not equal size."
+      ]
+    },
+    "boundaries": [
+      "No main catalog, source PNG, frame regions, native art or pre-existing user review was changed.",
+      "Time, date, stage edges and activity information checked across all 28 source frames in four layouts; large/200px views share geometry.",
+      "Candidate group=new contains exactly the two latest IDs and retains manual-only playback.",
+      "Measured values/lines require exact source and regions SHA; missing or incorrect reports remain isolated."
+    ]
+  },
+  "candidates": [
+    {
+      "id": "focus-followup-20261006",
+      "source": "animation/focus-v5/atlas-generated.png",
+      "sha256": "d1376033bd5efe8c3de53b6c0763a8308ef9c820cad41c9799d15a70052d8847",
+      "regionsSha256": "c7a7c8527c9cae1d31469659dd5365d927f4aaad830db1d9297a16403babd7ec",
+      "scale": 1.47,
+      "scaleProvenance": {
+        "method": "whole-clip-neutral-face-and-eye-proxy-comparison",
+        "referenceCandidate": "focus-repair-20261006",
+        "referenceFaceWidthSource": 116.75,
+        "referenceEyeSeparationSource": 35.01,
+        "newFaceWidthSource": 129.75,
+        "newEyeSeparationSource": 38,
+        "note": "Fixed scale1.47 keeps neutral face and lower-eye-rim dimensions close to v2. Different atlas layout does not imply identical source pixel density. All frames retain one scale.",
+        "perFrameScaling": false
+      },
+      "normalSpeedFramesCaptured": 12,
+      "durationMs": 2940,
+      "endedAtLast": true
+    },
+    {
+      "id": "running-first-20261006",
+      "source": "animation/running-v1/atlas-generated.png",
+      "sha256": "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4",
+      "regionsSha256": "9e858752a4cf852e173a80a72510999e7daf64b48ea31325aa061fb82c6cc276",
+      "scale": 2.0,
+      "scaleProvenance": {
+        "method": "fixed-whole-clip-standing-pose-four-layout-safety",
+        "referenceCandidate": "exercise-batch2-candidate",
+        "neutralFaceMatchScale": 2.3090549,
+        "selectedScale": 2.0,
+        "faceRatioToSeatedReference": 0.8662,
+        "note": "Equal face size collides with text in31 of64 layout frames. Fixed2.0 retains the whole standing character in all layouts, with a smaller face than the seated reference; not per-frame fit.",
+        "perFrameScaling": false
+      },
+      "normalSpeedFramesCaptured": 16,
+      "durationMs": 3390,
+      "endedAtLast": true
+    }
+  ],
+  "bodyMeasurementReview": {
+    "path": "animation/production-20261006-followup/body-scale-audit.json",
+    "sha256": "fd20bf353f9c42b50797c90a56c80f25ea9fd5028007a845125068046ff08cfa",
+    "totals": {
+      "uniqueSources": 2,
+      "sourceFrames": 28,
+      "clipVariants": 2,
+      "measuredSourceFrames": 8,
+      "unmeasuredSourceFrames": 20,
+      "measuredSourceFramesByMetric": {
+        "faceWidth": 6,
+        "eyeSeparation": 8,
+        "eyeToFoot": 6
+      }
+    },
+    "runningEyeToFootMeasured": false
+  }
+}

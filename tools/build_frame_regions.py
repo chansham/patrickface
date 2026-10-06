@@ -29,10 +29,19 @@ SOURCES = (
     ("animation/wake-v1/atlas-generated.png", 4, 2),
 )
 
-# Reviewed against the actual feet, not a general remedy for animation jitter.
-# The hash gate prevents this stationary seated-pose rule reaching new artwork,
-# including future running/jumping poses with intentional ground movement.
+# Each policy is reviewed for one exact source, not a general jitter remedy.
+# The hash gate keeps seated support-band rules separate from the explicitly
+# reviewed running registration; unreviewed running/jumping art gets no override.
 REVIEWED_SUPPORT_POLICIES = {
+    ("animation/running-v1/atlas-generated.png",
+     "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4"): {
+        "id": "running-first-20261006-hybrid-reviewed-support",
+        "kind": "nominal-cell-x-reviewed-ground-y",
+        "columns": 4, "rows": 4, "sourceSize": [1254, 1254],
+        "reviewedGroundY": [301, 297, 300, 305, 608, 608, 609, 612,
+                            914, 914, 909, 911, 1222, 1222, 1222, 1222],
+        "reason": "All 16 drawings were separately inspected at the feet. Each has a visible lower supporting foot; no unmistakable airborne frame is present. There is no drawn ground line, so y registration is an explicit visual interpretation. X uses the nominal column center and never follows a lifted leg or body width. Y removes atlas row packing drift while retaining bent-leg body-height changes. Source masks, common canvas and 1:1 pixels remain unchanged. Do not apply to another source hash.",
+    },
     ("animation/exercise-v2/atlas-generated.png",
      "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f"): {
         "id": "exercise-v2-feet-12px-20261006",
@@ -57,28 +66,44 @@ def apply_reviewed_support_policy(data: dict, alpha: np.ndarray, policy: dict) -
     pixels, smooth body motion, or infer a policy for unreviewed source atlases.
     """
     depth = policy.get("depthPixels")
-    if (policy.get("kind") != "fixed-bottom-core-band" or isinstance(depth, bool)
-            or not isinstance(depth, int) or depth <= 0):
+    grounded = policy.get("kind") == "nominal-cell-x-reviewed-ground-y"
+    if grounded:
+        columns, rows = policy.get("columns"), policy.get("rows")
+        valid_grid(columns, rows)
+        ground = policy.get("reviewedGroundY")
+        if (policy.get("sourceSize") != [alpha.shape[1], alpha.shape[0]]
+                or len(data["frames"]) != columns * rows
+                or not isinstance(ground, list) or len(ground) != columns * rows
+                or any(isinstance(y, bool) or not isinstance(y, int) for y in ground)):
+            raise ValueError("reviewed ground policy does not match this source")
+    elif (policy.get("kind") != "fixed-bottom-core-band" or isinstance(depth, bool)
+          or not isinstance(depth, int) or depth <= 0):
         raise ValueError("invalid reviewed support-band policy")
     target_x, target_y = data["canvas"]["anchorPixels"]
     updates = []
-    for frame in data["frames"]:
+    for index, frame in enumerate(data["frames"]):
         left, top, right, bottom = frame["diagnostics"]["coreBounds"]
-        if depth > bottom - top:
+        if grounded:
+            if ground[index] != bottom:
+                raise ValueError("reviewed supporting foot no longer matches the core bottom")
+            anchor = [round_positive((index % columns + .5) * alpha.shape[1] / columns), ground[index]]
+            start = None
+        elif depth > bottom - top:
             raise ValueError("reviewed support band exceeds the character core")
-        start = bottom - depth
-        support = []
-        for row in frame["rows"]:
-            y = row[0]
-            if not start <= y < bottom:
-                continue
-            for x0, x1 in zip(row[1::2], row[2::2]):
-                x0, x1 = max(left, x0), min(right, x1)
-                if x0 < x1:
-                    support.extend((np.flatnonzero(alpha[y, x0:x1] >= 128) + x0).tolist())
-        if not support:
-            raise ValueError("reviewed support band contains no strong pixels")
-        anchor = [round_positive((min(support) + max(support) + 1) / 2), bottom]
+        if not grounded:
+            start = bottom - depth
+            support = []
+            for row in frame["rows"]:
+                y = row[0]
+                if not start <= y < bottom:
+                    continue
+                for x0, x1 in zip(row[1::2], row[2::2]):
+                    x0, x1 = max(left, x0), min(right, x1)
+                    if x0 < x1:
+                        support.extend((np.flatnonzero(alpha[y, x0:x1] >= 128) + x0).tolist())
+            if not support:
+                raise ValueError("reviewed support band contains no strong pixels")
+            anchor = [round_positive((min(support) + max(support) + 1) / 2), bottom]
         translation = [target_x - anchor[0], target_y - anchor[1]]
         x, y, w, h = frame["sourceBounds"]
         placement = [x + translation[0], y + translation[1]]
@@ -87,10 +112,16 @@ def apply_reviewed_support_policy(data: dict, alpha: np.ndarray, policy: dict) -
             raise ValueError("reviewed anchor would exceed the unchanged common canvas")
         updates.append((frame, anchor, translation, placement, start))
     for frame, anchor, translation, placement, start in updates:
+        if grounded:
+            frame["diagnostics"].setdefault("defaultLower15AnchorSource", frame["anchorSource"])
         frame["anchorSource"] = anchor
         frame["translation"] = translation
         frame["placement"] = placement
-        frame["diagnostics"]["supportBandStartY"] = start
+        if grounded:
+            frame["diagnostics"]["reviewedGroundY"] = anchor[1]
+            frame["diagnostics"]["fixedNominalCellCenterX"] = anchor[0]
+        else:
+            frame["diagnostics"]["supportBandStartY"] = start
     data["diagnostics"]["supportAnchorPolicy"] = dict(policy)
 
 

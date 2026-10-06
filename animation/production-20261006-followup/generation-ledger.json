@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "batch": "20261006-repair2",
+  "tool": "built-in image_gen",
+  "artApproved": false,
+  "requests": [
+    {
+      "id": "chef-cookie-v5",
+      "prompt": "Use case: precise-object-edit.\nIn this exact 12-frame transparent Patrick Star chef sprite sheet, repair the LAST, bottom-right frame only. The little cookie on its cream plate must be a visibly HALF-EATEN cookie, not a complete oval. Remove the LEFT HALF of that orange cookie entirely, replacing that area with the cream plate underneath. The remaining right half has a concave jagged tooth-bitten cut edge facing left, with a large unmistakable empty area, like a bitten crescent. A few tiny edge bumps are NOT enough: half of the cookie must be absent. Cookie location is approximately x1090,y1115 within this 1254-square input, on the last character's plate, below the pink shell emblem.\nDo not alter any character body, face, eyes, clothes, hat, arm, plate, cushion, proportions, framing, colors or positions. Keep the first11 frames unchanged. Preserve the 4-column by3-row sheet and genuine transparent alpha outside all characters. This is only the missing-cookie-piece repair in the final frame; no other change.",
+      "references": [
+        "animation/feeding-chef-v2/atlas-generated.png"
+      ],
+      "status": "generation-failed",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 702dfbc7-2725-497b-a604-44bdfc8a1d60.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "outputExists": false
+    },
+    {
+      "id": "focus-square-v5",
+      "prompt": "Use case: illustration-story.\nCreate a NEW SQUARE 1536 by 1536 transparent animation atlas of the supplied Patrick Star professor design. The supplied wide atlas is a character/outfit/style REFERENCE ONLY. Do NOT reuse its cramped 4:3 page layout or its squashed bottom-row anatomy.\nArrange TWELVE drawings in THREE COLUMNS and FOUR ROWS on the new square page. Each cell has generous empty margins: character head-to-foot height about 70% of the cell height, with at least 12% blank space ABOVE and BELOW every character including the last row. The same neutral body construction is reused for every drawing: identical head width, full belly volume, long enough navy jacket torso, identical soft feet and exactly the same seated foot baseline. No row-specific shrinking, no zooming, no cutoff feet. The neutral final body is precisely the same shape and size as the first.\nPatrick wears a navy formal jacket, white shirt, red tie, green purple-flower shorts, round black glasses and holds a small cream spiral notepad. Keep serious/deadpan expressive character, white sclera, black pupils, coral skin and coral eyelids. Clean black outlines and flat 2D cel cartoon finish.\nDraw actual sequential poses, reading left to right: 1 neutral holding notepad; 2 looking down to read; 3 glasses slowly slide down; 4 notices them; 5 right arm rises from sleeve, other hand still supports notepad; 6 hand approaches outer glasses rim; 7 pushes glasses up without covering eyes; 8 begins lowering arm; 9 arm halfway down; 10 hand returns to notepad; 11 gentle blink; 12 same neutral pose as frame1. Preserve soft continuous shoulder, elbow and hand anatomy; no jump between hand-up and hand-down poses. Exactly twelve full-body drawings, no grid lines, numbers, captions, detached artifacts or background scenery. Transparent alpha background.",
+      "references": [
+        "animation/focus-v2/atlas-generated.png"
+      ],
+      "status": "candidate-integrated-art-revision-required",
+      "output": "animation/focus-v5/atlas-generated.png",
+      "outputExists": true,
+      "selectedForReview": true,
+      "artApproved": false,
+      "sha256": "d1376033bd5efe8c3de53b6c0763a8308ef9c820cad41c9799d15a70052d8847",
+      "runtimeReview": "animation/production-20261006-followup/runtime-review.json"
+    },
+    {
+      "id": "running-v1",
+      "prompt": "Use case: animation character design.\nCreate a transparent sprite atlas for a personal watch companion starring Patrick Star. The supplied image is ONLY a reference for character identity, coral skin, white eye whites and black pupils, purple wristbands, white headband with purple stripe, green purple-flower shorts, and clean flat cartoon outlines. Draw a NEW full-body standing and jogging sequence. There are no dumbbells, no cushion, no furniture, no scenery. Keep the same outfit and familiar soft starfish anatomy.\nExactly SIXTEEN drawings, FOUR columns by FOUR rows on a square page. Draw each full character with ample transparent separation and outer margins; maximum character height 70% of cell height. Same camera and scale in every frame, consistent head width, torso, limbs and outfit. Never shrink later rows to fit. Head tip and both feet stay complete.\nThis is one short exercise event with a start and a finish, not a loop: frame1 standing relaxed; 2 ready stance with softly bent knees and bent elbows; 3 left leg lifts, opposite right arm swings forward; 4 left foot plants ahead while right heel lifts; 5 right leg lifts, opposite left arm swings forward; 6 right foot plants while left heel lifts; 7 another left-leg stride with right arm forward; 8 left foot plants; 9 another right-leg stride with left arm forward; 10 right foot plants and strides get smaller; 11 small settling step with elbows lowering; 12 standing with both feet planted and hands near hips; 13 small closed-eye exhale through a round mouth; 14 eyes half open, recovering; 15 calm little satisfied smile; 16 same relaxed standing proportions as frame1. During strides one foot remains touching the implied common ground plane; the foot placement and drawn bent limbs create motion. Exactly two arms and two legs/feet. No whole-character translation pretending to be running; draw real alternate leg and opposite-arm poses. Hands stay connected and never become extra feet.\nWhite sclera, black pupils, coral-pink eyelids for blinks. Friendly and determined rather than babyish. Clean 2D cel finish, black outlines, flat fills, no realistic skin texture. Genuine transparent alpha outside the character. No grid lines, text, labels, numbers or floor marks.",
+      "references": [
+        "animation/exercise-v3/atlas-generated.png"
+      ],
+      "status": "candidate-integrated-art-revision-required",
+      "output": "animation/running-v1/atlas-generated.png",
+      "outputExists": true,
+      "selectedForReview": true,
+      "artApproved": false,
+      "sha256": "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4",
+      "runtimeReview": "animation/production-20261006-followup/runtime-review.json"
+    },
+    {
+      "id": "focus-torso-v6",
+      "prompt": "Use case: precise character-proportion correction.\nEdit the supplied twelve-frame Patrick Star formal-outfit atlas. It has three columns and four rows, transparent background. Correct ONLY the THREE DRAWINGS IN THE BOTTOM ROW (frames10,11,12): their jacket/belly section below the face is too short vertically compared with frame1. Keep their face width, eyes, glasses, head shape, feet size, shorts width and foot baseline unchanged. Add about 8-10 source pixels of VERTICAL TORSO HEIGHT between the white shirt collar and the green shorts, rebuilding the navy jacket panels and tie with natural continuity. Raise the complete head/collar/shoulder assembly by that amount while keeping its own shape and size; keep the feet at their existing bottom positions. Do not scale or stretch the whole character, widen the face, or simply enlarge the bottom-row drawings. The seated body construction should match the first frame's fuller jacket-to-shorts distance. Frame12 should have the same head-to-feet anatomy as frame1, while preserving its expression. Preserve the blink in frame11 and white eye whites / coral-pink closed eyelids.\nKeep frames1 through9 unchanged. Keep the cream notepad supported naturally by both hands in the corrected bottom row and preserve the existing hand poses. All characters remain completely within the same square page with clear transparent margins, no cutoff head/feet. Preserve clean flat 2D cel colors and black outlines. Same twelve-frame layout, genuine transparent alpha, no grid lines or added objects.",
+      "references": [
+        "animation/focus-v5/atlas-generated.png"
+      ],
+      "status": "generation-failed",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 242b49a8-fbac-42be-9637-0e40c8e5811b.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "outputExists": false
+    }
+  ],
+  "summary": {
+    "requests": 4,
+    "outputs": 2,
+    "blockedRequests": 2,
+    "mainCatalogChanged": false,
+    "artApproved": false,
+    "candidateClipsAdded": 2,
+    "candidateSourceFramesAdded": 28,
+    "newActionAtlasCount": 1,
+    "revisionAtlasCount": 1,
+    "nativeResourcesChanged": false,
+    "technicalPlaybackPassed": true
+  }
+}

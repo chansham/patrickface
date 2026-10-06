@@ -1,0 +1,1212 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-06",
+  "frameIndexBasis": "one-based source reading order",
+  "status": "improved-candidate-body-proportion-and-transition-review-required",
+  "artApproved": false,
+  "bodyScaleResolved": false,
+  "catalogIntegrated": false,
+  "normalSpeedReview": "not-yet-performed-for-v5",
+  "source": {
+    "path": "animation/focus-v5/atlas-generated.png",
+    "sha256": "d1376033bd5efe8c3de53b6c0763a8308ef9c820cad41c9799d15a70052d8847",
+    "width": 1254,
+    "height": 1254
+  },
+  "sourceUnchanged": true,
+  "regions": {
+    "path": "animation/focus-v5/regions-v1.json",
+    "sha256": "c7a7c8527c9cae1d31469659dd5365d927f4aaad830db1d9297a16403babd7ec"
+  },
+  "canvas": {
+    "width": 584,
+    "height": 584,
+    "anchorPixels": [
+      292,
+      514
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8801369863013698
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 563433,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "grid": {
+    "columns": 3,
+    "rows": 4,
+    "frames": 12
+  },
+  "reference": {
+    "sourceFrame": 1,
+    "referenceEyeWhiteBounds": [
+      [
+        243,
+        121,
+        276,
+        155
+      ],
+      [
+        281,
+        121,
+        314,
+        155
+      ]
+    ],
+    "sourceSha256": "d1376033bd5efe8c3de53b6c0763a8308ef9c820cad41c9799d15a70052d8847",
+    "selection": "Fresh eye-white and visible-head/feet inspection on this source; no old-source coordinate transfer.",
+    "visualReview": "Full atlas seen, correctly alpha-composited light background inspected; neutral first/last head and both feet checked."
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        111,
+        16,
+        295,
+        322
+      ],
+      "coreBounds": [
+        145,
+        19,
+        404,
+        310
+      ],
+      "coreWidthPx": 259,
+      "coreHeightPx": 291,
+      "anchorSource": [
+        275,
+        310
+      ],
+      "translation": [
+        17,
+        204
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          191,
+          256,
+          254,
+          307
+        ],
+        [
+          293,
+          256,
+          359,
+          307
+        ]
+      ],
+      "visibleFootBaselineY": 307,
+      "visibleHeadPinkBounds": [
+        223,
+        22,
+        328,
+        129
+      ],
+      "visibleHeadTopY": 22,
+      "visibleHeadTopToFootPx": 285,
+      "strongPixelArea": 44738,
+      "faceWidthPx": 129.75,
+      "eyeLowerRimSeparationPx": 38.0,
+      "eyeLineToFootPx": 153.0,
+      "sourceEdgeStrongPixels": 0,
+      "eyeWhiteBounds": [
+        [
+          243,
+          121,
+          276,
+          155
+        ],
+        [
+          281,
+          121,
+          314,
+          155
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          259.0,
+          154.0
+        ],
+        [
+          297.0,
+          154.0
+        ]
+      ],
+      "eyeMidpoint": [
+        278.0,
+        154.0
+      ],
+      "footSourcePoint": [
+        278.0,
+        307
+      ],
+      "eyeToFootPoints": [
+        [
+          278.0,
+          154.0
+        ],
+        [
+          278.0,
+          307
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          211,
+          154
+        ],
+        [
+          340,
+          154
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        496,
+        16,
+        267,
+        298
+      ],
+      "coreBounds": [
+        499,
+        19,
+        760,
+        311
+      ],
+      "coreWidthPx": 261,
+      "coreHeightPx": 292,
+      "anchorSource": [
+        630,
+        311
+      ],
+      "translation": [
+        -338,
+        203
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          545,
+          256,
+          608,
+          307
+        ],
+        [
+          646,
+          256,
+          713,
+          307
+        ]
+      ],
+      "visibleFootBaselineY": 307,
+      "visibleHeadPinkBounds": [
+        574,
+        22,
+        686,
+        144
+      ],
+      "visibleHeadTopY": 22,
+      "visibleHeadTopToFootPx": 285,
+      "strongPixelArea": 44775,
+      "faceWidthPx": 121.75,
+      "eyeLowerRimSeparationPx": 39.0,
+      "eyeLineToFootPx": 160.0,
+      "sourceEdgeStrongPixels": 0,
+      "eyeWhiteBounds": [
+        [
+          595,
+          135,
+          631,
+          148
+        ],
+        [
+          634,
+          135,
+          670,
+          148
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          612.5,
+          147.0
+        ],
+        [
+          651.5,
+          147.0
+        ]
+      ],
+      "eyeMidpoint": [
+        632.0,
+        147.0
+      ],
+      "footSourcePoint": [
+        632.0,
+        307
+      ],
+      "eyeToFootPoints": [
+        [
+          632.0,
+          147.0
+        ],
+        [
+          632.0,
+          307
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          568,
+          147
+        ],
+        [
+          689,
+          147
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        858,
+        16,
+        310,
+        312
+      ],
+      "coreBounds": [
+        861,
+        19,
+        1123,
+        311
+      ],
+      "coreWidthPx": 262,
+      "coreHeightPx": 292,
+      "anchorSource": [
+        992,
+        311
+      ],
+      "translation": [
+        -700,
+        203
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          907,
+          256,
+          971,
+          308
+        ],
+        [
+          1009,
+          256,
+          1077,
+          308
+        ]
+      ],
+      "visibleFootBaselineY": 308,
+      "visibleHeadPinkBounds": [
+        936,
+        22,
+        1050,
+        153
+      ],
+      "visibleHeadTopY": 22,
+      "visibleHeadTopToFootPx": 286,
+      "strongPixelArea": 44818,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 39.5,
+      "eyeLineToFootPx": 153.0,
+      "sourceEdgeStrongPixels": 0,
+      "eyeWhiteBounds": [
+        [
+          958,
+          144,
+          994,
+          156
+        ],
+        [
+          997,
+          144,
+          1034,
+          156
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          975.5,
+          155.0
+        ],
+        [
+          1015.0,
+          155.0
+        ]
+      ],
+      "eyeMidpoint": [
+        995.25,
+        155.0
+      ],
+      "footSourcePoint": [
+        995.25,
+        308
+      ],
+      "eyeToFootPoints": [
+        [
+          995.25,
+          155.0
+        ],
+        [
+          995.25,
+          308
+        ]
+      ],
+      "faceWidthUnavailableReason": "visible-pink-face-edges-not-found"
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        142,
+        318,
+        267,
+        333
+      ],
+      "coreBounds": [
+        145,
+        321,
+        406,
+        609
+      ],
+      "coreWidthPx": 261,
+      "coreHeightPx": 288,
+      "anchorSource": [
+        276,
+        609
+      ],
+      "translation": [
+        16,
+        -95
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          192,
+          554,
+          255,
+          606
+        ],
+        [
+          293,
+          554,
+          360,
+          606
+        ]
+      ],
+      "visibleFootBaselineY": 606,
+      "visibleHeadPinkBounds": [
+        220,
+        324,
+        335,
+        451
+      ],
+      "visibleHeadTopY": 324,
+      "visibleHeadTopToFootPx": 282,
+      "strongPixelArea": 44319,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 37.0,
+      "eyeLineToFootPx": 156.0,
+      "sourceEdgeStrongPixels": 0,
+      "eyeWhiteBounds": [
+        [
+          245,
+          410,
+          278,
+          451
+        ],
+        [
+          282,
+          410,
+          315,
+          451
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          261.0,
+          450.0
+        ],
+        [
+          298.0,
+          450.0
+        ]
+      ],
+      "eyeMidpoint": [
+        279.5,
+        450.0
+      ],
+      "footSourcePoint": [
+        279.5,
+        606
+      ],
+      "eyeToFootPoints": [
+        [
+          279.5,
+          450.0
+        ],
+        [
+          279.5,
+          606
+        ]
+      ],
+      "faceWidthUnavailableReason": "visible-pink-face-edges-not-found"
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        473,
+        318,
+        293,
+        349
+      ],
+      "coreBounds": [
+        495,
+        321,
+        762,
+        609
+      ],
+      "coreWidthPx": 267,
+      "coreHeightPx": 288,
+      "anchorSource": [
+        631,
+        609
+      ],
+      "translation": [
+        -339,
+        -95
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          546,
+          553,
+          610,
+          606
+        ],
+        [
+          649,
+          553,
+          716,
+          606
+        ]
+      ],
+      "visibleFootBaselineY": 606,
+      "visibleHeadPinkBounds": [
+        575,
+        324,
+        687,
+        442
+      ],
+      "visibleHeadTopY": 324,
+      "visibleHeadTopToFootPx": 282,
+      "strongPixelArea": 46874,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "sourceEdgeStrongPixels": 0,
+      "unavailableReason": "hand near face edge; conservative occlusion exclusion"
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        857,
+        319,
+        281,
+        294
+      ],
+      "coreBounds": [
+        861,
+        322,
+        1122,
+        610
+      ],
+      "coreWidthPx": 261,
+      "coreHeightPx": 288,
+      "anchorSource": [
+        992,
+        610
+      ],
+      "translation": [
+        -700,
+        -96
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          907,
+          554,
+          971,
+          606
+        ],
+        [
+          1008,
+          554,
+          1075,
+          606
+        ]
+      ],
+      "visibleFootBaselineY": 606,
+      "visibleHeadPinkBounds": [
+        937,
+        325,
+        1048,
+        446
+      ],
+      "visibleHeadTopY": 325,
+      "visibleHeadTopToFootPx": 281,
+      "strongPixelArea": 45653,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "sourceEdgeStrongPixels": 0,
+      "unavailableReason": "hand overlaps face edge"
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        19,
+        619,
+        389,
+        334
+      ],
+      "coreBounds": [
+        145,
+        622,
+        405,
+        900
+      ],
+      "coreWidthPx": 260,
+      "coreHeightPx": 278,
+      "anchorSource": [
+        275,
+        900
+      ],
+      "translation": [
+        17,
+        -386
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          192,
+          843,
+          256,
+          896
+        ],
+        [
+          293,
+          846,
+          360,
+          897
+        ]
+      ],
+      "visibleFootBaselineY": 897,
+      "visibleHeadPinkBounds": [
+        228,
+        625,
+        328,
+        721
+      ],
+      "visibleHeadTopY": 625,
+      "visibleHeadTopToFootPx": 272,
+      "strongPixelArea": 44163,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "sourceEdgeStrongPixels": 0,
+      "unavailableReason": "hand overlaps face edge"
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        496,
+        619,
+        271,
+        284
+      ],
+      "coreBounds": [
+        499,
+        622,
+        762,
+        899
+      ],
+      "coreWidthPx": 263,
+      "coreHeightPx": 277,
+      "anchorSource": [
+        631,
+        899
+      ],
+      "translation": [
+        -339,
+        -385
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          546,
+          843,
+          610,
+          896
+        ],
+        [
+          648,
+          844,
+          715,
+          896
+        ]
+      ],
+      "visibleFootBaselineY": 896,
+      "visibleHeadPinkBounds": [
+        581,
+        625,
+        684,
+        721
+      ],
+      "visibleHeadTopY": 625,
+      "visibleHeadTopToFootPx": 271,
+      "strongPixelArea": 43790,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "sourceEdgeStrongPixels": 0,
+      "unavailableReason": "hand overlaps face edge"
+    },
+    {
+      "sourceFrame": 9,
+      "sourceBounds": [
+        817,
+        619,
+        345,
+        306
+      ],
+      "coreBounds": [
+        863,
+        623,
+        1124,
+        900
+      ],
+      "coreWidthPx": 261,
+      "coreHeightPx": 277,
+      "anchorSource": [
+        994,
+        900
+      ],
+      "translation": [
+        -702,
+        -386
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          908,
+          845,
+          973,
+          897
+        ],
+        [
+          1011,
+          847,
+          1078,
+          897
+        ]
+      ],
+      "visibleFootBaselineY": 897,
+      "visibleHeadPinkBounds": [
+        945,
+        625,
+        1046,
+        722
+      ],
+      "visibleHeadTopY": 625,
+      "visibleHeadTopToFootPx": 272,
+      "strongPixelArea": 43134,
+      "faceWidthPx": 125.75,
+      "eyeLowerRimSeparationPx": 37.5,
+      "eyeLineToFootPx": 151.0,
+      "sourceEdgeStrongPixels": 0,
+      "eyeWhiteBounds": [
+        [
+          963,
+          713,
+          996,
+          747
+        ],
+        [
+          1001,
+          713,
+          1033,
+          747
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          979.0,
+          746.0
+        ],
+        [
+          1016.5,
+          746.0
+        ]
+      ],
+      "eyeMidpoint": [
+        997.75,
+        746.0
+      ],
+      "footSourcePoint": [
+        997.75,
+        897
+      ],
+      "eyeToFootPoints": [
+        [
+          997.75,
+          746.0
+        ],
+        [
+          997.75,
+          897
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          933,
+          746
+        ],
+        [
+          1058,
+          746
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 10,
+      "sourceBounds": [
+        89,
+        913,
+        347,
+        301
+      ],
+      "coreBounds": [
+        145,
+        916,
+        408,
+        1193
+      ],
+      "coreWidthPx": 263,
+      "coreHeightPx": 277,
+      "anchorSource": [
+        277,
+        1193
+      ],
+      "translation": [
+        15,
+        -679
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          191,
+          1140,
+          256,
+          1190
+        ],
+        [
+          294,
+          1140,
+          363,
+          1190
+        ]
+      ],
+      "visibleFootBaselineY": 1190,
+      "visibleHeadPinkBounds": [
+        223,
+        919,
+        336,
+        1032
+      ],
+      "visibleHeadTopY": 919,
+      "visibleHeadTopToFootPx": 271,
+      "strongPixelArea": 43775,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "sourceEdgeStrongPixels": 0,
+      "unavailableReason": "very thin partial eye-white components; ambiguous lower-rim tracking"
+    },
+    {
+      "sourceFrame": 11,
+      "sourceBounds": [
+        496,
+        912,
+        271,
+        284
+      ],
+      "coreBounds": [
+        500,
+        915,
+        764,
+        1193
+      ],
+      "coreWidthPx": 264,
+      "coreHeightPx": 278,
+      "anchorSource": [
+        632,
+        1193
+      ],
+      "translation": [
+        -340,
+        -679
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          546,
+          1140,
+          611,
+          1190
+        ],
+        [
+          649,
+          1140,
+          717,
+          1190
+        ]
+      ],
+      "visibleFootBaselineY": 1190,
+      "visibleHeadPinkBounds": [
+        575,
+        918,
+        688,
+        1031
+      ],
+      "visibleHeadTopY": 918,
+      "visibleHeadTopToFootPx": 272,
+      "strongPixelArea": 43672,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "sourceEdgeStrongPixels": 0,
+      "unavailableReason": "eyes fully closed"
+    },
+    {
+      "sourceFrame": 12,
+      "sourceBounds": [
+        855,
+        912,
+        273,
+        286
+      ],
+      "coreBounds": [
+        861,
+        915,
+        1124,
+        1193
+      ],
+      "coreWidthPx": 263,
+      "coreHeightPx": 278,
+      "anchorSource": [
+        993,
+        1193
+      ],
+      "translation": [
+        -701,
+        -679
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          907,
+          1140,
+          972,
+          1190
+        ],
+        [
+          1010,
+          1140,
+          1077,
+          1190
+        ]
+      ],
+      "visibleFootBaselineY": 1190,
+      "visibleHeadPinkBounds": [
+        939,
+        918,
+        1048,
+        1021
+      ],
+      "visibleHeadTopY": 918,
+      "visibleHeadTopToFootPx": 272,
+      "strongPixelArea": 43904,
+      "faceWidthPx": 131.75,
+      "eyeLowerRimSeparationPx": 39.0,
+      "eyeLineToFootPx": 145.0,
+      "sourceEdgeStrongPixels": 0,
+      "eyeWhiteBounds": [
+        [
+          959,
+          1013,
+          993,
+          1046
+        ],
+        [
+          998,
+          1013,
+          1032,
+          1046
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          975.5,
+          1045.0
+        ],
+        [
+          1014.5,
+          1045.0
+        ]
+      ],
+      "eyeMidpoint": [
+        995.0,
+        1045.0
+      ],
+      "footSourcePoint": [
+        995.0,
+        1190
+      ],
+      "eyeToFootPoints": [
+        [
+          995.0,
+          1045.0
+        ],
+        [
+          995.0,
+          1190
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          927,
+          1045
+        ],
+        [
+          1058,
+          1045
+        ]
+      ]
+    }
+  ],
+  "summary": {
+    "sourceFrames": 12,
+    "measuredFaceFrames": 4,
+    "measuredEyeActualFootFrames": 6,
+    "visibleHeadFootFrames": 12,
+    "coreHeightFirstLast": {
+      "first": 291,
+      "last": 278,
+      "changePercent": -4.467353951890029
+    },
+    "coreWidthFirstLast": {
+      "first": 259,
+      "last": 263,
+      "changePercent": 1.5444015444015413
+    },
+    "faceWidthFirstLast": {
+      "first": 129.75,
+      "last": 131.75,
+      "changePercent": 1.541425818882458
+    },
+    "eyeSeparationFirstLast": {
+      "first": 38.0,
+      "last": 39.0,
+      "changePercent": 2.6315789473684292
+    },
+    "eyeToActualFootFirstLast": {
+      "first": 153.0,
+      "last": 145.0,
+      "changePercent": -5.228758169934644
+    },
+    "visibleHeadTopToActualFootFirstLast": {
+      "first": 285,
+      "last": 272,
+      "changePercent": -4.561403508771933
+    },
+    "coreFirstLastRowMeans": {
+      "first": 291.6666666666667,
+      "last": 277.6666666666667,
+      "changePercent": -4.800000000000004
+    },
+    "sourceEdgeStrongPixels": 0,
+    "minimumStrongCoreSourceMarginsLTRB": [
+      145,
+      19,
+      130,
+      61
+    ]
+  },
+  "sameMethodPreviousV2": {
+    "source": {
+      "path": "animation/focus-v2/atlas-generated.png",
+      "sha256": "7ee112183d2c9e5d911bf89cedc8b4afba705f6a72659838410daa934939322f",
+      "width": 1448,
+      "height": 1086
+    },
+    "regions": {
+      "path": "animation/focus-v2/regions-v1.json",
+      "sha256": "8732301545958390356e0f50ee941af86633098a4c66ae2c1abbf9b35c394550"
+    },
+    "eyeEvidence": {
+      "path": "animation/production-20261006-repair/focus-v2-qc.json",
+      "sha256": "8a5de9c9199c67d904a15053eb52ed15c79f06a441279a40287482a7e2295967"
+    },
+    "frames": [
+      {
+        "sourceFrame": 1,
+        "visibleFootPinkFillBounds": [
+          [
+            128,
+            232,
+            189,
+            281
+          ],
+          [
+            226,
+            233,
+            288,
+            282
+          ]
+        ],
+        "visibleFootBaselineY": 282,
+        "visibleHeadPinkBounds": [
+          159,
+          11,
+          256,
+          113
+        ],
+        "visibleHeadTopY": 11,
+        "visibleHeadTopToFootPx": 271,
+        "strongPixelArea": 39432,
+        "eyeLowerRimPoints": [
+          [
+            194.0,
+            135.0
+          ],
+          [
+            229.0,
+            136.0
+          ]
+        ],
+        "eyeLineToActualFootPx": 146.5
+      },
+      {
+        "sourceFrame": 16,
+        "visibleFootPinkFillBounds": [
+          [
+            1204,
+            1037,
+            1265,
+            1081
+          ],
+          [
+            1302,
+            1037,
+            1364,
+            1081
+          ]
+        ],
+        "visibleFootBaselineY": 1081,
+        "visibleHeadPinkBounds": [
+          1237,
+          833,
+          1332,
+          927
+        ],
+        "visibleHeadTopY": 833,
+        "visibleHeadTopToFootPx": 248,
+        "strongPixelArea": 36299,
+        "eyeLowerRimPoints": [
+          [
+            1270.5,
+            948.0
+          ],
+          [
+            1305.0,
+            948.0
+          ]
+        ],
+        "eyeLineToActualFootPx": 133.0
+      }
+    ],
+    "eyeToActualFootFirstLast": {
+      "first": 146.5,
+      "last": 133.0,
+      "changePercent": -9.215017064846421
+    },
+    "visibleHeadTopToActualFootFirstLast": {
+      "first": 271,
+      "last": 248,
+      "changePercent": -8.487084870848705
+    },
+    "note": "Re-read v2's actual foot/head pink fill using the same method. The earlier8.42percent figure used the strong silhouette support edge; do not mix baselines. Only within-version relative change is compared because atlas geometry/pixel character size differs."
+  },
+  "methods": [
+    "Every source pixel stays unchanged. Full-alpha contour assignment and integer translation only; no per-frame scaling.",
+    "Strong whole silhouette includes clothing, arms and notebook; it is not an anatomical body measurement.",
+    "This source has no hat: top of the reviewed largest upper coral-pink component identifies visible head top. Two separate lower-quarter pink components identify actual feet.",
+    "Pink-fill head/foot contours exclude black outlines; approximately2source-pixel boundary uncertainty. Eye-to-foot is a pose proxy, not hidden torso anatomy.",
+    "Eye rims/face calipers are source-specific. Hands5-8, ambiguous partial eye10 and closed11 remain unmeasured; no bbox fallback.",
+    "Approximately3percent was a proposed review trigger, not an automatic approval rule. Current independent body proxies still flag shortening.",
+    "No phase-by-phase index matching is assumed between new12frames and old16frames."
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        1,
+        12
+      ],
+      "kind": "improved-but-unresolved",
+      "message": "Similar neutral forward poses have stable face/eye widths but shorter head-to-feet and eye-to-feet distance at the end. Body shortening is reduced, not removed."
+    },
+    {
+      "sourceFrames": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "kind": "real-limb-action-preserved",
+      "message": "Hand rises to glasses, touches them, then returns toward notebook. Actual pose changes exist; not whole-card sway."
+    },
+    {
+      "sourceFrames": [
+        8,
+        9
+      ],
+      "kind": "transition-review-required",
+      "message": "Cheek-level hand returns directly to notebook in the next frame; the explicit chest-level intermediate pose of v2 is absent. Review at actual1x before accepting continuity."
+    },
+    {
+      "sourceFrames": [
+        4,
+        5,
+        6
+      ],
+      "kind": "timing-review-required",
+      "message": "Eyes switch open/half-lidded/open while the hand rises. May read as a blink or a pop depending on timing; not approved from the static sheet."
+    },
+    {
+      "sourceFrames": [
+        10,
+        11,
+        12
+      ],
+      "kind": "preserve",
+      "message": "Pink closed eyelids, white open sclera, glasses and notebook retained; no source-bottom collision as in rejected v3."
+    }
+  ],
+  "candidateValue": "Worth an independent side-by-side candidate because proportional shortening is reduced and source margins are safe. Keep body/transition warnings and retain all12frames; not a finished replacement."
+}

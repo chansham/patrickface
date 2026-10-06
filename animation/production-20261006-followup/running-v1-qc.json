@@ -1,0 +1,2586 @@
+{
+  "schemaVersion": 1,
+  "id": "running-first-20261006",
+  "reviewedAt": "2026-10-06",
+  "status": "metadata-valid-animation-quality-review-needed",
+  "artApproved": false,
+  "source": {
+    "path": "animation/running-v1/atlas-generated.png",
+    "sha256": "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4",
+    "width": 1254,
+    "height": 1254
+  },
+  "regions": {
+    "path": "animation/running-v1/regions-v1.json",
+    "sha256": "9e858752a4cf852e173a80a72510999e7daf64b48ea31325aa061fb82c6cc276"
+  },
+  "defaultComparison": {
+    "path": "animation/running-v1/regions-default-lower15.json",
+    "sha256": "1fce1c3df354fb619742fb840c239b9185d29f364dbac871fa1bb12a1508ebcb"
+  },
+  "maskValidation": {
+    "assignedPixels": 521397,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED",
+    "roundTripRGBAMismatchChannels": 0,
+    "sourcePNGUnchanged": true,
+    "totalOriginalDrawings": 16
+  },
+  "registration": {
+    "policy": {
+      "id": "running-first-20261006-hybrid-reviewed-support",
+      "kind": "nominal-cell-x-reviewed-ground-y",
+      "columns": 4,
+      "rows": 4,
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "reviewedGroundY": [
+        301,
+        297,
+        300,
+        305,
+        608,
+        608,
+        609,
+        612,
+        914,
+        914,
+        909,
+        911,
+        1222,
+        1222,
+        1222,
+        1222
+      ],
+      "reason": "All 16 drawings were separately inspected at the feet. Each has a visible lower supporting foot; no unmistakable airborne frame is present. There is no drawn ground line, so y registration is an explicit visual interpretation. X uses the nominal column center and never follows a lifted leg or body width. Y removes atlas row packing drift while retaining bent-leg body-height changes. Source masks, common canvas and 1:1 pixels remain unchanged. Do not apply to another source hash."
+    },
+    "canvas": {
+      "width": 592,
+      "height": 592,
+      "anchorPixels": [
+        296,
+        521
+      ],
+      "anchorNormalized": [
+        0.5,
+        0.8800675675675675
+      ]
+    },
+    "scalePerFrame": 1,
+    "defaultHeadTop60MidlineX": {
+      "values": [
+        7.0,
+        -2.5,
+        -21.75,
+        14.5,
+        15.5,
+        7.5,
+        -22.0,
+        13.0,
+        17.5,
+        -5.25,
+        4.0,
+        -2.0,
+        9.0,
+        5.0,
+        1.5,
+        5.5
+      ],
+      "range": 39.5,
+      "maximumAdjacentChange": 36.25,
+      "firstToLast": -1.5
+    },
+    "hybridHeadTop60MidlineX": {
+      "values": [
+        20.0,
+        -0.5,
+        -12.75,
+        3.5,
+        30.5,
+        26.5,
+        7.0,
+        15.0,
+        16.5,
+        11.75,
+        10.0,
+        8.0,
+        20.0,
+        17.0,
+        12.5,
+        19.5
+      ],
+      "range": 43.25,
+      "maximumAdjacentChange": 27.0,
+      "firstToLast": -0.5
+    },
+    "bodyFitPerformed": false,
+    "warning": "This outline midpoint is a motion proxy, not anatomical head center. Side turns and source drawing-position differences remain, rather than being normalized away."
+  },
+  "scaleRecommendation": {
+    "scale": 2.0,
+    "canvas": 592,
+    "sameFaceScale": 2.3090549348230907,
+    "seatedReferenceSource": "animation/exercise-v2/atlas-generated.png",
+    "seatedReferenceSha256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+    "seatedReferenceNeutralFaceWidthSource": 95.75,
+    "seatedReferenceFaceWidthAt416": 116.17666666666665,
+    "runningNeutralFaceWidthAt416": 100.62702702702704,
+    "runningMaximumVisibleCoreHeightAt416": 320.43243243243245,
+    "sourcePixelFactorAt416": 1.1243243243243244,
+    "sourcePixelFactorAt200": 0.5405405405405406,
+    "reason": "Standing running naturally has longer visible head-to-ground extent than seated dumbbell poses. Matching the old face exactly collides with classic date/time; use one lower fixed scale for all frames, with this explicit face-size compromise."
+  },
+  "layoutSafety": {
+    "method": "Numerical RGBA alpha>=128 bounds against previously measured DOM typography rectangles; not a new browser or Apple-device playback test.",
+    "layoutsPath": "experience/layouts.json",
+    "layoutsSha256": "1485ab8b0dbbba19881f38a1b1566e34332f8a6c21c512635f2c335a68b52577",
+    "domEvidencePath": "output/playwright/20261006-scale-layouts/report.json",
+    "domEvidenceSha256": "72d68ee084f0d250a0daad404f3615d08b25bba400b89711389b8c6eede0379b",
+    "domEvidenceFinishedAt": "2026-10-06T02:08:59.619Z",
+    "coordinateSize": [
+      832,
+      992
+    ],
+    "tests": [
+      {
+        "label": "same-face-width-as-seated-exercise",
+        "scale": 2.3090549348230907,
+        "tested": 64,
+        "collisionCount": 31,
+        "outsideCount": 0,
+        "entries": [
+          {
+            "sourceFrame": 1,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              208.30986964618253,
+              166.71654376163883,
+              688.5932960893854,
+              893.632
+            ],
+            "collisions": [
+              "digital-time",
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 2,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              190.13698324022351,
+              197.8700633147114,
+              670.4204096834264,
+              893.632
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 3,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              125.23381750465558,
+              171.90879702048426,
+              680.8049162011173,
+              893.632
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 4,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              135.61832402234643,
+              177.10105027932968,
+              735.3235754189943,
+              893.632
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 5,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              203.1176163873371,
+              179.69717690875245,
+              745.7080819366852,
+              893.632
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 6,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              203.1176163873371,
+              169.3126703910615,
+              743.1119553072625,
+              893.632
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 7,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              169.36797020484175,
+              161.5242905027934,
+              730.1313221601489,
+              893.632
+            ],
+            "collisions": [
+              "digital-time",
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 8,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              171.96409683426447,
+              166.71654376163883,
+              711.9584357541898,
+              893.632
+            ],
+            "collisions": [
+              "digital-time",
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 9,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              187.5408566108008,
+              169.3126703910615,
+              735.3235754189943,
+              893.632
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 10,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              190.13698324022351,
+              174.50492364990703,
+              696.3816759776536,
+              893.632
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 11,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              242.05951582867786,
+              213.44682309124778,
+              683.4010428305401,
+              893.632
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 12,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              216.0982495344507,
+              197.8700633147114,
+              667.8242830540037,
+              893.632
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 13,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              205.71374301675982,
+              153.7359106145252,
+              706.7661824953444,
+              893.632
+            ],
+            "collisions": [
+              "digital-time",
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 14,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              208.30986964618253,
+              153.7359106145252,
+              683.4010428305401,
+              893.632
+            ],
+            "collisions": [
+              "digital-time",
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 15,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              203.1176163873371,
+              153.7359106145252,
+              678.2087895716945,
+              893.632
+            ],
+            "collisions": [
+              "digital-time",
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 16,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              213.50212290502796,
+              158.92816387337064,
+              688.5932960893854,
+              893.632
+            ],
+            "collisions": [
+              "digital-time",
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 1,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              272.6938100558659,
+              404.03441519553076,
+              604.0893743016759,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 2,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              260.1545184357542,
+              425.5303436871509,
+              591.5500826815642,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 3,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              215.37133407821233,
+              407.61706994413413,
+              598.7153921787709,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 4,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              222.53664357541902,
+              411.1997246927375,
+              636.3332670391061,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 5,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              269.1111553072626,
+              412.99105206703916,
+              643.4985765363127,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 6,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              269.1111553072626,
+              405.8257425698324,
+              641.7072491620112,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 7,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              245.8238994413408,
+              400.45176044692744,
+              632.7506122905027,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 8,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              247.61522681564247,
+              404.03441519553076,
+              620.2113206703909,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 9,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              258.36319106145254,
+              405.8257425698324,
+              636.3332670391061,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 10,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              260.1545184357542,
+              409.40839731843585,
+              609.463356424581,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 11,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              295.9810659217877,
+              436.27830793296096,
+              600.5067195530726,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 12,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              278.067792178771,
+              425.5303436871509,
+              589.7587553072625,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 13,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              270.90248268156427,
+              395.0777783240224,
+              616.6286659217876,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 14,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              272.6938100558659,
+              395.0777783240224,
+              600.5067195530726,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 15,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              269.1111553072626,
+              395.0777783240224,
+              596.9240648044691,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 16,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              276.2764648044693,
+              398.6604330726257,
+              604.0893743016759,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 1,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              218.69437616387341,
+              114.3807165735569,
+              674.963631284916,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 2,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              201.43013407821235,
+              143.9765601489758,
+              657.699389199255,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 3,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              139.7721266294228,
+              119.31335716946003,
+              667.5646703910613,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 4,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              149.63740782122912,
+              124.2459977653632,
+              719.3573966480445,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 5,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              213.76173556797025,
+              126.71231806331483,
+              729.2226778398508,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 6,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              213.76173556797025,
+              116.84703687150841,
+              726.7563575418993,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 7,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              181.69957169459968,
+              109.44807597765373,
+              714.4247560521413,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 8,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              184.16589199255125,
+              114.3807165735569,
+              697.1605139664803,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 9,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              198.96381378026078,
+              116.84703687150841,
+              719.3573966480445,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 10,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              201.43013407821235,
+              121.77967746741166,
+              682.3625921787708,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 11,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              250.75654003724398,
+              158.7744819366854,
+              670.030990689013,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 12,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              226.09333705772818,
+              143.9765601489758,
+              655.2330689013035,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 13,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              216.22805586592185,
+              102.04911508379894,
+              692.2278733705771,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 14,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              218.69437616387341,
+              102.04911508379894,
+              670.030990689013,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 15,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              213.76173556797025,
+              102.04911508379894,
+              665.0983500931097,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 16,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              223.62701675977655,
+              106.9817556797021,
+              674.963631284916,
+              804.9504
+            ],
+            "collisions": [
+              "watch-date"
+            ],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 1,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              124.65352700186223,
+              447.3612645065177,
+              393.61224581005587,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 2,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              114.47671061452517,
+              464.8072354562384,
+              383.43542942271887,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 3,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              78.13093780260714,
+              450.2689263314712,
+              389.25075307262574,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 4,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              83.94626145251401,
+              453.1765881564246,
+              419.78120223463685,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 5,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              121.7458651769088,
+              454.6304190689014,
+              425.5965258845437,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 6,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              121.7458651769088,
+              448.8150954189945,
+              424.14269497206703,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 7,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              102.84606331471139,
+              444.45360268156435,
+              416.8735404096834,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 8,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              104.2998942271881,
+              447.3612645065177,
+              406.69672402234636,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 9,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              113.02287970204846,
+              448.8150954189945,
+              419.78120223463685,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 10,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              114.47671061452517,
+              451.72275724394797,
+              397.97373854748605,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 11,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              143.5533288640596,
+              473.53022093109877,
+              390.7045839851025,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 12,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              129.0150197392924,
+              464.8072354562384,
+              381.98159851024207,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 13,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              123.19969608938551,
+              440.0921099441341,
+              403.7890621973929,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 14,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              124.65352700186223,
+              440.0921099441341,
+              390.7045839851025,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 15,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              121.7458651769088,
+              440.0921099441341,
+              387.796922160149,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 16,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              127.56118882681567,
+              442.99977176908754,
+              393.61224581005587,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          }
+        ]
+      },
+      {
+        "label": "recommended-fixed-whole-clip",
+        "scale": 2.0,
+        "tested": 64,
+        "collisionCount": 0,
+        "outsideCount": 0,
+        "entries": [
+          {
+            "sourceFrame": 1,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              236.1081081081081,
+              264.0103783783783,
+              652.1081081081081,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 2,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              220.36756756756756,
+              290.99416216216207,
+              636.3675675675676,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 3,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              164.15135135135134,
+              268.5076756756756,
+              645.3621621621621,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 4,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              173.14594594594593,
+              273.00497297297284,
+              692.5837837837838,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 5,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              231.6108108108108,
+              275.2536216216215,
+              701.5783783783784,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 6,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              231.6108108108108,
+              266.25902702702695,
+              699.3297297297297,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 7,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              202.37837837837836,
+              259.51308108108094,
+              688.0864864864865,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 8,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              204.62702702702703,
+              264.0103783783783,
+              672.3459459459459,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 9,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              218.1189189189189,
+              266.25902702702695,
+              692.5837837837838,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 10,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              220.36756756756756,
+              270.7563243243243,
+              658.8540540540541,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 11,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              265.34054054054053,
+              304.48605405405397,
+              647.6108108108108,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 12,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              242.85405405405405,
+              290.99416216216207,
+              634.1189189189189,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 13,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              233.85945945945946,
+              252.76713513513505,
+              667.8486486486487,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 14,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              236.1081081081081,
+              252.76713513513505,
+              647.6108108108108,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 15,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              231.6108108108108,
+              252.76713513513505,
+              643.1135135135136,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 16,
+            "layout": "classic",
+            "alpha128StageBounds": [
+              240.6054054054054,
+              257.2644324324324,
+              652.1081081081081,
+              893.632
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 1,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              291.87459459459456,
+              471.16716108108096,
+              578.9145945945946,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 2,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              281.0136216216216,
+              489.7859718918918,
+              568.0536216216216,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 3,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              242.22443243243242,
+              474.27029621621614,
+              574.2598918918918,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 4,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              248.4307027027027,
+              477.3734313513512,
+              606.8428108108108,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 5,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              288.77145945945944,
+              478.92499891891885,
+              613.049081081081,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 6,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              288.77145945945944,
+              472.7187286486486,
+              611.4975135135135,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 7,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              268.6010810810811,
+              468.06402594594584,
+              603.7396756756756,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 8,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              270.15264864864866,
+              471.16716108108096,
+              592.8787027027026,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 9,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              279.462054054054,
+              472.7187286486486,
+              606.8428108108108,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 10,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              281.0136216216216,
+              475.8218637837837,
+              583.5692972972973,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 11,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              312.04497297297297,
+              499.0953772972972,
+              575.8114594594595,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 12,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              296.52929729729726,
+              489.7859718918918,
+              566.502054054054,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 13,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              290.323027027027,
+              463.4093232432432,
+              589.7755675675676,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 14,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              291.87459459459456,
+              463.4093232432432,
+              575.8114594594595,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 15,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              288.77145945945944,
+              463.4093232432432,
+              572.7083243243243,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 16,
+            "layout": "bold",
+            "alpha128StageBounds": [
+              294.97772972972973,
+              466.51245837837837,
+              578.9145945945946,
+              905.6060799999999
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 1,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              245.1027027027027,
+              206.80985945945935,
+              640.3027027027026,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 2,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              230.14918918918917,
+              232.44445405405395,
+              625.3491891891891,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 3,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              176.74378378378378,
+              211.08229189189183,
+              633.894054054054,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 4,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              185.28864864864863,
+              215.3547243243242,
+              678.7545945945946,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 5,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              240.83027027027026,
+              217.4909405405404,
+              687.2994594594594,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 6,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              240.83027027027026,
+              208.9460756756756,
+              685.1632432432432,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 7,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              213.05945945945945,
+              202.5374270270269,
+              674.4821621621621,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 8,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              215.1956756756757,
+              206.80985945945935,
+              659.5286486486485,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 9,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              228.01297297297296,
+              208.9460756756756,
+              678.7545945945946,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 10,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              230.14918918918917,
+              213.21850810810804,
+              646.7113513513514,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 11,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              272.8735135135135,
+              245.26175135135128,
+              636.0302702702702,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 12,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              251.51135135135135,
+              232.44445405405395,
+              623.2129729729729,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 13,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              242.96648648648647,
+              196.12877837837829,
+              655.2562162162162,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 14,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              245.1027027027027,
+              196.12877837837829,
+              636.0302702702702,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 15,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              240.83027027027026,
+              196.12877837837829,
+              631.7578378378378,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 16,
+            "layout": "theater",
+            "alpha128StageBounds": [
+              249.37513513513514,
+              200.40121081081077,
+              640.3027027027026,
+              804.9504
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 1,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              140.22054054054055,
+              501.84581189189186,
+              373.18054054054056,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 2,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              131.40583783783785,
+              516.9567308108108,
+              364.3658378378379,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 3,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              99.92475675675676,
+              504.36429837837835,
+              369.4028108108108,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 4,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              104.96172972972973,
+              506.8827848648648,
+              395.84691891891896,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 5,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              137.70205405405406,
+              508.1420281081081,
+              400.88389189189195,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 6,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              137.70205405405406,
+              503.1050551351351,
+              399.62464864864864,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 7,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              121.33189189189189,
+              499.3273254054053,
+              393.32843243243246,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 8,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              122.59113513513515,
+              501.84581189189186,
+              384.51372972972973,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 9,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              130.1465945945946,
+              503.1050551351351,
+              395.84691891891896,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 10,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              131.40583783783785,
+              505.6235416216216,
+              376.95827027027036,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 11,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              156.5907027027027,
+              524.5121902702703,
+              370.66205405405407,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 12,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              143.99827027027027,
+              516.9567308108108,
+              363.10659459459464,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 13,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              138.9612972972973,
+              495.5495956756756,
+              381.9952432432433,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 14,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              140.22054054054055,
+              495.5495956756756,
+              370.66205405405407,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 15,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              137.70205405405406,
+              495.5495956756756,
+              368.14356756756763,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          },
+          {
+            "sourceFrame": 16,
+            "layout": "activity",
+            "alpha128StageBounds": [
+              142.73902702702705,
+              498.0680821621621,
+              373.18054054054056,
+              854.43392
+            ],
+            "collisions": [],
+            "outsideStage": false
+          }
+        ]
+      }
+    ],
+    "limits": "Faint alpha<128 source noise is preserved and is not used as anatomical core. Native usable viewport is smaller than the physical screen; 416px figures are full-stage comparisons, not a claim about measured Watch display size."
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        39,
+        18,
+        283,
+        342
+      ],
+      "coreBounds": [
+        77,
+        21,
+        262,
+        301
+      ],
+      "renderedAlpha128Bounds": [
+        216,
+        241,
+        401,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        216,
+        240,
+        401,
+        521
+      ],
+      "anchorSource": [
+        157,
+        301
+      ],
+      "translation": [
+        139,
+        220
+      ],
+      "visualNote": "中性半睜站姿；雙臂雙腳完整。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": 89.5,
+      "eyeLowerRimSeparationPx": 26.1725046566048,
+      "eyeLowerRimPoints": [
+        [
+          151.5,
+          123.0
+        ],
+        [
+          177.5,
+          126.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          128,
+          120
+        ],
+        [
+          216,
+          130
+        ]
+      ],
+      "eyeWhiteBounds": [
+        [
+          141,
+          104,
+          163,
+          124
+        ],
+        [
+          165,
+          106,
+          191,
+          127
+        ]
+      ],
+      "eyeLineToFootPx": null,
+      "metricNote": "Manually identified neutral half-open eyes; approximately 2 source px edge uncertainty.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        351,
+        26,
+        228,
+        312
+      ],
+      "coreBounds": [
+        383,
+        29,
+        568,
+        297
+      ],
+      "renderedAlpha128Bounds": [
+        209,
+        253,
+        394,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        208,
+        253,
+        394,
+        522
+      ],
+      "anchorSource": [
+        470,
+        297
+      ],
+      "translation": [
+        -174,
+        224
+      ],
+      "visualNote": "屈膝握拳預備；眉形較嚴肅。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        662,
+        16,
+        267,
+        292
+      ],
+      "coreBounds": [
+        672,
+        22,
+        886,
+        300
+      ],
+      "renderedAlpha128Bounds": [
+        184,
+        243,
+        398,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        184,
+        242,
+        399,
+        522
+      ],
+      "anchorSource": [
+        784,
+        300
+      ],
+      "translation": [
+        -488,
+        221
+      ],
+      "visualNote": "抬膝、另一腳支撐；雙臂交換。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        968,
+        19,
+        255,
+        343
+      ],
+      "coreBounds": [
+        989,
+        29,
+        1220,
+        305
+      ],
+      "renderedAlpha128Bounds": [
+        188,
+        245,
+        419,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        188,
+        244,
+        420,
+        522
+      ],
+      "anchorSource": [
+        1097,
+        305
+      ],
+      "translation": [
+        -801,
+        216
+      ],
+      "visualNote": "前伸腳、後抬腳；面向畫面右側。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        33,
+        329,
+        295,
+        282
+      ],
+      "coreBounds": [
+        75,
+        333,
+        284,
+        608
+      ],
+      "renderedAlpha128Bounds": [
+        214,
+        246,
+        423,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        213,
+        245,
+        424,
+        522
+      ],
+      "anchorSource": [
+        157,
+        608
+      ],
+      "translation": [
+        139,
+        -87
+      ],
+      "visualNote": "抬膝、另一腳支撐；面向畫面左側。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        339,
+        324,
+        274,
+        293
+      ],
+      "coreBounds": [
+        388,
+        329,
+        596,
+        608
+      ],
+      "renderedAlpha128Bounds": [
+        214,
+        242,
+        422,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        213,
+        242,
+        422,
+        522
+      ],
+      "anchorSource": [
+        470,
+        608
+      ],
+      "translation": [
+        -174,
+        -87
+      ],
+      "visualNote": "前伸腳、後抬腳；仍偏左。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        684,
+        323,
+        234,
+        289
+      ],
+      "coreBounds": [
+        689,
+        327,
+        905,
+        609
+      ],
+      "renderedAlpha128Bounds": [
+        201,
+        239,
+        417,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        201,
+        238,
+        417,
+        522
+      ],
+      "anchorSource": [
+        784,
+        609
+      ],
+      "translation": [
+        -488,
+        -88
+      ],
+      "visualNote": "再次抬膝；面向畫面右側。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        947,
+        327,
+        269,
+        340
+      ],
+      "coreBounds": [
+        1003,
+        332,
+        1211,
+        612
+      ],
+      "renderedAlpha128Bounds": [
+        202,
+        241,
+        410,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        201,
+        240,
+        411,
+        521
+      ],
+      "anchorSource": [
+        1097,
+        612
+      ],
+      "translation": [
+        -801,
+        -91
+      ],
+      "visualNote": "再次前伸腳；仍偏右。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 9,
+      "sourceBounds": [
+        27,
+        629,
+        293,
+        300
+      ],
+      "coreBounds": [
+        69,
+        635,
+        280,
+        914
+      ],
+      "renderedAlpha128Bounds": [
+        208,
+        242,
+        419,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        207,
+        242,
+        420,
+        522
+      ],
+      "anchorSource": [
+        157,
+        914
+      ],
+      "translation": [
+        139,
+        -393
+      ],
+      "visualNote": "抬膝、面向畫面左側。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 10,
+      "sourceBounds": [
+        349,
+        632,
+        286,
+        285
+      ],
+      "coreBounds": [
+        383,
+        637,
+        578,
+        914
+      ],
+      "renderedAlpha128Bounds": [
+        209,
+        244,
+        404,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        208,
+        243,
+        405,
+        522
+      ],
+      "anchorSource": [
+        470,
+        914
+      ],
+      "translation": [
+        -174,
+        -393
+      ],
+      "visualNote": "前伸腳、突然轉回右側。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 11,
+      "sourceBounds": [
+        698,
+        644,
+        257,
+        313
+      ],
+      "coreBounds": [
+        717,
+        647,
+        887,
+        909
+      ],
+      "renderedAlpha128Bounds": [
+        229,
+        259,
+        399,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        229,
+        258,
+        400,
+        521
+      ],
+      "anchorSource": [
+        784,
+        909
+      ],
+      "translation": [
+        -488,
+        -388
+      ],
+      "visualNote": "屈膝收步，手臂回落。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 12,
+      "sourceBounds": [
+        953,
+        640,
+        247,
+        301
+      ],
+      "coreBounds": [
+        1020,
+        643,
+        1194,
+        911
+      ],
+      "renderedAlpha128Bounds": [
+        219,
+        253,
+        393,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        218,
+        252,
+        394,
+        522
+      ],
+      "anchorSource": [
+        1097,
+        911
+      ],
+      "translation": [
+        -801,
+        -390
+      ],
+      "visualNote": "半睜眼、收手站穩。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 13,
+      "sourceBounds": [
+        43,
+        923,
+        271,
+        301
+      ],
+      "coreBounds": [
+        76,
+        937,
+        269,
+        1222
+      ],
+      "renderedAlpha128Bounds": [
+        215,
+        236,
+        408,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        214,
+        236,
+        409,
+        521
+      ],
+      "anchorSource": [
+        157,
+        1222
+      ],
+      "translation": [
+        139,
+        -701
+      ],
+      "visualNote": "閉眼吐氣；氣團不是第三隻手，眼部尺規不可量。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 14,
+      "sourceBounds": [
+        351,
+        931,
+        274,
+        294
+      ],
+      "coreBounds": [
+        390,
+        937,
+        573,
+        1222
+      ],
+      "renderedAlpha128Bounds": [
+        216,
+        236,
+        399,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        215,
+        236,
+        399,
+        521
+      ],
+      "anchorSource": [
+        470,
+        1222
+      ],
+      "translation": [
+        -174,
+        -701
+      ],
+      "visualNote": "恢復半睜中性表情。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 15,
+      "sourceBounds": [
+        680,
+        933,
+        271,
+        292
+      ],
+      "coreBounds": [
+        702,
+        937,
+        885,
+        1222
+      ],
+      "renderedAlpha128Bounds": [
+        214,
+        236,
+        397,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        213,
+        235,
+        398,
+        521
+      ],
+      "anchorSource": [
+        784,
+        1222
+      ],
+      "translation": [
+        -488,
+        -701
+      ],
+      "visualNote": "突然睜大雙眼；結尾額外表情跳變待修。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLowerRimPoints": null,
+      "faceCaliperPoints": null,
+      "eyeWhiteBounds": null,
+      "eyeLineToFootPx": null,
+      "metricNote": "Not used as a comparable neutral-body measurement: changed pose/expression or closed eyes. No inferred anatomy.",
+      "coreSourceEdgeTouches": []
+    },
+    {
+      "sourceFrame": 16,
+      "sourceBounds": [
+        952,
+        936,
+        254,
+        296
+      ],
+      "coreBounds": [
+        1019,
+        939,
+        1202,
+        1222
+      ],
+      "renderedAlpha128Bounds": [
+        218,
+        238,
+        401,
+        521
+      ],
+      "renderedAlpha16Bounds": [
+        217,
+        238,
+        401,
+        521
+      ],
+      "anchorSource": [
+        1097,
+        1222
+      ],
+      "translation": [
+        -801,
+        -701
+      ],
+      "visualNote": "恢復半睜；接近首格但並非完全相同原畫。",
+      "visibleArms": 2,
+      "visibleLegs": 2,
+      "faceWidthPx": 89.0,
+      "eyeLowerRimSeparationPx": 25.578311124857326,
+      "eyeLowerRimPoints": [
+        [
+          1094.0,
+          1041.0
+        ],
+        [
+          1119.5,
+          1043.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          1068,
+          1039
+        ],
+        [
+          1156,
+          1046
+        ]
+      ],
+      "eyeWhiteBounds": [
+        [
+          1083,
+          1023,
+          1106,
+          1042
+        ],
+        [
+          1107,
+          1024,
+          1133,
+          1044
+        ]
+      ],
+      "eyeLineToFootPx": null,
+      "metricNote": "Manually identified neutral half-open eyes; approximately 2 source px edge uncertainty.",
+      "coreSourceEdgeTouches": []
+    }
+  ],
+  "remainingIssues": [
+    "Frames 3-10 change face/body direction left and right too far for a settled front-facing running cycle.",
+    "Frame 15 unexpectedly opens both eyes after relaxed frame 14; review/repaint before seamless return.",
+    "First/last face calipers 89.5/89.0px are close but source contours and expressions are not identical; no seamless-loop claim.",
+    "Registration y assumes the reviewed lower foot is support; the PNG contains no ground line or genuine airborne keyframe.",
+    "Normal-speed browser playback, user approval and native integration are not established by this extraction QA."
+  ],
+  "proofImages": [
+    "animation/running-v1/qc-ground-contacts.png",
+    "animation/running-v1/qc-registered-16.png",
+    "animation/running-v1/qc-neutral-face-calipers.png"
+  ]
+}

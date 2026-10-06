@@ -5,10 +5,14 @@ const fs = require('node:fs'), path = require('node:path'), assert = require('no
 const root = path.resolve(__dirname, '..');
 const output = process.env.QA_OUTPUT || path.join(root, 'output/playwright/20261006-revisions');
 const address = process.env.PREVIEW_URL || 'http://127.0.0.1:8765/';
-const entries = JSON.parse(fs.readFileSync(path.join(root, 'animation/candidates.json'))).clips.filter(clip => clip.comparisonClipId);
+const wanted = (process.env.QA_CLIP_IDS || process.env.REVIEW_IDS)?.split(',').map(id => id.trim()).filter(Boolean);
+const entries = JSON.parse(fs.readFileSync(path.join(root, 'animation/candidates.json'))).clips.filter(clip => clip.atlas && clip.comparisonClipId && (!wanted || wanted.includes(clip.id)));
 const main = JSON.parse(fs.readFileSync(path.join(root, 'animation/catalog.json'))).clips;
-const report = { at: new Date().toISOString(), artApproval: false, clips: [] };
+const report = { at: new Date().toISOString(), artApproval: false, requestedClipIDs: wanted || null, selectedClipIDs: entries.map(clip => clip.id), clips: [] };
 (async () => {
+  assert.ok(entries.length, 'No real candidates selected; do not capture placeholders.');
+  if (wanted) assert.deepEqual(entries.map(clip => clip.id).sort(), wanted.sort(), 'Some requested candidates are not integrated.');
+  fs.mkdirSync(output, { recursive: true });
   const browser = await chromium.launch({ headless: true, executablePath: process.env.CHROMIUM_EXECUTABLE_PATH });
   try {
     const context = await browser.newContext({ viewport: { width: 1440, height: 1100 } });

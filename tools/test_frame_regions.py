@@ -8,7 +8,7 @@ import numpy as np
 
 from build_frame_regions import (SOURCES, build_regions, confined_source,
                                  normalized_source, selected_sources, validate_regions,
-                                 apply_reviewed_support_policy)
+                                 apply_reviewed_support_policy, REVIEWED_SUPPORT_POLICIES)
 
 
 def fixture():
@@ -138,6 +138,42 @@ class FrameRegionTests(unittest.TestCase):
             apply_reviewed_support_policy(data, fixture(), {
                 "kind": "fixed-bottom-core-band", "depthPixels": 3})
         self.assertEqual(data, before)
+
+    def test_running_registration_fixes_column_x_without_fitting_head_or_pixels(self):
+        alpha = fixture()
+        data = build_regions(alpha, 2, 1, min_core_pixels=50)
+        before = deepcopy(data)
+        policy = {"id": "reviewed-running-fixture", "kind": "nominal-cell-x-reviewed-ground-y",
+                  "columns": 2, "rows": 1, "sourceSize": [70, 50], "reviewedGroundY": [31, 31]}
+        apply_reviewed_support_policy(data, alpha, policy)
+        self.assertEqual([f["anchorSource"] for f in data["frames"]], [[18, 31], [53, 31]])
+        self.assertEqual(data["canvas"], before["canvas"])
+        for current, original in zip(data["frames"], before["frames"]):
+            self.assertEqual(current["rows"], original["rows"])
+            self.assertEqual(current["sourceBounds"], original["sourceBounds"])
+            self.assertEqual(current["diagnostics"]["coreBounds"], original["diagnostics"]["coreBounds"])
+        self.assertEqual(validate_regions(data, alpha)["assignedPixels"], int((alpha > 0).sum()))
+        registered = deepcopy(data)
+        apply_reviewed_support_policy(data, alpha, policy)
+        self.assertEqual(data, registered)
+
+    def test_running_ground_drift_fails_without_partial_mutation(self):
+        alpha = fixture()
+        data = build_regions(alpha, 2, 1, min_core_pixels=50)
+        before = deepcopy(data)
+        for ground in ([31], [31, True], [31, 30]):
+            with self.subTest(ground=ground), self.assertRaises(ValueError):
+                apply_reviewed_support_policy(data, alpha, {
+                    "kind": "nominal-cell-x-reviewed-ground-y", "columns": 2, "rows": 1,
+                    "sourceSize": [70, 50], "reviewedGroundY": ground})
+            self.assertEqual(data, before)
+
+    def test_running_policy_is_pinned_to_reviewed_source_path_and_sha(self):
+        path = "animation/running-v1/atlas-generated.png"
+        sha = "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4"
+        self.assertEqual(REVIEWED_SUPPORT_POLICIES[(path, sha)]["kind"], "nominal-cell-x-reviewed-ground-y")
+        self.assertNotIn((path, "0" * 64), REVIEWED_SUPPORT_POLICIES)
+        self.assertNotIn((path.replace("v1", "v2"), sha), REVIEWED_SUPPORT_POLICIES)
 
 
 if __name__ == "__main__":

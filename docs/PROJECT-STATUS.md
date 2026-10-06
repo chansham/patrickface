@@ -4,7 +4,9 @@
 
 ## 2026-10-06 接續
 
-最新已進行實際美術修復，正裝、小廚師、運動三組共44張修訂影格接入[新舊並排審稿](../size-review/?review=candidates&left=feed&right=chef-repair-20261006)。主catalog及原生素材維持原版本；改稿的進步與尚未修成處見[本批修復紀錄](REPAIR-20261006.md)。不是全素材完成或自動獲准。
+最新接續取得正裝12格修訂及首套跑步16格，接入[新舊並排審稿](../size-review/?review=candidates&left=exercise&right=running-first-20261006)。輪廓、四版式112組畫格及正常1×播放已檢查；原畫仍有身形與接續問題。候選現為19組236格，加原八格哈欠共244格來源。主catalog及原生維持11套／15種，未自動替換或批准。見[接續紀錄](FOLLOWUP-20261006.md)；以下是各階段歷史證據。
+
+前一批實際美術修復，正裝、小廚師、運動三組共44張修訂影格接入[新舊並排審稿](../size-review/?review=candidates&left=feed&right=chef-repair-20261006)。主catalog及原生素材維持原版本；改稿的進步與尚未修成處見[本批修復紀錄](REPAIR-20261006.md)。不是全素材完成或自動獲准。
 
 修稿整合版 `7f7cebe` 的 Apple run37407942310 已成功：1734項Foundation、12項XCTest、12項封裝fixtures、模擬器編譯／裝置封存／原生截圖步驟通過。本次新候選沒有進入原生包，也沒有真機安裝；只核編譯整合，詳細範圍見上述修復紀錄。本機保留的已驗IPA仍為較早build9，本次未下載新包。
 

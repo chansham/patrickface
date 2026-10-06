@@ -1,8 +1,8 @@
 import { frameAt } from '../preview/player-core.js?v=20261006-layouts1';
 import { validateLayouts } from '../preview/layout-core.js?v=20261006-layouts1';
-import { resource,decodeJSON,loadClip,frameGeometry } from './render-core.js?v=20261006-size4';
+import { resource,decodeJSON,loadClip,frameGeometry } from './render-core.js?v=20261006-size5';
 const $=selector=>document.querySelector(selector),repo=new URL('../',import.meta.url);
-const auditPath='animation/production-20261006-scale/body-scale-audit.json',repairAuditPath='animation/production-20261006-repair/body-scale-audit.json',storageKey='patrick.size-review.v1';
+const auditPath='animation/production-20261006-scale/body-scale-audit.json',repairAuditPath='animation/production-20261006-repair/body-scale-audit.json',followupAuditPath='animation/production-20261006-followup/body-scale-audit.json',storageKey='patrick.size-review.v1';
 const params=new URLSearchParams(location.search),candidateMode=params.get('review')==='candidates';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const state={tab:'overview',playing:false,raf:null,started:0,head:360,body:650,guides:true,bounds:false,landmarks:false,pair:[{id:'pet',index:0},{id:'exercise',index:0}],layoutClip:'pet',layoutFrame:0,calibrationClip:null,calibrationFrame:0};
@@ -68,7 +68,7 @@ function measuredFootPoints(measure){
   return [measure.eyeMidpoint,[measure.eyeMidpoint[0],measure.eyeMidpoint[1]+measure.eyeToFoot]];
 }
 function auditEntry(clip){
-  const matches=auditReports.filter(report=>report.path!==repairAuditPath||clip.catalogKind==='candidates').flatMap(report=>(report.data?.clips||[]).filter(value=>value&&value.id===clip.id&&value.catalog===(clip.catalogKind||'catalog')).map(entry=>({entry,report})));
+  const matches=auditReports.filter(report=>report.path===auditPath||clip.catalogKind==='candidates').flatMap(report=>(report.data?.clips||[]).filter(value=>value&&value.id===clip.id&&value.catalog===(clip.catalogKind||'catalog')).map(entry=>({entry,report})));
   const exact=matches.find(({entry})=>entry.sourceSha256===clip.sha256&&entry.regionsSha256===clip.frameRegions.sha256);
   if(exact)return{...exact,stale:false,scaleChanged:Number.isFinite(exact.entry.calibration?.currentScale)&&exact.entry.calibration.currentScale!==clip.scale};
   return{entry:null,report:matches[0]?.report||null,stale:matches.length>0,scaleChanged:false};
@@ -169,7 +169,7 @@ function configureRevisionReview(){
 
 async function loadAudit(){
   const definitions=[{path:auditPath,label:'舊版量測快照',selector:'#audit-source'}];
-  if(candidateMode)definitions.unshift({path:repairAuditPath,label:'本輪改稿量測',selector:'#repair-audit-source'});
+  if(candidateMode)definitions.unshift({path:followupAuditPath,label:'追加改稿量測',selector:'#followup-audit-source'},{path:repairAuditPath,label:'首輪改稿量測',selector:'#repair-audit-source'});
   auditReports=await Promise.all(definitions.map(async definition=>{
     const node=$(definition.selector);node.hidden=false;
     try{const data=decodeJSON(await resource(definition.path,repo));if(data.schemaVersion!==1||!Array.isArray(data.clips))throw new Error('格式不支援');

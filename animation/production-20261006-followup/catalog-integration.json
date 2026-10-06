@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "artApproved": false,
+  "mainCatalogChanged": false,
+  "candidateCatalogBeforeSha256": "2f6a0a4296c4cf9e9d1ed8aedb409b169f3a5f0a9e272ed3dd61492d54aa08e9",
+  "candidateCatalogAfterSha256": "fca51d57e3e9f890e4330554d8843461bcaa7d3441e0ef7913d771e2141945da",
+  "candidates": [
+    {
+      "id": "focus-followup-20261006",
+      "title": "正裝・第二輪身形改稿",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261006-repair2",
+      "reviewGroup": "scene",
+      "atlas": "animation/focus-v5/atlas-generated.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 3,
+      "rows": 4,
+      "frameCount": 12,
+      "durationsMs": [
+        450,
+        200,
+        200,
+        220,
+        200,
+        220,
+        240,
+        180,
+        220,
+        200,
+        160,
+        450
+      ],
+      "sha256": "d1376033bd5efe8c3de53b6c0763a8308ef9c820cad41c9799d15a70052d8847",
+      "anchorNormalized": [
+        0.5,
+        0.8801369863013698
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.47,
+      "status": "quality-revision-required",
+      "scenes": [
+        "focus"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "重畫為12格；同法量測的首末眼線至真腳底差由前稿約9%改善至約5%，仍未一致。第8→9格收手及眼神變化待審，完整12格保留。",
+      "frameRegions": {
+        "path": "animation/focus-v5/regions-v1.json",
+        "sha256": "c7a7c8527c9cae1d31469659dd5365d927f4aaad830db1d9297a16403babd7ec",
+        "version": 1
+      },
+      "renderingRevision": "repair-20261006-v2",
+      "comparisonClipId": "focus",
+      "artApproved": false,
+      "scaleProvenance": {
+        "method": "whole-clip-neutral-face-and-eye-proxy-comparison",
+        "referenceCandidate": "focus-repair-20261006",
+        "referenceFaceWidthSource": 116.75,
+        "referenceEyeSeparationSource": 35.01,
+        "newFaceWidthSource": 129.75,
+        "newEyeSeparationSource": 38,
+        "note": "Fixed scale1.47 keeps neutral face and lower-eye-rim dimensions close to v2. Different atlas layout does not imply identical source pixel density. All frames retain one scale.",
+        "perFrameScaling": false
+      }
+    },
+    {
+      "id": "running-first-20261006",
+      "title": "跑步陪伴・首套動作待審",
+      "category": "新動作待審",
+      "version": 1,
+      "batch": "20261006-repair2",
+      "reviewGroup": "scene",
+      "atlas": "animation/running-v1/atlas-generated.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 4,
+      "rows": 4,
+      "frameCount": 16,
+      "durationsMs": [
+        400,
+        220,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        170,
+        190,
+        250,
+        260,
+        200,
+        200,
+        450
+      ],
+      "sha256": "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4",
+      "anchorNormalized": [
+        0.5,
+        0.8800675675675675
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 2.0,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "首次獨立跑步原畫：準備、交替踏步、收步與吐氣。左右側轉較大、收尾眼神待審；站姿受全身與日期區限制，臉約為坐姿啞鈴的87%。不是已批准或已換入日常。",
+      "frameRegions": {
+        "path": "animation/running-v1/regions-v1.json",
+        "sha256": "9e858752a4cf852e173a80a72510999e7daf64b48ea31325aa061fb82c6cc276",
+        "version": 1
+      },
+      "renderingRevision": "repair-20261006-v2",
+      "comparisonClipId": "exercise",
+      "artApproved": false,
+      "scaleProvenance": {
+        "method": "fixed-whole-clip-standing-pose-four-layout-safety",
+        "referenceCandidate": "exercise-batch2-candidate",
+        "neutralFaceMatchScale": 2.3090549,
+        "selectedScale": 2.0,
+        "faceRatioToSeatedReference": 0.8662,
+        "note": "Equal face size collides with text in31 of64 layout frames. Fixed2.0 retains the whole standing character in all layouts, with a smaller face than the seated reference; not per-frame fit.",
+        "perFrameScaling": false
+      }
+    }
+  ]
+}
