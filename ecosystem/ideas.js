@@ -23,7 +23,7 @@ function show() {
 }
 function revealHash() {
   const id = location.hash.slice(1); if (!data.items.some(item => item.id === id)) return;
-  selected = '全部'; $('#ideas-search').value = ''; show(); document.getElementById(id).scrollIntoView();
+  selected = '全部'; $('#ideas-search').value = ''; show(); $('#signal-ideas')?.setAttribute('open',''); document.getElementById(id).scrollIntoView();
 }
 try {
   const response = await fetch('./ideas.json?v=20261007-1'); if (!response.ok) throw new Error(`資料無法載入 (${response.status})`);

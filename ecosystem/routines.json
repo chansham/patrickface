@@ -1,0 +1,1052 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-07",
+  "items": [
+    {
+      "id": "goodnight",
+      "title": "晚安：真的進入睡眠專注",
+      "phrase": "Siri，派大星晚安",
+      "group": "睡眠與早晨",
+      "trigger": "先設定睡眠 Focus、跨裝置共享及配對 Watch 的同步偏好；之後一句話執行，不每晚重問。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "第一個執行動作：Set Focus 開啟「睡眠」，保留事先選定的允許聯絡人與通知。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "使用者確認",
+          "action": "可選鬧鐘須在首次設定時一次建立或選定那一筆，指定確切時間與重複日，例如工作日 07:30；未選定就略過。想跟場景穿睡衣，先將衣櫥選為自動。",
+          "state": "需一次設定"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "日常執行只啟用首次已選定的那一筆鬧鐘；找不到就回報未設好，不自動重建，不改其他鬧鐘或原睡眠排程。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "呼叫「套用派大星生活流程：晚安」(.on，本輪新增，待 Apple 驗證與安裝)，設定 App 睡前情境；固定衣服保持原選，不取消計時。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "選配工具",
+          "action": "最後才執行已選的 Home 晚安燈光場景；沒有配件或不想使用就略過。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "分項顯示 Focus 動作、指定鬧鐘、App 狀態、Home 回覆；Home 失敗不撤銷已開 Focus，不把手機成功當成 Watch 已驗證。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "手機真正減少打擾，Watch 按已設定的 Focus 共享運作，派大星才接上抱枕與晚安。",
+      "fallback": "App 或 Home 失敗時保留系統 Focus 成功結果；配對錶離線就標 Watch 狀態未確認。",
+      "limits": "這是待組裝與實機測試的捷徑方案。Set Focus 不等於建立健康 App 睡眠排程，也不證明睡著；不要求 Apple Intelligence，不保證鎖定時所有步驟免解鎖。",
+      "art": "星星睡帽、抱枕、關小燈、一次哈欠；固定造型不偷換。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "Apple Watch 與 iPhone 的 Focus",
+          "url": "https://support.apple.com/en-by/guide/watch/-apd6640937c4/watchos"
+        },
+        {
+          "title": "捷徑的鬧鐘、計時器、音量與相機動作",
+          "url": "https://support.apple.com/en-kg/111098"
+        },
+        {
+          "title": "睡眠排程與睡眠專注",
+          "url": "https://support.apple.com/en-gb/108906"
+        },
+        {
+          "title": "Home 場景與自動化",
+          "url": "https://support.apple.com/en-gb/102313"
+        }
+      ]
+    },
+    {
+      "id": "goodmorning",
+      "title": "早安：退出睡眠，開始今天",
+      "phrase": "Siri，派大星早安",
+      "group": "睡眠與早晨",
+      "trigger": "先選早晨想看的內容、可選 Home 場景；平日說同一句即可。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "首次明確選擇要關閉「睡眠 Focus」後，每日用 Get Current Focus 檢查目前名稱；相符才關閉，其他 Focus 不動。這是本人指定關閉，不是辨識哪個流程建立。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "呼叫「套用派大星生活流程：早安」(.off，本輪新增，待 Apple 驗證與安裝)，明確進入清醒情境；凌晨起床也不被作息表立即拉回睡前。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "選配工具",
+          "action": "執行自己預選的早晨灯光場景；沒有配件照常完成前兩步。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "顯示自己選的今日第一件事與各步驟結果；之後說「恢復原作息」才把 App 改為 automatic。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "不用找手機和錶各自的睡眠開關，也不靠一張早安動畫冒充系統操作。",
+      "fallback": "只要系統退出成功就報成功項；App 未回覆可稍後再開，不重播過期起床動作。",
+      "limits": "不關閉所有鬧鐘、不撤銷當天計時、不自動恢復所有系統設定。清醒覆寫保持到下次設定或明確恢復作息；App 回覆不能證明 Watch Focus 已同步。",
+      "art": "拉開窗簾、整理睡帽、戴上眼鏡；保留使用者選定衣服。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "Apple Watch 與 iPhone 的 Focus",
+          "url": "https://support.apple.com/en-by/guide/watch/-apd6640937c4/watchos"
+        },
+        {
+          "title": "裝置狀態與媒體播放捷徑動作",
+          "url": "https://support.apple.com/en-my/101583"
+        },
+        {
+          "title": "Home 場景與自動化",
+          "url": "https://support.apple.com/en-gb/102313"
+        }
+      ]
+    },
+    {
+      "id": "nap",
+      "title": "小睡：安靜二十分鐘",
+      "phrase": "Siri，派大星小睡",
+      "group": "睡眠與早晨",
+      "trigger": "一次選好小睡長度（例 20 分鐘）及允許聯絡人；每次沿用。",
+      "steps": [
+        {
+          "owner": "使用者確認",
+          "action": "選定小睡 Focus 和時長；若要固定時間鬧鐘，必須另填確切時刻，不能猜。",
+          "state": "需一次設定"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "先在手機啟動原生 20 分鐘計時器並確認喚醒設定，再開預選小睡 Focus；Focus 不承諾同時自動退出。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "以現有情境入口切入睡前陪伴；只讓前景播一次可用哈欠。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "派大星",
+          "action": "建立本次小睡識別；由「結束小睡」或另外設定並驗證的自動化處理退出，保留其他計時器。Focus 來源不明時保留，不因同名就判為本流程建立。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "即使派大星在背景休息，叫醒的計時仍交給系統。",
+      "fallback": "手機系統計時器未確認建立成功就明說尚未設好；不用 App 動畫替代喚醒，Watch 是否提示另外確認。",
+      "limits": "需核對手機計時器的聲音與喚醒設定；不承諾 Watch 計時一定響，也不承諾 Focus 在 20 分鐘後自行退出。Focus 不證明人睡著。",
+      "art": "短睡帽、眼罩、枕頭，醒來揉眼睛。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "捷徑的鬧鐘、計時器、音量與相機動作",
+          "url": "https://support.apple.com/en-kg/111098"
+        }
+      ]
+    },
+    {
+      "id": "start-work",
+      "title": "開工：先收打擾，再開始一段",
+      "phrase": "Siri，派大星開工",
+      "group": "工作與專注",
+      "trigger": "先選工作 Focus、25 分鐘陪伴及要開的工作 App／網址。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "開啟工作 Focus 到預選結束時間。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "在現有「開始派大星陪伴計時」之前新增已有活動檢查與防覆寫：有活動先保留，無活動才開始 focus 25 分鐘。現有 start 入口本身可能覆寫，整步尚未具備此保護。",
+          "state": "待開發"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "打開事先指定的工作 App 或網址。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "把第一件任務與本次計時綁在一起；重說開工只顯示原任務進度。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "一句話把通知環境、計時與真正工作入口接好。",
+      "fallback": "工作 App 沒安裝就保留 Focus 與陪伴，顯示要開的網址，不宣稱已操作其內容。",
+      "limits": "不能控制任意 App 或讀其內文；本次任務綁定與已有活動防覆寫尚待開發，不能把目前 start 入口直接當成安全接續。",
+      "art": "正裝、領帶、嚴肅眼鏡、翻開記事簿。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "捷徑的鬧鐘、計時器、音量與相機動作",
+          "url": "https://support.apple.com/en-kg/111098"
+        },
+        {
+          "title": "Siri 控制裝置設定與 Home",
+          "url": "https://support.apple.com/en-mide/guide/iphone/iph6d2882a8f/ios"
+        }
+      ]
+    },
+    {
+      "id": "end-work",
+      "title": "收工：留下下一步再離開",
+      "phrase": "Siri，派大星收工",
+      "group": "工作與專注",
+      "trigger": "一次選好下班備忘格式；預設不關系統 Focus。若要直接關指定工作 Focus，須由本人首次明確選擇。",
+      "steps": [
+        {
+          "owner": "派大星",
+          "action": "用既有計時控制入口結束自己選定的陪伴；尚未到期要記為取消，不冒充完成。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "派大星",
+          "action": "保存任務停在哪一步；已有預填下一步就直接存，不每次重新問。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "自動關閉只限日後具備可靠來源追蹤的本流程 Focus；目前 Get Current Focus 只能比對名稱，來源未知就保留。另可由本人明確選擇關閉指定工作 Focus，不冒稱回復原狀。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "亮度／媒體音量只在本流程曾更改、仍有有效原值且使用者沒有再改時還原；無法確認就保留現況。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "下次開工接得回來，也不把正在用的另一個 Focus 關掉。",
+      "fallback": "狀態憑證不全就不還原系統設定；仍可保存收工備忘。",
+      "limits": "安全還原與任務備忘未實作；沒有可靠的修改來源或原值時，不能僅憑數值相等就斷言使用者沒再改。",
+      "art": "鬆領帶、合上筆記、收好眼鏡。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "裝置狀態與媒體播放捷徑動作",
+          "url": "https://support.apple.com/en-my/101583"
+        }
+      ]
+    },
+    {
+      "id": "leave-home",
+      "title": "我要出門：帶齊再走",
+      "phrase": "Siri，派大星出門",
+      "group": "出門與旅行",
+      "trigger": "一次選平常出門清單、目的地捷徑及是否需要天氣卡；不用每趟重建。",
+      "steps": [
+        {
+          "owner": "派大星",
+          "action": "顯示本次上學／健身／一般出門清單，保留已勾選項。",
+          "state": "待開發"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "打開預先保存的地圖目的地或路線入口。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "若有新鮮的 Watch 電池／充電回覆，提醒拿回充電中的錶；過時就寫未知。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "以現有清醒／運動情境入口安排陪伴，固定衣服照舊。",
+          "state": "已有App入口"
+        }
+      ],
+      "benefit": "把找路、拿手錶、檢查包包放在真正出門之前。",
+      "fallback": "無網路或定位未准時顯示保存的地址；不用位置也能手動核清單。",
+      "limits": "不知道包內物品，不自動解鎖家門；位置 Leave 觸發可能已經太晚，不能當出門前保證。",
+      "art": "書包、旅人帽、拿地圖、回頭找手錶。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "Siri 控制裝置設定與 Home",
+          "url": "https://support.apple.com/en-mide/guide/iphone/iph6d2882a8f/ios"
+        },
+        {
+          "title": "Watch 自身電池監測",
+          "url": "https://developer.apple.com/documentation/watchkit/wkinterfacedevice/isbatterymonitoringenabled"
+        },
+        {
+          "title": "個人自動化與免逐次詢問條件",
+          "url": "https://support.apple.com/guide/shortcuts/add-automations-apdfbdbd7123/ios"
+        }
+      ]
+    },
+    {
+      "id": "back-home",
+      "title": "我回來了：切回居家節奏",
+      "phrase": "Siri，派大星回家",
+      "group": "生活習慣",
+      "trigger": "先選居家灯光與換裝偏好；語音／手機 NFC 可作同一入口。",
+      "steps": [
+        {
+          "owner": "派大星",
+          "action": "通勤 Focus 的建立來源護欄待開發，預設保留當前 Focus；Get Current Focus 同名不代表來自本流程。本人首次明確選定關閉指定通勤 Focus，才可另做直接關閉動作。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "記一次到家回報，顯示洗手／收拾／休息的自選順序；重掃不重開清單。",
+          "state": "待開發"
+        },
+        {
+          "owner": "選配工具",
+          "action": "最後呼叫預先設定的 Home 居家灯光；失敗單獨回報。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "本人按完成或取得時段相符的已授權洗手紀錄後，才演擦手和收包包。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "從出門狀態接回家裡，完成後不反覆催促。",
+      "fallback": "沒有智慧家庭或健康權限就用手動完成；不影響已完成的 Focus 操作。",
+      "limits": "NFC 是手機入口；到達範圍不等於已進門，空洗手紀錄不代表沒洗。",
+      "art": "放包包、擦手毛巾、居家拖鞋、安靜點頭。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "Home 場景與自動化",
+          "url": "https://support.apple.com/en-gb/102313"
+        },
+        {
+          "title": "Apple 洗手功能",
+          "url": "https://support.apple.com/guide/watch/set-up-handwashing-apdc9b9f04a8/watchos"
+        },
+        {
+          "title": "Focus、充電與 NFC 觸發",
+          "url": "https://support.apple.com/guide/shortcuts/apde31e9638b/9.0/ios/26"
+        }
+      ]
+    },
+    {
+      "id": "meeting",
+      "title": "開會：留出一段安靜",
+      "phrase": "Siri，派大星開會",
+      "group": "工作與專注",
+      "trigger": "先選會議 Focus、預設 30 分鐘及必要聯絡人；有明確行程才取其結束時間。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "開啟會議 Focus 到預設或已確認的會議截止時間。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "使用既有 focus 陪伴入口，沿用 App 音效偏好；需要無聲時先在 App 設定關閉音效，不能因開會 Focus 就宣稱 App 必然靜音。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "打開預先指定的筆記 App／文件入口。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "到時只給一張可選收尾卡；使用者延長會議時更新本次截止，不重開多個提醒。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "減少通知並留好記錄位置，不只是讓角色穿西裝。",
+      "fallback": "日曆未授權用預设時長；若仍在會議，使用者可延長而不用重設全部。",
+      "limits": "日曆空白不等於有空；不錄音、不讀會議內容、不把 Focus 結束當會議確實結束。",
+      "art": "筆挺正裝、記事板、嚴肅抬眼、安靜舉牌。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "日曆存取權限",
+          "url": "https://developer.apple.com/documentation/eventkit/accessing-calendar-using-eventkit-and-eventkitui"
+        },
+        {
+          "title": "Siri 控制裝置設定與 Home",
+          "url": "https://support.apple.com/en-mide/guide/iphone/iph6d2882a8f/ios"
+        }
+      ]
+    },
+    {
+      "id": "short-break",
+      "title": "休息一下：一分鐘把步調放慢",
+      "phrase": "Siri，派大星休息",
+      "group": "工作與專注",
+      "trigger": "一次選一分鐘呼吸或五分鐘休息、是否開短暫個人 Focus。",
+      "steps": [
+        {
+          "owner": "派大星",
+          "action": "用既有計時控制暫停當前陪伴；剩餘時間保留。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "若已選短暫安靜，開個人 Focus 到休息截止。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "保存原任務後開始獨立休息流程；完成時只提供接回原任務，不自動覆寫或並行兩個活動。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "可單獨使用既有一分鐘 breathing 陪伴入口。",
+          "state": "已有App入口"
+        }
+      ],
+      "benefit": "休息完不用回想原任務還剩多久。",
+      "fallback": "兩段活動接續尚未開發時，保留原任務暫停，另用系統計時器完成休息。",
+      "limits": "呼吸是自選陪伴，不由 HRV 閾值診斷壓力，也不保證改善醫療狀況。",
+      "art": "卸下眼鏡、展開雙臂、跟節奏放鬆。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "捷徑的鬧鐘、計時器、音量與相機動作",
+          "url": "https://support.apple.com/en-kg/111098"
+        },
+        {
+          "title": "HealthKit 讀取授權與空資料",
+          "url": "https://developer.apple.com/documentation/healthkit/authorizing-access-to-health-data"
+        }
+      ]
+    },
+    {
+      "id": "exercise",
+      "title": "我要運動：先分清訓練和陪伴",
+      "phrase": "Siri，派大星運動",
+      "group": "運動與外出",
+      "trigger": "一次選運動種類、Fitness Focus 與真正要用的 Workout／運動 App。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "開啟預選 Fitness Focus；讓既定允許的來電照常通過。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "選配工具",
+          "action": "啟動自己選定、確實提供捷徑動作的運動 App；沒有動作就打開入口由本人開始。",
+          "state": "需一次設定"
+        },
+        {
+          "owner": "派大星",
+          "action": "使用既有 walking／running／strength 陪伴分類，不把它當 HealthKit 健身記錄。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "派大星",
+          "action": "以真正運動結束回報接毛巾收尾；資料晚到只留摘要，不補播舊慶祝。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "系統訓練負責記錄，派大星負責陪伴與收尾。",
+      "fallback": "外部 App 無可用捷徑就由本人開始訓練；陪伴可以獨立運作，結果分開標示。",
+      "limits": "不能用陪伴計時製造卡路里／運動紀錄；現有造型動作按實際素材，不把啞鈴改名說是新跑步動畫。",
+      "art": "頭帶、跑鞋、毛巾；依實際已製作的動作選用。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "運動、鬧鐘等捷徑事件",
+          "url": "https://support.apple.com/guide/shortcuts/event-triggers-apd932ff833f/9.0/ios/26"
+        }
+      ]
+    },
+    {
+      "id": "meal",
+      "title": "我要吃飯：安靜、洗手、開飯",
+      "phrase": "Siri，派大星吃飯",
+      "group": "生活習慣",
+      "trigger": "一次選用餐安靜時長與要不要陪洗 20 秒；不每餐重問。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "依預選規則開個人 Focus 到用餐截止。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "若預先選陪洗，啟動系統 20 秒計時器。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "顯示餐前小流程；洗手本人確認與 HealthKit 事件各自標來源。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "想餵派大星時才呼叫現有 feed；人的吃飯與角色投餵分開。",
+          "state": "已有App入口"
+        }
+      ],
+      "benefit": "真正减少吃飯時的打擾，也讓洗手有可選的小節奏。",
+      "fallback": "不讀健康資料也能用系統計時与手動完成；沒有紀錄不阻止開飯。",
+      "limits": "計時結束不證明洗乾淨，不從角色投餵寫人的飲食或熱量紀錄。",
+      "art": "廚師帽、餐巾領結、端飯盒、擦嘴。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "捷徑的鬧鐘、計時器、音量與相機動作",
+          "url": "https://support.apple.com/en-kg/111098"
+        },
+        {
+          "title": "Apple 洗手功能",
+          "url": "https://support.apple.com/guide/watch/set-up-handwashing-apdc9b9f04a8/watchos"
+        }
+      ]
+    },
+    {
+      "id": "bath",
+      "title": "我要洗澡：先放好裝置再開始",
+      "phrase": "Siri，派大星洗澡",
+      "group": "生活習慣",
+      "trigger": "一次選浴室手機 NFC、可選短計時與相容燈光；不需要戴錶洗。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "依預選規則開短暫個人 Focus；需要時間提醒時啟動系統計時器。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "呼叫現有 bath 情境；固定衣服缺動作時保留文字，不偷換其他造型。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "選配工具",
+          "action": "最後設定已選的浴室 Home 燈光；不用配件就略過。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "「我洗好了」只結束本流程，提供擦乾、穿睡衣或回原任務的下一步。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "把裝置放在乾燥處仍能啟動泡泡情境，不拿感測猜洗澡。",
+      "fallback": "沒貼紙可語音或點按；App失敗不影響已設定的 Focus／系統計時。",
+      "limits": "不偵測泡澡、不自動開熱水或鎖門；Apple 有熱水、肥皂等使用限制，流程不要求戴錶入浴。",
+      "art": "泡泡、浴帽、毛巾包頭、不同浴袍。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "Focus、充電與 NFC 觸發",
+          "url": "https://support.apple.com/guide/shortcuts/apde31e9638b/9.0/ios/26"
+        },
+        {
+          "title": "Home 場景與自動化",
+          "url": "https://support.apple.com/en-gb/102313"
+        },
+        {
+          "title": "Apple Watch 防水使用範圍",
+          "url": "https://support.apple.com/en-us/109522"
+        }
+      ]
+    },
+    {
+      "id": "movie",
+      "title": "看電影：少打擾，收尾不亂改",
+      "phrase": "Siri，派大星電影",
+      "group": "放鬆與娛樂",
+      "trigger": "一次選電影 Focus、播放入口；媒體音量可選，預設不改亮度與音量。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "開啟電影 Focus，沿用允許聯絡人設定。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "打開預先指定的影片 App；只在該 App 提供動作時才選定內容。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "選用調暗／媒體音量前，先保存原值與本次改動憑證；收尾僅在沒有使用者後續更改且可確認時還原，否則不改。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "派大星捧爆米花後安靜陪坐；本流程的「散場」不會停止其他 App 的全部播放。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "一個入口處理真正通知環境，結束時尊重你中途調過的設定。",
+      "fallback": "不具可靠還原機制就不自動改亮度／音量；用系統 Focus 加影片入口仍可完成核心流程。",
+      "limits": "安全還原未實作；不控制任意影音 App、不把手機 Focus 當成 Watch 劇院模式已開，也不動鬧鐘音量。",
+      "art": "電影眼鏡、爆米花桶、認真看戲、低調偷笑。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "捷徑的鬧鐘、計時器、音量與相機動作",
+          "url": "https://support.apple.com/en-kg/111098"
+        },
+        {
+          "title": "裝置狀態與媒體播放捷徑動作",
+          "url": "https://support.apple.com/en-my/101583"
+        },
+        {
+          "title": "Siri 控制裝置設定與 Home",
+          "url": "https://support.apple.com/en-mide/guide/iphone/iph6d2882a8f/ios"
+        }
+      ]
+    },
+    {
+      "id": "photo",
+      "title": "幫我拍照：存好了才眨眼",
+      "phrase": "Siri，派大星拍照",
+      "group": "放鬆與娛樂",
+      "trigger": "一次選前／後鏡頭、倒數秒數及保存相簿；首次相機／照片權限仍需本人准許。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "可先用 Open Camera 開指定拍攝模式，或既有 Take Photo 動作。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "自家手機相機頁與 Watch 遙控以同一請求 ID 接收、拍攝、保存三階段結果。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "只有相簿保存回覆成功，派大星才顯示「存好了」並眨眼；重試先查狀態不連拍。",
+          "state": "待開發"
+        },
+        {
+          "owner": "使用者確認",
+          "action": "鏡頭朝向與構圖由本人決定；新權限或手機解鎖要求不能跳過。",
+          "state": "需一次設定"
+        }
+      ],
+      "benefit": "手錶上的回應能表示照片真的保存，而不是只表示命令送出。",
+      "fallback": "自家遙控未完成前打開系統 Camera／Camera Remote；不宣稱已有保存回執。",
+      "limits": "完整三階段流程待開發；不能控制任意相機 App，裝置斷線不補執行過期快門。",
+      "art": "攝影背心、墨鏡、場記板、伸手數三二一。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "捷徑的鬧鐘、計時器、音量與相機動作",
+          "url": "https://support.apple.com/en-kg/111098"
+        },
+        {
+          "title": "裝置狀態與媒體播放捷徑動作",
+          "url": "https://support.apple.com/en-my/101583"
+        },
+        {
+          "title": "相機拍攝完成回覆",
+          "url": "https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate"
+        },
+        {
+          "title": "相簿保存完成回覆",
+          "url": "https://developer.apple.com/documentation/photos/phphotolibrary/performchanges(_:completionhandler:)"
+        }
+      ]
+    },
+    {
+      "id": "travel",
+      "title": "我要旅行：保留香港時間與當地意圖",
+      "phrase": "Siri，派大星旅行",
+      "group": "出門與旅行",
+      "trigger": "一次選旅遊清單、出發資料與作息跟當地或香港；鬧鐘另指定時間／時區。",
+      "steps": [
+        {
+          "owner": "派大星",
+          "action": "套用旅行清單並顯示目的地時區；現有倒數保留實際剩餘秒數。",
+          "state": "待開發"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "打開已保存的地圖、登機資料或筆記入口；不自行訂票。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "若日後時區改變，依預選政策呈現作息；只有確切且再次適用的指定鬧鐘才調整。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "選已有清醒／睡前情境；旅人造型只在已備素材且使用者選用時呈現。",
+          "state": "已有App入口"
+        }
+      ],
+      "benefit": "跨時區時不讓二十分鐘倒數忽然變長，也不混淆哪個早上要起床。",
+      "fallback": "資料缺失就顯示保存的行程；鬧鐘時間或時區不明就不新設，保留原鬧鐘。",
+      "limits": "旅行狀態與跨日去重待開發；不改系統時區、機票、會議或用藥安排，不推斷時差病。",
+      "art": "行李箱、旅人帽、明信片、飯店睡衣。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "Foundation 時區",
+          "url": "https://developer.apple.com/documentation/foundation/nstimezone"
+        },
+        {
+          "title": "捷徑的鬧鐘、計時器、音量與相機動作",
+          "url": "https://support.apple.com/en-kg/111098"
+        },
+        {
+          "title": "Siri 控制裝置設定與 Home",
+          "url": "https://support.apple.com/en-mide/guide/iphone/iph6d2882a8f/ios"
+        }
+      ]
+    },
+    {
+      "id": "phone-low-power",
+      "title": "手機快沒電：先保住通信",
+      "phrase": "Siri，派大星省電",
+      "group": "裝置與節奏",
+      "trigger": "一次選手機低電閾值或手動入口；不把它當 Watch 電量。",
+      "steps": [
+        {
+          "owner": "使用者確認",
+          "action": "在手機捷徑建立 Battery Level 觸發與低耗電動作；是否自動執行由本人預先設定。",
+          "state": "需一次設定"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "開啟手機低耗電模式；核心設定先於其他 App。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "以帶裝置名稱／時間戳的事件告訴派大星「手機低電」，縮短自己的非必要演出。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "充電後只更新本次低電提示；不擅自恢復用戶後來更改的亮度、音量或低耗電設定。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "先做真正省電操作，再讓角色配合，不只演一段沒電動畫。",
+      "fallback": "若App或Watch沒收到，手機低耗電仍保持已成功設定；Watch狀態單列未知。",
+      "limits": "低耗電是手機系統功能，不代表遠端能改 Watch 低耗電；恢復策略與事件接收器待開發。",
+      "art": "抱電池枕、打節能小旗、縮短動作後安静坐好。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "手機低耗電模式",
+          "url": "https://support.apple.com/en-us/101604"
+        },
+        {
+          "title": "Focus、充電與 NFC 觸發",
+          "url": "https://support.apple.com/guide/shortcuts/apde31e9638b/9.0/ios/26"
+        },
+        {
+          "title": "個人自動化與免逐次詢問條件",
+          "url": "https://support.apple.com/guide/shortcuts/add-automations-apdfbdbd7123/ios"
+        }
+      ]
+    },
+    {
+      "id": "watch-charge",
+      "title": "讓手錶充一會，離開前拿回來",
+      "phrase": "Siri，派大星充電",
+      "group": "裝置與節奏",
+      "trigger": "一次選下次要戴錶的時刻或預設 20 分鐘提醒；由本人把 Watch 放上充電器。",
+      "steps": [
+        {
+          "owner": "使用者確認",
+          "action": "設定本流程自己的拿錶提醒時刻；沒有明確時間就用已選的系統倒數。",
+          "state": "需一次設定"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "啟動系統計時器作拿回手錶提醒，不以 App 常駐維持倒數。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "Watch App 前景可讀自身實際充電狀態並顯示現有充電情境。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "派大星",
+          "action": "手機端只顯示最後一次 Watch 回覆與時間；提醒到時顯示「去看看手錶」，不宣稱已充滿。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "充電和拿回來是一件完整的事，睡前或出門不容易漏掉。",
+      "fallback": "Watch 未在前景或沒有新資料，就保留手機提醒，充電狀態顯示未知。",
+      "limits": "不能遠端保證開始充電、充滿百分比或充電速度；不把手機 Charger 觸發當 Watch 的充電事件。",
+      "art": "維修工、電池枕、前景泡泡充電艙。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "Watch 自身電池監測",
+          "url": "https://developer.apple.com/documentation/watchkit/wkinterfacedevice/isbatterymonitoringenabled"
+        },
+        {
+          "title": "捷徑的鬧鐘、計時器、音量與相機動作",
+          "url": "https://support.apple.com/en-kg/111098"
+        },
+        {
+          "title": "Focus、充電與 NFC 觸發",
+          "url": "https://support.apple.com/guide/shortcuts/apde31e9638b/9.0/ios/26"
+        }
+      ]
+    },
+    {
+      "id": "cooking",
+      "title": "開始煮飯：每道菜都有自己的時間",
+      "phrase": "Siri，派大星煮飯",
+      "group": "生活習慣",
+      "trigger": "一次存好常用菜譜及各段明確時長；需要新菜時另選，不臨時猜火候。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "打開預先保存的食譜或筆記。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "系統捷徑",
+          "action": "按該食譜已確認的時長建立有名稱的系統計時器；保留其他計時。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "派大星",
+          "action": "派大星顯示這一步、剩多久、下一步；每次重試對應同一段，不再開第二個重複鬧鈴。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "可選現有廚師造型與投餵互動，人的烹飪進度另記。",
+          "state": "已有App入口"
+        }
+      ],
+      "benefit": "雙手忙時仍能一句話找食譜、開正確計時、接下一步。",
+      "fallback": "沒有預設食譜或時長就只打開食譜；不擅自建立含糊倒數。",
+      "limits": "不控制爐具或自動煮食；倒數到不代表食物已熟。食譜分段接續和防重待開發。",
+      "art": "廚師帽、圍裙、拿勺子看表、端鍋但不假造新動畫。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "捷徑的鬧鐘、計時器、音量與相機動作",
+          "url": "https://support.apple.com/en-kg/111098"
+        },
+        {
+          "title": "Siri 控制裝置設定與 Home",
+          "url": "https://support.apple.com/en-mide/guide/iphone/iph6d2882a8f/ios"
+        }
+      ]
+    },
+    {
+      "id": "commute",
+      "title": "坐車回家：把路上留給自己",
+      "phrase": "Siri，派大星通勤",
+      "group": "出門與旅行",
+      "trigger": "一次選公共交通通勤入口、安靜偏好與播放內容；駕車另用系統 Driving 規則。",
+      "steps": [
+        {
+          "owner": "系統捷徑",
+          "action": "開啟預先設定的通勤 Focus，打開固定地圖／交通 App 入口。",
+          "state": "可用系統動作"
+        },
+        {
+          "owner": "選配工具",
+          "action": "只呼叫已提供捷徑的音樂／播客動作；未選內容或沒有服務就略過。",
+          "state": "需一次設定"
+        },
+        {
+          "owner": "派大星",
+          "action": "派大星保留回家待辦一張卡，抵達回報後接居家流程；不反覆打斷。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "播放停止、抵達、App前景是不同事件，依真正來源分開記錄，不互相冒充。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "通勤時少翻幾個App，到了家接得回生活清單。",
+      "fallback": "地圖／媒體離線就保留Focus與保存地址；到家可手動回報。",
+      "limits": "不因 Focus 判斷正在開車或到家；不自動發送行程給別人，也不讀任意交通 App 內部資料。",
+      "art": "耳機、旅人帽、車票夾、窗邊打盹。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "裝置狀態與媒體播放捷徑動作",
+          "url": "https://support.apple.com/en-my/101583"
+        },
+        {
+          "title": "Siri 控制裝置設定與 Home",
+          "url": "https://support.apple.com/en-mide/guide/iphone/iph6d2882a8f/ios"
+        },
+        {
+          "title": "個人自動化與免逐次詢問條件",
+          "url": "https://support.apple.com/guide/shortcuts/add-automations-apdfbdbd7123/ios"
+        }
+      ]
+    },
+    {
+      "id": "restore-routine",
+      "title": "照原來的作息：把 App 改回自動",
+      "phrase": "Siri，派大星恢復作息",
+      "group": "睡眠與早晨",
+      "trigger": "一次選定「恢復原作息」入口；它把 App 情境設為 automatic，預設保留系統 Focus。",
+      "steps": [
+        {
+          "owner": "派大星",
+          "action": "呼叫「套用派大星生活流程：恢復原作息」(.automatic，本輪新增，待 Apple 驗證與安裝)，把 App 情境改為自動，再由既有規則決定情境；不是回滾歷史設定。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "派大星",
+          "action": "這個新入口保留固定衣服、音效偏好及現有計時；只套用 automatic，不聲稱已識別先前覆寫來自哪個流程。",
+          "state": "已有App入口"
+        },
+        {
+          "owner": "派大星",
+          "action": "Focus 來源追蹤護欄尚未開發，預設不關閉。Get Current Focus 同名無法識別建立者；本人明確指定要關哪個 Focus，是另外的直接操作。",
+          "state": "待開發"
+        },
+        {
+          "owner": "派大星",
+          "action": "亮度／媒體音量僅在原值憑證有效且能確認之後未被使用者改過時還原；否則回報保留，不猜。",
+          "state": "待開發"
+        }
+      ],
+      "benefit": "臨時早起、小睡或夜班結束後，有一個清楚入口回到原有規則。",
+      "fallback": "沒有可靠來源／原值就保留系統现況；App 僅做已指定的 automatic 轉換，不推斷歷史狀態。",
+      "limits": "不是恢復所有系統設定或有來源的歷史 rollback；Focus 來源追蹤及亮度／媒體音量安全還原未實作。自動作息不證明人在睡覺。",
+      "art": "收好行李／枕頭、翻回日常日曆、平靜點頭。",
+      "sources": [
+        {
+          "title": "用 Siri 執行捷徑",
+          "url": "https://support.apple.com/en-ca/guide/iphone/iph0193a9d54/ios"
+        },
+        {
+          "title": "設定 Focus 與跨裝置共享",
+          "url": "https://support.apple.com/guide/iphone/set-up-a-focus-iphd6288a67f/ios"
+        },
+        {
+          "title": "裝置狀態與媒體播放捷徑動作",
+          "url": "https://support.apple.com/en-my/101583"
+        },
+        {
+          "title": "睡眠排程與睡眠專注",
+          "url": "https://support.apple.com/en-gb/108906"
+        }
+      ]
+    }
+  ]
+}

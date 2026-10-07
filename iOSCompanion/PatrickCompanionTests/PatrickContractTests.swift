@@ -2,6 +2,95 @@ import XCTest
 @testable import PatrickCompanion
 
 final class PatrickContractTests: XCTestCase {
+    func testLifestylePreservesFixedOutfitSoundCareAndRunningOrPausedActivity() throws {
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
+        for outfit in ["auto", "mint-pajama"] {
+            for paused in [false, true] {
+                for flow in [PatrickLifestyleChoice.goodNight, .goodMorning, .restoreSchedule] {
+                    var state = PatrickExperienceState()
+                    state.settings.outfitID = outfit
+                    state.settings.scene = .celebrate
+                    state.settings.soundEnabled = true
+                    state.settings.sleepStartMinutes = 1380
+                    state.settings.sleepEndMinutes = 420
+                    state.start(.running, seconds: 600, at: now)
+                    if paused { state.pause(at: now.addingTimeInterval(30)) }
+                    let before = state
+                    var settings = PatrickSettings.defaults
+                    settings.experience = state
+                    let result = try XCTUnwrap(PatrickSleepModeMutation.applying(flow.sleepMode, to: settings,
+                        experience: state, at: now.addingTimeInterval(31)))
+                    let applied = try XCTUnwrap(result.experience)
+                    var expectedPreferences = before.settings
+                    expectedPreferences.scene = flow == .goodNight ? .sleeping : flow == .goodMorning ? .awake : .automatic
+                    XCTAssertEqual(applied.settings, expectedPreferences)
+                    XCTAssertEqual(result.sleepMode, flow.sleepMode)
+                    XCTAssertEqual(applied.activity, before.activity, "A routine cannot cancel, resume or complete an existing activity")
+                    XCTAssertEqual(applied.care, before.care)
+                    XCTAssertEqual(applied.journal, before.journal)
+                    XCTAssertEqual(applied.processedActionIDs, before.processedActionIDs)
+                    XCTAssertEqual(applied.calendarCelebrationKeys, before.calendarCelebrationKeys)
+                    XCTAssertEqual(applied.surprise, before.surprise)
+                    XCTAssertEqual(applied.revision, before.revision + 1)
+                    XCTAssertEqual(result.revision, settings.revision + 1)
+                }
+            }
+        }
+    }
+
+    func testLifestyleEarlyMorningOverrideDiffersFromRestoringSchedule() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = try XCTUnwrap(TimeZone(secondsFromGMT: 0))
+        let now = try XCTUnwrap(calendar.date(from: DateComponents(year: 2026, month: 10, day: 7, hour: 5)))
+        var state = PatrickExperienceState()
+        state.settings.scene = .sleeping
+        state.settings.sleepStartMinutes = 1320
+        state.settings.sleepEndMinutes = 360
+        XCTAssertTrue(state.settings.isSleepTime(now, calendar: calendar), "The 05:00 fixture is still inside the configured sleep window")
+        var settings = PatrickSettings.defaults
+        settings.sleepMode = .on
+        settings.experience = state
+        let morning = try XCTUnwrap(PatrickSleepModeMutation.applying(PatrickLifestyleChoice.goodMorning.sleepMode,
+            to: settings, experience: state, at: now))
+        XCTAssertEqual(morning.sleepMode, .off)
+        XCTAssertEqual(morning.experience?.settings.scene, .awake, "Explicit early waking must not remain in automatic sleep")
+        let restored = try XCTUnwrap(PatrickSleepModeMutation.applying(PatrickLifestyleChoice.restoreSchedule.sleepMode,
+            to: morning, experience: try XCTUnwrap(morning.experience), at: now.addingTimeInterval(1)))
+        XCTAssertEqual(restored.sleepMode, .automatic)
+        XCTAssertEqual(restored.experience?.settings.scene, .automatic)
+        XCTAssertEqual(restored.experience?.settings.sleepStartMinutes, 1320)
+        XCTAssertEqual(restored.experience?.settings.sleepEndMinutes, 360)
+        XCTAssertTrue(try XCTUnwrap(restored.experience).settings.isSleepTime(now, calendar: calendar))
+    }
+
+    func testLifestyleRepeatIsIdempotentAfterPersistenceAndHasNoActionPayload() throws {
+        let suiteName = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suiteName)!
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+        let store = PatrickSharedStore(defaults: defaults)
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
+        for mode in [PatrickSleepMode.on, .off, .automatic] {
+            let current = store.loadSettings()
+            let applied = try XCTUnwrap(PatrickSleepModeMutation.applying(mode, to: current,
+                experience: store.loadExperience(), at: now))
+            store.saveExperience(try XCTUnwrap(applied.experience))
+            store.saveSettings(applied)
+            let reopened = PatrickSharedStore(defaults: defaults)
+            XCTAssertEqual(reopened.loadSettings(), applied)
+            XCTAssertNil(PatrickSleepModeMutation.applying(mode, to: reopened.loadSettings(),
+                experience: reopened.loadExperience(), at: now.addingTimeInterval(60)), "Repeating a preset must not write a revision or send a new command")
+            let payload = PatrickCommandPayload(name: .setSleepMode, sleepMode: mode)
+            let wire = try PatrickMessageEnvelope.decode(PatrickMessageEnvelope.command(payload, settings: applied).encoded())
+            XCTAssertEqual(wire.command?.name, .setSleepMode)
+            XCTAssertEqual(wire.command?.sleepMode, mode)
+            XCTAssertNil(wire.command?.careAction)
+            XCTAssertNil(wire.command?.automationEvent)
+            XCTAssertNil(wire.command?.timer)
+            XCTAssertNil(wire.command?.deepLink)
+            XCTAssertEqual(wire.settings?.experience, applied.experience)
+        }
+    }
+
     func testAutomationReceiptSurvivesReloadWithoutRestoringPlaybackPermission() throws {
         let suiteName = "PatrickContractTests.\(UUID().uuidString)"
         let defaults = UserDefaults(suiteName: suiteName)!

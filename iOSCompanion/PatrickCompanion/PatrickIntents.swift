@@ -29,6 +29,7 @@ struct SetPatrickSleepModeIntent: AppIntent {
     static var description = IntentDescription(
         "Sets automatic, on, or off sleep behavior in the Patrick apps."
     )
+    static var openAppWhenRun = false
 
     @Parameter(title: "Mode")
     var mode: PatrickSleepIntentChoice
@@ -79,6 +80,7 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
         AppShortcut(intent: PatrickTimerIntent(), phrases: ["開始\(.applicationName)陪伴計時"], shortTitle: "陪伴計時", systemImageName: "timer")
         AppShortcut(intent: PatrickTimerControlIntent(), phrases: ["控制\(.applicationName)陪伴計時"], shortTitle: "控制陪伴計時", systemImageName: "pause.circle")
         AppShortcut(intent: PatrickAutomationIntent(), phrases: ["向\(.applicationName)回報起床"], shortTitle: "起床與鬧鐘回報", systemImageName: "sun.max.fill")
+        AppShortcut(intent: PatrickLifestyleIntent(), phrases: ["套用\(.applicationName)生活流程"], shortTitle: "生活流程", systemImageName: "sun.and.horizon.fill")
 
         AppShortcut(
             intent: SetPatrickSleepModeIntent(),
@@ -109,25 +111,40 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
     }
 }
 
+/// One state transition for both the legacy sleep action and composed routines.
+/// No event, reward, timer control, sound request or fixed-outfit override.
+enum PatrickSleepModeMutation {
+    static func applying(_ mode: PatrickSleepMode, to settings: PatrickSettings,
+                         experience: PatrickExperienceState, at date: Date = .now) -> PatrickSettings? {
+        let scene: PatrickExperienceScene = mode == .automatic ? .automatic : (mode == .on ? .sleeping : .awake)
+        var nextExperience = experience
+        if nextExperience.settings.scene != scene {
+            nextExperience.settings.scene = scene
+            nextExperience.changed(at: date)
+        }
+        guard settings.sleepMode != mode || settings.experience != nextExperience else { return nil }
+        var next = settings
+        next.sleepMode = mode
+        next.experience = nextExperience
+        return next.nextRevision(at: date)
+    }
+}
+
 private enum PatrickIntentExecutor {
     static let store = PatrickSharedStore.shared
 
-    static func setSleepMode(_ mode: PatrickSleepMode) async -> PatrickSettings {
-        var experience = store.loadExperience()
-        experience.settings.scene = mode == .automatic ? .automatic : (mode == .on ? .sleeping : .awake)
-        experience.changed(); store.saveExperience(experience)
-        let settings = store.updateSettings { $0.sleepMode = mode; $0.experience = experience }
-        await MainActor.run {
-            WatchSyncService.shared.send(
-                command: PatrickCommandPayload(
-                    name: .setSleepMode,
-                    sleepMode: mode,
-                    deepLink: PatrickDeepLinkRoute.setSleepMode(mode).url
-                ),
-                settings: settings
-            )
-            WidgetCenter.shared.reloadAllTimelines()
-        }
+    @MainActor static func setSleepMode(_ mode: PatrickSleepMode) -> PatrickSettings {
+        let current = store.loadSettings()
+        guard let settings = PatrickSleepModeMutation.applying(mode, to: current, experience: store.loadExperience())
+        else { return current }
+        if let experience = settings.experience { store.saveExperience(experience) }
+        store.saveSettings(settings)
+        WatchSyncService.shared.send(
+            command: PatrickCommandPayload(name: .setSleepMode, sleepMode: mode),
+            settings: settings
+        )
+        WidgetCenter.shared.reloadAllTimelines()
+        NotificationCenter.default.post(name: .patrickExperienceChanged, object: nil)
         return settings
     }
 
@@ -158,6 +175,42 @@ private enum PatrickIntentExecutor {
         await MainActor.run {
             WatchSyncService.shared.send(command: command, settings: settings)
         }
+    }
+}
+
+enum PatrickLifestyleChoice: String, AppEnum {
+    case goodNight, goodMorning, restoreSchedule
+    static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "生活流程")
+    static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [
+        .goodNight: "晚安", .goodMorning: "早安", .restoreSchedule: "恢復原作息"
+    ]
+    var sleepMode: PatrickSleepMode {
+        switch self {
+        case .goodNight: .on
+        case .goodMorning: .off
+        case .restoreSchedule: .automatic
+        }
+    }
+}
+
+struct PatrickLifestyleIntent: AppIntent {
+    static var title: LocalizedStringResource = "套用派大星生活流程"
+    static var description = IntentDescription("接在你自己的組合捷徑裡：晚安套用睡前，早安保持清醒至下次設定，恢復原作息則依原有時段。只設定派大星，不切換系統專注、不設鬧鐘、不取消計時；保留固定服裝與音效偏好，不要求播放或強制開啟 App。")
+    static var openAppWhenRun = false
+    @Parameter(title: "流程", default: .goodNight) var flow: PatrickLifestyleChoice
+    static var parameterSummary: some ParameterSummary { Summary("套用派大星\(\.$flow)流程") }
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        _ = await PatrickIntentExecutor.setSleepMode(flow.sleepMode)
+        let message: String
+        switch flow {
+        case .goodNight:
+            message = "派大星準備好了；系統睡眠專注由組合捷徑設定。"
+        case .goodMorning:
+            message = "派大星已設為清醒，會保持至下次設定；需要依原有時段切換時，請選恢復原作息。系統睡眠專注由組合捷徑關閉。"
+        case .restoreSchedule:
+            message = "派大星已恢復原作息；系統睡眠專注仍由你或組合捷徑設定。"
+        }
+        return .result(dialog: "\(message)")
     }
 }
 
