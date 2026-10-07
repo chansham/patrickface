@@ -1,6 +1,7 @@
 import SwiftUI
 import WidgetKit
 import Combine
+import WatchKit
 
 @MainActor
 final class PatrickAppModel: ObservableObject {
@@ -17,6 +18,10 @@ final class PatrickAppModel: ObservableObject {
     @Published private(set) var completedActivityID: String?
     @Published private(set) var calendarCelebrationSequence = 0
     @Published private(set) var careNotice = "今天也陪著你"
+    @Published private(set) var automationSequence = 0
+    private var requestedAutomation: PatrickAutomationEvent?
+    private var automationGate = PatrickAutomationGate(receivedIDs:
+        (PatrickSharedStore.defaults.stringArray(forKey: PatrickAutomationGate.storageKey) ?? []).compactMap(UUID.init(uuidString:)))
 
     private let companion: PatrickWatchReceiver
     private static let sceneKey = "patrick.pet-scene.v1"
@@ -73,6 +78,35 @@ final class PatrickAppModel: ObservableObject {
         persistExperience()
     }
 
+    func setAutomationPresentationActive(_ active: Bool, at date: Date = .now) {
+        automationGate.setPresentationActive(active, at: date)
+        if !active { requestedAutomation = nil }
+    }
+
+    func reportWakeUp(allowEffects: Bool = true) {
+        let event = PatrickAutomationEvent(kind: .wakeUp, source: .manual)
+        guard experience.recordAutomation(event) else { return }
+        persistExperience(automationEvent: event)
+        if !allowEffects { setAutomationPresentationActive(false) }
+        receiveAutomation(event)
+    }
+
+    private func receiveAutomation(_ event: PatrickAutomationEvent) {
+        if WKExtension.shared().applicationState != .active { setAutomationPresentationActive(false) }
+        let result = automationGate.consume(event)
+        PatrickSharedStore.defaults.set(automationGate.receivedIDs.map(\.uuidString), forKey: PatrickAutomationGate.storageKey)
+        guard result != .duplicate && result != .invalid else { return }
+        careNotice = event.journalText
+        if result == .play { requestedAutomation = event; automationSequence &+= 1 }
+    }
+
+    func takeAutomationForPlayback() -> PatrickAutomationEvent? {
+        defer { requestedAutomation = nil }
+        guard let event = requestedAutomation, WKExtension.shared().applicationState == .active,
+              automationGate.allowsPlayback(event) else { return nil }
+        return event
+    }
+
     @discardableResult
     func findSurprise() -> Bool {
         guard let line = experience.findSurprise() else { careNotice = "小驚喜歇一分鐘，再來看看"; return false }
@@ -95,9 +129,9 @@ final class PatrickAppModel: ObservableObject {
         persistExperience()
     }
 
-    private func persistExperience() {
+    private func persistExperience(automationEvent: PatrickAutomationEvent? = nil) {
         experience.save(to: PatrickSharedStore.defaults)
-        companion.sendSnapshot(theme: theme, experience: experience)
+        companion.sendSnapshot(theme: theme, experience: experience, automationEvent: automationEvent)
         WidgetCenter.shared.reloadTimelines(ofKind: PatrickSharedStore.complicationKind)
     }
 
@@ -145,6 +179,7 @@ final class PatrickAppModel: ObservableObject {
             activationSequence &+= 1
             careNotice = "手機已送來\(action.title)"
         }
+        if let event = update.automationEvent { receiveAutomation(event) }
         if update.playSound { soundSequence &+= 1 }
         if let theme = update.theme, theme != self.theme {
             self.theme = theme

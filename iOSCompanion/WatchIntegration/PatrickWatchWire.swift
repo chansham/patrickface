@@ -110,6 +110,7 @@ enum PatrickWatchWire {
         var timer: TimerSnapshot?
         var deepLink: URL?
         var careAction: PatrickCareAction?
+        var automationEvent: PatrickAutomationEvent? = nil
     }
 
     struct Acknowledgement: Codable, Equatable, Sendable {

@@ -48,6 +48,8 @@ import SwiftUI
                         }
                     }
                     Button("找個小驚喜", action: findSurprise).buttonStyle(.bordered)
+                    Button("我起床了") { model.reportWakeUp() }.buttonStyle(.bordered)
+                    Text("起床回報只記錄這一刻，作息與衣服維持你的選擇。").font(.caption).foregroundStyle(.secondary)
                     if let surprise = model.experience.surprise { Text(surprise.line).font(.callout).multilineTextAlignment(.center) }
                     HStack { Text("飽足 \(Int(model.experience.care.satiety.rounded()))"); Spacer(); Text("親密 \(model.experience.care.bond)") }
                     Picker("角色心情", selection: setting(\.mood)) { ForEach(PatrickMood.allCases) { Text($0.title).tag($0) } }
@@ -101,6 +103,7 @@ import SwiftUI
         .onDisappear {
             visible = false; _ = completionVisibility.update(allowsMotion: false)
             model.setSoundPresentationActive(false)
+            model.setAutomationPresentationActive(false)
             surpriseExpiresAt = nil; player.suspend(); feedback.stop()
         }
         .onChange(of: scenePhase) { _, _ in configure(); if !active { feedback.stop() } }
@@ -116,6 +119,10 @@ import SwiftUI
             configure(); if next == .bath || next == .celebrate { player.playEvent(next.rawValue) }
         }
         .onChange(of: model.calendarCelebrationSequence) { _, _ in player.playEvent("celebrate") }
+        .onChange(of: model.automationSequence) { _, _ in
+            configure()
+            if let event = model.takeAutomationForPlayback() { player.playEvent(event.clipKey) }
+        }
         .onChange(of: model.actionSequence) { _, _ in
             if let action = model.requestedCare {
                 player.playEvent(action.clipID)
@@ -154,6 +161,7 @@ import SwiftUI
     }
     private func configure() {
         let allowsMotion = active && !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled
+        model.setAutomationPresentationActive(allowsMotion)
         model.setSoundPresentationActive(allowsMotion && model.experience.settings.soundEnabled)
         if !completionVisibility.update(allowsMotion: allowsMotion) {
             model.refreshExperience(allowEffects: false, observeCalendar: false)

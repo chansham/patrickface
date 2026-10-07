@@ -48,6 +48,8 @@
 		F7824A4125937737C86AF097 /* Animation in Resources */ = {isa = PBXBuildFile; fileRef = F69EF6BB897261BE75DAF869 /* Animation */; };
 		F75992FAFD5888FBAC0EB0C3 /* Experience in Resources */ = {isa = PBXBuildFile; fileRef = F6DFE881D2E8F44FC8BB8BAC /* Experience */; };
 		F7EB608A30DD483F788EA333 /* PatrickClockArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E4BD1F7B4E139AFBEF425 /* PatrickClockArtwork.swift */; };
+		7057479EBDD0862784419424 /* PatrickAutomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848DA14948C2FC07B1511C3 /* PatrickAutomation.swift */; };
+		660B08A6CDDCD6C0EC22C694 /* PatrickAutomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848DA14948C2FC07B1511C3 /* PatrickAutomation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,7 @@
 		F69EF6BB897261BE75DAF869 /* Animation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "PatrickCompanion/Animation"; sourceTree = SOURCE_ROOT; };
 		F6DFE881D2E8F44FC8BB8BAC /* Experience */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "PatrickCompanion/Experience"; sourceTree = SOURCE_ROOT; };
 		F61E4BD1F7B4E139AFBEF425 /* PatrickClockArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickClockArtwork.swift"; sourceTree = SOURCE_ROOT; };
+		5848DA14948C2FC07B1511C3 /* PatrickAutomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickAutomation.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +243,7 @@
 				F6F21CB4B1989EF71A5E51C8 /* PatrickAnimationPolicy.swift */,
 				F6D98A2BC5926252F1345D25 /* PatrickAnimationCatalog.swift */,
 				F67D6B3E2E6AE1EA664A51A6 /* PatrickExperienceResources.swift */,
+				5848DA14948C2FC07B1511C3 /* PatrickAutomation.swift */,
 				F65A8870EE845846037B7950 /* PatrickExperience.swift */,
 				C00000000000000000000100 /* PatrickModels.swift */,
 				C00000000000000000000101 /* PatrickMessageSchema.swift */,
@@ -482,6 +486,7 @@
 				F76E798710D25DDEDB495F15 /* PatrickAnimationPolicy.swift in Sources */,
 				F7EB6295FD1B3A0A269A41EF /* PatrickAnimationCatalog.swift in Sources */,
 				F7C2341767980E24A2529D5D /* PatrickExperienceResources.swift in Sources */,
+				7057479EBDD0862784419424 /* PatrickAutomation.swift in Sources */,
 				F7F4432FD62CD9DA69F1931A /* PatrickExperience.swift in Sources */,
 				C00000000000000000000200 /* PatrickModels.swift in Sources */,
 				C00000000000000000000201 /* PatrickMessageSchema.swift in Sources */,
@@ -506,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				660B08A6CDDCD6C0EC22C694 /* PatrickAutomation.swift in Sources */,
 				F7832EFF434E004388817C78 /* PatrickExperience.swift in Sources */,
 				C00000000000000000000220 /* PatrickModels.swift in Sources */,
 				C00000000000000000000222 /* PatrickDeepLink.swift in Sources */,

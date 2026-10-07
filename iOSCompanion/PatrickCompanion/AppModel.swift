@@ -21,6 +21,9 @@ final class AppModel: ObservableObject {
     @Published private(set) var requestedCare: PatrickCareAction?
     @Published private(set) var completedActivityID: String?
     @Published private(set) var calendarCelebrationSequence = 0
+    @Published private(set) var automationSequence = 0
+    private var requestedAutomation: PatrickAutomationEvent?
+    private var automationGate: PatrickAutomationGate
 
     let watchSync: WatchSyncService
     let activityController: PatrickActivityController
@@ -47,6 +50,7 @@ final class AppModel: ObservableObject {
         activityController: PatrickActivityController
     ) {
         self.store = store
+        self.automationGate = PatrickAutomationGate(receivedIDs: store.loadAutomationReceiptIDs())
         self.watchSync = watchSync
         self.activityController = activityController
         let environment = ProcessInfo.processInfo.environment
@@ -78,6 +82,15 @@ final class AppModel: ObservableObject {
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
                 Task { @MainActor in self?.becameActive() }
+            }.store(in: &cancellables)
+
+        NotificationCenter.default.publisher(for: .patrickAutomationReceived)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] notification in
+                guard let event = notification.object as? PatrickAutomationEvent else { return }
+                self?.settings = store.loadSettings()
+                self?.experience = store.loadExperience()
+                self?.receiveAutomation(event)
             }.store(in: &cancellables)
 
         NotificationCenter.default.publisher(for: .patrickPendingActionsChanged)
@@ -113,6 +126,34 @@ final class AppModel: ObservableObject {
         requestedCare = action; actionSequence &+= 1
         saveExperience(action: action)
         notice = "\(action.title) · 飽足 \(Int(experience.care.satiety.rounded())) · 親密 \(experience.care.bond)"
+    }
+
+    func setAutomationPresentationActive(_ active: Bool) {
+        automationGate.setPresentationActive(active)
+        if !active { requestedAutomation = nil }
+    }
+
+    func reportWakeUp() {
+        let event = PatrickAutomationEvent(kind: .wakeUp, source: .manual)
+        guard experience.recordAutomation(event) else { return }
+        saveExperience(automationEvent: event)
+        receiveAutomation(event)
+    }
+
+    private func receiveAutomation(_ event: PatrickAutomationEvent) {
+        if UIApplication.shared.applicationState != .active { setAutomationPresentationActive(false) }
+        let result = automationGate.consume(event)
+        store.saveAutomationReceiptIDs(automationGate.receivedIDs)
+        guard result != .duplicate && result != .invalid else { return }
+        notice = event.journalText
+        if result == .play { requestedAutomation = event; automationSequence &+= 1 }
+    }
+
+    func takeAutomationForPlayback() -> PatrickAutomationEvent? {
+        defer { requestedAutomation = nil }
+        guard let event = requestedAutomation, UIApplication.shared.applicationState == .active,
+              automationGate.allowsPlayback(event) else { return nil }
+        return event
     }
 
     @discardableResult
@@ -167,11 +208,11 @@ final class AppModel: ObservableObject {
         notice = result.message
     }
 
-    private func saveExperience(action: PatrickCareAction? = nil) {
+    private func saveExperience(action: PatrickCareAction? = nil, automationEvent: PatrickAutomationEvent? = nil) {
         let value = experience
         store.saveExperience(value)
         settings = store.updateSettings { $0.experience = value }
-        watchSync.send(command: PatrickCommandPayload(name: .updateExperience, careAction: action), settings: settings)
+        watchSync.send(command: PatrickCommandPayload(name: .updateExperience, careAction: action, automationEvent: automationEvent), settings: settings)
         WidgetCenter.shared.reloadAllTimelines()
     }
 
@@ -397,6 +438,8 @@ final class AppModel: ObservableObject {
         settings = .defaults
         timer = .inactive
         experience = PatrickExperienceState()
+        requestedAutomation = nil
+        automationGate = PatrickAutomationGate()
         store.saveExperience(experience)
         watchSync.setDemoMode(false)
         timerCompletionTask?.cancel()
@@ -460,6 +503,7 @@ final class AppModel: ObservableObject {
         case .updateExperience:
             // Care values arrive in the snapshot; never apply a second reward.
             if let action = command.careAction { requestedCare = action; actionSequence &+= 1 }
+            if let event = command.automationEvent { receiveAutomation(event) }
         }
     }
 

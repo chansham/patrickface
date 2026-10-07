@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {"name":"fresh-and-duplicate","steps":[
+      {"type":"presentation","active":true,"atMS":1800000000000},
+      {"type":"event","atMS":1800000000000,"event":{"id":"00000000-0000-4000-8000-000000000001","kind":"wake-up","source":"manual","occurredAtMS":1800000000000},"outcome":"play","seenCount":1},
+      {"type":"event","atMS":1800000000100,"event":{"id":"00000000-0000-4000-8000-000000000001","kind":"wake-up","source":"manual","occurredAtMS":1800000000000},"outcome":"duplicate","seenCount":1}
+    ]},
+    {"name":"three-second-boundary","steps":[
+      {"type":"presentation","active":true,"atMS":1800000000000},
+      {"type":"event","atMS":1800000003000,"event":{"id":"00000000-0000-4000-8000-000000000002","kind":"alarm-stopped","source":"shortcut","occurredAtMS":1800000000000},"outcome":"play","seenCount":1},
+      {"type":"event","atMS":1800000003001,"event":{"id":"00000000-0000-4000-8000-000000000003","kind":"alarm-stopped","source":"shortcut","occurredAtMS":1800000000000},"outcome":"recordOnly","seenCount":2}
+    ]},
+    {"name":"quiet-consumed-without-replay","steps":[
+      {"type":"event","atMS":1800000000000,"event":{"id":"00000000-0000-4000-8000-000000000004","kind":"alarm-stopped","source":"shortcut","occurredAtMS":1800000000000},"outcome":"recordOnly","seenCount":1},
+      {"type":"presentation","active":true,"atMS":1800000001000},
+      {"type":"event","atMS":1800000001000,"event":{"id":"00000000-0000-4000-8000-000000000004","kind":"alarm-stopped","source":"shortcut","occurredAtMS":1800000000000},"outcome":"duplicate","seenCount":1}
+    ]},
+    {"name":"unpolled-quiet-delivery-after-return","steps":[
+      {"type":"presentation","active":true,"atMS":1800000000000},
+      {"type":"presentation","active":false,"atMS":1800000000100},
+      {"type":"presentation","active":true,"atMS":1800000001000},
+      {"type":"event","atMS":1800000001000,"event":{"id":"00000000-0000-4000-8000-000000000005","kind":"wake-up","source":"shortcut","occurredAtMS":1800000000900},"outcome":"recordOnly","seenCount":1},
+      {"type":"event","atMS":1800000001100,"event":{"id":"00000000-0000-4000-8000-000000000006","kind":"wake-up","source":"manual","occurredAtMS":1800000001100},"outcome":"play","seenCount":2}
+    ]},
+    {"name":"future-and-clock-rollback","steps":[
+      {"type":"presentation","active":true,"atMS":1800000000000},
+      {"type":"event","atMS":1800000000000,"event":{"id":"00000000-0000-4000-8000-000000000007","kind":"wake-up","source":"manual","occurredAtMS":1800000000001},"outcome":"invalid","seenCount":0},
+      {"type":"event","atMS":1799999999000,"event":{"id":"00000000-0000-4000-8000-000000000008","kind":"wake-up","source":"shortcut","occurredAtMS":1800000000000},"outcome":"invalid","seenCount":0}
+    ]},
+    {"name":"restart-retains-ids-not-playback-permission","steps":[
+      {"type":"presentation","active":true,"atMS":1800000000000},
+      {"type":"event","atMS":1800000000000,"event":{"id":"00000000-0000-4000-8000-000000000009","kind":"wake-up","source":"manual","occurredAtMS":1800000000000},"outcome":"play","seenCount":1},
+      {"type":"restart","atMS":1800000000100},
+      {"type":"event","atMS":1800000000200,"event":{"id":"00000000-0000-4000-8000-000000000009","kind":"wake-up","source":"manual","occurredAtMS":1800000000000},"outcome":"duplicate","seenCount":1},
+      {"type":"event","atMS":1800000000200,"event":{"id":"00000000-0000-4000-8000-000000000010","kind":"wake-up","source":"shortcut","occurredAtMS":1800000000200},"outcome":"recordOnly","seenCount":2}
+    ]}
+  ]
+}

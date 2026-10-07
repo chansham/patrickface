@@ -78,6 +78,7 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
         AppShortcut(intent: PatrickMoodIntent(), phrases: ["設定\(.applicationName)心情"], shortTitle: "角色心情", systemImageName: "face.smiling")
         AppShortcut(intent: PatrickTimerIntent(), phrases: ["開始\(.applicationName)陪伴計時"], shortTitle: "陪伴計時", systemImageName: "timer")
         AppShortcut(intent: PatrickTimerControlIntent(), phrases: ["控制\(.applicationName)陪伴計時"], shortTitle: "控制陪伴計時", systemImageName: "pause.circle")
+        AppShortcut(intent: PatrickAutomationIntent(), phrases: ["向\(.applicationName)回報起床"], shortTitle: "起床與鬧鐘回報", systemImageName: "sun.max.fill")
 
         AppShortcut(
             intent: SetPatrickSleepModeIntent(),
@@ -237,6 +238,15 @@ struct PatrickTimerControlIntent: AppIntent {
     }
 }
 @MainActor private enum PatrickExperienceIntentExecutor {
+    static func automation(_ kind: PatrickAutomationEvent.Kind) -> Bool {
+        let event = PatrickAutomationEvent(kind: kind, source: .shortcut)
+        var state = PatrickSharedStore.shared.loadExperience()
+        guard state.recordAutomation(event) else { return false }
+        send(state, automationEvent: event)
+        // No persisted playback queue and no forced opening of either app.
+        NotificationCenter.default.post(name: .patrickAutomationReceived, object: event)
+        return true
+    }
     static func care(_ action: PatrickCareAction) -> Bool {
         var state = PatrickSharedStore.shared.loadExperience()
         guard state.perform(action) else { return false }
@@ -253,13 +263,32 @@ struct PatrickTimerControlIntent: AppIntent {
         if state.revision != previousRevision { send(state) }
         return result
     }
-    private static func send(_ state: PatrickExperienceState, action: PatrickCareAction? = nil) {
+    private static func send(_ state: PatrickExperienceState, action: PatrickCareAction? = nil, automationEvent: PatrickAutomationEvent? = nil) {
         let store = PatrickSharedStore.shared
         store.saveExperience(state)
         let settings = store.updateSettings { $0.experience = state }
-        WatchSyncService.shared.send(command: PatrickCommandPayload(name: .updateExperience, careAction: action), settings: settings)
+        WatchSyncService.shared.send(command: PatrickCommandPayload(name: .updateExperience, careAction: action, automationEvent: automationEvent), settings: settings)
         WidgetCenter.shared.reloadAllTimelines()
         NotificationCenter.default.post(name: .patrickExperienceChanged, object: nil)
+    }
+}
+
+enum PatrickAutomationChoice: String, AppEnum {
+    case alarmStopped = "alarm-stopped"
+    case wakeUp = "wake-up"
+    static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "回報事件")
+    static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [.alarmStopped: "鬧鐘已停止", .wakeUp: "我起床了"]
+}
+
+struct PatrickAutomationIntent: AppIntent {
+    static var title: LocalizedStringResource = "回報派大星起床事件"
+    static var description = IntentDescription("接在捷徑的鬧鐘停止或起床自動化之後；只回報事件，不讀取或停止系統鬧鐘。動作只在當下可見的App播放，背景不補播。")
+    static var openAppWhenRun = false
+    @Parameter(title: "事件", default: .wakeUp) var event: PatrickAutomationChoice
+    static var parameterSummary: some ParameterSummary { Summary("回報\(\.$event)給派大星") }
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let recorded = await PatrickExperienceIntentExecutor.automation(PatrickAutomationEvent.Kind(rawValue: event.rawValue)!)
+        return .result(dialog: recorded ? "已記下回報；當下可見時才播放起床動作。" : "這次回報未能記錄。")
     }
 }
 extension Notification.Name {

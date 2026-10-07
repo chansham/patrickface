@@ -21,6 +21,7 @@ struct PatrickAnimatedFaceView: View {
     @State private var restingClipID: String?
     @State private var requestedCare: PatrickCareAction?
     @State private var requestedSurprise = false
+    @State private var requestedWakeUp = false
     @State private var surpriseExpiresAt: Date?
     @State private var activityKind: PatrickActivityKind = .focus
     @State private var activityMinutes = 5
@@ -101,6 +102,7 @@ struct PatrickAnimatedFaceView: View {
         }
         .onDisappear {
             visible = false
+            model.setAutomationPresentationActive(false)
             _ = completionVisibility.update(allowsMotion: false)
             surpriseExpiresAt = nil
             player.suspend()
@@ -139,6 +141,10 @@ struct PatrickAnimatedFaceView: View {
             }
         }
         .onChange(of: model.calendarCelebrationSequence) { _, _ in player.playEvent("celebrate") }
+        .onChange(of: model.automationSequence) { _, _ in
+            refreshContext()
+            if let event = model.takeAutomationForPlayback() { player.playEvent(event.clipKey) }
+        }
         .onChange(of: model.soundSequence) { _, _ in feedback.play("pet", settings: model.experience.settings, active: monitoring && !reduceMotion && !lowPower) }
     }
 
@@ -196,6 +202,7 @@ struct PatrickAnimatedFaceView: View {
                         Button(action.title) { requestedCare = action; showingActions = false }
                     }
                     Button("找個小驚喜") { requestedSurprise = true; showingActions = false }
+                    Button("我起床了") { requestedWakeUp = true; showingActions = false }
                     if let surprise = model.experience.surprise { Text(surprise.line).font(.footnote).foregroundStyle(.secondary) }
                 }
                 Section("心情、情境與衣服") {
@@ -253,7 +260,16 @@ struct PatrickAnimatedFaceView: View {
                         Text("\(entry.at.formatted(date: .abbreviated, time: .shortened)) \(entry.text)").font(.footnote)
                     }
                 }
-                Section("自選資料") { NavigationLink("健康摘要") { PatrickHealthPanel() } }
+                Section("自選資料") {
+                    NavigationLink("健康摘要") {
+                        PatrickHealthPanel(onStartBreathing: {
+                            model.updateExperience { $0.start(.breathing, seconds: 60) }
+                            configureOutfit()
+                            requestedClip = player.eventClips?[PatrickActivityKind.breathing.clipID]
+                            showingActions = false
+                        })
+                    }
+                }
                 if reduceMotion || lowPower {
                     Text(reduceMotion ? "減少動態已開啟，目前保留靜態畫稿。" : "低耗電模式中，動作暫停。")
                         .font(.footnote)
@@ -320,6 +336,9 @@ struct PatrickAnimatedFaceView: View {
         // and onAppear, in either order, before consuming its selected action.
         if wristDown || scenePhase != .active { consumeQuietRequests(); return }
         guard monitoring else { return }
+        if requestedWakeUp {
+            requestedWakeUp = false; model.reportWakeUp(allowEffects: !reduceMotion && !lowPower)
+        }
         if let action = requestedCare {
             requestedCare = nil; model.performCare(action, allowEffects: !reduceMotion && !lowPower)
         }
@@ -335,6 +354,9 @@ struct PatrickAnimatedFaceView: View {
     private func consumeQuietRequests() {
         requestedClip = nil
         requestedSurprise = false
+        if requestedWakeUp {
+            requestedWakeUp = false; model.reportWakeUp(allowEffects: false)
+        }
         if let action = requestedCare {
             requestedCare = nil
             model.performCare(action, allowEffects: false)
@@ -360,6 +382,7 @@ struct PatrickAnimatedFaceView: View {
         device.isBatteryMonitoringEnabled = visible && scenePhase != .background
         lowPower = ProcessInfo.processInfo.isLowPowerModeEnabled
         let allowsMotion = monitoring && !reduceMotion && !lowPower
+        model.setAutomationPresentationActive(allowsMotion, at: date)
         let continuous = completionVisibility.update(allowsMotion: allowsMotion)
         if !continuous {
             // Reconcile only deadlines before admitting new foreground effects.

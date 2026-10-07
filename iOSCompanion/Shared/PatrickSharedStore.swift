@@ -97,6 +97,14 @@ final class PatrickSharedStore: @unchecked Sendable {
         loadSettings().experience ?? PatrickExperienceState.load(from: defaults)
     }
 
+    func loadAutomationReceiptIDs() -> [UUID] {
+        lock.withLock { (defaults.stringArray(forKey: PatrickAutomationGate.storageKey) ?? []).compactMap(UUID.init(uuidString:)) }
+    }
+
+    func saveAutomationReceiptIDs(_ ids: [UUID]) {
+        lock.withLock { defaults.set(Array(ids.suffix(100)).map(\.uuidString), forKey: PatrickAutomationGate.storageKey) }
+    }
+
     func saveExperience(_ value: PatrickExperienceState) {
         lock.withLock { value.save(to: defaults) }
     }
@@ -168,6 +176,7 @@ final class PatrickSharedStore: @unchecked Sendable {
                 PatrickAppGroup.timerKey,
                 PatrickAppGroup.pendingActionsKey,
                 PatrickAppGroup.processedMessageIDsKey,
+                PatrickAutomationGate.storageKey,
             ].forEach { key in
                 defaults.removeObject(forKey: key)
             }

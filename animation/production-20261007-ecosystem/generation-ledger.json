@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-07",
+  "batch": "20261007-ecosystem1",
+  "tool": "built-in image_gen",
+  "artApproved": false,
+  "requests": [
+    {
+      "id": "charging-cozy-v1",
+      "prompt": "Use case: illustration-story.\nAsset type: transparent twelve-frame animation sprite atlas for a personal watch companion.\nInput image 1 is STYLE AND CHARACTER reference only (mint-striped sleepy Patrick). Input image 2 is PROP reference only (a soft battery-shaped cushion). Draw a NEW outfit and NEW continuous action; do not copy either atlas layout.\nSubject: Patrick Star, coral pink starfish, white sclera, black pupils, coral eyelids, black clean cartoon outlines, flat 2D cel coloring. Relaxed deadpan adult-cartoon personality. He wears a loose butter-yellow pajama top with small lavender stars, matching nightcap with cream pompom, his familiar green purple-flower shorts, and soft lavender slippers. No astronaut suit or helmet. Holds a mint-green battery-shaped soft cushion with a simple cream lightning emblem, not text.\nLayout: exactly TWELVE separate full-body drawings in THREE columns and FOUR rows on one square transparent page. Each figure occupies no more than 68 percent of its cell height; ample clear transparent space above hat and beneath both slippers, including bottom row. Same face width, head, torso volume, camera, and ground level throughout; final figure same proportions as first. No full-body translation or shrinking to fit later rows.\nSequential action: 1 seated with cushion resting across lap and both hands on sides; 2 eyes look down at cushion; 3 both elbows bend lifting cushion slightly; 4 cushion halfway to chest; 5 cushion held against chest; 6 gently squeezes, cushion visibly compresses a little; 7 eyes close slowly, cheek nestles against its top corner; 8 relaxed tiny smile with eyes still closed; 9 eyes half-open and cheek lifts away; 10 cushion lowered halfway toward lap; 11 cushion back on lap, one gentle blink; 12 relaxed seated original pose, awake half-open eyes. Show real arm bending and prop deformation, continuous connected hands and sleeves.\nKeep exact outfit, hat, feet, eye white color and body construction in all12 drawings. No extra limbs, ghost hands, background, grid lines, captions, numerals, harsh realism or disgusting texture. Genuine alpha transparency outside drawings. Do not include floating bubbles in this atlas: scene bubbles are a separate app effect.",
+      "references": [
+        "animation/mint-pajama-v1/atlas-generated.png",
+        "animation/charging-space-v1/atlas-generated.png"
+      ],
+      "status": "generation-failed",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 4bfad2b0-72e7-4e4d-a983-9be3cf71e9fc.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "outputExists": false
+    },
+    {
+      "id": "morning-sailor-v1",
+      "prompt": "Use case: illustration-story.\nCreate a new transparent animation sprite atlas of Patrick Star in a cozy nautical morning outfit: cream-and-blue striped loose pajama shirt, familiar green shorts with purple flowers, coral pink bare soft feet, a small blue nightcap with a cream pompom. Clean flat 2D cartoon like the animated show, bold smooth black outlines, white sclera, black pupils and coral pink eyelids. No realism.\nExactly twelve full-body drawings in a THREE-column FOUR-row square atlas, left-to-right reading order. Large empty transparent gutters and generous outer margins; every character including hat and feet completely inside its own cell with at least12% empty space above and below. Same head width, torso volume, lens, seating position and foot baseline for all12; final neutral body matches first. Do not shrink lower rows. Draw a real one-time wake-up action, no whole-picture rocking.\nPoses:1 seated sleepy neutral, arms down and eyes half-open.2 eyes close.3 mouth opens small into yawn, elbows bend slightly.4 full soft yawn, both elbows halfway up.5 yawning with both arms raised beside the head.6 arms stretch gently diagonally outward, mouth closes.7 holds stretch with small satisfied closed-mouth smile and half-open eyes.8 arms begin lowering halfway.9 arms lower farther and eyes open.10 both hands rest on knees.11 one slow coral-eyelid blink.12 awake calm face, same seated proportions and body position as1, both hands on knees.\nEach arm must remain anatomically attached and transitions gradual. No objects, text, time labels, grids, scenery, floating particles or detached fragments. Genuine alpha transparency around every drawing.",
+      "references": [],
+      "status": "generation-failed",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID f021cf56-284e-4fcb-aa94-3c755ea23acf.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "outputExists": false
+    },
+    {
+      "id": "calm-robe-v1",
+      "prompt": "Use case: illustration-story.\nA transparent eight-frame animation sprite atlas for a personal Patrick Star watch companion. Patrick wears a simple lavender bathrobe with a cream collar and belt, no hat; he sits cross-legged with his coral-pink soft feet visible. Faithful clean flat 2D cartoon appearance, smooth black outlines, white sclera, black pupils, coral pink eyelids. Relaxed but slightly deadpan, not baby-like.\nEight sequential FULL BODY drawings in FOUR columns and TWO rows. Large empty transparent gutters and outer padding. Every drawing is entirely visible, including the head tip and feet, at the SAME size and stable seating baseline. Match head width, torso height and volume between the first and last drawings. Maximum character height70% of cell height.\nOne gentle relaxation action:1 neutral with hands on knees;2 eyes slowly half-close;3 eyelids close and shoulders lift a tiny bit for a slow breath;4 chest and robe expand subtly while hands stay on knees;5 slow exhale through a small round mouth, shoulders lower;6 mouth relaxes, eyes stay closed;7 eyes open halfway;8 neutral relaxed seated pose matching frame1. Real changes in eyes, cheeks, chest and shoulders, not whole-body rocking. No rigid picture scaling. No extra arms or fingers, detached pieces, mist, particles, props, letters, grid lines or background. Genuine transparent alpha.",
+      "references": [],
+      "status": "generation-failed",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 8f8e9b54-1afb-4568-ab2e-2069f2cdfbd9.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "outputExists": false
+    }
+  ],
+  "summary": {
+    "requests": 3,
+    "outputs": 0,
+    "newSourceFrames": 0,
+    "artApproved": false,
+    "mainCatalogChanged": false,
+    "note": "All three built-in requests were rejected at output moderation. No source files exist; no fallback or substitute image was used."
+  }
+}

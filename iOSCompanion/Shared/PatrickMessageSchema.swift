@@ -25,6 +25,7 @@ struct PatrickCommandPayload: Codable, Equatable, Sendable {
     var timer: PatrickTimerSnapshot?
     var deepLink: URL?
     var careAction: PatrickCareAction?
+    var automationEvent: PatrickAutomationEvent?
 
     init(
         name: PatrickCommandName,
@@ -33,7 +34,8 @@ struct PatrickCommandPayload: Codable, Equatable, Sendable {
         previewState: PatrickVisualState? = nil,
         timer: PatrickTimerSnapshot? = nil,
         deepLink: URL? = nil,
-        careAction: PatrickCareAction? = nil
+        careAction: PatrickCareAction? = nil,
+        automationEvent: PatrickAutomationEvent? = nil
     ) {
         self.name = name
         self.theme = theme
@@ -42,6 +44,7 @@ struct PatrickCommandPayload: Codable, Equatable, Sendable {
         self.timer = timer
         self.deepLink = deepLink
         self.careAction = careAction
+        self.automationEvent = automationEvent
     }
 }
 

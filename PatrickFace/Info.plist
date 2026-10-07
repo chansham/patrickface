@@ -50,6 +50,6 @@
 	<key>WKWatchOnly</key>
 	<false/>
 	<key>NSHealthShareUsageDescription</key>
-	<string>在你按下讀取後，顯示今日步數與最近心率、HRV樣本和時間；不推斷心情、不上傳或修改健康資料。</string>
+	<string>只在你選擇並主動授權後，讀取所選步數、心率、HRV、靜止心率、呼吸率、睡眠手腕溫度或睡眠時段，顯示紀錄時間與來源。可自選開頁刷新已請求項目；不推斷壓力或疾病，不上傳、跨裝置傳送或修改健康資料。</string>
 </dict>
 </plist>

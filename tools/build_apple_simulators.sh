@@ -54,6 +54,10 @@ xcrun swiftc "$ROOT/PatrickFace/PatrickAnimationCatalog.swift" "$ROOT/PatrickFac
 "$DERIVED_ROOT/native-animation" "$ROOT/animation/catalog.json"
 xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickExperience.swift" "$ROOT/tools/NativeExperienceChecks.swift" -o "$DERIVED_ROOT/native-experience"
 "$DERIVED_ROOT/native-experience" "$ROOT/experience/themes.json" "$ROOT/experience/calendar.json"
+xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickExperience.swift" "$ROOT/iOSCompanion/Shared/PatrickAutomation.swift" "$ROOT/iOSCompanion/Shared/PatrickModels.swift" "$ROOT/iOSCompanion/Shared/PatrickMessageSchema.swift" "$ROOT/tools/NativeAutomationChecks.swift" -o "$DERIVED_ROOT/native-automation"
+"$DERIVED_ROOT/native-automation" "$ROOT/tools/fixtures/automation-events.json"
+xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickHealthSummary.swift" "$ROOT/tools/NativeHealthChecks.swift" -o "$DERIVED_ROOT/native-health"
+"$DERIVED_ROOT/native-health"
 
 
 xcodebuild \

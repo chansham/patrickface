@@ -15,6 +15,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
         var previewState: PatrickWatchWire.VisualState?
         var experience: PatrickExperienceState?
         var careAction: PatrickCareAction?
+        var automationEvent: PatrickAutomationEvent?
         var playSound = false
     }
 
@@ -84,7 +85,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
         session.activate()
     }
 
-    func sendSnapshot(theme: PatrickTheme, experience: PatrickExperienceState? = nil) {
+    func sendSnapshot(theme: PatrickTheme, experience: PatrickExperienceState? = nil, automationEvent: PatrickAutomationEvent? = nil) {
         var settings = latestSettings
             ?? PatrickWatchWire.Settings.initial(theme: theme)
         let wireTheme = PatrickWatchWire.Theme(theme)
@@ -103,10 +104,14 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
         latestSettings = settings
         persist(settings)
 
-        let envelope = PatrickWatchWire.Envelope.snapshot(
+        var envelope = PatrickWatchWire.Envelope.snapshot(
             settings: settings,
             timer: settings.experience?.activity == nil ? latestTimer : nil
         )
+        if let automationEvent {
+            envelope.kind = .command
+            envelope.command = PatrickWatchWire.Command(name: .updateExperience, automationEvent: automationEvent)
+        }
         deliver(envelope)
     }
 
@@ -124,8 +129,15 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
         do {
             let data = try envelope.encoded()
             do {
+                // Latest-state delivery never carries a transient animation.
+                // Use a distinct ID so a context arriving first cannot consume
+                // the command envelope's duplicate-delivery identity.
+                var context = envelope
+                if envelope.kind == .command, envelope.command?.automationEvent != nil, let settings = envelope.settings {
+                    context = PatrickWatchWire.Envelope.snapshot(settings: settings, timer: envelope.timer)
+                }
                 try session.updateApplicationContext([
-                    PatrickWatchWire.transportKey: data,
+                    PatrickWatchWire.transportKey: try context.encoded(),
                 ])
             } catch {
                 lastAcknowledgement = "Latest-state context failed: \(error.localizedDescription)"
@@ -232,7 +244,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
             if update.theme != nil
                 || update.sleepMode != nil
                 || update.previewState != nil
-                || update.experience != nil || update.careAction != nil || update.playSound
+                || update.experience != nil || update.careAction != nil || update.playSound || update.automationEvent != nil
             {
                 latestSettings = effectiveSettings
                 persist(effectiveSettings)
@@ -309,6 +321,9 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
             setTimer(command.timer)
         case .updateExperience:
             if stateAllowed && actionAllowed { update.careAction = command.careAction }
+            // The presentation gate consumes expired/quiet events too, so a
+            // later delivery with a different envelope cannot replay them.
+            update.automationEvent = command.automationEvent
         }
     }
 

@@ -2,6 +2,47 @@ import XCTest
 @testable import PatrickCompanion
 
 final class PatrickContractTests: XCTestCase {
+    func testAutomationReceiptSurvivesReloadWithoutRestoringPlaybackPermission() throws {
+        let suiteName = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suiteName)!
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+        let store = PatrickSharedStore(defaults: defaults)
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
+        let event = PatrickAutomationEvent(kind: .alarmStopped, source: .shortcut, at: now)
+        var gate = PatrickAutomationGate()
+        gate.setPresentationActive(true, at: now)
+        XCTAssertEqual(gate.consume(event, at: now), .play)
+        store.saveAutomationReceiptIDs(gate.receivedIDs)
+        let reopened = PatrickSharedStore(defaults: defaults)
+        var restored = PatrickAutomationGate(receivedIDs: reopened.loadAutomationReceiptIDs())
+        XCTAssertEqual(restored.consume(event, at: now.addingTimeInterval(0.1)), .duplicate)
+        let newEvent = PatrickAutomationEvent(kind: .wakeUp, source: .manual, at: now.addingTimeInterval(0.2))
+        XCTAssertEqual(restored.consume(newEvent, at: now.addingTimeInterval(0.2)), .recordOnly)
+        store.resetLocalData()
+        XCTAssertTrue(store.loadAutomationReceiptIDs().isEmpty)
+    }
+
+    func testAutomationCommandPreservesMillisecondsAndDoesNotMutatePreferences() throws {
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
+        let event = PatrickAutomationEvent(kind: .wakeUp, source: .manual, at: now)
+        var experience = PatrickExperienceState()
+        experience.settings.scene = .sleeping
+        experience.settings.outfitID = "mint-pajama"
+        let settingsBefore = experience.settings, careBefore = experience.care
+        XCTAssertTrue(experience.recordAutomation(event, at: now))
+        XCTAssertFalse(experience.recordAutomation(event, at: now))
+        var settings = PatrickSettings.defaults; settings.experience = experience
+        let wire = PatrickMessageEnvelope.command(PatrickCommandPayload(name: .updateExperience, automationEvent: event), settings: settings)
+        let decoded = try PatrickMessageEnvelope.decode(wire.encoded())
+        XCTAssertEqual(decoded.command?.automationEvent, event)
+        XCTAssertEqual(decoded.command?.automationEvent?.occurredAtMS, 1_800_000_000_375)
+        XCTAssertEqual(decoded.settings?.experience?.settings, settingsBefore)
+        XCTAssertEqual(decoded.settings?.experience?.care, careBefore)
+        XCTAssertEqual(decoded.settings?.experience?.journal.count, 1)
+        let old = try PatrickMessageEnvelope.decode(PatrickMessageEnvelope.command(PatrickCommandPayload(name: .updateExperience)).encoded())
+        XCTAssertNil(old.command?.automationEvent)
+    }
+
     func testLiveActivityContentHonorsInitialRunningAndPausedSnapshots() {
         let now = Date(timeIntervalSince1970: 1_800_000_000)
         var settings = PatrickSettings.defaults
