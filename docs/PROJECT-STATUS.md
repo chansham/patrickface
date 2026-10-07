@@ -10,7 +10,11 @@
 
 原生新增第10個App Shortcut「套用派大星生活流程」，三選項為晚安→睡前、早安→明確清醒、恢復原作息→依原時段。早安在05:00也不被原睡眠時段拉回；它保持清醒覆寫直到下次設定。共用冪等轉換，重複同狀態不增加版本／命令；固定服裝、音效偏好、活動／日記／照顧不變。新Intent不要求播放、不強制開App，不宣稱直接更改系統Focus或Watch已收到；既有前景動作仍遵守原音效設定。
 
-網頁6項專項檢查通過，涵蓋5種模擬結果、選配及複製／下載一致（Windows剪貼簿換行格式另正規化）、篩選／搜尋、保留原20項與錨點、390px版面及存檔隔離、缺資料提示。已實看桌面与手機截圖；證據在 `output/playwright/20261007-routines/`。新增3項XCTest已接現有Apple測試入口，本輪Apple結果完成後補記；先前14項XCTest通過不作本輪程式的通過證明。
+網頁6項專項檢查通過，涵蓋5種模擬結果、選配及複製／下載一致（Windows剪貼簿換行格式另正規化）、篩選／搜尋、保留原20項與錨點、390px版面及存檔隔離、缺資料提示。已實看桌面與手機截圖；證據在 `output/playwright/20261007-routines/`。
+
+本輪來源 `7a92b2d2d350f33772ed9ffbf21076f7d5b1ae77` 的 [Apple run37595881856](https://github.com/chansham/patrickface/actions/runs/37595881856) 已成功：1911項Foundation（1503＋129＋102＋150＋27）、17項XCTest／0失敗、12項封裝fixtures，雙平台與兩個extensions編譯、未簽名裝置封存及capture／上傳步驟均通過。新增三項XCTest確實執行，覆蓋凌晨早安與恢復作息的差異、保留固定服裝／音效／照顧／運行或暫停的活動、保存重開後重複執行不再送動作。不是沿用先前14項的結果。
+
+環境是Xcode26.6（17F113）、SDK26.5；capture為iPhone Air／iOS26.5與Series11 46mm／watchOS26.4，共12PNG與6份幾何資料。本次僅核capture完成，未重評原生美術，不代表使用者真機或Siri／Focus已驗。只下載診斷至 `output/apple-build/run-37595881856-diagnostics/`；雲端build14未簽名包未下載。本輪最後僅精簡生活流程狀態文字並更新此紀錄，原生程式與測試維持上述已驗來源，未重跑相同Apple編譯。
 
 六種入口包括Siri、iPhone語音捷徑、背面輕點、手機NFC、控制中心／主畫面、Watch相容捷徑；另說明支援機型的動作按鈕，iPhone13Pro及一般Series錶不當成有Ultra按鈕。Focus共享、派大星同步與鬧鐘提醒各自驗收。Sleep Focus不是睡眠排程或起床鬧鐘；一般語音捷徑不要求Apple Intelligence，Watch不能據此獲得iPhone無喚醒詞能力。所有待開發流程仍逐步標明，未新增原畫。
 
