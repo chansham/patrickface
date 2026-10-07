@@ -1,0 +1,453 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-07",
+  "scope": "20 cross-context design proposals; no new native integration or sensor access; not a claim of market novelty.",
+  "sources": {
+    "wash": {
+      "title": "Apple 洗手計時與設定",
+      "url": "https://support.apple.com/guide/watch/set-up-handwashing-apdc9b9f04a8/watchos"
+    },
+    "washAPI": {
+      "title": "HealthKit 洗手事件",
+      "url": "https://developer.apple.com/documentation/healthkit/hkcategorytypeidentifier/handwashingevent"
+    },
+    "brush": {
+      "title": "HealthKit 刷牙事件",
+      "url": "https://developer.apple.com/documentation/healthkit/hkcategorytypeidentifier/toothbrushingevent"
+    },
+    "light": {
+      "title": "HealthKit 日光時間",
+      "url": "https://developer.apple.com/documentation/healthkit/hkquantitytypeidentifier/timeindaylight"
+    },
+    "noise": {
+      "title": "HealthKit 環境噪音事件",
+      "url": "https://developer.apple.com/documentation/healthkit/hkcategorytypeidentifier/environmentalaudioexposureevent"
+    },
+    "headphones": {
+      "title": "Apple 耳機音量通知",
+      "url": "https://support.apple.com/en-au/108968"
+    },
+    "caffeine": {
+      "title": "HealthKit 咖啡因記錄",
+      "url": "https://developer.apple.com/documentation/healthkit/hkquantitytypeidentifier/dietarycaffeine"
+    },
+    "mind": {
+      "title": "Apple 心境與生活因素關聯",
+      "url": "https://support.apple.com/en-gb/guide/watch/apd7de0f5610/watchos"
+    },
+    "vitals": {
+      "title": "Apple Vitals 的多指標與影響因素",
+      "url": "https://support.apple.com/en-in/120142"
+    },
+    "sleep": {
+      "title": "Apple 睡眠與充電提醒",
+      "url": "https://support.apple.com/en-gb/108906"
+    },
+    "battery": {
+      "title": "Watch 自身電池監測",
+      "url": "https://developer.apple.com/documentation/watchkit/wkinterfacedevice/isbatterymonitoringenabled"
+    },
+    "weather": {
+      "title": "WeatherKit 能力與會員要求",
+      "url": "https://developer.apple.com/weatherkit/"
+    },
+    "shortcuts": {
+      "title": "手機 Focus、充電、NFC 觸發",
+      "url": "https://support.apple.com/guide/shortcuts/apde31e9638b/9.0/ios/26"
+    },
+    "arrive": {
+      "title": "手機到達／離開觸發",
+      "url": "https://support.apple.com/en-gb/guide/shortcuts/apd8ebfc4e8e/ios"
+    },
+    "workout": {
+      "title": "Watch 運動等捷徑事件",
+      "url": "https://support.apple.com/guide/shortcuts/event-triggers-apd932ff833f/9.0/ios/26"
+    },
+    "eventkit": {
+      "title": "EventKit 日曆權限",
+      "url": "https://developer.apple.com/documentation/eventkit/accessing-calendar-using-eventkit-and-eventkitui"
+    },
+    "busy": {
+      "title": "行事曆忙閒狀態",
+      "url": "https://developer.apple.com/documentation/eventkit/ekeventavailability"
+    },
+    "walk": {
+      "title": "步行速度樣本的採樣條件",
+      "url": "https://developer.apple.com/documentation/healthkit/hkquantitytypeidentifier/walkingspeed"
+    },
+    "photo": {
+      "title": "相機拍攝結果",
+      "url": "https://developer.apple.com/documentation/avfoundation/avcapturephotocapturedelegate"
+    },
+    "savePhoto": {
+      "title": "相簿保存結果",
+      "url": "https://developer.apple.com/documentation/photos/phphotolibrary/performchanges(_:completionhandler:)"
+    },
+    "connectivity": {
+      "title": "WatchConnectivity",
+      "url": "https://developer.apple.com/documentation/watchconnectivity/wcsession"
+    },
+    "timezone": {
+      "title": "Foundation 時區",
+      "url": "https://developer.apple.com/documentation/foundation/nstimezone"
+    },
+    "healthAuth": {
+      "title": "HealthKit 讀取授權與缺資料",
+      "url": "https://developer.apple.com/documentation/healthkit/authorizing-access-to-health-data"
+    },
+    "background": {
+      "title": "HealthKit 背景交付條件",
+      "url": "https://developer.apple.com/documentation/healthkit/hkhealthstore/enablebackgrounddelivery(for:frequency:withcompletion:)"
+    },
+    "notification": {
+      "title": "Apple 的通知分流",
+      "url": "https://support.apple.com/en-au/108369"
+    }
+  },
+  "items": [
+    {
+      "id": "home-wash",
+      "group": "生活習慣",
+      "title": "到家後，故事接著走",
+      "priority": "先做手動版",
+      "combines": "到家回報 ＋ 近期洗手紀錄 ＋ 你選的居家流程",
+      "experience": "進門放下包包；收到相符洗手紀錄或你按完成，再擦手、換居家服。你選跳過就直接休息。",
+      "apple": "Apple 已有洗手偵測與倒數；到家洗手提醒也不是新發明。",
+      "route": "先用「我到家了／已洗手」兩個自選回報；之後才接手機到達捷徑及 handwashingEvent。",
+      "limits": "到達範圍不等於進門，沒有紀錄也不等於沒洗。紀錄可能晚到，不能替換系統即時倒數。",
+      "art": "背包、泡泡、擦手毛巾、居家短衫。",
+      "sources": [
+        "wash",
+        "washAPI",
+        "arrive"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "meal-wash",
+      "group": "生活習慣",
+      "title": "吃飯前的小儀式",
+      "priority": "需接資料",
+      "combines": "準備吃飯 ＋ 同一餐前的洗手紀錄 ＋ 自選計時",
+      "experience": "你說要吃飯，派大星準備餐巾和飯盒；你要陪洗時才開始本 App 的20秒小流程。",
+      "apple": "Apple 已有洗手20秒計時與健康歷史。",
+      "route": "手動選「準備吃飯」；可另選讀取近期洗手紀錄。",
+      "limits": "不把倒數走完當成真的洗好，也不把洗手時長當成清潔品質。匹配多久算近期須讓你設定；沒有紀錄不阻止吃飯。",
+      "art": "餐巾領結、廚師帽、泡泡、端飯盒。",
+      "sources": [
+        "wash",
+        "washAPI"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "brush-bed",
+      "group": "生活習慣",
+      "title": "把睡前瑣事串成一幕",
+      "priority": "先做手動版",
+      "combines": "床頭／浴室 NFC ＋ 自選刷牙計時 ＋ 睡前清單",
+      "experience": "碰貼紙後接續刷牙、整理、準備睡覺；完成一項只推進自己的清單，再換下一套睡衣。",
+      "apple": "HealthKit 有刷牙事件型別，系統已有睡眠排程；型別存在不代表 Watch 自動偵測刷牙。",
+      "route": "先由手機 NFC 或手動開流程；有相容來源才另讀 toothbrushingEvent。",
+      "limits": "掃標籤和計時結束都不證明完成。洗澡／刷牙不自動猜；自己確認才記完成，不自動寫健康。",
+      "art": "牙刷、泡沫鬍子、頭巾、不同睡衣。",
+      "sources": [
+        "brush",
+        "shortcuts",
+        "sleep"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "daylight-break",
+      "group": "健康與感受",
+      "title": "剛好有空，帶他出去見光",
+      "priority": "需接資料",
+      "combines": "本人確認的空檔 ＋ 日光紀錄 ＋ 天氣 ＋ 活動意願",
+      "experience": "在適合的空檔給「走一小圈／留室內休息」；只有5分鐘就不安排15分鐘。下雨時换室內小活動。",
+      "apple": "Apple 已記錄日光時間，也會在心境圖表呈現生活因素關聯。",
+      "route": "先用你選的空檔與天氣；之後按需接日光和有來源的天氣資料。",
+      "limits": "日光時間不是UV劑量或維他命D；缺資料不當零。日曆空白不代表你有空，不能自訂醫療日曬目標。",
+      "art": "遮陽帽、小背包、雨衣、室內伸展服。",
+      "sources": [
+        "light",
+        "mind",
+        "weather",
+        "busy"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "quiet-after-noise",
+      "group": "健康與感受",
+      "title": "吵過一輪，他懂得安靜",
+      "priority": "需接資料",
+      "combines": "新近噪音事件 ＋ 你的安靜偏好 ＋ 當前互動",
+      "experience": "經你開啟後，在下一次合適互動提供「安靜陪我」；派大星戴耳罩，只關本 App 音效。",
+      "apple": "Apple 已有 Noise 警告和健康紀錄，並不保存環境錄音。",
+      "route": "另選讀取 environmentalAudioExposureEvent，保留事件時間；或直接手動開安靜模式。",
+      "limits": "昨天的紀錄不能說現在吵；不能測出你耳朵是否疲勞或受傷，也不接管其他App音量。",
+      "art": "耳罩、嚴肅的噓手勢、無聲表情。",
+      "sources": [
+        "noise",
+        "background"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "headphone-break",
+      "group": "健康與感受",
+      "title": "耳機休息也有收尾",
+      "priority": "需接資料",
+      "combines": "本人設定的聆聽時段 ＋ 耳機暴露紀錄 ＋ 空檔",
+      "experience": "在你願意休息時，派大星摘下耳機、整理耳罩，再讓你選繼續或歇一會。",
+      "apple": "Apple 已有耳機暴露提醒及降低高音量功能。",
+      "route": "可先用自選計時；後接耳機暴露事件，和普通計時分開標來源。",
+      "limits": "不把專注計時當成實際聆聽時長，不推算聽力损傷；系统保護仍照常運作。",
+      "art": "大耳機、掛頸姿勢、伸懶腰。",
+      "sources": [
+        "headphones",
+        "background"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "habit-review",
+      "group": "健康與感受",
+      "title": "找出對你有用的小習慣",
+      "priority": "需接資料",
+      "combines": "你記的咖啡／晚運動／夜班 ＋ 睡眠 ＋ 自填精神感受",
+      "experience": "選一個你想觀察的習慣，把有記錄與沒記錄的夜晚並排；下週由你選是否調整，再回看。",
+      "apple": "Apple 已能比較心境和睡眠、運動、日光；咖啡因也有 HealthKit 型別。",
+      "route": "先用本人標記；若來源完整才另讀咖啡因與睡眠，保留樣本數、缺日、旅行等背景。",
+      "limits": "只能說這些日子一起出現的差異，不能證明因果。未記咖啡不代表沒喝；不做精確代謝倒數或宣稱找到了失眠原因。",
+      "art": "戴眼鏡的研究員、記事板；神情認真而非一直賣萌。",
+      "sources": [
+        "caffeine",
+        "mind",
+        "sleep"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "gentle-day",
+      "group": "健康與感受",
+      "title": "你說今天累，他就換種陪法",
+      "priority": "先做手動版",
+      "combines": "本人感受 ＋ 已有健康摘要 ＋ 今天選定的安排",
+      "experience": "你說今天累，就提供安靜、短一點的陪伴；讓你保留普通模式，也不扣連續天數或懲罰角色。",
+      "apple": "Apple Vitals 已有多指標範圍与背景因素解釋，並非我們發明的疾病預警。",
+      "route": "先讓本人選今天想怎樣過；資料只作有來源的回顧，不自動下結論。",
+      "limits": "不因HRV或溫度單一數字判斷生病，不改真實訓練目標或用藥；臉色／角色心情不冒充人的健康狀態。",
+      "art": "披肩、眼鏡、陪坐；可安靜嚴肅，也能幽默。",
+      "sources": [
+        "vitals",
+        "mind"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "missing-night",
+      "group": "健康與感受",
+      "title": "資料少的早晨，也不亂下結論",
+      "priority": "需接資料",
+      "combines": "本次可讀睡眠紀錄 ＋ 已知充電時間 ＋ 來源更新時間",
+      "experience": "早安卡說明「這次未讀到足夠睡眠紀錄，先照常開始一天」；若自己確實記到充電時段，就給你回看。",
+      "apple": "Apple 提醒睡前充電；HealthKit 空查詢無法可靠分辨拒絕授權或沒有樣本。",
+      "route": "沿現有摘要補資料品質說明；充電只用實際觀測到的紀錄，未觀測的部分保持未知。",
+      "limits": "不能從缺資料斷言没睡、忘戴或沒電；也不能把同時充電斷言為缺失的唯一原因。",
+      "art": "打哈欠看記事板，提供普通早安退路。",
+      "sources": [
+        "sleep",
+        "healthAuth",
+        "battery"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "after-workout",
+      "group": "健康與感受",
+      "title": "運動完，等你收拾好再陪你",
+      "priority": "需接資料",
+      "combines": "實際訓練結束 ＋ 你選稍後提醒 ＋ 收拾後回報",
+      "experience": "運動結束時先留一句；你換好衣服再開，給你選補記喝水、看看訓練或洗澡情境。",
+      "apple": "Apple 有Workout記錄與結束觸發；現有Patrick陪伴計時不是健身記錄。",
+      "route": "先接明確結束回報；需紀錄時才查完成workout。稍後待辦和一次性慶祝分開。",
+      "limits": "不自動判斷洗澡、脫水或應喝幾毫升；不把角色喝水寫成人的飲水。不追補過期慶祝。",
+      "art": "運動毛巾、頭帶、浴袍、補給小包。",
+      "sources": [
+        "workout",
+        "background"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "walk-story",
+      "group": "健康與感受",
+      "title": "散步後，留下這次的節奏",
+      "priority": "需接資料",
+      "combines": "同段步行紀錄 ＋ 你標記的路況／負重 ＋ 自己感受",
+      "experience": "用「今天悠閒走了一段」留一張回顧卡；你可記背包、換鞋、上坡，下次比較相近情境。",
+      "apple": "Apple已有步速等步態資料；部分來自iPhone平地穩定步行抽樣。",
+      "route": "只讀有相同時間範圍的資料，手機沒帶或樣本不足時只用實際陪伴時長。",
+      "limits": "不能把抽樣步速當逐步即時訊號；走慢不代表退化，不拿不同路況直接排名。",
+      "art": "小探險帽、地圖、散步手杖造型；不是醫療輔具建議。",
+      "sources": [
+        "walk"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "charge-window",
+      "group": "裝置與節奏",
+      "title": "為下一次要用錶，找充電空檔",
+      "priority": "需接資料",
+      "combines": "手錶電量時間戳 ＋ 下一次要戴的時間 ＋ 你確認的空檔",
+      "experience": "晚上要戴著睡、稍後要出門，就把充電和拿回手錶放進同一張小清單；派大星換維修工服。",
+      "apple": "Apple已有睡前電量及充電提醒。增量是配合你的下一次使用與空檔。",
+      "route": "現有Watch電池讀取加上你填的下一次需要時間；行事曆接入可後置。",
+      "limits": "不保證充多久到幾成、不控制系統最佳化充電；手機電量不冒充Watch電量，過時讀數要標明。",
+      "art": "維修工背帶褲、電池枕、泡泡充電艙。",
+      "sources": [
+        "sleep",
+        "battery",
+        "eventkit"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "calendar-gap",
+      "group": "裝置與節奏",
+      "title": "空檔只放做得完的事",
+      "priority": "需接資料",
+      "combines": "下一項安排 ＋ 本人確認有空 ＋ 自設準備時間",
+      "experience": "扣掉收拾和準備時間，只提供做得完的小任務；行程改了就重算，你不想做可直接略過。",
+      "apple": "日曆已有忙閒狀態與提醒；沒有行程不保證本人空閒。",
+      "route": "先手選「幾點有事」；若接EventKit，系統需完整日曆存取，但程式只取時段/忙閒，不需標題。",
+      "limits": "不從會議標題猜壓力，不移動原行程；已開始活動不能偷偷被改長或改短。",
+      "art": "正裝、嚴肅小管家、翻頁計時板。",
+      "sources": [
+        "eventkit",
+        "busy"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "nfc-resume",
+      "group": "裝置與節奏",
+      "title": "同一張貼紙，接續同一件事",
+      "priority": "先做手動版",
+      "combines": "手機 NFC ＋ 派大星自己的任務狀態 ＋ 你選的操作",
+      "experience": "第一次碰書桌貼紙選開始；再碰顯示暫停、繼續、收工，不另開第二個倒數。",
+      "apple": "Apple已有手機NFC個人自動化；需要使用者設定。",
+      "route": "先做App内同一入口的狀態選單，再接手機捷徑；重掃按同一任務去重。",
+      "limits": "掃貼紙不是完成工作；Watch不能因此讀任意NFC卡。新接續選單尚未開發。",
+      "art": "上工戴眼鏡打領帶，收工鬆領帶，不靠整張搖擺。",
+      "sources": [
+        "shortcuts"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "interruption",
+      "group": "裝置與節奏",
+      "title": "被打斷後，幫你接回原來那一步",
+      "priority": "先做手動版",
+      "combines": "自己的任務進度 ＋ 暫停原因自填 ＋ 回來時的空檔",
+      "experience": "回來只顯示「剛才做到哪、剩多久」，讓你繼續、縮成短任務或今天收工。",
+      "apple": "本專案已有計時暫停／恢復；Apple有Focus和指定App捷徑觸發。",
+      "route": "先保存自己的任務註記；Focus觸發選配，不能讀別的App內文。",
+      "limits": "Focus關閉不等於會議結束；不因離開App就自行判定分心或偷懶。",
+      "art": "正裝翻記事簿、找書籤、收拾桌面。",
+      "sources": [
+        "shortcuts"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "travel-clock",
+      "group": "裝置與節奏",
+      "title": "旅行時，時間變了但意圖不亂",
+      "priority": "較大工程",
+      "combines": "時區變化 ＋ 睡前習慣 ＋ 正在走的倒數",
+      "experience": "提醒你選睡前按當地時間還是香港時間；既有20分鐘倒數保持20分鐘，換日不重複獎勵。",
+      "apple": "系統已有世界時鐘、時區管理；App能收到時區變更訊號。",
+      "route": "前景重查時區並保留事件原時區；真正跨日與重啟規則另驗。",
+      "limits": "不改系統鬧鐘、會議或用藥時間，不宣稱治療時差；通知不保證背景即時送達。",
+      "art": "行李箱、旅人帽、明信片、飯店睡衣。",
+      "sources": [
+        "timezone"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "packing",
+      "group": "生活習慣",
+      "title": "出門前只問這一趟要帶的",
+      "priority": "先做手動版",
+      "combines": "你選的行程類型 ＋ 自己的清單 ＋ 已知充電狀態",
+      "experience": "選上學、健身、旅行，就出現對應物品；你勾選才算帶了，也提醒拿回充電中的手錶。",
+      "apple": "Apple已有Reminders與離開觸發；本版可先用本機清單。",
+      "route": "手動「準備出門」先可靠運作；日曆/位置入口後接，清單可先同步到錶。",
+      "limits": "不知道包內有什麼；手機离開地理範圍時可能已經太晚，不能把Leave當可靠出門前提示。",
+      "art": "學生書包、運動袋、旅行箱，多種出門造型。",
+      "sources": [
+        "arrive",
+        "battery"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "photo-confirmed",
+      "group": "裝置與節奏",
+      "title": "真的拍到並存好，才給你反應",
+      "priority": "較大工程",
+      "combines": "同一個拍照請求 ＋ 拍攝回覆 ＋ 相簿保存回覆",
+      "experience": "派大星舉牌倒數；依序顯示手機收到、拍到、存好，最後才眨眼。重試不連拍一堆。",
+      "apple": "Apple已有Camera Remote；要取得自己的拍攝/保存回覆，需要自建手機相機頁。",
+      "route": "自家AVFoundation+PhotoKit+WatchConnectivity，逐步確認；手錶斷線時只問狀態，不執行過期快門。",
+      "limits": "不能控制任意相機App；收件成功不等於存照成功。相機權限、手機鎖定與中斷都須實機。",
+      "art": "攝影背心、墨鏡、場記板、伸手數三二一。",
+      "sources": [
+        "photo",
+        "savePhoto",
+        "connectivity"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "one-card",
+      "group": "裝置與節奏",
+      "title": "一堆事情來，只講現在最有用的",
+      "priority": "先做手動版",
+      "combines": "你是否有空 ＋ 當前任務 ＋ 最近已提醒的事 ＋ 安靜偏好",
+      "experience": "生日、計時和健康摘要同時來，只出一張你能處理的卡；略過後不換句話繼續催。",
+      "apple": "Apple有Focus與通知分流；本專案已有事件去重。本提案額外協調自己的多種建議。",
+      "route": "只管理自己的提醒和動作，手動操作優先；另選稍後才建立有期限待辦。",
+      "limits": "前景可見不等於有空；舊動畫不排隊補播，不攔截所有App通知，也不繞過Focus。",
+      "art": "可嚴肅舉牌、安靜點頭、只露眼睛，按注意力選演出長短。",
+      "sources": [
+        "notification",
+        "connectivity"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    },
+    {
+      "id": "weekly-story",
+      "group": "生活習慣",
+      "title": "一週變成你們的小故事",
+      "priority": "需接資料",
+      "combines": "你確認的生活事件 ＋ 本人自填感受 ＋ 選擇分享的摘要",
+      "experience": "週末回看見過光、完成任務、休息的日子，生成由固定文案和已批准動畫組成的小回顧。",
+      "apple": "Apple已有活動與健康歷史；這裡增加角色敘事與你自己的註記。",
+      "route": "先用本App事件與手動內容；健康來源需另外選擇，只在本機整理。",
+      "limits": "不自動分享、不把少運動寫成失敗；素材仍需逐套製作與批准，不把組合播放當新原畫。",
+      "art": "探險家、居家服、正裝輪番出現；保留平淡日也值得記錄。",
+      "sources": [
+        "mind",
+        "healthAuth"
+      ],
+      "status": "設計提案 · 尚未接入實機"
+    }
+  ]
+}

@@ -12,7 +12,7 @@
 
 - [PatrickIntents.swift](../iOSCompanion/PatrickCompanion/PatrickIntents.swift)：照顧、情境、角色心情、陪伴倒數及暫停／繼續／結束。陪伴倒數不是 HealthKit 健身訓練，也不是控制 Apple Workout 的暫停鍵。
 - 同檔本輪新增 `PatrickAutomationIntent`，接收「鬧鐘已停止／我起床了」回報；其描述明確是接在使用者捷徑之後，不讀取或停止系統鬧鐘，背景不補播。存在程式入口不等於已在使用者手機建立自動化。
-- [PatrickHealthPanel.swift](../PatrickFace/PatrickHealthPanel.swift) 與 [PatrickHealthSummary.swift](../iOSCompanion/Shared/PatrickHealthSummary.swift)：本輪已落盤七項自選唯讀摘要（步數、心率、SDNN HRV、靜止心率、呼吸率、睡眠手腕溫度、近 24 小時已記錄睡眠），附時間／來源；睡眠只做區間聯集，不冒稱 Apple 分期算法。可自選開頁刷新，新增權限仍需主動按鈕。這是本輪程式狀態，尚待該版本 Apple 編譯及真機權限驗證；本文件不修改健康實作。
+- [PatrickHealthPanel.swift](../PatrickFace/PatrickHealthPanel.swift) 與 [PatrickHealthSummary.swift](../iOSCompanion/Shared/PatrickHealthSummary.swift)：本輪已落盤七項自選唯讀摘要（步數、心率、SDNN HRV、靜止心率、呼吸率、睡眠手腕溫度、近 24 小時已記錄睡眠），附時間／來源；睡眠只做區間聯集，不冒稱 Apple 分期算法。可自選開頁刷新，新增權限仍需主動按鈕。該版本 Apple 編譯結果見[本輪驗證](ECOSYSTEM-20261007.md)；真機權限仍待驗證，本文件不修改健康實作。
 - [Info.plist](../iOSCompanion/PatrickCompanion/Info.plist) 與 [PatrickDeepLink.swift](../iOSCompanion/Shared/PatrickDeepLink.swift)：工程已有 `patrickface` 路由；只有已定義路由才能使用，不能因此假定存在任意第三方分數接收 URL。
 
 **本研究没有實作 AutoSleep／Athlytic／Bevel 等外部健康分數接收器；也沒有新增相機控制、NFC 門禁或系統鬧鐘接管。**
