@@ -18,6 +18,22 @@
 
 原生讀取授權成功不證明資料授權成功；App無法精確區分拒絕、未同步或沒有樣本，也沒有保證立即知道另一台裝置撤權的訊號。上述清除與重讀規則不應被稱作全系統即時權限監控。
 
+## 權限要換來哪個用途
+
+目標是用足可用入口，不把「要求越多權限」當作功能已經完成。公開API、App能力／簽名、裝置支援、使用者同意及實際前景／背景条件必須分開核對；一般帳號與最後重簽能力也要以實機結果為準。
+
+| 用途 | 需要的入口與權限範圍 | 本輪狀態 |
+|---|---|---|
+| 看健康摘要 | HealthKit逐資料類別的讀取；本輪不寫健康 | 七項自選，裝置尚未授權或讀到真樣本 |
+| 把角色狀態送到另一端 | 已配對App的WatchConnectivity；不自行掃周邊藍牙來取代配對 | 已有狀態同步，本轮補一次事件去重／過期處理；實體連線未驗 |
+| 接鬧鐘／Focus／充電／NFC | 使用者的手機個人自動化呼叫App Intent | 起床新增正式入口，其餘沿用情境／計時；不等於取得系統所有鬧鐘或NFC卡片內容 |
+| 自己安排鬧鐘或提醒 | AlarmKit授權與用途文字；一般提醒另用自身通知授權 | AlarmKit排程尚未開發，未要求新鬧鐘權限；兩者不混為強制鬧鐘 |
+| 派大星倒數拍照 | 自家手機相機需相機權限；若存系統相簿可採只新增照片，收音才另外需要麥克風 | 尚未開發或要求權限，先保留Camera Remote；不需為拍一張照片索取整個相簿 |
+| 開會前穿正裝 | 讀日曆事件需EventKit完整存取，系統沒有單獨的唯讀事件授權 | 未開發；可先用使用者已設定的捷徑回報，避免未有用途便索取日曆 |
+| 天氣／到家／外部配件 | 分別研究城市選擇或定位、捷徑、Home及公開配件能力 | 尚未新增定位／家居／配件權限，不把規劃列成已可用 |
+
+相機／相簿依[Apple媒體授權文件](https://developer.apple.com/documentation/avfoundation/requesting-authorization-to-capture-and-save-media)，日曆依[EventKit存取說明](https://developer.apple.com/documentation/eventkit/accessing-calendar-using-eventkit-and-eventkitui)，通知依[自身通知授權](https://developer.apple.com/documentation/usernotifications/unusernotificationcenter/requestauthorization(options:completionhandler:))；其餘來源及具體限制在上列三份研究文件。這些是實作與授權規劃，沒有對使用者裝置做權限變更。
+
 ## 新素材的實際結果
 
 內建圖片工具嘗試了居家充電服12格、海軍條紋晨起服12格、浴袍呼吸8格；三次都在輸出階段被服務拒絕，**新增圖集0、新原畫0格**。没有留下可裁剪的輸出，沒有替換舊圖、沒有把32格的請求當成果，也沒有改用其他管道。
@@ -28,4 +44,15 @@
 
 瀏覽器模擬與原生採相同6組事件fixtures。本輪JS通過32項檢查，含重送、3秒邊界、背景後不補播、未來時間／時鐘回退、重啟以及100個識別上限。5項瀏覽器驗證通過：既有起床全格1×播放、延遲與重複處理、響應式／篩選／存檔隔離、系統減少動態、來源遺失時禁止播放。桌面與390px頁面已實看。
 
-證據在 `output/playwright/20261007-ecosystem/`。這些結果不代表健康感測資料、藍牙可靠度或手機個人自動化已實機通過；新的Apple编譯結果在完成後另列。
+證據在 `output/playwright/20261007-ecosystem/`。這些結果不代表健康感測資料、藍牙可靠度或手機個人自動化已實機通過。
+
+## 本輪 Apple 驗證
+
+[Apple CI 37589666713](https://github.com/chansham/patrickface/actions/runs/37589666713) 全部成功，對應程式提交 `86f0ba23f24ca17e314d7dcdd7054cbfdfb7fd60`。Xcode 26.6（17F113），iOS／watchOS SDK 26.5；OS 27 的新增 API 仍僅屬研究，沒有算作本輪已編譯功能。
+
+- Foundation 共 1,911 項：規則 1,503、動畫 129、體驗 102、新自動化 150、新健康摘要 27，全部通過。
+- XCTest 14/14（包含本輪新增 2 項）、未簽名打包檢查 12/12；Watch、iPhone、Widget 與 Complication 編譯、裝置封存及資源 SHA 核對通過。
+- 產出 12 張原生模擬器截圖與 6 份 Watch 版面幾何報告。實際截圖環境為 iPhone Air／iOS 26.5、Apple Watch Series 11 46mm／watchOS 26.4，不是使用者實錶。
+- 本輪實看兩端主畫面及 Watch 活動版式：人物頭腳完整、主時間可見，iPhone 新「我起床了」入口清晰。**健康選項與授權畫面沒有在這批截圖中驗收，也未藉截圖批准候選美術。**
+
+本機只下載診斷至 `output/apple-build/run-37589666713-diagnostics/`，沒有下載新 IPA 或進行安裝。原始 capture 報告的 `visualReview: pending` 保持不變；上面記錄的是人工看過的子集。手機與手錶的實際授權、樣本讀取、鎖屏／背景事件、連線恢復與個人自動化，仍待使用者方便連接時驗收。

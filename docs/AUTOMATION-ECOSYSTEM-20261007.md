@@ -63,7 +63,7 @@ Apple 說背景傳送由系統排程，**不是即時**；`isReachable` 成立�
 
 - 共用案例：`tools/fixtures/automation-events.json`，包含即時、3秒邊界、重複、quiet→active、不曾前景輪詢的延遲抵達、未來時間／回撥、重啟。
 - Foundation：`tools/NativeAutomationChecks.swift`，加測 epoch毫秒存檔、日記一次、設定與照顧不變、無限／NaN拒絕、receipt上限。
-- `tools/build_apple_simulators.sh` 接入純邏輯檢查及既有 Apple build 流程。Windows 此刻没有 Swift／Apple SDK，**本機來源檢查不等於 Swift 編譯通過**；Apple CI 與實機結果由 root 另記錄。
+- `tools/build_apple_simulators.sh` 接入純邏輯檢查及既有 Apple build 流程。Windows 沒有 Swift／Apple SDK；Apple 編譯結果來自下列本輪雲端 CI，不以本機來源檢查代替。
 - Web automation lab 是隔離試驗，不更改主預覽資料，也不冒充 iPhone 已安裝個人自動化。
 
-本輪 Windows 已執行：Watch 工程／來源123項、companion工程／DTO／語法結構檢查、既有6項原生來源測試，均通過。新增2個XCTest測receipt重載／reset、事件wire毫秒／舊欄位相容／設定不變，已接待Apple執行；沒有把這些尚未執行的Swift測試算進本機通過數。
+本輪 Windows 已執行：Watch 工程／來源123項、companion工程／DTO／語法結構檢查、既有6項原生來源測試，均通過。[Apple CI 37589666713](https://github.com/chansham/patrickface/actions/runs/37589666713) 對程式提交 `86f0ba23f24ca17e314d7dcdd7054cbfdfb7fd60` 完成編譯封存；新增自動化 Foundation 150 項通過，XCTest 14/14 包含新增的 receipt 重載／reset、事件 wire 毫秒／舊欄位相容／設定不變 2 項。Xcode 26.6、SDK 26.5；真實手機／Watch 連線與自動化操作仍未測試。
