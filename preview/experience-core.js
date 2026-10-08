@@ -8,7 +8,15 @@ export const EXPERIENCE_KEY = 'patrick.experience.v1';
 export function newExperience(now = Date.now()) {
   return { version: 1, outfitId: 'auto', settings: { sound: false, haptics: true, timeFormat: '24', clockMode: 'digital', bubbles: true, showDate: true,
     sleepStartMinutes: 1320, sleepEndMinutes: 360, holidaysEnabled: true, layoutID: 'classic' },
-    care: { satiety: 60, bond: 0, updatedAt: now }, journal: [], activity: null, easterEggs: {} };
+    care: { satiety: 60, bond: 0, updatedAt: now }, journal: [], activity: null, breakSession: null, easterEggs: {} };
+}
+function restoredActivity(timer) {
+  if (!timer || !Object.hasOwn(TIMER_KINDS, timer.kind) || typeof timer.id !== 'string' || !Number.isFinite(timer.durationMs)
+      || timer.durationMs < 10000 || timer.durationMs > 7200000 || !Number.isFinite(timer.startedAt)
+      || !(timer.paused === true ? Number.isFinite(timer.remainingMs) : Number.isFinite(timer.endsAt))) return null;
+  return { id: timer.id, kind: timer.kind, durationMs: timer.durationMs, startedAt: timer.startedAt,
+    paused: timer.paused === true, remainingMs: clamp(number(timer.remainingMs, timer.durationMs), 0, timer.durationMs),
+    endsAt: timer.paused ? null : timer.endsAt, completedAt: Number.isFinite(timer.completedAt) ? timer.completedAt : null };
 }
 export function restoreExperience(raw, now = Date.now()) {
   const base = newExperience(now);
@@ -24,13 +32,13 @@ export function restoreExperience(raw, now = Date.now()) {
     updatedAt: Math.min(number(raw.care?.updatedAt, now), now) };
   base.journal = Array.isArray(raw.journal) ? raw.journal.filter(entry => typeof entry.id === 'string' && Number.isFinite(entry.at)
     && typeof entry.text === 'string' && typeof entry.type === 'string').slice(-60).map(entry => ({ ...entry, text: entry.text.slice(0, 300) })) : [];
-  const timer = raw.activity;
-  if (timer && Object.hasOwn(TIMER_KINDS, timer.kind) && typeof timer.id === 'string' && Number.isFinite(timer.durationMs)
-      && timer.durationMs >= 10000 && timer.durationMs <= 7200000 && Number.isFinite(timer.startedAt)
-      && (timer.paused === true ? Number.isFinite(timer.remainingMs) : Number.isFinite(timer.endsAt))) {
-    base.activity = { id: timer.id, kind: timer.kind, durationMs: timer.durationMs, startedAt: timer.startedAt,
-      paused: timer.paused === true, remainingMs: clamp(number(timer.remainingMs, timer.durationMs), 0, timer.durationMs),
-      endsAt: timer.paused ? null : timer.endsAt, completedAt: Number.isFinite(timer.completedAt) ? timer.completedAt : null };
+  base.activity = restoredActivity(raw.activity);
+  const saved = restoredActivity(raw.breakSession?.savedActivity);
+  if (saved?.paused && saved.completedAt === null && saved.remainingMs > 0
+      && typeof raw.breakSession?.resumeOnReturn === 'boolean' && typeof raw.breakSession?.breakActivityID === 'string'
+      && raw.breakSession.breakActivityID !== saved.id) {
+    base.breakSession = { savedActivity: saved, resumeOnReturn: raw.breakSession.resumeOnReturn,
+      breakActivityID: raw.breakSession.breakActivityID };
   }
   for (const [key, value] of Object.entries(raw.easterEggs || {})) if (/^[a-z0-9-]+$/.test(key) && Number.isFinite(value)) base.easterEggs[key] = Math.min(now, value);
   return base;
@@ -54,10 +62,19 @@ export function timerRemaining(activity, now = Date.now()) {
   return activity.paused ? activity.remainingMs : clamp(activity.endsAt - now, 0, activity.durationMs);
 }
 export function startActivity(state, kind, seconds, now = Date.now()) {
-  if (!Object.hasOwn(TIMER_KINDS, kind)) return state;
+  if (state.breakSession || !Object.hasOwn(TIMER_KINDS, kind)) return state;
   const durationMs = clamp(number(seconds, 60), 10, 7200) * 1000;
   return { ...state, activity: { id: `${now}-${kind}`, kind, durationMs, startedAt: now, endsAt: now + durationMs,
     paused: false, remainingMs: durationMs, completedAt: null } };
+}
+export function requestActivityStart(state, kind, seconds, now = Date.now()) {
+  const settled = finishActivity(state, now);
+  if (settled.breakSession) return { state: settled, status: 'saved-pending', message: '還保存著原活動。先返回或明確放棄，再開始其他計時。' };
+  if (settled.activity?.completedAt === null) return { state: settled, status: 'preserved',
+    message: `已保留${TIMER_KINDS[settled.activity.kind]}的${settled.activity.paused ? '暫停' : '進行中'}倒數。要換活動，請先按「結束」。` };
+  const next = startActivity(settled, kind, seconds, now);
+  if (next === settled) return { state: settled, status: 'invalid', message: '未能開始這種活動。' };
+  return { state: appendJournal(next, 'timer', `開始${TIMER_KINDS[kind]}陪伴。`, now), status: 'started', message: '開始了，我在旁邊。' };
 }
 export function pauseActivity(state, now = Date.now()) {
   if (!state.activity || state.activity.paused || state.activity.completedAt !== null) return state;
@@ -87,6 +104,39 @@ export function controlActivity(state, action, now = Date.now()) {
   if (action === 'resume') return !activity.paused ? { state: settled, status: 'already-running' }
     : { state: resumeActivity(settled, now), status: 'resumed' };
   return { state: appendJournal(cancelActivity(settled), 'cancel', '這一段先結束，沒有算作完成。', now), status: 'cancelled' };
+}
+export function manageBreak(state, command, minutes = 3, now = Date.now()) {
+  let next = finishActivity(state, now);
+  const result = (status, message) => ({ state: next, status, message });
+  if (command === 'begin') {
+    if (next.breakSession) return result('already-saved', '原活動已保存，沒有重開休息。');
+    const current = next.activity;
+    if (!current || current.completedAt !== null || timerRemaining(current, now) <= 0) return result('no-active', '先開始一段活動；已到期的計時按完成處理。');
+    const savedActivity = { ...current, paused: true, endsAt: null, remainingMs: timerRemaining(current, now) };
+    next = startActivity(next, 'breathing', clamp(Math.floor(number(minutes, 3)), 1, 15) * 60, now);
+    // A break may start at the exact millisecond of a breathing activity; IDs
+    // must still distinguish the saved task from this independent break.
+    next = { ...next, activity: { ...next.activity, id: `${next.activity.id}-break` }, breakSession: {
+      savedActivity, resumeOnReturn: !current.paused, breakActivityID: `${next.activity.id}-break` } };
+    next = appendJournal(next, 'break', `保存${TIMER_KINDS[current.kind]}進度，休息後再返回。`, now);
+    return result('started', '已保存原進度。休息結束後，等你按「返回原活動」。');
+  }
+  const saved = next.breakSession;
+  if (!saved) return result('nothing-saved', '目前沒有保存中的原活動。');
+  if (command === 'discard') {
+    next = appendJournal({ ...next, breakSession: null }, 'discard-saved', `放棄保存的${TIMER_KINDS[saved.savedActivity.kind]}。`, now);
+    return result('discarded', '已放棄原活動，沒有算作完成；當前休息保留。');
+  }
+  if (command !== 'return') return result('invalid', '未能辨認這次操作。');
+  if (next.activity && next.activity.id !== saved.breakActivityID && next.activity.completedAt === null)
+    return result('another-active', '目前有另一段活動，先結束它，再返回原活動。');
+  if (next.activity?.id === saved.breakActivityID && next.activity.completedAt === null)
+    next = appendJournal(next, 'cancel', '提早結束休息，沒有算作完成。', now);
+  const activity = { ...saved.savedActivity, paused: !saved.resumeOnReturn,
+    endsAt: saved.resumeOnReturn ? now + saved.savedActivity.remainingMs : null };
+  next = appendJournal({ ...next, activity, breakSession: null }, 'return',
+    `返回${TIMER_KINDS[activity.kind]}，${saved.resumeOnReturn ? '繼續剩餘時間' : '保持暫停'}。`, now);
+  return result('returned', saved.resumeOnReturn ? '已從保存的剩餘時間繼續。' : '已返回，維持原先暫停；準備好再按「繼續」。');
 }
 export function claimEgg(state, id, cooldownMs, now = Date.now()) {
   const previous = state.easterEggs[id];

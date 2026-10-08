@@ -31,6 +31,16 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 1
+      - name: Check measurement evidence for the three reviewed animation revisions
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/patrick-ci-logs"
+          set -o pipefail
+          node --test tools/test_animation_acceptance.mjs 2>&1 | tee "$RUNNER_TEMP/patrick-ci-logs/animation-evidence-tests.log"
+          node tools/check_animation_acceptance.mjs \
+            --audit animation/production-20261007-completion/body-scale-audit.json \
+            --clip-ids chef-cookie-repair-20261007,focus-transition-repair-20261007,charging-cozy-20261007 \
+            | tee "$RUNNER_TEMP/patrick-ci-logs/animation-evidence.json"
       - name: Build unsigned Apple simulator apps
         id: simulator
         shell: bash
@@ -66,6 +76,7 @@ jobs:
           name: apple-build-diagnostics-${{ github.run_number }}
           path: |
             ${{ runner.temp }}/patrick-ci-logs/*.log
+            ${{ runner.temp }}/patrick-ci-logs/*.json
             ${{ runner.temp }}/patrick-ci-logs/*.xcresult
             ${{ runner.temp }}/patrick-ci-logs/native-screens/
           retention-days: 7

@@ -1,5 +1,5 @@
 import { EXPERIENCE_KEY, TIMER_KINDS, isExerciseKind, restoreExperience, careNow, careAction, appendJournal, timerRemaining,
-  startActivity, controlActivity, finishActivity, claimEgg, isSleepMinute } from './experience-core.js?v=20261006-size2';
+  startActivity, requestActivityStart, controlActivity, finishActivity, manageBreak, claimEgg, isSleepMinute } from './experience-core.js?v=20261008-break1';
 import { holidayFor } from './pet-core.js?v=20261006-size2';
 import { DEFAULT_LAYOUT, validateLayouts } from './layout-core.js?v=20261006-size2';
 
@@ -158,7 +158,10 @@ export async function createExperience({ repo, revision, clips, read, write, get
     button.addEventListener('click', event => chooseOutfit(item.id, event)); $('#outfit-grid').append(button);
   }
   function startTimer(kind, seconds, event) {
-    gesture(event); experience = startActivity(experience, kind, seconds); journal('timer', `開始${TIMER_KINDS[kind]}陪伴。`);
+    gesture(event);
+    const result = requestActivityStart(experience, kind, seconds);
+    experience = result.state; save();
+    if (result.status !== 'started') { say(result.message, 5000); refresh(); return; }
     player.changeScene(isExerciseKind(kind) ? 'exercise' : 'focus');
     $('#activity-kind').value = kind; $('#activity-minutes').value = String(seconds / 60);
     switchTab('timer'); say(kind === 'breathing' ? '照自己的步調，慢慢來。' : '開始了，我在旁邊。'); feedback('start', event); refresh();
@@ -179,6 +182,16 @@ export async function createExperience({ repo, revision, clips, read, write, get
     $('#activity-progress').value = activity ? 1 - timerRemaining(activity, now) / activity.durationMs : 0;
     $('#pause-activity').disabled = !activity || activity.paused || activity.completedAt !== null;
     $('#resume-activity').hidden = !activity?.paused; $('#stop-timer').disabled = !activity;
+    const saved = experience.breakSession;
+    $('#saved-activity').hidden = !saved;
+    $('#begin-break').disabled = !!saved || !activity || activity.completedAt !== null;
+    $('#return-activity').disabled = !saved;
+    $('#discard-saved-activity').disabled = !saved;
+    for (const id of ['start-activity', 'focus-timer', 'exercise-timer', 'breath-timer']) $('#'+id).disabled = !!saved;
+    if (saved) {
+      const seconds = Math.ceil(saved.savedActivity.remainingMs / 1000);
+      $('#saved-activity-status').textContent = `已保存${TIMER_KINDS[saved.savedActivity.kind]} · ${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}。${saved.resumeOnReturn ? '按返回才繼續，休息結束不自動開始。' : '原活動本來已暫停，返回後仍保持暫停。'}`;
+    }
     const breathing = activity?.kind === 'breathing' && activity.completedAt === null;
     $('#breath-guide').hidden = !breathing;
     if (breathing) {
@@ -187,6 +200,7 @@ export async function createExperience({ repo, revision, clips, read, write, get
       $('#breath-guide').style.setProperty('--breath-scale', activity.paused || player.quiet() ? '1' : String(phase < 4000 ? 1 + phase / 4000 * .18 : 1.18 - (phase - 4000) / 6000 * .18));
     }
     shell.report.activity = activity ? { id: activity.id, kind: activity.kind, paused: activity.paused, remainingMs: timerRemaining(activity, now), completedAt: activity.completedAt } : null;
+    shell.report.savedActivityID = saved?.savedActivity.id ?? null;
     updateLayoutInfo(now);
   }
   function updateLayoutInfo(now = Date.now()) {
@@ -308,10 +322,25 @@ export async function createExperience({ repo, revision, clips, read, write, get
   }
   $('#pause-activity').addEventListener('click', () => controlTimer('pause'));
   $('#resume-activity').addEventListener('click', event => { gesture(event); controlTimer('resume'); });
+  function manageRest(command, event) {
+    gesture(event);
+    const result = manageBreak(experience, command, Number($('#break-minutes').value));
+    experience = result.state; save(); refresh(); say(result.message, 5000);
+    if (result.status === 'started' || result.status === 'returned') {
+      // Keep the person's selected scene/outfit; resting does not alter their
+      // sleep or clothes preferences. Existing countdown information updates.
+      startVisuals();
+    }
+  }
+  $('#begin-break').addEventListener('click', event => manageRest('begin', event));
+  $('#return-activity').addEventListener('click', event => manageRest('return', event));
+  $('#discard-saved-activity').addEventListener('click', event => {
+    if (experience.breakSession && confirm('放棄保存的原活動？當前休息計時會保留。')) manageRest('discard', event);
+  });
   $('#birthday').value = getPet().birthday;
   $('#birthday').addEventListener('change', event => { setPet({ type: 'birthday', value: event.target.value }); $('#birthday').value = getPet().birthday; journal('birthday', getPet().birthday ? `記住生日 ${getPet().birthday}。` : '已清除生日。'); refresh(); });
   $('#export-journal').addEventListener('click', () => {
-    const blob = new Blob([JSON.stringify({ schemaVersion: 1, exportedAt: new Date().toISOString(), journal: experience.journal, care: careNow(experience.care), activity: experience.activity }, null, 2)], { type: 'application/json' });
+    const blob = new Blob([JSON.stringify({ schemaVersion: 1, exportedAt: new Date().toISOString(), journal: experience.journal, care: careNow(experience.care), activity: experience.activity, breakSession: experience.breakSession }, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob), link = document.createElement('a'); link.href = url; link.download = 'patrick-little-days.json'; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   });
   $('#toggle-review').addEventListener('click', () => { $('.editing').hidden = !$('.editing').hidden; if (!$('.editing').hidden) { player.hold(); $('.editing').scrollIntoView({ behavior: 'smooth', block: 'start' }); } });

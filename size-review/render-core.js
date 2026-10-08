@@ -9,6 +9,21 @@ export async function resource(path, repo, expectedHash) {
   const bytes=await response.arrayBuffer();if(expectedHash&&await hashHex(bytes)!==expectedHash.toLowerCase())throw new Error(`${path}：SHA 校驗不符`);return bytes;
 }
 export const decodeJSON = bytes => JSON.parse(new TextDecoder().decode(bytes).replace(/^\uFEFF/,''));
+const frameCache=new Map(),MAX_FRAME_CANVASES=12;
+let decodedSourceCount=0,decodedSourcePixels=0;
+export const renderMemoryStats=()=>({decodedSourceCount,decodedSourcePixels,retainedFrameCanvases:frameCache.size,maxFrameCanvases:MAX_FRAME_CANVASES,retainedFramePixels:[...frameCache.values()].reduce((sum,canvas)=>sum+canvas.width*canvas.height,0)});
+function contourFrame(key,metadata,image,index){
+  const cacheKey=`${key}:${index}`;
+  if(frameCache.has(cacheKey)){const canvas=frameCache.get(cacheKey);frameCache.delete(cacheKey);frameCache.set(cacheKey,canvas);return canvas;}
+  const frame=metadata.frames[index];if(!frame)throw new Error('來源幀不存在');
+  const canvas=document.createElement('canvas');canvas.width=metadata.canvas.width;canvas.height=metadata.canvas.height;
+  const context=canvas.getContext('2d');const[dx,dy]=frame.translation;context.imageSmoothingEnabled=false;context.save();context.beginPath();
+  for(const[y,...runs]of frame.rows)for(let i=0;i<runs.length;i+=2)context.rect(runs[i]+dx,y+dy,runs[i+1]-runs[i],1);
+  context.clip();context.drawImage(image,dx,dy);context.restore();canvas.dataset.sourceFrame=String(index);
+  frameCache.set(cacheKey,canvas);
+  while(frameCache.size>MAX_FRAME_CANVASES){const oldest=frameCache.keys().next().value,evicted=frameCache.get(oldest);frameCache.delete(oldest);evicted.width=0;evicted.height=0;}
+  return canvas;
+}
 export async function loadClip(raw,repo,cache) {
   const clip=normalizeClip(raw);if(!clip.available)return clip;
   if(!clip.frameRegions)throw new Error(`${clip.title}：目前尺寸審稿只接受已分離輪廓的素材`);
@@ -16,15 +31,11 @@ export async function loadClip(raw,repo,cache) {
   if(!cache.has(key))cache.set(key,(async()=>{
     const [png,regions]=await Promise.all([resource(clip.atlas,repo,clip.sha256),resource(clip.frameRegions.path,repo,clip.frameRegions.sha256)]);
     const metadata=validateFrameRegions(clip,decodeJSON(regions));const image=await createImageBitmap(new Blob([png],{type:'image/png'}));
-    if(image.width!==clip.width||image.height!==clip.height)throw new Error('來源圖片尺寸不符');
-    const frames=metadata.frames.map((frame,index)=>{
-      const canvas=document.createElement('canvas');canvas.width=metadata.canvas.width;canvas.height=metadata.canvas.height;
-      const context=canvas.getContext('2d');const [dx,dy]=frame.translation;context.imageSmoothingEnabled=false;context.save();context.beginPath();
-      for(const [y,...runs]of frame.rows)for(let i=0;i<runs.length;i+=2)context.rect(runs[i]+dx,y+dy,runs[i+1]-runs[i],1);
-      context.clip();context.drawImage(image,dx,dy);context.restore();canvas.dataset.sourceFrame=String(index);return canvas;
-    });image.close();return{metadata,frames};
+    if(image.width!==clip.width||image.height!==clip.height){image.close();throw new Error('來源圖片尺寸不符');}
+    decodedSourceCount++;decodedSourcePixels+=image.width*image.height;
+    return{metadata,getFrame:index=>contourFrame(key,metadata,image,index)};
   })());
-  const shared=await cache.get(key);validateFrameRegions(clip,shared.metadata);
+  let shared;try{shared=await cache.get(key);}catch(error){cache.delete(key);throw error;}validateFrameRegions(clip,shared.metadata);
   return{...clip,...shared,renderCanvas:shared.metadata.canvas};
 }
 export function strongBounds(canvas) {
@@ -34,7 +45,7 @@ export function strongBounds(canvas) {
   return[left,top,right+1-left,bottom+1-top];
 }
 export function frameGeometry(clip,index,master,layout) {
-  const sourceIndex=clip.frameIndices[index],source=clip.frames[sourceIndex],rect=transformRect(destinationRect(clip,master),layout);
+  const sourceIndex=clip.frameIndices[index],source=clip.getFrame(sourceIndex),rect=transformRect(destinationRect(clip,master),layout);
   clip.bounds ||= new Map();if(!clip.bounds.has(sourceIndex))clip.bounds.set(sourceIndex,strongBounds(source));
   const b=clip.bounds.get(sourceIndex);const scale=rect[2]/source.width;
   return{source,sourceIndex,rect,pixelScale:scale,bounds:[rect[0]+b[0]*scale,rect[1]+b[1]*scale,b[2]*scale,b[3]*scale],

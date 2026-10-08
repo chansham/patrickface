@@ -1,0 +1,63 @@
+import assert from 'node:assert/strict';
+import { newExperience, restoreExperience, startActivity, requestActivityStart, controlActivity, finishActivity,
+  manageBreak, timerRemaining } from './experience-core.js';
+
+const now = 1800000000000;
+let state = startActivity(newExperience(now), 'running', 600, now);
+const originalID = state.activity.id;
+state = manageBreak(state, 'begin', 1, now + 30000).state;
+assert.equal(state.breakSession.savedActivity.id, originalID);
+assert.equal(state.breakSession.savedActivity.remainingMs, 570000);
+const during = structuredClone(state);
+assert.deepEqual(manageBreak(state, 'begin', 5, now + 31000).state, during);
+assert.deepEqual(requestActivityStart(state, 'focus', 60, now + 32000).state, during);
+assert.equal(startActivity(state, 'focus', 60, now + 32000), state);
+state = restoreExperience(JSON.parse(JSON.stringify(state)), now + 1000000);
+state = finishActivity(state, now + 1000000);
+assert.equal(state.activity.completedAt, now + 1000000);
+assert.equal(state.breakSession.savedActivity.remainingMs, 570000, 'saved task never counts down during an absent/expired break');
+const completeCount = state.journal.filter(entry => entry.type === 'complete').length;
+state = manageBreak(state, 'return', 3, now + 1001000).state;
+assert.equal(state.activity.id, originalID);
+assert.equal(state.activity.endsAt, now + 1571000);
+assert.equal(state.breakSession, null);
+assert.equal(state.journal.filter(entry => entry.type === 'complete').length, completeCount);
+assert.equal(manageBreak(state, 'return', 3, now + 1002000).state, state);
+
+let paused = startActivity(newExperience(now), 'focus', 300, now);
+paused = controlActivity(paused, 'pause', now + 20000).state;
+const originalPaused = structuredClone(paused.activity);
+paused = manageBreak(paused, 'begin', 3, now + 100000).state;
+paused = controlActivity(paused, 'cancel', now + 110000).state;
+assert.equal(paused.activity, null);
+paused = restoreExperience(paused, now + 500000);
+paused = manageBreak(paused, 'return', 3, now + 500000).state;
+assert.deepEqual(paused.activity, originalPaused);
+assert.equal(timerRemaining(paused.activity, now + 9000000), 280000);
+assert.equal(paused.journal.filter(entry => entry.type === 'complete').length, 0);
+
+let boundary = startActivity(newExperience(now), 'walking', 60, now);
+const late = manageBreak(boundary, 'begin', 1, now + 60000);
+assert.equal(late.status, 'no-active');
+assert.equal(late.state.breakSession, null);
+assert.equal(late.state.journal.filter(entry => entry.type === 'complete').length, 1);
+assert.equal(manageBreak(late.state, 'begin', 1, now + 61000).state, late.state);
+
+let dropped = manageBreak(startActivity(newExperience(now), 'focus', 300, now), 'begin', 1, now + 10000).state;
+const breakActivity = dropped.activity;
+dropped = manageBreak(dropped, 'discard', 1, now + 20000).state;
+assert.equal(dropped.breakSession, null);
+assert.deepEqual(dropped.activity, breakActivity);
+assert.equal(manageBreak(dropped, 'discard', 1, now + 21000).state, dropped);
+assert.equal(dropped.journal.filter(entry => entry.type === 'complete').length, 0);
+const legacy = { ...during }; delete legacy.breakSession;
+assert.equal(restoreExperience(legacy, now).breakSession, null);
+assert.deepEqual(restoreExperience(legacy, now).activity, during.activity);
+const invalid = structuredClone(during); invalid.breakSession.savedActivity.remainingMs = NaN;
+assert.equal(restoreExperience(invalid, now).breakSession, null);
+let conflicting = { ...during, activity: startActivity(newExperience(now), 'strength', 60, now).activity };
+assert.equal(manageBreak(conflicting, 'return', 3, now + 1000).status, 'another-active');
+assert.deepEqual(manageBreak(conflicting, 'return', 3, now + 1000).state, conflicting);
+const simultaneous = manageBreak(startActivity(newExperience(now), 'breathing', 60, now), 'begin', 1, now).state;
+assert.notEqual(simultaneous.activity.id, simultaneous.breakSession.savedActivity.id);
+console.log('PASS break save/return, reload, paused original, quiet expiry, start protection, deadline/cancel/discard, duplicate handling and old-save restore.');

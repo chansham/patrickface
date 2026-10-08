@@ -141,9 +141,9 @@ import Foundation
                   "Terminal start preserves reward count and existing duration limits")
         }
         var resting = PatrickExperienceState(); resting.start(.focus, seconds: 600, at: now)
-        let originalID = resting.activity!.id
+        let originalBreakID = resting.activity!.id
         check(resting.manageBreak(.begin(minutes: 1), at: now.addingTimeInterval(30)) == .started(.focus), "Break saves a running original")
-        check(resting.breakSession?.savedActivity.id == originalID && resting.breakSession?.savedActivity.remainingSeconds == 570,
+        check(resting.breakSession?.savedActivity.id == originalBreakID && resting.breakSession?.savedActivity.remainingSeconds == 570,
               "Original identity and remaining seconds are frozen")
         let savedBreak = resting
         check(resting.manageBreak(.begin(minutes: 5), at: now.addingTimeInterval(31)) == .alreadySaved && resting == savedBreak,
@@ -157,7 +157,7 @@ import Foundation
               "A break completed in the background never restarts or consumes the original")
         check(resting.care.bond == 1, "Completed break settles its usual reward once")
         check(resting.manageBreak(.returnToActivity, at: now.addingTimeInterval(1000)) == .returned(.focus, running: true), "Explicit return resumes a formerly running activity")
-        check(resting.activity?.id == originalID && resting.activity?.endsAt == now.addingTimeInterval(1570) && resting.breakSession == nil,
+        check(resting.activity?.id == originalBreakID && resting.activity?.endsAt == now.addingTimeInterval(1570) && resting.breakSession == nil,
               "Return restores identity and frozen remaining time with a new deadline")
         let returned = resting
         check(resting.manageBreak(.returnToActivity, at: now.addingTimeInterval(1001)) == .nothingSaved && resting == returned,

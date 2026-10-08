@@ -1,6 +1,7 @@
 import { frameAt } from '../preview/player-core.js?v=20261006-layouts1';
 import { validateLayouts } from '../preview/layout-core.js?v=20261006-layouts1';
-import { resource,decodeJSON,loadClip,frameGeometry } from './render-core.js?v=20261006-size5';
+import { resource,decodeJSON,loadClip,frameGeometry,renderMemoryStats } from './render-core.js?v=20261008-acceptance2';
+import { METRICS,measuredFootPoints,summarizeEvidence } from './acceptance-core.mjs?v=20261008-acceptance1';
 const $=selector=>document.querySelector(selector),repo=new URL('../',import.meta.url);
 const auditPath='animation/production-20261006-scale/body-scale-audit.json',repairAuditPath='animation/production-20261006-repair/body-scale-audit.json',followupAuditPath='animation/production-20261006-followup/body-scale-audit.json',completionAuditPath='animation/production-20261007-completion/body-scale-audit.json',storageKey='patrick.size-review.v1';
 const params=new URLSearchParams(location.search),candidateMode=params.get('review')==='candidates';
@@ -8,6 +9,7 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const state={tab:'overview',playing:false,raf:null,started:0,head:360,body:650,guides:true,bounds:false,landmarks:false,pair:[{id:'pet',index:0},{id:'exercise',index:0}],layoutClip:'pet',layoutFrame:0,calibrationClip:null,calibrationFrame:0};
 window.__patrickSizeReview={status:'loading',state};
 let clips=[],candidateClips=[],layouts=[],catalog,outfits=[],audit=null,auditReports=[],notes={},beforeCatalog=null,calibrationClips=[];
+const evidenceCache=new WeakMap();
 try{const value=JSON.parse(localStorage.getItem(storageKey));if(value?.version===1&&value.notes&&typeof value.notes==='object')notes=value.notes;}catch{}
 const element=(tag,className,text)=>{const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;};
 const clipByID=id=>clips.find(clip=>clip.id===id);
@@ -55,18 +57,6 @@ function draw(canvas,clip,index,layout){
 }
 const validPoint=value=>Array.isArray(value)&&value.length===2&&value.every(Number.isFinite);
 const validPoints=value=>Array.isArray(value)&&value.length===2&&value.every(validPoint);
-function measuredFootPoints(measure){
-  if(!Number.isFinite(measure?.eyeToFoot)||measure.eyeToFoot<0)return null;
-  let points=measure.eyeToFootPoints;
-  if(points!==undefined){
-    if(!validPoints(points)||Math.abs(points[1][0]-points[0][0])>1e-6||Math.abs(points[1][1]-points[0][1]-measure.eyeToFoot)>1e-5)return null;
-    return points;
-  }
-  // The original audit defines this scalar as footY - eyeMidpointY.
-  // Reconstruct that measured baseline; the render anchor can include a cushion.
-  if(!validPoint(measure.eyeMidpoint))return null;
-  return [measure.eyeMidpoint,[measure.eyeMidpoint[0],measure.eyeMidpoint[1]+measure.eyeToFoot]];
-}
 function auditEntry(clip){
   const matches=auditReports.filter(report=>report.path===auditPath||clip.catalogKind==='candidates').flatMap(report=>(report.data?.clips||[]).filter(value=>value&&value.id===clip.id&&value.catalog===(clip.catalogKind||'catalog')).map(entry=>({entry,report})));
   const exact=matches.find(({entry})=>entry.sourceSha256===clip.sha256&&entry.regionsSha256===clip.frameRegions.sha256);
@@ -74,7 +64,21 @@ function auditEntry(clip){
   return{entry:null,report:matches[0]?.report||null,stale:matches.length>0,scaleChanged:false};
 }
 function sourceAudit(clip){return auditEntry(clip).entry;}
-function sourceMeasurement(clip,index){const frames=sourceAudit(clip)?.frames;return Array.isArray(frames)?frames.find(frame=>frame.sourceFrame===index)?.source:null;}
+function evidence(clip){if(!evidenceCache.has(clip))evidenceCache.set(clip,summarizeEvidence(clip,sourceAudit(clip),clip.metadata.frames.length));return evidenceCache.get(clip);}
+function sourceMeasurement(clip,index){if(!evidence(clip).evidenceComplete)return null;const frames=sourceAudit(clip)?.frames;return Array.isArray(frames)?frames.find(frame=>frame.sourceFrame===index)?.source:null;}
+function evidenceCard(clip){
+  const value=evidence(clip),box=element('section',`evidence-coverage ${value.evidenceComplete?'complete':'blocked'}`);box.dataset.complete=String(value.evidenceComplete);
+  box.append(element('strong','',value.evidenceComplete?`全段 ${value.sourceFrameCount} 格均有量測或未知紀錄`:'量測資料尚未通過完整性核對'));
+  if(!value.evidenceComplete){box.append(element('p','',value.errors.map(error=>error.message).slice(0,3).join(' ')));return box;}
+  for(const[key,label]of Object.entries(METRICS)){const metric=value.metrics[key],row=element('div','coverage-row');
+    row.append(element('span','',`${label} ${metric.measured}/${value.sourceFrameCount} 格可量`));
+    row.append(element('small','',metric.deltaPercent===null?'首末差異：未知':`末格比首格${Math.abs(metric.deltaPercent)<.05?'接近':`${metric.deltaPercent>0?'大':'小'} ${Math.abs(metric.deltaPercent).toFixed(1)}%`}`));box.append(row);
+  }
+  box.append(element('small','',`${value.sourceFrameCount-value.measuredFrames} 格沒有可靠人體尺規。閉眼與遮擋保留未知；姿勢變化仍須實看。`));
+  if(value.reportedIssues.length){const issues=element('ul','known-art-issues');for(const issue of value.reportedIssues)issues.append(element('li','',typeof issue==='string'?issue:issue.message||issue.code));box.append(element('strong','', '原稿已知問題（不受百分比門檻影響）'),issues);}
+  const review=value.warnings.filter(warning=>warning.code==='within-clip-variation');if(review.length)box.append(element('p','coverage-warning',review.map(warning=>warning.message).join(' ')));
+  return box;
+}
 function visibleMetrics(clip,index){const measure=sourceMeasurement(clip,clip.frameIndices[index]),factor=frameGeometry(clip,index,catalog.master,layouts[0]).pixelScale*200/832;
   return Object.fromEntries(['faceWidth','eyeSeparation','eyeToFoot'].map(key=>[key,Number.isFinite(measure?.[key])&&measure[key]>=0&&(key!=='eyeToFoot'||measuredFootPoints(measure))?measure[key]*factor:null]));}
 function describeMetrics(value,prefix=''){
@@ -99,6 +103,7 @@ function facts(card,clip,index,reference={id:'yawn',index:0}){
     if(value!==null&&other>0&&!isReference){const delta=(value/other-1)*100;row.append(element('small','',Math.abs(delta)<.5?'與參考接近':`比參考${delta>0?'大':'小'} ${Math.abs(delta).toFixed(0)}%`));}
     measurement.append(row);
   }node.append(measurement,element('small','',`200 px 內容舞台 · ${isReference?'此格作參考':`參考：${referenceClip.title}第${reference.index+1}格`}`),element('small','', '眼線至腳底受坐姿影響；遮擋的身體寬度不猜測。'));
+  node.append(evidenceCard(clip));
   const details=element('details');details.append(element('summary','', '查看來源與量測細節'));details.append(element('small','',`來源第 ${geometry.sourceIndex+1} 格 · 主預覽整段倍率 ${clip.scale.toFixed(6)}`),element('small','',`1 source px → ${geometry.pixelScale.toFixed(4)} stage px；可見輪廓 ${geometry.bounds[2].toFixed(1)} × ${geometry.bounds[3].toFixed(1)} stage px（含衣帽與道具）`),element('small','',`PNG ${clip.sha256}`),element('small','',`輪廓 ${clip.frameRegions.sha256}`));
   const{entry,report,stale,scaleChanged}=auditEntry(clip);
   node.append(element('small','measurement-source',stale?'量測版本不符，本圖未套用。':entry?`量測來源：${report.label}`:'尚未有對應本圖的獨立量測。'));
@@ -189,7 +194,11 @@ async function start(){
     const ids=new Set(inputs.map(clip=>clip.id));
     for(const clip of candidates.clips.filter(clip=>clip.atlas)){if(ids.has(clip.id)){failures.push({id:clip.id,error:'待審識別碼與其他版本重複'});continue;}ids.add(clip.id);inputs.push({...clip,catalogKind:'candidates'});}
   }catch(error){failures.push({id:'candidates',error:error.message});}}
-  const loaded=await Promise.all(inputs.map(async clip=>{try{return await loadClip(clip,repo,cache);}catch(error){failures.push({id:clip.id,error:error.message});return null;}}));clips=loaded.filter(Boolean);candidateClips=clips.filter(clip=>clip.catalogKind==='candidates');if(!clips.some(clip=>clip.catalogKind==='catalog'))throw new Error('沒有可讀取的主預覽素材');
+  // Decode at most two source atlases concurrently; compose frame canvases only
+  // when drawn. Keeping every full-size source frame used hundreds of MiB.
+  const loaded=new Array(inputs.length);let nextInput=0;
+  const loadNext=async()=>{while(nextInput<inputs.length){const index=nextInput++,clip=inputs[index];try{loaded[index]=await loadClip(clip,repo,cache);}catch(error){failures.push({id:clip.id,error:error.message});loaded[index]=null;}}};
+  await Promise.all([loadNext(),loadNext()]);cache.clear();clips=loaded.filter(Boolean);candidateClips=clips.filter(clip=>clip.catalogKind==='candidates');if(!clips.some(clip=>clip.catalogKind==='catalog'))throw new Error('沒有可讀取的主預覽素材');
   outfits=rawThemes.outfits.filter(value=>clipByID(value.clipId));if(!clipByID(state.pair[0].id))state.pair[0].id=clips[0].id;if(!clipByID(state.pair[1].id))state.pair[1].id=clips.at(-1).id;state.layoutClip=state.pair[0].id;
   await loadAudit();try{beforeCatalog=decodeJSON(await resource('animation/production-20261006-scale/catalog-before.json',repo));}catch{}
   $('#summary').textContent=`${outfits.length} 套造型 · ${clips.filter(clip=>clip.catalogKind==='catalog').length} 段播放版本。以下全部固定為 200 px 視窗，沿用經典版同一舞台。`;
@@ -201,6 +210,6 @@ async function start(){
   for(const id of ['guides','bounds','landmarks'])$(`#${id}`).addEventListener('change',()=>{state[id]=$(`#${id}`).checked;redraw();});$('#play-pair').addEventListener('click',play);$('#stop-pair').addEventListener('click',stop);reduced.addEventListener('change',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});stop();
   $('#note-clip').addEventListener('change',loadNote);$('#note').addEventListener('input',saveNote);$('#note-verdict').addEventListener('change',saveNote);$('#export').addEventListener('click',()=>{const value={schemaVersion:1,exportedAt:new Date().toISOString(),artApproval:false,notes:Object.values(notes),currentRendering:Object.fromEntries(clips.map(clip=>[clip.id,renderIdentity(clip)])),auditPath,auditGeneratedAt:audit?.generatedAt||null,auditSources:auditReports.map(({path,label,data})=>({path,label,loaded:Boolean(data),generatedAt:data?.generatedAt||null}))};const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const link=element('a');link.href=url;link.download='patrick-size-review.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
   $('#loading').hidden=true;if(failures.length){$('#error').hidden=false;$('#error').textContent=`${failures.length}段載入失敗：${failures.map(value=>`${value.id}（${value.error}）`).join('、')}。其他素材仍可比較。`;}
-  Object.assign(window.__patrickSizeReview,{status:'ready',candidateMode,candidateClipIDs:candidateClips.map(clip=>clip.id),clipIDs:clips.map(clip=>clip.id),outfitIDs:outfits.map(value=>value.id),failures,geometry:(id,index,layoutID)=>{const geometry=frameGeometry(clipByID(id),index,catalog.master,layouts.find(value=>value.id===layoutID));return{rect:geometry.rect,anchor:geometry.anchor,pixelScale:geometry.pixelScale,bounds:geometry.bounds};}});
+  Object.assign(window.__patrickSizeReview,{status:'ready',candidateMode,candidateClipIDs:candidateClips.map(clip=>clip.id),clipIDs:clips.map(clip=>clip.id),outfitIDs:outfits.map(value=>value.id),failures,memory:renderMemoryStats,evidence:id=>{const clip=clipByID(id);return clip?evidence(clip):{clipID:id,evidenceComplete:false,artApproval:false,errors:[{code:'clip-not-loaded',message:'圖稿未成功載入；請查看頁面載入錯誤。'}]};},geometry:(id,index,layoutID)=>{const clip=clipByID(id);if(!clip)throw new Error(`圖稿未成功載入：${id}`);const geometry=frameGeometry(clip,index,catalog.master,layouts.find(value=>value.id===layoutID));return{rect:geometry.rect,anchor:geometry.anchor,pixelScale:geometry.pixelScale,bounds:geometry.bounds};}});
 }
 start().catch(error=>{stop();$('#error').hidden=false;$('#error').textContent=error.message;$('#loading').hidden=true;window.__patrickSizeReview.status='error';window.__patrickSizeReview.error=error.message;});

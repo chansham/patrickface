@@ -1,7 +1,7 @@
 import { STAGE, normalizeClip, sourceRect, destinationRect, validateFrameRegions, frameAt, isIdleClip, IdleScheduler, restoreEvents, bedtimeRemaining, automaticAllowed, reviewKey, cleanReview } from './player-core.js?v=20261006-size2';
 import { newPet, restorePet, dispatch, resolveScene, MOODS } from './pet-core.js?v=20261006-size2';
-import { createExperience } from './experience-ui.js?v=20261006-size2';
-import { EXPERIENCE_KEY } from './experience-core.js?v=20261006-size2';
+import { createExperience } from './experience-ui.js?v=20261008-break1';
+import { EXPERIENCE_KEY } from './experience-core.js?v=20261008-break1';
 import { createClockRig } from './clock-rig.js?v=20261006-size2';
 import { DEFAULT_LAYOUT, transformRect, applyLayoutDOM } from './layout-core.js?v=20261006-size2';
 
