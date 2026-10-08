@@ -31,6 +31,7 @@
 		F795F888AB6CCB5ABE0F5A94 /* PatrickClockArtwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F697F29DEB82B6467940181A /* PatrickClockArtwork.swift */; };
 		EB2D021DC87E9DFEB59138BD /* PatrickAutomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651F49957731D277B7680B36 /* PatrickAutomation.swift */; };
 		237DF5650D7B11251E9274C8 /* PatrickHealthSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DB0E7DB9E1089E0220AEB /* PatrickHealthSummary.swift */; };
+		CE6C6D943AE94C3F848DFE01 /* PatrickSettingsMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C6D943AE94C3F848DFE02 /* PatrickSettingsMerge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		F697F29DEB82B6467940181A /* PatrickClockArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickClockArtwork.swift"; sourceTree = SOURCE_ROOT; };
 		651F49957731D277B7680B36 /* PatrickAutomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickAutomation.swift"; sourceTree = SOURCE_ROOT; };
 		2B2DB0E7DB9E1089E0220AEB /* PatrickHealthSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickHealthSummary.swift"; sourceTree = SOURCE_ROOT; };
+		CE6C6D943AE94C3F848DFE02 /* PatrickSettingsMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickSettingsMerge.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				F60CC995B04602C187DF14B3 /* PatrickExperienceResources.swift */,
 				651F49957731D277B7680B36 /* PatrickAutomation.swift */,
 				2B2DB0E7DB9E1089E0220AEB /* PatrickHealthSummary.swift */,
+				CE6C6D943AE94C3F848DFE02 /* PatrickSettingsMerge.swift */,
 				F637F53302A661A55B96CCE4 /* PatrickExperience.swift */,
 				B20000000000000000000007 /* PatrickFaceApp.swift */,
 				B20000000000000000000008 /* PatrickFaceView.swift */,
@@ -287,6 +290,7 @@
 				F764BD62D273E4C57FA0EB8D /* PatrickExperienceResources.swift in Sources */,
 				EB2D021DC87E9DFEB59138BD /* PatrickAutomation.swift in Sources */,
 				237DF5650D7B11251E9274C8 /* PatrickHealthSummary.swift in Sources */,
+				CE6C6D943AE94C3F848DFE01 /* PatrickSettingsMerge.swift in Sources */,
 				F73ABBB0E6F9DA959FC6B8C8 /* PatrickExperience.swift in Sources */,
 				B20000000000000000000014 /* PatrickFaceApp.swift in Sources */,
 				B20000000000000000000015 /* PatrickFaceView.swift in Sources */,

@@ -95,8 +95,10 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
             settings.updatedAt = Date(timeIntervalSince1970: Date.now.timeIntervalSince1970.rounded(.down))
         }
         settings.version = PatrickWatchWire.settingsSchemaVersion
-        if let experience, settings.experience != experience {
+        if let experience = experience ?? settings.experience, settings.experience != experience
+            || settings.sleepMode.rawValue != PatrickSettingsMerge.sleepModeRawValue(for: experience.settings.scene) {
             settings.experience = experience
+            settings.sleepMode = PatrickWatchWire.SleepMode(rawValue: PatrickSettingsMerge.sleepModeRawValue(for: experience.settings.scene)) ?? .automatic
             settings.revision &+= 1
             settings.updatedAt = Date(timeIntervalSince1970: Date.now.timeIntervalSince1970.rounded(.down))
         }
@@ -209,31 +211,39 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
                 )
             var update = AppliedState()
             var staleState = false
+            var acceptedExperience = false
 
             if let settings = envelope.settings {
                 let localExperience = effectiveSettings.experience ?? PatrickExperienceState.load(from: defaults)
-                if settings.revision >= effectiveSettings.revision {
+                let merge = PatrickSettingsMerge.resolve(localExperience: localExperience, incomingExperience: settings.experience,
+                    localRevision: effectiveSettings.revision, incomingRevision: settings.revision,
+                    localSleepMode: effectiveSettings.sleepMode.rawValue, incomingSleepMode: settings.sleepMode.rawValue)
+                if merge.acceptsLegacySettings {
                     effectiveSettings = settings
                     update.theme = settings.theme.watchTheme
-                    update.sleepMode = settings.sleepMode
                     update.previewState = settings.previewState
                 } else {
                     staleState = true
                 }
-                if let incoming = settings.experience, incoming.isNewer(than: localExperience) {
-                    effectiveSettings.experience = incoming; update.experience = incoming
-                } else { effectiveSettings.experience = localExperience }
+                effectiveSettings.experience = merge.experience
+                effectiveSettings.sleepMode = PatrickWatchWire.SleepMode(rawValue: merge.sleepModeRawValue) ?? .automatic
+                // Include the effective modern state even when it is equal or
+                // locally newer: nil used to be mistaken for an old v1 sender.
+                update.experience = merge.experience
+                update.sleepMode = effectiveSettings.sleepMode
+                acceptedExperience = merge.acceptedIncomingExperience
             }
 
             if let timer = envelope.timer {
                 setTimer(timer)
             }
 
-            if let command = envelope.command {
+            if let command = envelope.command,
+               !(command.name == .setSleepMode && envelope.settings?.experience != nil) {
                 apply(
                     command,
                     to: &effectiveSettings,
-                    stateAllowed: !staleState || update.experience != nil,
+                    stateAllowed: !staleState || acceptedExperience,
                     actionAllowed: command.name == .playThemeSound
                         ? PatrickImmediateSoundPolicy.isFresh(envelope.sentAt)
                         : abs(envelope.sentAt.timeIntervalSinceNow) <= 120,
@@ -270,8 +280,9 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
             return try PatrickWatchWire.Envelope.acknowledgement(
                 for: envelope.id,
                 accepted: true,
-                detail: staleState
+                detail: staleState && !acceptedExperience
                     ? "Ignored stale state on Apple Watch"
+                    : staleState ? "Applied newer companion state; ignored older legacy settings"
                     : "Applied on Apple Watch"
             ).encoded()
         } catch {
@@ -297,6 +308,16 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
             if stateAllowed, let mode = command.sleepMode {
                 settings.sleepMode = mode
                 update.sleepMode = mode
+                // This is only reached for genuinely legacy commands. Keep
+                // their explicit mode and the effective experience together.
+                var experience = settings.experience ?? PatrickExperienceState.load(from: defaults)
+                let scene: PatrickExperienceScene = mode == .automatic ? .automatic : mode == .on ? .sleeping : .awake
+                if experience.settings.scene != scene {
+                    experience.settings.scene = scene
+                    experience.changed()
+                }
+                settings.experience = experience
+                update.experience = experience
             }
         case .setPreviewState:
             if stateAllowed, let state = command.previewState {

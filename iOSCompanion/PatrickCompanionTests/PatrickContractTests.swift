@@ -2,6 +2,124 @@ import XCTest
 @testable import PatrickCompanion
 
 final class PatrickContractTests: XCTestCase {
+    @MainActor func testRepeatedLifestyleRetriesOnlyPersistedSnapshotWithoutNewAction() throws {
+        let suiteName = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suiteName)!
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+        let store = PatrickSharedStore(defaults: defaults)
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
+        for mode in [PatrickSleepMode.on, .off, .automatic] {
+            var experience = PatrickExperienceState()
+            experience.settings.scene = .celebrate
+            experience.settings.outfitID = "mint-pajama"
+            experience.settings.soundEnabled = true
+            experience.start(.running, seconds: 600, at: now)
+            experience.pause(at: now.addingTimeInterval(30))
+            var initial = PatrickSettings.defaults; initial.experience = experience
+            let saved = try XCTUnwrap(PatrickSleepModeMutation.applying(mode, to: initial,
+                experience: experience, at: now.addingTimeInterval(31)))
+            store.saveSettings(saved); store.saveExperience(try XCTUnwrap(saved.experience))
+            let settingsBytes = defaults.data(forKey: PatrickAppGroup.settingsKey)
+            var deliveries: [PatrickSettings] = []
+            for _ in 0..<2 {
+                let result = PatrickIntentExecutor.setSleepMode(mode, using: store, retrySnapshot: { deliveries.append($0) })
+                XCTAssertEqual(result, saved)
+            }
+            XCTAssertEqual(deliveries, [saved, saved], "An explicit repeat retries even after the first process could not deliver")
+            XCTAssertEqual(defaults.data(forKey: PatrickAppGroup.settingsKey), settingsBytes)
+            XCTAssertEqual(store.loadSettings(), saved)
+            XCTAssertEqual(store.loadExperience(), saved.experience)
+            XCTAssertTrue(store.consumePendingActions().isEmpty)
+            for settings in deliveries {
+                let envelope = try PatrickMessageEnvelope.decode(PatrickMessageEnvelope.snapshot(settings: settings).encoded())
+                XCTAssertEqual(envelope.kind, .snapshot)
+                XCTAssertEqual(envelope.settings, saved)
+                XCTAssertNil(envelope.command, "A retry cannot request animation, sound, care, timer or opening the app")
+                XCTAssertNil(envelope.timer)
+            }
+        }
+    }
+
+    func testRoutineStartPreservesRunningAndPausedActivityAcrossStoreReloadAndWire() throws {
+        let suiteName = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suiteName)!
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+        let store = PatrickSharedStore(defaults: defaults)
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
+        for paused in [false, true] {
+            for requestedKind in [PatrickActivityKind.running, .focus] {
+                var state = PatrickExperienceState()
+                state.settings.outfitID = "mint-pajama"; state.settings.soundEnabled = true
+                state.start(.running, seconds: 120, at: now)
+                if paused { state.pause(at: now.addingTimeInterval(30)) }
+                store.saveExperience(state)
+                let before = state
+                var reopened = PatrickSharedStore(defaults: defaults).loadExperience()
+                let date = now.addingTimeInterval(paused ? 3600 : 31)
+                let result = reopened.requestActivityStart(requestedKind, minutes: 25, at: date)
+                XCTAssertEqual(reopened, before, "Repeated or different routines cannot reset, resume or replace an occupied timer")
+                XCTAssertEqual(result, .preserved(activity: try XCTUnwrap(before.activity), remainingSeconds: paused ? 90 : 89))
+                XCTAssertTrue(result.message.contains("跑步陪伴"))
+                XCTAssertTrue(result.message.contains(paused ? "已暫停" : "仍在進行"))
+                XCTAssertTrue(result.message.contains("控制派大星陪伴計時"))
+                XCTAssertFalse(result.message.contains("已開始"))
+                XCTAssertEqual(store.loadExperience(), before)
+                var settings = PatrickSettings.defaults; settings.experience = reopened
+                let decoded = try PatrickMessageEnvelope.decode(PatrickMessageEnvelope.snapshot(settings: settings).encoded())
+                XCTAssertEqual(decoded.settings?.experience, before)
+                let presentation = PatrickTimerSnapshot.resolving(.inactive, experience: reopened, at: date)
+                XCTAssertEqual(presentation.id, before.activity?.id)
+                XCTAssertEqual(presentation.status, paused ? .paused : .running)
+                XCTAssertEqual(presentation.endsAt, paused ? nil : before.activity?.endsAt)
+            }
+        }
+    }
+
+    func testRoutineStartAtDeadlineCompletesOldActivityOnceThenProtectsTheNewOne() throws {
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
+        var state = PatrickExperienceState()
+        state.start(.walking, seconds: 60, at: now)
+        let oldID = try XCTUnwrap(state.activity?.id)
+        let revision = state.revision
+        let result = state.requestActivityStart(.focus, minutes: 25, at: now.addingTimeInterval(60))
+        XCTAssertEqual(result, .started(activity: try XCTUnwrap(state.activity), completedKind: .walking))
+        XCTAssertNotEqual(state.activity?.id, oldID)
+        XCTAssertEqual(state.activity?.endsAt, now.addingTimeInterval(1560))
+        XCTAssertEqual(state.care.bond, 1)
+        XCTAssertEqual(state.revision, revision + 2)
+        XCTAssertEqual(state.journal.map(\.text), ["開始散步陪伴", "完成散步陪伴", "開始專注"])
+        XCTAssertTrue(result.message.contains("散步陪伴」已完成"))
+        let after = state
+        _ = state.requestActivityStart(.focus, minutes: 25, at: now.addingTimeInterval(60.001))
+        XCTAssertEqual(state, after, "A repeat must not re-journal, re-reward or extend the new session")
+        let presentation = PatrickTimerSnapshot.resolving(.inactive, experience: state, at: now.addingTimeInterval(61))
+        XCTAssertEqual(presentation.id, state.activity?.id)
+        XCTAssertEqual(presentation.status, .running)
+        XCTAssertEqual(presentation.endsAt, now.addingTimeInterval(1560))
+    }
+
+    func testRoutineStartOnlyUsesEmptyOrTerminalActivitySlot() throws {
+        let now = Date(timeIntervalSince1970: 1_800_000_000)
+        let statuses: [PatrickLocalActivity.Status?] = [.cancelled, .completed, nil]
+        for terminal in statuses {
+            var state = PatrickExperienceState()
+            if let terminal {
+                state.start(.strength, seconds: 60, at: now)
+                if terminal == .completed { _ = state.reconcile(at: now.addingTimeInterval(60)) }
+                else { state.cancel(at: now.addingTimeInterval(30)) }
+            }
+            let before = state
+            let result = state.requestActivityStart(.breathing, minutes: 1, at: now.addingTimeInterval(90))
+            XCTAssertEqual(result, .started(activity: try XCTUnwrap(state.activity), completedKind: nil))
+            XCTAssertEqual(state.activity?.kind, .breathing)
+            XCTAssertEqual(state.activity?.durationSeconds, 60)
+            XCTAssertEqual(state.care, before.care)
+            XCTAssertEqual(state.settings, before.settings)
+            XCTAssertEqual(state.journal.count, before.journal.count + 1)
+            XCTAssertEqual(state.revision, before.revision + 1)
+        }
+    }
+
     func testLifestylePreservesFixedOutfitSoundCareAndRunningOrPausedActivity() throws {
         let now = Date(timeIntervalSince1970: 1_800_000_000.375)
         for outfit in ["auto", "mint-pajama"] {

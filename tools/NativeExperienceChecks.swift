@@ -86,6 +86,60 @@ import Foundation
             let revision = elapsed.revision
             check(elapsed.controlActivity(command, at: now.addingTimeInterval(61)) == .completed && elapsed.revision == revision && elapsed.care.bond == 1, "Repeated late controls are idempotent")
         }
+        var emptyRoutine = PatrickExperienceState()
+        let firstStart = emptyRoutine.requestActivityStart(.focus, minutes: 5, at: now)
+        check(firstStart == .started(activity: emptyRoutine.activity!, completedKind: nil), "Empty routine starts the requested activity")
+        check(emptyRoutine.activity?.durationSeconds == 300 && emptyRoutine.revision == 1 && emptyRoutine.journal.count == 1,
+              "A real shortcut start writes exactly one transition")
+        for (existingKind, requestedKind) in [(PatrickActivityKind.focus, PatrickActivityKind.focus), (.running, .focus), (.focus, .breathing)] {
+            for paused in [false, true] {
+                var occupied = PatrickExperienceState()
+                occupied.settings.outfitID = "mint-pajama"; occupied.settings.soundEnabled = true
+                occupied.start(existingKind, seconds: 120, at: now)
+                if paused { occupied.pause(at: now.addingTimeInterval(30)) }
+                let before = occupied
+                let requestTime = now.addingTimeInterval(paused ? 600 : 31)
+                let result = occupied.requestActivityStart(requestedKind, minutes: 25, at: requestTime)
+                check(occupied == before, "Same or different shortcut preserves the complete running/paused state")
+                check(result == .preserved(activity: before.activity!, remainingSeconds: paused ? 90 : 89),
+                      "Result describes the existing activity and its actual remaining time")
+                check(result.message.contains(existingKind.title) && result.message.contains(paused ? "已暫停" : "仍在進行"),
+                      "Dialog identifies the kept activity and status instead of claiming success")
+                check(result.message.contains("控制派大星陪伴計時") && result.message.contains("結束"),
+                      "Dialog gives an explicit path to replace the activity")
+            }
+        }
+        var restoredRoutine = PatrickExperienceState()
+        restoredRoutine.start(.strength, seconds: 120, at: now)
+        restoredRoutine.pause(at: now.addingTimeInterval(30))
+        restoredRoutine = try JSONDecoder().decode(PatrickExperienceState.self, from: JSONEncoder().encode(restoredRoutine))
+        let pausedRoutine = restoredRoutine
+        _ = restoredRoutine.requestActivityStart(.focus, minutes: 5, at: now.addingTimeInterval(7200))
+        check(restoredRoutine == pausedRoutine, "Persisted pause is not elapsed, resumed or replaced by a routine")
+        var deadlineRoutine = PatrickExperienceState()
+        deadlineRoutine.start(.running, seconds: 60, at: now)
+        let beforeDeadline = deadlineRoutine
+        _ = deadlineRoutine.requestActivityStart(.focus, minutes: 5, at: now.addingTimeInterval(59.999))
+        check(deadlineRoutine == beforeDeadline, "An activity remains protected immediately before its deadline")
+        let replacement = deadlineRoutine.requestActivityStart(.focus, minutes: 5, at: now.addingTimeInterval(60))
+        check(replacement == .started(activity: deadlineRoutine.activity!, completedKind: .running), "Deadline is settled before a new requested timer starts")
+        check(deadlineRoutine.care.bond == 1 && deadlineRoutine.revision == beforeDeadline.revision + 2,
+              "Late start has one completion and one start transition")
+        check(deadlineRoutine.journal.map(\.text) == ["開始跑步陪伴", "完成跑步陪伴", "開始專注"],
+              "Late start neither cancels nor loses the completed activity record")
+        let afterDeadlineStart = deadlineRoutine
+        _ = deadlineRoutine.requestActivityStart(.focus, minutes: 5, at: now.addingTimeInterval(60.001))
+        check(deadlineRoutine == afterDeadlineStart, "Immediate retry cannot double reward, duplicate the journal or extend the new deadline")
+        for completed in [false, true] {
+            var terminal = PatrickExperienceState(); terminal.start(.walking, seconds: 60, at: now)
+            if completed { _ = terminal.reconcile(at: now.addingTimeInterval(60)) }
+            else { terminal.cancel(at: now.addingTimeInterval(30)) }
+            let bond = terminal.care.bond, journalCount = terminal.journal.count
+            let result = terminal.requestActivityStart(.breathing, minutes: Int.max, at: now.addingTimeInterval(120))
+            check(result == .started(activity: terminal.activity!, completedKind: nil), "An already terminal activity frees the slot without completing it again")
+            check(terminal.care.bond == bond && terminal.journal.count == journalCount + 1 && terminal.activity?.durationSeconds == 7200,
+                  "Terminal start preserves reward count and existing duration limits")
+        }
         for index in 0..<80 { state.record("Entry \(index)", at: now) }
         check(state.journal.count == 60, "Journal bound")
         var decay = PatrickExperienceState()

@@ -113,6 +113,35 @@ struct PatrickLocalActivity: Codable, Equatable, Sendable {
     }
 }
 
+/// Shortcuts report the activity they actually kept or started, rather than
+/// claiming a new timer was started when another session already occupies it.
+enum PatrickActivityStartResult: Equatable, Sendable {
+    case started(activity: PatrickLocalActivity, completedKind: PatrickActivityKind?)
+    case preserved(activity: PatrickLocalActivity, remainingSeconds: TimeInterval)
+
+    var message: String {
+        switch self {
+        case .started(let activity, let completedKind):
+            let completion = completedKind.map { "原本的「\($0.title)」已完成。" } ?? ""
+            return completion + "已開始「\(activity.kind.title)」\(Self.durationText(activity.durationSeconds))。這是陪伴倒數，不會建立健身紀錄。"
+        case .preserved(let activity, let remaining):
+            let detail = Self.durationText(remaining)
+            if activity.status == .paused {
+                return "目前「\(activity.kind.title)」已暫停，尚餘\(detail)。已保留原進度，沒有自動繼續或另開計時。要接續，請用「控制派大星陪伴計時」選「繼續」；要換活動，先選「結束」，再開始新計時。"
+            }
+            return "目前「\(activity.kind.title)」仍在進行，尚餘\(detail)。已保留原進度，沒有另開計時。要換活動，請先用「控制派大星陪伴計時」選「結束」，再開始新計時。"
+        }
+    }
+
+    private static func durationText(_ seconds: TimeInterval) -> String {
+        guard seconds.isFinite else { return "未能讀取的時間" }
+        let value = Int(min(7200, max(0, seconds.rounded(.up))))
+        let minutes = value / 60, remainder = value % 60
+        if minutes == 0 { return "\(remainder) 秒" }
+        return remainder == 0 ? "\(minutes) 分鐘" : "\(minutes) 分 \(remainder) 秒"
+    }
+}
+
 struct PatrickCareState: Codable, Equatable, Sendable {
     var satiety = 60.0
     var bond = 0
@@ -224,6 +253,22 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
             endsAtMS: (date.timeIntervalSince1970 + duration) * 1000,
             remainingSeconds: duration, status: .running)
         record("開始\(kind.title)", at: date); changed(at: date)
+    }
+
+    /// A routine cannot replace or resume an existing activity. Settle a passed
+    /// deadline once before deciding whether the single activity slot is free.
+    /// A preserved activity makes no storage, journal or synchronization change.
+    @discardableResult
+    mutating func requestActivityStart(_ kind: PatrickActivityKind, minutes: Int,
+                                      at date: Date = .now) -> PatrickActivityStartResult {
+        let previousKind = activity?.kind
+        let completedKind = reconcile(at: date) != nil ? previousKind : nil
+        if let current = activity, current.status == .running || current.status == .paused {
+            return .preserved(activity: current, remainingSeconds: current.remaining(at: date))
+        }
+        start(kind, minutes: minutes, at: date)
+        // start always creates an activity, using the existing duration bounds.
+        return .started(activity: activity!, completedKind: completedKind)
     }
 
     mutating func pause(at date: Date = .now) {

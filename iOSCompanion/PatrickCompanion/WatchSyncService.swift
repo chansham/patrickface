@@ -219,13 +219,17 @@ final class WatchSyncService: NSObject, ObservableObject {
 
             lastDeliveryAt = .now
             if let settings = envelope.settings {
-                // The model merges by revision/experience timestamp before persisting.
-                if let onSettingsReceived { onSettingsReceived(settings) }
+                let local = store.loadSettings()
+                let merge = PatrickSettingsMerge.resolve(localExperience: store.loadExperience(), incomingExperience: settings.experience,
+                    localRevision: local.revision, incomingRevision: settings.revision,
+                    localSleepMode: local.sleepMode.rawValue, incomingSleepMode: settings.sleepMode.rawValue)
+                var merged = merge.acceptsLegacySettings ? settings : local
+                merged.experience = merge.experience
+                merged.sleepMode = PatrickSleepMode(rawValue: merge.sleepModeRawValue) ?? .automatic
+                // Pass the resolved pair to the model; an older outer mode
+                // must not disagree with the winning modern scene.
+                if let onSettingsReceived { onSettingsReceived(merged) }
                 else {
-                    var merged = store.loadSettings()
-                    let localExperience = store.loadExperience()
-                    if settings.revision >= merged.revision { merged = settings }
-                    merged.experience = settings.experience.flatMap { $0.isNewer(than: localExperience) ? $0 : nil } ?? localExperience
                     store.saveSettings(merged)
                     if let experience = merged.experience { store.saveExperience(experience) }
                 }
@@ -235,7 +239,8 @@ final class WatchSyncService: NSObject, ObservableObject {
                 store.saveTimer(effective)
                 onTimerReceived?(effective)
             }
-            if let command = envelope.command {
+            if let command = envelope.command,
+               !(command.name == .setSleepMode && envelope.settings?.experience != nil) {
                 var current = command
                 let expired = abs(envelope.sentAt.timeIntervalSinceNow) > 120
                 if expired {

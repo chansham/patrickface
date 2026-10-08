@@ -130,13 +130,20 @@ enum PatrickSleepModeMutation {
     }
 }
 
-private enum PatrickIntentExecutor {
+enum PatrickIntentExecutor {
     static let store = PatrickSharedStore.shared
 
-    @MainActor static func setSleepMode(_ mode: PatrickSleepMode) -> PatrickSettings {
+    @MainActor static func setSleepMode(_ mode: PatrickSleepMode, using store: PatrickSharedStore = .shared,
+                                       retrySnapshot: ((PatrickSettings) -> Void)? = nil) -> PatrickSettings {
         let current = store.loadSettings()
         guard let settings = PatrickSleepModeMutation.applying(mode, to: current, experience: store.loadExperience())
-        else { return current }
+        else {
+            // An explicit repeat can retry a state that was saved before WC
+            // activated. It must not create another action, event or revision.
+            if let retrySnapshot { retrySnapshot(current) }
+            else { WatchSyncService.shared.syncSnapshot(settings: current) }
+            return current
+        }
         if let experience = settings.experience { store.saveExperience(experience) }
         store.saveSettings(settings)
         WatchSyncService.shared.send(
@@ -268,13 +275,13 @@ struct PatrickMoodIntent: AppIntent {
 }
 struct PatrickTimerIntent: AppIntent {
     static var title: LocalizedStringResource = "開始派大星陪伴計時"
-    static var description = IntentDescription("本機陪伴倒數，不是HealthKit健身訓練。")
+    static var description = IntentDescription("開始本機陪伴倒數；已有進行中或暫停的活動時保留原進度並回報，不自動替換或繼續。不是HealthKit健身訓練。")
     static var openAppWhenRun = true
     @Parameter(title: "種類") var kind: PatrickActivityChoice
     @Parameter(title: "分鐘", default: 5) var minutes: Int
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        await PatrickExperienceIntentExecutor.change { $0.start(PatrickActivityKind(rawValue: kind.rawValue)!, minutes: minutes) }
-        return .result(dialog: "陪伴倒數已開始。")
+        let result = await PatrickExperienceIntentExecutor.start(PatrickActivityKind(rawValue: kind.rawValue)!, minutes: minutes)
+        return .result(dialog: "\(result.message)")
     }
 }
 struct PatrickTimerControlIntent: AppIntent {
@@ -308,6 +315,13 @@ struct PatrickTimerControlIntent: AppIntent {
     static func change(_ mutation: (inout PatrickExperienceState) -> Void) {
         var state = PatrickSharedStore.shared.loadExperience()
         mutation(&state); state.changed(); send(state)
+    }
+    static func start(_ kind: PatrickActivityKind, minutes: Int) -> PatrickActivityStartResult {
+        var state = PatrickSharedStore.shared.loadExperience()
+        let previousRevision = state.revision
+        let result = state.requestActivityStart(kind, minutes: minutes)
+        if state.revision != previousRevision { send(state) }
+        return result
     }
     static func control(_ command: PatrickActivityControl) -> PatrickActivityControlResult {
         var state = PatrickSharedStore.shared.loadExperience()

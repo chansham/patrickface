@@ -59,6 +59,9 @@ xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickExperience.swift" "$ROOT/iOSCompa
 xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickHealthSummary.swift" "$ROOT/tools/NativeHealthChecks.swift" -o "$DERIVED_ROOT/native-health"
 "$DERIVED_ROOT/native-health"
 
+xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickExperience.swift" "$ROOT/iOSCompanion/Shared/PatrickSettingsMerge.swift" "$ROOT/tools/NativeSettingsMergeChecks.swift" -o "$DERIVED_ROOT/native-settings-merge"
+"$DERIVED_ROOT/native-settings-merge" "$ROOT/tools/fixtures/settings-merge.json"
+
 
 xcodebuild \
   -project "$WATCH_PROJECT" \

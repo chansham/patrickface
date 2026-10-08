@@ -170,6 +170,7 @@ final class PatrickAppModel: ObservableObject {
     }
 
     private func apply(_ update: PatrickWatchReceiver.AppliedState) {
+        let previousExperience = experience
         if let value = update.experience, value.isNewer(than: experience) {
             experience = value
             experience.save(to: PatrickSharedStore.defaults)
@@ -201,6 +202,9 @@ final class PatrickAppModel: ObservableObject {
                 setPetScene(.automatic)
             }
             self.previewState = previewState
+        }
+        if experience != previousExperience {
+            WidgetCenter.shared.reloadTimelines(ofKind: PatrickSharedStore.complicationKind)
         }
     }
 
