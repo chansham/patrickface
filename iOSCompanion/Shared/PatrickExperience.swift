@@ -118,9 +118,12 @@ struct PatrickLocalActivity: Codable, Equatable, Sendable {
 enum PatrickActivityStartResult: Equatable, Sendable {
     case started(activity: PatrickLocalActivity, completedKind: PatrickActivityKind?)
     case preserved(activity: PatrickLocalActivity, remainingSeconds: TimeInterval)
+    case savedActivityPending(PatrickActivityKind)
 
     var message: String {
         switch self {
+        case .savedActivityPending(let kind):
+            return "還保存著「\(kind.title)」的進度。請先返回原活動，或明確放棄原活動，再開始新的計時。"
         case .started(let activity, let completedKind):
             let completion = completedKind.map { "原本的「\($0.title)」已完成。" } ?? ""
             return completion + "已開始「\(activity.kind.title)」\(Self.durationText(activity.durationSeconds))。這是陪伴倒數，不會建立健身紀錄。"
@@ -139,6 +142,29 @@ enum PatrickActivityStartResult: Equatable, Sendable {
         let minutes = value / 60, remainder = value % 60
         if minutes == 0 { return "\(remainder) 秒" }
         return remainder == 0 ? "\(minutes) 分鐘" : "\(minutes) 分 \(remainder) 秒"
+    }
+}
+
+struct PatrickBreakSession: Codable, Equatable, Sendable {
+    var savedActivity: PatrickLocalActivity
+    var resumeOnReturn: Bool
+    var breakActivityID: UUID
+}
+
+enum PatrickBreakCommand: Sendable { case begin(minutes: Int), returnToActivity, discardSaved }
+enum PatrickBreakResult: Equatable, Sendable {
+    case started(PatrickActivityKind), alreadySaved, returned(PatrickActivityKind, running: Bool)
+    case discarded(PatrickActivityKind), nothingSaved, noActiveActivity, anotherActivity
+    var message: String {
+        switch self {
+        case .started(let kind): "已保存「\(kind.title)」進度。休息結束後，等你按「返回原活動」，不會自動開始。"
+        case .alreadySaved: "原活動已保存；這次沒有重開休息或更改剩餘時間。"
+        case .returned(let kind, let running): running ? "已接回「\(kind.title)」，從保存的剩餘時間繼續。" : "已返回「\(kind.title)」，維持原先暫停；準備好再按「繼續」。"
+        case .discarded(let kind): "已放棄保存的「\(kind.title)」；沒有算作完成。"
+        case .nothingSaved: "目前沒有保存中的原活動。"
+        case .noActiveActivity: "目前沒有可暫存的活動；已到期的計時按完成處理。"
+        case .anotherActivity: "目前有另一段活動，先結束它，再返回保存的原活動。"
+        }
     }
 }
 
@@ -195,6 +221,9 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
     var settings = PatrickExperienceSettings()
     var care = PatrickCareState()
     var activity: PatrickLocalActivity?
+    // Optional for old v1 saves/peers. The saved activity is frozen, never a
+    // second running timer; only an explicit return can restore it.
+    var breakSession: PatrickBreakSession?
     var journal: [PatrickJournalEntry] = []
     var processedActionIDs: [UUID] = []
     var calendarCelebrationKeys: [String]?
@@ -247,6 +276,11 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
     }
 
     mutating func start(_ kind: PatrickActivityKind, seconds: TimeInterval, at date: Date = .now) {
+        guard breakSession == nil else { return }
+        replaceActivity(kind, seconds: seconds, at: date)
+    }
+
+    private mutating func replaceActivity(_ kind: PatrickActivityKind, seconds: TimeInterval, at date: Date) {
         let duration = seconds.isFinite ? min(7200, max(10, seconds)) : 60
         activity = PatrickLocalActivity(id: UUID(), kind: kind, durationSeconds: duration,
             startedAtMS: date.timeIntervalSince1970 * 1000,
@@ -263,12 +297,51 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
                                       at date: Date = .now) -> PatrickActivityStartResult {
         let previousKind = activity?.kind
         let completedKind = reconcile(at: date) != nil ? previousKind : nil
+        if let saved = breakSession { return .savedActivityPending(saved.savedActivity.kind) }
         if let current = activity, current.status == .running || current.status == .paused {
             return .preserved(activity: current, remainingSeconds: current.remaining(at: date))
         }
         start(kind, minutes: minutes, at: date)
         // start always creates an activity, using the existing duration bounds.
         return .started(activity: activity!, completedKind: completedKind)
+    }
+
+    @discardableResult
+    mutating func manageBreak(_ command: PatrickBreakCommand, at date: Date = .now) -> PatrickBreakResult {
+        // Completion always wins over a late pause/cancel/return. Reconcile is
+        // idempotent, including an expired break observed after a quiet period.
+        _ = reconcile(at: date)
+        switch command {
+        case .begin(let minutes):
+            guard breakSession == nil else { return .alreadySaved }
+            guard var original = activity, original.status == .running || original.status == .paused,
+                  original.remaining(at: date) > 0 else { return .noActiveActivity }
+            let resumeOnReturn = original.status == .running
+            original.remainingSeconds = original.remaining(at: date)
+            original.status = .paused; original.endsAt = nil
+            replaceActivity(.breathing, seconds: Double(min(15, max(1, minutes))) * 60, at: date)
+            breakSession = PatrickBreakSession(savedActivity: original, resumeOnReturn: resumeOnReturn,
+                                              breakActivityID: activity!.id)
+            record("保存\(original.kind.title)進度，休息後再返回", at: date)
+            return .started(original.kind)
+        case .returnToActivity:
+            guard let saved = breakSession else { return .nothingSaved }
+            if let current = activity, current.id != saved.breakActivityID,
+               current.status == .running || current.status == .paused { return .anotherActivity }
+            if activity?.id == saved.breakActivityID { cancel(at: date) }
+            var original = saved.savedActivity
+            original.status = saved.resumeOnReturn ? .running : .paused
+            original.endsAt = saved.resumeOnReturn ? date.addingTimeInterval(original.remainingSeconds) : nil
+            activity = original; breakSession = nil
+            record("返回\(original.kind.title)\(saved.resumeOnReturn ? "，繼續剩餘時間" : "，保持暫停")", at: date)
+            changed(at: date)
+            return .returned(original.kind, running: saved.resumeOnReturn)
+        case .discardSaved:
+            guard let saved = breakSession else { return .nothingSaved }
+            breakSession = nil
+            record("放棄保存的\(saved.savedActivity.kind.title)", at: date); changed(at: date)
+            return .discarded(saved.savedActivity.kind)
+        }
     }
 
     mutating func pause(at date: Date = .now) {

@@ -66,6 +66,16 @@ final class PatrickActivityController: ObservableObject {
         }
     }
 
+    /// The preceding model request may have been superseded before it ran.
+    /// Compare with the actual ActivityKit session, not the model's old timer.
+    func present(timer: PatrickTimerSnapshot, settings: PatrickSettings) async {
+        if Activity<PatrickActivityAttributes>.activities.contains(where: { $0.attributes.sessionID == timer.id }) {
+            await update(timer: timer, settings: settings)
+        } else {
+            await start(timer: timer, settings: settings)
+        }
+    }
+
     func update(
         timer: PatrickTimerSnapshot,
         settings: PatrickSettings

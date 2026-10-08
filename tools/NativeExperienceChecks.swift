@@ -140,6 +140,51 @@ import Foundation
             check(terminal.care.bond == bond && terminal.journal.count == journalCount + 1 && terminal.activity?.durationSeconds == 7200,
                   "Terminal start preserves reward count and existing duration limits")
         }
+        var resting = PatrickExperienceState(); resting.start(.focus, seconds: 600, at: now)
+        let originalID = resting.activity!.id
+        check(resting.manageBreak(.begin(minutes: 1), at: now.addingTimeInterval(30)) == .started(.focus), "Break saves a running original")
+        check(resting.breakSession?.savedActivity.id == originalID && resting.breakSession?.savedActivity.remainingSeconds == 570,
+              "Original identity and remaining seconds are frozen")
+        let savedBreak = resting
+        check(resting.manageBreak(.begin(minutes: 5), at: now.addingTimeInterval(31)) == .alreadySaved && resting == savedBreak,
+              "Repeated break neither nests nor changes the break deadline")
+        _ = resting.requestActivityStart(.running, minutes: 10, at: now.addingTimeInterval(32))
+        resting.start(.exercise, seconds: 90, at: now.addingTimeInterval(32))
+        check(resting == savedBreak, "Both shortcut and raw start preserve the saved activity")
+        resting = try JSONDecoder().decode(PatrickExperienceState.self, from: JSONEncoder().encode(resting))
+        _ = resting.reconcile(at: now.addingTimeInterval(1000))
+        check(resting.activity?.status == .completed && resting.breakSession?.savedActivity.remainingSeconds == 570,
+              "A break completed in the background never restarts or consumes the original")
+        check(resting.care.bond == 1, "Completed break settles its usual reward once")
+        check(resting.manageBreak(.returnToActivity, at: now.addingTimeInterval(1000)) == .returned(.focus, running: true), "Explicit return resumes a formerly running activity")
+        check(resting.activity?.id == originalID && resting.activity?.endsAt == now.addingTimeInterval(1570) && resting.breakSession == nil,
+              "Return restores identity and frozen remaining time with a new deadline")
+        let returned = resting
+        check(resting.manageBreak(.returnToActivity, at: now.addingTimeInterval(1001)) == .nothingSaved && resting == returned,
+              "Return retries neither extend deadline nor repeat journal/reward")
+        var pausedOriginal = PatrickExperienceState(); pausedOriginal.start(.strength, seconds: 300, at: now)
+        pausedOriginal.pause(at: now.addingTimeInterval(20))
+        _ = pausedOriginal.manageBreak(.begin(minutes: 3), at: now.addingTimeInterval(100))
+        _ = pausedOriginal.controlActivity(.cancel, at: now.addingTimeInterval(110))
+        check(pausedOriginal.breakSession != nil && pausedOriginal.care.bond == 0, "Cancelling a break keeps the original without completion reward")
+        _ = pausedOriginal.manageBreak(.returnToActivity, at: now.addingTimeInterval(500))
+        check(pausedOriginal.activity?.status == .paused && pausedOriginal.activity?.remainingSeconds == 280 && pausedOriginal.activity?.endsAt == nil,
+              "A originally paused task stays paused on explicit return")
+        var boundary = PatrickExperienceState(); boundary.start(.walking, seconds: 60, at: now)
+        check(boundary.manageBreak(.begin(minutes: 1), at: now.addingTimeInterval(60)) == .noActiveActivity
+              && boundary.breakSession == nil && boundary.care.bond == 1, "Deadline wins over starting a break")
+        var abandoned = PatrickExperienceState(); abandoned.start(.running, seconds: 300, at: now)
+        _ = abandoned.manageBreak(.begin(minutes: 1), at: now.addingTimeInterval(10))
+        let breakID = abandoned.activity?.id
+        check(abandoned.manageBreak(.discardSaved, at: now.addingTimeInterval(20)) == .discarded(.running)
+              && abandoned.activity?.id == breakID && abandoned.care.bond == 0, "Explicit discard leaves the current break and grants no reward")
+        let afterDiscard = abandoned
+        _ = abandoned.manageBreak(.discardSaved, at: now.addingTimeInterval(21))
+        check(abandoned == afterDiscard, "Discard is idempotent")
+        var legacyBreakSave = try JSONSerialization.jsonObject(with: JSONEncoder().encode(savedBreak)) as! [String: Any]
+        legacyBreakSave.removeValue(forKey: "breakSession")
+        let legacyWithoutBreak = try JSONDecoder().decode(PatrickExperienceState.self, from: JSONSerialization.data(withJSONObject: legacyBreakSave))
+        check(legacyWithoutBreak.breakSession == nil && legacyWithoutBreak.activity == savedBreak.activity, "Old v1 archives still decode without a saved break")
         for index in 0..<80 { state.record("Entry \(index)", at: now) }
         check(state.journal.count == 60, "Journal bound")
         var decay = PatrickExperienceState()

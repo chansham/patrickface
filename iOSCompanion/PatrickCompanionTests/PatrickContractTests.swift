@@ -2,6 +2,59 @@ import XCTest
 @testable import PatrickCompanion
 
 final class PatrickContractTests: XCTestCase {
+    func testBreakSurvivesSleepMergeWireAndReloadWithoutAutomaticReturn() throws {
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
+        var state = PatrickExperienceState(); state.start(.running, seconds: 600, at: now)
+        let originalID = try XCTUnwrap(state.activity?.id)
+        XCTAssertEqual(state.manageBreak(.begin(minutes: 1), at: now.addingTimeInterval(30)), .started(.running))
+        let saved = try XCTUnwrap(state.breakSession)
+        var settings = PatrickSettings.defaults; settings.experience = state
+        let sleeping = try XCTUnwrap(PatrickSleepModeMutation.applying(.on, to: settings, experience: state, at: now.addingTimeInterval(31)))
+        let wire = try PatrickMessageEnvelope.decode(PatrickMessageEnvelope.snapshot(settings: sleeping).encoded())
+        let incoming = try XCTUnwrap(wire.settings?.experience)
+        let merged = PatrickSettingsMerge.resolve(localExperience: state, incomingExperience: incoming,
+            localRevision: 1, incomingRevision: 2, localSleepMode: "automatic", incomingSleepMode: "on")
+        XCTAssertEqual(merged.experience.breakSession, saved)
+        let suite = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suite)!
+        defer { defaults.removePersistentDomain(forName: suite) }
+        merged.experience.save(to: defaults)
+        var reopened = PatrickExperienceState.load(from: defaults)
+        XCTAssertNotNil(reopened.reconcile(at: now.addingTimeInterval(1000)))
+        XCTAssertEqual(reopened.activity?.status, .completed)
+        XCTAssertEqual(reopened.breakSession?.savedActivity.remainingSeconds, 570)
+        XCTAssertEqual(reopened.settings.scene, .sleeping)
+        XCTAssertEqual(reopened.care.bond, 1)
+        XCTAssertEqual(reopened.manageBreak(.returnToActivity, at: now.addingTimeInterval(1001)), .returned(.running, running: true))
+        XCTAssertEqual(reopened.activity?.id, originalID)
+        XCTAssertEqual(reopened.activity?.endsAt, now.addingTimeInterval(1571))
+        XCTAssertEqual(reopened.settings.scene, .sleeping, "Returning must not change a later scene selection")
+        let afterReturn = reopened
+        XCTAssertEqual(reopened.manageBreak(.returnToActivity, at: now.addingTimeInterval(1002)), .nothingSaved)
+        XCTAssertEqual(reopened, afterReturn)
+    }
+
+    func testBreakPauseCancelAndNewStartCannotLoseSavedTask() throws {
+        let now = Date(timeIntervalSince1970: 1_800_000_000)
+        var state = PatrickExperienceState(); state.start(.focus, seconds: 300, at: now)
+        state.pause(at: now.addingTimeInterval(20))
+        let original = try XCTUnwrap(state.activity)
+        _ = state.manageBreak(.begin(minutes: 3), at: now.addingTimeInterval(100))
+        let duringBreak = state
+        XCTAssertEqual(state.manageBreak(.begin(minutes: 5), at: now.addingTimeInterval(101)), .alreadySaved)
+        XCTAssertEqual(state.requestActivityStart(.walking, minutes: 5, at: now.addingTimeInterval(102)), .savedActivityPending(.focus))
+        state.start(.exercise, seconds: 30, at: now.addingTimeInterval(102))
+        XCTAssertEqual(state, duringBreak)
+        XCTAssertEqual(state.controlActivity(.cancel, at: now.addingTimeInterval(110)), .cancelled)
+        XCTAssertNotNil(state.breakSession)
+        XCTAssertEqual(state.manageBreak(.returnToActivity, at: now.addingTimeInterval(500)), .returned(.focus, running: false))
+        XCTAssertEqual(state.activity, original)
+        XCTAssertEqual(state.care.bond, 0)
+        let presentation = PatrickTimerSnapshot.resolving(.inactive, experience: state, at: now.addingTimeInterval(501))
+        XCTAssertEqual(presentation.status, .paused)
+        XCTAssertEqual(presentation.remainingSeconds, 280)
+    }
+
     @MainActor func testRepeatedLifestyleRetriesOnlyPersistedSnapshotWithoutNewAction() throws {
         let suiteName = "PatrickContractTests.\(UUID().uuidString)"
         let defaults = UserDefaults(suiteName: suiteName)!

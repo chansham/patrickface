@@ -35,6 +35,8 @@ final class AppModel: ObservableObject {
     private let forcedDemoMode: Bool
     private var cancellables = Set<AnyCancellable>()
     private var timerCompletionTask: Task<Void, Never>?
+    private var activityPresentationTask: Task<Void, Never>?
+    private var activityPresentationGeneration: UInt64 = 0
 
     convenience init() {
         self.init(
@@ -174,22 +176,19 @@ final class AppModel: ObservableObject {
         if experience.revision != revision { saveExperience() }
         if let id = experience.reconcile() {
             completedActivityID = allowEffects ? id.uuidString : nil
-            timer = .inactive; store.saveTimer(timer)
             saveExperience(); notice = "陪伴計時完成"
-            Task { await activityController.endAll(finalStatus: "陪伴計時完成") }
+            synchronizeActivityPresentation()
         }
     }
 
     func startExperienceActivity(_ kind: PatrickActivityKind, minutes: Int) async {
+        let revision = experience.revision
+        let result = experience.requestActivityStart(kind, minutes: minutes)
+        notice = result.message
+        guard experience.revision != revision else { return }
         timerCompletionTask?.cancel(); timerCompletionTask = nil
-        experience.start(kind, minutes: minutes)
         saveExperience()
-        if let value = experience.activity {
-            timer = PatrickTimerSnapshot(id: value.id, status: .running, title: value.kind.title,
-                startedAt: value.startedAt, endsAt: value.endsAt, remainingSeconds: nil)
-            store.saveTimer(timer)
-            await activityController.start(timer: timer, settings: settings)
-        }
+        synchronizeActivityPresentation()
     }
 
     func toggleExperiencePause() async {
@@ -197,6 +196,16 @@ final class AppModel: ObservableObject {
         let result = experience.controlActivity(experience.activity?.status == .paused ? .resume : .pause)
         if experience.revision != revision { saveExperience() }
         synchronizeActivityPresentation()
+        notice = result.message
+    }
+
+    func manageBreak(_ command: PatrickBreakCommand) {
+        let revision = experience.revision
+        let result = experience.manageBreak(command)
+        if experience.revision != revision {
+            timerCompletionTask?.cancel(); timerCompletionTask = nil
+            saveExperience(); synchronizeActivityPresentation()
+        }
         notice = result.message
     }
 
@@ -406,19 +415,21 @@ final class AppModel: ObservableObject {
     private func synchronizeActivityPresentation() {
         guard let value = experience.activity else { return }
         let isRunning = value.status == .running || value.status == .paused
-        if !isRunning {
-            timer = .inactive; store.saveTimer(timer)
-            Task { await activityController.endAll(finalStatus: value.status == .completed ? "陪伴計時完成" : "已結束陪伴計時") }
-            return
-        }
-        let previousID = timer.id
-        timer = PatrickTimerSnapshot(id: value.id, status: value.status == .paused ? .paused : .running,
+        let snapshot = isRunning ? PatrickTimerSnapshot(id: value.id, status: value.status == .paused ? .paused : .running,
             title: value.kind.title, startedAt: value.startedAt, endsAt: value.endsAt,
-            remainingSeconds: value.remaining(at: .now))
-        store.saveTimer(timer)
-        Task {
-            if previousID == value.id { await activityController.update(timer: timer, settings: settings) }
-            else { await activityController.start(timer: timer, settings: settings) }
+            remainingSeconds: value.remaining(at: .now)) : .inactive
+        timer = snapshot; store.saveTimer(snapshot)
+        let snapshotSettings = settings
+        let preceding = activityPresentationTask
+        activityPresentationGeneration &+= 1
+        let generation = activityPresentationGeneration
+        // ActivityKit awaits can interleave. Finish an in-flight presentation
+        // before applying the latest immutable state; skip superseded work.
+        activityPresentationTask = Task { [weak self] in
+            await preceding?.value
+            guard let self, generation == self.activityPresentationGeneration else { return }
+            if isRunning { await self.activityController.present(timer: snapshot, settings: snapshotSettings) }
+            else { await self.activityController.endAll(finalStatus: value.status == .completed ? "陪伴計時完成" : "已結束陪伴計時") }
         }
     }
 
@@ -446,8 +457,13 @@ final class AppModel: ObservableObject {
         timerCompletionTask = nil
         WidgetCenter.shared.reloadAllTimelines()
         notice = "Local Patrick settings were reset."
-        Task {
-            await activityController.endAll(
+        let preceding = activityPresentationTask
+        activityPresentationGeneration &+= 1
+        let generation = activityPresentationGeneration
+        activityPresentationTask = Task { [weak self] in
+            await preceding?.value
+            guard let self, generation == self.activityPresentationGeneration else { return }
+            await self.activityController.endAll(
                 finalStatus: "Local timer reset",
                 dismissalPolicy: .immediate
             )
@@ -533,6 +549,7 @@ final class AppModel: ObservableObject {
 
     private func didChangePresentation() {
         WidgetCenter.shared.reloadAllTimelines()
+        if experience.activity != nil { synchronizeActivityPresentation(); return }
         if timer.status == .running || timer.status == .paused {
             Task {
                 await activityController.update(timer: timer, settings: settings)

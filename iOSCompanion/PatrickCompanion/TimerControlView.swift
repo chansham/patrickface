@@ -5,6 +5,8 @@ struct TimerControlView: View {
     @Environment(\.scenePhase) private var scenePhase
     @State private var kind: PatrickActivityKind = .focus
     @State private var minutes = 25
+    @State private var breakMinutes = 3
+    @State private var confirmDiscard = false
     var body: some View {
         NavigationStack {
             Form {
@@ -22,10 +24,24 @@ struct TimerControlView: View {
                         }
                         Button(activity.status == .paused ? "繼續" : "暫停") { Task { await model.toggleExperiencePause() } }
                         Button("結束計時", role: .destructive) { Task { await model.cancelExperienceActivity() } }
-                    } else {
+                    } else if model.experience.breakSession == nil {
                         Button("開始陪伴") { Task { await model.startExperienceActivity(kind, minutes: minutes) } }
                     }
                     Text("這是陪伴倒數，不記錄心率、距離或Apple健身訓練。").font(.footnote).foregroundStyle(.secondary)
+                }
+                Section("休息與接續") {
+                    if let saved = model.experience.breakSession {
+                        let seconds = Int(saved.savedActivity.remainingSeconds.rounded(.up))
+                        Text("已保存\(saved.savedActivity.kind.title) · \(seconds / 60):\(String(format: "%02d", seconds % 60))")
+                        Text(saved.resumeOnReturn ? "按返回才繼續原倒數；休息結束不會自動開始。" : "原活動本來已暫停；返回後仍會保持暫停。")
+                            .font(.footnote).foregroundStyle(.secondary)
+                        Button("返回原活動") { model.manageBreak(.returnToActivity) }
+                        Button("放棄原活動", role: .destructive) { confirmDiscard = true }
+                    } else if let activity = model.experience.activity, activity.status == .running || activity.status == .paused {
+                        Picker("休息時間", selection: $breakMinutes) { ForEach([1, 3, 5], id: \.self) { Text("\($0)分鐘").tag($0) } }
+                        Button("保存進度，休息一下") { model.manageBreak(.begin(minutes: breakMinutes)) }
+                    } else { Text("先開始一段活動，便可保存進度去休息。").font(.footnote) }
+                    if let notice = model.notice { Text(notice).font(.footnote).foregroundStyle(.secondary) }
                 }
                 if let activity = model.experience.activity, activity.status == .completed { Text("已完成\(activity.kind.title)") }
                 Section("手機與手錶") {
@@ -33,6 +49,9 @@ struct TimerControlView: View {
                     Button("同步現在狀態") { model.syncNow() }
                 }
             }.navigationTitle("陪伴計時")
+                .confirmationDialog("放棄保存的原活動？當前休息計時會保留。", isPresented: $confirmDiscard, titleVisibility: .visible) {
+                    Button("放棄原活動", role: .destructive) { model.manageBreak(.discardSaved) }
+                }
         }
         .task(id: scenePhase) {
             guard scenePhase == .active else { return }

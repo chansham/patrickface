@@ -25,6 +25,8 @@ struct PatrickAnimatedFaceView: View {
     @State private var surpriseExpiresAt: Date?
     @State private var activityKind: PatrickActivityKind = .focus
     @State private var activityMinutes = 5
+    @State private var breakMinutes = 3
+    @State private var confirmDiscardBreak = false
 
     private var monitoring: Bool { visible && scenePhase == .active && !wristDown && !showingActions }
 
@@ -227,17 +229,31 @@ struct PatrickAnimatedFaceView: View {
                             model.controlActivity(activity.status == .paused ? .resume : .pause)
                         }
                         Button("結束計時", role: .destructive) { model.controlActivity(.cancel) }
-                    } else {
+                    } else if model.experience.breakSession == nil {
                         Picker("種類", selection: $activityKind) { ForEach(PatrickActivityKind.allCases) { Text($0.title).tag($0) } }
                         Picker("分鐘", selection: $activityMinutes) { ForEach([1, 3, 5, 10, 15, 25, 30, 60], id: \.self) { Text("\($0)分鐘").tag($0) } }
                         Button("開始陪伴") {
-                            model.updateExperience { $0.start(activityKind, minutes: activityMinutes) }
+                            guard model.startActivity(activityKind, minutes: activityMinutes) else { return }
                             configureOutfit()
                             requestedClip = player.eventClips?[activityKind.clipID]
                             showingActions = false
                         }
                     }
+                    if let saved = model.experience.breakSession {
+                        let seconds = Int(saved.savedActivity.remainingSeconds.rounded(.up))
+                        Text("保存\(saved.savedActivity.kind.title) · \(seconds / 60):\(String(format: "%02d", seconds % 60))").font(.footnote)
+                        Text(saved.resumeOnReturn ? "等你返回才繼續原活動。" : "返回後仍保持原先暫停。").font(.footnote)
+                        Button("返回原活動") { model.manageBreak(.returnToActivity) }
+                        Button("放棄原活動", role: .destructive) { confirmDiscardBreak = true }
+                    } else if let activity = model.experience.activity, activity.status == .running || activity.status == .paused {
+                        Picker("休息時間", selection: $breakMinutes) { ForEach([1, 3, 5], id: \.self) { Text("\($0)分鐘").tag($0) } }
+                        Button("保存進度，休息一下") { model.manageBreak(.begin(minutes: breakMinutes)) }
+                    }
+                    Text(model.careNotice).font(.footnote)
                     Text("本機倒數，不記錄心率、距離或健身訓練。散步、跑步與肌力目前共用運動造型。").font(.footnote).foregroundStyle(.secondary)
+                }
+                .confirmationDialog("放棄保存的原活動？當前休息計時會保留。", isPresented: $confirmDiscardBreak, titleVisibility: .visible) {
+                    Button("放棄原活動", role: .destructive) { model.manageBreak(.discardSaved) }
                 }
                 Section("這套造型的動作") {
                     ForEach(availableOutfitClips) { actionButton($0) }
@@ -263,7 +279,7 @@ struct PatrickAnimatedFaceView: View {
                 Section("自選資料") {
                     NavigationLink("健康摘要") {
                         PatrickHealthPanel(onStartBreathing: {
-                            model.updateExperience { $0.start(.breathing, seconds: 60) }
+                            guard model.startActivity(.breathing, minutes: 1) else { return }
                             configureOutfit()
                             requestedClip = player.eventClips?[PatrickActivityKind.breathing.clipID]
                             showingActions = false

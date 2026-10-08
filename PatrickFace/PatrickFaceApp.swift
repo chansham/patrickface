@@ -70,6 +70,23 @@ final class PatrickAppModel: ObservableObject {
         careNotice = result.message
     }
 
+    @discardableResult
+    func startActivity(_ kind: PatrickActivityKind, minutes: Int) -> Bool {
+        let revision = experience.revision
+        let result = experience.requestActivityStart(kind, minutes: minutes)
+        if experience.revision != revision { persistExperience() }
+        careNotice = result.message
+        if case .started = result { return true }
+        return false
+    }
+
+    func manageBreak(_ command: PatrickBreakCommand) {
+        let revision = experience.revision
+        let result = experience.manageBreak(command)
+        if experience.revision != revision { persistExperience() }
+        careNotice = result.message
+    }
+
     func performCare(_ action: PatrickCareAction, allowEffects: Bool = true) {
         guard experience.perform(action) else { careNotice = "稍等一下，再\(action.title)"; return }
         requestedAction = allowEffects ? action : nil
