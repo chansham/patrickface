@@ -9,6 +9,7 @@ const catalog = JSON.parse(fs.readFileSync(path.join(root, 'animation/catalog.js
 const candidates = JSON.parse(fs.readFileSync(path.join(root, 'animation/candidates.json')));
 const repairAuditPath = 'animation/production-20261006-repair/body-scale-audit.json';
 const auditReports = [
+  { path: 'animation/production-20261007-completion/body-scale-audit.json', selector: '#completion-audit-source' },
   { path: 'animation/production-20261006-followup/body-scale-audit.json', selector: '#followup-audit-source' },
   { path: repairAuditPath, selector: '#repair-audit-source' },
 ].map(report => ({ ...report, data: fs.existsSync(path.join(root, report.path)) ? JSON.parse(fs.readFileSync(path.join(root, report.path))) : null }));

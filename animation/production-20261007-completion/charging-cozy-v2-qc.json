@@ -1,0 +1,588 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-08",
+  "frameIndexBasis": "one-based source reading order",
+  "status": "tilt-transition-revision-selected-pending-review",
+  "artApproved": false,
+  "source": {
+    "path": "animation/charging-cozy-v2/atlas-generated.png",
+    "sha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+    "width": 1086,
+    "height": 1448
+  },
+  "sourceUnchanged": true,
+  "regions": {
+    "path": "animation/charging-cozy-v2/regions-v1.json",
+    "sha256": "10bc3295dcb15b327365c1c0985e14d0da0c1a798a35822551e1da5074541e74"
+  },
+  "canvas": {
+    "width": 700,
+    "height": 700,
+    "anchorPixels": [
+      350,
+      616
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.88
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 716097,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "coreBounds": [
+        53,
+        20,
+        312,
+        365
+      ],
+      "coreWidthPx": 259,
+      "coreHeightPx": 345,
+      "sourceBounds": [
+        25,
+        16,
+        366,
+        390
+      ],
+      "anchorSource": [
+        178,
+        365
+      ],
+      "translation": [
+        172,
+        251
+      ],
+      "faceWidthPx": 121.0,
+      "eyeLowerRimSeparationPx": 35.6931365951495,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeWhiteBounds": [
+        [
+          149,
+          138,
+          182,
+          161
+        ],
+        [
+          184,
+          145,
+          217,
+          168
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          165.0,
+          160.0
+        ],
+        [
+          200.0,
+          167.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          120,
+          151
+        ],
+        [
+          238,
+          175
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "coreBounds": [
+        410,
+        27,
+        664,
+        364
+      ],
+      "coreWidthPx": 254,
+      "coreHeightPx": 337,
+      "sourceBounds": [
+        356,
+        23,
+        371,
+        350
+      ],
+      "anchorSource": [
+        535,
+        364
+      ],
+      "translation": [
+        -185,
+        252
+      ],
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeUnavailableReason": "Action-frame eye tracking not independently validated; pose/tilt/closed-eye changes excluded conservatively."
+    },
+    {
+      "sourceFrame": 3,
+      "coreBounds": [
+        774,
+        27,
+        1027,
+        364
+      ],
+      "coreWidthPx": 253,
+      "coreHeightPx": 337,
+      "sourceBounds": [
+        740,
+        24,
+        291,
+        380
+      ],
+      "anchorSource": [
+        898,
+        364
+      ],
+      "translation": [
+        -548,
+        252
+      ],
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeUnavailableReason": "Action-frame eye tracking not independently validated; pose/tilt/closed-eye changes excluded conservatively."
+    },
+    {
+      "sourceFrame": 4,
+      "coreBounds": [
+        54,
+        381,
+        313,
+        719
+      ],
+      "coreWidthPx": 259,
+      "coreHeightPx": 338,
+      "sourceBounds": [
+        46,
+        373,
+        331,
+        352
+      ],
+      "anchorSource": [
+        179,
+        719
+      ],
+      "translation": [
+        171,
+        -103
+      ],
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeUnavailableReason": "Action-frame eye tracking not independently validated; pose/tilt/closed-eye changes excluded conservatively."
+    },
+    {
+      "sourceFrame": 5,
+      "coreBounds": [
+        410,
+        379,
+        669,
+        719
+      ],
+      "coreWidthPx": 259,
+      "coreHeightPx": 340,
+      "sourceBounds": [
+        394,
+        371,
+        327,
+        355
+      ],
+      "anchorSource": [
+        535,
+        719
+      ],
+      "translation": [
+        -185,
+        -103
+      ],
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeUnavailableReason": "Action-frame eye tracking not independently validated; pose/tilt/closed-eye changes excluded conservatively."
+    },
+    {
+      "sourceFrame": 6,
+      "coreBounds": [
+        775,
+        384,
+        1035,
+        718
+      ],
+      "coreWidthPx": 260,
+      "coreHeightPx": 334,
+      "sourceBounds": [
+        726,
+        380,
+        316,
+        410
+      ],
+      "anchorSource": [
+        900,
+        718
+      ],
+      "translation": [
+        -550,
+        -102
+      ],
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeUnavailableReason": "Action-frame eye tracking not independently validated; pose/tilt/closed-eye changes excluded conservatively."
+    },
+    {
+      "sourceFrame": 7,
+      "coreBounds": [
+        54,
+        736,
+        326,
+        1065
+      ],
+      "coreWidthPx": 272,
+      "coreHeightPx": 329,
+      "sourceBounds": [
+        48,
+        733,
+        327,
+        337
+      ],
+      "anchorSource": [
+        180,
+        1065
+      ],
+      "translation": [
+        170,
+        -449
+      ],
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeUnavailableReason": "Action-frame eye tracking not independently validated; pose/tilt/closed-eye changes excluded conservatively."
+    },
+    {
+      "sourceFrame": 8,
+      "coreBounds": [
+        409,
+        759,
+        685,
+        1065
+      ],
+      "coreWidthPx": 276,
+      "coreHeightPx": 306,
+      "sourceBounds": [
+        402,
+        747,
+        352,
+        323
+      ],
+      "anchorSource": [
+        536,
+        1065
+      ],
+      "translation": [
+        -186,
+        -449
+      ],
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeUnavailableReason": "Action-frame eye tracking not independently validated; pose/tilt/closed-eye changes excluded conservatively."
+    },
+    {
+      "sourceFrame": 9,
+      "coreBounds": [
+        775,
+        739,
+        1044,
+        1065
+      ],
+      "coreWidthPx": 269,
+      "coreHeightPx": 326,
+      "sourceBounds": [
+        755,
+        736,
+        292,
+        368
+      ],
+      "anchorSource": [
+        901,
+        1065
+      ],
+      "translation": [
+        -551,
+        -449
+      ],
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeUnavailableReason": "Action-frame eye tracking not independently validated; pose/tilt/closed-eye changes excluded conservatively."
+    },
+    {
+      "sourceFrame": 10,
+      "coreBounds": [
+        55,
+        1081,
+        319,
+        1418
+      ],
+      "coreWidthPx": 264,
+      "coreHeightPx": 337,
+      "sourceBounds": [
+        50,
+        1077,
+        331,
+        343
+      ],
+      "anchorSource": [
+        180,
+        1418
+      ],
+      "translation": [
+        170,
+        -802
+      ],
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeUnavailableReason": "Action-frame eye tracking not independently validated; pose/tilt/closed-eye changes excluded conservatively."
+    },
+    {
+      "sourceFrame": 11,
+      "coreBounds": [
+        410,
+        1081,
+        667,
+        1418
+      ],
+      "coreWidthPx": 257,
+      "coreHeightPx": 337,
+      "sourceBounds": [
+        372,
+        1075,
+        347,
+        349
+      ],
+      "anchorSource": [
+        536,
+        1418
+      ],
+      "translation": [
+        -186,
+        -802
+      ],
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeUnavailableReason": "Action-frame eye tracking not independently validated; pose/tilt/closed-eye changes excluded conservatively."
+    },
+    {
+      "sourceFrame": 12,
+      "coreBounds": [
+        783,
+        1080,
+        1041,
+        1417
+      ],
+      "coreWidthPx": 258,
+      "coreHeightPx": 337,
+      "sourceBounds": [
+        779,
+        1076,
+        266,
+        345
+      ],
+      "anchorSource": [
+        908,
+        1417
+      ],
+      "translation": [
+        -558,
+        -801
+      ],
+      "faceWidthPx": 123.5,
+      "eyeLowerRimSeparationPx": 35.510561809129406,
+      "eyeLineToFootPx": null,
+      "footUnavailableReason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement.",
+      "eyeWhiteBounds": [
+        [
+          879,
+          1196,
+          912,
+          1219
+        ],
+        [
+          914,
+          1202,
+          947,
+          1225
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          895.0,
+          1218.0
+        ],
+        [
+          930.0,
+          1224.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          848,
+          1210
+        ],
+        [
+          969,
+          1231
+        ]
+      ]
+    }
+  ],
+  "reference": {
+    "sourceSha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+    "manualEyeBoundsBySourceFrame": {
+      "1": [
+        [
+          149,
+          138,
+          182,
+          161
+        ],
+        [
+          184,
+          145,
+          217,
+          168
+        ]
+      ],
+      "12": [
+        [
+          879,
+          1196,
+          912,
+          1219
+        ],
+        [
+          914,
+          1202,
+          947,
+          1225
+        ]
+      ]
+    }
+  },
+  "summary": {
+    "sourceFrames": 12,
+    "measuredFaceFrames": 2,
+    "measuredEyeFrames": 2,
+    "measuredEyeActualFootFrames": 0,
+    "sourceEdgeAlphaPixels": 0,
+    "sourceEdgeStrongPixels": 0,
+    "minimumStrongCoreSourceMarginsLTRB": [
+      53,
+      20,
+      42,
+      30
+    ]
+  },
+  "newFirstLastFrame": {
+    "faceWidthPx": {
+      "first": 121.0,
+      "last": 123.5,
+      "changePercent": 2.066115702479343
+    },
+    "eyeLowerRimSeparationPx": {
+      "first": 35.6931365951495,
+      "last": 35.510561809129406,
+      "changePercent": -0.5115123058277327
+    },
+    "coreWidthPx": {
+      "first": 259,
+      "last": 258,
+      "changePercent": -0.38610038610038533
+    },
+    "coreHeightPx": {
+      "first": 345,
+      "last": 337,
+      "changePercent": -2.3188405797101463
+    }
+  },
+  "methods": [
+    "All source alpha pixels uniquely assigned. Same source pixels and one fixed canvas/scale, no per-frame fit.",
+    "Face caliper and eye-rim distance use only separately inspected first/last original-source white-eye bounds.",
+    "Hat/battery/slippers are excluded from semantic face proxies; whole core dimensions are only silhouette diagnostics.",
+    "No true foot baseline is visible through slippers; every eye-to-foot field remains null.",
+    "Approximately2 source pixels of edge-sampling uncertainty; successful extraction is not art approval."
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "kind": "new-action",
+      "message": "Both arms lift and squeeze the battery cushion; actual limb/prop changes, not whole-card motion."
+    },
+    {
+      "sourceFrames": [
+        7,
+        8,
+        9
+      ],
+      "kind": "improved-but-pending",
+      "message": "Frame7 now leans between upright and frame8, and frame9 partly returns; transition improved in static comparison, real1x review still required."
+    },
+    {
+      "sourceFrames": [
+        1,
+        12
+      ],
+      "kind": "remaining",
+      "message": "Ending hat/head and silhouette height differ slightly from beginning; not an exact neutral loop."
+    },
+    {
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "kind": "preserve",
+      "message": "Cream star-pattern pajamas, lilac slippers, white sclera and pink closed lids. All12 source frames retained."
+    }
+  ],
+  "normalSpeedReview": "pending-new-source-browser-review"
+}

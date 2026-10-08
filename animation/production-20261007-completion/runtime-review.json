@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-10-07",
+  "reviewedAt": "2026-10-08",
+  "artApproved": false,
+  "allArtworkComplete": false,
+  "status": "candidate-delivery-browser-verified-art-review-pending",
+  "batch": "20261007-completion",
+  "selectedSources": 3,
+  "selectedFrames": 36,
+  "generatedSourcesIncludingIntermediate": 4,
+  "generatedFramesIncludingIntermediate": 48,
+  "intermediateSource": "animation/charging-cozy-v1/atlas-generated.png",
+  "candidateCount": 22,
+  "candidateFrames": 272,
+  "mainCatalogSha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+  "mainCatalogUnchanged": true,
+  "previousCandidateEntriesUnchanged": 19,
+  "candidateCatalogSha256": "c5807670ef67eb6c58145ed4df1086af1de78d5c2dd54d3ced9d37b1cb903fe6",
+  "measurements": {
+    "uniqueSources": 3,
+    "sourceFrames": 36,
+    "clipVariants": 3,
+    "measuredSourceFrames": 18,
+    "unmeasuredSourceFrames": 18,
+    "measuredSourceFramesByMetric": {
+      "faceWidth": 14,
+      "eyeSeparation": 18,
+      "eyeToFoot": 16
+    }
+  },
+  "checks": {
+    "sizeReviewCasesPassed": 8,
+    "contourCasesPassed": 5,
+    "fourLayoutFrameChecks": 144,
+    "realTimePlaybackFrames": 36,
+    "sourceRgbaChannelMismatch": 0,
+    "neighborCoreLeakage": 0,
+    "missingStrongCore": 0,
+    "savedOpinionIsolationPassed": true
+  },
+  "evidence": [
+    {
+      "path": "output/playwright/20261007-completion/report.json",
+      "sha256": "13c4c32efec6adf786f6bd991016bc86371c7e57fadfcfb4443abdd05baf69e9"
+    },
+    {
+      "path": "output/playwright/20261007-completion/live-capture-report.json",
+      "sha256": "b1c690acfbb80e8fd93748c9d3d7587d3f38b42ce95a0e1cfed9a6e23de04f1e"
+    },
+    {
+      "path": "output/playwright/20261007-completion-contours/report.json",
+      "sha256": "9f9e3ab2f29c361dc5c516880c4c918a900531b22a923a3501797dc7728761a1"
+    }
+  ],
+  "visualSupplement": [
+    "output/playwright/20261007-completion/charging-v1-v2-fixed-scale.png",
+    "output/playwright/20261007-completion/charging-source-alpha-black-white.png"
+  ],
+  "clips": [
+    {
+      "id": "chef-cookie-repair-20261007",
+      "source": {
+        "path": "animation/feeding-chef-v6/atlas-generated.png",
+        "sha256": "cd432cf83e782c99eed61f496cc8ab1cdd50559f95401f1b1c576ec1037cdc80",
+        "width": 1254,
+        "height": 1254
+      },
+      "regions": {
+        "path": "animation/feeding-chef-v6/regions-v1.json",
+        "sha256": "438de97bf2e6e2e9078c56829a52a9e4b22e2b3e87a3a4c1a469c4751e3b70d9",
+        "version": 1
+      },
+      "scale": 1.138755980861244,
+      "sourcePixelToStagePixel": 1.5923444976076555,
+      "frameCount": 12,
+      "allSourceFramesUsed": true,
+      "allNonzeroAlphaPixelsPreserved": true,
+      "perFrameScale": false,
+      "fixedAnchor": true,
+      "normalSpeed": "actual-foreground-1x-all12frames-ended-on-last",
+      "visualReview": {
+        "improved": "末格盤上餅乾缺口在200px可辨，10→11→12下放敘事保留。",
+        "remaining": "5→6餅乾離口與收手仍較快；細部握持和餅乾朝向可再審。"
+      },
+      "liveFrameSheet": "output/playwright/20261007-completion/chef-cookie-repair-20261007-live-1x-frames.png",
+      "artApproved": false
+    },
+    {
+      "id": "focus-transition-repair-20261007",
+      "source": {
+        "path": "animation/focus-v7/atlas-generated.png",
+        "sha256": "3a6a7cc2f463eb4537e0a36109505be7a6d7cbb5502a463dcb646aff2d89492e",
+        "width": 1254,
+        "height": 1254
+      },
+      "regions": {
+        "path": "animation/focus-v7/regions-v1.json",
+        "sha256": "b6da133b31e39d9e8d7cff1dd112f904444d8b3a5db9e76c5f53ffb6d76cb76d",
+        "version": 1
+      },
+      "scale": 1.4095890410958902,
+      "sourcePixelToStagePixel": 1.6753972602739724,
+      "frameCount": 12,
+      "allSourceFramesUsed": true,
+      "allNonzeroAlphaPixelsPreserved": true,
+      "perFrameScale": false,
+      "fixedAnchor": true,
+      "normalSpeed": "actual-foreground-1x-all12frames-ended-on-last",
+      "visualReview": {
+        "improved": "第9格手臂在臉側與筆記本之間的姿勢可見，收手有實質新過渡。",
+        "remaining": "末段身形仍較首格短；眼線至真足底-5.195%、頭頂至真足底-4.196%，沒有修妥。"
+      },
+      "liveFrameSheet": "output/playwright/20261007-completion/focus-transition-repair-20261007-live-1x-frames.png",
+      "artApproved": false
+    },
+    {
+      "id": "charging-cozy-20261007",
+      "source": {
+        "path": "animation/charging-cozy-v2/atlas-generated.png",
+        "sha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+        "width": 1086,
+        "height": 1448
+      },
+      "regions": {
+        "path": "animation/charging-cozy-v2/regions-v1.json",
+        "sha256": "10bc3295dcb15b327365c1c0985e14d0da0c1a798a35822551e1da5074541e74",
+        "version": 1
+      },
+      "scale": 1.75,
+      "sourcePixelToStagePixel": 1.664,
+      "frameCount": 12,
+      "allSourceFramesUsed": true,
+      "allNonzeroAlphaPixelsPreserved": true,
+      "perFrameScale": false,
+      "fixedAnchor": true,
+      "normalSpeed": "actual-foreground-1x-all12frames-ended-on-last",
+      "visualReview": {
+        "improved": "v2第7、9格提供傾頭靠枕及回正中間姿勢；抬枕和擠壓在200px可讀。",
+        "remaining": "7→8與9→10角度仍有階躍，帽沿與睡衣形狀略變；首末不是完全閉環。"
+      },
+      "liveFrameSheet": "output/playwright/20261007-completion/charging-cozy-20261007-live-1x-frames.png",
+      "artApproved": false
+    }
+  ],
+  "limits": [
+    "Only the selected3clips were browser-tested this batch; no claim of full-library or native artwork acceptance.",
+    "Original classic idle and additional focus torso edit produced no image; no v8 exists.",
+    "Semantic metrics deliberately incomplete. Slippers are not anatomical feet; cozy eye-to-foot remains null.",
+    "Main/native resources unchanged. Old candidate references and all source PNGs retained."
+  ]
+}

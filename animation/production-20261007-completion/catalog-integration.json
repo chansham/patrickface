@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-08",
+  "batchStartedAt": "2026-10-07",
+  "artApproved": false,
+  "mainCatalogUnchanged": true,
+  "sourcePNGsUnchanged": true,
+  "batch": "20261007-completion",
+  "candidateCount": 22,
+  "candidateFrames": 272,
+  "newSourceFrames": 36,
+  "clips": [
+    {
+      "id": "chef-cookie-repair-20261007",
+      "atlas": "animation/feeding-chef-v6/atlas-generated.png",
+      "sha256": "cd432cf83e782c99eed61f496cc8ab1cdd50559f95401f1b1c576ec1037cdc80",
+      "frameRegions": {
+        "path": "animation/feeding-chef-v6/regions-v1.json",
+        "sha256": "438de97bf2e6e2e9078c56829a52a9e4b22e2b3e87a3a4c1a469c4751e3b70d9",
+        "version": 1
+      },
+      "scale": 1.138755980861244,
+      "frameCount": 12,
+      "comparisonClipId": "feed",
+      "scaleProvenance": {
+        "method": "preserve-reviewed-source-pixel-density",
+        "referenceCandidate": "chef-repair-20261006",
+        "oldScale": 1.5980861244019138,
+        "oldCanvas": 668,
+        "newCanvas": 476,
+        "newScale": 1.138755980861244,
+        "perFrameScaling": false
+      }
+    },
+    {
+      "id": "focus-transition-repair-20261007",
+      "atlas": "animation/focus-v7/atlas-generated.png",
+      "sha256": "3a6a7cc2f463eb4537e0a36109505be7a6d7cbb5502a463dcb646aff2d89492e",
+      "frameRegions": {
+        "path": "animation/focus-v7/regions-v1.json",
+        "sha256": "b6da133b31e39d9e8d7cff1dd112f904444d8b3a5db9e76c5f53ffb6d76cb76d",
+        "version": 1
+      },
+      "scale": 1.4095890410958902,
+      "frameCount": 12,
+      "comparisonClipId": "focus",
+      "scaleProvenance": {
+        "method": "preserve-reviewed-source-pixel-density",
+        "referenceCandidate": "focus-followup-20261006",
+        "oldScale": 1.47,
+        "oldCanvas": 584,
+        "newCanvas": 560,
+        "newScale": 1.4095890410958902,
+        "perFrameScaling": false
+      }
+    },
+    {
+      "id": "charging-cozy-20261007",
+      "atlas": "animation/charging-cozy-v2/atlas-generated.png",
+      "sha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+      "frameRegions": {
+        "path": "animation/charging-cozy-v2/regions-v1.json",
+        "sha256": "10bc3295dcb15b327365c1c0985e14d0da0c1a798a35822551e1da5074541e74",
+        "version": 1
+      },
+      "scale": 1.75,
+      "frameCount": 12,
+      "comparisonClipId": "charging",
+      "scaleProvenance": {
+        "method": "single-new-costume-scale-after-neutral-face-and-layout-review",
+        "newScale": 1.75,
+        "perFrameScaling": false,
+        "note": "Fixed1.75 on700px canvas retains original source pixel density1.664 stage pixels; not a claim of identical bodies or anatomical normalization."
+      }
+    }
+  ]
+}

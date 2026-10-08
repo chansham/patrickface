@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "version": 1,
-  "updatedAt": "2026-10-06",
+  "updatedAt": "2026-10-08",
   "reviewOnly": true,
   "master": {
     "id": "patrick-candidate-review-v1",
@@ -1053,6 +1053,195 @@
         "faceRatioToSeatedReference": 0.8662,
         "note": "Equal face size collides with text in31 of64 layout frames. Fixed2.0 retains the whole standing character in all layouts, with a smaller face than the seated reference; not per-frame fit.",
         "perFrameScaling": false
+      }
+    },
+    {
+      "id": "chef-cookie-repair-20261007",
+      "title": "小廚師・餅乾咬痕收尾改稿",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261007-completion",
+      "reviewGroup": "interaction",
+      "atlas": "animation/feeding-chef-v6/atlas-generated.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "durationsMs": [
+        500,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        600
+      ],
+      "sha256": "cd432cf83e782c99eed61f496cc8ab1cdd50559f95401f1b1c576ec1037cdc80",
+      "anchorNormalized": [
+        0.5,
+        0.8802521008403361
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.138755980861244,
+      "status": "quality-revision-required",
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "末格盤上餅乾保留咬痕，完整12格可看；5→6收手及細部變形仍待審，未換入日常。",
+      "frameRegions": {
+        "path": "animation/feeding-chef-v6/regions-v1.json",
+        "sha256": "438de97bf2e6e2e9078c56829a52a9e4b22e2b3e87a3a4c1a469c4751e3b70d9",
+        "version": 1
+      },
+      "renderingRevision": "completion-20261007-v1",
+      "comparisonClipId": "feed",
+      "artApproved": false,
+      "scaleProvenance": {
+        "method": "preserve-reviewed-source-pixel-density",
+        "referenceCandidate": "chef-repair-20261006",
+        "oldScale": 1.5980861244019138,
+        "oldCanvas": 668,
+        "newCanvas": 476,
+        "newScale": 1.138755980861244,
+        "perFrameScaling": false
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261007-completion/feeding-chef-v6-qc.json",
+        "repairReferenceCandidate": "chef-repair-20261006"
+      }
+    },
+    {
+      "id": "focus-transition-repair-20261007",
+      "title": "正裝・收手中間姿勢改稿",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261007-completion",
+      "reviewGroup": "scene",
+      "atlas": "animation/focus-v7/atlas-generated.png",
+      "width": 1254,
+      "height": 1254,
+      "columns": 3,
+      "rows": 4,
+      "frameCount": 12,
+      "durationsMs": [
+        450,
+        200,
+        200,
+        220,
+        200,
+        220,
+        240,
+        180,
+        220,
+        200,
+        160,
+        450
+      ],
+      "sha256": "3a6a7cc2f463eb4537e0a36109505be7a6d7cbb5502a463dcb646aff2d89492e",
+      "anchorNormalized": [
+        0.5,
+        0.8803571428571428
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.4095890410958902,
+      "status": "quality-revision-required",
+      "scenes": [
+        "focus"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "第9格增加收手中間姿勢；首末眼線至真足底仍短約5.19%，身形尚未修妥。完整12格保留對照。",
+      "frameRegions": {
+        "path": "animation/focus-v7/regions-v1.json",
+        "sha256": "b6da133b31e39d9e8d7cff1dd112f904444d8b3a5db9e76c5f53ffb6d76cb76d",
+        "version": 1
+      },
+      "renderingRevision": "completion-20261007-v1",
+      "comparisonClipId": "focus",
+      "artApproved": false,
+      "scaleProvenance": {
+        "method": "preserve-reviewed-source-pixel-density",
+        "referenceCandidate": "focus-followup-20261006",
+        "oldScale": 1.47,
+        "oldCanvas": 584,
+        "newCanvas": 560,
+        "newScale": 1.4095890410958902,
+        "perFrameScaling": false
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261007-completion/focus-v7-qc.json",
+        "repairReferenceCandidate": "focus-followup-20261006"
+      }
+    },
+    {
+      "id": "charging-cozy-20261007",
+      "title": "星星睡衣・抱電池充電",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261007-completion",
+      "reviewGroup": "scene",
+      "atlas": "animation/charging-cozy-v2/atlas-generated.png",
+      "width": 1086,
+      "height": 1448,
+      "columns": 3,
+      "rows": 4,
+      "frameCount": 12,
+      "durationsMs": [
+        500,
+        220,
+        220,
+        220,
+        220,
+        220,
+        220,
+        220,
+        220,
+        220,
+        220,
+        600
+      ],
+      "sha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+      "anchorNormalized": [
+        0.5,
+        0.88
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.75,
+      "status": "quality-revision-required",
+      "scenes": [
+        "charging"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "新奶油黃星星睡衣、睡帽與紫拖鞋，抬起並擠壓電池抱枕。第7、9格補傾頭中間姿勢，首末不是完全閉環，仍待審。",
+      "frameRegions": {
+        "path": "animation/charging-cozy-v2/regions-v1.json",
+        "sha256": "10bc3295dcb15b327365c1c0985e14d0da0c1a798a35822551e1da5074541e74",
+        "version": 1
+      },
+      "renderingRevision": "completion-20261007-v1",
+      "comparisonClipId": "charging",
+      "artApproved": false,
+      "scaleProvenance": {
+        "method": "single-new-costume-scale-after-neutral-face-and-layout-review",
+        "newScale": 1.75,
+        "perFrameScaling": false,
+        "note": "Fixed1.75 on700px canvas retains original source pixel density1.664 stage pixels; not a claim of identical bodies or anatomical normalization."
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261007-completion/charging-cozy-v2-qc.json",
+        "repairReferenceCandidate": null
       }
     }
   ]

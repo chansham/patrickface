@@ -1,0 +1,1352 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-07",
+  "frameIndexBasis": "one-based source reading order",
+  "status": "cookie-continuity-improved-other-transitions-pending-review",
+  "artApproved": false,
+  "source": {
+    "path": "animation/feeding-chef-v6/atlas-generated.png",
+    "sha256": "cd432cf83e782c99eed61f496cc8ab1cdd50559f95401f1b1c576ec1037cdc80",
+    "width": 1254,
+    "height": 1254
+  },
+  "sourceUnchanged": true,
+  "regions": {
+    "path": "animation/feeding-chef-v6/regions-v1.json",
+    "sha256": "438de97bf2e6e2e9078c56829a52a9e4b22e2b3e87a3a4c1a469c4751e3b70d9"
+  },
+  "canvas": {
+    "width": 476,
+    "height": 476,
+    "anchorPixels": [
+      238,
+      419
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8802521008403361
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 867248,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "reference": {
+    "sourceFrame": 1,
+    "referenceEyeWhiteBounds": [
+      [
+        130,
+        118,
+        162,
+        169
+      ],
+      [
+        161,
+        118,
+        196,
+        170
+      ]
+    ],
+    "sourceSha256": "cd432cf83e782c99eed61f496cc8ab1cdd50559f95401f1b1c576ec1037cdc80",
+    "closedEyeFrames": [
+      6,
+      8
+    ]
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "coreBounds": [
+        16,
+        14,
+        301,
+        409
+      ],
+      "coreWidthPx": 285,
+      "coreHeightPx": 395,
+      "strongPixelArea": 69151,
+      "sourceBounds": [
+        14,
+        11,
+        290,
+        403
+      ],
+      "anchorSource": [
+        155,
+        409
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          42,
+          309,
+          98,
+          366
+        ],
+        [
+          167,
+          316,
+          229,
+          374
+        ]
+      ],
+      "visibleFootBaselineY": 374,
+      "cushionCoreBottomY": 409,
+      "cushionBelowFeetPx": 35,
+      "hatWhiteFillBounds": [
+        137,
+        17,
+        221,
+        77
+      ],
+      "hatWhiteFillWidthPx": 84,
+      "hatWhiteFillHeightPx": 60,
+      "faceWidthPx": 122.75,
+      "eyeLowerRimSeparationPx": 32.515380975778214,
+      "eyeLineToActualFootPx": 205.5,
+      "eyeWhiteBounds": [
+        [
+          130,
+          118,
+          162,
+          169
+        ],
+        [
+          161,
+          118,
+          196,
+          170
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          145.5,
+          168.0
+        ],
+        [
+          178.0,
+          169.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          112,
+          167
+        ],
+        [
+          234,
+          171
+        ]
+      ],
+      "eyeLineToFootPx": 205.5,
+      "footSourcePoint": [
+        161.75,
+        374
+      ],
+      "eyeToFootPoints": [
+        [
+          161.75,
+          168.5
+        ],
+        [
+          161.75,
+          374
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "coreBounds": [
+        334,
+        17,
+        618,
+        409
+      ],
+      "coreWidthPx": 284,
+      "coreHeightPx": 392,
+      "strongPixelArea": 68746,
+      "sourceBounds": [
+        329,
+        15,
+        293,
+        401
+      ],
+      "anchorSource": [
+        472,
+        409
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          361,
+          308,
+          415,
+          366
+        ],
+        [
+          486,
+          316,
+          548,
+          375
+        ]
+      ],
+      "visibleFootBaselineY": 375,
+      "cushionCoreBottomY": 409,
+      "cushionBelowFeetPx": 34,
+      "hatWhiteFillBounds": [
+        457,
+        21,
+        541,
+        80
+      ],
+      "hatWhiteFillWidthPx": 84,
+      "hatWhiteFillHeightPx": 59,
+      "faceWidthPx": 128.0,
+      "eyeLowerRimSeparationPx": 33.514922049737784,
+      "eyeLineToActualFootPx": 204.5,
+      "eyeWhiteBounds": [
+        [
+          445,
+          134,
+          473,
+          171
+        ],
+        [
+          475,
+          134,
+          510,
+          172
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          458.5,
+          170.0
+        ],
+        [
+          492.0,
+          171.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          427,
+          169
+        ],
+        [
+          554,
+          173
+        ]
+      ],
+      "eyeLineToFootPx": 204.5,
+      "footSourcePoint": [
+        475.25,
+        375
+      ],
+      "eyeToFootPoints": [
+        [
+          475.25,
+          170.5
+        ],
+        [
+          475.25,
+          375
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 3,
+      "coreBounds": [
+        648,
+        18,
+        932,
+        409
+      ],
+      "coreWidthPx": 284,
+      "coreHeightPx": 391,
+      "strongPixelArea": 67522,
+      "sourceBounds": [
+        645,
+        15,
+        290,
+        401
+      ],
+      "anchorSource": [
+        786,
+        409
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          674,
+          308,
+          729,
+          366
+        ],
+        [
+          799,
+          316,
+          860,
+          374
+        ]
+      ],
+      "visibleFootBaselineY": 374,
+      "cushionCoreBottomY": 409,
+      "cushionBelowFeetPx": 35,
+      "hatWhiteFillBounds": [
+        771,
+        22,
+        854,
+        81
+      ],
+      "hatWhiteFillWidthPx": 83,
+      "hatWhiteFillHeightPx": 59,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 33.015148038438355,
+      "eyeLineToActualFootPx": 204.5,
+      "eyeWhiteBounds": [
+        [
+          759,
+          119,
+          790,
+          170
+        ],
+        [
+          790,
+          120,
+          825,
+          171
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          774.0,
+          169.0
+        ],
+        [
+          807.0,
+          170.0
+        ]
+      ],
+      "faceWidthUnavailableReason": "visible-pink-face-edges-not-found",
+      "eyeLineToFootPx": 204.5,
+      "footSourcePoint": [
+        790.5,
+        374
+      ],
+      "eyeToFootPoints": [
+        [
+          790.5,
+          169.5
+        ],
+        [
+          790.5,
+          374
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 4,
+      "coreBounds": [
+        964,
+        18,
+        1250,
+        409
+      ],
+      "coreWidthPx": 286,
+      "coreHeightPx": 391,
+      "strongPixelArea": 67631,
+      "sourceBounds": [
+        961,
+        15,
+        292,
+        401
+      ],
+      "anchorSource": [
+        1102,
+        409
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          991,
+          308,
+          1046,
+          365
+        ],
+        [
+          1117,
+          316,
+          1179,
+          374
+        ]
+      ],
+      "visibleFootBaselineY": 374,
+      "cushionCoreBottomY": 409,
+      "cushionBelowFeetPx": 35,
+      "hatWhiteFillBounds": [
+        1090,
+        22,
+        1176,
+        82
+      ],
+      "hatWhiteFillWidthPx": 86,
+      "hatWhiteFillHeightPx": 60,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 32.56148031032987,
+      "eyeLineToActualFootPx": 207.0,
+      "eyeWhiteBounds": [
+        [
+          1080,
+          118,
+          1112,
+          167
+        ],
+        [
+          1110,
+          119,
+          1147,
+          169
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1095.5,
+          166.0
+        ],
+        [
+          1128.0,
+          168.0
+        ]
+      ],
+      "faceWidthUnavailableReason": "visible-pink-face-edges-not-found",
+      "eyeLineToFootPx": 207.0,
+      "footSourcePoint": [
+        1111.75,
+        374
+      ],
+      "eyeToFootPoints": [
+        [
+          1111.75,
+          167.0
+        ],
+        [
+          1111.75,
+          374
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 5,
+      "coreBounds": [
+        16,
+        430,
+        304,
+        825
+      ],
+      "coreWidthPx": 288,
+      "coreHeightPx": 395,
+      "strongPixelArea": 69365,
+      "sourceBounds": [
+        13,
+        427,
+        294,
+        403
+      ],
+      "anchorSource": [
+        155,
+        825
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          43,
+          723,
+          98,
+          781
+        ],
+        [
+          168,
+          731,
+          230,
+          790
+        ]
+      ],
+      "visibleFootBaselineY": 790,
+      "cushionCoreBottomY": 825,
+      "cushionBelowFeetPx": 35,
+      "hatWhiteFillBounds": [
+        156,
+        433,
+        239,
+        493
+      ],
+      "hatWhiteFillWidthPx": 83,
+      "hatWhiteFillHeightPx": 60,
+      "faceWidthPx": 125.25,
+      "eyeLowerRimSeparationPx": 32.14031735997639,
+      "eyeLineToActualFootPx": 217.5,
+      "eyeWhiteBounds": [
+        [
+          134,
+          523,
+          166,
+          572
+        ],
+        [
+          164,
+          525,
+          200,
+          575
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          149.5,
+          571.0
+        ],
+        [
+          181.5,
+          574.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          115,
+          568
+        ],
+        [
+          239,
+          579
+        ]
+      ],
+      "eyeLineToFootPx": 217.5,
+      "footSourcePoint": [
+        165.5,
+        790
+      ],
+      "eyeToFootPoints": [
+        [
+          165.5,
+          572.5
+        ],
+        [
+          165.5,
+          790
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 6,
+      "coreBounds": [
+        334,
+        429,
+        620,
+        825
+      ],
+      "coreWidthPx": 286,
+      "coreHeightPx": 396,
+      "strongPixelArea": 70301,
+      "sourceBounds": [
+        331,
+        426,
+        294,
+        404
+      ],
+      "anchorSource": [
+        473,
+        825
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          360,
+          723,
+          415,
+          781
+        ],
+        [
+          486,
+          731,
+          548,
+          790
+        ]
+      ],
+      "visibleFootBaselineY": 790,
+      "cushionCoreBottomY": 825,
+      "cushionBelowFeetPx": 35,
+      "hatWhiteFillBounds": [
+        466,
+        432,
+        548,
+        492
+      ],
+      "hatWhiteFillWidthPx": 82,
+      "hatWhiteFillHeightPx": 60,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToActualFootPx": null,
+      "eyeUnavailableReason": "closed eyes; lower eye-white rims unavailable",
+      "eyeLineToFootPx": null
+    },
+    {
+      "sourceFrame": 7,
+      "coreBounds": [
+        647,
+        428,
+        932,
+        825
+      ],
+      "coreWidthPx": 285,
+      "coreHeightPx": 397,
+      "strongPixelArea": 70196,
+      "sourceBounds": [
+        644,
+        426,
+        291,
+        406
+      ],
+      "anchorSource": [
+        785,
+        825
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          673,
+          723,
+          728,
+          781
+        ],
+        [
+          799,
+          731,
+          860,
+          790
+        ]
+      ],
+      "visibleFootBaselineY": 790,
+      "cushionCoreBottomY": 825,
+      "cushionBelowFeetPx": 35,
+      "hatWhiteFillBounds": [
+        781,
+        432,
+        862,
+        492
+      ],
+      "hatWhiteFillWidthPx": 81,
+      "hatWhiteFillHeightPx": 60,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 33.015148038438355,
+      "eyeLineToActualFootPx": 212.5,
+      "eyeWhiteBounds": [
+        [
+          761,
+          526,
+          793,
+          578
+        ],
+        [
+          792,
+          528,
+          828,
+          579
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          776.5,
+          577.0
+        ],
+        [
+          809.5,
+          578.0
+        ]
+      ],
+      "faceWidthUnavailableReason": "visible-pink-face-edges-not-found",
+      "eyeLineToFootPx": 212.5,
+      "footSourcePoint": [
+        793.0,
+        790
+      ],
+      "eyeToFootPoints": [
+        [
+          793.0,
+          577.5
+        ],
+        [
+          793.0,
+          790
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 8,
+      "coreBounds": [
+        963,
+        430,
+        1250,
+        825
+      ],
+      "coreWidthPx": 287,
+      "coreHeightPx": 395,
+      "strongPixelArea": 70417,
+      "sourceBounds": [
+        959,
+        427,
+        295,
+        401
+      ],
+      "anchorSource": [
+        1102,
+        825
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          989,
+          724,
+          1044,
+          781
+        ],
+        [
+          1116,
+          731,
+          1178,
+          789
+        ]
+      ],
+      "visibleFootBaselineY": 789,
+      "cushionCoreBottomY": 825,
+      "cushionBelowFeetPx": 36,
+      "hatWhiteFillBounds": [
+        1099,
+        433,
+        1181,
+        492
+      ],
+      "hatWhiteFillWidthPx": 82,
+      "hatWhiteFillHeightPx": 59,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToActualFootPx": null,
+      "eyeUnavailableReason": "closed eyes; lower eye-white rims unavailable",
+      "eyeLineToFootPx": null
+    },
+    {
+      "sourceFrame": 9,
+      "coreBounds": [
+        16,
+        839,
+        302,
+        1239
+      ],
+      "coreWidthPx": 286,
+      "coreHeightPx": 400,
+      "strongPixelArea": 70806,
+      "sourceBounds": [
+        12,
+        834,
+        293,
+        407
+      ],
+      "anchorSource": [
+        155,
+        1239
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          42,
+          1134,
+          98,
+          1193
+        ],
+        [
+          167,
+          1143,
+          229,
+          1202
+        ]
+      ],
+      "visibleFootBaselineY": 1202,
+      "cushionCoreBottomY": 1239,
+      "cushionBelowFeetPx": 37,
+      "hatWhiteFillBounds": [
+        139,
+        843,
+        221,
+        901
+      ],
+      "hatWhiteFillWidthPx": 82,
+      "hatWhiteFillHeightPx": 58,
+      "faceWidthPx": 124.75,
+      "eyeLowerRimSeparationPx": 33.5,
+      "eyeLineToActualFootPx": 210.0,
+      "eyeWhiteBounds": [
+        [
+          129,
+          942,
+          161,
+          993
+        ],
+        [
+          161,
+          942,
+          196,
+          993
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          144.5,
+          992.0
+        ],
+        [
+          178.0,
+          992.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          111,
+          992
+        ],
+        [
+          235,
+          992
+        ]
+      ],
+      "eyeLineToFootPx": 210.0,
+      "footSourcePoint": [
+        161.25,
+        1202
+      ],
+      "eyeToFootPoints": [
+        [
+          161.25,
+          992.0
+        ],
+        [
+          161.25,
+          1202
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 10,
+      "coreBounds": [
+        333,
+        844,
+        620,
+        1239
+      ],
+      "coreWidthPx": 287,
+      "coreHeightPx": 395,
+      "strongPixelArea": 68443,
+      "sourceBounds": [
+        328,
+        841,
+        295,
+        400
+      ],
+      "anchorSource": [
+        472,
+        1239
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          359,
+          1134,
+          415,
+          1192
+        ],
+        [
+          486,
+          1143,
+          548,
+          1202
+        ]
+      ],
+      "visibleFootBaselineY": 1202,
+      "cushionCoreBottomY": 1239,
+      "cushionBelowFeetPx": 37,
+      "hatWhiteFillBounds": [
+        458,
+        848,
+        541,
+        904
+      ],
+      "hatWhiteFillWidthPx": 83,
+      "hatWhiteFillHeightPx": 56,
+      "faceWidthPx": 124.75,
+      "eyeLowerRimSeparationPx": 33.0,
+      "eyeLineToActualFootPx": 206.0,
+      "eyeWhiteBounds": [
+        [
+          452,
+          946,
+          483,
+          997
+        ],
+        [
+          483,
+          946,
+          518,
+          997
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          467.0,
+          996.0
+        ],
+        [
+          500.0,
+          996.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          433,
+          996
+        ],
+        [
+          557,
+          996
+        ]
+      ],
+      "eyeLineToFootPx": 206.0,
+      "footSourcePoint": [
+        483.5,
+        1202
+      ],
+      "eyeToFootPoints": [
+        [
+          483.5,
+          996.0
+        ],
+        [
+          483.5,
+          1202
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 11,
+      "coreBounds": [
+        646,
+        844,
+        934,
+        1239
+      ],
+      "coreWidthPx": 288,
+      "coreHeightPx": 395,
+      "strongPixelArea": 67739,
+      "sourceBounds": [
+        643,
+        842,
+        294,
+        400
+      ],
+      "anchorSource": [
+        785,
+        1239
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          673,
+          1134,
+          728,
+          1193
+        ],
+        [
+          800,
+          1143,
+          861,
+          1203
+        ]
+      ],
+      "visibleFootBaselineY": 1203,
+      "cushionCoreBottomY": 1239,
+      "cushionBelowFeetPx": 36,
+      "hatWhiteFillBounds": [
+        769,
+        848,
+        853,
+        906
+      ],
+      "hatWhiteFillWidthPx": 84,
+      "hatWhiteFillHeightPx": 58,
+      "faceWidthPx": 125.75,
+      "eyeLowerRimSeparationPx": 32.5,
+      "eyeLineToActualFootPx": 202.0,
+      "eyeWhiteBounds": [
+        [
+          762,
+          951,
+          792,
+          1002
+        ],
+        [
+          792,
+          951,
+          827,
+          1002
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          776.5,
+          1001.0
+        ],
+        [
+          809.0,
+          1001.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          744,
+          1001
+        ],
+        [
+          869,
+          1001
+        ]
+      ],
+      "eyeLineToFootPx": 202.0,
+      "footSourcePoint": [
+        792.75,
+        1203
+      ],
+      "eyeToFootPoints": [
+        [
+          792.75,
+          1001.0
+        ],
+        [
+          792.75,
+          1203
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 12,
+      "coreBounds": [
+        962,
+        844,
+        1251,
+        1239
+      ],
+      "coreWidthPx": 289,
+      "coreHeightPx": 395,
+      "strongPixelArea": 68366,
+      "sourceBounds": [
+        959,
+        841,
+        295,
+        401
+      ],
+      "anchorSource": [
+        1102,
+        1239
+      ],
+      "sourceEdgeStrongPixels": 0,
+      "visibleFootPinkFillBounds": [
+        [
+          989,
+          1135,
+          1044,
+          1193
+        ],
+        [
+          1117,
+          1144,
+          1179,
+          1202
+        ]
+      ],
+      "visibleFootBaselineY": 1202,
+      "cushionCoreBottomY": 1239,
+      "cushionBelowFeetPx": 37,
+      "hatWhiteFillBounds": [
+        1090,
+        848,
+        1174,
+        906
+      ],
+      "hatWhiteFillWidthPx": 84,
+      "hatWhiteFillHeightPx": 58,
+      "faceWidthPx": 126.75,
+      "eyeLowerRimSeparationPx": 33.015148038438355,
+      "eyeLineToActualFootPx": 203.5,
+      "eyeWhiteBounds": [
+        [
+          1081,
+          947,
+          1113,
+          999
+        ],
+        [
+          1112,
+          948,
+          1148,
+          1000
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1096.5,
+          998.0
+        ],
+        [
+          1129.5,
+          999.0
+        ]
+      ],
+      "faceCaliperPoints": [
+        [
+          1063,
+          997
+        ],
+        [
+          1189,
+          1001
+        ]
+      ],
+      "eyeLineToFootPx": 203.5,
+      "footSourcePoint": [
+        1113.0,
+        1202
+      ],
+      "eyeToFootPoints": [
+        [
+          1113.0,
+          998.5
+        ],
+        [
+          1113.0,
+          1202
+        ]
+      ]
+    }
+  ],
+  "summary": {
+    "measuredFaceFrames": 7,
+    "measuredEyeActualFootFrames": 10,
+    "measuredVisibleFeetFrames": 12,
+    "sourceEdgeStrongPixels": 0
+  },
+  "oldSource": {
+    "path": "animation/feeding-chef-v2/atlas-generated.png",
+    "sha256": "cf5115d199e0d0cbc8bac8983cec04fed215dcb4bafc0734e8e6bad9dbbfa8a0",
+    "width": 1254,
+    "height": 1254
+  },
+  "oldNewFirstFrame": {
+    "faceWidthPx": {
+      "first": 123.75,
+      "last": 122.75,
+      "changePercent": -0.8080808080808133
+    },
+    "eyeLowerRimSeparationPx": {
+      "first": 33.015148038438355,
+      "last": 32.515380975778214,
+      "changePercent": -1.5137507851798238
+    },
+    "eyeLineToActualFootPx": {
+      "first": 205.5,
+      "last": 205.5,
+      "changePercent": 0.0
+    },
+    "hatWhiteFillHeightPx": {
+      "first": 60,
+      "last": 60,
+      "changePercent": 0.0
+    },
+    "coreHeightPx": {
+      "first": 395,
+      "last": 395,
+      "changePercent": 0.0
+    }
+  },
+  "newFirstLastFrame": {
+    "faceWidthPx": {
+      "first": 122.75,
+      "last": 126.75,
+      "changePercent": 3.258655804480659
+    },
+    "eyeLowerRimSeparationPx": {
+      "first": 32.515380975778214,
+      "last": 33.015148038438355,
+      "changePercent": 1.537017398112095
+    },
+    "eyeLineToActualFootPx": {
+      "first": 205.5,
+      "last": 203.5,
+      "changePercent": -0.9732360097323589
+    },
+    "hatWhiteFillHeightPx": {
+      "first": 60,
+      "last": 58,
+      "changePercent": -3.3333333333333326
+    },
+    "coreHeightPx": {
+      "first": 395,
+      "last": 395,
+      "changePercent": 0.0
+    }
+  },
+  "sourceCoordinateChanges": [
+    {
+      "sourceFrame": 1,
+      "strongUnionPixels": 69172,
+      "changedStrongRgbaPixels": 68459,
+      "changedStrongRgbaFraction": 0.9896923610709536,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 2,
+      "strongUnionPixels": 68756,
+      "changedStrongRgbaPixels": 68060,
+      "changedStrongRgbaFraction": 0.9898772470766187,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 3,
+      "strongUnionPixels": 67524,
+      "changedStrongRgbaPixels": 66779,
+      "changedStrongRgbaFraction": 0.9889668858479947,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 4,
+      "strongUnionPixels": 67834,
+      "changedStrongRgbaPixels": 67208,
+      "changedStrongRgbaFraction": 0.9907715894684082,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 5,
+      "strongUnionPixels": 69369,
+      "changedStrongRgbaPixels": 68738,
+      "changedStrongRgbaFraction": 0.9909037177990169,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 6,
+      "strongUnionPixels": 70310,
+      "changedStrongRgbaPixels": 69916,
+      "changedStrongRgbaFraction": 0.9943962451998293,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 7,
+      "strongUnionPixels": 70208,
+      "changedStrongRgbaPixels": 69487,
+      "changedStrongRgbaFraction": 0.9897305150410209,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 8,
+      "strongUnionPixels": 70447,
+      "changedStrongRgbaPixels": 69964,
+      "changedStrongRgbaFraction": 0.9931437818501853,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 9,
+      "strongUnionPixels": 70835,
+      "changedStrongRgbaPixels": 70151,
+      "changedStrongRgbaFraction": 0.9903437566174913,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 10,
+      "strongUnionPixels": 68454,
+      "changedStrongRgbaPixels": 67889,
+      "changedStrongRgbaFraction": 0.9917462821748911,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 11,
+      "strongUnionPixels": 67769,
+      "changedStrongRgbaPixels": 67191,
+      "changedStrongRgbaFraction": 0.991471026575573,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    },
+    {
+      "sourceFrame": 12,
+      "strongUnionPixels": 68386,
+      "changedStrongRgbaPixels": 67764,
+      "changedStrongRgbaFraction": 0.9909045711110461,
+      "meaning": "Raw RGBA changes in source coordinates, not a perceptual error score or anatomical test."
+    }
+  ],
+  "sourceEdgeAlpha": {
+    "nonzeroPixels": 29,
+    "maximumAlpha": 2,
+    "strongPixels": 0,
+    "sourceFrames": [
+      8,
+      12
+    ]
+  },
+  "methods": [
+    "Reference first-frame eye boxes were checked on the new PNG, then tracked independently; closed frames6/8 remain null.",
+    "Visible feet are independently measured pink fill components; cushion/region anchor is not anatomical height.",
+    "All nonzero-alpha pixels remain assigned exactly once. Common square canvas, pixel1:1 translation only, no per-frame scaling.",
+    "Other11 frames are compared and any changed pixels reported; a targeted image edit is not claimed byte-identical outside frame12.",
+    "About2px fill-boundary uncertainty. Geometry and semantic proxies are not art approval."
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        12
+      ],
+      "kind": "improved",
+      "message": "Cookie on final plate visibly retains a bitten notch; no whole-cookie reset as in chef-v2."
+    },
+    {
+      "sourceFrames": [
+        5,
+        6
+      ],
+      "kind": "remaining",
+      "message": "Existing mouth release and hand lowering jump remains; requires real1x review."
+    },
+    {
+      "sourceFrames": [
+        10,
+        11,
+        12
+      ],
+      "kind": "preserved",
+      "message": "Hand lowers toward plate in stages; inspect notch orientation and apparent cookie volume through placement."
+    },
+    {
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "kind": "pending",
+      "message": "White eyes, pink closed lids, mint apron and shorter white hat retained visually. Minor shape/line drift remains unapproved."
+    }
+  ],
+  "normalSpeedReview": "pending-new-source-browser-review"
+}

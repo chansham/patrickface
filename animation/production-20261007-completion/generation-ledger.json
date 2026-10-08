@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-07",
+  "batch": "20261007-completion",
+  "tool": "built-in image_gen",
+  "artApproved": false,
+  "requests": [
+    {
+      "id": "chef-cookie-repair-20261007",
+      "prompt": "Use case: precise-object-edit.\nAsset: transparent twelve-frame animation atlas. Image 1 is the exact edit target.\nRepair the continuity error in the bottom-right, final drawing only: the cookie lying on the cream plate has wrongly become whole again. Redraw that cookie as the same partially eaten cookie in the preceding two drawings, now lying flat on the plate. A large unmistakable bite is missing from its upper-left edge. The cream plate must be visible through the missing section; the cookie does not regenerate.\nKeep all twelve characters, the first eleven drawings, all faces, white eye whites, hats, mint aprons, hands, plates, cushions, scale, body proportions and positions unchanged. Keep the existing four-column three-row layout and transparent alpha. Change only the final cookie, with no new objects or background. Preserve the clean 2D cartoon rendering.",
+      "references": [
+        "animation/feeding-chef-v2/atlas-generated.png"
+      ],
+      "status": "candidate-integrated-art-revision-required",
+      "output": "animation/feeding-chef-v6/atlas-generated.png",
+      "outputExists": true,
+      "error": null,
+      "artApproved": false,
+      "sha256": "cd432cf83e782c99eed61f496cc8ab1cdd50559f95401f1b1c576ec1037cdc80",
+      "selectedForReview": true,
+      "runtimeReview": "animation/production-20261007-completion/runtime-review.json"
+    },
+    {
+      "id": "focus-transition-repair-20261007",
+      "prompt": "Use case: identity-preserve.\nAsset: repaired twelve-frame transparent animation atlas. Image 1 is the edit target, three columns and four rows.\nCorrect this same formal Patrick Star sequence with two tightly scoped repairs. First, match the torso, jacket and head-to-foot anatomy of frames7 through12 to the first frame: the final rows must not become shorter or compressed. Keep face width, round glasses, belly fullness, shorts and foot size consistent, the feet seated at the existing ground level in each cell. The last neutral drawing should have the same body construction as frame1, not a smaller figure.\nSecond, make the raised hand return gradually: frame7 hand at glasses rim, frame8 hand leaving the cheek, frame9 hand halfway between cheek and notebook, frame10 hand resting at notebook. The other hand supports the notebook throughout. Preserve frame11 blink and frame12 calm serious expression. Keep hands attached through continuous sleeves and elbows.\nKeep the navy jacket, white shirt, red tie, green purple-flower shorts, cream notebook, white sclera, coral eyelids, flat 2D colors and black outlines. Preserve twelve drawings in the existing3x4 arrangement with clear separation, full head and feet, transparent alpha, no text, numbers or background. Do not uniformly resize individual figures as a substitute for anatomical repair.",
+      "references": [
+        "animation/focus-v5/atlas-generated.png"
+      ],
+      "status": "candidate-integrated-art-revision-required",
+      "output": "animation/focus-v7/atlas-generated.png",
+      "outputExists": true,
+      "error": null,
+      "artApproved": false,
+      "sha256": "3a6a7cc2f463eb4537e0a36109505be7a6d7cbb5502a463dcb646aff2d89492e",
+      "selectedForReview": true,
+      "runtimeReview": "animation/production-20261007-completion/runtime-review.json"
+    },
+    {
+      "id": "classic-idle-20261007",
+      "prompt": "Use case: illustration-story.\nAsset: new idle animation atlas for a personal watch companion. Image1 is a STYLE AND CHARACTER reference only; do not copy its crossed-arm reaction sequence.\nCreate TWELVE new full-body drawings of the same Patrick Star in his green shorts with purple flowers, seated neutrally with arms relaxed at his sides. Clean flat2D cartoon, coral-pink skin and eyelids, WHITE eye whites and black pupils, smooth black outlines. Keep an amusing deadpan personality rather than a baby face.\nAction:1 neutral forward glance;2 eyes glance sideways;3 holds sideways glance, one eyebrow lifts;4 slight knowing smile;5 glance returns halfway toward center;6 eyes face forward;7 eyelids lower halfway;8 eyes gently closed with coral-pink lids;9 eyelids reopen halfway;10 eyes fully open;11 tiny contented smile;12 same neutral forward pose and body construction as1. Draw genuine eye and face changes; the seated torso, feet and arms remain steady, not a whole-picture sway.\nArrange twelve drawings in THREE columns and FOUR rows on a square transparent page. Each entire figure uses at most70% of its cell height, with generous empty separation above head and below feet. Exact same face width, torso proportions, shorts, limb construction, camera and seating baseline for all12. Do not shrink later rows. No hat, cushion, props, numbers, grid lines, labels, background or additional characters. Preserve real alpha transparency.",
+      "references": [
+        "animation/pet-v2/atlas-generated.png"
+      ],
+      "status": "generation-failed",
+      "output": null,
+      "outputExists": false,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 36212ccb-cd46-4cc6-9c54-d7cb7aff2b43.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "artApproved": false
+    },
+    {
+      "id": "charging-cozy-20261007",
+      "prompt": "Use case: illustration-story.\nAsset: new twelve-frame transparent cartoon animation atlas.\nImage1 is a character and relaxed nightwear STYLE reference. Image2 is a battery-shaped cushion PROP reference. Draw a distinct cozy home-charging outfit: Patrick Star wears a loose butter-yellow pajama top with small lavender stars, matching nightcap with cream pompom, green shorts with purple flowers and lavender slippers. He sits comfortably and holds a soft mint battery-shaped cushion with a cream lightning emblem. Clean flat2D cartoon, black outlines, white sclera, black pupils, coral pink eyelids, mildly deadpan and relaxed.\nTwelve sequential drawings in THREE columns and FOUR rows:1 cushion resting on lap, hands on its sides;2 looks down;3 elbows bend;4 cushion halfway up;5 cushion against chest;6 squeezes softly so cushion compresses;7 eyes halfclose;8 closes eyes and rests cheek on cushion;9 cheek lifts and eyes halfopen;10 cushion lowered halfway;11 cushion back on lap;12 calm neutral pose matching1. Actual connected arm and prop deformation, continuous action, no whole-picture rocking.\nSame face width, head, torso volume, camera and floor baseline throughout. All hats and slippers fully visible, every drawing at most70% of its cell height, large empty transparent gaps and outer margins, final figure same proportions as first. Keep the costume and battery emblem consistent. No astronaut helmet, furniture, detached fragments, captions, numbers, grid lines, scenery or floating particles. Genuine alpha transparency; app will add its own bubbles.",
+      "references": [
+        "animation/mint-pajama-v1/atlas-generated.png",
+        "animation/charging-space-v1/atlas-generated.png"
+      ],
+      "status": "intermediate-preserved",
+      "output": "animation/charging-cozy-v1/atlas-generated.png",
+      "outputExists": true,
+      "error": null,
+      "artApproved": false,
+      "sha256": "e2c297ff469207dc03f00f11d08fac3a0a95540ccbdaec41d2d6935a7b51684d",
+      "selectedForReview": false,
+      "runtimeReview": "animation/production-20261007-completion/runtime-review.json"
+    },
+    {
+      "id": "focus-torso-repair-followup-20261008",
+      "prompt": "Use case: precise-object-edit.\nImage1 is the edit target: a1254-square transparent12-frame sprite sheet, three columns and four rows. Preserve the existing repaired hand-return pose in frame9.\nChange ONLY the three bottom-row characters (frames10,11,12). Their head and eyes are nearly the right size but their jacket/belly height is too short. Reconstruct a taller jacket torso: add about10sourcepixels of navy jacket and white-shirt/ red-tie height between the chin/collar and the waistband. Keep their heads, faces, glasses and eye sizes at their existing positions; move the shorts and feet DOWN by about10pixels to make room for the restored torso. Do not scale the whole characters or widen the face. Each final torso should have the same full proportions as the first-row neutral character. Keep the bottom-row arms naturally connected to the longer jacket and keep both hands supporting the notebook. Preserve the blink in frame11.\nKeep frames1–9 unchanged, retain all clothes, colors, black outlines, soft feet, serious expressions and the3x4layout. There is transparent room below the last row; keep all toes fully visible and leave clear outer padding. Genuine alpha transparency. No new props, labels, grids or background.",
+      "references": [
+        "animation/focus-v7/atlas-generated.png"
+      ],
+      "status": "generation-failed",
+      "output": null,
+      "outputExists": false,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 2d531c81-04fc-4e2b-872f-6d8ed60c855a.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "artApproved": false
+    },
+    {
+      "id": "charging-cozy-transition-20261008",
+      "prompt": "Use case: precise-object-edit.\nImage1 is the exact twelve-frame cozy charging Patrick Star sprite atlas, three columns and four rows. Preserve this outfit, face size, full body proportions, battery cushion, white sclera, slippers and transparent layout.\nRepair the abrupt head/shoulder movement around the cheek-on-cushion pose by changing only frame7 and frame9 (left and right drawings of the THIRD ROW). Frame8 in the middle is the deep relaxed cheek-on-cushion pose. Redraw frame7 as a halfway transition from upright frame6 toward frame8: head and shoulders gently incline halfway, connected neck/torso and sleeves, cushion beginning a small matching tilt, face still not touching the cushion. Redraw frame9 as a halfway return from frame8 toward upright frame10: cheek has just lifted a little, head/shoulders at half the deep tilt, cushion halfway back toward upright. Both hands keep contact with the same cushion edges. Draw the changing anatomy, do not rigidly rotate the entire character.\nKeep the first six drawings, frame8 and final three drawings unchanged. Keep the same expression personality and costume details. All hats and slippers completely inside the page with clear transparent separation. No added scenery, labels or particles. Genuine alpha transparency.",
+      "references": [
+        "animation/charging-cozy-v1/atlas-generated.png"
+      ],
+      "status": "candidate-integrated-art-revision-required",
+      "output": "animation/charging-cozy-v2/atlas-generated.png",
+      "outputExists": true,
+      "artApproved": false,
+      "sha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+      "selectedForReview": true,
+      "runtimeReview": "animation/production-20261007-completion/runtime-review.json"
+    }
+  ],
+  "summary": {
+    "requests": 6,
+    "outputs": 4,
+    "requestedFrameCount": 72,
+    "generatedSourceFrames": 48,
+    "newActionSourceFrames": 12,
+    "revisionSourceFrames": 36,
+    "mainCatalogChanged": false,
+    "failedRequests": 2,
+    "selectedCandidateClips": 3,
+    "selectedCandidateFrames": 36,
+    "intermediateFramesNotInCatalog": 12
+  },
+  "updatedAt": "2026-10-08"
+}

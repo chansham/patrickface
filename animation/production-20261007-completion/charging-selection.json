@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-08",
+  "artApproved": false,
+  "selected": "animation/charging-cozy-v2/atlas-generated.png",
+  "previous": "animation/charging-cozy-v1/atlas-generated.png",
+  "selectedSha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+  "previousSha256": "e2c297ff469207dc03f00f11d08fac3a0a95540ccbdaec41d2d6935a7b51684d",
+  "why": "Frame7 now provides an intermediate tilt and frame9 an intermediate return, retaining all12frames. Neutral face changed2.07percent first-to-last, core height-2.32percent; not art approved.",
+  "previousPreserved": true,
+  "candidateID": "charging-cozy-20261007",
+  "candidateCountAdded": 0,
+  "sourcePixelScaleBefore": 1.664,
+  "sourcePixelScaleAfter": 1.664
+}
