@@ -22,14 +22,17 @@ export function measuredFootPoints(source){
   // Legacy reports explicitly define this scalar as trueFootY - eyeMidpointY.
   return point(source.eyeMidpoint)?[source.eyeMidpoint,[source.eyeMidpoint[0],source.eyeMidpoint[1]+source.eyeToFoot]]:null;
 }
-function unknownReason(frame,key){
+function unknownReason(frame,key,sourceRecord){
   const source=frame?.source;
   const explicit=source?.[`${key}UnavailableReason`]||(key==='eyeToFoot'&&source?.footUnavailableReason)||source?.unavailableReason||source?.unavailable;
   if(typeof explicit==='string'&&explicit.trim())return explicit;
+  // The original audit stores the cushion/hidden-feet reason once per source.
+  // Accept it only after binding that source record to this PNG and contour.
+  if(key==='eyeToFoot'&&typeof sourceRecord?.footBaselineUnavailableReason==='string'&&sourceRecord.footBaselineUnavailableReason.trim())return sourceRecord.footBaselineUnavailableReason;
   const flag=frame?.flags?.find(flag=>typeof flag==='object'&&typeof flag.message==='string'&&flag.message.trim()&&(!flag.metrics||flag.metrics.includes(key)));
   return flag?.message||null;
 }
-export function summarizeEvidence(clip,entry,sourceFrameCount){
+export function summarizeEvidence(clip,entry,sourceFrameCount,report=null){
   const errors=[],warnings=[],sequence=clip.frameIndices||Array.from({length:clip.frameCount},(_,i)=>i);
   const result={clipID:clip.id,catalog:clip.catalogKind||'catalog',artApproval:false,reviewRequired:true,evidenceComplete:false,
     errors,warnings,reportedIssues:entry?.flags||[],sourceFrameCount,playbackFrameCount:sequence.length,uniqueUsedFrames:new Set(sequence).size,recordedFrames:0,measuredFrames:0,metrics:{}};
@@ -38,6 +41,7 @@ export function summarizeEvidence(clip,entry,sourceFrameCount){
   if(entry.id!==clip.id||entry.catalog!==result.catalog||entry.sourceSha256!==clip.sha256||entry.regionsSha256!==clip.frameRegions?.sha256){
     fail('stale-identity','圖片或輪廓版本不符，量測不可沿用。');return result;
   }
+  const sourceRecord=report?.sources?.find(source=>source.sourcePath===clip.atlas&&source.sourceSha256===clip.sha256&&source.regionsSha256===clip.frameRegions?.sha256);
   if(!Number.isInteger(sourceFrameCount)||sourceFrameCount<1){fail('source-frame-count','來源格數無效。');return result;}
   if(!Array.isArray(sequence)||sequence.length!==clip.frameCount||sequence.some(i=>!Number.isInteger(i)||i<0||i>=sourceFrameCount))fail('playback-sequence','播放格序與來源格數不符。');
   if(entry.sourceFrameCount!==sourceFrameCount)fail('audit-frame-count','報告的原始格數與輪廓不符。');
@@ -55,7 +59,7 @@ export function summarizeEvidence(clip,entry,sourceFrameCount){
     for(const [index,frame]of frames){
       const value=frame.source?.[key];
       if(value===null||value===undefined){
-        const reason=unknownReason(frame,key);unknown.push({sourceFrame:index,reason});
+        const reason=unknownReason(frame,key,sourceRecord);unknown.push({sourceFrame:index,reason});
         if(!reason)fail('unexplained-unknown',`來源第 ${index+1} 格的${label}未知，但沒有原因。`);
       }else if(!positive(value))fail('invalid-measurement',`來源第 ${index+1} 格的${label}不是有效正數。`);
       else if(!consistentLandmark(frame.source,key))

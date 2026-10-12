@@ -1,0 +1,1158 @@
+{
+  "schemaVersion": 1,
+  "inspectedAt": "2026-10-08",
+  "finalizedAt": "2026-10-12",
+  "artApproval": false,
+  "allArtworkComplete": false,
+  "newArtworkCount": 0,
+  "scope": {
+    "selection": "3個明確既有候選，不代表整個主素材庫",
+    "categories": [
+      "跑步",
+      "啞鈴",
+      "睡衣充電"
+    ],
+    "sourceFrames": 44,
+    "sourcePNGsUnchanged": true,
+    "catalogUnchanged": true,
+    "regionsUnchanged": true
+  },
+  "technical": {
+    "sourceHashesMatch": true,
+    "oneScaleAndAnchorPerClip": true,
+    "realTimePlaybackFrames": 44,
+    "fourLayoutFrameChecks": 176,
+    "outsideStageCount": 0,
+    "textDateInfoOverlapCount": 0,
+    "renderer": "正式size-review/render-core與preview/player-core.frameAt，單獨輕量頁只載入3套",
+    "scopeLimit": "未重新測主頁完整排程、Watch原生、手機同步或時計角度。",
+    "clockNote": "實際rAF與performance.now時鐘，無假時鐘。首個rAF timestamp可比請求前記時早約8ms，原始小負值保留；來源格順序、相鄰格時間差及停末格證據不受影響。"
+  },
+  "visual": {
+    "actuallyInspectedFrames": 44,
+    "actuallyInspectedScreenshots": 9,
+    "confirmedRendererBugFound": false,
+    "newObservation": "運動資訊版同200px舞台，整個角色輪廓只約69–86px高；時間/資料沒有相交，但手腕握持和眼神細節不如經典版可辨。需要區分無遮擋與動作可讀。",
+    "missingCoverage": [
+      "手臂時計本輪未實播或測角度",
+      "其他日常/候選素材本輪未逐格重驗",
+      "未做新的全身人體landmark量測",
+      "沒有iPhone/Watch真機視覺批准"
+    ]
+  },
+  "qualityGate": {
+    "path": "output/playwright/20261008-active-inspection/evidence-gate.json",
+    "sha256": "adbdd095616b8fecc7f62c80ebadc1702ec27c4c9bf23dc11372506cae967ae8",
+    "evidenceComplete": true,
+    "artApproval": false,
+    "measuredSourceFrames": 4,
+    "explicitlyUnknownSourceFrames": 40,
+    "totalFrames": 44,
+    "meaning": "每格有來源與明示未知，不代表44格都有可用人體數字。啞鈴0/16、跑步2/16、睡衣2/12可量，真眼足距全部未知。"
+  },
+  "clips": [
+    {
+      "id": "exercise-repair-20261006",
+      "atlas": "animation/exercise-v3/atlas-generated.png",
+      "sourceSha256": "0a3fdcd7fc489fb89457b76145ce3e249f2a401c3ffc0a1a566872cb7da1627f",
+      "regionsSha256": "60b52d9cf086221cfe3f30731b3665bd657d81096b69f8392377ddfd6edf13d5",
+      "scale": 1.5166666666666666,
+      "frameCount": 16,
+      "technical": {
+        "oneFixedScaleAndAnchor": true,
+        "allFramesDisplayed": true,
+        "stoppedAtLast": true,
+        "layoutFrames": 64,
+        "overlaps": 0,
+        "outsideStage": 0
+      },
+      "visual": {
+        "inspectedSourceFrames": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "method": "逐張看過本輪真實1×擷取contact sheet及时间；不聲稱观看了原生真機。",
+        "findings": [
+          {
+            "kind": "contact-shape",
+            "frames": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "severity": "review-required",
+            "finding": "舉至臉前時，圓手、啞鈴把手與粗短腕部重疊，200px下手腕至上臂的彎曲關係不清楚。仍可辨認在舉啞鈴，但握持自然度不能只憑像素相接就通過。",
+            "novelty": "本輪重新定位到4–7格；未發現確切斷肢或輪廓工具bug。",
+            "times": [
+              {
+                "sourceFrame": 4,
+                "recordedElapsedMs": 756.999999988079
+              },
+              {
+                "sourceFrame": 5,
+                "recordedElapsedMs": 906.999999988079
+              },
+              {
+                "sourceFrame": 6,
+                "recordedElapsedMs": 1056.999999988079
+              },
+              {
+                "sourceFrame": 7,
+                "recordedElapsedMs": 1206.8999999880791
+              }
+            ],
+            "image": "output/playwright/20261008-active-inspection/exercise-repair-20261006-live-1x-200px.png"
+          },
+          {
+            "kind": "expression-transition",
+            "frames": [
+              5,
+              6
+            ],
+            "severity": "review-required",
+            "finding": "用力皺眉在相鄰150ms格切成半睜放鬆，動作仍維持高舉。可讀成搞怪表情，但情緒節奏是否合意需使用者審，不當成確定破圖。",
+            "times": [
+              {
+                "sourceFrame": 5,
+                "recordedElapsedMs": 906.999999988079
+              },
+              {
+                "sourceFrame": 6,
+                "recordedElapsedMs": 1056.999999988079
+              }
+            ],
+            "image": "output/playwright/20261008-active-inspection/exercise-repair-20261006-live-1x-200px.png"
+          },
+          {
+            "kind": "ending",
+            "frames": [
+              13,
+              14,
+              16
+            ],
+            "severity": "review-required",
+            "finding": "吐氣格後直接回半睜；首末落位穩定，沒有重現舊整人上下跳動。全16格保留，並非跳過問題格。",
+            "times": [
+              {
+                "sourceFrame": 13,
+                "recordedElapsedMs": 2340.299999988079
+              },
+              {
+                "sourceFrame": 14,
+                "recordedElapsedMs": 2573.599999988079
+              },
+              {
+                "sourceFrame": 16,
+                "recordedElapsedMs": 2940.199999988079
+              }
+            ],
+            "image": "output/playwright/20261008-active-inspection/exercise-repair-20261006-live-1x-200px.png"
+          }
+        ]
+      },
+      "semanticEvidence": {
+        "fromExistingShaPinnedAudit": "animation/production-20261006-repair/body-scale-audit.json",
+        "recomputedBodyMetricsThisRound": false,
+        "recordedFrames": 16,
+        "measuredFrames": 0,
+        "metrics": {
+          "faceWidth": {
+            "measured": 0,
+            "unknown": 16,
+            "missing": 0,
+            "first": null,
+            "last": null,
+            "deltaPercent": null,
+            "spreadPercent": null,
+            "unknownFrames": [
+              {
+                "sourceFrame": 0,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 1,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 2,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 3,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 4,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 5,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 6,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 7,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 8,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 9,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 10,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 11,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 12,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 13,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 14,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 15,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              }
+            ]
+          },
+          "eyeSeparation": {
+            "measured": 0,
+            "unknown": 16,
+            "missing": 0,
+            "first": null,
+            "last": null,
+            "deltaPercent": null,
+            "spreadPercent": null,
+            "unknownFrames": [
+              {
+                "sourceFrame": 0,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 1,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 2,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 3,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 4,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 5,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 6,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 7,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 8,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 9,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 10,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 11,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 12,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 13,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 14,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 15,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              }
+            ]
+          },
+          "eyeToFoot": {
+            "measured": 0,
+            "unknown": 16,
+            "missing": 0,
+            "first": null,
+            "last": null,
+            "deltaPercent": null,
+            "spreadPercent": null,
+            "unknownFrames": [
+              {
+                "sourceFrame": 0,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 1,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 2,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 3,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 4,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 5,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 6,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 7,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 8,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 9,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 10,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 11,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 12,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 13,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 14,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              },
+              {
+                "sourceFrame": 15,
+                "reason": "此新來源沒有已覆核的人體尺規；定位資料不能充當臉寬或人體高度。"
+              }
+            ]
+          }
+        }
+      },
+      "silhouetteHeightAt200CssPx": {
+        "classic": {
+          "min": 138.83333333333334,
+          "max": 141.16666666666669,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        },
+        "bold": {
+          "min": 95.79499999999999,
+          "max": 97.40499999999999,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        },
+        "theater": {
+          "min": 131.89166666666665,
+          "max": 134.10833333333332,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        },
+        "activity": {
+          "min": 77.74666666666666,
+          "max": 79.05333333333334,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        }
+      },
+      "artApproval": false
+    },
+    {
+      "id": "running-first-20261006",
+      "atlas": "animation/running-v1/atlas-generated.png",
+      "sourceSha256": "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4",
+      "regionsSha256": "9e858752a4cf852e173a80a72510999e7daf64b48ea31325aa061fb82c6cc276",
+      "scale": 2,
+      "frameCount": 16,
+      "technical": {
+        "oneFixedScaleAndAnchor": true,
+        "allFramesDisplayed": true,
+        "stoppedAtLast": true,
+        "layoutFrames": 64,
+        "overlaps": 0,
+        "outsideStage": 0
+      },
+      "visual": {
+        "inspectedSourceFrames": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "method": "逐張看過本輪真實1×擷取contact sheet及时间；不聲稱观看了原生真機。",
+        "findings": [
+          {
+            "kind": "original-art-transition",
+            "frames": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "severity": "revision-required",
+            "finding": "第4→5、6→7、8→9、9→10格出現左右朝向直接切換；頭、肩、擺手與短褲花紋一起翻轉，沒有前向中間姿態。畫格完整，問題在原畫朝向接續。",
+            "novelty": "本輪擴充定位至6→7及9→10，不只重述先前4→5/8→9。",
+            "times": [
+              {
+                "sourceFrame": 4,
+                "recordedElapsedMs": 775.599999976158
+              },
+              {
+                "sourceFrame": 5,
+                "recordedElapsedMs": 925.599999976158
+              },
+              {
+                "sourceFrame": 6,
+                "recordedElapsedMs": 1075.4999999761585
+              },
+              {
+                "sourceFrame": 7,
+                "recordedElapsedMs": 1225.3999999761581
+              },
+              {
+                "sourceFrame": 8,
+                "recordedElapsedMs": 1375.4999999761585
+              },
+              {
+                "sourceFrame": 9,
+                "recordedElapsedMs": 1525.3999999761581
+              },
+              {
+                "sourceFrame": 10,
+                "recordedElapsedMs": 1675.4999999761585
+              }
+            ],
+            "image": "output/playwright/20261008-active-inspection/running-first-20261006-live-1x-200px.png"
+          },
+          {
+            "kind": "proportion-limit",
+            "frames": [
+              1,
+              16
+            ],
+            "severity": "review-required",
+            "finding": "本輪共同舞台首末可見站姿比坐姿高、臉較小；不能用整人高度強行等大。腿部抬落使總輪廓變動，並非可直接當成身體縮放。",
+            "novelty": "本輪重新實看同舞台；沒有新增人體量測。",
+            "times": [
+              {
+                "sourceFrame": 1,
+                "recordedElapsedMs": -7.700000023842222
+              },
+              {
+                "sourceFrame": 16,
+                "recordedElapsedMs": 2942.099999976158
+              }
+            ],
+            "image": "output/playwright/20261008-active-inspection/running-first-20261006-live-1x-200px.png"
+          },
+          {
+            "kind": "ending",
+            "frames": [
+              13,
+              14,
+              15,
+              16
+            ],
+            "severity": "review-required",
+            "finding": "吐氣後半睜→全睜→半睜的收尾眼神在最後4格明顯切換；不是資料遺失或自動重播。",
+            "times": [
+              {
+                "sourceFrame": 13,
+                "recordedElapsedMs": 2292.099999976158
+              },
+              {
+                "sourceFrame": 14,
+                "recordedElapsedMs": 2542.099999976158
+              },
+              {
+                "sourceFrame": 15,
+                "recordedElapsedMs": 2741.9999999761585
+              },
+              {
+                "sourceFrame": 16,
+                "recordedElapsedMs": 2942.099999976158
+              }
+            ],
+            "image": "output/playwright/20261008-active-inspection/running-first-20261006-live-1x-200px.png"
+          }
+        ]
+      },
+      "semanticEvidence": {
+        "fromExistingShaPinnedAudit": "animation/production-20261006-followup/body-scale-audit.json",
+        "recomputedBodyMetricsThisRound": false,
+        "recordedFrames": 16,
+        "measuredFrames": 2,
+        "metrics": {
+          "faceWidth": {
+            "measured": 2,
+            "unknown": 14,
+            "missing": 0,
+            "first": 89.5,
+            "last": 89,
+            "deltaPercent": -0.5586592178770999,
+            "spreadPercent": 0.561797752808979,
+            "unknownFrames": [
+              {
+                "sourceFrame": 1,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 2,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 3,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 4,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 5,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 6,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 7,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 8,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 9,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 10,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 11,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 12,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 13,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 14,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              }
+            ]
+          },
+          "eyeSeparation": {
+            "measured": 2,
+            "unknown": 14,
+            "missing": 0,
+            "first": 26.1725046566048,
+            "last": 25.578311124857326,
+            "deltaPercent": -2.2702967849029587,
+            "spreadPercent": 2.3230366103805355,
+            "unknownFrames": [
+              {
+                "sourceFrame": 1,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 2,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 3,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 4,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 5,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 6,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 7,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 8,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 9,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 10,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 11,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 12,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 13,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 14,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              }
+            ]
+          },
+          "eyeToFoot": {
+            "measured": 0,
+            "unknown": 16,
+            "missing": 0,
+            "first": null,
+            "last": null,
+            "deltaPercent": null,
+            "spreadPercent": null,
+            "unknownFrames": [
+              {
+                "sourceFrame": 0,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 1,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 2,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 3,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 4,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 5,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 6,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 7,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 8,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 9,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 10,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 11,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 12,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 13,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 14,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              },
+              {
+                "sourceFrame": 15,
+                "reason": "跑步支撐腳與抬腳姿勢變化；沒有可可靠比較的人體足底基準，全部眼足距留空。"
+              }
+            ]
+          }
+        }
+      },
+      "silhouetteHeightAt200CssPx": {
+        "classic": {
+          "min": 141.62162162162164,
+          "max": 154.05405405405406,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        },
+        "bold": {
+          "min": 97.7189189189189,
+          "max": 106.29729729729728,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        },
+        "theater": {
+          "min": 134.54054054054052,
+          "max": 146.35135135135135,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        },
+        "activity": {
+          "min": 79.30810810810812,
+          "max": 86.27027027027029,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        }
+      },
+      "artApproval": false
+    },
+    {
+      "id": "charging-cozy-20261007",
+      "atlas": "animation/charging-cozy-v2/atlas-generated.png",
+      "sourceSha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+      "regionsSha256": "10bc3295dcb15b327365c1c0985e14d0da0c1a798a35822551e1da5074541e74",
+      "scale": 1.75,
+      "frameCount": 12,
+      "technical": {
+        "oneFixedScaleAndAnchor": true,
+        "allFramesDisplayed": true,
+        "stoppedAtLast": true,
+        "layoutFrames": 48,
+        "overlaps": 0,
+        "outsideStage": 0
+      },
+      "visual": {
+        "inspectedSourceFrames": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "method": "逐張看過本輪真實1×擷取contact sheet及时间；不聲稱观看了原生真機。",
+        "findings": [
+          {
+            "kind": "original-art-transition",
+            "frames": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "severity": "revision-required",
+            "finding": "靠枕第7→8格和回正第9→10格仍有可見角度階躍；已補的中間姿勢有效，但不能稱柔順過渡完成。",
+            "times": [
+              {
+                "sourceFrame": 7,
+                "recordedElapsedMs": 1601.5
+              },
+              {
+                "sourceFrame": 8,
+                "recordedElapsedMs": 1834.7999999999993
+              },
+              {
+                "sourceFrame": 9,
+                "recordedElapsedMs": 2051.5
+              },
+              {
+                "sourceFrame": 10,
+                "recordedElapsedMs": 2268.2999999999993
+              }
+            ],
+            "image": "output/playwright/20261008-active-inspection/charging-cozy-20261007-live-1x-200px.png"
+          },
+          {
+            "kind": "contact",
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "severity": "review-required",
+            "finding": "本輪200px實播擷取能辨認手臂抬枕、擠壓與臉頰靠上抱枕；姿勢不是整張平移。壓縮時抱枕輪廓/閃電標記形變仍待美術審稿。",
+            "times": [
+              {
+                "sourceFrame": 3,
+                "recordedElapsedMs": 735.1000000000004
+              },
+              {
+                "sourceFrame": 4,
+                "recordedElapsedMs": 951.7000000000007
+              },
+              {
+                "sourceFrame": 5,
+                "recordedElapsedMs": 1168.2999999999993
+              },
+              {
+                "sourceFrame": 6,
+                "recordedElapsedMs": 1384.8999999999996
+              },
+              {
+                "sourceFrame": 8,
+                "recordedElapsedMs": 1834.7999999999993
+              }
+            ],
+            "image": "output/playwright/20261008-active-inspection/charging-cozy-20261007-live-1x-200px.png"
+          },
+          {
+            "kind": "proportion-limit",
+            "frames": [
+              1,
+              12
+            ],
+            "severity": "review-required",
+            "finding": "首末臉部大小視覺接近，帽沿/下擺略有變形。拖鞋遮住真腳，不能把紫鞋底當眼足身高；本輪沒有補猜此尺規。",
+            "times": [
+              {
+                "sourceFrame": 1,
+                "recordedElapsedMs": -15.100000000000364
+              },
+              {
+                "sourceFrame": 12,
+                "recordedElapsedMs": 2701.6000000000004
+              }
+            ],
+            "image": "output/playwright/20261008-active-inspection/charging-cozy-20261007-live-1x-200px.png"
+          }
+        ]
+      },
+      "semanticEvidence": {
+        "fromExistingShaPinnedAudit": "animation/production-20261007-completion/body-scale-audit.json",
+        "recomputedBodyMetricsThisRound": false,
+        "recordedFrames": 12,
+        "measuredFrames": 2,
+        "metrics": {
+          "faceWidth": {
+            "measured": 2,
+            "unknown": 10,
+            "missing": 0,
+            "first": 121,
+            "last": 123.5,
+            "deltaPercent": 2.066115702479343,
+            "spreadPercent": 2.066115702479343,
+            "unknownFrames": [
+              {
+                "sourceFrame": 1,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 2,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 3,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 4,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 5,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 6,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 7,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 8,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 9,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 10,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              }
+            ]
+          },
+          "eyeSeparation": {
+            "measured": 2,
+            "unknown": 10,
+            "missing": 0,
+            "first": 35.6931365951495,
+            "last": 35.510561809129406,
+            "deltaPercent": -0.5115123058277327,
+            "spreadPercent": 0.5141422064833368,
+            "unknownFrames": [
+              {
+                "sourceFrame": 1,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 2,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 3,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 4,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 5,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 6,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 7,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 8,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 9,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              },
+              {
+                "sourceFrame": 10,
+                "reason": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+              }
+            ]
+          },
+          "eyeToFoot": {
+            "measured": 0,
+            "unknown": 12,
+            "missing": 0,
+            "first": null,
+            "last": null,
+            "deltaPercent": null,
+            "spreadPercent": null,
+            "unknownFrames": [
+              {
+                "sourceFrame": 0,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 1,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 2,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 3,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 4,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 5,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 6,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 7,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 8,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 9,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 10,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              },
+              {
+                "sourceFrame": 11,
+                "reason": "Slippers cover the anatomical feet; lower support silhouette is not a true-foot body measurement."
+              }
+            ]
+          }
+        }
+      },
+      "silhouetteHeightAt200CssPx": {
+        "classic": {
+          "min": 122.39999999999999,
+          "max": 137.99999999999997,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        },
+        "bold": {
+          "min": 84.45599999999999,
+          "max": 95.22,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        },
+        "theater": {
+          "min": 116.28,
+          "max": 131.1,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        },
+        "activity": {
+          "min": 68.544,
+          "max": 77.28,
+          "meaning": "整個強輪廓，包含衣帽道具；不是人體高度"
+        }
+      },
+      "artApproval": false
+    }
+  ],
+  "evidence": {
+    "technicalReport": {
+      "path": "animation/production-20261008-variety/inspection-technical.json",
+      "sha256": "542b83445107067132c0da771ee7691269dcb81b7c814276b73cb38473b58924"
+    },
+    "screenshots": [
+      {
+        "path": "output/playwright/20261008-active-inspection/exercise-repair-20261006-live-1x-200px.png",
+        "sha256": "36f1fd34c1251648e64f170dc00e5d9366e86a64bda6e28eb424c1a4ebfbdc37"
+      },
+      {
+        "path": "output/playwright/20261008-active-inspection/running-first-20261006-live-1x-200px.png",
+        "sha256": "707d52c2f7924e7c9b1c38c616cd6d72b2f2784b80167b112050086229322dbf"
+      },
+      {
+        "path": "output/playwright/20261008-active-inspection/charging-cozy-20261007-live-1x-200px.png",
+        "sha256": "ed92b3f394f9daecfdc184e0fba306a3df55bcb1f132ce41d18166ef5ec1a642"
+      },
+      {
+        "path": "output/playwright/20261008-active-inspection/common-stage-first-200px.png",
+        "sha256": "e9e7303474f9c9e8fd896ff065fffd8bcd229b98de46db9aefd0e459636cf916"
+      },
+      {
+        "path": "output/playwright/20261008-active-inspection/common-stage-last-200px.png",
+        "sha256": "3805dc87152c50b3e5bf927eb45bd655507d124b09fb225683ea98b59651933d"
+      },
+      {
+        "path": "output/playwright/20261008-active-inspection/common-stage-classic-middle-200px.png",
+        "sha256": "eee6b8a4b49baee8c85218fbb60df873427e4dc46084a1cee4ba263d896ee6df"
+      },
+      {
+        "path": "output/playwright/20261008-active-inspection/common-stage-bold-middle-200px.png",
+        "sha256": "7c1389bb4cbbb45a0273a661f87b1ad913a61f6f866973b831ae3a222252ae43"
+      },
+      {
+        "path": "output/playwright/20261008-active-inspection/common-stage-theater-middle-200px.png",
+        "sha256": "acb3210a05e70d6f6155df17b3a5538601748abd685e7ee89e81dd5829afbae6"
+      },
+      {
+        "path": "output/playwright/20261008-active-inspection/common-stage-activity-middle-200px.png",
+        "sha256": "fc85bcbe845cc2fa369512a46419479fdb304d8bfca8fac2ef1eb8f63346449a"
+      }
+    ]
+  }
+}

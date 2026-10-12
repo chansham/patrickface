@@ -60,3 +60,9 @@ test('face and eye values must agree with their caliper distance',()=>{
 test('known five percent art defect survives below automated warning threshold',()=>{
   const{clip,entry}=fixture();entry.flags=[{code:'known-short-body',message:'原畫末段短身 5.2%，仍需重畫。'}];const result=summarizeEvidence(clip,entry,3);assert.deepEqual(result.reportedIssues,entry.flags);assert.equal(result.artApproval,false);
 });
+test('legacy source-level hidden-feet reason requires exact source and contour identity',()=>{
+  const{clip,entry}=fixture();clip.atlas='chef.png';for(const frame of entry.frames)frame.source.eyeToFoot=null;
+  const report={sources:[{sourcePath:clip.atlas,sourceSha256:clip.sha256,regionsSha256:clip.frameRegions.sha256,footBaselineUnavailableReason:'Opaque cushion, anatomical feet not measured'}]};
+  const valid=summarizeEvidence(clip,entry,3,report);assert.equal(valid.evidenceComplete,true);assert.equal(valid.metrics.faceWidth.measured,3);assert.equal(valid.metrics.eyeToFoot.measured,0);
+  report.sources[0].regionsSha256='changed';assert.equal(summarizeEvidence(clip,entry,3,report).evidenceComplete,false);
+});

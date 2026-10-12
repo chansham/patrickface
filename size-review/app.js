@@ -64,11 +64,11 @@ function auditEntry(clip){
   return{entry:null,report:matches[0]?.report||null,stale:matches.length>0,scaleChanged:false};
 }
 function sourceAudit(clip){return auditEntry(clip).entry;}
-function evidence(clip){if(!evidenceCache.has(clip))evidenceCache.set(clip,summarizeEvidence(clip,sourceAudit(clip),clip.metadata.frames.length));return evidenceCache.get(clip);}
+function evidence(clip){if(!evidenceCache.has(clip)){const{entry,report}=auditEntry(clip);evidenceCache.set(clip,summarizeEvidence(clip,entry,clip.metadata.frames.length,report?.data));}return evidenceCache.get(clip);}
 function sourceMeasurement(clip,index){if(!evidence(clip).evidenceComplete)return null;const frames=sourceAudit(clip)?.frames;return Array.isArray(frames)?frames.find(frame=>frame.sourceFrame===index)?.source:null;}
 function evidenceCard(clip){
   const value=evidence(clip),box=element('section',`evidence-coverage ${value.evidenceComplete?'complete':'blocked'}`);box.dataset.complete=String(value.evidenceComplete);
-  box.append(element('strong','',value.evidenceComplete?`全段 ${value.sourceFrameCount} 格均有量測或未知紀錄`:'量測資料尚未通過完整性核對'));
+  box.append(element('strong','',value.evidenceComplete?`原始 ${value.sourceFrameCount} 格均有量測或未知紀錄`:'量測資料尚未通過完整性核對'));
   if(!value.evidenceComplete){box.append(element('p','',value.errors.map(error=>error.message).slice(0,3).join(' ')));return box;}
   for(const[key,label]of Object.entries(METRICS)){const metric=value.metrics[key],row=element('div','coverage-row');
     row.append(element('span','',`${label} ${metric.measured}/${value.sourceFrameCount} 格可量`));

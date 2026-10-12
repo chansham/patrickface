@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-08",
+  "batch": "20261008-variety",
+  "tool": "built-in image_gen",
+  "artApproved": false,
+  "requests": [
+    {
+      "id": "focus-v8-body-repair",
+      "prompt": "Use case: precise-object-edit.\nImage 1 is the edit target: a 3-column, 4-row transparent animation atlas of Patrick Star in a navy jacket, round glasses, red tie and shorts, holding a notebook.\nRepair the anatomical continuity in the final row. In drawings 10,11,12 the jacket torso beneath the face is too short. Redraw the navy jacket and white shirt between chin and shorts about 10 source pixels taller, matching the first drawing's full seated body proportions. Keep each final head, eyes, glasses and head size unchanged; move the shorts and visible pink feet down to accommodate the longer torso. Reconnect sleeves and notebook-holding hands naturally. Keep the closed pink eyelids in drawing11. Do not scale whole figures or enlarge the head. The final neutral pose must have the same eye-to-foot height and torso fullness as drawing1.\nPreserve the first nine drawings including the gradual hand return, all costume colors and props, white sclera, black pupils, clean flat 2D cartoon lines, same 3x4 layout, genuine alpha transparency and generous separation between characters. All twelve characters must remain complete with full heads and feet and no cell borders, labels, checkerboard or new scenery. This is a targeted body-proportion repair, not a style change.",
+      "references": [
+        "animation/focus-v7/atlas-generated.png"
+      ],
+      "destination": "animation/focus-v8/atlas-generated.png",
+      "status": "generation-failed",
+      "output": null,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 1509378a-0549-4fd1-a178-d06f5f75e865.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "artApproved": false,
+      "outputExists": false,
+      "selectedForReview": false
+    },
+    {
+      "id": "bathrobe-breathe-v1",
+      "prompt": "Use case: illustration-story.\nCreate a new transparent eight-frame 2D cartoon animation atlas of Patrick Star for a personal watch companion. Image1 is only a style and character-proportion reference, not the action or clothes to copy.\nA different outfit and mood: a soft cream bathrobe with pale turquoise collar, tied belt, sleeves and small lavender shell patch; no hat, no slippers, both pink feet visible. Calm, slightly deadpan Patrick sits front-facing with hands gently resting on his belly. Clean flat cartoon colors, coral skin and eyelids, WHITE eye whites, black pupils and consistent black outlines, no realistic skin.\nFOUR columns and TWO rows in chronological order. 1 relaxed neutral open eyes;2 begins to inhale, elbows gently move outward;3 slight natural chest rise and softer eyebrows;4 holds the breath momentarily with halfclosed eyes, hands still in contact with robe belly;5 begins slow exhale through a small round mouth, shoulders settle;6 breathing out, belly cloth relaxes and elbows return;7 opens eyes halfway after the exhale;8 returns to the first relaxed posture with eyes open. Draw anatomical arm, shoulder, belly-cloth and eye/mouth changes, not rigid body rocking or rescaling. This is a single slow breathing action, no particles or captions.\nKeep exactly the same seated body construction, face width, robe length, head apex and true-foot baseline in all cells except the small intended breathing motion. Do not shrink the last row. Every character complete, comfortably inside its own cell with wide transparent space at all sides, at most70percent cellheight. No background, shadows, grid, text, numbers, extra limbs or objects. Genuine alpha transparency.",
+      "references": [
+        "animation/mint-pajama-v1/atlas-generated.png"
+      ],
+      "destination": "animation/bathrobe-breathe-v1/atlas-generated.png",
+      "status": "generation-failed",
+      "output": null,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 99e1c604-f9bf-4233-8456-94552975cda9.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "artApproved": false,
+      "outputExists": false,
+      "selectedForReview": false
+    },
+    {
+      "id": "stretch-v1",
+      "prompt": "Use case: illustration-story.\nCreate a twelve-frame transparent sprite atlas for a playful personal watch companion: Patrick Star performing a seated upper-body stretch. Clean flat2D cartoon matching Image1 only for character design and outlined rendering. New costume: teal sleeveless sports top, purple shorts, cream sweatband, no weights. Front view with both pink feet visible. White sclera, black pupils, coral-pink eyelids and relaxed deadpan personality, never realistic texture.\nExactly THREE columns and FOUR rows, numbered conceptually1–12 but WITHOUT printed numbers. 1 seated neutral, palms on knees.2 shoulders prepare and elbows leave knees.3 arms rising to shoulder level.4 arms angle upward.5 arms above head, elbows still softly bent.6 full overhead stretch, fingers/soft star-hands touching naturally.7 mild squint, holds stretch.8 relaxes elbows slightly.9 lowers arms toward shoulder height.10 lowers hands halfway between shoulders and knees.11 hands settle on knees, relieved blink.12 same neutral open-eyed pose as1. All are newly drawn connected anatomical poses. No rigid whole-character sway, rotation or scaling. Keep elbows and shoulder joints consistent, no extra arms, no detached hands.\nMaintain body mass, face size, head-to-foot proportions, camera, outfit and fixed foot baseline throughout. Arms may change the silhouette but do NOT shrink the body to fit raised arms. Use wide transparent margins, each whole drawing occupies no more than70percent of its cellheight, enough clearance above raised hands and around feet. Every pose fully isolated from neighboring cells. Genuine transparent alpha, no ground, captions, borders, motion streaks, or other objects.",
+      "references": [
+        "animation/exercise-v3/atlas-generated.png"
+      ],
+      "destination": "animation/stretch-v1/atlas-generated.png",
+      "status": "generation-failed",
+      "output": null,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 6da44f3e-2ed7-4c39-aa01-e9bb9c83e1c9.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "artApproved": false,
+      "outputExists": false,
+      "selectedForReview": false
+    }
+  ]
+}

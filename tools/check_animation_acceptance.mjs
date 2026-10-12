@@ -42,7 +42,7 @@ for(const id of options.ids){
     read(clip.atlas,clip.sha256);const regions=JSON.parse(read(clip.frameRegions.path,clip.frameRegions.sha256));
     if(regions.source?.sha256!==clip.sha256)throw new Error('Contour source identity does not match PNG');
     const match=reports.flatMap(report=>(report.data.clips||[]).map(entry=>({entry,report}))).find(({entry})=>entry.id===id&&entry.catalog===kind&&entry.sourceSha256===clip.sha256&&entry.regionsSha256===clip.frameRegions.sha256);
-    const summary=summarizeEvidence({...clip,catalogKind:kind},match?.entry,regions.frames.length);
+    const summary=summarizeEvidence({...clip,catalogKind:kind},match?.entry,regions.frames.length,match?.report.data);
     result.clips.push({...summary,auditPath:match?.report.path||null,sourceSha256:clip.sha256,regionsSha256:clip.frameRegions.sha256,scale:clip.scale});
   }catch(error){result.errors.push({clipID:id,message:error.message});}
 }
