@@ -75,9 +75,9 @@ final class PatrickContextSensors {
             let granted = await ensureCalendarAccess()
             let meeting = granted ? currentMeetingEvents() : false
             let commute = await currentCommute()
-            let upcoming = granted ? upcomingEvents() : []
+            let upcoming: [PatrickCalendarInterval] = granted ? upcomingEvents() : []
             let sitting = await sitting(sinceMS: stationarySinceMS)
-            var day = CompanionDay(meeting: meeting, commute: commute, focus: focus, events: upcoming.events)
+            var day = CompanionDay(meeting: meeting, commute: commute, focus: focus, events: upcoming)
             day.sittingMinutes = sitting.minutes
             day.stationarySinceMS = sitting.sinceMS
             apply(day)
@@ -104,13 +104,12 @@ final class PatrickContextSensors {
         }
     }
 
-    private func upcomingEvents() -> (events: [PatrickCalendarInterval], meeting: Bool) {
+    private func upcomingEvents() -> [PatrickCalendarInterval] {
         let now = Date()
         let predicate = events.predicateForEvents(withStart: now.addingTimeInterval(-3600), end: now.addingTimeInterval(3 * 3600), calendars: nil)
-        let rows = events.events(matching: predicate).filter { !$0.isAllDay }.map {
+        return events.events(matching: predicate).filter { !$0.isAllDay }.map {
             PatrickCalendarInterval(start: $0.startDate, end: $0.endDate, title: $0.title)
         }
-        return (rows, false)
     }
 
     private func sitting(sinceMS: Double?) async -> (minutes: Int?, sinceMS: Double?) {
