@@ -300,7 +300,8 @@ enum PatrickDayPlan {
     static func greeting(name: String, hour: Int, report: String?, weather: String?, firstEvent: String?,
                          suppressed: Bool) -> String? {
         guard !suppressed, (5..<11).contains(hour) else { return nil }
-        let who = name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "Sham" : name
+        let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let who = trimmed.isEmpty ? "Sham" : trimmed
         if let report, !report.isEmpty { return "早安，\(who)。\(report)" }
         if let weather, let firstEvent, !weather.isEmpty, !firstEvent.isEmpty {
             return "早安，\(who)。\(weather)，接著是\(firstEvent)。"
@@ -322,7 +323,8 @@ enum PatrickDayPlan {
 
     static func butlerSentence(_ phrase: PatrickButlerPhrase, name: String, modelText: String?) -> String {
         if let modelText, let accepted = acceptButler(modelText) { return accepted }
-        let who = name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "Sham" : name
+        let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let who = trimmed.isEmpty ? "Sham" : trimmed
         switch phrase {
         case .leaving: return "\(who)，出門看一下天文台的卡片。"
         case .arrived: return "\(who)回來了。先洗手？"
