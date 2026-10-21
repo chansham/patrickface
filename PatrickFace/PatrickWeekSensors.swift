@@ -61,6 +61,8 @@ final class PatrickWeekSensors: NSObject, CMWaterSubmersionManagerDelegate {
 
     func manager(_ manager: CMWaterSubmersionManager, didUpdate measurement: CMWaterSubmersionMeasurement) {}
 
+    func manager(_ manager: CMWaterSubmersionManager, didUpdate measurement: CMWaterTemperature) {}
+
     func manager(_ manager: CMWaterSubmersionManager, errorOccurred error: Error) {
         water = nil
     }
