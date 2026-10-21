@@ -322,15 +322,16 @@ final class AppModel: ObservableObject {
     }
 
     private func applyDay(events: [PatrickCalendarInterval], sitting: Int?, origin: PatrickExperienceState) {
+        let now = Date()
         let calendar = PatrickHKHolidays.calendar
         UIDevice.current.isBatteryMonitoringEnabled = true
         let level = UIDevice.current.batteryLevel
         let battery = level >= 0 ? Double(level) : nil
         let role: PatrickWakeRole = watchSync.alertOwner() == .phone ? .phone : .none
-        let gate = origin.contextSnapshot(at: .now, calendar: calendar)
+        let gate = origin.contextSnapshot(at: now, calendar: calendar)
         let advance = PatrickDayPlan.advance(settings: &experience.settings, activity: experience.activity, events: events,
-                                             sittingMinutes: sitting, battery: battery, role: role, now: .now, calendar: calendar)
-        for line in advance.journal { experience.record(line) }
+                                             sittingMinutes: sitting, battery: battery, role: role, now: now, calendar: calendar)
+        for line in advance.journal { experience.record(line, at: now) }
         if experience != origin {
             experience.changed()
             saveExperience()
