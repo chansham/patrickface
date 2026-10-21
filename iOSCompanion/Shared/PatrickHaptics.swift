@@ -43,6 +43,21 @@ final class PatrickHaptics: ObservableObject {
         return true
     }
 
+    /// User-armed wake cues. Soft, medium, and firm reuse the existing settle,
+    /// attention, and completion kinds. They do not spend the daily knock budget.
+    @discardableResult
+    func playAlarm(_ strength: PatrickWakeStrength, settings: PatrickExperienceSettings, foreground: Bool, at date: Date = .now) -> Bool {
+        guard settings.hapticsEnabled, foreground, !readingHeartRate else { return false }
+        if let lastPlayedAt, date.timeIntervalSince(lastPlayedAt) < PatrickHapticPolicy.minimumGap { return false }
+        lastPlayedAt = date
+        switch strength {
+        case .soft: perform(.wake)
+        case .medium: perform(.timerClosing)
+        case .firm: perform(.timerDone)
+        }
+        return true
+    }
+
     /// Plays only when charging becomes full. Opening the app already full is quiet.
     func noteBattery(charging: Bool, full: Bool, settings: PatrickExperienceSettings, foreground: Bool, at date: Date = .now) {
         let state = full ? "full" : (charging ? "charging" : "unplugged")

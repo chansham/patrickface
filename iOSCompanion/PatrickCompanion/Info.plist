@@ -39,6 +39,8 @@
 	<string>用來知道你現在是否在開會，開會時派大星不主動震動，倒數也不出聲。拒絕後就當作沒有會議。</string>
 	<key>NSMotionUsageDescription</key>
 	<string>用來知道你是否正在乘車。乘車時派大星不主動提醒。只在這支 App 開著時查看，拒絕後就當作沒有在通勤。</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>用來在你打開 App 時知道是否回到已儲存的家，然後問一次要不要洗手。不會在背景一直追蹤，也可以改說「我回來了」。</string>
 	<key>NSSupportsLiveActivities</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>

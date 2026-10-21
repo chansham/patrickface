@@ -66,7 +66,7 @@ struct PatrickAnimatedFaceView: View {
                 .buttonStyle(.plain)
                 .contentShape(Rectangle())
                 .onLongPressGesture(minimumDuration: 0.45) { showingActions = true }
-                .accessibilityLabel(aftercare.state.phase == .offered ? "休息 1 分鐘" : "摸摸派大星")
+                .accessibilityLabel(aftercare.state.phase == .offered ? "休息 1 分鐘" : "午睡 25 分鐘")
                 .modifier(PatrickPrimaryGesture(enabled: aftercare.state.phase != .offered))
                 if !["theater", "activity"].contains(PatrickFaceLayoutSpec.presentationID(model.experience.settings)) {
                 Text("\(model.experience.displayedMood().title) · \(player.isPlaying && surpriseExpiresAt == nil ? player.message : model.careNotice)")
@@ -152,6 +152,7 @@ struct PatrickAnimatedFaceView: View {
         .onAppear {
             visible = true
             WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+            Task { await model.refreshOvernight() }
             player.load()
             clockArtwork.load()
             outfits = PatrickExperienceResources.outfits()
@@ -366,7 +367,13 @@ struct PatrickAnimatedFaceView: View {
                 }
                 PatrickSchedulePreferences(settings: Binding(get: { model.experience.settings }, set: { value in model.updateExperience { $0.settings = value } }))
                 Section("Siri") {
-                    Text("可以說「派大星晚安」「開始休息」「看看心情」或「記錄我的心情」。手錶上的 App 名稱會出現在句子裡。").font(.footnote)
+                    if let line = model.experience.settings.dayLine, !line.isEmpty {
+                        Text(line).font(.footnote).lineLimit(4).minimumScaleFactor(0.7).fixedSize(horizontal: false, vertical: true)
+                        if line.contains("洗手") {
+                            Button("洗 20 秒") { model.markHandwash() }
+                        }
+                    }
+                    Text("可以說「派大星，我出門了」「我回來了」「午睡 25 分鐘」「晚安」或「我累了」。手錶上的 App 名稱會出現在句子裡。").font(.footnote).fixedSize(horizontal: false, vertical: true)
                 }
                 Section("派大星寫的一天") {
                     ForEach(model.experience.lifeJournal.suffix(10).reversed()) { entry in
@@ -508,13 +515,13 @@ struct PatrickAnimatedFaceView: View {
     }
 
     private var primaryHandHint: String {
-        if #available(watchOS 11, *) { return "雙指互點可休息" }
-        return "點一下開始休息"
+        if #available(watchOS 11, *) { return "雙指互點可午睡 25 分鐘" }
+        return "點一下午睡 25 分鐘"
     }
 
     private func primaryHandAction() {
         if aftercare.state.phase == .offered { startAftercareRest() }
-        else { model.performCare(.pet) }
+        else { model.startNap(minutes: 25) }
     }
 
     private func applyCrown(from old: Double, to new: Double) {

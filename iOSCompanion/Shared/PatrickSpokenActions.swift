@@ -38,6 +38,37 @@ enum PatrickSpokenActions {
         return "我現在是\(mood.title)。表情跟著你的一天，不是你選的。"
     }
 
+    static func startNap(_ state: inout PatrickExperienceState, minutes: Int = 25, at date: Date = .now) -> String {
+        let result = state.requestActivityStart(.breathing, minutes: PatrickDayPlan.boundedNap(minutes), at: date)
+        guard case .started = result else { return result.message }
+        state.activity?.nap = true
+        state.settings.contextNap = true
+        state.changed(at: date)
+        return PatrickDayPlan.butlerSentence(.nap, name: state.settings.greetingDisplayName, modelText: nil)
+    }
+
+    static func butler(_ state: inout PatrickExperienceState, phrase: PatrickButlerPhrase, modelText: String? = nil, at date: Date = .now) -> String {
+        switch phrase {
+        case .nap:
+            return startNap(&state, minutes: 25, at: date)
+        case .goodNight:
+            return sayGoodNight(&state, at: date)
+        case .leaving:
+            state.settings.leavingDay = PatrickContextSnapshot.dayKey(date, calendar: PatrickHKHolidays.calendar)
+            state.record("出門", at: date)
+        case .arrived:
+            state.settings.arrivedHomeAtMS = (date.timeIntervalSince1970 * 1000).rounded()
+            state.settings.handwashAskedMS = nil
+            state.record("回來了", at: date)
+        case .tired:
+            state.record("累了", at: date)
+        }
+        let line = PatrickDayPlan.butlerSentence(phrase, name: state.settings.greetingDisplayName, modelText: modelText)
+        state.settings.dayLine = line
+        state.changed(at: date)
+        return line
+    }
+
     static func recordMind(_ state: inout PatrickExperienceState, raw: String, title: String, at date: Date = .now) -> String {
         state.settings.pendingMindRaw = raw
         state.record("心情：\(title)", at: date)

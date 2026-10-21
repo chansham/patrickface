@@ -105,6 +105,23 @@ struct PatrickWatchShortcuts: AppShortcutsProvider {
             "看看\(.applicationName)心情",
             "\(.applicationName)心情怎麼樣"
         ], shortTitle: "看看心情", systemImageName: "face.smiling")
+        AppShortcut(intent: PatrickWatchButlerIntent(), phrases: [
+            "\(.applicationName) \(\.$choice)"
+        ], shortTitle: "一句話", systemImageName: "bubble.left.fill")
+    }
+}
+
+struct PatrickWatchButlerIntent: AppIntent {
+    static var title: LocalizedStringResource = "派大星一句話"
+    static var description = IntentDescription("用一句話告訴派大星你出門、回來、要午睡、晚安或累了。手錶用固定的一句話，不連線。")
+    static var openAppWhenRun = false
+    @Parameter(title: "想說的話") var choice: PatrickButlerChoice
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let phrase = choice.phrase
+        let text = await PatrickWatchSpokenPerformer.apply { PatrickSpokenActions.butler(&$0, phrase: phrase, modelText: nil) }.text
+        if #available(watchOS 11.0, *) { _ = try? await donate() }
+        return .result(dialog: "\(text)")
     }
 }
 
@@ -129,7 +146,12 @@ struct PatrickWatchShortcuts: AppShortcutsProvider {
             let settings = state.settings
             let worn = WKExtension.shared().applicationState == .active
             let quiet = state.contextSnapshot().suppressesProactive
-            Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: nil, settings: settings, schedules: worn, contextQuiet: quiet) }
+            let role: PatrickWakeRole = worn ? .watch : .none
+            Task {
+                await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: nil, settings: settings, schedules: worn, contextQuiet: quiet)
+                let cues = PatrickDayPlan.wakeCues(settings: settings, napEndsAt: activity?.nap == true && activity?.status == .running ? activity?.endsAt : nil, role: role, now: .now)
+                await PatrickWakeNotifier.shared.sync(cues: cues)
+            }
         }
         return Outcome(text: text, armedCountdown: armed)
     }

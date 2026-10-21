@@ -73,8 +73,14 @@ struct PatrickSchedulePreferences: View {
             Text("預設只顯示「派大星叫你 \(settings.greetingDisplayName)」，不朗讀。").font(.footnote)
             Stepper("一天主動震動 \(settings.dailyHapticBudget) 次", value: Binding(get: { settings.dailyHapticBudget }, set: { settings.proactiveHapticBudget = $0 }), in: 0...24)
             Toggle("表情跟著今天", isOn: Binding(get: { settings.moodFollowsDayOn }, set: { settings.moodFollowsDay = $0 }))
+            Toggle("平日早晨叫我", isOn: Binding(get: { settings.wakeAlarmOn }, set: { settings.wakeAlarmEnabled = $0 }))
+            Toggle("假日和周末不叫", isOn: Binding(get: { settings.skipsWakeOnRestDays }, set: { settings.skipWakeOnRestDays = $0 }))
+            Text("早晨鬧鐘預設關掉。香港公眾假期和周末不叫；你自己開始的午睡仍會響。手機鈴聲仍預設關掉。").font(.footnote).fixedSize(horizontal: false, vertical: true)
             Toggle("起床時手機也響", isOn: Binding(get: { settings.phoneWakeFallback }, set: { settings.phoneWakeFallbackEnabled = $0 }))
-            Text("起床鈴聲還沒做，這項預設關閉。").font(.footnote)
+            Text("手錶戴著時由手錶叫醒。手機只在這項打開、而且手錶不在手上時才出聲。").font(.footnote).fixedSize(horizontal: false, vertical: true)
+            TextField("家的緯度", text: coordinate(\.homeLatitude))
+            TextField("家的經度", text: coordinate(\.homeLongitude))
+            Text("回家後可以說「我回來了」。填了家的位置，也只在 App 開著時試著知道你到家，不會申請永遠定位。").font(.footnote).fixedSize(horizontal: false, vertical: true)
         }
     }
     private var birthday: [Int] { (settings.birthdayMMDD ?? "01-01").split(separator: "-").compactMap { Int($0) } }
@@ -86,6 +92,12 @@ struct PatrickSchedulePreferences: View {
         Binding(get: { isMonth ? month : day }, set: { value in
             let m = isMonth ? value : month, d = min(isMonth ? day : value, Self.days(isMonth ? value : month))
             settings.birthdayMMDD = String(format: "%02d-%02d", m, d)
+        })
+    }
+    private func coordinate(_ keyPath: WritableKeyPath<PatrickExperienceSettings, Double?>) -> Binding<String> {
+        Binding(get: { settings.wrappedValue[keyPath: keyPath].map { String($0) } ?? "" }, set: { text in
+            let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+            settings.wrappedValue[keyPath: keyPath] = trimmed.isEmpty ? nil : Double(trimmed)
         })
     }
     private func sleepTime(start: Bool) -> Binding<Date> {

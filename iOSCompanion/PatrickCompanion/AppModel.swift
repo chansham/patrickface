@@ -38,6 +38,8 @@ final class AppModel: ObservableObject {
     private var timerCompletionTask: Task<Void, Never>?
     private var activityPresentationTask: Task<Void, Never>?
     private var activityPresentationGeneration: UInt64 = 0
+    private var companionEvents: [PatrickCalendarInterval] = []
+    private var companionSitting: Int?
 
     convenience init() {
         self.init(
@@ -253,7 +255,89 @@ final class AppModel: ObservableObject {
         let settings = experience.settings
         let schedules = watchSync.alertOwner() == .phone
         let quiet = experience.contextSnapshot().suppressesProactive
-        Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: breakSession, legacy: legacy, settings: settings, schedules: schedules, contextQuiet: quiet) }
+        let role: PatrickWakeRole = schedules ? .phone : .none
+        Task {
+            await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: breakSession, legacy: legacy, settings: settings, schedules: schedules, contextQuiet: quiet)
+            let cues = PatrickDayPlan.wakeCues(settings: settings, napEndsAt: activity?.nap == true && activity?.status == .running ? activity?.endsAt : nil, role: role, now: .now)
+            await PatrickWakeNotifier.shared.sync(cues: cues)
+            PatrickWakeNotifier.shared.playDue(cues, settings: settings, foreground: schedules)
+        }
+    }
+
+    func refreshCompanionDay() {
+        let since = experience.settings.stationarySinceMS
+        PatrickHomeMonitor.shared.onArrive = { [weak self] date in
+            Task { @MainActor in self?.noteArrival(at: date) }
+        }
+        PatrickHomeMonitor.shared.update(latitude: experience.settings.homeLatitude, longitude: experience.settings.homeLongitude)
+        PatrickContextSensors.shared.refreshCompanion(stationarySinceMS: since) { [weak self] day in
+            self?.applyCompanion(day)
+        }
+        let fetchedAt = experience.settings.observatoryAtMS ?? 0
+        if Date().timeIntervalSince1970 * 1000 - fetchedAt > 30 * 60 * 1000 {
+            Task { [weak self] in
+                guard let reading = await PatrickObservatoryClient.fetch() else { return }
+                await MainActor.run { self?.applyObservatory(reading) }
+            }
+        }
+    }
+
+    func markHandwash() {
+        let now = Date()
+        experience.settings.lastHandwashAtMS = (now.timeIntervalSince1970 * 1000).rounded()
+        experience.settings.handwashUntilMS = ((now.timeIntervalSince1970 + 20) * 1000).rounded()
+        experience.settings.dayLine = "洗手 20 秒，我等你。"
+        experience.record("洗手", at: now)
+        experience.changed(at: now)
+        saveExperience()
+    }
+
+    private func noteArrival(at date: Date) {
+        experience.settings.arrivedHomeAtMS = (date.timeIntervalSince1970 * 1000).rounded()
+        experience.settings.handwashAskedMS = nil
+        experience.record("回來了", at: date)
+        experience.changed(at: date)
+        saveExperience()
+        refreshCompanionDay()
+    }
+
+    private func applyObservatory(_ reading: PatrickObservatoryReading) {
+        let origin = experience
+        experience.settings.observatoryTemperature = reading.temperatureC
+        experience.settings.observatoryRainMM = reading.rainfallMM
+        experience.settings.observatoryWarnings = reading.warningCodes.joined(separator: ",")
+        experience.settings.observatoryAtMS = (Date().timeIntervalSince1970 * 1000).rounded()
+        applyDay(events: companionEvents, sitting: companionSitting, origin: origin)
+    }
+
+    private func applyCompanion(_ day: PatrickContextSensors.CompanionDay) {
+        let origin = experience
+        experience.settings.contextMeeting = day.meeting
+        experience.settings.contextCommute = day.commute
+        experience.settings.contextFocus = day.focus
+        experience.settings.stationarySinceMS = day.stationarySinceMS
+        companionEvents = day.events
+        companionSitting = day.sittingMinutes
+        applyDay(events: day.events, sitting: day.sittingMinutes, origin: origin)
+    }
+
+    private func applyDay(events: [PatrickCalendarInterval], sitting: Int?, origin: PatrickExperienceState) {
+        let calendar = PatrickHKHolidays.calendar
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        let level = UIDevice.current.batteryLevel
+        let battery = level >= 0 ? Double(level) : nil
+        let role: PatrickWakeRole = watchSync.alertOwner() == .phone ? .phone : .none
+        let gate = origin.contextSnapshot(at: .now, calendar: calendar)
+        let advance = PatrickDayPlan.advance(settings: &experience.settings, activity: experience.activity, events: events,
+                                             sittingMinutes: sitting, battery: battery, role: role, now: .now, calendar: calendar)
+        for line in advance.journal { experience.record(line) }
+        if experience != origin {
+            experience.changed()
+            saveExperience()
+        }
+        if advance.knocks > 0 {
+            _ = PatrickHaptics.shared.play(.knock, settings: experience.settings, foreground: true, context: gate)
+        }
     }
 
     func setVisualState(_ state: PatrickVisualState) {
@@ -445,6 +529,7 @@ final class AppModel: ObservableObject {
             }
         }
         syncCountdownAlerts()
+        refreshCompanionDay()
         PatrickContextSensors.shared.refresh { [weak self] meeting, commute, focus in
             self?.noteContext(meeting: meeting, commute: commute, focus: focus)
         }

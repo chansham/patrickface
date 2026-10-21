@@ -171,6 +171,25 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
         AppShortcut(intent: PatrickTimerControlIntent(), phrases: ["控制\(.applicationName)陪伴計時"], shortTitle: "控制陪伴計時", systemImageName: "timer")
         AppShortcut(intent: PatrickAutomationIntent(), phrases: ["向\(.applicationName)回報起床"], shortTitle: "起床與鬧鐘回報", systemImageName: "sun.max.fill")
         AppShortcut(intent: PatrickLifestyleIntent(), phrases: ["套用\(.applicationName)生活流程"], shortTitle: "生活流程", systemImageName: "sun.and.horizon.fill")
+        AppShortcut(intent: PatrickButlerIntent(), phrases: [
+            "\(.applicationName) \(\.$choice)"
+        ], shortTitle: "一句話", systemImageName: "bubble.left.fill")
+    }
+}
+
+struct PatrickButlerIntent: AppIntent {
+    static var title: LocalizedStringResource = "派大星一句話"
+    static var description = IntentDescription("用一句話告訴派大星你出門、回來、要午睡、晚安或累了。")
+    static var openAppWhenRun = false
+    @Parameter(title: "想說的話") var choice: PatrickButlerChoice
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let phrase = choice.phrase
+        let name = await MainActor.run { PatrickSharedStore.shared.loadExperience().settings.greetingDisplayName }
+        let modelText = await PatrickButlerModel.reply(to: phrase, name: name)
+        let text = await MainActor.run { PatrickSpokenIntentBridge.butler(phrase, modelText: modelText) }
+        if #available(iOS 18.0, *) { _ = try? await donate() }
+        return .result(dialog: "\(text)")
     }
 }
 
@@ -191,6 +210,9 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
     static func pet() -> String { mutate { PatrickSpokenActions.pet(&$0) }.text }
     static func recordMind(raw: String, title: String) -> String {
         mutate { PatrickSpokenActions.recordMind(&$0, raw: raw, title: title) }.text
+    }
+    static func butler(_ phrase: PatrickButlerPhrase, modelText: String?) -> String {
+        mutate { PatrickSpokenActions.butler(&$0, phrase: phrase, modelText: modelText) }.text
     }
 
     private static func mutate(_ mutation: (inout PatrickExperienceState) -> String) -> Outcome {
@@ -498,6 +520,10 @@ func patrickSyncCountdownAlerts(from state: PatrickExperienceState) {
         let schedules = WatchSyncService.shared.alertOwner() == .phone
         let quiet = state.contextSnapshot().suppressesProactive
         await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: nil, settings: settings, schedules: schedules, contextQuiet: quiet)
+        let role: PatrickWakeRole = schedules ? .phone : .none
+        let cues = PatrickDayPlan.wakeCues(settings: settings, napEndsAt: activity?.nap == true && activity?.status == .running ? activity?.endsAt : nil, role: role, now: .now)
+        await PatrickWakeNotifier.shared.sync(cues: cues)
+        PatrickWakeNotifier.shared.playDue(cues, settings: settings, foreground: schedules)
     }
 }
 

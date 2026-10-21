@@ -649,4 +649,48 @@ final class PatrickContractTests: XCTestCase {
         XCTAssertTrue(store.markMessageProcessed(id))
         XCTAssertFalse(store.markMessageProcessed(id))
     }
+
+    func testDayPlanBaselineHolidayGapAndGate() {
+        let calendar = PatrickHKHolidays.calendar
+        func hk(_ day: Int, _ hour: Int, _ minute: Int, month: Int = 10) -> Date {
+            var parts = DateComponents()
+            parts.calendar = calendar
+            parts.timeZone = calendar.timeZone
+            parts.year = 2026
+            parts.month = month
+            parts.day = day
+            parts.hour = hour
+            parts.minute = minute
+            return parts.date!
+        }
+        XCTAssertNil(PatrickDayPlan.nightTarget(enabled: false, skipRestDays: true, wakeMinute: 360, now: hk(21, 5, 0)))
+        XCTAssertEqual(PatrickDayPlan.nightTarget(enabled: true, skipRestDays: true, wakeMinute: 360, now: hk(1, 5, 0)), hk(2, 6, 0))
+        XCTAssertEqual(PatrickDayPlan.nightTarget(enabled: true, skipRestDays: true, wakeMinute: 360, now: hk(23, 22, 0)), hk(26, 6, 0))
+        let sleep = PatrickMorningSeries(metric: .sleepHours, values: Array(repeating: 8, count: 7) + [7], overnightIndex: 7)
+        XCTAssertEqual(PatrickDayPlan.morningSentence([sleep]), "昨晚少睡了 1 小時，今天慢慢來。")
+        XCTAssertNil(PatrickDayPlan.morningSentence([PatrickMorningSeries(metric: .hrvSDNN, values: Array(repeating: 50, count: 6) + [20], overnightIndex: 6)]))
+        XCTAssertNil(PatrickDayPlan.morningSentence([PatrickMorningSeries(metric: .restingHeartRate, values: Array(repeating: 60, count: 7) + [64], overnightIndex: 7)]))
+        XCTAssertTrue(PatrickDayPlan.morningSentence([PatrickMorningSeries(metric: .wristTemperature, values: Array(repeating: 36.5, count: 7) + [36.8], overnightIndex: 7)])?.contains("手腕溫度") == true)
+        XCTAssertTrue(PatrickDayPlan.morningSentence([PatrickMorningSeries(metric: .respiratoryRate, values: Array(repeating: 14, count: 7) + [15], overnightIndex: 7)])?.contains("呼吸偏快") == true)
+        let now = hk(21, 15, 0)
+        let gap = [PatrickCalendarInterval(start: now.addingTimeInterval(5 * 60), end: now.addingTimeInterval(3600))]
+        let inside = [PatrickCalendarInterval(start: now.addingTimeInterval(-30 * 60), end: now.addingTimeInterval(30 * 60))]
+        XCTAssertEqual(PatrickDayPlan.standPrompt(events: gap, now: now, sittingMinutes: 70, contextSuppresses: false, budgetRemaining: 6), "坐了 70 分鐘，下個會前有 5 分鐘，倒杯水？")
+        XCTAssertNil(PatrickDayPlan.standPrompt(events: inside, now: now, sittingMinutes: 90, contextSuppresses: false, budgetRemaining: 6))
+        XCTAssertNil(PatrickDayPlan.standPrompt(events: gap, now: now, sittingMinutes: 90, contextSuppresses: true, budgetRemaining: 6))
+        XCTAssertNil(PatrickDayPlan.standPrompt(events: gap, now: now, sittingMinutes: 90, contextSuppresses: false, budgetRemaining: 0))
+        XCTAssertEqual(PatrickDayPlan.merged([
+            PatrickCalendarInterval(start: now, end: now.addingTimeInterval(3600)),
+            PatrickCalendarInterval(start: now.addingTimeInterval(1800), end: now.addingTimeInterval(5400))
+        ]).count, 1)
+        var settings = PatrickExperienceSettings()
+        settings.wakeAlarmEnabled = true
+        settings.proactiveHapticBudget = 0
+        let armed = PatrickDayPlan.advance(settings: &settings, activity: nil, events: gap, sittingMinutes: 90, battery: 1, role: .watch, now: hk(21, 8, 0), calendar: calendar)
+        XCTAssertFalse(armed.wake.isEmpty)
+        XCTAssertEqual(armed.knocks, 0)
+        XCTAssertEqual(PatrickDayPlan.butlerSentence(.arrived, name: "Sham", modelText: nil), "Sham回來了。先洗手？")
+        XCTAssertNil(PatrickDayPlan.acceptButler("可能着涼了"))
+        XCTAssertEqual(PatrickDayPlan.greeting(name: "Sham", hour: 8, report: nil, weather: nil, firstEvent: nil, suppressed: false), "早安，Sham。")
+    }
 }

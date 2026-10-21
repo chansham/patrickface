@@ -278,6 +278,7 @@ import Foundation
         var freshSettings = PatrickExperienceSettings()
         check(freshSettings.greetingDisplayName == "Sham" && freshSettings.voiceGreetingOn == false, "Greeting is Sham and text only")
         check(freshSettings.dailyHapticBudget == 6 && freshSettings.phoneWakeFallback == false && freshSettings.moodFollowsDayOn, "Budget, wake fallback and mood defaults")
+        check(freshSettings.wakeAlarmOn == false && freshSettings.skipsWakeOnRestDays && freshSettings.effectiveWakeMinute == freshSettings.sleepEnd, "Night alarm stays off and skips rest days")
         let labour = PatrickHKHolidays.calendar.date(from: DateComponents(year: 2026, month: 5, day: 1, hour: 10))!
         let ordinary = PatrickHKHolidays.calendar.date(from: DateComponents(year: 2026, month: 5, day: 4, hour: 10))!
         check(PatrickHKHolidays.name(on: labour) == "勞動節" && !PatrickHKHolidays.isWorkday(labour), "1 May 2026 is the official holiday")

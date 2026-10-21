@@ -83,3 +83,51 @@ final class PatrickCountdownNotifier {
         return content
     }
 }
+
+/// Separate prefix from countdown alerts so a countdown sync cannot cancel a wake cue.
+@MainActor
+final class PatrickWakeNotifier {
+    static let shared = PatrickWakeNotifier()
+    private let center: UNUserNotificationCenter
+    private var played: Set<String> = []
+
+    init(center: UNUserNotificationCenter = .current()) { self.center = center }
+
+    func sync(cues: [PatrickWakeCue], now: Date = .now) async {
+        let desired = cues.filter { $0.fireAt > now }
+        let pending = await center.pendingNotificationRequests()
+        let known = Set(pending.map(\.identifier)).filter { $0.hasPrefix(PatrickWakeCue.prefix) }
+        let keep = Set(desired.map(\.identifier))
+        let stale = Array(known.subtracting(keep))
+        if !stale.isEmpty {
+            center.removePendingNotificationRequests(withIdentifiers: stale)
+            center.removeDeliveredNotifications(withIdentifiers: stale)
+        }
+        for cue in desired {
+            let interval = cue.fireAt.timeIntervalSince(now)
+            guard interval > 0 else { continue }
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(1, interval), repeats: false)
+            let content = UNMutableNotificationContent()
+            content.title = cue.title
+            content.body = cue.body
+            content.threadIdentifier = "patrick.wake"
+            content.sound = cue.playsSound ? .default : nil
+            content.interruptionLevel = cue.playsSound ? .timeSensitive : .passive
+            let request = UNNotificationRequest(identifier: cue.identifier, content: content, trigger: trigger)
+            do {
+                try await center.add(request)
+            } catch {
+                content.interruptionLevel = cue.playsSound ? .active : .passive
+                try? await center.add(UNNotificationRequest(identifier: cue.identifier, content: content, trigger: trigger))
+            }
+        }
+    }
+
+    func playDue(_ cues: [PatrickWakeCue], settings: PatrickExperienceSettings, foreground: Bool, now: Date = .now) {
+        guard foreground else { return }
+        for cue in cues where now.timeIntervalSince(cue.fireAt) >= 0 && now.timeIntervalSince(cue.fireAt) < 30 {
+            guard played.insert(cue.identifier).inserted else { continue }
+            _ = PatrickHaptics.shared.playAlarm(cue.strength, settings: settings, foreground: true, at: now)
+        }
+    }
+}

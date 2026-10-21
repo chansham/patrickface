@@ -77,7 +77,47 @@ final class PatrickAppModel: ObservableObject {
         let settings = experience.settings
         let worn = WKExtension.shared().applicationState == .active
         let quiet = experience.contextSnapshot().suppressesProactive
-        Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: legacy, settings: settings, schedules: worn, contextQuiet: quiet) }
+        let role: PatrickWakeRole = worn ? .watch : .none
+        Task {
+            await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: legacy, settings: settings, schedules: worn, contextQuiet: quiet)
+            let cues = PatrickDayPlan.wakeCues(settings: settings, napEndsAt: activity?.nap == true && activity?.status == .running ? activity?.endsAt : nil, role: role, now: .now)
+            await PatrickWakeNotifier.shared.sync(cues: cues)
+            PatrickWakeNotifier.shared.playDue(cues, settings: settings, foreground: worn)
+            if let next = cues.map(\.fireAt).min() { PatrickWakeSession.shared.arm(at: next) }
+            else { PatrickWakeSession.shared.disarm() }
+        }
+    }
+
+    func startNap(minutes: Int = 25) {
+        let text = PatrickSpokenActions.startNap(&experience, minutes: minutes)
+        persistExperience()
+        careNotice = text
+    }
+
+    func refreshOvernight() async {
+        let series = await PatrickOvernightReader.load()
+        let sentence = PatrickDayPlan.morningSentence(series)
+        var next = experience.settings
+        let before = next
+        PatrickDayPlan.storeMorning(settings: &next, sentence: sentence, now: .now, calendar: PatrickHKHolidays.calendar)
+        if let arrived = next.arrivedHomeAtMS {
+            let washed = await PatrickOvernightReader.latestHandwash(since: Date(timeIntervalSince1970: arrived / 1000))
+            PatrickDayPlan.noteWash(settings: &next, washedAt: washed)
+        }
+        guard next != before else { return }
+        experience.settings = next
+        experience.changed()
+        persistExperience()
+    }
+
+    func markHandwash() {
+        let now = Date()
+        experience.settings.lastHandwashAtMS = (now.timeIntervalSince1970 * 1000).rounded()
+        experience.settings.handwashUntilMS = ((now.timeIntervalSince1970 + 20) * 1000).rounded()
+        experience.settings.dayLine = "洗手 20 秒，我等你。"
+        experience.record("洗手", at: now)
+        experience.changed(at: now)
+        persistExperience()
     }
 
     func toggleTheme() {
@@ -202,6 +242,10 @@ final class PatrickAppModel: ObservableObject {
 
     func refreshExperience(at date: Date = .now, allowEffects: Bool, observeCalendar: Bool = true, announceCompletion: Bool = false) {
         if !allowEffects { completedActivityID = nil }
+        if experience.settings.contextNap == true, experience.activity?.nap != true || experience.activity?.status != .running {
+            experience.settings.contextNap = nil
+            experience.changed(at: date)
+        }
         let revision = experience.revision
         _ = experience.updateCare(at: date)
         _ = experience.syncDisplayedMood(at: date)

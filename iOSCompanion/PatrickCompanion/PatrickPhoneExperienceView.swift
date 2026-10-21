@@ -53,6 +53,18 @@ import SwiftUI
                         .accessibilityLabel("摸摸派大星").accessibilityAddTraits(.isButton)
                     Text("\(outfit?.title ?? "派大星") · \(model.experience.displayedMood().title)").font(.headline)
                     Text("派大星叫你 \(model.experience.settings.greetingDisplayName)").font(.caption).foregroundStyle(.secondary)
+                    if let line = model.experience.settings.dayLine, !line.isEmpty {
+                        Text(line).font(.body).multilineTextAlignment(.center).lineLimit(4).minimumScaleFactor(0.8).fixedSize(horizontal: false, vertical: true)
+                    }
+                    if let gear = model.experience.settings.gearLines, !gear.isEmpty {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("出門").font(.headline)
+                            ForEach(gear, id: \.self) { Text($0).lineLimit(2).minimumScaleFactor(0.8).fixedSize(horizontal: false, vertical: true) }
+                        }.frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    if model.experience.settings.dayLine?.contains("洗手") == true {
+                        Button("洗 20 秒") { model.markHandwash() }.buttonStyle(.bordered)
+                    }
                     Text(player.message).font(.caption).foregroundStyle(.secondary)
                     HStack {
                         Button("摸摸") { model.performCare(.pet) }.buttonStyle(.borderedProminent)
@@ -150,6 +162,13 @@ import SwiftUI
 
     var body: some View {
         actionSurface
+        .task(id: active) {
+            guard active else { return }
+            while !Task.isCancelled {
+                model.refreshCompanionDay()
+                do { try await Task.sleep(for: .seconds(60)) } catch { return }
+            }
+        }
         .task(id: active) {
             guard active else { return }
             while !Task.isCancelled {

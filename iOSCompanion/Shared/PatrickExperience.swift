@@ -48,8 +48,33 @@ struct PatrickExperienceSettings: Codable, Equatable, Sendable {
     var proactiveHapticBudget: Int?
     var proactiveHapticDay: String?
     var proactiveHapticCount: Int?
-    /// Wake-up ringing on the iPhone is not built yet. Nil stays off.
+    /// Wake-up ringing on the iPhone stays off unless Sham turns it on.
     var phoneWakeFallbackEnabled: Bool?
+    /// Nil keeps the night alarm off, so 06:00 does not surprise anyone.
+    var wakeAlarmEnabled: Bool?
+    /// Nil skips the night alarm on Hong Kong holidays and weekends.
+    var skipWakeOnRestDays: Bool?
+    /// Nil uses the morning boundary (sleep end).
+    var wakeMinute: Int?
+    var homeLatitude: Double?
+    var homeLongitude: Double?
+    var arrivedHomeAtMS: Double?
+    var lastHandwashAtMS: Double?
+    var handwashAskedMS: Double?
+    var handwashUntilMS: Double?
+    var greetedDay: String?
+    var morningReport: String?
+    var morningReportDay: String?
+    var leavingDay: String?
+    var gearLines: [String]?
+    var gearKnockDay: String?
+    var standSlot: String?
+    var dayLine: String?
+    var stationarySinceMS: Double?
+    var observatoryTemperature: Double?
+    var observatoryRainMM: Double?
+    var observatoryWarnings: String?
+    var observatoryAtMS: Double?
     /// Nil follows the day. Stored negative moods remain in the archive.
     var moodFollowsDay: Bool?
     /// Phone-side signals. Nil means unknown, which does not suppress.
@@ -73,6 +98,9 @@ struct PatrickExperienceSettings: Codable, Equatable, Sendable {
     var voiceGreetingOn: Bool { voiceGreetingEnabled ?? false }
     var dailyHapticBudget: Int { min(24, max(0, proactiveHapticBudget ?? 6)) }
     var phoneWakeFallback: Bool { phoneWakeFallbackEnabled ?? false }
+    var wakeAlarmOn: Bool { wakeAlarmEnabled ?? false }
+    var skipsWakeOnRestDays: Bool { skipWakeOnRestDays ?? true }
+    var effectiveWakeMinute: Int { (0..<1440).contains(wakeMinute ?? -1) ? wakeMinute! : sleepEnd }
     var moodFollowsDayOn: Bool { moodFollowsDay ?? true }
     var sleepStart: Int { (0..<1440).contains(sleepStartMinutes ?? -1) ? sleepStartMinutes! : 1320 }
     var sleepEnd: Int { (0..<1440).contains(sleepEndMinutes ?? -1) ? sleepEndMinutes! : 360 }
@@ -144,6 +172,8 @@ struct PatrickLocalActivity: Codable, Equatable, Sendable {
     var endsAtMS: Double?
     var remainingSeconds: TimeInterval
     var status: Status
+    /// Set only for a nap the person just started. Older archives decode nil.
+    var nap: Bool? = nil
     var startedAt: Date { Date(timeIntervalSince1970: startedAtMS / 1000) }
     var endsAt: Date? {
         get { endsAtMS.map { Date(timeIntervalSince1970: $0 / 1000) } }

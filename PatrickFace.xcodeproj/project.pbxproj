@@ -47,6 +47,9 @@
 		A11C0DE00000000000000022 /* PatrickFocusFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C0DE00000000000000021 /* PatrickFocusFilter.swift */; };
 		A11C0DE00000000000000024 /* PatrickWorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C0DE00000000000000023 /* PatrickWorkoutSession.swift */; };
 		A11C0DE00000000000000026 /* PatrickMoodRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C0DE00000000000000025 /* PatrickMoodRecord.swift */; };
+		A11C0DE00000000000000028 /* PatrickDayPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C0DE00000000000000027 /* PatrickDayPlan.swift */; };
+		A11C0DE0000000000000002A /* PatrickWakeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C0DE00000000000000029 /* PatrickWakeSession.swift */; };
+		A11C0DE0000000000000002C /* PatrickOvernightReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C0DE0000000000000002B /* PatrickOvernightReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,9 @@
 		A11C0DE00000000000000021 /* PatrickFocusFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickFocusFilter.swift"; sourceTree = SOURCE_ROOT; };
 		A11C0DE00000000000000023 /* PatrickWorkoutSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickWorkoutSession.swift; sourceTree = "<group>"; };
 		A11C0DE00000000000000025 /* PatrickMoodRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickMoodRecord.swift; sourceTree = "<group>"; };
+		A11C0DE00000000000000027 /* PatrickDayPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickDayPlan.swift"; sourceTree = SOURCE_ROOT; };
+		A11C0DE00000000000000029 /* PatrickWakeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickWakeSession.swift; sourceTree = "<group>"; };
+		A11C0DE0000000000000002B /* PatrickOvernightReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickOvernightReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,9 @@
 				A11C0DE00000000000000021 /* PatrickFocusFilter.swift */,
 				A11C0DE00000000000000023 /* PatrickWorkoutSession.swift */,
 				A11C0DE00000000000000025 /* PatrickMoodRecord.swift */,
+				A11C0DE00000000000000027 /* PatrickDayPlan.swift */,
+				A11C0DE00000000000000029 /* PatrickWakeSession.swift */,
+				A11C0DE0000000000000002B /* PatrickOvernightReader.swift */,
 				0E38E8277143802E3E3D1C01 /* PatrickHealthTrendReader.swift */,
 				5CAD815C6CB88A6DF9A88E01 /* PatrickHealthTrendAggregation.swift */,
 				5B862CF0A43480E16D0F20C0 /* PatrickHealthTrend.swift */,
@@ -338,6 +347,9 @@
 				A11C0DE00000000000000022 /* PatrickFocusFilter.swift in Sources */,
 				A11C0DE00000000000000024 /* PatrickWorkoutSession.swift in Sources */,
 				A11C0DE00000000000000026 /* PatrickMoodRecord.swift in Sources */,
+				A11C0DE00000000000000028 /* PatrickDayPlan.swift in Sources */,
+				A11C0DE0000000000000002A /* PatrickWakeSession.swift in Sources */,
+				A11C0DE0000000000000002C /* PatrickOvernightReader.swift in Sources */,
 				B084A37B688EE0E786D8E162 /* PatrickHealthTrendReader.swift in Sources */,
 				66BCE7B670E56824E542B70F /* PatrickHealthTrendAggregation.swift in Sources */,
 				95F56C08C8A596CF5ABA08B6 /* PatrickHealthTrend.swift in Sources */,
