@@ -43,7 +43,7 @@ struct PatrickRoutineRun: Codable, Equatable, Identifiable, Sendable {
     var id: UUID { executionID }
 
     init(id: UUID = UUID(), at date: Date = .now) {
-        let now = date.timeIntervalSince1970 * 1000
+        let now = Self.milliseconds(from: date)
         executionID = id; createdAtMS = now; updatedAtMS = now
         steps = StepID.allCases.map { Step(stepID: $0, updatedAtMS: now) }
     }
@@ -99,7 +99,7 @@ struct PatrickRoutineRun: Codable, Equatable, Identifiable, Sendable {
     }
 
     @discardableResult mutating func apply(_ receipt: Receipt, at date: Date = .now) -> ApplyResult {
-        let now = date.timeIntervalSince1970 * 1000
+        let now = Self.milliseconds(from: date)
         guard isValid, now.isFinite, receipt.executionID == executionID,
               receipt.receivedAtMS.isFinite, receipt.receivedAtMS >= createdAtMS,
               receipt.receivedAtMS <= now, receipt.status != .pending,
@@ -128,7 +128,7 @@ struct PatrickRoutineRun: Codable, Equatable, Identifiable, Sendable {
     /// Prepares one explicitly chosen failed step; does not execute an action.
     /// A delayed receipt from an older attempt cannot resolve the retry.
     mutating func retry(_ stepID: StepID, at date: Date = .now) -> Int? {
-        let now = date.timeIntervalSince1970 * 1000
+        let now = Self.milliseconds(from: date)
         guard isValid, now.isFinite, now >= updatedAtMS,
               let index = steps.firstIndex(where: { $0.stepID == stepID }),
               steps[index].status == .failed, steps[index].attempt < 5 else { return nil }
@@ -137,6 +137,13 @@ struct PatrickRoutineRun: Codable, Equatable, Identifiable, Sendable {
         steps[index].receiptID = nil; steps[index].source = nil; steps[index].note = nil
         steps[index].updatedAtMS = now; updatedAtMS = now
         return steps[index].attempt
+    }
+
+    /// Date stores seconds since 2001. Multiplying the 1970 interval by 1000 can
+    /// land a few millionths of a millisecond under the original whole millisecond,
+    /// which made an on-time receipt look future-dated.
+    private static func milliseconds(from date: Date) -> Double {
+        (date.timeIntervalSince1970 * 1000).rounded()
     }
 }
 
