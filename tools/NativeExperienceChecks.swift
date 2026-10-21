@@ -275,9 +275,9 @@ import Foundation
         hidden.record("完成專注", at: now)
         check(hidden.journal.count == 3 && hidden.lifeJournal.map(\.text) == ["完成專注"], "Old chore lines stay stored and leave the day")
         check(!PatrickSurpriseState.lines.contains { $0.contains("點心") }, "Surprise lines do not ask for a snack")
-        var defaults = PatrickExperienceSettings()
-        check(defaults.greetingDisplayName == "Sham" && defaults.voiceGreetingOn == false, "Greeting is Sham and text only")
-        check(defaults.dailyHapticBudget == 6 && defaults.phoneWakeFallback == false && defaults.moodFollowsDayOn, "Budget, wake fallback and mood defaults")
+        var freshSettings = PatrickExperienceSettings()
+        check(freshSettings.greetingDisplayName == "Sham" && freshSettings.voiceGreetingOn == false, "Greeting is Sham and text only")
+        check(freshSettings.dailyHapticBudget == 6 && freshSettings.phoneWakeFallback == false && freshSettings.moodFollowsDayOn, "Budget, wake fallback and mood defaults")
         let labour = PatrickHKHolidays.calendar.date(from: DateComponents(year: 2026, month: 5, day: 1, hour: 10))!
         let ordinary = PatrickHKHolidays.calendar.date(from: DateComponents(year: 2026, month: 5, day: 4, hour: 10))!
         check(PatrickHKHolidays.name(on: labour) == "勞動節" && !PatrickHKHolidays.isWorkday(labour), "1 May 2026 is the official holiday")
