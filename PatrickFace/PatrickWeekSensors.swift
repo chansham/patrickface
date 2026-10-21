@@ -42,11 +42,14 @@ final class PatrickWeekSensors: NSObject, CMWaterSubmersionManagerDelegate {
     func tossCount(from start: Date, to end: Date) -> Int {
         guard let list = recorder.accelerometerData(from: start, to: end) else { return 0 }
         var magnitudes: [Double] = []
-        let enumerator = NSFastEnumerationIterator(list)
+        var enumerator = NSFastEnumerationIterator(list)
         while let object = enumerator.next() {
             guard let sample = object as? CMRecordedAccelerometerData else { continue }
             let acceleration = sample.acceleration
-            let magnitude = (acceleration.x * acceleration.x + acceleration.y * acceleration.y + acceleration.z * acceleration.z).squareRoot()
+            let x = acceleration.x
+            let y = acceleration.y
+            let z = acceleration.z
+            let magnitude = (x * x + y * y + z * z).squareRoot()
             if magnitude.isFinite { magnitudes.append(magnitude) }
             if magnitudes.count >= 8000 { break }
         }
