@@ -1,6 +1,7 @@
 import Foundation
 import AVFoundation
 import Combine
+import ImageIO
 import SwiftUI
 
 enum PatrickExperienceResources {
@@ -303,67 +304,91 @@ private struct PatrickLayoutActivity: View {
     }
 }
 
-/// A drawn sample beside the existing name. It does not replace the wardrobe art.
-struct PatrickStarPajamasSample: View {
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
-
-    var body: some View {
-        HStack(alignment: .center, spacing: 8) {
-            VStack(alignment: .leading, spacing: 2) {
-                Text("現有").font(.caption2).foregroundStyle(.secondary)
-                Text("星星抱枕睡衣").font(.caption2).lineLimit(2).minimumScaleFactor(0.7).fixedSize(horizontal: false, vertical: true)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            TimelineView(.animation(minimumInterval: 0.8, paused: reduceMotion)) { timeline in
-                let closed = !reduceMotion && Int(timeline.date.timeIntervalSinceReferenceDate / 0.8).isMultiple(of: 5)
-                sampleFace(eyesClosed: closed)
-            }
-            .frame(width: 72, height: 84)
-            .accessibilityHidden(true)
-        }
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("星星睡衣樣本，並排在現有名稱旁邊，正式素材沒有換")
-    }
-
-    private func sampleFace(eyesClosed: Bool) -> some View {
-        ZStack {
-            Capsule()
-                .fill(Color(red: 0.72, green: 0.62, blue: 0.9))
-                .frame(width: 28, height: 22)
-                .offset(y: -30)
-            Circle()
-                .fill(Color(red: 0.98, green: 0.76, blue: 0.84))
-                .frame(width: 54, height: 54)
-            StarShape()
-                .fill(Color(red: 1, green: 0.86, blue: 0.35))
-                .frame(width: 16, height: 16)
-                .offset(y: 10)
-            HStack(spacing: 14) {
-                eye(closed: eyesClosed)
-                eye(closed: eyesClosed)
-            }
-            .offset(y: -6)
-        }
-    }
-
-    private func eye(closed: Bool) -> some View {
-        Capsule()
-            .fill(Color(red: 0.25, green: 0.16, blue: 0.28))
-            .frame(width: 8, height: closed ? 2 : 8)
+/// Simulator-only full-screen comparison. Default launches keep the official face.
+enum PatrickSamplePreview {
+    static var requested: Bool {
+        #if DEBUG && targetEnvironment(simulator)
+        return ProcessInfo.processInfo.arguments.contains("--patrick-show-sample")
+        #else
+        return false
+        #endif
     }
 }
 
-private struct StarShape: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        let center = CGPoint(x: rect.midX, y: rect.midY)
-        let radius = min(rect.width, rect.height) / 2
-        for point in 0..<5 {
-            let angle = CGFloat(point) * .pi * 4 / 5 - .pi / 2
-            let next = CGPoint(x: center.x + cos(angle) * radius, y: center.y + sin(angle) * radius)
-            if point == 0 { path.move(to: next) } else { path.addLine(to: next) }
+/// Transparent layers in `sample/star-pyjamas/`, same pixels as the official body canvas.
+enum PatrickSampleSlot {
+    static let overlayFile = "overlay.png"
+    static let nightcapFile = "nightcap.png"
+    static let files = [overlayFile, nightcapFile]
+
+    static func image(_ name: String, expectedWidth: Int, expectedHeight: Int, bundle: Bundle = .main) -> CGImage? {
+        guard files.contains(name), expectedWidth > 0, expectedHeight > 0, let root = bundle.resourceURL else { return nil }
+        let url = root.appendingPathComponent("sample").appendingPathComponent("star-pyjamas").appendingPathComponent(name)
+        guard let data = try? Data(contentsOf: url),
+              let source = CGImageSourceCreateWithData(data as CFData, nil),
+              let image = CGImageSourceCreateImageAtIndex(source, 0, nil),
+              image.width == expectedWidth, image.height == expectedHeight else { return nil }
+        return image
+    }
+}
+
+/// Left: official clock body. Right: that same bitmap plus the sample overlay slots.
+@MainActor struct PatrickStarPajamasSample: View {
+    @StateObject private var artwork = PatrickClockArtwork()
+
+    var body: some View {
+        VStack(spacing: 4) {
+            Text("星星睡衣樣本").font(.caption.weight(.semibold)).lineLimit(1).minimumScaleFactor(0.7)
+            Text("左：正式幀　右：同一錨點疊佔位").font(.caption2).lineLimit(2).minimumScaleFactor(0.6)
+            Text(fitLine).font(.caption2).lineLimit(1).minimumScaleFactor(0.5)
+            HStack(alignment: .top, spacing: 4) {
+                pane(title: "現有", names: [])
+                pane(title: "佔位疊圖", names: PatrickSampleSlot.files)
+            }
+            Text("正式素材沒有換。").font(.caption2).foregroundStyle(.secondary).lineLimit(1).minimumScaleFactor(0.7)
         }
-        path.closeSubpath()
-        return path
+        .padding(4)
+        .frame(maxWidth: .infinity)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("星星睡衣樣本。左邊是正式派大星，右邊是同一幀加上佔位疊圖。正式素材沒有換。")
+        .task { artwork.load() }
+    }
+
+    private var bodyImage: CGImage? {
+        guard let manifest = artwork.manifest, artwork.images.indices.contains(manifest.body.regionIndex) else { return nil }
+        return artwork.images[manifest.body.regionIndex]
+    }
+
+    private var fitLine: String {
+        guard let canvas = artwork.manifest?.canvas, canvas.anchorPixels.count == 2 else { return artwork.message }
+        return "畫布 \(canvas.width)×\(canvas.height)，錨點 \(canvas.anchorPixels[0]),\(canvas.anchorPixels[1])"
+    }
+
+    private func pane(title: String, names: [String]) -> some View {
+        let base = bodyImage
+        let layers = sampleLayers(base: base, names: names)
+        let missing = base == nil ? [String]() : names.filter { sampleLayers(base: base, names: [$0]).isEmpty }
+        return VStack(spacing: 2) {
+            Text(title).font(.caption2).lineLimit(1).minimumScaleFactor(0.6)
+            ZStack {
+                Color.black
+                if let base {
+                    Image(decorative: base, scale: 1).resizable().interpolation(.high)
+                }
+                ForEach(Array(layers.enumerated()), id: \.offset) { _, layer in
+                    Image(decorative: layer, scale: 1).resizable().interpolation(.high)
+                }
+            }
+            .aspectRatio(1, contentMode: .fit)
+            if !missing.isEmpty {
+                Text(missing.joined(separator: " ")).font(.caption2).foregroundStyle(.red).lineLimit(2).minimumScaleFactor(0.5)
+            }
+        }
+        .frame(maxWidth: .infinity)
+    }
+
+    private func sampleLayers(base: CGImage?, names: [String]) -> [CGImage] {
+        guard let base else { return [] }
+        return names.compactMap { PatrickSampleSlot.image($0, expectedWidth: base.width, expectedHeight: base.height) }
     }
 }

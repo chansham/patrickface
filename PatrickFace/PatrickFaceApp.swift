@@ -520,12 +520,20 @@ struct PatrickFaceApp: App {
 
     var body: some Scene {
         WindowGroup {
-            PatrickAnimatedFaceView()
-                .environmentObject(model)
-                .onOpenURL { url in
-                    _ = model.handle(url)
+            Group {
+                if PatrickSamplePreview.requested {
+                    PatrickStarPajamasSample()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color.black)
+                } else {
+                    PatrickAnimatedFaceView()
                 }
-                .task { PatrickWatchShortcuts.updateAppShortcutParameters() }
+            }
+            .environmentObject(model)
+            .onOpenURL { url in
+                _ = model.handle(url)
+            }
+            .task { PatrickWatchShortcuts.updateAppShortcutParameters() }
         }
     }
 }

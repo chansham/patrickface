@@ -75,6 +75,7 @@ jobs:
             --watch-app "$PATRICK_WATCH_SIM_APP" \
             --phone-udid "$PATRICK_TEST_PHONE_UDID" \
             --layouts classic bold theater activity \
+            --sample \
             --watch-geometry \
             --output "$RUNNER_TEMP/patrick-ci-logs/native-screens" \
             2>&1 | tee "$RUNNER_TEMP/patrick-ci-logs/capture.log"

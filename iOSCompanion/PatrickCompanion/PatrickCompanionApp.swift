@@ -7,16 +7,24 @@ struct PatrickCompanionApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
-                .environmentObject(model)
-                .preferredColorScheme(.dark)
-                .onOpenURL { model.handle(url: $0) }
-                .task { PatrickAppShortcuts.updateAppShortcutParameters() }
-                .onChange(of: scenePhase) { _, phase in
-                    if phase == .active {
-                        model.becameActive()
-                    }
+            Group {
+                if PatrickSamplePreview.requested {
+                    PatrickStarPajamasSample()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color.black)
+                } else {
+                    RootView()
                 }
+            }
+            .environmentObject(model)
+            .preferredColorScheme(.dark)
+            .onOpenURL { model.handle(url: $0) }
+            .task { PatrickAppShortcuts.updateAppShortcutParameters() }
+            .onChange(of: scenePhase) { _, phase in
+                if phase == .active {
+                    model.becameActive()
+                }
+            }
         }
     }
 }

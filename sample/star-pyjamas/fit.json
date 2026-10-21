@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "status": "sample-placeholder",
+  "replacesOfficialArt": false,
+  "baseFrame": {
+    "source": "experience/clock/layers-v1.png",
+    "regions": "experience/clock/regions-v1.json",
+    "regionIndex": 0,
+    "role": "Official clock body, rendered onto this canvas. Both sides of the comparison use that bitmap. Hour and minute hands are separate regions and are not part of the sample frame."
+  },
+  "canvas": {
+    "width": 896,
+    "height": 896,
+    "origin": "top-left",
+    "anchorPixels": [448, 788],
+    "anchorNormalized": [0.5, 0.8794642857142857]
+  },
+  "files": [
+    {
+      "path": "sample/star-pyjamas/overlay.png",
+      "drawOrder": 1,
+      "role": "Pyjama top, pyjama bottom, small stars, and optional star pillow. Replace the labelled placeholder in place."
+    },
+    {
+      "path": "sample/star-pyjamas/nightcap.png",
+      "drawOrder": 2,
+      "role": "Nightcap with a star motif, drawn above overlay.png. Replace the labelled placeholder in place."
+    }
+  ],
+  "rules": [
+    "PNG RGBA, exactly 896 by 896. A different size is not scaled.",
+    "Origin is the top-left. Pixel (448, 788) is the shared anchor and must stay aligned with the official body canvas anchor.",
+    "Leave Patrick's silhouette transparent. These layers are composited 1:1 on the official frame.",
+    "The PNGs currently in this folder are labelled placeholders, not wardrobe art."
+  ]
+}

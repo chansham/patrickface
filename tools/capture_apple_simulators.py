@@ -370,7 +370,7 @@ def collect_watch_geometry(runner: Runner, device: dict, app: dict, pid: int, la
 
 
 def capture(runner: Runner, label: str, device: dict, app: dict, delays: list[float], boot_timeout: float,
-            layout: str | None = None, *, geometry_probe: bool = False) -> dict:
+            layout: str | None = None, *, sample: bool = False, geometry_probe: bool = False) -> dict:
     result = {"device": device, "app": app, "status": "failed", "screenshots": [],
               "visualReview": "pending", "startedAt": utc_now()}
     try:
@@ -378,8 +378,13 @@ def capture(runner: Runner, label: str, device: dict, app: dict, delays: list[fl
             raise CaptureError("Unknown layout override")
         boot(runner, device, boot_timeout)
         runner.simctl("install", device["udid"], app["path"], timeout=120)
-        arguments = ("--patrick-preview-layout", layout) if layout else ()
+        arguments = []
+        if layout:
+            arguments += ["--patrick-preview-layout", layout]
+        if sample:
+            arguments += ["--patrick-show-sample"]
         result["requestedLayout"] = layout
+        result["requestedSample"] = sample
         launch_started_at = utc_now()
         result["launchStartedAt"] = launch_started_at
         launch = runner.simctl("launch", "--terminate-running-process", device["udid"], app["bundleID"], *arguments, timeout=90)
@@ -523,6 +528,8 @@ def run(args) -> int:
                                     geometry_probe=key == "watch" and getattr(args, "watch_geometry", False))
                     for layout in args.layouts
                 }
+            if getattr(args, "sample", False):
+                report[key]["sample"] = capture(runner, f"{key}-sample", device, app, [3], args.boot_timeout, sample=True)
         runner.inventory("devices-final.json")
     except (CaptureError, OSError, ValueError) as error:
         report["error"] = str(error)
@@ -531,7 +538,9 @@ def run(args) -> int:
         layouts_ok = all(set(report[key].get("layouts", {})) == set(getattr(args, "layouts", []))
                          and all(item["status"] == "captured" for item in report[key].get("layouts", {}).values())
                          for key in ("phone", "watch"))
-        report["status"] = "captured" if count == 2 and layouts_ok and "error" not in report else "partial" if count else "failed"
+        sample_ok = not getattr(args, "sample", False) or all(
+            report[key].get("sample", {}).get("status") == "captured" for key in ("phone", "watch"))
+        report["status"] = "captured" if count == 2 and layouts_ok and sample_ok and "error" not in report else "partial" if count else "failed"
         watch_captures = [*report["watch"].get("attempts", []), *report["watch"].get("layouts", {}).values()]
         probes = [shot.get("geometryProbe", {}) for item in watch_captures for shot in item.get("screenshots", [])]
         good = sum(probe.get("status") == "captured" for probe in probes)
@@ -785,6 +794,12 @@ def self_test() -> int:
                     self.assertIn(("launch", "--terminate-running-process", phone, "example.fixture", "--patrick-preview-layout", "activity"),
                                   [call.args for call in command.call_args_list])
                     command.reset_mock()
+                    sample = capture(runner, "phone-sample", device, app, [0], 30, sample=True)
+                    self.assertEqual(sample["status"], "captured")
+                    self.assertTrue(sample["requestedSample"])
+                    self.assertIn(("launch", "--terminate-running-process", phone, "example.fixture", "--patrick-show-sample"),
+                                  [call.args for call in command.call_args_list])
+                    command.reset_mock()
                     invalid = capture(runner, "invalid", device, app, [0], 30, "not-a-layout")
                     self.assertEqual(invalid["status"], "failed")
                     command.assert_not_called()
@@ -825,6 +840,8 @@ def main() -> int:
     parser.add_argument("--no-pairing", action="store_true", help="Never create even a new simulator-only pair")
     parser.add_argument("--layouts", nargs="+", choices=LAYOUT_IDS, default=[],
                         help="Also launch each simulator-only layout override and capture its real screen")
+    parser.add_argument("--sample", action="store_true",
+                        help="Also launch --patrick-show-sample and capture the star-pyjamas comparison on each simulator")
     parser.add_argument("--watch-geometry", action="store_true",
                         help="Read the Debug simulator Watch geometry probe after every Watch screenshot/layout; missing evidence is reported")
     parser.add_argument("--self-test", action="store_true", help="Run local pure fixtures, without Xcode or simulators")
