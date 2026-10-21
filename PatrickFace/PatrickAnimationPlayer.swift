@@ -31,6 +31,10 @@ final class PatrickAnimationPlayer: ObservableObject {
     private var idleTask: Task<Void, Never>?
     private var generation = UUID()
     private var restingImage: CGImage?
+    private var dozingImage: CGImage?
+    private var dozingAnchor: [Double] = [0.5, 0.5]
+    private var dozingScale = 1.0
+    private var dozingAspectRatio = 1.0
     private var restingClipID: String?
     private var restingAnchor: [Double] = [0.5, 0.5]
     private var restingScale = 1.0
@@ -77,6 +81,7 @@ final class PatrickAnimationPlayer: ObservableObject {
                     failedClips[id] = "畫稿或輪廓資料讀取失敗"
                 }
             }
+            cacheDozingStill()
             showRestingPose()
             message = restingImage == nil ? "待機畫稿尚未準備" : "安靜陪著你"
         } catch {
@@ -113,15 +118,19 @@ final class PatrickAnimationPlayer: ObservableObject {
     }
 
     func update(_ next: PatrickAnimationContext, at date: Date = .now) {
+        let wasWristDown = context.wristDown
         let changed = next != context
         context = next
         let event = policy.transition(to: next, at: date)
         guard next.allowsMotion else {
             stop()
+            if next.wristDown { applyDozingStill() }
             if next.reduceMotion { message = "減少動態：靜靜陪著你" }
             else if next.lowPower { message = "低耗電模式：動作暫停" }
+            else if next.wristDown { message = "打盹中" }
             return
         }
+        if wasWristDown { showRestingPose() }
         if let event { playEvent(event, at: date) }
         else if changed && !isPlaying { scheduleIdle() }
     }
@@ -186,6 +195,32 @@ final class PatrickAnimationPlayer: ObservableObject {
         var quiet = context
         quiet.active = false
         update(quiet)
+    }
+
+    /// Always-On uses an existing yawn still (抱枕犯睏). No new artwork.
+    private func cacheDozingStill() {
+        guard let clip = clips.first(where: { $0.id == "yawn" }), unavailableReason(for: clip) == nil else { return }
+        do {
+            let prepared = try prepareClip(clip)
+            dozingImage = try prepared.frame(at: 0)
+            dozingAnchor = prepared.anchor
+            dozingScale = clip.scale
+            dozingAspectRatio = prepared.aspectRatio
+        } catch {
+            dozingImage = nil
+        }
+    }
+
+    private func applyDozingStill() {
+        guard let dozingImage else { return }
+        image = dozingImage
+        anchor = dozingAnchor
+        drawingScale = dozingScale
+        cellAspectRatio = dozingAspectRatio
+        frameIndex = 0
+        currentClipID = nil
+        isPlaying = false
+        message = "打盹中"
     }
 
     private func showRestingPose() {

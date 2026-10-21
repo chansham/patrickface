@@ -86,6 +86,8 @@ import HealthKit
         } catch {
             guard isCurrent(token) else { return }
             busy = false; message = "本次讀取未完成，可稍後再試；不會把失敗當成零。"
+            let settings = PatrickExperienceState.load(from: PatrickSharedStore.defaults).settings
+            PatrickHaptics.shared.play(.failure, settings: settings, foreground: true)
         }
     }
     /// Never requests authorization; newly selected types remain unread.
@@ -103,6 +105,9 @@ import HealthKit
     }
     private func isCurrent(_ token: UInt64) -> Bool { gate.active && gate.generation == token }
     private func load(_ metrics: Set<PatrickHealthMetric>, token: UInt64) async {
+        let readsHeartRate = metrics.contains(.heartRate)
+        if readsHeartRate { PatrickHaptics.shared.setReadingHeartRate(true) }
+        defer { if readsHeartRate { PatrickHaptics.shared.setReadingHeartRate(false) } }
         let now = Date.now, calendar = Calendar.current
         for metric in PatrickHealthMetric.allCases where metrics.contains(metric) {
             guard gate.accepts(token, metric: metric) else { return }

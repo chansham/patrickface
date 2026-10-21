@@ -4,6 +4,15 @@ name: Apple build validation
   push:
     branches:
       - codex/apple-watch-integration
+      - 'wip/**'
+      - 'cursor/**'
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+  pull_request:
+    branches:
+      - codex/apple-watch-integration
+      - 'wip/**'
     paths-ignore:
       - 'docs/**'
       - 'README.md'

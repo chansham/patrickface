@@ -23,6 +23,9 @@ final class AppModel: ObservableObject {
     @Published private(set) var completedActivityID: String?
     @Published private(set) var calendarCelebrationSequence = 0
     @Published private(set) var automationSequence = 0
+    @Published private(set) var soundCue: PatrickSoundCue?
+    @Published private(set) var soundCueUntil: Date?
+    @Published private(set) var stickerNotice: String?
     private var requestedAutomation: PatrickAutomationEvent?
     private var automationGate: PatrickAutomationGate
 
@@ -38,6 +41,8 @@ final class AppModel: ObservableObject {
     private var timerCompletionTask: Task<Void, Never>?
     private var activityPresentationTask: Task<Void, Never>?
     private var activityPresentationGeneration: UInt64 = 0
+    private var companionEvents: [PatrickCalendarInterval] = []
+    private var companionSitting: Int?
 
     convenience init() {
         self.init(
@@ -86,6 +91,11 @@ final class AppModel: ObservableObject {
             .sink { [weak self] _ in
                 Task { @MainActor in self?.becameActive() }
             }.store(in: &cancellables)
+        NotificationCenter.default.publisher(for: .patrickWatchWornChanged)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                Task { @MainActor in self?.syncCountdownAlerts() }
+            }.store(in: &cancellables)
 
         NotificationCenter.default.publisher(for: .patrickAutomationReceived)
             .receive(on: RunLoop.main)
@@ -95,6 +105,11 @@ final class AppModel: ObservableObject {
                 self?.experience = store.loadExperience()
                 self?.receiveAutomation(event)
             }.store(in: &cancellables)
+
+        NotificationCenter.default.publisher(for: .patrickSoundCue)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] note in self?.noteSound(note) }
+            .store(in: &cancellables)
 
         NotificationCenter.default.publisher(for: .patrickPendingActionsChanged)
             .receive(on: RunLoop.main)
@@ -124,11 +139,75 @@ final class AppModel: ObservableObject {
         saveExperience()
     }
 
+    var soundOutfitID: String? {
+        guard experience.settings.outfitID == "auto",
+              let cue = soundCue, let until = soundCueUntil, until > Date() else { return nil }
+        return cue.outfitID
+    }
+
+    var activeSoundLine: String? {
+        guard let cue = soundCue, let until = soundCueUntil, until > Date() else { return nil }
+        return cue.line
+    }
+
+    func clearExpiredSound(at date: Date = .now) {
+        guard let until = soundCueUntil, until.timeIntervalSince(date) <= 0.05 else { return }
+        soundCue = nil
+        soundCueUntil = nil
+    }
+
+    private func noteSound(_ note: Notification) {
+        guard let info = note.userInfo,
+              let raw = info["kind"] as? String,
+              let kind = PatrickSoundKind(rawValue: raw),
+              let outfitID = info["outfit"] as? String,
+              let line = info["line"] as? String else { return }
+        let seconds = (info["seconds"] as? Double) ?? (info["seconds"] as? NSNumber)?.doubleValue ?? 20
+        soundCue = PatrickSoundCue(kind: kind, outfitID: outfitID, line: line, seconds: seconds)
+        soundCueUntil = Date().addingTimeInterval(seconds)
+    }
+
+    /// 「出门」 uses the existing leaving sentence. 「晚安」 uses the existing good-night path.
+    func playHook(_ phrase: PatrickButlerPhrase) async {
+        let text: String
+        switch phrase {
+        case .goodNight:
+            text = PatrickSpokenIntentBridge.goodNight()
+        case .leaving:
+            let name = store.loadExperience().settings.greetingDisplayName
+            let modelText = await PatrickButlerModel.reply(to: .leaving, name: name)
+            text = PatrickSpokenIntentBridge.butler(.leaving, modelText: modelText)
+        default:
+            return
+        }
+        settings = store.loadSettings()
+        experience = store.loadExperience()
+        stickerNotice = text
+        notice = text
+    }
+
+    func scanSticker() {
+        PatrickNFCReader.shared.onPhrase = { [weak self] phrase in
+            Task { @MainActor in await self?.playHook(phrase) }
+        }
+        PatrickNFCReader.shared.onUnavailable = { [weak self] in
+            Task { @MainActor in
+                self?.stickerNotice = PatrickNFCHook.unavailableLine
+                self?.notice = PatrickNFCHook.unavailableLine
+            }
+        }
+        if !PatrickNFCReader.shared.scanIfAvailable() {
+            stickerNotice = PatrickNFCHook.unavailableLine
+            notice = PatrickNFCHook.unavailableLine
+        }
+    }
+
     func performCare(_ action: PatrickCareAction) {
-        guard experience.perform(action) else { notice = "稍等一下，再\(action.title)"; return }
-        requestedCare = action; actionSequence &+= 1
-        saveExperience(action: action)
-        notice = "\(action.title) · 飽足 \(Int(experience.care.satiety.rounded())) · 親密 \(experience.care.bond)"
+        guard action != .feed else { notice = "餵食已經收起來了。"; return }
+        guard experience.perform(action) else { notice = "我在。"; return }
+        if action == .pet { requestedCare = action; actionSequence &+= 1 }
+        saveExperience(action: action == .pet ? action : nil)
+        notice = action == .rest ? "一起休息。" : "摸了摸。"
     }
 
     func setAutomationPresentationActive(_ active: Bool) {
@@ -167,10 +246,11 @@ final class AppModel: ObservableObject {
         return true
     }
 
-    func refreshExperience(allowEffects: Bool = false, observeCalendar: Bool = true) {
+    func refreshExperience(allowEffects: Bool = false, observeCalendar: Bool = true, announceCompletion: Bool = false) {
         if !allowEffects { completedActivityID = nil }
         let revision = experience.revision
         _ = experience.updateCare()
+        _ = experience.syncDisplayedMood()
         if observeCalendar, let celebration = experience.observeCalendar(PatrickExperienceResources.calendar(), allowCelebration: allowEffects) {
             notice = celebration; calendarCelebrationSequence &+= 1
         }
@@ -179,6 +259,10 @@ final class AppModel: ObservableObject {
             completedActivityID = allowEffects ? id.uuidString : nil
             saveExperience(); notice = "陪伴計時完成"
             synchronizeActivityPresentation()
+            if announceCompletion {
+                let rest = experience.breakSession?.breakActivityID == id
+                PatrickHaptics.shared.play(rest ? .restDone : .timerDone, settings: experience.settings, foreground: true)
+            }
         }
     }
 
@@ -190,6 +274,9 @@ final class AppModel: ObservableObject {
         timerCompletionTask?.cancel(); timerCompletionTask = nil
         saveExperience()
         synchronizeActivityPresentation()
+        if case .started = result {
+            Task { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
+        }
     }
 
     func toggleExperiencePause() async {
@@ -206,6 +293,9 @@ final class AppModel: ObservableObject {
         if experience.revision != revision {
             timerCompletionTask?.cancel(); timerCompletionTask = nil
             saveExperience(); synchronizeActivityPresentation()
+            if case .started = result {
+                Task { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
+            }
         }
         notice = result.message
     }
@@ -224,6 +314,150 @@ final class AppModel: ObservableObject {
         settings = store.updateSettings { $0.experience = value }
         watchSync.send(command: PatrickCommandPayload(name: .updateExperience, careAction: action, automationEvent: automationEvent), settings: settings)
         WidgetCenter.shared.reloadAllTimelines()
+        syncCountdownAlerts()
+    }
+
+    private func syncCountdownAlerts() {
+        let legacy: PatrickCountdownLegacy? = experience.activity == nil && timer.status == .running
+            ? PatrickCountdownLegacy(id: timer.id, running: true, endsAt: timer.endsAt, title: timer.title)
+            : nil
+        let activity = experience.activity
+        let breakSession = experience.breakSession
+        let settings = experience.settings
+        let schedules = watchSync.alertOwner() == .phone
+        let quiet = experience.contextSnapshot().suppressesProactive
+        let role: PatrickWakeRole = schedules ? .phone : .none
+        Task {
+            await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: breakSession, legacy: legacy, settings: settings, schedules: schedules, contextQuiet: quiet)
+            let cues = PatrickDayPlan.wakeCues(settings: settings, napEndsAt: activity?.nap == true && activity?.status == .running ? activity?.endsAt : nil, role: role, now: .now)
+            await PatrickWakeNotifier.shared.sync(cues: cues)
+            PatrickWakeNotifier.shared.playDue(cues, settings: settings, foreground: schedules)
+        }
+    }
+
+    func refreshCompanionDay() {
+        let since = experience.settings.stationarySinceMS
+        PatrickHomeMonitor.shared.onArrive = { [weak self] date in
+            Task { @MainActor in self?.noteArrival(at: date) }
+        }
+        PatrickHomeMonitor.shared.onLeave = { [weak self] date in
+            Task { @MainActor in self?.noteDeparture(at: date) }
+        }
+        PatrickHomeMonitor.shared.update(latitude: experience.settings.homeLatitude, longitude: experience.settings.homeLongitude)
+        PatrickContextSensors.shared.refreshCompanion(stationarySinceMS: since) { [weak self] day in
+            self?.applyCompanion(day)
+        }
+        let fetchedAt = experience.settings.observatoryAtMS ?? 0
+        if Date().timeIntervalSince1970 * 1000 - fetchedAt > 30 * 60 * 1000 {
+            Task { [weak self] in
+                guard let reading = await PatrickObservatoryClient.fetch() else { return }
+                await MainActor.run { self?.applyObservatory(reading) }
+            }
+        }
+    }
+
+    func markHandwash() {
+        let now = Date()
+        experience.settings.lastHandwashAtMS = (now.timeIntervalSince1970 * 1000).rounded()
+        experience.settings.handwashUntilMS = ((now.timeIntervalSince1970 + 20) * 1000).rounded()
+        experience.settings.dayLine = "洗手 20 秒，我等你。"
+        experience.record("洗手", at: now)
+        experience.changed(at: now)
+        saveExperience()
+    }
+
+    private func noteArrival(at date: Date) {
+        experience.settings.arrivedHomeAtMS = (date.timeIntervalSince1970 * 1000).rounded()
+        experience.settings.handwashAskedMS = nil
+        experience.settings.phoneAtHome = true
+        experience.record("回來了", at: date)
+        experience.changed(at: date)
+        saveExperience()
+        refreshCompanionDay()
+    }
+
+    private func noteDeparture(at date: Date) {
+        experience.settings.phoneAtHome = false
+        experience.record("離開家", at: date)
+        experience.changed(at: date)
+        saveExperience()
+    }
+
+    func recordMood(stars: Int) {
+        guard let raw = PatrickMoodStars.raw(stars: stars) else { return }
+        let now = Date()
+        let line = PatrickMoodStars.company(stars: stars)
+        experience.settings.moodStars = stars
+        experience.settings.pendingMindRaw = raw
+        experience.settings.dayLine = line
+        experience.record(line, at: now)
+        experience.changed(at: now)
+        saveExperience()
+    }
+
+    private func applyObservatory(_ reading: PatrickObservatoryReading) {
+        let origin = experience
+        experience.settings.observatoryTemperature = reading.temperatureC
+        experience.settings.observatoryRainMM = reading.rainfallMM
+        experience.settings.observatoryWarnings = reading.warningCodes.joined(separator: ",")
+        experience.settings.observatoryAtMS = (Date().timeIntervalSince1970 * 1000).rounded()
+        Task { await self.finishDay(events: self.companionEvents, sitting: self.companionSitting, origin: origin) }
+    }
+
+    private func applyCompanion(_ day: PatrickContextSensors.CompanionDay) {
+        let origin = experience
+        experience.settings.contextMeeting = day.meeting
+        experience.settings.contextCommute = day.commute
+        experience.settings.contextFocus = day.focus
+        experience.settings.stationarySinceMS = day.stationarySinceMS
+        companionEvents = day.events
+        companionSitting = day.sittingMinutes
+        Task { await self.finishDay(events: day.events, sitting: day.sittingMinutes, origin: origin) }
+    }
+
+    private func finishDay(events: [PatrickCalendarInterval], sitting: Int?, origin: PatrickExperienceState) async {
+        let calendar = PatrickHKHolidays.calendar
+        let now = Date()
+        let day = PatrickContextSnapshot.dayKey(now, calendar: calendar)
+        var modelEvening: String?
+        var modelWeekly: String?
+        if experience.settings.eveningNoteDay != day,
+           let fireAt = PatrickJournalVoice.eveningFireDate(now: now, calendar: calendar),
+           !experience.settings.isSleepTime(fireAt, calendar: calendar) {
+            modelEvening = await PatrickJournalModel.evening(events: events.map(\.title))
+        }
+        if PatrickJournalVoice.isSunday(now, calendar: calendar), experience.settings.weeklyPageDay != day {
+            modelWeekly = await PatrickJournalModel.weekly(lines: experience.lifeJournal.map(\.text))
+        }
+        applyDay(events: events, sitting: sitting, origin: origin, journalLines: experience.lifeJournal.map(\.text),
+                 modelEvening: modelEvening, modelWeekly: modelWeekly)
+    }
+
+    private func applyDay(events: [PatrickCalendarInterval], sitting: Int?, origin: PatrickExperienceState,
+                          journalLines: [String] = [], modelEvening: String? = nil, modelWeekly: String? = nil) {
+        let now = Date()
+        let calendar = PatrickHKHolidays.calendar
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        let level = UIDevice.current.batteryLevel
+        let battery = level >= 0 ? Double(level) : nil
+        let role: PatrickWakeRole = watchSync.alertOwner() == .phone ? .phone : .none
+        let gate = origin.contextSnapshot(at: now, calendar: calendar)
+        let advance = PatrickDayPlan.advance(settings: &experience.settings, activity: experience.activity, events: events,
+                                             sittingMinutes: sitting, battery: battery, role: role, now: now, calendar: calendar,
+                                             journalLines: journalLines, modelEvening: modelEvening, modelWeekly: modelWeekly)
+        for line in advance.journal { experience.record(line, at: now) }
+        if experience != origin {
+            experience.changed()
+            saveExperience()
+        }
+        if advance.phoneLeftPulses > 0 {
+            PatrickHaptics.shared.playRepeated(.timerClosing, count: advance.phoneLeftPulses, settings: experience.settings, foreground: true, context: gate)
+        } else if advance.knocks > 0 {
+            _ = PatrickHaptics.shared.play(.knock, settings: experience.settings, foreground: true, context: gate)
+        }
+        if let body = advance.eveningNotice, let fireAt = advance.eveningFireAt {
+            Task { await PatrickEveningNotifier.shared.sync(body: body, fireAt: fireAt, calendar: calendar) }
+        }
     }
 
     func setVisualState(_ state: PatrickVisualState) {
@@ -328,6 +562,8 @@ final class AppModel: ObservableObject {
         WidgetCenter.shared.reloadAllTimelines()
         notice = "Started a \(minutes)-minute Live Activity."
         scheduleTimerCompletion(for: value)
+        syncCountdownAlerts()
+        Task { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
     }
 
     func stopTimer(completedAutomatically: Bool = false) async {
@@ -354,6 +590,7 @@ final class AppModel: ObservableObject {
         notice = completedAutomatically
             ? "Patrick timer completed."
             : "Ended the Patrick timer."
+        syncCountdownAlerts()
     }
 
     func syncNow() {
@@ -411,6 +648,22 @@ final class AppModel: ObservableObject {
                 scheduleTimerCompletion(for: timer)
             }
         }
+        syncCountdownAlerts()
+        refreshCompanionDay()
+        PatrickContextSensors.shared.refresh { [weak self] meeting, commute, focus in
+            self?.noteContext(meeting: meeting, commute: commute, focus: focus)
+        }
+    }
+
+    private func noteContext(meeting: Bool, commute: Bool, focus: Bool) {
+        guard experience.settings.contextMeeting != meeting
+                || experience.settings.contextCommute != commute
+                || experience.settings.contextFocus != focus else { return }
+        experience.settings.contextMeeting = meeting
+        experience.settings.contextCommute = commute
+        experience.settings.contextFocus = focus
+        experience.changed()
+        saveExperience()
     }
 
     private func synchronizeActivityPresentation() {
@@ -460,6 +713,7 @@ final class AppModel: ObservableObject {
         timerCompletionTask = nil
         WidgetCenter.shared.reloadAllTimelines()
         notice = "Local Patrick settings were reset."
+        syncCountdownAlerts()
         let preceding = activityPresentationTask
         activityPresentationGeneration &+= 1
         let generation = activityPresentationGeneration
@@ -485,6 +739,7 @@ final class AppModel: ObservableObject {
         store.saveSettings(merged)
         WidgetCenter.shared.reloadAllTimelines()
         notice = "Applied a settings update from Apple Watch."
+        syncCountdownAlerts()
     }
 
     private func acceptRemoteTimer(_ value: PatrickTimerSnapshot) {
@@ -492,6 +747,7 @@ final class AppModel: ObservableObject {
         store.saveTimer(timer)
         WidgetCenter.shared.reloadAllTimelines()
         notice = "Applied a timer update from Apple Watch."
+        syncCountdownAlerts()
     }
 
     private func acceptRemoteCommand(_ command: PatrickCommandPayload) {

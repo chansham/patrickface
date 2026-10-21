@@ -6,6 +6,7 @@ Run the separate NativeRulesChecks.swift on a machine with Swift for native rule
 """
 
 from pathlib import Path
+import json
 import math
 import re
 import unittest
@@ -109,7 +110,14 @@ class NativeContracts(unittest.TestCase):
         self.assertIn("if model.previewState != .normal { return .preview }", FACE)
         self.assertIn("physicalCharging: physicalCharging", FACE)
         self.assertIn("reduced || !physicalCharging", FACE)
-        self.assertIn("運動陪伴不會記錄運動或心率", FACE)
+        self.assertIn("運動陪伴在手錶授權後會寫入健康；沒有授權時仍只是陪伴倒數。", FACE)
+        holidays = json.loads((ROOT / "experience" / "hk-public-holidays.json").read_text())
+        companion = (ROOT / "iOSCompanion" / "Shared" / "PatrickExperience.swift").read_text()
+        self.assertIn("https://www.1823.gov.hk/common/ical/tc.json", holidays["source"])
+        self.assertGreaterEqual(len(holidays["holidays"]), 30)
+        for row in holidays["holidays"]:
+            self.assertIn(row["date"], companion)
+            self.assertIn(row["name"], companion)
         self.assertNotIn("import HealthKit", FACE + APP + SHARED)
 
     def test_heartbeat_does_not_reload_every_minute(self):

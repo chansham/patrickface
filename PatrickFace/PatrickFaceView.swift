@@ -54,7 +54,10 @@ struct PatrickFaceView: View {
                 lowBattery: lowBattery,
                 charging: charging,
                 physicalCharging: physicalCharging,
-                petScene: model.petScene
+                petScene: model.petScene,
+                workoutSway: PatrickHeartZone(rawValue: model.workoutZone ?? 0)?.sway ?? 1,
+                lookingOut: model.experience.settings.contextCommute == true,
+                theater: (model.experience.settings.theaterUntilMS ?? 0) > timeline.date.timeIntervalSince1970 * 1000
             )
 
             Canvas { context, size in
@@ -146,7 +149,7 @@ struct PatrickFaceView: View {
                             Text(scene.title).tag(scene)
                         }
                     }
-                    Text("依時間：22:00–05:30 休息。其他情境由你選擇；運動陪伴不會記錄運動或心率。")
+                    Text("情境預設自動。運動陪伴在手錶授權後會寫入健康；沒有授權時仍只是陪伴倒數。")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
@@ -154,7 +157,6 @@ struct PatrickFaceView: View {
                     Button("打個招呼") {
                         guard interactionsEnabled, !lowPower else { return }
                         lastGesture = .now
-                        WKInterfaceDevice.current().play(.start)
                         showingPetControls = false
                     }
                     .disabled(lowPower)
@@ -581,7 +583,10 @@ private struct FacePose {
         lowBattery: Bool,
         charging: Bool,
         physicalCharging: Bool,
-        petScene: PatrickPetScene
+        petScene: PatrickPetScene,
+        workoutSway: Double = 1,
+        lookingOut: Bool = false,
+        theater: Bool = false
     ) {
         let clock = PatrickClockAngles.make(for: date)
         let baseHour = clock.hour
@@ -614,8 +619,10 @@ private struct FacePose {
         let showWeight = reduced || !physicalCharging
             ? 0 : Self.envelope(showElapsed, duration: 6)
         let exerciseSway = petScene == .exercise && !quiet
-            ? sin(date.timeIntervalSinceReferenceDate * .pi) * 1.5 : 0
-        bodySway = sin(showElapsed * .pi * 3) * 7 * showWeight + exerciseSway
+            ? sin(date.timeIntervalSinceReferenceDate * .pi) * 1.5 * workoutSway : 0
+        let windowSway = lookingOut && !quiet ? sin(date.timeIntervalSinceReferenceDate * .pi * 0.35) * 2 : 0
+        let storySway = theater && !quiet ? sin(date.timeIntervalSinceReferenceDate * .pi * 0.5) * 2.5 : 0
+        bodySway = sin(showElapsed * .pi * 3) * 7 * showWeight + exerciseSway + windowSway + storySway
         self.sleeping = sleeping
         self.charging = charging
         self.reduced = reduced

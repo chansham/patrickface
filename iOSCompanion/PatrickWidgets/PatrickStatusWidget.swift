@@ -5,6 +5,11 @@ struct PatrickWidgetEntry: TimelineEntry {
     let date: Date
     let settings: PatrickSettings
     let timer: PatrickTimerSnapshot
+    var relevance: TimelineEntryRelevance? {
+        let experience = settings.experience ?? PatrickExperienceState()
+        let value = PatrickStackRelevance.make(experience: experience, at: date)
+        return TimelineEntryRelevance(score: value.score, duration: value.duration)
+    }
 }
 
 struct PatrickWidgetProvider: TimelineProvider {
@@ -86,17 +91,17 @@ private struct PatrickStatusWidgetView: View {
         case .accessoryInline:
             Label("派大星 · \(state.settings.mood.title)", systemImage: "heart.fill")
         case .accessoryCircular:
-            ZStack { AccessoryWidgetBackground(); VStack { Image(systemName: "heart.fill").widgetAccentable(); Text("\(state.care.bond)").font(.caption2) } }
+            ZStack { AccessoryWidgetBackground(); Image(systemName: "heart.fill").widgetAccentable() }
         default:
             VStack(alignment: .leading, spacing: 5) {
                 Label("派大星 · \(state.settings.mood.title)", systemImage: "star.fill").font(.headline).widgetAccentable()
-                Text("飽足 \(Int(state.care.satiety.rounded())) · 親密 \(state.care.bond)").font(.caption)
+                Text(state.displayedMood(at: entry.date).title).font(.caption)
                 if let activity = state.activity, activity.status == .running, let end = activity.endsAt, end > entry.date {
                     Text(activity.kind.title).font(.caption2)
                     Text(timerInterval: activity.startedAt...end, countsDown: true).monospacedDigit()
                 } else if let activity = state.activity, activity.status == .paused {
                     Text("\(activity.kind.title)已暫停").font(.caption)
-                } else { Text("點一下，來陪牠").font(.caption).foregroundStyle(.secondary) }
+                } else { Text("我在這").font(.caption).foregroundStyle(.secondary) }
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
     }

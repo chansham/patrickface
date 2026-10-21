@@ -77,6 +77,14 @@ final class WatchSyncService: NSObject, ObservableObject {
         activateIfSupported()
     }
 
+    /// Phone schedules only when the watch is unpaired, unworn, or its heartbeat is stale.
+    func alertOwner(at date: Date = .now) -> PatrickAlertDevice {
+        let paired = self.session?.activationState == .activated && self.session?.isPaired == true && self.session?.isWatchAppInstalled == true
+        let observation = lastWatchStatus?.observation
+        let worn = PatrickAlertOwner.isWorn(onWrist: observation?.onWrist, observedAt: observation?.observedAt, at: date, paired: paired)
+        return PatrickAlertOwner.choose(paired: paired, worn: worn)
+    }
+
     func clearWatchStatus() {
         watchStatusStore.reset()
         watchContextReplayGate.reset()
@@ -94,6 +102,7 @@ final class WatchSyncService: NSObject, ObservableObject {
         case .accepted:
             lastWatchStatus = watchStatusStore.receipt
             watchStatusIssue = nil
+            NotificationCenter.default.post(name: .patrickWatchWornChanged, object: nil)
         case .duplicate, .older, .beforeReset:
             break // A late delivery cannot refresh the displayed observation age.
         case .invalid:

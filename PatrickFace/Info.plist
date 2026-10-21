@@ -49,7 +49,13 @@
 	<true/>
 	<key>WKWatchOnly</key>
 	<false/>
+	<key>NSMotionUsageDescription</key>
+	<string>用來在夜裡記住翻身、知道是否在乘車，以及下水時換成運動那套。沒有授權就略過。不會整天開著麥克風。</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>只在這支 App 開在前面、而且你打開「前景聽一下周圍」時，聽幾秒來分辨下雨、煮東西或唱歌。沒有全天麥克風。拒絕後就不聽。</string>
 	<key>NSHealthShareUsageDescription</key>
-	<string>只在你選擇並主動授權後，讀取所選步數、心率、HRV、靜止心率、呼吸率、睡眠手腕溫度或睡眠時段，顯示紀錄時間與來源。可自選開頁刷新已請求項目，以及比較近28天的睡眠、靜止心率和HRV；不推斷壓力或疾病，不上傳、跨裝置傳送或修改健康資料。</string>
+	<string>只在你選擇並主動授權後，讀取所選步數、心率、HRV、靜止心率、呼吸率、睡眠手腕溫度或睡眠時段，顯示紀錄時間與來源。可自選開頁刷新已請求項目，以及比較近28天的睡眠、靜止心率和HRV。不推斷壓力或疾病，不上傳或跨裝置傳送。</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>你開始散步、跑步、肌力或運動陪伴時，把手錶上的這次運動寫進健康。你也可以把此刻的心情寫進心境。沒有授權時，陪伴倒數仍會進行，只是不寫入。</string>
 </dict>
 </plist>

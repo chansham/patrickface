@@ -6,6 +6,7 @@ import SwiftUI
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @StateObject private var player = PatrickAnimationPlayer()
     @StateObject private var feedback = PatrickFeedback()
+    @ObservedObject private var haptics = PatrickHaptics.shared
     @StateObject private var clockArtwork = PatrickClockArtwork()
     @State private var outfits: [PatrickOutfitCatalog.Outfit] = []
     @State private var restingID: String?
@@ -15,12 +16,23 @@ import SwiftUI
     @State private var completionVisibility = PatrickCompletionVisibility()
     private var active: Bool { visible && scenePhase == .active && !showSettings }
     private var scene: String {
-        if model.experience.settings.scene != .automatic { return model.experience.settings.scene.rawValue }
-        if let value = model.experience.activity, value.status == .running { return value.kind.sceneID }
-        return model.experience.settings.isSleepTime(.now) ? "sleeping" : "awake"
+        let activity = model.experience.activity
+        let running = activity?.status == .running
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        let battery = UIDevice.current.batteryState
+        return PatrickAutomaticScene.resolve(
+            selection: model.experience.settings.scene,
+            activitySceneID: running ? activity?.kind.sceneID : nil,
+            charging: battery == .charging || battery == .full,
+            sleeping: model.experience.settings.isSleepTime(.now),
+            focus: model.experience.settings.contextFocus == true,
+            workout: running && activity?.kind.isExercise == true,
+            meeting: model.experience.settings.contextMeeting == true,
+            water: model.experience.settings.waterOn == true
+        )
     }
     private var outfit: PatrickOutfitCatalog.Outfit? {
-        PatrickExperienceResources.outfit(model.experience.settings, scene: scene, from: outfits)
+        PatrickExperienceResources.outfit(model.experience.settings, scene: scene, from: outfits, soundOutfitID: model.soundOutfitID)
     }
     private var pageSurface: some View {
         NavigationStack {
@@ -40,19 +52,42 @@ import SwiftUI
                         .clipShape(RoundedRectangle(cornerRadius: 44))
                         .contentShape(Rectangle()).onTapGesture { model.performCare(.pet) }
                         .accessibilityLabel("摸摸派大星").accessibilityAddTraits(.isButton)
-                    Text("\(outfit?.title ?? "派大星") · \(model.experience.settings.mood.title)").font(.headline)
+                    Text("\(outfit?.title ?? "派大星") · \(model.experience.displayedMood().title)").font(.headline)
+                    Text("派大星叫你 \(model.experience.settings.greetingDisplayName)").font(.caption).foregroundStyle(.secondary)
+                    if let line = model.experience.settings.dayLine, !line.isEmpty {
+                        Text(line).font(.body).multilineTextAlignment(.center).lineLimit(4).minimumScaleFactor(0.8).fixedSize(horizontal: false, vertical: true)
+                    }
+                    if let gear = model.experience.settings.gearLines, !gear.isEmpty {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("出門").font(.headline)
+                            ForEach(gear, id: \.self) { Text($0).lineLimit(2).minimumScaleFactor(0.8).fixedSize(horizontal: false, vertical: true) }
+                        }.frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    if model.experience.settings.dayLine?.contains("洗手") == true {
+                        Button("洗 20 秒") { model.markHandwash() }.buttonStyle(.bordered)
+                    }
+                    if model.experience.settings.dayLine?.contains("星星") == true, model.experience.settings.moodStars == nil {
+                        HStack {
+                            ForEach(1...5, id: \.self) { star in
+                                Button("\(star)") { model.recordMood(stars: star) }
+                                    .accessibilityLabel("心情 \(star)")
+                            }
+                        }
+                    }
+                    if let page = model.experience.settings.weeklyPage, !page.isEmpty {
+                        Text(page).font(.body).multilineTextAlignment(.center).lineLimit(6).minimumScaleFactor(0.8).fixedSize(horizontal: false, vertical: true)
+                    }
                     Text(player.message).font(.caption).foregroundStyle(.secondary)
                     HStack {
-                        ForEach(PatrickCareAction.allCases) { action in
-                            Button(action.title) { model.performCare(action) }.buttonStyle(.borderedProminent)
-                        }
+                        Button("摸摸") { model.performCare(.pet) }.buttonStyle(.borderedProminent)
+                        Button("陪 Sham 休息") { model.performCare(.rest) }.buttonStyle(.borderedProminent)
                     }
                     Button("找個小驚喜", action: findSurprise).buttonStyle(.bordered)
                     Button("我起床了") { model.reportWakeUp() }.buttonStyle(.bordered)
-                    Text("起床回報只記錄這一刻，作息與衣服維持你的選擇。").font(.caption).foregroundStyle(.secondary)
-                    if let surprise = model.experience.surprise { Text(surprise.line).font(.callout).multilineTextAlignment(.center) }
-                    HStack { Text("飽足 \(Int(model.experience.care.satiety.rounded()))"); Spacer(); Text("親密 \(model.experience.care.bond)") }
-                    Picker("角色心情", selection: setting(\.mood)) { ForEach(PatrickMood.allCases) { Text($0.title).tag($0) } }
+                    Text("起床回報只記錄這一刻。表情跟著今天，舊的飽足和親密還在存檔裡，不再顯示。").font(.caption).foregroundStyle(.secondary)
+                    if let surprise = model.experience.surprise, !PatrickJournalFilter.hides(surprise.line) {
+                        Text(surprise.line).font(.callout).multilineTextAlignment(.center)
+                    }
                     Picker("陪伴情境", selection: setting(\.scene)) { ForEach(PatrickExperienceScene.allCases) { Text($0.title).tag($0) } }
                     Picker("衣服", selection: setting(\.outfitID)) {
                         Text("跟隨情境").tag("auto")
@@ -66,11 +101,31 @@ import SwiftUI
                     Button("同步到手錶") { model.syncNow() }.buttonStyle(.bordered)
                     Text(model.watchSync.linkState.detail).font(.caption).foregroundStyle(.secondary)
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("最近陪伴").font(.headline)
-                        ForEach(model.experience.journal.suffix(8).reversed()) { entry in
+                        Text("派大星寫的一天").font(.headline)
+                        ForEach(model.experience.lifeJournal.suffix(8).reversed()) { entry in
                             Text("\(entry.at.formatted(date: .abbreviated, time: .shortened)) · \(entry.text)").font(.caption)
                         }
                     }.frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("星星睡衣樣本").font(.headline)
+                        Text("樣本，等 Sham 之後決定。正式素材沒有換。").font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
+                        PatrickStarPajamasSample()
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("貼紙").font(.headline)
+                        Text(PatrickNFCHook.note).font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
+                        HStack {
+                            Button("出門") { Task { await model.playHook(.leaving) } }.buttonStyle(.bordered)
+                            Button("晚安") { Task { await model.playHook(.goodNight) } }.buttonStyle(.bordered)
+                        }
+                        Button("讀一張貼紙") { model.scanSticker() }.buttonStyle(.bordered)
+                        if let line = model.stickerNotice {
+                            Text(line).font(.caption).fixedSize(horizontal: false, vertical: true)
+                        }
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    if let line = model.activeSoundLine {
+                        Text(line).font(.body).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+                    }
                 }.padding()
             }.navigationTitle("派大星陪你")
                 .toolbar { Button { showSettings = true } label: { Image(systemName: "slider.horizontal.3") }.accessibilityLabel("設定") }
@@ -79,6 +134,7 @@ import SwiftUI
                         Form {
                             Toggle("音效", isOn: setting(\.soundEnabled))
                             Toggle("觸覺", isOn: setting(\.hapticsEnabled))
+                            Text("主動找你用敲三下，一天預設 6 次。完成、注意和安頓是另外三種。摸頭保持安靜。").font(.footnote)
                             Toggle("24小時制", isOn: setting(\.use24Hour))
                             Toggle("顯示日期", isOn: setting(\.showDate))
                             Toggle("場景點綴", isOn: setting(\.ambienceEnabled))
@@ -86,7 +142,7 @@ import SwiftUI
                             Picker("讀時", selection: setting(\.faceMode)) { ForEach(PatrickFaceMode.allCases) { Text($0.title).tag($0) } }
                             if clockArtwork.manifest == nil { Text(clockArtwork.message).font(.footnote) }
                             PatrickSchedulePreferences(settings: Binding(get: { model.experience.settings }, set: { value in model.updateExperience { $0.settings = value } }))
-                            Text("手臂時計使用原味造型；動作時顯示所選衣服。運動是陪伴倒數；心情由你選。聲音只在App前景播放。").font(.footnote)
+                            Text("衣服預設跟著情境。手錶授權後會把運動寫進健康。聲音只在 App 前景播放，招呼只顯示文字。").font(.footnote)
                         }.navigationTitle("設定").toolbar { Button("完成") { showSettings = false } }
                     }
                 }
@@ -105,6 +161,7 @@ import SwiftUI
             model.setSoundPresentationActive(false)
             model.setAutomationPresentationActive(false)
             surpriseExpiresAt = nil; player.suspend(); feedback.stop()
+            PatrickSoundListener.shared.setForeground(false, enabled: false)
         }
         .onChange(of: scenePhase) { _, _ in configure(); if !active { feedback.stop() } }
         .onChange(of: showSettings) { _, _ in configure(); if !active { feedback.stop() } }
@@ -115,14 +172,21 @@ import SwiftUI
     private var actionSurface: some View {
         appearanceSurface
         .onChange(of: model.experience.settings) { _, _ in configure(); if !model.experience.settings.soundEnabled { feedback.stop() } }
-        .onChange(of: model.experience.settings.scene) { _, next in
+        .onChange(of: model.experience.settings.scene) { old, next in
             configure(); if next == .bath || next == .celebrate { player.playEvent(next.rawValue) }
+            if next == .sleeping, old != .sleeping { haptics.play(.goodnight, settings: model.experience.settings, foreground: active) }
+            if next == .awake, old == .sleeping { haptics.play(.wake, settings: model.experience.settings, foreground: active) }
         }
-        .onChange(of: model.calendarCelebrationSequence) { _, _ in player.playEvent("celebrate") }
+        .onChange(of: model.calendarCelebrationSequence) { _, _ in
+            player.playEvent("celebrate")
+            haptics.play(.celebrate, settings: model.experience.settings, foreground: active)
+        }
         .onChange(of: model.automationSequence) { _, _ in
             configure()
             if let event = model.takeAutomationForPlayback() { player.playEvent(event.clipKey) }
         }
+        .onChange(of: model.soundCue) { _, _ in configure() }
+        .onChange(of: model.experience.settings.soundTheaterEnabled) { _, _ in refreshSound() }
         .onChange(of: model.actionSequence) { _, _ in
             if let action = model.requestedCare {
                 player.playEvent(action.clipID)
@@ -136,10 +200,27 @@ import SwiftUI
         .task(id: active) {
             guard active else { return }
             while !Task.isCancelled {
+                model.refreshCompanionDay()
+                do { try await Task.sleep(for: .seconds(60)) } catch { return }
+            }
+        }
+        .task(id: active) {
+            guard active else { return }
+            while !Task.isCancelled {
                 configure()
-                model.refreshExperience(allowEffects: !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled)
+                model.refreshExperience(allowEffects: !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled, announceCompletion: true)
                 do { try await Task.sleep(for: .seconds(2)) } catch { return }
             }
+        }
+        .task(id: model.soundCueUntil) {
+            guard let until = model.soundCueUntil else { return }
+            let delay = until.timeIntervalSinceNow
+            if delay > 0 {
+                do { try await Task.sleep(for: .seconds(delay)) } catch { return }
+            }
+            guard !Task.isCancelled else { return }
+            model.clearExpiredSound()
+            configure()
         }
         .task(id: surpriseExpiresAt) {
             guard surpriseExpiresAt != nil else { return }
@@ -170,12 +251,17 @@ import SwiftUI
             surpriseExpiresAt = nil
             model.refreshExperience()
         }
+        refreshSound()
         player.eventClips = PatrickExperienceResources.eventClips(model.experience.settings, outfit: outfit, from: outfits)
         player.idleClips = outfit?.idleClips ?? []
         if restingID != outfit?.clipId { restingID = outfit?.clipId; _ = player.selectRestingClip(restingID) }
         player.update(PatrickAnimationContext(active: active, reduceMotion: reduceMotion,
             lowPower: ProcessInfo.processInfo.isLowPowerModeEnabled, sleeping: scene == "sleeping",
             charging: scene == "charging", focusing: scene == "focus", exercising: scene == "exercise", completedTimerID: model.completedActivityID))
+    }
+    private func refreshSound() {
+        model.clearExpiredSound()
+        PatrickSoundListener.shared.setForeground(active, enabled: model.experience.settings.soundTheaterOn)
     }
     private func setting<Value>(_ key: WritableKeyPath<PatrickExperienceSettings, Value>) -> Binding<Value> {
         Binding(get: { model.experience.settings[keyPath: key] }, set: { value in model.updateExperience { $0.settings[keyPath: key] = value } })

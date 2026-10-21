@@ -33,6 +33,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
     private var currentTheme: (() -> PatrickTheme)?
     private var onControlApplied: ((AppliedState) -> Void)?
     private var onOpenFace: (() -> Void)?
+    var onReachability: ((Bool) -> Void)?
 
     private static let processedIDsKey =
         "patrick.connectivity.processed-message-ids.v1"
@@ -124,7 +125,11 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
     }
 
     func observeBattery(foreground: Bool, at date: Date = .now) {
-        guard foreground else { return }
+        if !foreground {
+            guard statusSampler.sample(batteryLevel: nil, chargingState: .unknown, foreground: false, onWrist: false, at: date) != nil else { return }
+            publishLatestStatus()
+            return
+        }
         let device = WKInterfaceDevice.current()
         guard device.isBatteryMonitoringEnabled else { return }
         let state: PatrickWatchStatusObservation.ChargingState
@@ -136,7 +141,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
         @unknown default: state = .unknown
         }
         guard statusSampler.sample(batteryLevel: Double(device.batteryLevel), chargingState: state,
-                                   foreground: foreground, at: date) != nil else { return }
+                                   foreground: true, onWrist: true, at: date) != nil else { return }
         publishLatestStatus()
     }
 
@@ -460,11 +465,16 @@ extension PatrickWatchReceiver: WCSessionDelegate {
                 publishCurrentSnapshot()
             }
             publishLatestStatus()
+            onReachability?(session.isReachable)
         }
     }
 
     nonisolated func sessionReachabilityDidChange(_ session: WCSession) {
-        Task { @MainActor [weak self] in self?.publishLatestStatus() }
+        let reachable = session.isReachable
+        Task { @MainActor [weak self] in
+            self?.publishLatestStatus()
+            self?.onReachability?(reachable)
+        }
     }
 
     nonisolated func session(

@@ -2,11 +2,6 @@ import Foundation
 import AVFoundation
 import Combine
 import SwiftUI
-#if os(watchOS)
-import WatchKit
-#elseif os(iOS)
-import UIKit
-#endif
 
 enum PatrickExperienceResources {
     static func layouts(bundle: Bundle = .main) -> [PatrickFaceLayoutSpec] {
@@ -35,8 +30,9 @@ enum PatrickExperienceResources {
         return catalog
     }
     static func outfits(bundle: Bundle = .main) -> [PatrickOutfitCatalog.Outfit] { catalog(bundle: bundle)?.outfits ?? [] }
-    static func outfit(_ settings: PatrickExperienceSettings, scene: String, from outfits: [PatrickOutfitCatalog.Outfit]) -> PatrickOutfitCatalog.Outfit? {
+    static func outfit(_ settings: PatrickExperienceSettings, scene: String, from outfits: [PatrickOutfitCatalog.Outfit], soundOutfitID: String? = nil) -> PatrickOutfitCatalog.Outfit? {
         if settings.outfitID != "auto" { return outfits.first { $0.id == settings.outfitID } }
+        if let soundOutfitID, let value = outfits.first(where: { $0.id == soundOutfitID }) { return value }
         if let id = catalog()?.defaultSceneOutfits?[scene], let value = outfits.first(where: { $0.id == id }) { return value }
         return outfits.first { $0.scene == scene && $0.id != "auto" }
             ?? outfits.first { $0.scene == "awake" && $0.id != "auto" }
@@ -66,7 +62,28 @@ struct PatrickSchedulePreferences: View {
                 Picker("生日日期", selection: birthdayPart(month: false)) { ForEach(1...daysInMonth, id: \.self) { Text("\($0)日").tag($0) } }
             }
             Toggle("已收錄的節日", isOn: Binding(get: { settings.holidaysEnabled ?? true }, set: { settings.holidaysEnabled = $0 }))
-            Text("生日只存月日；節日依內建確切日期，每天最多一次，靜止時不補演。").font(.footnote)
+            Picker("睡前倒數提醒", selection: Binding(get: { settings.quietAlerts }, set: { settings.quietAlerts = $0 })) {
+                Text("靜音，鬧鐘除外").tag(PatrickQuietAlerts.silentExceptAlarms)
+                Text("照常出聲").tag(PatrickQuietAlerts.allowSound)
+                Text("不送出，鬧鐘除外").tag(PatrickQuietAlerts.hideExceptAlarms)
+            }
+            Text("預設在睡前時段或睡前情境保持安靜。會議、通勤、專注和運動中，倒數也不出聲。").font(.footnote)
+            Text("香港公眾假期（1823，2026–2027）不是工作日。生日只存月日。").font(.footnote)
+            TextField("派大星叫你", text: Binding(get: { settings.greetingDisplayName }, set: { settings.greetingName = $0 }))
+            Toggle("用語音叫名字", isOn: Binding(get: { settings.voiceGreetingOn }, set: { settings.voiceGreetingEnabled = $0 }))
+            Text("預設只顯示「派大星叫你 \(settings.greetingDisplayName)」，不朗讀。").font(.footnote)
+            Stepper("一天主動震動 \(settings.dailyHapticBudget) 次", value: Binding(get: { settings.dailyHapticBudget }, set: { settings.proactiveHapticBudget = $0 }), in: 0...24)
+            Toggle("表情跟著今天", isOn: Binding(get: { settings.moodFollowsDayOn }, set: { settings.moodFollowsDay = $0 }))
+            Toggle("平日早晨叫我", isOn: Binding(get: { settings.wakeAlarmOn }, set: { settings.wakeAlarmEnabled = $0 }))
+            Toggle("假日和周末不叫", isOn: Binding(get: { settings.skipsWakeOnRestDays }, set: { settings.skipWakeOnRestDays = $0 }))
+            Text("早晨鬧鐘預設關掉。香港公眾假期和周末不叫；你自己開始的午睡仍會響。手機鈴聲仍預設關掉。").font(.footnote).fixedSize(horizontal: false, vertical: true)
+            Toggle("起床時手機也響", isOn: Binding(get: { settings.phoneWakeFallback }, set: { settings.phoneWakeFallbackEnabled = $0 }))
+            Text("手錶戴著時由手錶叫醒。手機只在這項打開、而且手錶不在手上時才出聲。").font(.footnote).fixedSize(horizontal: false, vertical: true)
+            Toggle("前景聽一下周圍", isOn: Binding(get: { settings.soundTheaterOn }, set: { settings.soundTheaterEnabled = $0 ? true : nil }))
+            Text("只在 App 開著時聽幾秒，分辨下雨、煮東西或唱歌。沒有全天麥克風。關掉就不聽。").font(.footnote).fixedSize(horizontal: false, vertical: true)
+            TextField("家的緯度", text: coordinate(\.homeLatitude))
+            TextField("家的經度", text: coordinate(\.homeLongitude))
+            Text("回家後可以說「我回來了」。填了家的位置，也只在 App 開著時試著知道你到家，不會申請永遠定位。").font(.footnote).fixedSize(horizontal: false, vertical: true)
         }
     }
     private var birthday: [Int] { (settings.birthdayMMDD ?? "01-01").split(separator: "-").compactMap { Int($0) } }
@@ -78,6 +95,12 @@ struct PatrickSchedulePreferences: View {
         Binding(get: { isMonth ? month : day }, set: { value in
             let m = isMonth ? value : month, d = min(isMonth ? day : value, Self.days(isMonth ? value : month))
             settings.birthdayMMDD = String(format: "%02d-%02d", m, d)
+        })
+    }
+    private func coordinate(_ keyPath: WritableKeyPath<PatrickExperienceSettings, Double?>) -> Binding<String> {
+        Binding(get: { $settings.wrappedValue[keyPath: keyPath].map { String($0) } ?? "" }, set: { text in
+            let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+            $settings.wrappedValue[keyPath: keyPath] = trimmed.isEmpty ? nil : Double(trimmed)
         })
     }
     private func sleepTime(start: Bool) -> Binding<Date> {
@@ -99,13 +122,6 @@ final class PatrickFeedback: ObservableObject {
 
     func play(_ event: String, settings: PatrickExperienceSettings, active: Bool) {
         guard active else { return }
-        if settings.hapticsEnabled {
-            #if os(watchOS)
-            WKInterfaceDevice.current().play(event == "celebrate" ? .success : .click)
-            #elseif os(iOS)
-            UISelectionFeedbackGenerator().selectionChanged()
-            #endif
-        }
         guard settings.soundEnabled else { return }
         // Manifest mapping is optional; a missing cue is silent, never network audio.
         guard let url = PatrickExperienceResources.url("audio/manifest.json"),
@@ -235,7 +251,7 @@ struct PatrickLayoutPicker: View {
             ZStack(alignment: .topLeading) {
                 HStack(alignment: .firstTextBaseline, spacing: 7 * unit) {
                     Text(String(format: "%02d:%02d", settings.use24Hour ? hour : (hour % 12 == 0 ? 12 : hour % 12), parts.minute ?? 0))
-                        .font(.system(size: layout.timeFontSize * unit, weight: layout.id == "bold" ? .semibold : .medium, design: .rounded)).monospacedDigit()
+                        .font(.system(size: layout.timeFontSize * unit, weight: dimmed ? .light : (layout.id == "bold" ? .semibold : .medium), design: .rounded)).monospacedDigit()
                     if !settings.use24Hour { Text(hour < 12 ? "AM" : "PM").font(.system(size: 24 * unit)) }
                 }
                 .foregroundStyle(.white.opacity(dimmed ? 0.72 : 1))
@@ -284,5 +300,70 @@ private struct PatrickLayoutActivity: View {
             }.foregroundStyle(.secondary)
                 .overlay(alignment: .top) { Rectangle().fill(Color.pink.opacity(0.35)).frame(height: max(0.5, unit)).offset(y: -max(2, 8 * unit)) }
         }.allowsHitTesting(false)
+    }
+}
+
+/// A drawn sample beside the existing name. It does not replace the wardrobe art.
+struct PatrickStarPajamasSample: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var body: some View {
+        HStack(alignment: .center, spacing: 8) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("現有").font(.caption2).foregroundStyle(.secondary)
+                Text("星星抱枕睡衣").font(.caption2).lineLimit(2).minimumScaleFactor(0.7).fixedSize(horizontal: false, vertical: true)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            TimelineView(.animation(minimumInterval: 0.8, paused: reduceMotion)) { timeline in
+                let closed = !reduceMotion && Int(timeline.date.timeIntervalSinceReferenceDate / 0.8).isMultiple(of: 5)
+                sampleFace(eyesClosed: closed)
+            }
+            .frame(width: 72, height: 84)
+            .accessibilityHidden(true)
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("星星睡衣樣本，並排在現有名稱旁邊，正式素材沒有換")
+    }
+
+    private func sampleFace(eyesClosed: Bool) -> some View {
+        ZStack {
+            Capsule()
+                .fill(Color(red: 0.72, green: 0.62, blue: 0.9))
+                .frame(width: 28, height: 22)
+                .offset(y: -30)
+            Circle()
+                .fill(Color(red: 0.98, green: 0.76, blue: 0.84))
+                .frame(width: 54, height: 54)
+            StarShape()
+                .fill(Color(red: 1, green: 0.86, blue: 0.35))
+                .frame(width: 16, height: 16)
+                .offset(y: 10)
+            HStack(spacing: 14) {
+                eye(closed: eyesClosed)
+                eye(closed: eyesClosed)
+            }
+            .offset(y: -6)
+        }
+    }
+
+    private func eye(closed: Bool) -> some View {
+        Capsule()
+            .fill(Color(red: 0.25, green: 0.16, blue: 0.28))
+            .frame(width: 8, height: closed ? 2 : 8)
+    }
+}
+
+private struct StarShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let center = CGPoint(x: rect.midX, y: rect.midY)
+        let radius = min(rect.width, rect.height) / 2
+        for point in 0..<5 {
+            let angle = CGFloat(point) * .pi * 4 / 5 - .pi / 2
+            let next = CGPoint(x: center.x + cos(angle) * radius, y: center.y + sin(angle) * radius)
+            if point == 0 { path.move(to: next) } else { path.addLine(to: next) }
+        }
+        path.closeSubpath()
+        return path
     }
 }

@@ -11,6 +11,7 @@ struct PatrickCompanionApp: App {
                 .environmentObject(model)
                 .preferredColorScheme(.dark)
                 .onOpenURL { model.handle(url: $0) }
+                .task { PatrickAppShortcuts.updateAppShortcutParameters() }
                 .onChange(of: scenePhase) { _, phase in
                     if phase == .active {
                         model.becameActive()
