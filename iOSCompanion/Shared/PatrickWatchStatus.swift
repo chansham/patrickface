@@ -13,11 +13,14 @@ struct PatrickWatchStatusObservation: Codable, Equatable, Sendable {
     var observedAtMS: Double
     var batteryLevel: Double?
     var chargingState: ChargingState
+    /// Nil on observations saved before worn tracking. True includes wrist-down Always On.
+    var onWrist: Bool?
 
-    init(batteryLevel: Double?, chargingState: ChargingState, at date: Date = .now) {
+    init(batteryLevel: Double?, chargingState: ChargingState, onWrist: Bool? = nil, at date: Date = .now) {
         observedAtMS = date.timeIntervalSince1970 * 1000
         self.batteryLevel = batteryLevel.flatMap { $0.isFinite && (0...1).contains($0) ? $0 : nil }
         self.chargingState = chargingState
+        self.onWrist = onWrist
     }
 
     var observedAt: Date { Date(timeIntervalSince1970: observedAtMS / 1000) }
@@ -119,19 +122,31 @@ final class PatrickWatchStatusStore {
 struct PatrickWatchStatusSampler {
     private(set) var latest: PatrickWatchStatusObservation?
     mutating func sample(batteryLevel: Double?, chargingState: PatrickWatchStatusObservation.ChargingState,
-                         foreground: Bool, at date: Date = .now) -> PatrickWatchStatusObservation? {
-        guard foreground else { return nil }
-        let next = PatrickWatchStatusObservation(batteryLevel: batteryLevel, chargingState: chargingState, at: date)
+                         foreground: Bool, onWrist: Bool? = nil, at date: Date = .now) -> PatrickWatchStatusObservation? {
+        if !foreground {
+            guard onWrist == false, latest?.onWrist == true else { return nil }
+            let next = PatrickWatchStatusObservation(batteryLevel: latest?.batteryLevel, chargingState: latest?.chargingState ?? chargingState,
+                                                     onWrist: false, at: date)
+            latest = next
+            return next
+        }
+        let next = PatrickWatchStatusObservation(batteryLevel: batteryLevel, chargingState: chargingState,
+                                                 onWrist: onWrist ?? true, at: date)
         guard next.isValid else { return nil }
         if let previous = latest {
             let samePercent = previous.batteryLevel.map { Int(($0 * 100).rounded()) }
                 == next.batteryLevel.map { Int(($0 * 100).rounded()) }
             let elapsed = date.timeIntervalSince(previous.observedAt)
-            if samePercent && previous.chargingState == chargingState && elapsed >= 0 && elapsed < 60 { return nil }
+            if samePercent && previous.chargingState == chargingState && previous.onWrist == next.onWrist
+                && elapsed >= 0 && elapsed < 60 { return nil }
         }
         latest = next
         return next
     }
+}
+
+extension Notification.Name {
+    static let patrickWatchWornChanged = Notification.Name("com.chans.patrickface.watch-worn")
 }
 
 enum PatrickWatchStatusTransport {

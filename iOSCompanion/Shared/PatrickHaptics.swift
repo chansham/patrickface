@@ -11,22 +11,21 @@ import UIKit
 final class PatrickHaptics: ObservableObject {
     static let shared = PatrickHaptics()
 
-    @Published private(set) var decreaseTick = 0
     private(set) var readingHeartRate = false
     private var lastPlayedAt: Date?
-    private var lastFeedFullAt: Date?
     private var lastBattery: String?
 
     func setReadingHeartRate(_ reading: Bool) { readingHeartRate = reading }
 
+    @discardableResult
     func play(
         _ moment: PatrickHapticMoment,
         settings: PatrickExperienceSettings,
         foreground: Bool,
         inWorkout: Bool = false,
+        context: PatrickContextSnapshot = PatrickContextSnapshot(),
         at date: Date = .now
-    ) {
-        if moment == .feedFull, let lastFeedFullAt, date.timeIntervalSince(lastFeedFullAt) < 8 { return }
+    ) -> Bool {
         let quiet = settings.scene == .sleeping || settings.isSleepTime(date)
         guard PatrickHapticPolicy.allows(
             moment: moment,
@@ -36,11 +35,12 @@ final class PatrickHaptics: ObservableObject {
             readingHeartRate: readingHeartRate,
             quiet: quiet,
             now: date,
-            lastPlayedAt: lastPlayedAt
-        ) else { return }
+            lastPlayedAt: lastPlayedAt,
+            context: context
+        ) else { return false }
         lastPlayedAt = date
-        if moment == .feedFull { lastFeedFullAt = date }
         perform(moment)
+        return true
     }
 
     /// Plays only when charging becomes full. Opening the app already full is quiet.
@@ -56,27 +56,26 @@ final class PatrickHaptics: ObservableObject {
         let kind = PatrickHapticPolicy.kind(for: moment)
         #if os(watchOS)
         switch kind {
-        case .directionUp: WKInterfaceDevice.current().play(.directionUp)
+        case .click:
+            WKInterfaceDevice.current().play(.click)
+            Task { @MainActor in
+                try? await Task.sleep(for: .milliseconds(140))
+                WKInterfaceDevice.current().play(.click)
+                try? await Task.sleep(for: .milliseconds(140))
+                WKInterfaceDevice.current().play(.click)
+            }
         case .directionDown: WKInterfaceDevice.current().play(.directionDown)
-        case .retry: WKInterfaceDevice.current().play(.retry)
         case .success: WKInterfaceDevice.current().play(.success)
         case .notification: WKInterfaceDevice.current().play(.notification)
-        case .failure: WKInterfaceDevice.current().play(.failure)
-        case .decrease: decreaseTick &+= 1
         }
         #elseif os(iOS)
         switch kind {
-        case .success, .directionUp:
+        case .success:
             UINotificationFeedbackGenerator().notificationOccurred(.success)
-        case .failure:
-            UINotificationFeedbackGenerator().notificationOccurred(.error)
-        case .retry, .notification:
+        case .notification, .click:
             UINotificationFeedbackGenerator().notificationOccurred(.warning)
         case .directionDown:
             UIImpactFeedbackGenerator(style: .soft).impactOccurred()
-        case .decrease:
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-            decreaseTick &+= 1
         }
         #endif
     }

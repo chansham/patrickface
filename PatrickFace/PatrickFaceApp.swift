@@ -75,7 +75,9 @@ final class PatrickAppModel: ObservableObject {
         let activity = experience.activity
         let session = experience.breakSession
         let settings = experience.settings
-        Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: legacy, settings: settings) }
+        let worn = WKExtension.shared().applicationState == .active
+        let quiet = experience.contextSnapshot().suppressesProactive
+        Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: legacy, settings: settings, schedules: worn, contextQuiet: quiet) }
     }
 
     func toggleTheme() {
@@ -89,10 +91,34 @@ final class PatrickAppModel: ObservableObject {
     }
 
     func controlActivity(_ command: PatrickActivityControl) {
+        let wasExercise = experience.activity?.kind.isExercise == true
         let revision = experience.revision
         let result = experience.controlActivity(command)
+        if wasExercise, experience.activity?.status != .running {
+            Task { await PatrickWorkoutCompanion.shared.end() }
+        }
         if experience.revision != revision { persistExperience() }
         careNotice = result.message
+    }
+
+    private var lastFocusCheck: Date?
+    private func refreshFocusFilter() async {
+        if let lastFocusCheck, Date().timeIntervalSince(lastFocusCheck) < 60 { return }
+        lastFocusCheck = Date()
+        let focus = await PatrickFocusFilterIntent.refreshStoredFlag()
+        guard experience.settings.contextFocus != focus else { return }
+        experience.settings.contextFocus = focus
+        experience.changed()
+        persistExperience()
+    }
+
+    private func commitMind(_ raw: String) async {
+        guard experience.settings.pendingMindRaw == raw else { return }
+        let wrote = await PatrickMoodRecord.shared.write(raw: raw)
+        guard wrote, experience.settings.pendingMindRaw == raw else { return }
+        experience.settings.pendingMindRaw = nil
+        experience.changed()
+        persistExperience()
     }
 
     @discardableResult
@@ -101,8 +127,11 @@ final class PatrickAppModel: ObservableObject {
         let result = experience.requestActivityStart(kind, minutes: minutes)
         if experience.revision != revision { persistExperience() }
         careNotice = result.message
-        if case .started = result {
+        if case .started(let activity, _) = result {
             Task { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
+            if activity.kind.isExercise {
+                Task { await PatrickWorkoutCompanion.shared.begin(activity.kind) }
+            }
             return true
         }
         return false
@@ -124,10 +153,13 @@ final class PatrickAppModel: ObservableObject {
     }
 
     func performCare(_ action: PatrickCareAction, allowEffects: Bool = true) {
-        guard experience.perform(action) else { careNotice = "稍等一下，再\(action.title)"; return }
-        requestedAction = allowEffects ? action : nil
-        if allowEffects { activationSequence &+= 1 }
-        careNotice = action == .feed ? "吃了一口，飽足 \(Int(experience.care.satiety.rounded()))" : "\(action.title)，親密 \(experience.care.bond)"
+        guard experience.perform(action) else {
+            careNotice = action == .feed ? "餵食已經收起來了。" : "我在。"
+            return
+        }
+        requestedAction = allowEffects && action == .pet ? action : nil
+        if allowEffects && action != .feed { activationSequence &+= 1 }
+        careNotice = action == .rest ? "一起休息。" : "摸了摸。"
         persistExperience()
     }
 
@@ -172,11 +204,16 @@ final class PatrickAppModel: ObservableObject {
         if !allowEffects { completedActivityID = nil }
         let revision = experience.revision
         _ = experience.updateCare(at: date)
+        _ = experience.syncDisplayedMood(at: date)
+        Task { await self.refreshFocusFilter() }
         if observeCalendar, let celebration = experience.observeCalendar(PatrickExperienceResources.calendar(), at: date, allowCelebration: allowEffects) {
             careNotice = celebration; calendarCelebrationSequence &+= 1
         }
         if experience.revision != revision { persistExperience() }
         guard let id = experience.reconcile(at: date) else { return }
+        if experience.activity?.kind.isExercise == true {
+            Task { await PatrickWorkoutCompanion.shared.end() }
+        }
         completedActivityID = allowEffects ? id.uuidString : nil
         careNotice = "完成\(experience.activity?.kind.title ?? "陪伴計時")"
         persistExperience()
@@ -264,6 +301,9 @@ final class PatrickAppModel: ObservableObject {
         if experience != previousExperience {
             WidgetCenter.shared.reloadTimelines(ofKind: PatrickSharedStore.complicationKind)
             syncCountdownAlerts()
+            if let raw = experience.settings.pendingMindRaw {
+                Task { await self.commitMind(raw) }
+            }
         }
     }
 

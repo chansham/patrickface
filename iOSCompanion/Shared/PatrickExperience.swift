@@ -41,6 +41,24 @@ struct PatrickExperienceSettings: Codable, Equatable, Sendable {
     var sleepStartMinutes: Int?
     var sleepEndMinutes: Int?
     var holidaysEnabled: Bool?
+    /// Nil means Sham. Text only; voice stays off unless explicitly enabled.
+    var greetingName: String?
+    var voiceGreetingEnabled: Bool?
+    /// Nil keeps the default of six proactive haptics a day.
+    var proactiveHapticBudget: Int?
+    var proactiveHapticDay: String?
+    var proactiveHapticCount: Int?
+    /// Wake-up ringing on the iPhone is not built yet. Nil stays off.
+    var phoneWakeFallbackEnabled: Bool?
+    /// Nil follows the day. Stored negative moods remain in the archive.
+    var moodFollowsDay: Bool?
+    /// Phone-side signals. Nil means unknown, which does not suppress.
+    var contextMeeting: Bool?
+    var contextCommute: Bool?
+    var contextFocus: Bool?
+    var contextNap: Bool?
+    /// Set on the phone, consumed by the watch, which is the HealthKit writer.
+    var pendingMindRaw: String?
     /// Nil keeps the default: silent during the sleep window, alarms still sound.
     var quietAlertsRaw: String?
     var quietAlerts: PatrickQuietAlerts {
@@ -48,6 +66,14 @@ struct PatrickExperienceSettings: Codable, Equatable, Sendable {
         set { quietAlertsRaw = newValue == .silentExceptAlarms ? nil : newValue.rawValue }
     }
 
+    var greetingDisplayName: String {
+        let trimmed = greetingName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        return trimmed.isEmpty ? "Sham" : trimmed
+    }
+    var voiceGreetingOn: Bool { voiceGreetingEnabled ?? false }
+    var dailyHapticBudget: Int { min(24, max(0, proactiveHapticBudget ?? 6)) }
+    var phoneWakeFallback: Bool { phoneWakeFallbackEnabled ?? false }
+    var moodFollowsDayOn: Bool { moodFollowsDay ?? true }
     var sleepStart: Int { (0..<1440).contains(sleepStartMinutes ?? -1) ? sleepStartMinutes! : 1320 }
     var sleepEnd: Int { (0..<1440).contains(sleepEndMinutes ?? -1) ? sleepEndMinutes! : 360 }
     func isSleepTime(_ date: Date, calendar: Calendar = .current) -> Bool {
@@ -68,9 +94,10 @@ enum PatrickQuietAlerts: String, Codable, Sendable {
 enum PatrickCareAction: String, CaseIterable, Codable, Identifiable, Sendable {
     case pet, feed, rest
     var id: String { rawValue }
-    var title: String { switch self { case .pet: "摸摸"; case .feed: "餵一口"; case .rest: "陪牠休息" } }
+    var title: String { switch self { case .pet: "摸摸"; case .feed: "餵一口"; case .rest: "陪 Sham 休息" } }
     var clipID: String { self == .rest ? "yawn" : rawValue }
-    var cooldown: TimeInterval { self == .feed ? 3 : 2 }
+    /// Kept so older callers compile. Feeding and petting no longer refuse on a timer.
+    var cooldown: TimeInterval { 0 }
 }
 
 enum PatrickActivityKind: String, CaseIterable, Codable, Identifiable, Sendable {
@@ -140,7 +167,7 @@ enum PatrickActivityStartResult: Equatable, Sendable {
             return "還保存著「\(kind.title)」的進度。請先返回原活動，或明確放棄原活動，再開始新的計時。"
         case .started(let activity, let completedKind):
             let completion = completedKind.map { "原本的「\($0.title)」已完成。" } ?? ""
-            return completion + "已開始「\(activity.kind.title)」\(Self.durationText(activity.durationSeconds))。這是陪伴倒數，不會建立健身紀錄。"
+            return completion + "已開始「\(activity.kind.title)」\(Self.durationText(activity.durationSeconds))。手錶授權後會把散步、跑步、肌力和運動寫進健康。"
         case .preserved(let activity, let remaining):
             let detail = Self.durationText(remaining)
             if activity.status == .paused {
@@ -206,7 +233,7 @@ struct PatrickSurpriseState: Codable, Equatable, Sendable {
         "我有在認真，只是看不出來。",
         "休息也是一項重要工作。",
         "我沒發呆，我在等靈感。",
-        "點心還沒來，我先陪你。"
+        "我在。你忙你的就好。"
     ]
     var lastDiscoveredAtMS: Double
     var lineIndex: Int
@@ -269,20 +296,25 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
         return value.line
     }
 
+    /// Feeding is retired. Satiety, bond and old counters stay in storage and are not shown.
+    /// Petting still answers the tap, without a cooldown, a number, or a journal line.
     @discardableResult
     mutating func perform(_ action: PatrickCareAction, id: UUID = UUID(), at date: Date = .now) -> Bool {
         guard !processedActionIDs.contains(id) else { return false }
-        if let last = care.lastActionAtMS[action.rawValue], date.timeIntervalSince1970 - last / 1000 < action.cooldown { return false }
-        _ = updateCare(at: date)
-        care.lastActionAtMS[action.rawValue] = date.timeIntervalSince1970 * 1000
-        processedActionIDs = Array((processedActionIDs + [id]).suffix(100))
         switch action {
-        case .feed: care.satiety = min(100, care.satiety + 12); care.totalFeeds += 1; care.bond = min(100, care.bond + 2)
-        case .pet: care.totalPets += 1; care.bond = min(100, care.bond + 1)
-        case .rest: settings.scene = .sleeping
+        case .feed:
+            return false
+        case .pet:
+            processedActionIDs = Array((processedActionIDs + [id]).suffix(100))
+            changed(at: date)
+            return true
+        case .rest:
+            processedActionIDs = Array((processedActionIDs + [id]).suffix(100))
+            settings.scene = .sleeping
+            record("一起休息", at: date)
+            changed(at: date)
+            return true
         }
-        record(action.title, at: date); changed(at: date)
-        return true
     }
 
     mutating func start(_ kind: PatrickActivityKind, minutes: Int, at date: Date = .now) {
@@ -418,7 +450,6 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
     mutating func reconcile(at date: Date = .now) -> UUID? {
         guard var value = activity, value.status == .running, let end = value.endsAt, date >= end else { return nil }
         value.status = .completed; value.remainingSeconds = 0; activity = value
-        care.bond = min(100, care.bond + 1)
         record("完成\(value.kind.title)", at: date); changed(at: date)
         return value.id
     }
@@ -434,9 +465,14 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
         let day = String(format: "%04d-%02d-%02d", parts.year ?? 0, parts.month ?? 0, parts.day ?? 0)
         let mmdd = String(format: "%02d-%02d", parts.month ?? 0, parts.day ?? 0)
         var events: [(String, String)] = []
-        if settings.birthdayMMDD == mmdd { events.append(("birthday", "生日快樂")) }
+        let birthday = settings.birthdayMMDD == mmdd
+        if birthday { events.append(("birthday", "生日快樂")) }
         else if settings.holidaysEnabled ?? true,
                 let holiday = calendar?.annualHolidays?[mmdd] ?? calendar?.holidays[day] { events.append((holiday.id, holiday.name)) }
+        if !birthday, settings.holidaysEnabled ?? true, let name = PatrickHKHolidays.name(on: date),
+           !events.contains(where: { $0.1 == name }) {
+            events.append(("hk-public", name))
+        }
         var seen = calendarCelebrationKeys ?? []
         let fresh = events.filter { !seen.contains(day + ":" + $0.0) }
         guard !fresh.isEmpty else { return nil }
@@ -447,13 +483,73 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
         return allowCelebration ? text : nil
     }
 
-    /// Elapsed-time game decay, at most one write a minute; no background loop.
+    /// The decay clock is still stamped so old archives stay valid. Satiety no longer falls.
     @discardableResult mutating func updateCare(at date: Date = .now) -> Bool {
         let now = date.timeIntervalSince1970 * 1000
         guard let last = care.lastDecayAtMS else { care.lastDecayAtMS = now; changed(at: date); return true }
         guard now >= last + 60_000 else { return false }
-        care.satiety = min(100, max(0, care.satiety - (now - last) / 3_600_000 * 1.5))
         care.lastDecayAtMS = now; changed(at: date); return true
+    }
+
+    /// Writes the expression only when the day actually changes it.
+    @discardableResult
+    mutating func syncDisplayedMood(at date: Date = .now, calendar: Calendar = .current) -> Bool {
+        guard settings.moodFollowsDayOn else { return false }
+        let next = displayedMood(at: date, calendar: calendar)
+        guard settings.mood != next else { return false }
+        settings.mood = next
+        changed(at: date)
+        return true
+    }
+
+    func displayedMood(at date: Date = .now, calendar: Calendar = .current) -> PatrickMood {
+        guard settings.moodFollowsDayOn else {
+            return PatrickDayMood.displayable.contains(settings.mood) ? settings.mood : .calm
+        }
+        let hour = calendar.component(.hour, from: date)
+        let workingOut = activity?.status == .running && activity?.kind.isExercise == true
+        return PatrickDayMood.expression(PatrickDaySignals(
+            hour: hour,
+            sleeping: settings.scene == .sleeping || settings.isSleepTime(date, calendar: calendar),
+            napping: settings.contextNap == true || (activity?.status == .running && activity?.kind == .breathing),
+            workout: workingOut,
+            meeting: settings.contextMeeting == true,
+            focus: settings.contextFocus == true || settings.scene == .focus,
+            holiday: PatrickHKHolidays.name(on: date) != nil,
+            weekend: !PatrickHKHolidays.isWeekday(date)
+        ))
+    }
+
+    var lifeJournal: [PatrickJournalEntry] { journal.filter { !PatrickJournalFilter.hides($0.text) } }
+
+    func contextSnapshot(at date: Date = .now, calendar: Calendar = .current) -> PatrickContextSnapshot {
+        let day = PatrickContextSnapshot.dayKey(date, calendar: calendar)
+        let count = settings.proactiveHapticDay == day ? (settings.proactiveHapticCount ?? 0) : 0
+        let exercise = activity?.status == .running && activity?.kind.isExercise == true
+        return PatrickContextSnapshot(
+            sleeping: settings.scene == .sleeping || settings.isSleepTime(date, calendar: calendar),
+            napping: settings.contextNap == true || (activity?.status == .running && activity?.kind == .breathing),
+            focus: settings.contextFocus == true,
+            meeting: settings.contextMeeting == true,
+            commute: settings.contextCommute == true,
+            workout: exercise,
+            proactiveCount: count,
+            budget: settings.dailyHapticBudget
+        )
+    }
+
+    /// Counts one proactive reach-out. Completion haptics do not call this.
+    mutating func registerProactiveHaptic(at date: Date = .now, calendar: Calendar = .current) -> Bool {
+        let snapshot = contextSnapshot(at: date, calendar: calendar)
+        guard !snapshot.suppressesProactive else { return false }
+        let day = PatrickContextSnapshot.dayKey(date, calendar: calendar)
+        if settings.proactiveHapticDay != day {
+            settings.proactiveHapticDay = day
+            settings.proactiveHapticCount = 0
+        }
+        settings.proactiveHapticCount = (settings.proactiveHapticCount ?? 0) + 1
+        changed(at: date)
+        return true
     }
 
     static func load(from defaults: UserDefaults) -> Self {
@@ -503,4 +599,164 @@ struct PatrickOutfitCatalog: Decodable, Sendable {
     var defaultSceneOutfits: [String: String]?
     var defaultActionOutfits: [String: String]?
     var outfits: [Outfit]
+}
+
+/// One device owns a countdown alert. The watch wins only while it is paired
+/// and a fresh on-wrist heartbeat says it is being worn. There is no public
+/// worn API: a recent foreground observation, including wrist-down Always On,
+/// is the signal. If the watch crashes before it can cancel, the phone may
+/// also notify until that heartbeat goes stale (90 seconds).
+enum PatrickAlertDevice: String, Equatable, Sendable { case watch, phone }
+
+enum PatrickAlertOwner {
+    static let wornFreshness: TimeInterval = 90
+
+    static func choose(paired: Bool, worn: Bool) -> PatrickAlertDevice {
+        paired && worn ? .watch : .phone
+    }
+
+    static func isWorn(onWrist: Bool?, observedAt: Date?, at date: Date, paired: Bool) -> Bool {
+        guard paired, onWrist == true, let observedAt else { return false }
+        let age = date.timeIntervalSince(observedAt)
+        return age >= 0 && age <= wornFreshness
+    }
+
+    static func schedules(device: PatrickAlertDevice, owner: PatrickAlertDevice) -> Bool { device == owner }
+}
+
+/// Signals the gate can see without importing EventKit, CoreMotion or HealthKit.
+struct PatrickContextSnapshot: Equatable, Sendable {
+    var sleeping = false
+    var napping = false
+    var focus = false
+    var meeting = false
+    var commute = false
+    var workout = false
+    var proactiveCount = 0
+    var budget = 6
+
+    var suppressesProactive: Bool {
+        sleeping || napping || focus || meeting || commute || workout || proactiveCount >= budget
+    }
+
+    static func dayKey(_ date: Date, calendar: Calendar) -> String {
+        let parts = calendar.dateComponents([.year, .month, .day], from: date)
+        return String(format: "%04d-%02d-%02d", parts.year ?? 0, parts.month ?? 0, parts.day ?? 0)
+    }
+}
+
+struct PatrickDaySignals: Equatable, Sendable {
+    var hour: Int
+    var sleeping: Bool
+    var napping: Bool
+    var workout: Bool
+    var meeting: Bool
+    var focus: Bool
+    var holiday: Bool
+    var weekend: Bool
+}
+
+enum PatrickDayMood {
+    static let displayable: Set<PatrickMood> = [.calm, .happy, .serious]
+
+    /// Neutral or positive only. Sleep and naps stay calm; a workout is happy;
+    /// a meeting or focus is the serious face; holidays and weekends stay happy.
+    static func expression(_ signals: PatrickDaySignals) -> PatrickMood {
+        if signals.workout { return .happy }
+        if signals.sleeping || signals.napping { return .calm }
+        if signals.meeting || signals.focus { return .serious }
+        if signals.holiday || signals.weekend { return .happy }
+        if (9..<18).contains(signals.hour) { return .serious }
+        if (7..<22).contains(signals.hour) { return .happy }
+        return .calm
+    }
+}
+
+enum PatrickJournalFilter {
+    static func hides(_ text: String) -> Bool {
+        if text == "摸摸" || text == "餵一口" || text == "陪牠休息" { return true }
+        return ["餵", "飽足", "親密", "點心", "照顧"].contains { text.contains($0) }
+    }
+}
+
+enum PatrickAutomaticScene {
+    /// Manual selection wins. Automatic follows the moment: workout, charge,
+    /// sleep, focus or a meeting, otherwise awake. Outfits stay on "auto".
+    static func resolve(selection: PatrickExperienceScene, activitySceneID: String?, charging: Bool,
+                        sleeping: Bool, focus: Bool, workout: Bool, meeting: Bool) -> String {
+        if selection != .automatic { return selection.rawValue }
+        if let activitySceneID { return activitySceneID }
+        if workout { return "exercise" }
+        if charging { return "charging" }
+        if sleeping { return "sleeping" }
+        if focus || meeting { return "focus" }
+        return "awake"
+    }
+}
+
+/// Hong Kong general holidays for 2026–2027, copied from the 1823 JSON bundled
+/// at experience/hk-public-holidays.json (fetched 2026-10-21). The source omits
+/// ordinary Sundays; this table does not add them. A date is a workday only
+/// when it is a Hong Kong weekday and not in this table.
+enum PatrickHKHolidays {
+    static let source = "https://www.1823.gov.hk/common/ical/tc.json"
+    private static let days: [String: String] = [
+        "2026-01-01": "一月一日",
+        "2026-02-17": "農曆年初一",
+        "2026-02-18": "農曆年初二",
+        "2026-02-19": "農曆年初三",
+        "2026-04-03": "耶穌受難節",
+        "2026-04-04": "耶穌受難節翌日",
+        "2026-04-06": "清明節翌日",
+        "2026-04-07": "復活節星期一翌日",
+        "2026-05-01": "勞動節",
+        "2026-05-25": "佛誕翌日",
+        "2026-06-19": "端午節",
+        "2026-07-01": "香港特別行政區成立紀念日",
+        "2026-09-26": "中秋節翌日",
+        "2026-10-01": "國慶日",
+        "2026-10-19": "重陽節翌日",
+        "2026-12-25": "聖誕節",
+        "2026-12-26": "聖誕節後第一個周日",
+        "2027-01-01": "一月一日",
+        "2027-02-06": "農曆年初一",
+        "2027-02-08": "農曆年初三",
+        "2027-02-09": "農曆年初四",
+        "2027-03-26": "耶穌受難節",
+        "2027-03-27": "耶穌受難節翌日",
+        "2027-03-29": "復活節星期一",
+        "2027-04-05": "清明節",
+        "2027-05-01": "勞動節",
+        "2027-05-13": "佛誕",
+        "2027-06-09": "端午節",
+        "2027-07-01": "香港特別行政區成立紀念日",
+        "2027-09-16": "中秋節翌日",
+        "2027-10-01": "國慶日",
+        "2027-10-08": "重陽節",
+        "2027-12-25": "聖誕節",
+        "2027-12-27": "聖誕節後第一個周日"
+    ]
+
+    static var calendar: Calendar {
+        var value = Calendar(identifier: .gregorian)
+        value.timeZone = TimeZone(identifier: "Asia/Hong_Kong") ?? TimeZone(secondsFromGMT: 8 * 3600)!
+        return value
+    }
+
+    static func key(_ date: Date) -> String {
+        let parts = calendar.dateComponents([.year, .month, .day], from: date)
+        return String(format: "%04d-%02d-%02d", parts.year ?? 0, parts.month ?? 0, parts.day ?? 0)
+    }
+
+    static func name(on date: Date) -> String? { days[key(date)] }
+    static func name(on key: String) -> String? { days[key] }
+
+    static func isWeekday(_ date: Date) -> Bool {
+        let weekday = calendar.component(.weekday, from: date)
+        return weekday != 1 && weekday != 7
+    }
+
+    /// Workday-only behavior (the serious daytime face, and later alarms) skips
+    /// Hong Kong weekends and these general holidays.
+    static func isWorkday(_ date: Date) -> Bool { isWeekday(date) && name(on: date) == nil }
 }

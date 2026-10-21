@@ -66,8 +66,15 @@ struct PatrickSchedulePreferences: View {
                 Text("照常出聲").tag(PatrickQuietAlerts.allowSound)
                 Text("不送出，鬧鐘除外").tag(PatrickQuietAlerts.hideExceptAlarms)
             }
-            Text("預設在睡前時段或睡前情境保持安靜。鬧鐘仍會出聲。摸頭和翻看不會震動。").font(.footnote)
-            Text("生日只存月日；節日依內建確切日期，每天最多一次，靜止時不補演。").font(.footnote)
+            Text("預設在睡前時段或睡前情境保持安靜。會議、通勤、專注和運動中，倒數也不出聲。").font(.footnote)
+            Text("香港公眾假期（1823，2026–2027）不是工作日。生日只存月日。").font(.footnote)
+            TextField("派大星叫你", text: Binding(get: { settings.greetingDisplayName }, set: { settings.greetingName = $0 }))
+            Toggle("用語音叫名字", isOn: Binding(get: { settings.voiceGreetingOn }, set: { settings.voiceGreetingEnabled = $0 }))
+            Text("預設只顯示「派大星叫你 \(settings.greetingDisplayName)」，不朗讀。").font(.footnote)
+            Stepper("一天主動震動 \(settings.dailyHapticBudget) 次", value: Binding(get: { settings.dailyHapticBudget }, set: { settings.proactiveHapticBudget = $0 }), in: 0...24)
+            Toggle("表情跟著今天", isOn: Binding(get: { settings.moodFollowsDayOn }, set: { settings.moodFollowsDay = $0 }))
+            Toggle("起床時手機也響", isOn: Binding(get: { settings.phoneWakeFallback }, set: { settings.phoneWakeFallbackEnabled = $0 }))
+            Text("起床鈴聲還沒做，這項預設關閉。").font(.footnote)
         }
     }
     private var birthday: [Int] { (settings.birthdayMMDD ?? "01-01").split(separator: "-").compactMap { Int($0) } }

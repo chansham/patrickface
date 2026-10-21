@@ -35,6 +35,10 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>用來知道你現在是否在開會，開會時派大星不主動震動，倒數也不出聲。拒絕後就當作沒有會議。</string>
+	<key>NSMotionUsageDescription</key>
+	<string>用來知道你是否正在乘車。乘車時派大星不主動提醒。只在這支 App 開著時查看，拒絕後就當作沒有在通勤。</string>
 	<key>NSSupportsLiveActivities</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>

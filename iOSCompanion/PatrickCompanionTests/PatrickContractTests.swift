@@ -102,7 +102,7 @@ final class PatrickContractTests: XCTestCase {
         XCTAssertEqual(settled.activity?.status, .completed)
         XCTAssertEqual(settled.breakSession?.savedActivity.id, originalID)
         XCTAssertEqual(settled.breakSession?.savedActivity.remainingSeconds, 570)
-        XCTAssertEqual(settled.care.bond, 1)
+        XCTAssertEqual(settled.care.bond, 0)
         XCTAssertEqual(deliveries.count, 2, "The expired break must be persisted even when the requested new break is refused")
         _ = PatrickTimerControlIntentExecutor.control(.takeBreak,
             using: store, at: now.addingTimeInterval(1001), deliver: send)
@@ -111,7 +111,7 @@ final class PatrickContractTests: XCTestCase {
         XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.returnToActivity,
             using: store, at: now.addingTimeInterval(1002), deliver: send), .rest(.returned(.running, running: true)))
         XCTAssertEqual(store.loadExperience().activity?.endsAt, now.addingTimeInterval(1572))
-        XCTAssertEqual(store.loadExperience().care.bond, 1)
+        XCTAssertEqual(store.loadExperience().care.bond, 0)
     }
 
     @MainActor func testBreakIntentEmptyAndExpiredOriginalNeverCreatesAnUnattachedBreak() throws {
@@ -135,7 +135,7 @@ final class PatrickContractTests: XCTestCase {
         let expired = store.loadExperience()
         XCTAssertNil(expired.breakSession)
         XCTAssertEqual(expired.activity?.status, .completed)
-        XCTAssertEqual(expired.care.bond, 1)
+        XCTAssertEqual(expired.care.bond, 0)
         XCTAssertEqual(deliveries.count, 1)
         _ = PatrickTimerControlIntentExecutor.control(.takeBreak,
             using: store, at: now.addingTimeInterval(61), deliver: send)
@@ -182,7 +182,7 @@ final class PatrickContractTests: XCTestCase {
         XCTAssertEqual(reopened.activity?.status, .completed)
         XCTAssertEqual(reopened.breakSession?.savedActivity.remainingSeconds, 570)
         XCTAssertEqual(reopened.settings.scene, .sleeping)
-        XCTAssertEqual(reopened.care.bond, 1)
+        XCTAssertEqual(reopened.care.bond, 0)
         XCTAssertEqual(reopened.manageBreak(.returnToActivity, at: now.addingTimeInterval(1001)), .returned(.running, running: true))
         XCTAssertEqual(reopened.activity?.id, originalID)
         XCTAssertEqual(reopened.activity?.endsAt, now.addingTimeInterval(1571))
@@ -296,7 +296,7 @@ final class PatrickContractTests: XCTestCase {
         XCTAssertEqual(result, .started(activity: try XCTUnwrap(state.activity), completedKind: .walking))
         XCTAssertNotEqual(state.activity?.id, oldID)
         XCTAssertEqual(state.activity?.endsAt, now.addingTimeInterval(1560))
-        XCTAssertEqual(state.care.bond, 1)
+        XCTAssertEqual(state.care.bond, 0)
         XCTAssertEqual(state.revision, revision + 2)
         XCTAssertEqual(state.journal.map(\.text), ["開始散步陪伴", "完成散步陪伴", "開始專注"])
         XCTAssertTrue(result.message.contains("散步陪伴」已完成"))
@@ -515,7 +515,7 @@ final class PatrickContractTests: XCTestCase {
             let revision = state.revision
             XCTAssertEqual(state.controlActivity(command, at: now.addingTimeInterval(61)), .completed)
             XCTAssertEqual(state.revision, revision)
-            XCTAssertEqual(state.care.bond, 1)
+            XCTAssertEqual(state.care.bond, 0)
             XCTAssertEqual(state.journal.filter { $0.text == "完成跑步陪伴" }.count, 1)
             let presentation = PatrickTimerSnapshot.resolving(.inactive, experience: state, at: now.addingTimeInterval(61))
             XCTAssertEqual(presentation.status, .complete)

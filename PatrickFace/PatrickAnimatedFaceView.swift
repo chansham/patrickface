@@ -69,7 +69,7 @@ struct PatrickAnimatedFaceView: View {
                 .accessibilityLabel(aftercare.state.phase == .offered ? "休息 1 分鐘" : "摸摸派大星")
                 .modifier(PatrickPrimaryGesture(enabled: aftercare.state.phase != .offered))
                 if !["theater", "activity"].contains(PatrickFaceLayoutSpec.presentationID(model.experience.settings)) {
-                Text("\(model.experience.settings.mood.title) · \(player.isPlaying && surpriseExpiresAt == nil ? player.message : model.careNotice)")
+                Text("\(model.experience.displayedMood().title) · \(player.isPlaying && surpriseExpiresAt == nil ? player.message : model.careNotice)")
                     .font(.system(size: max(8, width * 0.04)))
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
@@ -133,10 +133,8 @@ struct PatrickAnimatedFaceView: View {
                 activityNotice = nil
             }
             .accessibilityAction(named: Text("摸摸派大星")) { model.performCare(.pet) }
-            .accessibilityAction(named: Text("餵一口")) { model.performCare(.feed) }
             .digitalCrownRotation($crownValue, from: -10000, through: 10000, by: 1, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: false)
             .onChange(of: crownValue) { old, new in applyCrown(from: old, to: new) }
-            .sensoryFeedback(.decrease, trigger: haptics.decreaseTick)
             #if DEBUG && targetEnvironment(simulator)
             .modifier(PatrickWatchGeometryProbe(geometry: geometry,
                 layoutID: PatrickFaceLayoutSpec.presentationID(model.experience.settings),
@@ -222,9 +220,6 @@ struct PatrickAnimatedFaceView: View {
                 haptics.play(.wake, settings: model.experience.settings, foreground: monitoring)
             }
         }
-        .onChange(of: model.experience.care.totalFeeds) { _, _ in
-            haptics.play(.feed, settings: model.experience.settings, foreground: monitoring)
-        }
         .onChange(of: model.automationSequence) { _, _ in
             refreshContext()
             if let event = model.takeAutomationForPlayback() { player.playEvent(event.clipKey) }
@@ -286,19 +281,18 @@ struct PatrickAnimatedFaceView: View {
     private var actionMenu: some View {
         NavigationStack {
             List {
-                Section("照顧") {
-                    Text("飽足 \(Int(model.experience.care.satiety.rounded())) · 親密 \(model.experience.care.bond)")
-                    ForEach(PatrickCareAction.allCases) { action in
-                        Button(action.title) { requestedCare = action; showingActions = false }
-                    }
+                Section("今天") {
+                    Text(model.experience.displayedMood().title)
+                    Text("派大星叫你 \(model.experience.settings.greetingDisplayName)").font(.footnote)
+                    Button("摸摸") { requestedCare = .pet; showingActions = false }
+                    Button("陪 Sham 休息") { requestedCare = .rest; showingActions = false }
                     Button("找個小驚喜") { requestedSurprise = true; showingActions = false }
                     Button("我起床了") { requestedWakeUp = true; showingActions = false }
-                    if let surprise = model.experience.surprise { Text(surprise.line).font(.footnote).foregroundStyle(.secondary) }
-                }
-                Section("心情、情境與衣服") {
-                    Picker("角色心情", selection: setting(\.mood)) {
-                        ForEach(PatrickMood.allCases) { Text($0.title).tag($0) }
+                    if let surprise = model.experience.surprise, !PatrickJournalFilter.hides(surprise.line) {
+                        Text(surprise.line).font(.footnote).foregroundStyle(.secondary)
                     }
+                }
+                Section("情境與衣服") {
                     Picker("情境", selection: setting(\.scene)) {
                         ForEach(PatrickExperienceScene.allCases) { Text($0.title).tag($0) }
                     }
@@ -306,7 +300,7 @@ struct PatrickAnimatedFaceView: View {
                         Text("跟隨情境").tag("auto")
                         ForEach(outfits.filter { $0.id != "auto" }) { Text($0.title).tag($0.id) }
                     }
-                    Text("心情由你選；運動與泡澡是陪伴場景。").font(.footnote).foregroundStyle(.secondary)
+                    Text("預設跟著今天自動換。手動選一項，就暫時蓋過自動。").font(.footnote).foregroundStyle(.secondary)
                 }
                 Section("陪伴計時") {
                     if let activity = model.experience.activity, activity.status == .running || activity.status == .paused {
@@ -340,7 +334,7 @@ struct PatrickAnimatedFaceView: View {
                         Button("保存進度，休息一下") { model.manageBreak(.begin(minutes: breakMinutes)) }
                     }
                     Text(model.careNotice).font(.footnote)
-                    Text("本機倒數，不記錄心率、距離或健身訓練。散步、跑步與肌力目前共用運動造型。").font(.footnote).foregroundStyle(.secondary)
+                    Text("散步、跑步、肌力和運動會在授權後寫進健康。沒有授權時仍只是陪伴倒數。").font(.footnote).foregroundStyle(.secondary)
                 }
                 .confirmationDialog("放棄保存的原活動？當前休息計時會保留。", isPresented: $confirmDiscardBreak, titleVisibility: .visible) {
                     Button("放棄原活動", role: .destructive) { model.manageBreak(.discardSaved) }
@@ -361,7 +355,7 @@ struct PatrickAnimatedFaceView: View {
                 Section("顯示與回應") {
                     Toggle("音效", isOn: setting(\.soundEnabled))
                     Toggle("觸覺", isOn: setting(\.hapticsEnabled))
-                    Text("只在餵食、倒數尾聲、完成、晚安、起床、充滿和錯誤時震動。摸頭、翻看、開始和暫停保持安靜。").font(.footnote)
+                    Text("主動找你用敲三下，一天預設 6 次。完成、注意和安頓是另外三種。摸頭和翻看保持安靜。").font(.footnote)
                     Toggle("24小時制", isOn: setting(\.use24Hour))
                     Toggle("顯示日期", isOn: setting(\.showDate))
                     Toggle("場景點綴", isOn: setting(\.ambienceEnabled))
@@ -372,10 +366,10 @@ struct PatrickAnimatedFaceView: View {
                 }
                 PatrickSchedulePreferences(settings: Binding(get: { model.experience.settings }, set: { value in model.updateExperience { $0.settings = value } }))
                 Section("Siri") {
-                    Text("可以說「派大星晚安」「開始休息」「餵派大星」或「看看心情」。手錶上的 App 名稱會出現在句子裡。").font(.footnote)
+                    Text("可以說「派大星晚安」「開始休息」「看看心情」或「記錄我的心情」。手錶上的 App 名稱會出現在句子裡。").font(.footnote)
                 }
-                Section("最近陪伴") {
-                    ForEach(model.experience.journal.suffix(10).reversed()) { entry in
+                Section("派大星寫的一天") {
+                    ForEach(model.experience.lifeJournal.suffix(10).reversed()) { entry in
                         Text("\(entry.at.formatted(date: .abbreviated, time: .shortened)) \(entry.text)").font(.footnote)
                     }
                 }
@@ -421,13 +415,18 @@ struct PatrickAnimatedFaceView: View {
     }
 
     private var resolvedScene: String {
-        let selection = model.experience.settings.scene
-        if selection != .automatic { return selection.rawValue }
-        if let activity = model.experience.activity, activity.status == .running { return activity.kind.sceneID }
+        let activity = model.experience.activity
+        let running = activity?.status == .running
         let device = WKInterfaceDevice.current()
-        if device.batteryState == .charging || device.batteryState == .full || model.previewState == .charging { return "charging" }
-        if model.experience.settings.isSleepTime(.now) || model.previewState == .sleeping { return "sleeping" }
-        return "awake"
+        return PatrickAutomaticScene.resolve(
+            selection: model.experience.settings.scene,
+            activitySceneID: running ? activity?.kind.sceneID : nil,
+            charging: device.batteryState == .charging || device.batteryState == .full || model.previewState == .charging,
+            sleeping: model.experience.settings.isSleepTime(.now) || model.previewState == .sleeping,
+            focus: model.experience.settings.contextFocus == true,
+            workout: running && activity?.kind.isExercise == true,
+            meeting: model.experience.settings.contextMeeting == true
+        )
     }
     private var currentOutfit: PatrickOutfitCatalog.Outfit? {
         PatrickExperienceResources.outfit(model.experience.settings, scene: resolvedScene, from: outfits)
@@ -470,12 +469,8 @@ struct PatrickAnimatedFaceView: View {
             haptics.play(.wake, settings: model.experience.settings, foreground: monitoring)
         }
         if let action = requestedCare {
-            let feeds = model.experience.care.totalFeeds
             requestedCare = nil
             model.performCare(action, allowEffects: !reduceMotion && !lowPower)
-            if action == .feed, model.experience.care.totalFeeds == feeds {
-                haptics.play(.feedFull, settings: model.experience.settings, foreground: monitoring)
-            }
         }
         if requestedSurprise {
             requestedSurprise = false; findSurprise()
@@ -608,7 +603,7 @@ struct PatrickAnimatedFaceView: View {
                             settings: model.experience.settings, foreground: monitoring, at: date)
         // Device readings only: preview charging and chosen scenes are never
         // reported to the phone as real battery observations.
-        PatrickWatchReceiver.shared.observeBattery(foreground: monitoring, at: date)
+        PatrickWatchReceiver.shared.observeBattery(foreground: scenePhase == .active, at: date)
         lowPower = ProcessInfo.processInfo.isLowPowerModeEnabled
         let allowsMotion = monitoring && !reduceMotion && !lowPower
         model.setAutomationPresentationActive(allowsMotion, at: date)

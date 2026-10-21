@@ -35,15 +35,16 @@ enum PatrickCountdownPlanner {
         settings: PatrickExperienceSettings,
         now: Date,
         calendar: Calendar = .current,
-        isAlarm: Bool = false
+        isAlarm: Bool = false,
+        contextQuiet: Bool = false
     ) -> [PatrickCountdownNotice] {
         if let activity {
             return notice(for: activity, breakSession: breakSession, settings: settings, now: now,
-                          calendar: calendar, isAlarm: isAlarm).map { [$0] } ?? []
+                          calendar: calendar, isAlarm: isAlarm, contextQuiet: contextQuiet).map { [$0] } ?? []
         }
         guard let legacy, legacy.running, let end = legacy.endsAt, end > now else { return [] }
         return [make(id: legacy.id, fireAt: end, kind: nil, restBreak: false, settings: settings,
-                      calendar: calendar, isAlarm: isAlarm, fallback: "計時結束了。我還在這裡。")]
+                      calendar: calendar, isAlarm: isAlarm, contextQuiet: contextQuiet, fallback: "計時結束了。我還在這裡。")]
     }
 
     private static func notice(
@@ -52,12 +53,13 @@ enum PatrickCountdownPlanner {
         settings: PatrickExperienceSettings,
         now: Date,
         calendar: Calendar,
-        isAlarm: Bool
+        isAlarm: Bool,
+        contextQuiet: Bool
     ) -> PatrickCountdownNotice? {
         guard activity.status == .running, let end = activity.endsAt, end > now else { return nil }
         let restBreak = breakSession?.breakActivityID == activity.id
         return make(id: activity.id, fireAt: end, kind: activity.kind, restBreak: restBreak, settings: settings,
-                    calendar: calendar, isAlarm: isAlarm, fallback: "陪伴時間到了。我還在。")
+                    calendar: calendar, isAlarm: isAlarm, contextQuiet: contextQuiet, fallback: "陪伴時間到了。我還在。")
     }
 
     private static func make(
@@ -68,12 +70,14 @@ enum PatrickCountdownPlanner {
         settings: PatrickExperienceSettings,
         calendar: Calendar,
         isAlarm: Bool,
+        contextQuiet: Bool,
         fallback: String
     ) -> PatrickCountdownNotice {
-        let quiet = settings.quietAlerts != .allowSound
-            && (settings.scene == .sleeping || settings.isSleepTime(fireAt, calendar: calendar))
+        let sleepQuiet = settings.scene == .sleeping || settings.isSleepTime(fireAt, calendar: calendar)
+        let quiet = settings.quietAlerts != .allowSound && sleepQuiet
         let hidden = quiet && settings.quietAlerts == .hideExceptAlarms && !isAlarm
-        let sound = isAlarm || !quiet
+        // A meeting, commute, focus, nap or workout keeps the banner and drops the sound.
+        let sound = isAlarm || (!quiet && !contextQuiet)
         let body: String
         if isAlarm {
             body = "時間到了。我輕輕叫你。"

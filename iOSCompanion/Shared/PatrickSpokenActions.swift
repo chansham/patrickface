@@ -24,17 +24,24 @@ enum PatrickSpokenActions {
     }
 
     static func feed(_ state: inout PatrickExperienceState, at date: Date = .now) -> String {
-        guard state.perform(.feed, at: date) else { return "牠還飽著，稍等一下再餵。" }
-        return "吃了一口。飽足 \(Int(state.care.satiety.rounded()))。"
+        _ = state.perform(.feed, at: date)
+        return "餵食已經收起來了。我還是會陪你。"
     }
 
     static func pet(_ state: inout PatrickExperienceState, at date: Date = .now) -> String {
-        guard state.perform(.pet, at: date) else { return "牠剛剛被摸過，稍等一下。" }
-        return "摸了摸。親密 \(state.care.bond)。"
+        _ = state.perform(.pet, at: date)
+        return "摸了摸。"
     }
 
-    static func moodLine(_ state: PatrickExperienceState) -> String {
-        let satiety = Int(state.care.satiety.rounded())
-        return "我現在是\(state.settings.mood.title)。飽足 \(satiety)，親密 \(state.care.bond)。"
+    static func moodLine(_ state: PatrickExperienceState, at date: Date = .now) -> String {
+        let mood = state.displayedMood(at: date)
+        return "我現在是\(mood.title)。表情跟著你的一天，不是你選的。"
+    }
+
+    static func recordMind(_ state: inout PatrickExperienceState, raw: String, title: String, at date: Date = .now) -> String {
+        state.settings.pendingMindRaw = raw
+        state.record("心情：\(title)", at: date)
+        state.changed(at: date)
+        return "記下了：\(title)。手錶會在可以寫入健康時放進心境。"
     }
 }

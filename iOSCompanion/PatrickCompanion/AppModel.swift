@@ -86,6 +86,11 @@ final class AppModel: ObservableObject {
             .sink { [weak self] _ in
                 Task { @MainActor in self?.becameActive() }
             }.store(in: &cancellables)
+        NotificationCenter.default.publisher(for: .patrickWatchWornChanged)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                Task { @MainActor in self?.syncCountdownAlerts() }
+            }.store(in: &cancellables)
 
         NotificationCenter.default.publisher(for: .patrickAutomationReceived)
             .receive(on: RunLoop.main)
@@ -125,10 +130,11 @@ final class AppModel: ObservableObject {
     }
 
     func performCare(_ action: PatrickCareAction) {
-        guard experience.perform(action) else { notice = "稍等一下，再\(action.title)"; return }
-        requestedCare = action; actionSequence &+= 1
-        saveExperience(action: action)
-        notice = "\(action.title) · 飽足 \(Int(experience.care.satiety.rounded())) · 親密 \(experience.care.bond)"
+        guard action != .feed else { notice = "餵食已經收起來了。"; return }
+        guard experience.perform(action) else { notice = "我在。"; return }
+        if action == .pet { requestedCare = action; actionSequence &+= 1 }
+        saveExperience(action: action == .pet ? action : nil)
+        notice = action == .rest ? "一起休息。" : "摸了摸。"
     }
 
     func setAutomationPresentationActive(_ active: Bool) {
@@ -171,6 +177,7 @@ final class AppModel: ObservableObject {
         if !allowEffects { completedActivityID = nil }
         let revision = experience.revision
         _ = experience.updateCare()
+        _ = experience.syncDisplayedMood()
         if observeCalendar, let celebration = experience.observeCalendar(PatrickExperienceResources.calendar(), allowCelebration: allowEffects) {
             notice = celebration; calendarCelebrationSequence &+= 1
         }
@@ -242,9 +249,11 @@ final class AppModel: ObservableObject {
             ? PatrickCountdownLegacy(id: timer.id, running: true, endsAt: timer.endsAt, title: timer.title)
             : nil
         let activity = experience.activity
-        let session = experience.breakSession
+        let breakSession = experience.breakSession
         let settings = experience.settings
-        Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: legacy, settings: settings) }
+        let schedules = watchSync.alertOwner() == .phone
+        let quiet = experience.contextSnapshot().suppressesProactive
+        Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: breakSession, legacy: legacy, settings: settings, schedules: schedules, contextQuiet: quiet) }
     }
 
     func setVisualState(_ state: PatrickVisualState) {
@@ -436,6 +445,20 @@ final class AppModel: ObservableObject {
             }
         }
         syncCountdownAlerts()
+        PatrickContextSensors.shared.refresh { [weak self] meeting, commute, focus in
+            self?.noteContext(meeting: meeting, commute: commute, focus: focus)
+        }
+    }
+
+    private func noteContext(meeting: Bool, commute: Bool, focus: Bool) {
+        guard experience.settings.contextMeeting != meeting
+                || experience.settings.contextCommute != commute
+                || experience.settings.contextFocus != focus else { return }
+        experience.settings.contextMeeting = meeting
+        experience.settings.contextCommute = commute
+        experience.settings.contextFocus = focus
+        experience.changed()
+        saveExperience()
     }
 
     private func synchronizeActivityPresentation() {

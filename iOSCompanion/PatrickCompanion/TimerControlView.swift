@@ -47,7 +47,7 @@ struct TimerControlView: View {
                 if let activity = model.experience.activity, activity.status == .completed { Text("已完成\(activity.kind.title)") }
                 Section("對 Siri 說") {
                     SiriTipView(intent: PatrickGoodNightIntent())
-                    Text("也可以說：派大星晚安、派大星開始休息、餵派大星、看看派大星心情。").font(.footnote)
+                    Text("也可以說：派大星晚安、派大星開始休息、看看派大星心情、記錄我的心情。").font(.footnote)
                 }
                 Section("手機與手錶") {
                     Text("設定會送到配對手錶；離線時等待傳送。倒數依結束時間計算，重開App仍可恢復。").font(.footnote)

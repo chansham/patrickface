@@ -61,6 +61,8 @@
 		B11C0DE00000000000000015 /* PatrickSpokenActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE00000000000000005 /* PatrickSpokenActions.swift */; };
 		B11C0DE00000000000000017 /* PatrickHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE00000000000000007 /* PatrickHaptics.swift */; };
 		B11C0DE00000000000000019 /* PatrickCountdownNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE00000000000000009 /* PatrickCountdownNotifier.swift */; };
+		B11C0DE00000000000000022 /* PatrickFocusFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE00000000000000021 /* PatrickFocusFilter.swift */; };
+		B11C0DE00000000000000024 /* PatrickContextSensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE00000000000000023 /* PatrickContextSensors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +180,8 @@
 		B11C0DE00000000000000005 /* PatrickSpokenActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickSpokenActions.swift"; sourceTree = SOURCE_ROOT; };
 		B11C0DE00000000000000007 /* PatrickHaptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickHaptics.swift"; sourceTree = SOURCE_ROOT; };
 		B11C0DE00000000000000009 /* PatrickCountdownNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickCountdownNotifier.swift"; sourceTree = SOURCE_ROOT; };
+		B11C0DE00000000000000021 /* PatrickFocusFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickFocusFilter.swift"; sourceTree = SOURCE_ROOT; };
+		B11C0DE00000000000000023 /* PatrickContextSensors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickContextSensors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +239,7 @@
 				C00000000000000000000115 /* DiagnosticsView.swift */,
 				C00000000000000000000116 /* WatchSyncService.swift */,
 				C00000000000000000000117 /* PatrickIntents.swift */,
+				B11C0DE00000000000000023 /* PatrickContextSensors.swift */,
 				C00000000000000000000118 /* ThemeSoundPlayer.swift */,
 				C00000000000000000000119 /* PatrickActivityController.swift */,
 				C0000000000000000000011A /* Info.plist */,
@@ -276,6 +281,7 @@
 				B11C0DE00000000000000005 /* PatrickSpokenActions.swift */,
 				B11C0DE00000000000000007 /* PatrickHaptics.swift */,
 				B11C0DE00000000000000009 /* PatrickCountdownNotifier.swift */,
+				B11C0DE00000000000000021 /* PatrickFocusFilter.swift */,
 				C00000000000000000000100 /* PatrickModels.swift */,
 				C00000000000000000000101 /* PatrickMessageSchema.swift */,
 				C00000000000000000000102 /* PatrickDeepLink.swift */,
@@ -529,6 +535,8 @@
 				B11C0DE00000000000000015 /* PatrickSpokenActions.swift in Sources */,
 				B11C0DE00000000000000017 /* PatrickHaptics.swift in Sources */,
 				B11C0DE00000000000000019 /* PatrickCountdownNotifier.swift in Sources */,
+				B11C0DE00000000000000022 /* PatrickFocusFilter.swift in Sources */,
+				B11C0DE00000000000000024 /* PatrickContextSensors.swift in Sources */,
 				C00000000000000000000200 /* PatrickModels.swift in Sources */,
 				C00000000000000000000201 /* PatrickMessageSchema.swift in Sources */,
 				C00000000000000000000202 /* PatrickDeepLink.swift in Sources */,

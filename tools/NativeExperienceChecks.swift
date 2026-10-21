@@ -18,11 +18,14 @@ import Foundation
         check(!PatrickImmediateSoundPolicy.isFresh(now, now: now.addingTimeInterval(3.001)), "Queued sound must expire instead of replaying on foreground")
         check(!PatrickImmediateSoundPolicy.isFresh(now.addingTimeInterval(1), now: now), "Future sound timestamp cannot bypass freshness")
         let actionID = UUID()
-        check(state.perform(.feed, id: actionID, at: now), "First feed")
-        check(!state.perform(.feed, id: actionID, at: now.addingTimeInterval(5)), "Retransmission rewarded twice")
-        check(!state.perform(.feed, at: now.addingTimeInterval(2.999)), "Feed cooldown")
-        check(state.perform(.feed, at: now.addingTimeInterval(3)), "Feed boundary")
-        check(state.care.totalFeeds == 2 && state.care.satiety == 84 && state.care.bond == 4, "Care values")
+        let beforeCare = state
+        check(!state.perform(.feed, id: actionID, at: now), "Feeding is retired")
+        check(state == beforeCare, "Retired feeding writes nothing")
+        check(!state.perform(.feed, id: actionID, at: now.addingTimeInterval(5)), "Retired feeding stays a no-op")
+        check(!state.perform(.feed, at: now.addingTimeInterval(3)), "There is no feed boundary reward")
+        check(state.care.totalFeeds == 0 && state.care.satiety == 60 && state.care.bond == 0, "Stored care stays hidden and unchanged")
+        check(state.perform(.pet, at: now) && state.care.bond == 0 && state.care.totalPets == 0 && state.journal.isEmpty, "Petting has no score and no journal")
+        check(state.perform(.rest, at: now) && state.settings.scene == .sleeping && state.journal.last?.text == "一起休息", "Rest keeps Sham company")
         state.start(.focus, seconds: 120, at: now)
         state.pause(at: now.addingTimeInterval(30))
         check(state.activity?.status == .paused && state.activity?.endsAt == nil, "Pause clears deadline")
@@ -31,23 +34,23 @@ import Foundation
         check(state.activity?.endsAt == now.addingTimeInterval(590), "Resume creates fresh deadline")
         let id = state.reconcile(at: now.addingTimeInterval(591))
         check(id != nil && state.activity?.status == .completed, "Foreground catchup completes state")
-        check(state.care.bond == 5, "One completion reward")
-        check(state.reconcile(at: now.addingTimeInterval(1000)) == nil && state.care.bond == 5, "Completion cannot repeat")
+        check(state.care.bond == 0, "Completion does not raise intimacy")
+        check(state.reconcile(at: now.addingTimeInterval(1000)) == nil && state.care.bond == 0, "Completion cannot repeat")
         var quietCompletion = PatrickExperienceState()
         quietCompletion.start(.focus, seconds: 60, at: now)
         check(quietCompletion.reconcile(at: now.addingTimeInterval(90)) != nil, "Quiet expiry still settles its state")
-        check(quietCompletion.activity?.status == .completed && quietCompletion.care.bond == 1,
-              "Quiet expiry retains exactly one completion reward")
-        check(quietCompletion.reconcile(at: now.addingTimeInterval(91)) == nil && quietCompletion.care.bond == 1,
-              "Foreground observation cannot reward a quiet completion twice")
+        check(quietCompletion.activity?.status == .completed && quietCompletion.care.bond == 0,
+              "Quiet expiry does not raise intimacy")
+        check(quietCompletion.reconcile(at: now.addingTimeInterval(91)) == nil && quietCompletion.care.bond == 0,
+              "Foreground observation cannot complete a quiet timer twice")
         state.start(.exercise, seconds: 30, at: now)
         state.cancel(at: now.addingTimeInterval(10))
         check(state.activity?.status == .cancelled, "Cancel has its own terminal state")
-        check(state.reconcile(at: now.addingTimeInterval(40)) == nil && state.care.bond == 5, "Cancellation is not completion")
+        check(state.reconcile(at: now.addingTimeInterval(40)) == nil && state.care.bond == 0, "Cancellation is not completion")
         state.start(.breathing, seconds: 1, at: now)
         check(state.activity?.durationSeconds == 10, "Minimum seconds")
         state.pause(at: now.addingTimeInterval(10))
-        check(state.activity?.status == .completed && state.care.bond == 6, "Pause exactly at deadline reconciles once")
+        check(state.activity?.status == .completed && state.care.bond == 0, "Pause exactly at deadline reconciles once")
         state.start(.exercise, seconds: .infinity, at: now)
         check(state.activity?.durationSeconds == 60, "Nonfinite duration rejected safely")
         state.start(.exercise, minutes: Int.max, at: now)
@@ -82,9 +85,9 @@ import Foundation
         for command in PatrickActivityControl.allCases {
             var elapsed = PatrickExperienceState(); elapsed.start(.running, seconds: 60, at: now)
             check(elapsed.controlActivity(command, at: now.addingTimeInterval(60)) == .completed, "Deadline wins over a late control")
-            check(elapsed.activity?.status == .completed && elapsed.care.bond == 1, "Exactly one completion reward at deadline")
+            check(elapsed.activity?.status == .completed && elapsed.care.bond == 0, "Exactly one completion reward at deadline")
             let revision = elapsed.revision
-            check(elapsed.controlActivity(command, at: now.addingTimeInterval(61)) == .completed && elapsed.revision == revision && elapsed.care.bond == 1, "Repeated late controls are idempotent")
+            check(elapsed.controlActivity(command, at: now.addingTimeInterval(61)) == .completed && elapsed.revision == revision && elapsed.care.bond == 0, "Repeated late controls are idempotent")
         }
         var emptyRoutine = PatrickExperienceState()
         let firstStart = emptyRoutine.requestActivityStart(.focus, minutes: 5, at: now)
@@ -123,7 +126,7 @@ import Foundation
         check(deadlineRoutine == beforeDeadline, "An activity remains protected immediately before its deadline")
         let replacement = deadlineRoutine.requestActivityStart(.focus, minutes: 5, at: now.addingTimeInterval(60))
         check(replacement == .started(activity: deadlineRoutine.activity!, completedKind: .running), "Deadline is settled before a new requested timer starts")
-        check(deadlineRoutine.care.bond == 1 && deadlineRoutine.revision == beforeDeadline.revision + 2,
+        check(deadlineRoutine.care.bond == 0 && deadlineRoutine.revision == beforeDeadline.revision + 2,
               "Late start has one completion and one start transition")
         check(deadlineRoutine.journal.map(\.text) == ["開始跑步陪伴", "完成跑步陪伴", "開始專注"],
               "Late start neither cancels nor loses the completed activity record")
@@ -155,7 +158,7 @@ import Foundation
         _ = resting.reconcile(at: now.addingTimeInterval(1000))
         check(resting.activity?.status == .completed && resting.breakSession?.savedActivity.remainingSeconds == 570,
               "A break completed in the background never restarts or consumes the original")
-        check(resting.care.bond == 1, "Completed break settles its usual reward once")
+        check(resting.care.bond == 0, "Completed break settles its usual reward once")
         check(resting.manageBreak(.returnToActivity, at: now.addingTimeInterval(1000)) == .returned(.focus, running: true), "Explicit return resumes a formerly running activity")
         check(resting.activity?.id == originalBreakID && resting.activity?.endsAt == now.addingTimeInterval(1570) && resting.breakSession == nil,
               "Return restores identity and frozen remaining time with a new deadline")
@@ -172,7 +175,7 @@ import Foundation
               "A originally paused task stays paused on explicit return")
         var boundary = PatrickExperienceState(); boundary.start(.walking, seconds: 60, at: now)
         check(boundary.manageBreak(.begin(minutes: 1), at: now.addingTimeInterval(60)) == .noActiveActivity
-              && boundary.breakSession == nil && boundary.care.bond == 1, "Deadline wins over starting a break")
+              && boundary.breakSession == nil && boundary.care.bond == 0, "Deadline wins over starting a break")
         var abandoned = PatrickExperienceState(); abandoned.start(.running, seconds: 300, at: now)
         _ = abandoned.manageBreak(.begin(minutes: 1), at: now.addingTimeInterval(10))
         let breakID = abandoned.activity?.id
@@ -190,13 +193,13 @@ import Foundation
         var decay = PatrickExperienceState()
         check(decay.updateCare(at: now), "Initialize decay clock")
         check(!decay.updateCare(at: now.addingTimeInterval(59)), "No per-frame writes")
-        check(decay.updateCare(at: now.addingTimeInterval(3600)) && decay.care.satiety == 58.5, "One hour is minus 1.5 satiety")
+        check(decay.updateCare(at: now.addingTimeInterval(3600)) && decay.care.satiety == 60, "An hour no longer lowers satiety")
         _ = decay.updateCare(at: now.addingTimeInterval(3600 * 1000))
-        check(decay.care.satiety == 0, "Long absence clamps at zero")
+        check(decay.care.satiety == 60, "A long absence keeps the stored satiety")
         var offlineFeed = PatrickExperienceState(); offlineFeed.care.satiety = 95
         _ = offlineFeed.updateCare(at: now)
         _ = offlineFeed.perform(.feed, at: now.addingTimeInterval(3600))
-        check(offlineFeed.care.satiety == 100, "Decay must precede feed saturation after an offline shortcut")
+        check(offlineFeed.care.satiety == 95 && offlineFeed.care.totalFeeds == 0, "A retired feed does not spend or refill satiety")
         var surprise = PatrickExperienceState(); surprise.settings.outfitID = "chef"
         let firstLine = surprise.findSurprise(at: now)
         check(firstLine == PatrickSurpriseState.lines[0] && surprise.journal.count == 1, "First surprise records one personal line")
@@ -266,6 +269,31 @@ import Foundation
             holidayState.calendarCelebrationKeys = nil; holidayState.settings.birthdayMMDD = "12-25"
             check(holidayState.observeCalendar(calendarData, at: christmas, allowCelebration: true, localCalendar: calendar) == "生日快樂", "Birthday wins over holiday")
         }
+        var hidden = PatrickExperienceState()
+        hidden.record("餵一口", at: now)
+        hidden.record("飽足 80", at: now)
+        hidden.record("完成專注", at: now)
+        check(hidden.journal.count == 3 && hidden.lifeJournal.map(\.text) == ["完成專注"], "Old chore lines stay stored and leave the day")
+        check(!PatrickSurpriseState.lines.contains { $0.contains("點心") }, "Surprise lines do not ask for a snack")
+        var defaults = PatrickExperienceSettings()
+        check(defaults.greetingDisplayName == "Sham" && defaults.voiceGreetingOn == false, "Greeting is Sham and text only")
+        check(defaults.dailyHapticBudget == 6 && defaults.phoneWakeFallback == false && defaults.moodFollowsDayOn, "Budget, wake fallback and mood defaults")
+        let labour = PatrickHKHolidays.calendar.date(from: DateComponents(year: 2026, month: 5, day: 1, hour: 10))!
+        let ordinary = PatrickHKHolidays.calendar.date(from: DateComponents(year: 2026, month: 5, day: 4, hour: 10))!
+        check(PatrickHKHolidays.name(on: labour) == "勞動節" && !PatrickHKHolidays.isWorkday(labour), "1 May 2026 is the official holiday")
+        check(PatrickHKHolidays.isWorkday(ordinary), "4 May 2026 is an ordinary workday")
+        check(PatrickHKHolidays.name(on: "2027-02-07") == nil && PatrickHKHolidays.name(on: "2027-02-09") == "農曆年初四", "2027 lunar new year follows the 1823 omissions")
+        let holidayFace = PatrickDayMood.expression(PatrickDaySignals(hour: 11, sleeping: false, napping: false, workout: false, meeting: false, focus: false, holiday: true, weekend: false))
+        let workFace = PatrickDayMood.expression(PatrickDaySignals(hour: 11, sleeping: false, napping: false, workout: false, meeting: false, focus: false, holiday: false, weekend: false))
+        check(holidayFace == .happy && workFace == .serious, "A holiday stays happy and a workday morning stays serious")
+        check(PatrickDayMood.expression(PatrickDaySignals(hour: 15, sleeping: false, napping: false, workout: false, meeting: true, focus: false, holiday: true, weekend: false)) == .serious, "A meeting still uses the serious face")
+        check(!PatrickDayMood.displayable.contains(.grumpy) && !PatrickDayMood.displayable.contains(.low), "Negative stored moods are not display faces")
+        var storedMood = PatrickExperienceState()
+        storedMood.settings.mood = .grumpy
+        storedMood.settings.moodFollowsDay = false
+        check(storedMood.displayedMood(at: ordinary) == .calm, "A stored negative mood is shown as calm")
+        check(PatrickAutomaticScene.resolve(selection: .automatic, activitySceneID: nil, charging: true, sleeping: false, focus: false, workout: false, meeting: false) == "charging", "Charging picks the charging scene")
+        check(PatrickAutomaticScene.resolve(selection: .bath, activitySceneID: nil, charging: true, sleeping: false, focus: false, workout: true, meeting: true) == "bath", "A manual scene still overrides context")
         print("PASS: \(count) native experience checks (Foundation only).")
     }
 }

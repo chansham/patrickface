@@ -100,11 +100,24 @@ struct PatrickStartRestIntent: AppIntent {
 
 struct PatrickFeedIntent: AppIntent {
     static var title: LocalizedStringResource = "餵派大星"
-    static var description = IntentDescription("餵派大星一口。剛餵過會稍等，不會連續加飽足。")
+    static var description = IntentDescription("餵食已經收起來了。舊的飽足還在存檔裡，不再增加。")
     static var openAppWhenRun = false
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let text = await MainActor.run { PatrickSpokenIntentBridge.feed() }
+        return .result(dialog: "\(text)")
+    }
+}
+
+struct PatrickRecordMindIntent: AppIntent {
+    static var title: LocalizedStringResource = "記錄我的心情"
+    static var description = IntentDescription("把你的心情留給手錶寫進健康的心境。這支手機沒有健康寫入權限。")
+    static var openAppWhenRun = false
+    @Parameter(title: "心情", default: .neutral) var mood: PatrickMindChoice
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let choice = mood
+        let text = await MainActor.run { PatrickSpokenIntentBridge.recordMind(raw: choice.rawValue, title: choice.title) }
         if #available(iOS 18.0, *) { _ = try? await donate() }
         return .result(dialog: "\(text)")
     }
@@ -124,7 +137,7 @@ struct PatrickPetIntent: AppIntent {
 
 struct PatrickCheckMoodIntent: AppIntent {
     static var title: LocalizedStringResource = "看看派大星心情"
-    static var description = IntentDescription("看看派大星現在的心情、飽足和親密。心情是你選的，不是從健康資料推測。")
+    static var description = IntentDescription("看看派大星跟著今天的表情。不讀飽足或親密。")
     static var openAppWhenRun = false
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
@@ -144,10 +157,6 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
             "\(.applicationName)開始休息",
             "\(.applicationName)开始休息"
         ], shortTitle: "開始休息", systemImageName: "pause.circle")
-        AppShortcut(intent: PatrickFeedIntent(), phrases: [
-            "餵\(.applicationName)",
-            "給\(.applicationName)吃一口"
-        ], shortTitle: "餵一口", systemImageName: "fork.knife")
         AppShortcut(intent: PatrickPetIntent(), phrases: [
             "摸摸\(.applicationName)"
         ], shortTitle: "摸摸", systemImageName: "hand.tap.fill")
@@ -155,7 +164,9 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
             "看看\(.applicationName)心情",
             "\(.applicationName)心情怎麼樣"
         ], shortTitle: "看看心情", systemImageName: "face.smiling")
-        AppShortcut(intent: PatrickMoodIntent(), phrases: ["設定\(.applicationName)心情"], shortTitle: "角色心情", systemImageName: "face.smiling")
+        AppShortcut(intent: PatrickRecordMindIntent(), phrases: [
+            "用\(.applicationName)記錄我的心情"
+        ], shortTitle: "記錄我的心情", systemImageName: "heart.text.square")
         AppShortcut(intent: PatrickTimerIntent(), phrases: ["開始\(.applicationName)陪伴計時"], shortTitle: "陪伴計時", systemImageName: "timer")
         AppShortcut(intent: PatrickTimerControlIntent(), phrases: ["控制\(.applicationName)陪伴計時"], shortTitle: "控制陪伴計時", systemImageName: "timer")
         AppShortcut(intent: PatrickAutomationIntent(), phrases: ["向\(.applicationName)回報起床"], shortTitle: "起床與鬧鐘回報", systemImageName: "sun.max.fill")
@@ -178,6 +189,9 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
     static func rest(minutes: Int) -> Outcome { mutate { PatrickSpokenActions.startRest(&$0, minutes: minutes) } }
     static func feed() -> String { mutate { PatrickSpokenActions.feed(&$0) }.text }
     static func pet() -> String { mutate { PatrickSpokenActions.pet(&$0) }.text }
+    static func recordMind(raw: String, title: String) -> String {
+        mutate { PatrickSpokenActions.recordMind(&$0, raw: raw, title: title) }.text
+    }
 
     private static func mutate(_ mutation: (inout PatrickExperienceState) -> String) -> Outcome {
         var state = PatrickSharedStore.shared.loadExperience()
@@ -304,7 +318,7 @@ struct PatrickLifestyleIntent: AppIntent {
 enum PatrickCareChoice: String, AppEnum {
     case pet, feed, rest
     static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "照顧")
-    static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [.pet: "摸摸", .feed: "餵一口", .rest: "陪牠休息"]
+    static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [.pet: "摸摸", .feed: "餵一口", .rest: "陪 Sham 休息"]
 }
 enum PatrickSceneChoice: String, AppEnum {
     case auto, awake, sleeping, charging, exercise, focus, bath, celebrate
@@ -332,11 +346,14 @@ enum PatrickActivityControlChoice: String, AppEnum, Sendable {
 }
 struct PatrickCareIntent: AppIntent {
     static var title: LocalizedStringResource = "照顧派大星"
-    static var description = IntentDescription("記錄一次照顧，並傳給已配對的手錶；延遲抵達不補播動作。")
+    static var description = IntentDescription("照顧家務已經收起來。摸摸和一起休息還在；餵食不再改變任何數值。")
     @Parameter(title: "動作") var action: PatrickCareChoice
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        let result = await PatrickExperienceIntentExecutor.care(PatrickCareAction(rawValue: action.rawValue)!)
-        return .result(dialog: result ? "已記下這次照顧。" : "牠剛剛收到照顧，稍等一下。")
+        if action == .feed { return .result(dialog: "餵食已經收起來了。我還是會陪你。") }
+        let care = PatrickCareAction(rawValue: action.rawValue)!
+        let result = await PatrickExperienceIntentExecutor.care(care)
+        let line = care == .rest ? "一起休息。" : "摸了摸。"
+        return .result(dialog: result ? "\(line)" : "我在。")
     }
 }
 struct PatrickSceneIntent: AppIntent {
@@ -352,8 +369,8 @@ struct PatrickMoodIntent: AppIntent {
     static var title: LocalizedStringResource = "設定派大星心情"
     @Parameter(title: "心情") var mood: PatrickMoodChoice
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        await PatrickExperienceIntentExecutor.change { $0.settings.mood = PatrickMood(rawValue: mood.rawValue)! }
-        return .result(dialog: "已設定角色心情。")
+        _ = mood
+        return .result(dialog: "派大星會跟著你的一天自己調整表情。要記下你的心情，請說記錄我的心情。")
     }
 }
 struct PatrickTimerIntent: AppIntent {
@@ -478,7 +495,9 @@ func patrickSyncCountdownAlerts(from state: PatrickExperienceState) {
     let session = state.breakSession
     let settings = state.settings
     Task { @MainActor in
-        await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: nil, settings: settings)
+        let schedules = WatchSyncService.shared.alertOwner() == .phone
+        let quiet = state.contextSnapshot().suppressesProactive
+        await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: nil, settings: settings, schedules: schedules, contextQuiet: quiet)
     }
 }
 

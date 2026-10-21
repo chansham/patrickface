@@ -76,19 +76,19 @@ import Foundation
                                                     settings: fresh.settings, now: noon, calendar: calendar)
         check(both.count == 1 && both[0].identifier == PatrickCountdownPlanner.identifier(for: fresh.activity!.id),
               "The experience countdown wins over a legacy timer")
-        check(PatrickHapticPolicy.kind(for: .feed) == .directionUp, "Feed rises")
-        check(PatrickHapticPolicy.kind(for: .feedFull) == .retry, "Full or cooldown retries")
-        check(PatrickHapticPolicy.kind(for: .timerClosing) == .decrease, "Last seconds decrease once")
+        check(PatrickHapticPolicy.distinctKinds.count == 4, "Only four haptic patterns")
+        check(PatrickHapticPolicy.kind(for: .knock) == .click, "A proactive knock is three clicks")
+        check(PatrickHapticPolicy.kind(for: .timerClosing) == .notification, "Last seconds use attention")
         check(PatrickHapticPolicy.kind(for: .timerDone) == .success, "Timer done succeeds")
         check(PatrickHapticPolicy.kind(for: .restDone) == .notification, "Rest end notifies")
-        check(PatrickHapticPolicy.kind(for: .wake) == .directionUp, "Wake rises")
+        check(PatrickHapticPolicy.kind(for: .wake) == .directionDown, "Wake settles")
         check(PatrickHapticPolicy.kind(for: .goodnight) == .directionDown, "Goodnight settles down")
         check(PatrickHapticPolicy.kind(for: .chargingFull) == .success, "Full charge succeeds")
         check(PatrickHapticPolicy.kind(for: .celebrate) == .success, "Celebration succeeds")
-        check(PatrickHapticPolicy.kind(for: .failure) == .failure, "Errors fail")
-        check(PatrickHapticMoment.allCases.count == 10 && !PatrickHapticMoment.allCases.map(\.rawValue).contains("pet"),
+        check(PatrickHapticPolicy.kind(for: .failure) == .notification, "Errors use attention")
+        check(PatrickHapticMoment.allCases.count == 9 && !PatrickHapticMoment.allCases.map(\.rawValue).contains("pet"),
               "Petting and browsing are not haptic moments")
-        let moment = PatrickHapticMoment.feed
+        let moment = PatrickHapticMoment.timerDone
         check(PatrickHapticPolicy.allows(moment: moment, enabled: true, foreground: true, inWorkout: false,
                                           readingHeartRate: false, quiet: false, now: noon, lastPlayedAt: nil), "Foreground feed can play")
         check(!PatrickHapticPolicy.allows(moment: moment, enabled: false, foreground: true, inWorkout: false,
@@ -123,10 +123,26 @@ import Foundation
         _ = PatrickSpokenActions.startRest(&spoken, minutes: 5, at: noon.addingTimeInterval(25))
         check(spoken == savedRest, "Spoken rest does not extend a break")
         var hungry = PatrickExperienceState()
-        check(PatrickSpokenActions.feed(&hungry, at: noon).contains("吃了一口"), "Spoken feed succeeds")
-        check(PatrickSpokenActions.feed(&hungry, at: noon.addingTimeInterval(1)).contains("稍等"), "Spoken feed respects cooldown")
+        check(PatrickSpokenActions.feed(&hungry, at: noon).contains("收起來") && hungry.care.totalFeeds == 0, "Spoken feed is retired")
+        check(!PatrickSpokenActions.pet(&hungry, at: noon).contains("親密"), "Petting does not recite intimacy")
         hungry.settings.mood = .happy
-        check(PatrickSpokenActions.moodLine(hungry).contains("開心"), "Mood line reads the chosen mood")
+        hungry.settings.moodFollowsDay = false
+        check(PatrickSpokenActions.moodLine(hungry, at: noon).contains("開心") && !PatrickSpokenActions.moodLine(hungry, at: noon).contains("飽足"), "Mood line does not recite care numbers")
+        check(PatrickAlertOwner.choose(paired: true, worn: true) == .watch, "A worn paired watch owns the alert")
+        check(PatrickAlertOwner.choose(paired: true, worn: false) == .phone, "An unworn watch leaves the alert on the phone")
+        check(PatrickAlertOwner.choose(paired: false, worn: true) == .phone, "An unpaired watch cannot own the alert")
+        check(PatrickAlertOwner.isWorn(onWrist: true, observedAt: noon.addingTimeInterval(-90), at: noon, paired: true), "A 90 second heartbeat still counts as worn")
+        check(!PatrickAlertOwner.isWorn(onWrist: true, observedAt: noon.addingTimeInterval(-91), at: noon, paired: true), "A stale heartbeat is not worn")
+        check(!PatrickAlertOwner.isWorn(onWrist: nil, observedAt: noon, at: noon, paired: true), "An old observation without a wrist flag is not worn")
+        var meeting = PatrickContextSnapshot(meeting: true)
+        check(meeting.suppressesProactive, "A meeting closes the proactive gate")
+        check(!PatrickHapticPolicy.allows(moment: .knock, enabled: true, foreground: true, inWorkout: false, readingHeartRate: false, quiet: false, now: noon, lastPlayedAt: nil, context: meeting), "A knock waits out a meeting")
+        check(PatrickHapticPolicy.allows(moment: .timerDone, enabled: true, foreground: true, inWorkout: false, readingHeartRate: false, quiet: false, now: noon, lastPlayedAt: nil, context: meeting), "A countdown the person started can still complete")
+        var budgeted = PatrickExperienceState()
+        for _ in 0..<6 { check(budgeted.registerProactiveHaptic(at: noon, calendar: calendar), "Budget allows six knocks") }
+        check(!budgeted.registerProactiveHaptic(at: noon, calendar: calendar), "The seventh knock waits until tomorrow")
+        let quietMeeting = PatrickCountdownPlanner.notices(activity: fresh.activity, breakSession: nil, legacy: nil, settings: fresh.settings, now: noon, calendar: calendar, contextQuiet: true)
+        check(quietMeeting.count == 1 && !quietMeeting[0].playsSound, "Context quiet keeps the banner and drops the sound")
         var nudged = PatrickExperienceState()
         nudged.start(.focus, seconds: 120, at: noon)
         let nudgedRevision = nudged.revision

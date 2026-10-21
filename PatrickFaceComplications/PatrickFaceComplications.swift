@@ -88,7 +88,7 @@ private struct PatrickComplicationView: View {
             } else if family == .accessoryCircular {
                 VStack(spacing: 1) {
                     Image(systemName: "star.fill").widgetAccentable()
-                    Text("\(entry.experience.care.bond)").font(.caption2)
+                    Text(entry.experience.displayedMood(at: entry.date).title).font(.caption2)
                 }
             } else {
                 VStack(alignment: .leading, spacing: 2) {
@@ -96,7 +96,7 @@ private struct PatrickComplicationView: View {
                     Text("派大星 · \(entry.experience.settings.mood.title)").font(.caption).widgetAccentable()
                     if let activity = entry.experience.activity, activity.status == .running, let end = activity.endsAt, end > entry.date {
                         Text(timerInterval: activity.startedAt...end, countsDown: true).monospacedDigit().font(.caption)
-                    } else { Text("飽足 \(Int(entry.experience.care.satiety.rounded())) · 親密 \(entry.experience.care.bond)").font(.caption2) }
+                    } else { Text(entry.experience.displayedMood(at: entry.date).title).font(.caption2) }
                 }
             }
         }.widgetURL(entry.deepLinkURL).containerBackground(for: .widget) { Color.black }

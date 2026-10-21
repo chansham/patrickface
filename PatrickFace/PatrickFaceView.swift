@@ -146,7 +146,7 @@ struct PatrickFaceView: View {
                             Text(scene.title).tag(scene)
                         }
                     }
-                    Text("依時間：22:00–05:30 休息。其他情境由你選擇；運動陪伴不會記錄運動或心率。")
+                    Text("情境預設自動。運動陪伴在手錶授權後會寫入健康；沒有授權時仍只是陪伴倒數。")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
@@ -154,7 +154,6 @@ struct PatrickFaceView: View {
                     Button("打個招呼") {
                         guard interactionsEnabled, !lowPower else { return }
                         lastGesture = .now
-                        WKInterfaceDevice.current().play(.start)
                         showingPetControls = false
                     }
                     .disabled(lowPower)

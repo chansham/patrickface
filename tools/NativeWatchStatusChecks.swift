@@ -100,6 +100,12 @@ import Foundation
                              at: now.addingTimeInterval(61)) != nil, "Unplug is immediately observable")
         check(sampler.sample(batteryLevel: 0.76, chargingState: .unplugged, foreground: true,
                              at: now.addingTimeInterval(62)) != nil, "Changed battery percentage is immediately observable")
+        let worn = sampler.sample(batteryLevel: 0.76, chargingState: .unplugged, foreground: true, onWrist: true, at: now.addingTimeInterval(130))
+        check(worn?.onWrist == true, "A foreground sample is on the wrist, including later Always On")
+        let off = sampler.sample(batteryLevel: nil, chargingState: .unknown, foreground: false, onWrist: false, at: now.addingTimeInterval(131))
+        check(off?.onWrist == false, "Leaving the foreground reports one off-wrist sample")
+        check(sampler.sample(batteryLevel: nil, chargingState: .unknown, foreground: false, onWrist: false, at: now.addingTimeInterval(132)) == nil,
+              "Off-wrist is reported once")
         check(sampler.sample(batteryLevel: -1, chargingState: .unknown, foreground: true,
                              at: now.addingTimeInterval(63))?.batteryLevel == nil, "Unknown new sample must not reuse stale charge")
         let statusData = try observation.encoded(), envelopeData = Data([7, 8, 9])

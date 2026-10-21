@@ -25,18 +25,19 @@ final class PatrickCountdownNotifier {
         breakSession: PatrickBreakSession?,
         legacy: PatrickCountdownLegacy?,
         settings: PatrickExperienceSettings,
+        schedules: Bool,
+        contextQuiet: Bool = false,
         now: Date = .now
     ) async {
-        let desired = PatrickCountdownPlanner.pending(
-            PatrickCountdownPlanner.notices(
-                activity: activity,
-                breakSession: breakSession,
-                legacy: legacy,
-                settings: settings,
-                now: now
-            ),
-            now: now
-        )
+        let planned = schedules ? PatrickCountdownPlanner.notices(
+            activity: activity,
+            breakSession: breakSession,
+            legacy: legacy,
+            settings: settings,
+            now: now,
+            contextQuiet: contextQuiet
+        ) : []
+        let desired = PatrickCountdownPlanner.pending(planned, now: now)
         let pending = await center.pendingNotificationRequests()
         let known = Set(pending.map(\.identifier)).filter { $0.hasPrefix(PatrickCountdownPlanner.prefix) }
         let keep = Set(desired.map(\.identifier))

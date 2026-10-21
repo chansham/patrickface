@@ -1,5 +1,6 @@
 import AppIntents
 import Foundation
+import WatchKit
 
 extension Notification.Name {
     static let patrickWatchSpokenIntent = Notification.Name("com.chans.patrickface.watch-spoken-intent")
@@ -35,11 +36,24 @@ struct PatrickWatchStartRestIntent: AppIntent {
 
 struct PatrickWatchFeedIntent: AppIntent {
     static var title: LocalizedStringResource = "餵派大星"
-    static var description = IntentDescription("餵派大星一口。剛餵過會稍等，不會連續加飽足。")
+    static var description = IntentDescription("餵食已經收起來了。舊的飽足還在存檔裡，不再增加。")
     static var openAppWhenRun = false
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let text = await PatrickWatchSpokenPerformer.apply { PatrickSpokenActions.feed(&$0) }.text
+        return .result(dialog: "\(text)")
+    }
+}
+
+struct PatrickWatchRecordMindIntent: AppIntent {
+    static var title: LocalizedStringResource = "記錄我的心情"
+    static var description = IntentDescription("把你的心情寫進健康的心境。派大星的表情仍然只跟著今天，不跟著這筆記。")
+    static var openAppWhenRun = false
+    @Parameter(title: "心情", default: .neutral) var mood: PatrickMindChoice
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let choice = mood
+        let text = await PatrickWatchSpokenPerformer.apply { PatrickSpokenActions.recordMind(&$0, raw: choice.rawValue, title: choice.title) }.text
         if #available(watchOS 11.0, *) { _ = try? await donate() }
         return .result(dialog: "\(text)")
     }
@@ -59,7 +73,7 @@ struct PatrickWatchPetIntent: AppIntent {
 
 struct PatrickWatchMoodIntent: AppIntent {
     static var title: LocalizedStringResource = "看看派大星心情"
-    static var description = IntentDescription("看看派大星現在的心情、飽足和親密。心情是你選的，不是從健康資料推測。")
+    static var description = IntentDescription("看看派大星跟著今天的表情。不讀飽足或親密。")
     static var openAppWhenRun = false
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
@@ -81,10 +95,9 @@ struct PatrickWatchShortcuts: AppShortcutsProvider {
             "\(.applicationName)開始休息",
             "\(.applicationName)开始休息"
         ], shortTitle: "開始休息", systemImageName: "pause.circle")
-        AppShortcut(intent: PatrickWatchFeedIntent(), phrases: [
-            "餵\(.applicationName)",
-            "給\(.applicationName)吃一口"
-        ], shortTitle: "餵一口", systemImageName: "fork.knife")
+        AppShortcut(intent: PatrickWatchRecordMindIntent(), phrases: [
+            "用\(.applicationName)記錄我的心情"
+        ], shortTitle: "記錄我的心情", systemImageName: "heart.text.square")
         AppShortcut(intent: PatrickWatchPetIntent(), phrases: [
             "摸摸\(.applicationName)"
         ], shortTitle: "摸摸", systemImageName: "hand.tap.fill")
@@ -114,7 +127,9 @@ struct PatrickWatchShortcuts: AppShortcutsProvider {
             let activity = state.activity
             let session = state.breakSession
             let settings = state.settings
-            Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: nil, settings: settings) }
+            let worn = WKExtension.shared().applicationState == .active
+            let quiet = state.contextSnapshot().suppressesProactive
+            Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: nil, settings: settings, schedules: worn, contextQuiet: quiet) }
         }
         return Outcome(text: text, armedCountdown: armed)
     }
