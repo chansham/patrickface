@@ -95,9 +95,9 @@ struct PatrickSchedulePreferences: View {
         })
     }
     private func coordinate(_ keyPath: WritableKeyPath<PatrickExperienceSettings, Double?>) -> Binding<String> {
-        Binding(get: { settings.wrappedValue[keyPath: keyPath].map { String($0) } ?? "" }, set: { text in
+        Binding(get: { $settings.wrappedValue[keyPath: keyPath].map { String($0) } ?? "" }, set: { text in
             let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-            settings.wrappedValue[keyPath: keyPath] = trimmed.isEmpty ? nil : Double(trimmed)
+            $settings.wrappedValue[keyPath: keyPath] = trimmed.isEmpty ? nil : Double(trimmed)
         })
     }
     private func sleepTime(start: Bool) -> Binding<Date> {
