@@ -36,9 +36,11 @@ enum PatrickHealthTrendAggregation {
                        now: Date, calendar: Calendar = .current) -> [PatrickHealthTrendSourceGroup] {
         guard let history = historyWindow(at: now, calendar: calendar) else { return [] }
         let byID = Dictionary(grouping: samples, by: \.id)
+        // Compare other copies with the first. A lone NaN is not equal to itself,
+        // and that must not look like two records fighting over one UUID.
         let conflicts = Set(byID.values.filter { group in
             guard let first = group.first else { return false }
-            return group.contains { $0 != first }
+            return group.dropFirst().contains { $0 != first }
         }.flatMap { $0.compactMap(\.sourceKey) })
         // Filtering a future/unfinished interval is intentional. Malformed in-scope records are
         // different: their source becomes unavailable so an old record cannot silently replace them.
@@ -54,7 +56,7 @@ enum PatrickHealthTrendAggregation {
         // Include each conflicting record's source, even if the first duplicate used another device.
         let conflictRecords = byID.values.filter { group in
             guard let first = group.first else { return false }
-            return group.contains { $0 != first }
+            return group.dropFirst().contains { $0 != first }
         }.flatMap { $0 }.filter { !$0.manuallyEntered }
         let known = Dictionary(grouping: (scoped + conflictRecords).filter { $0.sourceKey?.isEmpty == false }, by: { $0.sourceKey! })
         var result = known.map { key, records in
