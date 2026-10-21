@@ -10,6 +10,7 @@ final class PatrickNFCReader: NSObject, NFCNDEFReaderSessionDelegate {
     var onPhrase: ((PatrickButlerPhrase) -> Void)?
     var onUnavailable: (() -> Void)?
     private var session: NFCNDEFReaderSession?
+    private var handled = false
 
     @discardableResult
     func scanIfAvailable() -> Bool {
@@ -17,6 +18,7 @@ final class PatrickNFCReader: NSObject, NFCNDEFReaderSessionDelegate {
             DispatchQueue.main.async { self.onUnavailable?() }
             return false
         }
+        handled = false
         let session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
         session.alertMessage = "靠近貼紙"
         self.session = session
@@ -28,7 +30,14 @@ final class PatrickNFCReader: NSObject, NFCNDEFReaderSessionDelegate {
         self.session = nil
     }
 
+    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
+        guard claim() else { return }
+        for message in messages { publish(message) }
+        session.invalidate()
+    }
+
     func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
+        guard claim() else { return }
         guard let tag = tags.first else {
             session.invalidate()
             return
@@ -50,6 +59,12 @@ final class PatrickNFCReader: NSObject, NFCNDEFReaderSessionDelegate {
                 }
             }
         }
+    }
+
+    private func claim() -> Bool {
+        if handled { return false }
+        handled = true
+        return true
     }
 
     private func publish(_ message: NFCNDEFMessage) {
