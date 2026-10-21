@@ -189,6 +189,7 @@ struct PatrickLayoutPicker: View {
     let experience: PatrickExperienceState
     var dimmed = false
     var active = true
+    var notice: String? = nil
     private var layout: PatrickFaceLayoutSpec { .resolve(PatrickFaceLayoutSpec.presentationID(experience.settings)) }
     var body: some View {
         GeometryReader { geometry in
@@ -201,7 +202,7 @@ struct PatrickLayoutPicker: View {
                     .offset(x: layout.characterTransform[1] * unit, y: layout.characterTransform[2] * unit)
                 digitalClock(unit: unit)
                 if let rect = layout.informationRect {
-                    PatrickLayoutActivity(experience: experience, active: active && !dimmed, unit: unit)
+                    PatrickLayoutActivity(experience: experience, active: active && !dimmed, unit: unit, notice: notice)
                         .frame(width: rect[2] * unit, height: rect[3] * unit)
                         .position(x: (rect[0] + rect[2] / 2) * unit, y: (rect[1] + rect[3] / 2) * unit)
                 }
@@ -254,20 +255,34 @@ private struct PatrickLayoutActivity: View {
     let experience: PatrickExperienceState
     let active: Bool
     let unit: CGFloat
+    let notice: String?
     var body: some View {
         TimelineView(.periodic(from: .now, by: active && experience.activity?.status == .running ? 1 : 60)) { tick in
             let activity = experience.activity
             let seconds = Int(ceil(activity?.remaining(at: tick.date) ?? 0))
-            VStack(alignment: .leading, spacing: max(3, 18 * unit)) {
-                Text(activity?.kind.title.replacingOccurrences(of: "陪伴", with: "") ?? "陪伴倒數").font(.system(size: max(8, 42 * unit))).lineLimit(2)
-                Text(activity == nil ? "—:—" : String(format: "%02d:%02d", seconds / 60, seconds % 60))
-                    .font(.system(size: max(14, 72 * unit), weight: .medium, design: .rounded)).monospacedDigit().minimumScaleFactor(0.8).lineLimit(1)
-                Text(activity == nil ? "還沒開始" : activity?.status == .paused ? "已暫停" : activity?.status == .completed ? "這段完成了" : activity?.status == .cancelled ? "已結束" : "一起慢慢來")
-                    .font(.system(size: max(8, 38 * unit))).lineLimit(2)
-                ProgressView(value: activity.map { 1 - $0.remaining(at: tick.date) / max(1, $0.durationSeconds) } ?? 0).tint(.pink)
-                Text("飽足 \(Int(experience.care.satiety.rounded()))%").font(.system(size: max(8, 42 * unit)))
-            }.foregroundStyle(.secondary).padding(.leading, 25 * unit)
-                .overlay(alignment: .leading) { Rectangle().fill(Color.pink.opacity(0.35)).frame(width: max(0.5, unit)) }
+            let progress = min(1, max(0, activity.map { 1 - $0.remaining(at: tick.date) / max(1, $0.durationSeconds) } ?? 0))
+            VStack(alignment: .leading, spacing: max(2, 10 * unit)) {
+                HStack(alignment: .center, spacing: 12 * unit) {
+                    VStack(alignment: .leading, spacing: max(1, 5 * unit)) {
+                        Text(activity?.kind.title.replacingOccurrences(of: "陪伴", with: "") ?? "陪伴倒數")
+                            .font(.system(size: max(8, 42 * unit))).lineLimit(1)
+                        Text(notice ?? (activity == nil ? "還沒開始" : activity?.status == .paused ? "已暫停" : activity?.status == .completed ? "這段完成了" : activity?.status == .cancelled ? "已結束" : "一起慢慢來"))
+                            .font(.system(size: max(8, 34 * unit))).lineLimit(1)
+                    }
+                    Spacer(minLength: 0)
+                    Text(activity == nil ? "—:—" : String(format: "%02d:%02d", seconds / 60, seconds % 60))
+                        .font(.system(size: max(14, 72 * unit), weight: .medium, design: .rounded))
+                        .monospacedDigit().foregroundStyle(.white).minimumScaleFactor(0.8).lineLimit(1)
+                }
+                GeometryReader { geometry in
+                    Capsule().fill(Color.pink.opacity(0.2))
+                        .overlay(alignment: .leading) {
+                            Capsule().fill(Color.pink).frame(width: geometry.size.width * progress)
+                        }
+                }.frame(height: max(2, 8 * unit))
+                    .accessibilityLabel("陪伴倒數進度").accessibilityValue("\(Int(progress * 100))%")
+            }.foregroundStyle(.secondary)
+                .overlay(alignment: .top) { Rectangle().fill(Color.pink.opacity(0.35)).frame(height: max(0.5, unit)).offset(y: -max(2, 8 * unit)) }
         }.allowsHitTesting(false)
     }
 }

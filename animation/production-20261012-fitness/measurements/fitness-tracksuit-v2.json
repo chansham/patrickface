@@ -1,0 +1,30 @@
+{
+  "asset": "fitness-tracksuit-v2",
+  "clipID": "fitness-tracksuit-first-20261012",
+  "newOutfit": true,
+  "source": {"path": "animation/fitness-tracksuit-v2/atlas-generated.png", "sha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b", "width": 1536, "height": 1024},
+  "regions": {"path": "animation/fitness-tracksuit-v2/regions-v1.json", "sha256": "e8370db5c4b7e3b3cf484643d413ef4c3d69b98099d5d69ec1364922707948f4"},
+  "standingComparisonSourceFrame": 1,
+  "standingComparisonBasis": "來源1半睜眼中立站姿，真裸腳可見；與雨衣1比較眼足／臉截面姿勢代理，表情不同須保留限制。",
+  "frames": [
+    {"sourceFrame":1,"eyeROI":[135,165,245,230],"footROI":[70,412,300,490],"measurementCaveat":"半睜眼只取可見白眼白下緣，不量粉色眼皮。"},
+    {"sourceFrame":2,"eyeROI":[514,165,634,230],"footROI":[454,412,684,490]},
+    {"sourceFrame":3,"eyeROI":[898,165,1018,230],"footROI":[838,412,1068,490]},
+    {"sourceFrame":4,"eyeROI":[1282,165,1402,230],"footROI":[1222,412,1452,490]},
+    {"sourceFrame":5,"eyeROI":[135,665,245,720],"footROI":[70,914,300,991],"measurementCaveat":"大笑時眼下緣截面仍可见，不把嘴形变化當整個人物尺寸變化。"},
+    {"sourceFrame":6,"eyeUnavailableReason":"來源6雙眼完全閉合，没有可见眼白下緣；不使用粉色眼皮或鄰格數字。","faceReviewROI":[510,603,660,745],"footROI":[454,914,684,991]},
+    {"sourceFrame":7,"eyeROI":[898,665,1018,720],"footROI":[838,914,1068,991]},
+    {"sourceFrame":8,"eyeROI":[1282,665,1402,720],"footROI":[1222,914,1452,991]}
+  ],
+  "limitations": [
+    "這份v2的全部8格重新選眼白和裸腳量測，不沿用v1數字；紫眼皮已改粉色。",
+    "半睜眼可見白眼白下緣仍能量；來源6全閉，臉截面、眼距與眼足距保持未知。",
+    "耳機、拉鍊星星、外套輪廓與吐氣圖案不作人體尺規；衣服遮住真正軀幹輪廓。"
+  ],
+  "visualFindings": [
+    {"sourceFrames":[1,2,3,4,5,6,7,8],"message":"v2全部來源格實看，原紫色眼皮已改粉色；此修復不代表其餘動作已批准。","severity":"info"},
+    {"sourceFrames":[2,3,4,5],"message":"2與3拉鍊握持姿勢近似，4→5從拉鍊半開到完全攤開跳幅較大，仍需中間開衣動作。"},
+    {"sourceFrames":[5,6,7],"message":"張衣到吐氣、放手需正常速度審阅，吐氣圖案的出現/消失也需要時序銜接。"},
+    {"sourceFrames":[1,8],"message":"首格外套關閉、末格敞開，應用作一次性換狀態動作，不批准為無縫循環。"}
+  ]
+}

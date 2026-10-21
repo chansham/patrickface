@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "source": {
+    "path": "animation/sport-towel-v1/atlas-generated.png",
+    "sha256": "ddb99d07d571841537f107fd1aa35c35515ef73c1d3c7c3323de214fc7fab2ae",
+    "width": 1536,
+    "height": 1024
+  },
+  "sourceUnchanged": true,
+  "regions": {
+    "path": "animation/sport-towel-v1/regions-v1.json",
+    "sha256": "aec41f029be7879a4136effe16df10f300d71e51805df2d9c07c7fd4709ff3f0"
+  },
+  "canvas": {
+    "width": 820,
+    "height": 820,
+    "anchorPixels": [
+      410,
+      722
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8804878048780488
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 689736,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceFrames": 8,
+  "frameIndices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        0,
+        6,
+        408,
+        543
+      ],
+      "coreBounds": [
+        45,
+        13,
+        334,
+        478
+      ],
+      "anchorSource": [
+        193,
+        478
+      ],
+      "translation": [
+        217,
+        244
+      ],
+      "placement": [
+        217,
+        250
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        385,
+        10,
+        411,
+        554
+      ],
+      "coreBounds": [
+        444,
+        13,
+        726,
+        478
+      ],
+      "anchorSource": [
+        585,
+        478
+      ],
+      "translation": [
+        -175,
+        244
+      ],
+      "placement": [
+        210,
+        254
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        771,
+        10,
+        407,
+        532
+      ],
+      "coreBounds": [
+        838,
+        13,
+        1111,
+        478
+      ],
+      "anchorSource": [
+        970,
+        478
+      ],
+      "translation": [
+        -560,
+        244
+      ],
+      "placement": [
+        211,
+        254
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1157,
+        10,
+        365,
+        554
+      ],
+      "coreBounds": [
+        1223,
+        13,
+        1492,
+        478
+      ],
+      "anchorSource": [
+        1352,
+        478
+      ],
+      "translation": [
+        -942,
+        244
+      ],
+      "placement": [
+        215,
+        254
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        0,
+        501,
+        408,
+        501
+      ],
+      "coreBounds": [
+        65,
+        506,
+        337,
+        973
+      ],
+      "anchorSource": [
+        198,
+        973
+      ],
+      "translation": [
+        212,
+        -251
+      ],
+      "placement": [
+        212,
+        250
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        375,
+        502,
+        417,
+        502
+      ],
+      "coreBounds": [
+        440,
+        506,
+        726,
+        973
+      ],
+      "anchorSource": [
+        585,
+        973
+      ],
+      "translation": [
+        -175,
+        -251
+      ],
+      "placement": [
+        200,
+        251
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        759,
+        502,
+        395,
+        506
+      ],
+      "coreBounds": [
+        829,
+        505,
+        1112,
+        973
+      ],
+      "anchorSource": [
+        970,
+        973
+      ],
+      "translation": [
+        -560,
+        -251
+      ],
+      "placement": [
+        199,
+        251
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1155,
+        502,
+        380,
+        522
+      ],
+      "coreBounds": [
+        1195,
+        506,
+        1486,
+        973
+      ],
+      "anchorSource": [
+        1344,
+        973
+      ],
+      "translation": [
+        -934,
+        -251
+      ],
+      "placement": [
+        221,
+        251
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceAlpha": {
+    "transparentPixels": 883128,
+    "alphaOnePixels": 79862,
+    "edgeNonzeroPixels": 29,
+    "maximumEdgeAlpha": 1,
+    "edgeStrongPixels": 0,
+    "detachedComponents": 6901
+  },
+  "bodyMeasurementReport": "animation/production-20261012-wardrobe/sport-towel-v1-body-qc.json",
+  "alignmentReview": {
+    "method": "unchanged-default-lower-15-percent-support-center",
+    "sameCanvasEveryFrame": true,
+    "perFrameFit": false,
+    "notes": "8格雙裸腳均可見；用原輪廓下端落位，未藉毛巾／全身外框推定人體尺度。"
+  },
+  "visualFindings": [
+    {
+      "kind": "new-costume",
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "message": "青綠運動背心、橙色髮帶、花紋短褲、白毛巾；8张原畫，一套新衣服。"
+    },
+    {
+      "kind": "revision-required",
+      "sourceFrames": [
+        1,
+        5
+      ],
+      "message": "第1格半睜與第5格閉眼的眼皮為紫色，違反粉色眼皮方向；精修沒有成功，不可表示已修復。"
+    },
+    {
+      "kind": "revision-required",
+      "sourceFrames": [
+        3,
+        4
+      ],
+      "message": "兩格幾乎同姿，沒有補足手拿毛巾抬到臉的中間姿勢。"
+    },
+    {
+      "kind": "revision-required",
+      "sourceFrames": [
+        6,
+        7
+      ],
+      "message": "毛巾從臉旁降到胸口跳躍大，尚缺收手過渡。"
+    },
+    {
+      "kind": "revision-required",
+      "sourceFrames": [
+        1,
+        8
+      ],
+      "message": "首格疲累吐舌、末格微笑；不構成無縫循環，不能把頭身變化說成只換衣。"
+    }
+  ],
+  "normalSpeedReview": "see-separate-runtime-review",
+  "status": "quality-revision-required"
+}

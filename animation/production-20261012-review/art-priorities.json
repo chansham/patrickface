@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "status": "source-visual-review-complete-art-pending",
+  "reviewedAt": "2026-10-12",
+  "reviewer": "watch_preview_read",
+  "artApproval": false,
+  "sourceFrameNumbering": "one-based original atlas row-major; never playback indices",
+  "scope": {
+    "batches": [
+      "20261012-fitness",
+      "20261012-playful"
+    ],
+    "clipCount": 10,
+    "originalFrameCount": 84
+  },
+  "method": [
+    "本輪已重新實看全部10套原始PNG，按原始行列順序逐格比對。",
+    "閱讀現有來源QC與先前真alpha合成；本輪不啟動瀏覽器，也未重新播放1×。",
+    "眼色是可見原畫缺陷；動作項目是可見相鄰姿勢缺中間畫，不把它冒稱播放器丟幀或已量得播放速度。"
+  ],
+  "limits": [
+    "每項只綁指定source SHA，來源更換後需重新核對。",
+    "沒有列出的造型仍未獲美術批准；不硬給每套加缺陷。",
+    "正常低頭/仰頭/彎腰的投影、已處理的輪廓分離與未知量測不當作人物縮放或裁剪缺陷。"
+  ],
+  "clips": [
+    {
+      "clipID": "fitness-boxing-first-20261012",
+      "title": "紫金拳擊服・認真出拳",
+      "sourcePath": "animation/fitness-boxing-v1/atlas-generated.png",
+      "sourceSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+      "columns": 4,
+      "rows": 2,
+      "sourceFrameCount": 8,
+      "visuallyReviewed": true,
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-tracksuit-first-20261012",
+      "title": "酒紅運動套裝・拉開外套",
+      "sourcePath": "animation/fitness-tracksuit-v2/atlas-generated.png",
+      "sourceSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "columns": 4,
+      "rows": 2,
+      "sourceFrameCount": 8,
+      "visuallyReviewed": true,
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-basketball-first-20261012",
+      "title": "橙白籃球服・雙手抱球",
+      "sourcePath": "animation/fitness-basketball-v1/atlas-generated.png",
+      "sourceSha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+      "columns": 4,
+      "rows": 2,
+      "sourceFrameCount": 8,
+      "visuallyReviewed": true,
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-cycling-first-20261012",
+      "title": "檸黃騎行衣・整理運動眼鏡",
+      "sourcePath": "animation/fitness-cycling-v2/atlas-generated.png",
+      "sourceSha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+      "columns": 4,
+      "rows": 2,
+      "sourceFrameCount": 8,
+      "visuallyReviewed": true,
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-coach-first-20261012",
+      "title": "白綠教練服・按錶吹哨",
+      "sourcePath": "animation/fitness-coach-v2/atlas-generated.png",
+      "sourceSha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+      "columns": 4,
+      "rows": 2,
+      "sourceFrameCount": 8,
+      "visuallyReviewed": true,
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-martial-first-20261012",
+      "title": "白道服・認真鞠躬",
+      "sourcePath": "animation/fitness-martial-v1/atlas-generated.png",
+      "sourceSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+      "columns": 4,
+      "rows": 2,
+      "sourceFrameCount": 8,
+      "visuallyReviewed": true,
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-stretch-first-20261012",
+      "title": "薄荷伸展服・雙臂舉高",
+      "sourcePath": "animation/fitness-stretch-v1/atlas-generated.png",
+      "sourceSha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+      "columns": 4,
+      "rows": 3,
+      "sourceFrameCount": 12,
+      "visuallyReviewed": true,
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-kettlebell-first-20261012",
+      "title": "灰橙訓練服・雙手提壺鈴",
+      "sourcePath": "animation/fitness-kettlebell-v2/atlas-generated.png",
+      "sourceSha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+      "columns": 4,
+      "rows": 2,
+      "sourceFrameCount": 8,
+      "visuallyReviewed": true,
+      "artApproval": false
+    },
+    {
+      "clipID": "cowboy-first-20261012",
+      "title": "牛仔背心・脫帽致意",
+      "sourcePath": "animation/cowboy-v1/atlas-generated.png",
+      "sourceSha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+      "columns": 4,
+      "rows": 2,
+      "sourceFrameCount": 8,
+      "visuallyReviewed": true,
+      "artApproval": false
+    },
+    {
+      "clipID": "pillow-pajama-first-20261012",
+      "title": "花花睡衣・抱緊小枕頭",
+      "sourcePath": "animation/pillow-pajama-v1/atlas-generated.png",
+      "sourceSha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+      "columns": 4,
+      "rows": 2,
+      "sourceFrameCount": 8,
+      "visuallyReviewed": true,
+      "artApproval": false
+    }
+  ],
+  "items": [
+    {
+      "id": "art-20261012-01",
+      "clipID": "fitness-stretch-first-20261012",
+      "sourceFrames": [
+        8
+      ],
+      "issueType": "eyes",
+      "severity": "high",
+      "title": "閉眼仍是紫色眼皮",
+      "detail": "第8格閉眼區明顯偏紫，與周圍暖粉皮膚不同，違反已明確要求的暖粉眼皮。原畫修色嘗試未產生新版；不能只靠播放器調色稱已修復。",
+      "sourceSha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+      "evidencePath": "animation/fitness-stretch-v1/atlas-generated.png",
+      "subjective": false,
+      "status": "pending-source-art-repair",
+      "evidencePaths": [
+        "animation/fitness-stretch-v1/atlas-generated.png",
+        "animation/production-20261012-fitness/fitness-stretch-v1-body-qc.json",
+        "output/playwright/20261012-fitness-generation/eye-color-crosscheck.png"
+      ]
+    },
+    {
+      "id": "art-20261012-02",
+      "clipID": "fitness-kettlebell-first-20261012",
+      "sourceFrames": [
+        2,
+        3,
+        4
+      ],
+      "issueType": "eyes",
+      "severity": "high",
+      "title": "眼白上緣有粉紫色帶",
+      "detail": "第2、3、4格眼白內上緣可見粉紫帶，與其餘白色眼白及暖粉皮膚不一致；不是被道具遮眼。需在原畫眼部修正，保持白眼與膚色眼皮的清楚界線。",
+      "sourceSha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+      "evidencePath": "animation/fitness-kettlebell-v2/atlas-generated.png",
+      "subjective": false,
+      "status": "pending-source-art-repair",
+      "evidencePaths": [
+        "animation/fitness-kettlebell-v2/atlas-generated.png",
+        "animation/production-20261012-fitness/fitness-kettlebell-v2-body-qc.json",
+        "output/playwright/20261012-fitness-generation/eye-color-crosscheck.png",
+        "output/body-landmarks-20261012-fitness/kettlebell-v2-source2-3-eye-inspection.png"
+      ]
+    },
+    {
+      "id": "art-20261012-03",
+      "clipID": "pillow-pajama-first-20261012",
+      "sourceFrames": [
+        6,
+        7
+      ],
+      "issueType": "motion",
+      "severity": "high",
+      "title": "靠臉直抱直接跳回橫抱",
+      "detail": "第6格枕頭仍靠臉、呈直斜方向，第7格已水平回胸前。缺少離開臉、下降與旋回的中間手臂／枕頭姿勢；兩手雖仍接觸同一枕頭，不能把延長停格當成補齊過渡。12格修訂未產生新檔。",
+      "sourceSha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+      "evidencePath": "animation/pillow-pajama-v1/atlas-generated.png",
+      "subjective": false,
+      "status": "pending-source-art-repair",
+      "evidencePaths": [
+        "animation/pillow-pajama-v1/atlas-generated.png",
+        "animation/production-20261012-playful/pillow-pajama-v1-body-qc.json"
+      ]
+    },
+    {
+      "id": "art-20261012-04",
+      "clipID": "fitness-cycling-first-20261012",
+      "sourceFrames": [
+        4,
+        5,
+        6
+      ],
+      "issueType": "motion",
+      "severity": "medium",
+      "title": "戴鏡與再抓鏡之間缺手勢",
+      "detail": "第4格雙手仍在額頭抓鏡，第5格鏡片已遮眼而雙手離開鏡框，第6格又直接回額頭抓鏡。缺少放手、下降以及再次抬手接觸的連續姿勢；第5格鏡片遮眼不列為眼白染色。",
+      "sourceSha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+      "evidencePath": "animation/fitness-cycling-v2/atlas-generated.png",
+      "subjective": false,
+      "status": "pending-source-art-repair",
+      "evidencePaths": [
+        "animation/fitness-cycling-v2/atlas-generated.png",
+        "animation/production-20261012-fitness/fitness-cycling-v2-body-qc.json"
+      ]
+    },
+    {
+      "id": "art-20261012-05",
+      "clipID": "fitness-tracksuit-first-20261012",
+      "sourceFrames": [
+        4,
+        5
+      ],
+      "issueType": "motion",
+      "severity": "medium",
+      "title": "半開拉鍊直接變成雙手開襟",
+      "detail": "第4格單手把拉鍊拉到胸前、下半外套仍合攏，第5格已全開並改成雙手抓衣襟。缺少拉鍊繼續往下以及另一手接住衣襟的中間姿勢。首閉末開本身是一次性動作設計，不把它單獨當錯誤。",
+      "sourceSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "evidencePath": "animation/fitness-tracksuit-v2/atlas-generated.png",
+      "subjective": false,
+      "status": "pending-source-art-repair",
+      "evidencePaths": [
+        "animation/fitness-tracksuit-v2/atlas-generated.png",
+        "animation/production-20261012-fitness/fitness-tracksuit-v2-body-qc.json"
+      ]
+    },
+    {
+      "id": "art-20261012-06",
+      "clipID": "fitness-coach-first-20261012",
+      "sourceFrames": [
+        7,
+        8
+      ],
+      "issueType": "motion",
+      "severity": "medium",
+      "title": "吹哨到放回胸前缺下降過渡",
+      "detail": "第7格哨子貼嘴、鼓頰吹氣，第8格哨子已垂回胸口、手也回到胸前。缺少離嘴與下降的中間姿勢。碼表在目前v2保持同一隻手，舊v1換手問題不重列為現有缺陷。",
+      "sourceSha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+      "evidencePath": "animation/fitness-coach-v2/atlas-generated.png",
+      "subjective": false,
+      "status": "pending-source-art-repair",
+      "evidencePaths": [
+        "animation/fitness-coach-v2/atlas-generated.png",
+        "animation/production-20261012-fitness/fitness-coach-v2-body-qc.json"
+      ]
+    },
+    {
+      "id": "art-20261012-07",
+      "clipID": "fitness-boxing-first-20261012",
+      "sourceFrames": [
+        5,
+        6
+      ],
+      "issueType": "motion",
+      "severity": "medium",
+      "title": "伸直拳直接收回護臉位置",
+      "detail": "第5格手臂向外完全伸直，第6格拳套已收近身體且頭部回正，缺少屈肘收拳的中間姿勢。伸拳超出名義等格但PNG和輪廓資料保留完整，不把它誤列為當前角色已裁掉。",
+      "sourceSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+      "evidencePath": "animation/fitness-boxing-v1/atlas-generated.png",
+      "subjective": false,
+      "status": "pending-source-art-repair",
+      "evidencePaths": [
+        "animation/fitness-boxing-v1/atlas-generated.png",
+        "animation/production-20261012-fitness/fitness-boxing-v1-body-qc.json"
+      ]
+    },
+    {
+      "id": "art-20261012-08",
+      "clipID": "fitness-martial-first-20261012",
+      "sourceFrames": [
+        5,
+        6
+      ],
+      "issueType": "motion",
+      "severity": "medium",
+      "title": "最深鞠躬到起身轉折較大",
+      "detail": "第5格頭肩最低、臉朝下且閉眼，第6格頭肩已明顯抬起並睜眼，中間仍待補逐步起身姿勢。彎腰的投影變短是動作本身，不將此另標為人物等比例縮小。",
+      "sourceSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+      "evidencePath": "animation/fitness-martial-v1/atlas-generated.png",
+      "subjective": false,
+      "status": "pending-source-art-repair",
+      "evidencePaths": [
+        "animation/fitness-martial-v1/atlas-generated.png",
+        "animation/production-20261012-fitness/fitness-martial-v1-body-qc.json"
+      ]
+    },
+    {
+      "id": "art-20261012-09",
+      "clipID": "cowboy-first-20261012",
+      "sourceFrames": [
+        5,
+        6
+      ],
+      "issueType": "motion",
+      "severity": "medium",
+      "title": "低頭致意到舉帽回頭缺銜接",
+      "detail": "第5格低頭、帽子斜立在頭側，第6格頭已抬起仰眼、帽子轉平移到頭頂。缺少頭部回正與帽子旋轉的中間姿勢。同手持帽與固定腰繩仍成立；中性首末人體三尺規相同，不列縮身問題。",
+      "sourceSha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+      "evidencePath": "animation/cowboy-v1/atlas-generated.png",
+      "subjective": false,
+      "status": "pending-source-art-repair",
+      "evidencePaths": [
+        "animation/cowboy-v1/atlas-generated.png",
+        "animation/production-20261012-playful/cowboy-v1-body-qc.json"
+      ]
+    },
+    {
+      "id": "art-20261012-10",
+      "clipID": "fitness-stretch-first-20261012",
+      "sourceFrames": [
+        8,
+        9
+      ],
+      "issueType": "motion",
+      "severity": "medium",
+      "title": "雙手上舉後直接落到斜側",
+      "detail": "第8格雙臂貼近頭頂，第9格已降到向兩側斜張，中間缺少雙肩與手臂逐步打開的姿勢。這是原画接續待補，不能由全圖搖動或拉伸代替。",
+      "sourceSha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+      "evidencePath": "animation/fitness-stretch-v1/atlas-generated.png",
+      "subjective": false,
+      "status": "pending-source-art-repair",
+      "evidencePaths": [
+        "animation/fitness-stretch-v1/atlas-generated.png",
+        "animation/production-20261012-fitness/fitness-stretch-v1-body-qc.json"
+      ]
+    }
+  ],
+  "reviewedWithoutDefiniteNewIssue": [
+    {
+      "clipID": "fitness-basketball-first-20261012",
+      "sourceSha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+      "detail": "本輪實看雙手始終接觸同一顆球；球接縫細差不足以單憑靜圖判定不合理旋轉。首認真末微笑屬表情選擇，若使用者希望全段嚴肅，另記subjective偏好，不冒列故障。",
+      "subjective": true
+    }
+  ],
+  "summary": {
+    "reviewedClips": 10,
+    "reviewedSourceFrames": 84,
+    "items": 10,
+    "clipsWithItems": 9,
+    "high": 3,
+    "medium": 7,
+    "eyes": 2,
+    "motion": 8,
+    "scaleDiagnoses": 0,
+    "cropDiagnoses": 0,
+    "artApproved": 0
+  }
+}

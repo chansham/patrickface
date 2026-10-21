@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "batch": "20261012-playful",
+  "artApproval": false,
+  "scope": "牛仔與抱枕睡衣獨立候選；保留已交34套376格，不進日常或原生。",
+  "runtimeNotes": [
+    "逐套真來源及實際播放驗證；技術通過不等於美術完成。"
+  ],
+  "sources": [
+    {
+      "id": "cowboy-first-20261012",
+      "title": "牛仔背心・脫帽致意",
+      "source": "animation/cowboy-v1/atlas-generated.png",
+      "sha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+      "columns": 4,
+      "rows": 2,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        650,
+        230,
+        260,
+        340,
+        400,
+        250,
+        260,
+        700
+      ],
+      "frameLabels": [
+        "微笑站好",
+        "抬手扶帽",
+        "抬起帽沿",
+        "脫帽打招呼",
+        "低頭致意",
+        "舉回帽子",
+        "戴回帽子",
+        "放下手臂"
+      ],
+      "status": "candidate-ready",
+      "scenes": [
+        "awake",
+        "celebrate"
+      ],
+      "comparisonClipId": "yawn",
+      "newOutfit": true,
+      "variantGroup": "cowboy-vest-hat-lasso",
+      "pose": "standing-hat-greeting",
+      "description": "棕色牛仔帽與背心、星星腰帶、青色短褲及固定腰繩圈。同側手脫帽致意後戴回；第5格低頭、第6格仰眼轉換較大，後排頭高與首末比例待逐格審，不宣稱平順循環。",
+      "bodyQC": "animation/production-20261012-playful/cowboy-v1-body-qc.json",
+      "visualReview": {
+        "sourceViewed": true,
+        "blackWhiteViewed": true,
+        "alignmentReviewed": true,
+        "findings": [
+          {
+            "sourceFrames": [
+              4,
+              5,
+              6
+            ],
+            "message": "拿帽、低頭、仰眼回戴仍有姿勢跳換，需補原畫過渡。"
+          },
+          {
+            "sourceFrames": [
+              5,
+              6,
+              7,
+              8
+            ],
+            "message": "後排頭高與姿勢投影不同，人體比例獨立量測，不能逐格fit抹掉。"
+          }
+        ],
+        "alignmentMethod": "8格裸腳完整且支撐可見；保留下15%雙腳中心、逐格整數平移，不因拿高牛仔帽而改人物倍率。"
+      },
+      "fixedSourcePixelToStagePixel": 1.468371882,
+      "scaleReason": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 116.0,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.5751817439645452,
+        "fixedFactor": 1.468371882,
+        "actualStagePixels": 170.331138312,
+        "shortfallPercent": 6.78079608107427,
+        "sourceSha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+        "canvas": 852,
+        "catalogScale": 1.8795866037620192,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      }
+    },
+    {
+      "id": "pillow-pajama-first-20261012",
+      "title": "花花睡衣・抱緊小枕頭",
+      "source": "animation/pillow-pajama-v1/atlas-generated.png",
+      "sha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+      "columns": 4,
+      "rows": 2,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        700,
+        260,
+        260,
+        260,
+        500,
+        280,
+        300,
+        800
+      ],
+      "frameLabels": [
+        "胸前抱枕",
+        "抬起枕頭",
+        "靠近臉旁",
+        "抱緊枕頭",
+        "閉眼依偎",
+        "重新睜眼",
+        "轉回橫抱",
+        "抱枕休息"
+      ],
+      "status": "candidate-ready",
+      "scenes": [
+        "sleeping",
+        "awake"
+      ],
+      "comparisonClipId": "yawn",
+      "newOutfit": true,
+      "variantGroup": "lime-flower-pajamas-mint-pillow",
+      "pose": "standing-pillow-hug",
+      "description": "檸綠紫花睡衣、同色睡帽與薄荷荷葉邊枕頭。胸前抱枕、靠向臉旁、闭眼依偎再抱回；第6→7直抱轉橫抱缺中間姿勢，12格修訂未產生新圖，保留此8格待審。首末可比人體尺規差異小，不代表過渡已完成。",
+      "bodyQC": "animation/production-20261012-playful/pillow-pajama-v1-body-qc.json",
+      "visualReview": {
+        "sourceViewed": true,
+        "blackWhiteViewed": true,
+        "alignmentReviewed": true,
+        "findings": [
+          {
+            "sourceFrames": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "message": "側臉與枕頭遮擋不能硬補人體尺規；第5格閉眼暖粉，眼尺規未知。"
+          },
+          {
+            "sourceFrames": [
+              6,
+              7
+            ],
+            "message": "直立抱枕回橫抱角度跳換，需要補原畫過渡。"
+          },
+          {
+            "sourceFrames": [
+              1,
+              7,
+              8
+            ],
+            "message": "首末臉寬+1.46%、眼距0%、眼足距−1.21%，沒有明顯縮身；頭帽與表情細節仍需審，不以逐格縮放修補。"
+          }
+        ],
+        "alignmentMethod": "8格雙裸腳可見且枕頭不進足部支撐區；保留下15%支撐中心與逐格整數平移。側身/依偎姿勢保留，全段單倍率，不用枕頭外框推人體大小。"
+      },
+      "fixedSourcePixelToStagePixel": 1.3361687919,
+      "scaleReason": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 136.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.3361687919552998,
+        "fixedFactor": 1.3361687919,
+        "actualStagePixels": 182.721082292325,
+        "shortfallPercent": 4.1386893911976586e-09,
+        "sourceSha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+        "canvas": 564,
+        "catalogScale": 1.1322103344825722,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      }
+    }
+  ]
+}

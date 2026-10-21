@@ -1,0 +1,1524 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-12",
+  "status": "proposed-drawing-budget-not-produced",
+  "artApproval": false,
+  "scope": {
+    "reviewedClipCount": 10,
+    "reviewedOriginalFrameCount": 84,
+    "batches": [
+      "20261012-fitness",
+      "20261012-playful"
+    ],
+    "excludes": "不概括其餘或全部候選合格；此計畫只涵蓋明列且實看過的10套原畫。"
+  },
+  "frameNumbering": "source references are one-based original atlas row-major; proposedOrder is a future 1-based sequence.",
+  "budgetMeaning": "targetFrameCount是未來整段畫稿目標，不是目前素材數；additionalDistinctPoses是要新畫的中間姿勢，不是重複舊格或延長播放。",
+  "rules": [
+    "每段維持共同camera、人物體積及整段固定倍率；禁止逐格fit、全圖縮放/搖動或自動補間冒充新原畫。",
+    "10段皆為單次情境/互動。收尾靜止可作展示，不能把完整動作設為不停循環的idle。",
+    "正常低頭、鞠躬與手臂投影允許改變外框；人物尺規須按可量姿勢核對，遮擋保持unknown。",
+    "節奏需用真1×觀看修正；停留靠duration，不以複製同圖增加『完成幀數』。",
+    "眼色、服裝或接觸缺陷單獨修；新增幀數不是美術批准。"
+  ],
+  "timingGuidance": {
+    "status": "proposal-only",
+    "transitionFrameMs": [
+      90,
+      160
+    ],
+    "anticipationHoldMs": [
+      250,
+      450
+    ],
+    "actionPeakHoldMs": [
+      120,
+      300
+    ],
+    "settleHoldMs": [
+      350,
+      650
+    ],
+    "note": "由動作分段決定實際時長，不能僅用目標幀數乘統一fps；拳擊較快、鞠躬與抱枕較慢。不要先修改現行catalog的durations。"
+  },
+  "plans": [
+    {
+      "clipID": "fitness-basketball-first-20261012",
+      "title": "橙白籃球服・雙手抱球",
+      "sourcePath": "animation/fitness-basketball-v1/atlas-generated.png",
+      "sourceSha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+      "currentSourceFrameCount": 8,
+      "currentDurationMs": 2680,
+      "targetFrameCount": 8,
+      "additionalDistinctPoses": 0,
+      "decision": "retain-current-budget",
+      "reason": "本段只做腰前抬球到胸前再收回；現有8格已涵蓋小幅連續升降，未見必須靠新增格數解決的明確大跳。保持8是預算判斷，不是美術批准。",
+      "playbackIntent": "one-shot",
+      "idleLoopAllowed": false,
+      "phases": [
+        {
+          "phase": "anticipation",
+          "proposedFrames": [
+            1,
+            2
+          ],
+          "action": "看球、雙手握穩"
+        },
+        {
+          "phase": "action",
+          "proposedFrames": [
+            3,
+            5
+          ],
+          "action": "連續抬到胸前並準備"
+        },
+        {
+          "phase": "settle",
+          "proposedFrames": [
+            6,
+            8
+          ],
+          "action": "放回腰前、表情收尾"
+        }
+      ],
+      "transitions": [],
+      "proposedOrder": [
+        {
+          "proposedFrame": 1,
+          "referenceSourceFrame": 1,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 2,
+          "referenceSourceFrame": 2,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 3,
+          "referenceSourceFrame": 3,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 4,
+          "referenceSourceFrame": 4,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 5,
+          "referenceSourceFrame": 5,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 6,
+          "referenceSourceFrame": 6,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 7,
+          "referenceSourceFrame": 7,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 8,
+          "referenceSourceFrame": 8,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        }
+      ],
+      "separateRepairs": [
+        "球縫、手型與首末表情仍逐格覆核；若使用者要全程嚴肅，屬表情偏好，優先改相應原畫而非增加幀數。"
+      ],
+      "endState": "回到腰前抱球；首末表情不同，單次播放後停末格。",
+      "evidencePaths": [
+        "animation/fitness-basketball-v1/atlas-generated.png",
+        "animation/production-20261012-review/art-priorities.json"
+      ],
+      "generationStatus": "not-requested-in-this-motion-batch",
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-martial-first-20261012",
+      "title": "白道服・認真鞠躬",
+      "sourcePath": "animation/fitness-martial-v1/atlas-generated.png",
+      "sourceSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+      "currentSourceFrameCount": 8,
+      "currentDurationMs": 3060,
+      "targetFrameCount": 10,
+      "additionalDistinctPoses": 2,
+      "decision": "add-targeted-inbetweens",
+      "reason": "鞠躬下降已有逐步頭肩腰變化；回升比下降稀疏，只補起身，不把完整動作一律擴到12或16。",
+      "playbackIntent": "one-shot",
+      "idleLoopAllowed": false,
+      "phases": [
+        {
+          "phase": "anticipation",
+          "proposedFrames": [
+            1,
+            2
+          ],
+          "action": "站定、收眼低頭準備"
+        },
+        {
+          "phase": "action",
+          "proposedFrames": [
+            3,
+            8
+          ],
+          "action": "前傾鞠躬、底部停留後分段起身"
+        },
+        {
+          "phase": "settle",
+          "proposedFrames": [
+            9,
+            10
+          ],
+          "action": "肩腰站直、眼神回正"
+        }
+      ],
+      "transitions": [
+        {
+          "fromSourceFrame": 5,
+          "toSourceFrame": 6,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "rise-a"
+          ],
+          "poses": [
+            "由最深鞠躬小幅抬起頭肩，眼仍朝下，腰先開始展開；不可把整張圖旋轉。"
+          ]
+        },
+        {
+          "fromSourceFrame": 6,
+          "toSourceFrame": 7,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "rise-b"
+          ],
+          "poses": [
+            "頭肩升到半直立與直立之間，眼神逐步抬前，手沿褲側回位。"
+          ]
+        }
+      ],
+      "proposedOrder": [
+        {
+          "proposedFrame": 1,
+          "referenceSourceFrame": 1,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 2,
+          "referenceSourceFrame": 2,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 3,
+          "referenceSourceFrame": 3,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 4,
+          "referenceSourceFrame": 4,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 5,
+          "referenceSourceFrame": 5,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 6,
+          "newPoseID": "rise-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 7,
+          "referenceSourceFrame": 6,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 8,
+          "newPoseID": "rise-b",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 9,
+          "referenceSourceFrame": 7,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 10,
+          "referenceSourceFrame": 8,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        }
+      ],
+      "separateRepairs": [
+        "前傾時投影高度降低合理；不逐格放大補成同總高。"
+      ],
+      "endState": "回站姿；作一次性致意，不自動反覆鞠躬。",
+      "evidencePaths": [
+        "animation/fitness-martial-v1/atlas-generated.png",
+        "animation/production-20261012-review/art-priorities.json"
+      ],
+      "generationStatus": "not-requested-in-this-motion-batch",
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-kettlebell-first-20261012",
+      "title": "灰橙訓練服・雙手提壺鈴",
+      "sourcePath": "animation/fitness-kettlebell-v2/atlas-generated.png",
+      "sourceSha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+      "currentSourceFrameCount": 8,
+      "currentDurationMs": 2900,
+      "targetFrameCount": 10,
+      "additionalDistinctPoses": 2,
+      "decision": "add-targeted-inbetweens",
+      "reason": "低位抬起與高位停留可辨；原第6→7下降跨度明顯，8格不宜當慢速順滑提放。加兩張真姿勢已能覆蓋主要缺口，先不拉到16。",
+      "playbackIntent": "one-shot",
+      "idleLoopAllowed": false,
+      "phases": [
+        {
+          "phase": "anticipation",
+          "proposedFrames": [
+            1,
+            2
+          ],
+          "action": "雙手握穩同一把手、準備提起"
+        },
+        {
+          "phase": "action",
+          "proposedFrames": [
+            3,
+            9
+          ],
+          "action": "分段提至腹前、停穩再逐步放低"
+        },
+        {
+          "phase": "settle",
+          "proposedFrames": [
+            10,
+            10
+          ],
+          "action": "低位穩定停止"
+        }
+      ],
+      "transitions": [
+        {
+          "fromSourceFrame": 3,
+          "toSourceFrame": 4,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "lift-a"
+          ],
+          "poses": [
+            "壺鈴位於兩原格高度中間，雙肘屈曲量介於兩者，左右手保持各自握把接點。"
+          ]
+        },
+        {
+          "fromSourceFrame": 6,
+          "toSourceFrame": 7,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "lower-a"
+          ],
+          "poses": [
+            "由較高提鈴位降到腰前中低位，雙肘只伸展一半、壺底沿連續路徑下降，不能一步跳至低位。"
+          ]
+        }
+      ],
+      "proposedOrder": [
+        {
+          "proposedFrame": 1,
+          "referenceSourceFrame": 1,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 2,
+          "referenceSourceFrame": 2,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 3,
+          "referenceSourceFrame": 3,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 4,
+          "newPoseID": "lift-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 5,
+          "referenceSourceFrame": 4,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 6,
+          "referenceSourceFrame": 5,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 7,
+          "referenceSourceFrame": 6,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 8,
+          "newPoseID": "lower-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 9,
+          "referenceSourceFrame": 7,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 10,
+          "referenceSourceFrame": 8,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        }
+      ],
+      "separateRepairs": [
+        "原第2/3/4格粉紫眼白帶是獨立眼色缺陷；加幀不能當修色完成。",
+        "原第1/8壺底低於裸腳，需另審地面支撐關係；腳底定位不得採壺底。",
+        "高位第5/6相近可用合理停留，不把相同圖重複當新增姿勢。"
+      ],
+      "endState": "低位握穩後停止；不是連續健身動作計數或追蹤。",
+      "evidencePaths": [
+        "animation/fitness-kettlebell-v2/atlas-generated.png",
+        "animation/production-20261012-review/art-priorities.json"
+      ],
+      "generationStatus": "not-requested-in-this-motion-batch",
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-tracksuit-first-20261012",
+      "title": "酒紅運動套裝・拉開外套",
+      "sourcePath": "animation/fitness-tracksuit-v2/atlas-generated.png",
+      "sourceSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "currentSourceFrameCount": 8,
+      "currentDurationMs": 2860,
+      "targetFrameCount": 12,
+      "additionalDistinctPoses": 4,
+      "decision": "add-targeted-inbetweens",
+      "reason": "動作含單手拉鍊、換成双手抓衣襟、舒氣及放手，至少三個接觸轉換；新增4張集中在這些轉換，不增加前端近同的握拉鍊停格。",
+      "playbackIntent": "one-shot",
+      "idleLoopAllowed": false,
+      "phases": [
+        {
+          "phase": "anticipation",
+          "proposedFrames": [
+            1,
+            3
+          ],
+          "action": "聽音樂、低頭握星形拉鍊"
+        },
+        {
+          "phase": "action",
+          "proposedFrames": [
+            4,
+            9
+          ],
+          "action": "拉到底、另手接衣襟、張衣與舒氣"
+        },
+        {
+          "phase": "settle",
+          "proposedFrames": [
+            10,
+            12
+          ],
+          "action": "逐步放手並保持敞開休息"
+        }
+      ],
+      "transitions": [
+        {
+          "fromSourceFrame": 4,
+          "toSourceFrame": 5,
+          "additionalFrames": 2,
+          "newPoseIDs": [
+            "zip-down",
+            "other-hand-grip"
+          ],
+          "poses": [
+            "同手繼續把拉鍊拉到底，下半衣襟開始分開。",
+            "另一手抬到對側衣襟並抓住，原持拉鍊手改為抓衣邊；兩手接觸位置連續。"
+          ]
+        },
+        {
+          "fromSourceFrame": 5,
+          "toSourceFrame": 6,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "shoulder-open"
+          ],
+          "poses": [
+            "肩肘稍抬、衣襟拉開至舒氣前姿勢，嘴由笑收成準備吐氣。"
+          ]
+        },
+        {
+          "fromSourceFrame": 6,
+          "toSourceFrame": 7,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "hands-release"
+          ],
+          "poses": [
+            "兩手先鬆開衣領再下降一半，嘴型收回；吐氣效果按這個動作消退。"
+          ]
+        }
+      ],
+      "proposedOrder": [
+        {
+          "proposedFrame": 1,
+          "referenceSourceFrame": 1,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 2,
+          "referenceSourceFrame": 2,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 3,
+          "referenceSourceFrame": 3,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 4,
+          "referenceSourceFrame": 4,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 5,
+          "newPoseID": "zip-down",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 6,
+          "newPoseID": "other-hand-grip",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 7,
+          "referenceSourceFrame": 5,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 8,
+          "newPoseID": "shoulder-open",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 9,
+          "referenceSourceFrame": 6,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 10,
+          "newPoseID": "hands-release",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 11,
+          "referenceSourceFrame": 7,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 12,
+          "referenceSourceFrame": 8,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        }
+      ],
+      "separateRepairs": [
+        "原第2/3姿勢近似：可重畫其中一格為明確握持準備，不用複製停格湊12。",
+        "首合末開是情境結果，不強制倒播拉回拉鍊。"
+      ],
+      "endState": "外套保持敞開的放鬆姿勢；只播一次。",
+      "evidencePaths": [
+        "animation/fitness-tracksuit-v2/atlas-generated.png",
+        "animation/production-20261012-review/art-priorities.json"
+      ],
+      "generationStatus": "not-requested-in-this-motion-batch",
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-boxing-first-20261012",
+      "title": "紫金拳擊服・認真出拳",
+      "sourcePath": "animation/fitness-boxing-v1/atlas-generated.png",
+      "sourceSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+      "currentSourceFrameCount": 8,
+      "currentDurationMs": 2650,
+      "targetFrameCount": 12,
+      "additionalDistinctPoses": 4,
+      "decision": "add-targeted-inbetweens",
+      "reason": "出拳與收拳都經歷大的肘部位移及上身轉向；各補兩張，比只延長伸直拳的停留更能建立路徑。",
+      "playbackIntent": "one-shot",
+      "idleLoopAllowed": false,
+      "phases": [
+        {
+          "phase": "anticipation",
+          "proposedFrames": [
+            1,
+            3
+          ],
+          "action": "抬拳、護臉與出拳準備"
+        },
+        {
+          "phase": "action",
+          "proposedFrames": [
+            4,
+            10
+          ],
+          "action": "肩肘依序前推、伸拳、屈肘收回"
+        },
+        {
+          "phase": "settle",
+          "proposedFrames": [
+            11,
+            12
+          ],
+          "action": "回護勢再放鬆"
+        }
+      ],
+      "transitions": [
+        {
+          "fromSourceFrame": 3,
+          "toSourceFrame": 4,
+          "additionalFrames": 2,
+          "newPoseIDs": [
+            "punch-a",
+            "punch-b"
+          ],
+          "poses": [
+            "肩先小幅轉，出拳側肘開始前移，另一拳維持護臉。",
+            "肘伸至原格之間的位置，拳套沿同一路徑前推，頭轉幅也居中。"
+          ]
+        },
+        {
+          "fromSourceFrame": 5,
+          "toSourceFrame": 6,
+          "additionalFrames": 2,
+          "newPoseIDs": [
+            "retract-a",
+            "retract-b"
+          ],
+          "poses": [
+            "伸直拳先回收約三分之一，肘開始彎。",
+            "拳回收約三分之二，肩與頭逐步回正，未到最後護拳位。"
+          ]
+        }
+      ],
+      "proposedOrder": [
+        {
+          "proposedFrame": 1,
+          "referenceSourceFrame": 1,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 2,
+          "referenceSourceFrame": 2,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 3,
+          "referenceSourceFrame": 3,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 4,
+          "newPoseID": "punch-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 5,
+          "newPoseID": "punch-b",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 6,
+          "referenceSourceFrame": 4,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 7,
+          "referenceSourceFrame": 5,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 8,
+          "newPoseID": "retract-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 9,
+          "newPoseID": "retract-b",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 10,
+          "referenceSourceFrame": 6,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 11,
+          "referenceSourceFrame": 7,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 12,
+          "referenceSourceFrame": 8,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        }
+      ],
+      "separateRepairs": [
+        "第5格拳套跨名義格線但實際輪廓完整，不可用更窄等格裁剪。",
+        "首嚴肅末微笑屬收尾表情，是否全程嚴肅由使用者偏好另判。"
+      ],
+      "endState": "完成一次出拳後放鬆；不當待機循環。",
+      "evidencePaths": [
+        "animation/fitness-boxing-v1/atlas-generated.png",
+        "animation/production-20261012-review/art-priorities.json"
+      ],
+      "generationStatus": "not-requested-in-this-motion-batch",
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-cycling-first-20261012",
+      "title": "檸黃騎行衣・整理運動眼鏡",
+      "sourcePath": "animation/fitness-cycling-v2/atlas-generated.png",
+      "sourceSha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+      "currentSourceFrameCount": 8,
+      "currentDurationMs": 2890,
+      "targetFrameCount": 12,
+      "additionalDistinctPoses": 4,
+      "decision": "add-targeted-inbetweens",
+      "reason": "眼鏡有手扶下降、離手展示、重新抓取與抬回四個接觸階段；目前4→5→6把離手及重抓省略，需補真手勢。",
+      "playbackIntent": "one-shot",
+      "idleLoopAllowed": false,
+      "phases": [
+        {
+          "phase": "anticipation",
+          "proposedFrames": [
+            1,
+            3
+          ],
+          "action": "雙手抬至頭盔抓住鏡框"
+        },
+        {
+          "phase": "action",
+          "proposedFrames": [
+            4,
+            10
+          ],
+          "action": "戴下、鬆手、重新抓鏡並抬起"
+        },
+        {
+          "phase": "settle",
+          "proposedFrames": [
+            11,
+            12
+          ],
+          "action": "鏡片回頭盔、双手放下"
+        }
+      ],
+      "transitions": [
+        {
+          "fromSourceFrame": 4,
+          "toSourceFrame": 5,
+          "additionalFrames": 2,
+          "newPoseIDs": [
+            "glasses-set",
+            "hands-away"
+          ],
+          "poses": [
+            "鏡框移到眼前正確位置，雙手仍扶同一鏡框。",
+            "鏡框保持眼前，雙手鬆開並下降到半途。"
+          ]
+        },
+        {
+          "fromSourceFrame": 5,
+          "toSourceFrame": 6,
+          "additionalFrames": 2,
+          "newPoseIDs": [
+            "hands-rise",
+            "glasses-regrip"
+          ],
+          "poses": [
+            "雙手由較低位置抬回眼鏡兩側，鏡片仍在眼前。",
+            "雙手重新抓住同一鏡框後才開始上移，避免鏡框先跳回額頭。"
+          ]
+        }
+      ],
+      "proposedOrder": [
+        {
+          "proposedFrame": 1,
+          "referenceSourceFrame": 1,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 2,
+          "referenceSourceFrame": 2,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 3,
+          "referenceSourceFrame": 3,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 4,
+          "referenceSourceFrame": 4,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 5,
+          "newPoseID": "glasses-set",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 6,
+          "newPoseID": "hands-away",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 7,
+          "referenceSourceFrame": 5,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 8,
+          "newPoseID": "hands-rise",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 9,
+          "newPoseID": "glasses-regrip",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 10,
+          "referenceSourceFrame": 6,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 11,
+          "referenceSourceFrame": 7,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 12,
+          "referenceSourceFrame": 8,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        }
+      ],
+      "separateRepairs": [
+        "原v1鏡片下降過頭已在v2改正，不重列舊錯。",
+        "鏡片遮住眼睛的格保留眼色／眼距未知，不能為求量測移走鏡片。"
+      ],
+      "endState": "眼鏡回頭盔、手放下；一次整理配件，不自動反覆戴脫。",
+      "evidencePaths": [
+        "animation/fitness-cycling-v2/atlas-generated.png",
+        "animation/production-20261012-review/art-priorities.json"
+      ],
+      "generationStatus": "not-requested-in-this-motion-batch",
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-coach-first-20261012",
+      "title": "白綠教練服・按錶吹哨",
+      "sourcePath": "animation/fitness-coach-v2/atlas-generated.png",
+      "sourceSha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+      "currentSourceFrameCount": 8,
+      "currentDurationMs": 2820,
+      "targetFrameCount": 12,
+      "additionalDistinctPoses": 4,
+      "decision": "add-targeted-inbetweens",
+      "reason": "按表、抬頭、取哨、吹哨、放回是多個因果動作，保留每個道具接觸點，新增4張放在轉接處。",
+      "playbackIntent": "one-shot",
+      "idleLoopAllowed": false,
+      "phases": [
+        {
+          "phase": "anticipation",
+          "proposedFrames": [
+            1,
+            3
+          ],
+          "action": "看表並按下按鈕"
+        },
+        {
+          "phase": "action",
+          "proposedFrames": [
+            4,
+            9
+          ],
+          "action": "放開按鈕、取哨、到嘴邊與鼓頰吹氣"
+        },
+        {
+          "phase": "settle",
+          "proposedFrames": [
+            10,
+            12
+          ],
+          "action": "離嘴、放低、垂回胸前"
+        }
+      ],
+      "transitions": [
+        {
+          "fromSourceFrame": 3,
+          "toSourceFrame": 4,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "button-release"
+          ],
+          "poses": [
+            "按表手先離開按鈕、頭從俯視抬到中間角度；持表手不換。"
+          ]
+        },
+        {
+          "fromSourceFrame": 5,
+          "toSourceFrame": 6,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "whistle-lift"
+          ],
+          "poses": [
+            "手握哨子抬到胸口與嘴之間，頸繩隨上抬改形但不斷裂。"
+          ]
+        },
+        {
+          "fromSourceFrame": 7,
+          "toSourceFrame": 8,
+          "additionalFrames": 2,
+          "newPoseIDs": [
+            "whistle-away",
+            "whistle-lower"
+          ],
+          "poses": [
+            "停止吹氣，頰部消退，哨子剛離嘴但仍由同手握。",
+            "哨子降到半胸高度，手臂部分伸展，之後才垂回胸前。"
+          ]
+        }
+      ],
+      "proposedOrder": [
+        {
+          "proposedFrame": 1,
+          "referenceSourceFrame": 1,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 2,
+          "referenceSourceFrame": 2,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 3,
+          "referenceSourceFrame": 3,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 4,
+          "newPoseID": "button-release",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 5,
+          "referenceSourceFrame": 4,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 6,
+          "referenceSourceFrame": 5,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 7,
+          "newPoseID": "whistle-lift",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 8,
+          "referenceSourceFrame": 6,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 9,
+          "referenceSourceFrame": 7,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 10,
+          "newPoseID": "whistle-away",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 11,
+          "newPoseID": "whistle-lower",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 12,
+          "referenceSourceFrame": 8,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        }
+      ],
+      "separateRepairs": [
+        "目前v2碼表已維持同一側，不把舊v1換手問題列成新問題。",
+        "吹氣線只是輔助，不能替代鼓頰和哨子的真接觸。"
+      ],
+      "endState": "放下哨子、仍握表；單次教練反應。",
+      "evidencePaths": [
+        "animation/fitness-coach-v2/atlas-generated.png",
+        "animation/production-20261012-review/art-priorities.json"
+      ],
+      "generationStatus": "not-requested-in-this-motion-batch",
+      "artApproval": false
+    },
+    {
+      "clipID": "cowboy-first-20261012",
+      "title": "牛仔背心・脫帽致意",
+      "sourcePath": "animation/cowboy-v1/atlas-generated.png",
+      "sourceSha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+      "currentSourceFrameCount": 8,
+      "currentDurationMs": 3090,
+      "targetFrameCount": 12,
+      "additionalDistinctPoses": 4,
+      "decision": "add-targeted-inbetweens",
+      "reason": "最主要缺口是5低頭、直立斜帽→6仰眼、帽子轉平回頭頂；新增3張處理頭與帽共同路徑，再加1張回帽下降。",
+      "playbackIntent": "one-shot",
+      "idleLoopAllowed": false,
+      "phases": [
+        {
+          "phase": "anticipation",
+          "proposedFrames": [
+            1,
+            3
+          ],
+          "action": "抬手抓帽沿、開始離頭"
+        },
+        {
+          "phase": "action",
+          "proposedFrames": [
+            4,
+            10
+          ],
+          "action": "取帽致意、逐步抬頭旋帽並回到頭頂"
+        },
+        {
+          "phase": "settle",
+          "proposedFrames": [
+            11,
+            12
+          ],
+          "action": "帽子落穩、同手離帽放下"
+        }
+      ],
+      "transitions": [
+        {
+          "fromSourceFrame": 5,
+          "toSourceFrame": 6,
+          "additionalFrames": 3,
+          "newPoseIDs": [
+            "head-rise-a",
+            "hat-turn-b",
+            "head-rise-c"
+          ],
+          "poses": [
+            "頭由低頭回升約三分之一，同手腕開始把斜帽旋平。",
+            "頭回升約三分之二，帽子斜向上移，角度介於直立與水平。",
+            "頭近回正，眼神才稍向上，帽子接近水平但仍在頭側上方。"
+          ]
+        },
+        {
+          "fromSourceFrame": 6,
+          "toSourceFrame": 7,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "hat-lower"
+          ],
+          "poses": [
+            "帽子由頭頂上方降到半途，手仍連著同一帽沿，視線逐步回前。"
+          ]
+        }
+      ],
+      "proposedOrder": [
+        {
+          "proposedFrame": 1,
+          "referenceSourceFrame": 1,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 2,
+          "referenceSourceFrame": 2,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 3,
+          "referenceSourceFrame": 3,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 4,
+          "referenceSourceFrame": 4,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 5,
+          "referenceSourceFrame": 5,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 6,
+          "newPoseID": "head-rise-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 7,
+          "newPoseID": "hat-turn-b",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 8,
+          "newPoseID": "head-rise-c",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 9,
+          "referenceSourceFrame": 6,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 10,
+          "newPoseID": "hat-lower",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 11,
+          "referenceSourceFrame": 7,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 12,
+          "referenceSourceFrame": 8,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        }
+      ],
+      "separateRepairs": [
+        "中性首末臉／眼／眼足三尺0%差，無需為帽子外框改人體比例。",
+        "維持固定腰繩圈及同手持帽，不能添加第二頂帽或全圖旋轉。"
+      ],
+      "endState": "帽子戴好、手放下；一次致意後靜止，不自動循环。",
+      "evidencePaths": [
+        "animation/cowboy-v1/atlas-generated.png",
+        "animation/production-20261012-review/art-priorities.json"
+      ],
+      "generationStatus": "single-targeted-attempt-output-blocked-no-file",
+      "generationRequestID": "84e81062-d979-4901-80bf-8b0b62c98e0a",
+      "artApproval": false
+    },
+    {
+      "clipID": "pillow-pajama-first-20261012",
+      "title": "花花睡衣・抱緊小枕頭",
+      "sourcePath": "animation/pillow-pajama-v1/atlas-generated.png",
+      "sourceSha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+      "currentSourceFrameCount": 8,
+      "currentDurationMs": 3360,
+      "targetFrameCount": 12,
+      "additionalDistinctPoses": 4,
+      "decision": "add-targeted-inbetweens",
+      "reason": "主要缺口6→7同时下降、轉枕與雙手換角度；補3張真回收姿勢，另補1張抬枕起始，不能以多停幾毫秒代替。",
+      "playbackIntent": "one-shot",
+      "idleLoopAllowed": false,
+      "phases": [
+        {
+          "phase": "anticipation",
+          "proposedFrames": [
+            1,
+            2
+          ],
+          "action": "胸前握穩、開始抬枕"
+        },
+        {
+          "phase": "action",
+          "proposedFrames": [
+            3,
+            10
+          ],
+          "action": "靠臉、閉眼、離臉後分段下降旋回"
+        },
+        {
+          "phase": "settle",
+          "proposedFrames": [
+            11,
+            12
+          ],
+          "action": "回到水平胸前抱枕"
+        }
+      ],
+      "transitions": [
+        {
+          "fromSourceFrame": 1,
+          "toSourceFrame": 2,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "pillow-lift-a"
+          ],
+          "poses": [
+            "枕頭只略抬並開始傾斜，兩手持續在原來左右兩邊，眼神轉向枕頭。"
+          ]
+        },
+        {
+          "fromSourceFrame": 6,
+          "toSourceFrame": 7,
+          "additionalFrames": 3,
+          "newPoseIDs": [
+            "pillow-away",
+            "pillow-turn-a",
+            "pillow-turn-b"
+          ],
+          "poses": [
+            "臉與枕頭分開少許，枕仍直斜、雙手開始下降。",
+            "枕降至上胸並旋到約55度，雙手接觸位置隨枕轉動。",
+            "枕再降並旋到約25度，肘部逐步回落，下一格才回水平。"
+          ]
+        }
+      ],
+      "proposedOrder": [
+        {
+          "proposedFrame": 1,
+          "referenceSourceFrame": 1,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 2,
+          "newPoseID": "pillow-lift-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 3,
+          "referenceSourceFrame": 2,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 4,
+          "referenceSourceFrame": 3,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 5,
+          "referenceSourceFrame": 4,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 6,
+          "referenceSourceFrame": 5,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 7,
+          "referenceSourceFrame": 6,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 8,
+          "newPoseID": "pillow-away",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 9,
+          "newPoseID": "pillow-turn-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 10,
+          "newPoseID": "pillow-turn-b",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 11,
+          "referenceSourceFrame": 7,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 12,
+          "referenceSourceFrame": 8,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        }
+      ],
+      "separateRepairs": [
+        "首末可比人體尺規差約1–1.5%，不據帽尖或枕頭高度壓扁／放大角色。",
+        "枕頭只可軟壓形變，不能變尺寸、換手或遮整臉。"
+      ],
+      "endState": "枕頭回胸前橫抱，單次依偎後休息。",
+      "evidencePaths": [
+        "animation/pillow-pajama-v1/atlas-generated.png",
+        "animation/production-20261012-review/art-priorities.json"
+      ],
+      "generationStatus": "prior-targeted-12-frame-attempt-output-blocked-no-file",
+      "generationRequestID": "cf72ff28-3a99-42ac-8eaa-6a302a358456",
+      "artApproval": false
+    },
+    {
+      "clipID": "fitness-stretch-first-20261012",
+      "title": "薄荷伸展服・雙臂舉高",
+      "sourcePath": "animation/fitness-stretch-v1/atlas-generated.png",
+      "sourceSha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+      "currentSourceFrameCount": 12,
+      "currentDurationMs": 3580,
+      "targetFrameCount": 16,
+      "additionalDistinctPoses": 4,
+      "decision": "add-targeted-inbetweens",
+      "reason": "雙臂從身側走到頭頂再返回，移動範圍最長；原12格上舉較齊、下降8→9及10→11稀疏。補4張分配在高舉與下降，不一律重複停格。",
+      "playbackIntent": "one-shot",
+      "idleLoopAllowed": false,
+      "phases": [
+        {
+          "phase": "anticipation",
+          "proposedFrames": [
+            1,
+            2
+          ],
+          "action": "站穩、目光前移準備"
+        },
+        {
+          "phase": "action",
+          "proposedFrames": [
+            3,
+            13
+          ],
+          "action": "展臂上舉、頭頂停留、分段打开降至平舉"
+        },
+        {
+          "phase": "settle",
+          "proposedFrames": [
+            14,
+            16
+          ],
+          "action": "雙臂逐步回身側、安靜站立"
+        }
+      ],
+      "transitions": [
+        {
+          "fromSourceFrame": 5,
+          "toSourceFrame": 6,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "arms-up-a"
+          ],
+          "poses": [
+            "兩臂介於斜上與接近頭頂之間，肩和肘連續抬起，身體不跟著放大。"
+          ]
+        },
+        {
+          "fromSourceFrame": 8,
+          "toSourceFrame": 9,
+          "additionalFrames": 2,
+          "newPoseIDs": [
+            "arms-open-a",
+            "arms-open-b"
+          ],
+          "poses": [
+            "頭頂雙臂先分開一小角度，眼神由閉眼逐步回復。",
+            "雙臂再展開到頭頂與原第9斜舉之間，肩部逐步下降。"
+          ]
+        },
+        {
+          "fromSourceFrame": 10,
+          "toSourceFrame": 11,
+          "additionalFrames": 1,
+          "newPoseIDs": [
+            "arms-down-a"
+          ],
+          "poses": [
+            "兩臂從水平降到約三分之一垂落角度，再接原第11的斜下位置。"
+          ]
+        }
+      ],
+      "proposedOrder": [
+        {
+          "proposedFrame": 1,
+          "referenceSourceFrame": 1,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 2,
+          "referenceSourceFrame": 2,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 3,
+          "referenceSourceFrame": 3,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 4,
+          "referenceSourceFrame": 4,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 5,
+          "referenceSourceFrame": 5,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 6,
+          "newPoseID": "arms-up-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 7,
+          "referenceSourceFrame": 6,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 8,
+          "referenceSourceFrame": 7,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 9,
+          "referenceSourceFrame": 8,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 10,
+          "newPoseID": "arms-open-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 11,
+          "newPoseID": "arms-open-b",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 12,
+          "referenceSourceFrame": 9,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 13,
+          "referenceSourceFrame": 10,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 14,
+          "newPoseID": "arms-down-a",
+          "kind": "new-drawn-inbetween"
+        },
+        {
+          "proposedFrame": 15,
+          "referenceSourceFrame": 11,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        },
+        {
+          "proposedFrame": 16,
+          "referenceSourceFrame": 12,
+          "kind": "preserve-key-pose",
+          "note": "保持該關鍵姿勢；新稿仍需逐格核對，不代表自動複製原像素。"
+        }
+      ],
+      "separateRepairs": [
+        "原第8紫眼皮另需定向修色；補成16格本身不解決眼色。",
+        "最高雙手與裸足全部保留；安全倍率只能整段固定，不能縮小抬手格。"
+      ],
+      "endState": "回垂臂站姿；一次伸展，不在待機不停重播。",
+      "evidencePaths": [
+        "animation/fitness-stretch-v1/atlas-generated.png",
+        "animation/production-20261012-review/art-priorities.json"
+      ],
+      "generationStatus": "not-requested-in-this-motion-batch",
+      "artApproval": false
+    }
+  ],
+  "summary": {
+    "currentSourceFrames": 84,
+    "targetTotalFrames": 116,
+    "proposedAdditionalDistinctPoses": 32,
+    "deliveredAdditionalFramesThisBatch": 0,
+    "retained8FrameClips": 1,
+    "target10FrameClips": 2,
+    "target12FrameClips": 6,
+    "target16FrameClips": 1,
+    "artApproved": 0
+  }
+}

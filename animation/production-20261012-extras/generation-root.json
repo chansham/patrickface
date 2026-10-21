@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "batch": "20261012-extras",
+  "tool": "built-in image_gen",
+  "artApproval": false,
+  "attempts": [
+    {
+      "id": "reading-glasses-v1",
+      "type": "reference-guided-generation",
+      "reference": "animation/references/user-playful-20261012/a09.jpg",
+      "requestedGrid": {
+        "columns": 4,
+        "rows": 3,
+        "frameCount": 12
+      },
+      "destination": "animation/reading-glasses-v1/atlas-generated.png",
+      "prompt": "Use case: illustration-story.\nAsset type: an actual hand-drawn 2D Patrick Star animation atlas, exactly 12 consecutive full-body drawings in four columns and three rows, reading left-to-right top-to-bottom, on genuine transparent alpha.\nReference image is mood/character reference only: borrow original-cartoon Patrick's broad pink starfish anatomy, expressive reading/thinking attitude, warm flat colors and humorous face. Do not reproduce this social-media screenshot, real-world UI, text, original room or camera crop.\nNew outfit: Patrick wears a cream short-sleeved shirt under a simple deep teal knitted vest, his familiar lime-green shorts with purple flowers, small round thin brown reading spectacles with completely clear untinted lenses, and visible bare pink feet. He holds a small red hardcover book, blank cream pages with only a few abstract dark marks, no readable writing.\nAnimation story: reading a puzzling page and suddenly understanding it. One red book remains held by his screen-left hand at its lower left corner throughout. Screen-right hand supports the other corner except when touching his chin.\n1 relaxed frontal stance, open book just below chest, eyes look toward page.\n2 eyes follow page downward, book lifts slightly with both arms.\n3 brow gently draws together, book reaches lower chest.\n4 serious puzzled eyebrows, small open mouth, book steady below face.\n5 screen-right hand starts lifting from book, elbow bends; screen-left hand supports book without changing corners.\n6 free screen-right hand approaches chin, thoughtful closed mouth.\n7 same hand touches chin, eyebrows tilted thoughtfully, pupils glance slightly upward.\n8 eyebrows begin to lift, small surprised mouth, hand begins moving away from chin.\n9 clear aha expression, eyebrows raised and eyes bright, free hand lifted beside cheek.\n10 soft knowing smile, free hand returns halfway toward book.\n11 hand reaches the same book corner, both hands lower book gradually.\n12 book at initial reading height, calm attentive expression, matching frontal body volume and feet from frame 1.\nThis must be twelve genuine successive redraws with gradual changes in arm joints, facial expression and book position, not copies translated or rotated as whole images. Keep screen-left supporting hand continuously gripping the same book corner; no swapping hands, no extra hands, book does not vanish or change color. Glasses stay on nose; lenses do not tint the pure white eyeballs. No blue, grey or purple bands in sclera. Eyelid skin is the same warm pink as face.\nOriginal 2D cel-cartoon look, clean outlines, simple flat colors, naturally broad belly and short feet, no plush texture or grotesque realism. Locked frontal camera, same head/body volume, face and eye size, consistent drawing scale, feet on same baseline across all twelve cells. Do not shrink large gestures to fit. Full hatless head, every hand, book and both feet entirely visible with generous transparent margins and gutters. No borders, labels, grid lines, numbers, background, shadow, glow, scene, blur, or decorative ground. Transparent background.",
+      "status": "output-moderation-blocked-no-file",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 9cbcc746-959e-4b4e-a805-43e5101cfbdd.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "requestID": "9cbcc746-959e-4b4e-a805-43e5101cfbdd",
+      "outputFileExists": false
+    }
+  ],
+  "actualGeneratedFiles": 0,
+  "actualSourceFrames": 0
+}

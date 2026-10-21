@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "fitness-martial-first-20261012",
+  "source": {
+    "path": "animation/fitness-martial-v1/atlas-generated.png",
+    "sha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+    "width": 1774,
+    "height": 887
+  },
+  "regions": {
+    "path": "animation/fitness-martial-v1/regions-v1.json",
+    "sha256": "363bcb8be0e7a6b8a72f9345696a46f708a9aba42980c45fd276a77d07aed0d2"
+  },
+  "canvas": {
+    "width": 928,
+    "height": 928,
+    "anchorPixels": [
+      464,
+      817
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8803879310344828
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 8,
+  "coverage": {
+    "assignedPixels": 567493,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 1006045,
+    "alphaOnePixels": 137541,
+    "edgeNonzeroPixels": 222,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 1,
+    "detachedComponents": 9452
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        0,
+        19,
+        486,
+        498
+      ],
+      "coreBounds": [
+        92,
+        39,
+        352,
+        418
+      ],
+      "anchorSource": [
+        223,
+        418
+      ],
+      "translation": [
+        241,
+        399
+      ],
+      "placement": [
+        241,
+        418
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        444,
+        3,
+        453,
+        501
+      ],
+      "coreBounds": [
+        540,
+        52,
+        799,
+        417
+      ],
+      "anchorSource": [
+        671,
+        417
+      ],
+      "translation": [
+        -207,
+        400
+      ],
+      "placement": [
+        237,
+        403
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        874,
+        9,
+        483,
+        495
+      ],
+      "coreBounds": [
+        989,
+        87,
+        1235,
+        417
+      ],
+      "anchorSource": [
+        1112,
+        417
+      ],
+      "translation": [
+        -648,
+        400
+      ],
+      "placement": [
+        226,
+        409
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1325,
+        29,
+        443,
+        465
+      ],
+      "coreBounds": [
+        1442,
+        151,
+        1684,
+        417
+      ],
+      "anchorSource": [
+        1561,
+        417
+      ],
+      "translation": [
+        -1097,
+        400
+      ],
+      "placement": [
+        228,
+        429
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        0,
+        499,
+        468,
+        388
+      ],
+      "coreBounds": [
+        104,
+        594,
+        344,
+        841
+      ],
+      "anchorSource": [
+        223,
+        841
+      ],
+      "translation": [
+        241,
+        -24
+      ],
+      "placement": [
+        241,
+        475
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        440,
+        465,
+        453,
+        422
+      ],
+      "coreBounds": [
+        549,
+        517,
+        792,
+        839
+      ],
+      "anchorSource": [
+        670,
+        839
+      ],
+      "translation": [
+        -206,
+        -22
+      ],
+      "placement": [
+        234,
+        443
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        864,
+        442,
+        501,
+        445
+      ],
+      "coreBounds": [
+        985,
+        468,
+        1239,
+        838
+      ],
+      "anchorSource": [
+        1113,
+        838
+      ],
+      "translation": [
+        -649,
+        -21
+      ],
+      "placement": [
+        215,
+        421
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1329,
+        442,
+        444,
+        445
+      ],
+      "coreBounds": [
+        1425,
+        466,
+        1682,
+        838
+      ],
+      "anchorSource": [
+        1555,
+        838
+      ],
+      "translation": [
+        -1091,
+        -21
+      ],
+      "placement": [
+        238,
+        421
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "findings": [
+      {
+        "sourceFrames": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "message": "鞠躬有姿勢透視與低頭，不能逐格fit成同高或用縮短眼足距判定縮放瑕疵。"
+      },
+      {
+        "sourceFrames": [
+          5
+        ],
+        "message": "深鞠躬閉眼，眼部尺規未知。"
+      },
+      {
+        "sourceFrames": [
+          5,
+          6
+        ],
+        "message": "深鞠躬轉起身變化大，仍待中間稿。"
+      }
+    ],
+    "alignmentMethod": "8格雙裸腳支撐完整，保留下15%支撐中心、逐格整數平移；鞠躬造成頭肩向下是真姿势，不能逐格fit消除。"
+  },
+  "bodyMeasurementReport": "animation/production-20261012-fitness/fitness-martial-v1-body-qc.json",
+  "status": "candidate-ready"
+}

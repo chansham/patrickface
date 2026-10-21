@@ -29,6 +29,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
     private var latestSettings: PatrickWatchWire.Settings?
     @Published private(set) var latestTimer: PatrickWatchWire.TimerSnapshot?
     private var pendingEnvelope: PatrickWatchWire.Envelope?
+    private var statusSampler = PatrickWatchStatusSampler()
     private var currentTheme: (() -> PatrickTheme)?
     private var onControlApplied: ((AppliedState) -> Void)?
     private var onOpenFace: (() -> Void)?
@@ -122,6 +123,41 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
         sendSnapshot(theme: theme)
     }
 
+    func observeBattery(foreground: Bool, at date: Date = .now) {
+        guard foreground else { return }
+        let device = WKInterfaceDevice.current()
+        guard device.isBatteryMonitoringEnabled else { return }
+        let state: PatrickWatchStatusObservation.ChargingState
+        switch device.batteryState {
+        case .unknown: state = .unknown
+        case .unplugged: state = .unplugged
+        case .charging: state = .charging
+        case .full: state = .full
+        @unknown default: state = .unknown
+        }
+        guard statusSampler.sample(batteryLevel: Double(device.batteryLevel), chargingState: state,
+                                   foreground: foreground, at: date) != nil else { return }
+        publishLatestStatus()
+    }
+
+    private func publishLatestStatus() {
+        guard session.activationState == .activated,
+              let observation = statusSampler.latest,
+              let data = try? observation.encoded() else { return }
+        do {
+            try session.updateApplicationContext(PatrickWatchStatusTransport.merging(
+                key: PatrickWatchWire.watchStatusTransportKey, data: data, into: session.applicationContext))
+        } catch {
+            lastAcknowledgement = "Watch status context failed: \(error.localizedDescription)"
+        }
+        // The latest context is the only offline fallback. Do not enqueue a
+        // transferUserInfo for every battery heartbeat or replay an old state.
+        if session.isReachable {
+            session.sendMessage([PatrickWatchWire.watchStatusTransportKey: data],
+                                replyHandler: nil, errorHandler: nil)
+        }
+    }
+
     private func deliver(_ envelope: PatrickWatchWire.Envelope) {
         guard session.activationState == .activated else {
             pendingEnvelope = envelope
@@ -138,9 +174,8 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
                 if envelope.kind == .command, envelope.command?.automationEvent != nil, let settings = envelope.settings {
                     context = PatrickWatchWire.Envelope.snapshot(settings: settings, timer: envelope.timer)
                 }
-                try session.updateApplicationContext([
-                    PatrickWatchWire.transportKey: try context.encoded(),
-                ])
+                try session.updateApplicationContext(PatrickWatchStatusTransport.merging(
+                    key: PatrickWatchWire.transportKey, data: try context.encoded(), into: session.applicationContext))
             } catch {
                 lastAcknowledgement = "Latest-state context failed: \(error.localizedDescription)"
             }
@@ -424,7 +459,12 @@ extension PatrickWatchReceiver: WCSessionDelegate {
             } else {
                 publishCurrentSnapshot()
             }
+            publishLatestStatus()
         }
+    }
+
+    nonisolated func sessionReachabilityDidChange(_ session: WCSession) {
+        Task { @MainActor [weak self] in self?.publishLatestStatus() }
     }
 
     nonisolated func session(

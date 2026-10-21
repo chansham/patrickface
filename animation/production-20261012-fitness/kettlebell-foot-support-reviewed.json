@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "path": "animation/fitness-kettlebell-v2/atlas-generated.png",
+    "sha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+    "width": 1774,
+    "height": 887
+  },
+  "frameIndexBasis": "one-based source order",
+  "method": "visible bare pink feet selected separately; choose median x of strong-alpha bottom row per foot; Y exclusive",
+  "limits": "支撐點用於整數平移落位，不等於人体尺規；人体眼足距另用粉色填色下緣。第1/8壺鈴更低，不使用壺鈴底。",
+  "artApproval": false,
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "footROI": [
+        110,
+        370,
+        395,
+        438
+      ],
+      "feet": [
+        {
+          "pinkFillBounds": [
+            126,
+            371,
+            192,
+            420
+          ],
+          "supportPointBottomExclusive": [
+            147,
+            423
+          ],
+          "supportPixelAlpha": 149,
+          "thresholdAlpha": 128
+        },
+        {
+          "pinkFillBounds": [
+            309,
+            371,
+            376,
+            420
+          ],
+          "supportPointBottomExclusive": [
+            354,
+            423
+          ],
+          "supportPixelAlpha": 175,
+          "thresholdAlpha": 128
+        }
+      ],
+      "anchorNotAnatomicalCaliper": true,
+      "suggestedSupportAnchor": [
+        250.5,
+        423
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "footROI": [
+        530,
+        370,
+        810,
+        438
+      ],
+      "feet": [
+        {
+          "pinkFillBounds": [
+            547,
+            371,
+            614,
+            420
+          ],
+          "supportPointBottomExclusive": [
+            570,
+            423
+          ],
+          "supportPixelAlpha": 149,
+          "thresholdAlpha": 128
+        },
+        {
+          "pinkFillBounds": [
+            732,
+            371,
+            799,
+            420
+          ],
+          "supportPointBottomExclusive": [
+            777,
+            423
+          ],
+          "supportPixelAlpha": 145,
+          "thresholdAlpha": 128
+        }
+      ],
+      "anchorNotAnatomicalCaliper": true,
+      "suggestedSupportAnchor": [
+        673.5,
+        423
+      ]
+    },
+    {
+      "sourceFrame": 3,
+      "footROI": [
+        965,
+        355,
+        1250,
+        438
+      ],
+      "feet": [
+        {
+          "pinkFillBounds": [
+            981,
+            371,
+            1048,
+            420
+          ],
+          "supportPointBottomExclusive": [
+            1003,
+            423
+          ],
+          "supportPixelAlpha": 172,
+          "thresholdAlpha": 128
+        },
+        {
+          "pinkFillBounds": [
+            1167,
+            371,
+            1234,
+            420
+          ],
+          "supportPointBottomExclusive": [
+            1212,
+            423
+          ],
+          "supportPixelAlpha": 146,
+          "thresholdAlpha": 128
+        }
+      ],
+      "anchorNotAnatomicalCaliper": true,
+      "suggestedSupportAnchor": [
+        1107.5,
+        423
+      ]
+    },
+    {
+      "sourceFrame": 4,
+      "footROI": [
+        1407,
+        350,
+        1697,
+        438
+      ],
+      "feet": [
+        {
+          "pinkFillBounds": [
+            1428,
+            371,
+            1495,
+            420
+          ],
+          "supportPointBottomExclusive": [
+            1448,
+            423
+          ],
+          "supportPixelAlpha": 180,
+          "thresholdAlpha": 128
+        },
+        {
+          "pinkFillBounds": [
+            1612,
+            371,
+            1679,
+            420
+          ],
+          "supportPointBottomExclusive": [
+            1657,
+            423
+          ],
+          "supportPixelAlpha": 171,
+          "thresholdAlpha": 128
+        }
+      ],
+      "anchorNotAnatomicalCaliper": true,
+      "suggestedSupportAnchor": [
+        1552.5,
+        423
+      ]
+    },
+    {
+      "sourceFrame": 5,
+      "footROI": [
+        110,
+        775,
+        395,
+        850
+      ],
+      "feet": [
+        {
+          "pinkFillBounds": [
+            127,
+            776,
+            193,
+            825
+          ],
+          "supportPointBottomExclusive": [
+            149,
+            827
+          ],
+          "supportPixelAlpha": 242,
+          "thresholdAlpha": 128
+        },
+        {
+          "pinkFillBounds": [
+            310,
+            776,
+            376,
+            825
+          ],
+          "supportPointBottomExclusive": [
+            352,
+            828
+          ],
+          "supportPixelAlpha": 131,
+          "thresholdAlpha": 128
+        }
+      ],
+      "anchorNotAnatomicalCaliper": true,
+      "suggestedSupportAnchor": [
+        250.5,
+        828
+      ]
+    },
+    {
+      "sourceFrame": 6,
+      "footROI": [
+        530,
+        775,
+        810,
+        850
+      ],
+      "feet": [
+        {
+          "pinkFillBounds": [
+            547,
+            776,
+            614,
+            825
+          ],
+          "supportPointBottomExclusive": [
+            570,
+            828
+          ],
+          "supportPixelAlpha": 137,
+          "thresholdAlpha": 128
+        },
+        {
+          "pinkFillBounds": [
+            732,
+            776,
+            799,
+            825
+          ],
+          "supportPointBottomExclusive": [
+            775,
+            827
+          ],
+          "supportPixelAlpha": 251,
+          "thresholdAlpha": 128
+        }
+      ],
+      "anchorNotAnatomicalCaliper": true,
+      "suggestedSupportAnchor": [
+        672.5,
+        828
+      ]
+    },
+    {
+      "sourceFrame": 7,
+      "footROI": [
+        965,
+        775,
+        1250,
+        850
+      ],
+      "feet": [
+        {
+          "pinkFillBounds": [
+            984,
+            776,
+            1051,
+            825
+          ],
+          "supportPointBottomExclusive": [
+            1006,
+            828
+          ],
+          "supportPixelAlpha": 135,
+          "thresholdAlpha": 128
+        },
+        {
+          "pinkFillBounds": [
+            1170,
+            776,
+            1237,
+            825
+          ],
+          "supportPointBottomExclusive": [
+            1215,
+            828
+          ],
+          "supportPixelAlpha": 128,
+          "thresholdAlpha": 128
+        }
+      ],
+      "anchorNotAnatomicalCaliper": true,
+      "suggestedSupportAnchor": [
+        1110.5,
+        828
+      ]
+    },
+    {
+      "sourceFrame": 8,
+      "footROI": [
+        1407,
+        771,
+        1697,
+        850
+      ],
+      "feet": [
+        {
+          "pinkFillBounds": [
+            1428,
+            776,
+            1495,
+            825
+          ],
+          "supportPointBottomExclusive": [
+            1450,
+            828
+          ],
+          "supportPixelAlpha": 130,
+          "thresholdAlpha": 128
+        },
+        {
+          "pinkFillBounds": [
+            1612,
+            776,
+            1679,
+            825
+          ],
+          "supportPointBottomExclusive": [
+            1656,
+            828
+          ],
+          "supportPixelAlpha": 134,
+          "thresholdAlpha": 128
+        }
+      ],
+      "anchorNotAnatomicalCaliper": true,
+      "suggestedSupportAnchor": [
+        1553.0,
+        828
+      ]
+    }
+  ]
+}

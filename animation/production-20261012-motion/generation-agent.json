@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "batch": "20261012-motion",
+  "tool": "built-in image_gen",
+  "artApproval": false,
+  "attempts": [
+    {
+      "id": "cowboy-v2",
+      "type": "targeted-transition-redraw",
+      "target": "animation/cowboy-v1/atlas-generated.png",
+      "targetSourceSha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+      "requestedGrid": {
+        "columns": 4,
+        "rows": 3,
+        "frameCount": 12
+      },
+      "destination": "animation/cowboy-v2/atlas-generated.png",
+      "scope": "補原source5→6低頭到抬頭／帽子旋轉、回帽下降的真中間姿勢；原v1檔不變，不做逐格fit。",
+      "prompt": "Use case: precise-object-edit.\nEdit target: the attached existing 8-frame 2D cowboy Patrick Star atlas. Make one targeted animation-continuity revision, expanding the SAME hat greeting to 12 genuinely redrawn poses. The missing action is between original source frame5 (looking down, hat tilted beside head) and original source frame6 (looking up, hat suddenly level above head). Add gradual head recovery, wrist rotation, hat travel and lowering. Do not just duplicate or shift existing frames.\n\nKeep the exact original cowboy outfit and character design: brown cowboy hat, brown open vest with light stitching, turquoise shorts, round yellow star buckle, one yellow rope coil attached at screen-left waist, bare pink feet, friendly original-cartoon Patrick anatomy. Same naturally broad body volume, belly and compact feet, same face and eye size. Preserve white sclera and black pupils; eyelids match warm coral-pink skin, never purple/grey. Keep the existing clean black outline and flat 2D cel color style. Do not redesign the character or create a different costume.\n\nOutput exactly12 frames in4 columns by3 rows, normal reading order, overall4:3 sheet with equally sized cells and no drawn grid. This is a single fixed camera/drawing-scale sequence:\n1 original neutral start: hat worn, both arms low, gentle smile.\n2 the screen-right arm reaches the brim; other arm stays relaxed.\n3 same hand grips brim and lifts the hat a little clear of head.\n4 same hand holds hat off to the screen-right side, hat visibly tilted; friendly greeting.\n5 brief small nod: eyes look down, head inclined a little, hat tilted beside head.\n6 head begins to rise one-third of the way; the SAME wrist begins rotating the hat toward horizontal while keeping a continuous grip on the same brim edge.\n7 head rises two-thirds; hat travels diagonally upward/inward, tilt halfway between vertical and horizontal. This must be a distinct new intermediate pose.\n8 head comes upright, eyes look forward then slightly up; hat is almost horizontal above and just to the side of head, still held by the SAME hand.\n9 hat is level just above the head; eyes gently look up, elbow bends to center hat. Do not jump head size or eye position.\n10 same hand lowers the level hat partway toward head; gaze settles gradually forward.\n11 hat settles properly onto head, same hand lightly touching brim.\n12 hand lowers to the original relaxed position; hat worn, gentle smile, same neutral body and camera proportions as frame1.\n\nExactly one hat. Never change holding hands, mirror the character, detach hand from brim, duplicate fingers or arms, or move the rope into a hand. The hat rotates because the wrist moves; head/neck recover gradually from the nod, not by whole-image rotation. No full-character swaying, elastic head stretching or scale animation. Small natural projection change in nod is okay, but identical physical body volume across all12 frames.\nSame local foot-ground baseline for all12. Keep full bare feet, complete hat at highest lift and both arms inside every cell with wide transparent gutters and ample margins. The widest or tallest pose must NOT be individually fitted/shrunk; all drawings share one camera and scale.\nGenuine transparent RGBA background throughout, preserving existing transparency. No colored background, halo, floor, cast shadow, vignette, motion blur, labels, borders, numbers or text.",
+      "status": "output-moderation-blocked-no-file",
+      "retryPolicy": "本輪單次內建請求；攔截即記exacterror，不改词繞過或fallback。",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 84e81062-d979-4901-80bf-8b0b62c98e0a.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "requestID": "84e81062-d979-4901-80bf-8b0b62c98e0a",
+      "outputFileExists": false
+    }
+  ],
+  "summary": {
+    "successfulImages": 0,
+    "newFrames": 0,
+    "artApproved": 0
+  }
+}

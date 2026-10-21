@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-13",
+  "reviewer": "independent-pose-coverage-review",
+  "artApproval": false,
+  "status": "partial-plan-coverage-art-review-required",
+  "frameNumbering": "one-based source atlas row-major; oldSourceTransition and newSourceFrames refer to different PNGs",
+  "scope": "只覆核抱枕及道服兩套新舊原畫與原計畫6個補姿勢，不代表全部候選或原32個姿勢已完成。未作新的瀏覽器實播。",
+  "plan": {
+    "path": "animation/production-20261012-motion/frame-plan.json",
+    "sha256": "ee787ecddf9bc7da373efcee7ead68a55090529c814e1a98784ce5a19c875d44",
+    "originalProposedAdditionalDistinctPoses": 32,
+    "planFileModified": false,
+    "reviewedPlannedPoseCount": 6,
+    "approvedPoseCredit": 0,
+    "approvedRemainingPoseCount": null,
+    "accountingRule": "新PNG的22個來源格身份、相較舊8+8淨增6播放位置、6個計畫姿勢的覆蓋程度是三件事。不得以32−6報告已完成或剩26；此檔complete僅代表該局部姿勢意圖可辨，不批准美術或抵扣交付。"
+  },
+  "statusDefinitions": {
+    "complete": "實看新原畫可辨指定的局部中間姿勢；不是全段順滑、原比例保留、實機驗收或美術批准。",
+    "partial": "動作方向有進展，但指定的角度或時序過渡未充分分開。",
+    "unfulfilled": "尚未看到足以區分原關鍵姿勢並填補所指缺口的中間姿勢；總格數增加不改變此判斷。"
+  },
+  "method": {
+    "allFourOriginalAtlasesViewed": true,
+    "newWhiteBackgroundCompositesViewed": true,
+    "newRuntimeObservation": false,
+    "imageEdits": false,
+    "angleMeasurement": "qualitative-only; no numeric pillow angle claimed measured",
+    "bodyMeasurementBasis": "既有本批fresh SHA人體量測；本覆核只讀取，不新增或重算量尺。",
+    "limitations": [
+      "來源格間姿勢分解可指出缺口，不能代替正常1×實播；播放時長亦不能創造欠缺的姿勢。",
+      "原 atlas 直接顯示的透明RGB彩邊未視為實際不透明缺陷；本輪亦查看白底合成，未據光暈判退。",
+      "閉眼與枕頭遮眼時未知量尺繼續保持未知；不以道具外框、睡帽尖或鞠躬投影當人物尺寸。"
+    ]
+  },
+  "clips": [
+    {
+      "clipID": "pillow-pajama-inbetweens-20261012",
+      "planClipID": "pillow-pajama-first-20261012",
+      "oldSource": {
+        "path": "animation/pillow-pajama-v1/atlas-generated.png",
+        "sha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+        "frameCount": 8
+      },
+      "newSource": {
+        "path": "animation/pillow-pajama-v2/atlas-generated.png",
+        "sha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+        "frameCount": 12
+      },
+      "plannedPoses": [
+        {
+          "poseID": "pillow-lift-a",
+          "oldSourceTransition": [1, 2],
+          "plannedNewSequenceFrame": 2,
+          "newSourceFrames": [1, 2, 3],
+          "status": "unfulfilled",
+          "expected": "枕頭僅略抬並開始傾斜；眼神轉向枕頭，雙手保持两邊接點。",
+          "finding": "新第2格已明顯轉頭並斜舉枕頭，接近舊第2關鍵姿勢；1→2仍把起手與大幅轉向放在一次跳換，未形成計畫中的小幅起始格。",
+          "nextRepair": "重畫第2格為胸前略抬、剛开始轉斜的姿勢；之後再接現有斜舉姿勢，不以多停第1格補替。"
+        },
+        {
+          "poseID": "pillow-away",
+          "oldSourceTransition": [6, 7],
+          "plannedNewSequenceFrame": 8,
+          "newSourceFrames": [7, 8],
+          "status": "complete",
+          "expected": "枕頭與臉稍微分開，仍維持直斜，雙手開始下降。",
+          "finding": "第8格相較第7格可辨枕頭離開眼臉接觸區並向下，雙手仍沿兩端持握；新姿勢承接了原先直接回水平抱枕的缺口。",
+          "remainingChecks": "離臉速度與手枕接點仍須正常1×及逐格美術審核；complete僅指此局部意圖可見。"
+        },
+        {
+          "poseID": "pillow-turn-a",
+          "oldSourceTransition": [6, 7],
+          "plannedNewSequenceFrame": 9,
+          "newSourceFrames": [8, 9, 10],
+          "status": "partial",
+          "expected": "枕頭降至上胸並進一步旋向中間斜角，雙手接觸隨枕轉動。",
+          "finding": "第9格有下降到胸前的實際姿勢，但8/9長軸斜角相近，轉角主要留到第10格；下降有分段，旋轉尚未均勻分開。此處未作角度數值量測。",
+          "nextRepair": "讓第9格的枕頭長軸與雙肘角度確實介於8和10，保留同一枕頭大小、左右手接觸及角色身形。"
+        },
+        {
+          "poseID": "pillow-turn-b",
+          "oldSourceTransition": [6, 7],
+          "plannedNewSequenceFrame": 10,
+          "newSourceFrames": [9, 10, 11],
+          "status": "complete",
+          "expected": "枕頭再下降並接近水平但尚未全平，雙肘回落，下一格才橫抱。",
+          "finding": "第10格確有較低、較平但仍傾斜的抱枕與手肘姿勢，介於第9斜抱和第11水平之間；沒有把整張角色旋轉冒充。",
+          "remainingChecks": "10→11同時回正看前仍可能顯快；局部姿勢存在不代表這一接續已順滑，亦未確認指定角度數值。"
+        }
+      ],
+      "otherFindings": [
+        "第5/6均閉眼依偎、姿勢接近，可作情境停留，不能宣稱新增了一個眨眼循環或每格都是新动作。",
+        "12格為整段新畫稿，並非原8格像素不變地插入4格；新舊首格眼足/臉比有差。"
+      ],
+      "proportionEvidence": {
+        "path": "animation/production-20261012-inbetweens/body-review/README.md",
+        "metric": "neutral-first-eye-line-to-foot divided by face width",
+        "newRatioRounded": 1.897,
+        "oldRatioRounded": 2.117,
+        "newVersusOldChangePercentRounded": -10.39,
+        "meaning": "單一等比縮放不能消除這個比例差；不能聲稱完全保留原身形。這不是本覆核新增量測，也不據此逐格fit。"
+      },
+      "artApproval": false
+    },
+    {
+      "clipID": "martial-inbetweens-20261012",
+      "planClipID": "fitness-martial-first-20261012",
+      "oldSource": {
+        "path": "animation/fitness-martial-v1/atlas-generated.png",
+        "sha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+        "frameCount": 8
+      },
+      "newSource": {
+        "path": "animation/fitness-martial-v2/atlas-generated.png",
+        "sha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+        "frameCount": 10
+      },
+      "plannedPoses": [
+        {
+          "poseID": "rise-a",
+          "oldSourceTransition": [5, 6],
+          "plannedNewSequenceFrame": 6,
+          "newSourceFrames": [5, 6, 7],
+          "status": "complete",
+          "expected": "由最深鞠躬小幅抬頭肩，視線仍向下，腰開始展開。",
+          "finding": "新第6格頭肩與腰確有由最低點開始起身的真姿勢，仍然低頭，並非整張圖向上搬動。5→6→7有可辨的分段回升。",
+          "remainingChecks": "全段1×節奏和衣領腰帶接續另審；complete僅表示第一個回升姿勢存在。"
+        },
+        {
+          "poseID": "rise-b",
+          "oldSourceTransition": [6, 7],
+          "plannedNewSequenceFrame": 8,
+          "newSourceFrames": [7, 8, 9],
+          "status": "unfulfilled",
+          "expected": "頭肩升到半直立與直立之間，視線逐步抬前，手沿褲側回位。",
+          "finding": "第7/8頭肩高度、前傾程度與眼神很接近，第8未提供足夠獨立的中高位回升；8→9才明顯站直並睜大眼。10格達標但第二個起身缺口仍在。",
+          "supportingExistingMeasurements": {
+            "path": "animation/production-20261012-inbetweens/fitness-martial-v2-body-qc.json",
+            "metric": "eyeLineToFootPx; pose proxy only, not anatomy size",
+            "frame7": 186.0,
+            "frame8": 187.0,
+            "frame9": 214.5
+          },
+          "nextRepair": "把第8改為第7與9之間可辨的頭肩高度、腰角與抬前視線；保持雙脚支撐，不靠逐格放大或延長停留。"
+        }
+      ],
+      "otherFindings": [
+        "第5閉眼暖粉眼皮保留，不能拿眼皮補猜眼白尺規。",
+        "鞠躬中段高度下降屬姿勢投影；新舊首格比例差則另列，兩者不能混為同一尺寸問題。"
+      ],
+      "proportionEvidence": {
+        "path": "animation/production-20261012-inbetweens/body-review/README.md",
+        "metric": "neutral-first-eye-line-to-foot divided by face width",
+        "newRatioRounded": 2.251,
+        "oldRatioRounded": 2.432,
+        "newVersusOldChangePercentRounded": -7.45,
+        "meaning": "新稿站姿相對臉寬的眼足高度與舊稿不同；單一等比縮放不能把它改回原比例。這不是把中段鞠躬投影誤判為身體縮放。"
+      },
+      "artApproval": false
+    }
+  ],
+  "summary": {
+    "newSourceFrameIdentities": 22,
+    "oldSourceFrameCountForTwoClips": 16,
+    "netAdditionalPlaybackPositions": 6,
+    "reviewedPlannedPoses": 6,
+    "locallyCompletePoseIntent": 3,
+    "partialPoseIntent": 1,
+    "unfulfilledPoseIntent": 2,
+    "artApprovedPoses": 0,
+    "completeAnimationClips": 0,
+    "newOutfits": 0,
+    "original32PosePlanAutomaticallyReduced": false
+  },
+  "evidencePaths": [
+    "animation/production-20261012-motion/frame-plan.json",
+    "animation/pillow-pajama-v1/atlas-generated.png",
+    "animation/pillow-pajama-v2/atlas-generated.png",
+    "animation/fitness-martial-v1/atlas-generated.png",
+    "animation/fitness-martial-v2/atlas-generated.png",
+    "output/body-landmarks-20261012-inbetweens/pillow-pajama-v2-source-white.png",
+    "output/body-landmarks-20261012-inbetweens/fitness-martial-v2-source-white.png",
+    "animation/production-20261012-inbetweens/body-review/README.md",
+    "animation/production-20261012-inbetweens/pillow-pajama-v2-body-qc.json",
+    "animation/production-20261012-inbetweens/fitness-martial-v2-body-qc.json"
+  ]
+}

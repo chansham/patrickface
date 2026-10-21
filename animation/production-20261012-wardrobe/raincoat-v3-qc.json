@@ -1,0 +1,510 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "frameIndexBasis": "one-based source reading order",
+  "artApproval": false,
+  "source": {
+    "path": "animation/raincoat-v3/atlas-generated.png",
+    "sha256": "e3fdb977617c6a73718a6bb12b31d27be1e1a737a5ccba4304c39417d2ff2e74",
+    "width": 1086,
+    "height": 1448
+  },
+  "sourceUnchanged": true,
+  "regions": {
+    "path": "animation/raincoat-v3/regions-v1.json",
+    "sha256": "8eeb5a8722d024941f54cf801333418d99f8eb67af2ac6c9e6d5c17d8273fb71"
+  },
+  "canvas": {
+    "width": 472,
+    "height": 472,
+    "anchorPixels": [
+      236,
+      415
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8792372881355932
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 585087,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceFrames": 12,
+  "frameIndices": [
+    0,
+    1,
+    3,
+    4,
+    2,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "playbackFrame": 1,
+      "sourceBounds": [
+        50,
+        14,
+        331,
+        342
+      ],
+      "coreBounds": [
+        55,
+        17,
+        305,
+        351
+      ],
+      "coreHeightPx": 334,
+      "coreWidthPx": 250,
+      "anchorSource": [
+        218,
+        351
+      ],
+      "translation": [
+        18,
+        64
+      ],
+      "placement": [
+        68,
+        78
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "playbackFrame": 2,
+      "sourceBounds": [
+        355,
+        14,
+        383,
+        340
+      ],
+      "coreBounds": [
+        413,
+        17,
+        662,
+        351
+      ],
+      "coreHeightPx": 334,
+      "coreWidthPx": 249,
+      "anchorSource": [
+        573,
+        351
+      ],
+      "translation": [
+        -337,
+        64
+      ],
+      "placement": [
+        18,
+        78
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "playbackFrame": 5,
+      "sourceBounds": [
+        708,
+        14,
+        346,
+        340
+      ],
+      "coreBounds": [
+        768,
+        17,
+        1036,
+        351
+      ],
+      "coreHeightPx": 334,
+      "coreWidthPx": 268,
+      "anchorSource": [
+        931,
+        351
+      ],
+      "translation": [
+        -695,
+        64
+      ],
+      "placement": [
+        13,
+        78
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "playbackFrame": 3,
+      "sourceBounds": [
+        50,
+        339,
+        339,
+        371
+      ],
+      "coreBounds": [
+        56,
+        371,
+        308,
+        707
+      ],
+      "coreHeightPx": 336,
+      "coreWidthPx": 252,
+      "anchorSource": [
+        218,
+        707
+      ],
+      "translation": [
+        18,
+        -292
+      ],
+      "placement": [
+        68,
+        47
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "playbackFrame": 4,
+      "sourceBounds": [
+        356,
+        368,
+        388,
+        348
+      ],
+      "coreBounds": [
+        411,
+        370,
+        662,
+        707
+      ],
+      "coreHeightPx": 337,
+      "coreWidthPx": 251,
+      "anchorSource": [
+        572,
+        707
+      ],
+      "translation": [
+        -336,
+        -292
+      ],
+      "placement": [
+        20,
+        76
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "playbackFrame": 6,
+      "sourceBounds": [
+        738,
+        351,
+        320,
+        359
+      ],
+      "coreBounds": [
+        768,
+        371,
+        1055,
+        707
+      ],
+      "coreHeightPx": 336,
+      "coreWidthPx": 287,
+      "anchorSource": [
+        933,
+        707
+      ],
+      "translation": [
+        -697,
+        -292
+      ],
+      "placement": [
+        41,
+        59
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "playbackFrame": 7,
+      "sourceBounds": [
+        51,
+        723,
+        324,
+        345
+      ],
+      "coreBounds": [
+        56,
+        726,
+        343,
+        1065
+      ],
+      "coreHeightPx": 339,
+      "coreWidthPx": 287,
+      "anchorSource": [
+        221,
+        1065
+      ],
+      "translation": [
+        15,
+        -650
+      ],
+      "placement": [
+        66,
+        73
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "playbackFrame": 8,
+      "sourceBounds": [
+        407,
+        723,
+        298,
+        347
+      ],
+      "coreBounds": [
+        412,
+        726,
+        686,
+        1065
+      ],
+      "coreHeightPx": 339,
+      "coreWidthPx": 274,
+      "anchorSource": [
+        573,
+        1065
+      ],
+      "translation": [
+        -337,
+        -650
+      ],
+      "placement": [
+        70,
+        73
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 9,
+      "playbackFrame": 9,
+      "sourceBounds": [
+        757,
+        723,
+        295,
+        344
+      ],
+      "coreBounds": [
+        768,
+        726,
+        1015,
+        1064
+      ],
+      "coreHeightPx": 338,
+      "coreWidthPx": 247,
+      "anchorSource": [
+        933,
+        1064
+      ],
+      "translation": [
+        -697,
+        -649
+      ],
+      "placement": [
+        60,
+        74
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 10,
+      "playbackFrame": 10,
+      "sourceBounds": [
+        50,
+        1058,
+        327,
+        372
+      ],
+      "coreBounds": [
+        54,
+        1085,
+        308,
+        1427
+      ],
+      "coreHeightPx": 342,
+      "coreWidthPx": 254,
+      "anchorSource": [
+        220,
+        1427
+      ],
+      "translation": [
+        16,
+        -1012
+      ],
+      "placement": [
+        66,
+        46
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 11,
+      "playbackFrame": 11,
+      "sourceBounds": [
+        407,
+        1083,
+        322,
+        349
+      ],
+      "coreBounds": [
+        411,
+        1086,
+        664,
+        1427
+      ],
+      "coreHeightPx": 341,
+      "coreWidthPx": 253,
+      "anchorSource": [
+        572,
+        1427
+      ],
+      "translation": [
+        -336,
+        -1012
+      ],
+      "placement": [
+        71,
+        71
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 12,
+      "playbackFrame": 12,
+      "sourceBounds": [
+        753,
+        1080,
+        319,
+        352
+      ],
+      "coreBounds": [
+        768,
+        1084,
+        1025,
+        1427
+      ],
+      "coreHeightPx": 343,
+      "coreWidthPx": 257,
+      "anchorSource": [
+        933,
+        1427
+      ],
+      "translation": [
+        -697,
+        -1012
+      ],
+      "placement": [
+        56,
+        68
+      ],
+      "coreBottomOffsetFromAnchor": 0,
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceAlpha": {
+    "transparentPixels": 987441,
+    "alphaOnePixels": 22031,
+    "edgeNonzeroPixels": 0,
+    "edgeStrongPixels": 0,
+    "detachedComponents": 763
+  },
+  "bodyMeasurementReport": "animation/production-20261012-wardrobe/raincoat-v3-body-qc.json",
+  "alignmentReview": {
+    "method": "unchanged-default-lower-15-percent-support-center",
+    "sameCanvasEveryFrame": true,
+    "perFrameFit": false,
+    "notes": "12格均雙腳可見、沒有跳躍；下端core正好落在共用基線。anchor僅為輪廓落位，真足底與臉眼尺規由另一份逐格報告核對。"
+  },
+  "visualFindings": [
+    {
+      "kind": "improved",
+      "sourceFrames": [
+        4,
+        5,
+        8,
+        9,
+        10
+      ],
+      "message": "相較8格站姿，多出腰前、胸口及收手中間姿勢；原3→4會突然降手，候選改按0,1,3,4,2,5,6,7,8,9,10,11播放。"
+    },
+    {
+      "kind": "remaining",
+      "sourceFrames": [
+        2,
+        4,
+        6
+      ],
+      "message": "抬眼→看前方→再抬眼的視線切換仍跳，手臂高度連續不代表眼部表演連續。"
+    },
+    {
+      "kind": "remaining",
+      "sourceFrames": [
+        6,
+        7,
+        8
+      ],
+      "message": "嘴部由微笑突然張大再合回，仍缺表情過渡。"
+    },
+    {
+      "kind": "remaining",
+      "sourceFrames": [
+        1,
+        12
+      ],
+      "message": "頭、雨衣、雨傘弧線細節有原畫變化；首末不是同一原畫，不能稱無縫循環。"
+    },
+    {
+      "kind": "preserved",
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "message": "站姿、黃色雨衣、藍傘、白眼白及粉色眼皮保留；原RGBA及所有微弱alpha零件未修改。"
+    }
+  ],
+  "normalSpeedReview": "see-separate-runtime-review",
+  "reorderingIsNotRedrawing": true,
+  "approvedDirection": false
+}

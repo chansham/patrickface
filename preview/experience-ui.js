@@ -2,11 +2,15 @@ import { EXPERIENCE_KEY, TIMER_KINDS, isExerciseKind, restoreExperience, careNow
   startActivity, requestActivityStart, controlActivity, finishActivity, manageBreak, claimEgg, isSleepMinute } from './experience-core.js?v=20261008-break1';
 import { holidayFor } from './pet-core.js?v=20261006-size2';
 import { DEFAULT_LAYOUT, validateLayouts } from './layout-core.js?v=20261006-size2';
+import { AftercarePolicy } from './aftercare-core.js?v=20261013-aftercare1';
 
 const $ = selector => document.querySelector(selector);
 export async function createExperience({ repo, revision, clips, read, write, getPet, setPet, player, shell }) {
   const savedExperience = read(EXPERIENCE_KEY);
   let experience = restoreExperience(savedExperience), unlocked = false, audio = null, speechTimer = null;
+  // Invitations are intentionally not restored or saved with the countdown.
+  // The daily experience currently offers a rest timer, not candidate artwork.
+  const aftercare = new AftercarePolicy();
   const legacyPet = read('patrick.pet.v1');
   if (legacyPet?.version === 1) for (const [key, field] of [['sleepStartMinutes', 'sleepStart'], ['sleepEndMinutes', 'sleepEnd']]) {
     if (!Number.isFinite(savedExperience?.settings?.[key]) && Number.isFinite(legacyPet[field])) experience.settings[key] = Math.max(0, Math.min(23, Math.floor(legacyPet[field]))) * 60;
@@ -168,9 +172,19 @@ export async function createExperience({ repo, revision, clips, read, write, get
   }
   function updateTimer() {
     const now = Date.now(), previous = experience.activity;
+    updateAftercareVisibility(now);
+    if (previous?.completedAt === null && previous.paused) {
+      aftercare.observeActivity({ id: previous.id, kind: previous.kind, status: 'paused', nowMS: now });
+    } else if (previous?.completedAt === null && Number.isFinite(previous.endsAt) && previous.endsAt > now) {
+      // An overdue activity loaded from storage is never a running observation.
+      aftercare.observeActivity({ id: previous.id, kind: previous.kind, status: 'running', nowMS: now });
+    } else if (!previous && ['offered', 'playing'].includes(aftercare.state.phase)) aftercare.dismiss();
+    aftercare.tick(now);
     const finished = finishActivity(experience, now);
     if (finished !== experience) {
       experience = finished; save();
+      aftercare.receiveCompletion({ id: previous.id, kind: previous.kind, status: 'completed', endedAtMS: previous.endsAt },
+        { nowMS: now, availableVariants: ['rest'] });
       if (!player.quiet() && previous.endsAt > player.noCatchupBefore() && !player.state.reviewing) {
         feedback('complete'); playAction('celebrate'); burst('stars'); say('這一段完成啦。休息一下也很好。', 4500);
       }
@@ -201,7 +215,18 @@ export async function createExperience({ repo, revision, clips, read, write, get
     }
     shell.report.activity = activity ? { id: activity.id, kind: activity.kind, paused: activity.paused, remainingMs: timerRemaining(activity, now), completedAt: activity.completedAt } : null;
     shell.report.savedActivityID = saved?.savedActivity.id ?? null;
+    renderAftercare();
     updateLayoutInfo(now);
+  }
+  function updateAftercareVisibility(now = Date.now()) {
+    aftercare.updateVisibility({ active: !player.quiet() && !player.state.reviewing && !document.hidden, nowMS: now });
+  }
+  function renderAftercare() {
+    const state = aftercare.state;
+    const visible = state.phase === 'offered' && !experience.breakSession;
+    $('#aftercare-offer').hidden = !visible;
+    $('#aftercare-rest').disabled = !visible;
+    shell.report.aftercare = { ...state, visible, dailyCapabilities: ['rest'] };
   }
   function updateLayoutInfo(now = Date.now()) {
     const activity = experience.activity, seconds = Math.ceil(timerRemaining(activity, now) / 1000), care = careNow(experience.care, now);
@@ -314,6 +339,17 @@ export async function createExperience({ repo, revision, clips, read, write, get
   $('#start-activity').addEventListener('click', event => startTimer($('#activity-kind').value, Number($('#activity-minutes').value) * 60, event));
   $('#exercise-timer').addEventListener('click', event => startTimer('exercise', 300, event));
   $('#breath-timer').addEventListener('click', event => startTimer('breathing', 60, event));
+  $('#aftercare-rest').addEventListener('click', event => {
+    // Recheck foreground state and expiry at the instant of the user's choice.
+    // Repeated/stale button events cannot create another countdown.
+    updateTimer();
+    if (aftercare.state.phase !== 'offered' || experience.breakSession) return;
+    const now = Date.now();
+    if (aftercare.choose('rest', now).phase !== 'playing') return;
+    aftercare.finish(now);
+    startTimer('breathing', 60, event);
+  });
+  $('#aftercare-dismiss').addEventListener('click', () => { aftercare.dismiss(); renderAftercare(); });
   function controlTimer(action) {
     const result = controlActivity(experience, action);
     experience = result.state; save(); refresh();
@@ -343,14 +379,14 @@ export async function createExperience({ repo, revision, clips, read, write, get
     const blob = new Blob([JSON.stringify({ schemaVersion: 1, exportedAt: new Date().toISOString(), journal: experience.journal, care: careNow(experience.care), activity: experience.activity, breakSession: experience.breakSession }, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob), link = document.createElement('a'); link.href = url; link.download = 'patrick-little-days.json'; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   });
-  $('#toggle-review').addEventListener('click', () => { $('.editing').hidden = !$('.editing').hidden; if (!$('.editing').hidden) { player.hold(); $('.editing').scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
+  $('#toggle-review').addEventListener('click', () => { $('.editing').hidden = !$('.editing').hidden; if (!$('.editing').hidden) { player.hold(); updateAftercareVisibility(); renderAftercare(); $('.editing').scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
   $('#experience-panel').hidden = false; $('.editing').hidden = true; document.body.dataset.experience = 'active';
   $('#show-guides').checked = false; $('.viewports').classList.add('guides-off');
   $('#catalog-summary').textContent = `${outfits.length} 套可穿造型 · 摸摸頭、餵一口，或陪你做完一件小事。`;
   $('#play').textContent = '演一下 ↗'; $('#birthday').value = getPet().birthday;
   updatePreferences(); refresh();
   return { experienceKey: EXPERIENCE_KEY, defaultClip: () => available(outfit().clipId), actionClip, idleClips: () => actionClips('idle'), resolvedScene,
-    petAction, feedAction, refresh, sceneChanged, prepareScene() { actionOutfitId = null; }, quietChanged: startVisuals, frameChanged() { if (!visualRAF) drawVisuals(performance.now()); },
+    petAction, feedAction, refresh, sceneChanged, prepareScene() { actionOutfitId = null; }, quietChanged() { updateAftercareVisibility(); renderAftercare(); startVisuals(); }, frameChanged() { if (!visualRAF) drawVisuals(performance.now()); },
     focusTimer: event => startTimer('focus', 1500, event),
     cancelTimer() { controlTimer('cancel'); },
     moodChanged(value) { setPet({ type: 'mood', value }); journal('mood', `今天的心情：${$('#mood').selectedOptions[0].textContent}。`); say(value === 'tired' || value === 'low' ? '今天慢一點也沒關係。' : '好，我記住了。'); refresh(); },

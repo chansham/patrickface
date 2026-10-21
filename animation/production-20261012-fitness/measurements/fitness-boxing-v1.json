@@ -1,0 +1,29 @@
+{
+  "asset": "fitness-boxing-v1",
+  "clipID": "fitness-boxing-first-20261012",
+  "newOutfit": true,
+  "source": {"path": "animation/fitness-boxing-v1/atlas-generated.png", "sha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7", "width": 1536, "height": 1024},
+  "regions": {"path": "animation/fitness-boxing-v1/regions-v1.json", "sha256": "dc1a5e161289c6a2787b0123be96f2dd58c72aa4f7b83d86cada001d4b063385"},
+  "standingComparisonSourceFrame": 1,
+  "standingComparisonBasis": "首格正面站姿、雙腳可見且沒有墊高或屈膝，與原站姿雨衣的眼足／臉截面代理比較。",
+  "frames": [
+    {"sourceFrame":1,"eyeROI":[160,115,255,202],"footROI":[60,385,335,490]},
+    {"sourceFrame":2,"eyeROI":[524,115,640,202],"footROI":[444,385,719,490]},
+    {"sourceFrame":3,"eyeROI":[898,115,1005,205],"footROI":[828,385,1103,490],"faceWidthUnavailableReason":"左側拳套高於眼下緣延長線並遮住臉側邊界；不把露出的中間皮膚當完整臉寬。"},
+    {"sourceFrame":4,"eyeROI":[1262,115,1387,205],"footROI":[1180,385,1487,490],"faceWidthUnavailableReason":"轉體向右出拳且左側護臉拳套遮住臉截面；不能與正臉當作可比臉寬。"},
+    {"sourceFrame":5,"eyeROI":[135,615,235,702],"footROI":[60,890,335,990],"faceWidthUnavailableReason":"轉體出拳、左側拳套遮擋眼下緣延長線的脸边界；脸宽保持未知。"},
+    {"sourceFrame":6,"eyeROI":[534,615,649,702],"footROI":[444,890,719,990],"faceWidthUnavailableReason":"左側拳套接觸眼下緣臉截線，使可見皮膚截面縮短；完整臉寬未知，不能誤報為突然變瘦。"},
+    {"sourceFrame":7,"eyeROI":[918,612,1033,702],"footROI":[828,890,1103,990],"faceWidthUnavailableReason":"左側拳套遮住臉截線左端，完整臉寬未知；不把拳套邊界當臉邊。"},
+    {"sourceFrame":8,"eyeROI":[1302,612,1417,702],"footROI":[1212,890,1487,990]}
+  ],
+  "limitations": [
+    "八格來源逐格檢查，不以拳套、短褲、全圖尺寸或輪廓anchor當人體尺規。",
+    "來源3/4/5/6/7拳套或轉體使臉截面無法可靠比較，保留未知；眼白與裸腳獨立量測。",
+    "眼距和臉截面受視線、表情、轉體影響，眼足距是姿勢代理，不是完整身高。"
+  ],
+  "visualFindings": [
+    {"sourceFrames":[3,4,5,6],"message":"轉身3→4、出拳4→5與5→6收回的姿勢跨度仍大，缺中間原畫；固定倍率與完整輪廓不能代表自然動畫。"},
+    {"sourceFrames":[5],"message":"伸出的拳套跨過名義格線，輪廓需保留完整拳套，不能用等格矩形裁切。","severity":"info"},
+    {"sourceFrames":[1,8],"message":"首格嚴肅末格微笑，為一次出拳後放鬆的段落，不聲稱無縫待機循環。"}
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-12",
+  "batch": "20261012-wardrobe",
+  "tool": "built-in image_gen",
+  "requested": 7,
+  "generatedSheets": 3,
+  "generatedSourceFrames": 28,
+  "newOutfits": 1,
+  "revisedExistingOutfits": 1,
+  "artApproved": false,
+  "entries": [
+    {
+      "id": "raincoat-v3",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied Patrick Star standing raincoat animation sheet. Make an improved twelve-drawing animation sheet in three columns and four rows on a genuinely transparent background. Preserve the beloved standing design: bright yellow raincoat with pockets, blue umbrella held in his left hand, full pink bare feet, broad soft triangular head, green/purple shorts, black cartoon outlines, flat clean SpongeBob cartoon appearance. Keep every head, umbrella and foot fully visible with generous transparent separation. Keep face dimensions, torso length, feet position, umbrella height and camera constant throughout. The only action is his free right hand gently testing the rain and returning, with a coherent amused expression, not a whole-body wiggle. Reading order: 1 relaxed looking forward; 2 pupils glance upward, same small smile; 3 free hand just starts lifting; 4 hand at waist; 5 at lower chest; 6 palm up at shoulder; 7 palm holds at shoulder, small amused grin; 8 hand starts lowering just below shoulder; 9 at lower chest; 10 at waist; 11 arm relaxed while eyes half blink, pink eyelids and white eye whites; 12 relaxed open-eyed pose matching drawing 1. Draw actual intermediate arm poses, especially 7-10. No abrupt outstretched-to-rest switch, no mood jump, no body shrinking, no detached hands, no umbrella bending, no blue eye whites, no background, labels, borders or shadows. All twelve drawings should be consistently full-body and suitable for a one-shot response on a small watch.",
+      "tool": "built-in image_gen",
+      "status": "generated",
+      "path": "animation/raincoat-v3/atlas-generated.png",
+      "outputHint": "Generated images are saved to <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af as <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-bb609f30-1a6c-4116-8563-1dc66656d3d4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "explorer-v1",
+      "prompt": "Create a new eight-drawing Patrick Star cartoon animation sheet for a personal watch companion, using the attached standing raincoat character only as the reference for his identity and clean flat cartoon drawing style. New outfit: mint-green bucket hat, sky-blue short explorer vest with pockets, small orange backpack with visible straps, purple-flowered green shorts, pink bare feet. He is a cheerful but slightly confused explorer, not wearing a raincoat and not holding an umbrella. He holds a small cream folded map with simple colored route lines, no text. Four columns by two rows, eight fully isolated full-body drawings on genuine transparency, generous gaps all around. Camera, character size, head width, body length, hat and feet positions stay consistent. Action in reading order: 1 looking forward with folded map near belly; 2 glances down; 3 starts unfolding map; 4 holds open map at belly height, puzzled brow; 5 looks left over the map; 6 looks right with one raised eyebrow; 7 folds map halfway; 8 folded map and looks forward with a knowing small smile, returns to initial body pose. Draw actual hand and map progression with clear gripping contact. White eye whites, pink eyelids. Bold smooth black outlines and bright flat colors matching the familiar animated character. No realistic gross details, background, shadows, text, cell borders, extra figures, missing fingers/arms, clipped hat or feet.",
+      "tool": "built-in image_gen",
+      "status": "generation-failed",
+      "path": null,
+      "error": {
+        "httpStatus": 400,
+        "code": "moderation_blocked",
+        "stage": "output",
+        "categories": [
+          "other"
+        ],
+        "requestID": "88273d48-4d1a-4183-9f6d-02180a3b9e38"
+      }
+    },
+    {
+      "id": "morning-stripes-v1",
+      "prompt": "Use case: illustration-story. New animation artwork for a personal Patrick Star watch companion. Make eight distinct full-body cartoon drawings arranged four columns and two rows on a truly transparent background. Patrick is standing in a navy-and-cream horizontally striped short-sleeved pajama top, matching loose pajama shorts, a drooping small mustard nightcap with a pompom, and pink bare feet. His rounded star body and broad belly are visibly consistent in every drawing. He holds a tiny teal mug with a star motif in both hands at belly height. Mood: a reluctant early riser, dry and funny, not always smiling. Sequence: 1 sleepy half-open eyes holding cup at belly; 2 looks at cup; 3 lifts cup a little; 4 lifts cup to chest; 5 cup touches his mouth for one sip; 6 lowers cup to chest; 7 lowers cup to belly and opens eyes; 8 small satisfied smile holding cup at belly. Cup stays upright with natural continuous hand contact. Keep face width, torso length, foot baseline and camera constant across all eight drawings. Flat bright color, clean smooth black outlines, familiar SpongeBob cartoon aesthetic. White eye whites and pink lids. Generous empty transparent margins between all characters; show the entire hat, arms, mug and feet. No background, realistic textures, floor shadows, text or cell borders.",
+      "tool": "built-in image_gen",
+      "status": "generation-failed",
+      "path": null,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 6ebd6efe-c543-4221-acd9-27ee51a7cd57.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+    },
+    {
+      "id": "sport-towel-v1",
+      "prompt": "An eight-frame animation sprite sheet of Patrick Star wearing a coral-red sports headband, turquoise athletic tank top, green shorts with purple flowers, and a white towel loosely draped around his neck. Full-body standing character with pink bare feet. Familiar clean flat 2D SpongeBob cartoon style. Truly transparent background. Four columns, two rows, eight separate consistently sized drawings with large clear margins. Animation: 1 tired after exercise, towel hanging down; 2 right hand grasps the right towel end; 3 lifts towel toward cheek; 4 towel dabs right cheek gently without covering eyes; 5 holds the dab and closes eyes contentedly with pink eyelids; 6 moves towel away from cheek; 7 lowers towel back to neck; 8 returns hand to side with a proud little smile. Draw every intermediate hand and towel pose clearly, preserving physical contact. The left hand rests at the side. Head width, torso size, feet baseline, and clothing remain identical across drawings. White eye whites. No weights, running, body bouncing, perspective change, floating towel, background, labels, cell borders, shadows, or cropped body parts.",
+      "tool": "built-in image_gen",
+      "status": "generated",
+      "path": "animation/sport-towel-v1/atlas-generated.png",
+      "outputHint": "Generated images are saved to <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af as <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-68f627fe-a65d-4168-8d5b-1e0b643dc205.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "sport-towel-v2",
+      "prompt": "Edit this eight-frame Patrick Star sports-towel animation sheet. Correct only the purple eyelid fill in drawings 1 and 5 (top-left and bottom-left): recolor those eyelids to the same salmon pink as Patrick's adjacent face. Preserve the black eyelid outlines and the white visible eyeball parts. Preserve all eight drawings, every pose, garment, headband, towel, facial outline, size, spacing, and the existing transparent background. Do not redraw or change anything else. Output the complete sheet with genuine transparency.",
+      "tool": "built-in image_gen",
+      "status": "generation-failed",
+      "path": null,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID aa5533ff-4bae-47f2-8395-efd1c16519ce.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+    },
+    {
+      "id": "sport-towel-v2-retry",
+      "prompt": "Edit this eight-frame Patrick Star sports-towel animation sheet. Correct only the purple eyelid fill in drawings 1 and 5 (top-left and bottom-left): recolor those eyelids to the same salmon pink as Patrick's adjacent face. Preserve the black eyelid outlines and the white visible eyeball parts. Preserve all eight drawings, every pose, garment, headband, towel, facial outline, size, spacing, and the existing transparent background. Do not redraw or change anything else. Output the complete sheet with genuine transparency.",
+      "tool": "built-in image_gen",
+      "status": "generated",
+      "path": "animation/sport-towel-v2/atlas-generated.png",
+      "outputHint": "Generated images are saved to <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af as <USER_HOME>\\.codex\\generated_images\\01a0e1ea-ba7e-7a63-9365-a46b103ac7af\\exec-675f4690-cd83-488f-8a56-aba5f65bd291.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "id": "sport-towel-v3",
+      "prompt": "Edit this complete eight-drawing Patrick Star sports-towel sprite sheet to correct one anatomical proportion problem. Keep the same head and face dimensions, headband, turquoise tank top, white towel, green-and-purple shorts, bare feet, pink eyelids, white eye whites, eight facial expressions and towel-action poses. His torso below the eyes is currently too long and narrow: redraw the lower torso and clothing more compact and round so the vertical distance from the lower eye line to the soles is approximately 2.3 times the face width at the lower-eye line, instead of the current 2.9 times. Shorten the body below the mouth, bring the shorts and feet higher, adapt the towel and arm lengths naturally, keep the belly broad and all hand-to-towel contact. Do not uniformly shrink the entire character, squish the head, or change the face size. Apply the same compact proportions consistently to every drawing. Preserve the four-column two-row reading order and generous transparent margins. Keep all eight heads and feet fully visible, no labels or borders. Preserve the genuine transparent background.",
+      "tool": "built-in image_gen",
+      "status": "generation-failed",
+      "path": null,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID bb87e44f-9461-44ef-ad37-531b72138c2a.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+    }
+  ],
+  "candidateSourceFrames": 20,
+  "intermediateSourceFrames": 8
+}

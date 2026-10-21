@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import math
@@ -78,6 +79,28 @@ def validate() -> dict[str, Any]:
         errors.append(f"Duplicate manifest paths: {duplicate_paths}")
 
     category_counts = Counter(record["category"] for record in records)
+    retired = [
+        "qr/create-new-shortcut-900x900.png",
+        "qr/official-shortcuts-guide-900x900.png",
+        "qr/run-patrick-mode-900x900.png",
+        "qr/payloads/create-new-shortcut.txt",
+        "qr/payloads/official-shortcuts-guide.txt",
+        "qr/payloads/run-patrick-mode.txt",
+        "source-layers/season1-3d-comparison-approved.png",
+    ]
+    for rel in retired:
+        if (PACKAGE / rel).exists():
+            errors.append(f"Retired/superseded delivery artifact reappeared: {rel}")
+    current_sources = {
+        "season1-2d-hour-arm-approved.png": "season1-hour-arm.png",
+        "season1-2d-minute-arm-approved.png": "season1-minute-arm.png",
+        "season1-3d-arm-approved.png": "season1-3d-arm.png",
+    }
+    for packaged, runtime in current_sources.items():
+        candidate = PACKAGE / "source-layers" / packaged
+        source = PACKAGE.parent.parent / "preview" / "assets" / runtime
+        if not candidate.is_file() or not source.is_file() or sha256(candidate) != sha256(source):
+            errors.append(f"Packaged source arm differs from current runtime: {packaged}")
     required_minimums = {
         "iphone-lock-wallpaper": 8,
         "iphone-home-wallpaper": 8,
@@ -151,6 +174,7 @@ def validate() -> dict[str, Any]:
 
                     if record["category"] in {
                         "approved-source-layer",
+                        "candidate-source-layer",
                         "transparent-character-composite",
                         "watch-complication-template",
                     }:
@@ -339,10 +363,15 @@ def validate() -> dict[str, Any]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--report-prefix", default="validation-report", help="Use a separate name to preserve an earlier report.")
+    args = parser.parse_args()
+    if Path(args.report_prefix).name != args.report_prefix:
+        parser.error("Report prefix must be a filename, not a path.")
     result = validate()
     REPORT_DIR.mkdir(parents=True, exist_ok=True)
-    json_path = REPORT_DIR / "validation-report.json"
-    text_path = REPORT_DIR / "validation-report.txt"
+    json_path = REPORT_DIR / f"{args.report_prefix}.json"
+    text_path = REPORT_DIR / f"{args.report_prefix}.txt"
     json_path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     lines = [

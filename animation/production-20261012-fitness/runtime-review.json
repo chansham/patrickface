@@ -1,0 +1,1099 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "browserEvidence": [
+    {
+      "path": "output/playwright/fitness-20261012/fitness-boxing-first-20261012/browser/report.json",
+      "sha256": "1f464268d81d054185158b1a694df17e4de0a39d33b205ce96853e6cf4d24c73"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-boxing-first-20261012/contours/report.json",
+      "sha256": "f985be11ca7eab44f7fb42cf38b60c867e3f068c3d017b4d9da15fc71123d098"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-tracksuit-first-20261012/browser/report.json",
+      "sha256": "c1e32ea12d008e91d4ef5c9b6ec57bb3b813023486bd247e0e810e0c8026bdc9"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-tracksuit-first-20261012/contours/report.json",
+      "sha256": "2c2c0b95afac302a81f6f5e078b019f5538c5eb35e4949ec628ee13b9adfa6a4"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-basketball-first-20261012/browser/report.json",
+      "sha256": "3ae2bba48c28772a6504ce5c0472c20441e3d7913d2794b3cc3a1c64c5ab1137"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-basketball-first-20261012/contours/report.json",
+      "sha256": "d3f3ff9352ea8e3f7e71c9c890c437e64f2514ce7687453f06340f5281972aeb"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-cycling-first-20261012/browser/report.json",
+      "sha256": "648290446d915e667b376f8dff6fd6960f5ccd7e4b434d60edef5ce73c699f77"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-cycling-first-20261012/contours/report.json",
+      "sha256": "eae01bcd9816d2125262e0298f476b2b66ff57d92f8de4402eee7634b99001bd"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-coach-first-20261012/browser/report.json",
+      "sha256": "88c64bab6215e4dc11b4acf87fa9fd0daeae3243843c7b8b961759fd6d04c22e"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-coach-first-20261012/contours/report.json",
+      "sha256": "9f3341609be4a694eb483cbeeaabe515249a91356a9e4e6715e6dae0554925fc"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-martial-first-20261012/browser/report.json",
+      "sha256": "4a738558393a046bf68cb1bc31778c0e23b413df2910ae3d11aaaf4b20858984"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-martial-first-20261012/contours/report.json",
+      "sha256": "4ad3542efcabdd33e0455ba58b40b7480ee387a84796f6c4489415435dea7343"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-stretch-first-20261012/browser/report.json",
+      "sha256": "98503f25b77a6f17e6a8a7582a09624f2520d978cc30e79e5803ad5bc80c1826"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-stretch-first-20261012/contours/report.json",
+      "sha256": "6962389ee3644c73baf4acace1ee57c52819c49dd3ef2692e680346e507d783c"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-kettlebell-first-20261012/browser/report.json",
+      "sha256": "f09e01b7928bef1ecbf8b3b80c577e77e691a4877b8ccf41639245b4101cd9d6"
+    },
+    {
+      "path": "output/playwright/fitness-20261012/fitness-kettlebell-first-20261012/contours/report.json",
+      "sha256": "8e78a5f96628e9e188235254057920ad806c166b9083eb5853bc7b480c1665ee"
+    }
+  ],
+  "testedLayoutManifest": {
+    "path": "experience/layouts.json",
+    "sha256": "e6dbd737e17a4691a0c8cbc8cb942e8b311cccfecda1ab8d5de49eb3c4f4cbdd"
+  },
+  "sourceFrames": 68,
+  "layoutFrameChecks": 272,
+  "newOutfits": 8,
+  "newCandidateClips": 8,
+  "clips": [
+    {
+      "id": "fitness-boxing-first-20261012",
+      "source": {
+        "path": "animation/fitness-boxing-v1/atlas-generated.png",
+        "sha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7"
+      },
+      "regions": {
+        "path": "animation/fitness-boxing-v1/regions-v1.json",
+        "sha256": "dc1a5e161289c6a2787b0123be96f2dd58c72aa4f7b83d86cada001d4b063385"
+      },
+      "version": 2,
+      "scale": 1.7374522516009616,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 115.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.578583864361877,
+        "fixedFactor": 1.4750615034,
+        "actualStagePixels": 170.73836901855,
+        "shortfallPercent": 6.557925954964993,
+        "sourceSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+        "canvas": 784,
+        "catalogScale": 1.7374522516009616,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.4750615034,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 2650,
+      "lastFrameStartedAfterMs": 1966.5,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 246.08000000739992,
+          "maxStrongY": 893.6320000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 458.7952000051059,
+          "maxStrongY": 905.6060799999999,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 189.77600000702992,
+          "maxStrongY": 804.9504000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 243.62880000636392,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/fitness-20261012/fitness-boxing-first-20261012/browser/fitness-boxing-first-20261012-reference-first.png",
+        "output/playwright/fitness-20261012/fitness-boxing-first-20261012/browser/fitness-boxing-first-20261012-reference-last.png",
+        "output/playwright/fitness-20261012/fitness-boxing-first-20261012/browser/fitness-boxing-first-20261012-four-layouts.png"
+      ]
+    },
+    {
+      "id": "fitness-tracksuit-first-20261012",
+      "source": {
+        "path": "animation/fitness-tracksuit-v2/atlas-generated.png",
+        "sha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b"
+      },
+      "regions": {
+        "path": "animation/fitness-tracksuit-v2/regions-v1.json",
+        "sha256": "e8370db5c4b7e3b3cf484643d413ef4c3d69b98099d5d69ec1364922707948f4"
+      },
+      "version": 2,
+      "scale": 1.2694606095252403,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 129.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.4082549695559712,
+        "fixedFactor": 1.4082549695,
+        "actualStagePixels": 182.721082292625,
+        "shortfallPercent": 3.97450961031609e-09,
+        "sourceSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+        "canvas": 600,
+        "catalogScale": 1.2694606095252403,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.4082549695,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 2860,
+      "lastFrameStartedAfterMs": 2165.7000000001863,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 289.49061808449994,
+          "maxStrongY": 893.6320000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 488.748526478305,
+          "maxStrongY": 905.60608,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 231.01608718027498,
+          "maxStrongY": 804.9504000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 280.96193155266997,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/fitness-20261012/fitness-tracksuit-first-20261012/browser/fitness-tracksuit-first-20261012-reference-first.png",
+        "output/playwright/fitness-20261012/fitness-tracksuit-first-20261012/browser/fitness-tracksuit-first-20261012-reference-last.png",
+        "output/playwright/fitness-20261012/fitness-tracksuit-first-20261012/browser/fitness-tracksuit-first-20261012-four-layouts.png"
+      ]
+    },
+    {
+      "id": "fitness-basketball-first-20261012",
+      "source": {
+        "path": "animation/fitness-basketball-v1/atlas-generated.png",
+        "sha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721"
+      },
+      "regions": {
+        "path": "animation/fitness-basketball-v1/regions-v1.json",
+        "sha256": "ecbdd36fc84bb27c2a45b7f3edc7b42ba1f764faf5df6dfceac819355b21b86d"
+      },
+      "version": 1,
+      "scale": 2.6076382968191103,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 110.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.6498517589154607,
+        "fixedFactor": 1.6498517589,
+        "actualStagePixels": 182.721082298175,
+        "shortfallPercent": 9.370948461651096e-10,
+        "sourceSha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+        "canvas": 1052,
+        "catalogScale": 2.6076382968191103,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.6498517589,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 2680,
+      "lastFrameStartedAfterMs": 2050.0999999996275,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 278.23729393029987,
+          "maxStrongY": 893.6319999999998,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 480.98373281190686,
+          "maxStrongY": 905.6060799999998,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 220.3254292337848,
+          "maxStrongY": 804.9503999999997,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 271.28407278005784,
+          "maxStrongY": 800.5235199999998,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/fitness-20261012/fitness-basketball-first-20261012/browser/fitness-basketball-first-20261012-reference-first.png",
+        "output/playwright/fitness-20261012/fitness-basketball-first-20261012/browser/fitness-basketball-first-20261012-reference-last.png",
+        "output/playwright/fitness-20261012/fitness-basketball-first-20261012/browser/fitness-basketball-first-20261012-four-layouts.png"
+      ]
+    },
+    {
+      "id": "fitness-cycling-first-20261012",
+      "source": {
+        "path": "animation/fitness-cycling-v2/atlas-generated.png",
+        "sha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0"
+      },
+      "regions": {
+        "path": "animation/fitness-cycling-v2/regions-v1.json",
+        "sha256": "74e4c64b527e4f83eb899510b55d6dbf88db2d1277334a291373bed28e6336c1"
+      },
+      "version": 1,
+      "scale": 1.2105015951472355,
+      "calibration": {
+        "metric": "eyeSeparation",
+        "sourcePixels": 34.55792239125495,
+        "targetStagePixels": 64.31104899177188,
+        "desiredFactor": 1.8609639857298281,
+        "fixedFactor": 1.4920552995,
+        "actualStagePixels": 51.56233124358166,
+        "shortfallPercent": 19.82352635831104,
+        "sourceSha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+        "canvas": 540,
+        "catalogScale": 1.2105015951472355,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": false
+      },
+      "sourcePixelToStagePixel": 1.4920552995,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 2890,
+      "lastFrameStartedAfterMs": 2199.300000000745,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 246.08000001699986,
+          "maxStrongY": 893.632,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 458.7952000117299,
+          "maxStrongY": 905.6060799999999,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 189.77600001614988,
+          "maxStrongY": 804.9504,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 243.62880001461988,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/fitness-20261012/fitness-cycling-first-20261012/browser/fitness-cycling-first-20261012-reference-first.png",
+        "output/playwright/fitness-20261012/fitness-cycling-first-20261012/browser/fitness-cycling-first-20261012-reference-last.png",
+        "output/playwright/fitness-20261012/fitness-cycling-first-20261012/browser/fitness-cycling-first-20261012-four-layouts.png"
+      ]
+    },
+    {
+      "id": "fitness-coach-first-20261012",
+      "source": {
+        "path": "animation/fitness-coach-v2/atlas-generated.png",
+        "sha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345"
+      },
+      "regions": {
+        "path": "animation/fitness-coach-v2/regions-v1.json",
+        "sha256": "616c0647379394e23c25b99935775ed729207ff2ecbc559af6bb83da3625363f"
+      },
+      "version": 1,
+      "scale": 1.9649393709435097,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 111.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.6350879847864632,
+        "fixedFactor": 1.594955665,
+        "actualStagePixels": 178.23629556375002,
+        "shortfallPercent": 2.4544440519330246,
+        "sourceSha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+        "canvas": 820,
+        "catalogScale": 1.9649393709435097,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.594955665,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 2820,
+      "lastFrameStartedAfterMs": 2133.2000000001863,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 246.08000000999976,
+          "maxStrongY": 893.6319999999998,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 458.79520000689985,
+          "maxStrongY": 905.6060799999999,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 189.77600000949968,
+          "maxStrongY": 804.9503999999997,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 243.62880000859974,
+          "maxStrongY": 800.5235199999997,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/fitness-20261012/fitness-coach-first-20261012/browser/fitness-coach-first-20261012-reference-first.png",
+        "output/playwright/fitness-20261012/fitness-coach-first-20261012/browser/fitness-coach-first-20261012-reference-last.png",
+        "output/playwright/fitness-20261012/fitness-coach-first-20261012/browser/fitness-coach-first-20261012-four-layouts.png"
+      ]
+    },
+    {
+      "id": "fitness-martial-first-20261012",
+      "source": {
+        "path": "animation/fitness-martial-v1/atlas-generated.png",
+        "sha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b"
+      },
+      "regions": {
+        "path": "animation/fitness-martial-v1/regions-v1.json",
+        "sha256": "363bcb8be0e7a6b8a72f9345696a46f708a9aba42980c45fd276a77d07aed0d2"
+      },
+      "version": 1,
+      "scale": 2.3821554698124996,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 100.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.8136087573189803,
+        "fixedFactor": 1.7085804749,
+        "actualStagePixels": 172.13948284617499,
+        "shortfallPercent": 5.791121265550214,
+        "sourceSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+        "canvas": 928,
+        "catalogScale": 2.3821554698124996,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.7085804749,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 3060,
+      "lastFrameStartedAfterMs": 2366.5999999996275,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 246.0800000129001,
+          "maxStrongY": 893.6320000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 458.795200008901,
+          "maxStrongY": 905.60608,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 189.77600001225505,
+          "maxStrongY": 804.9504000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 243.62880001109403,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/fitness-20261012/fitness-martial-first-20261012/browser/fitness-martial-first-20261012-reference-first.png",
+        "output/playwright/fitness-20261012/fitness-martial-first-20261012/browser/fitness-martial-first-20261012-reference-last.png",
+        "output/playwright/fitness-20261012/fitness-martial-first-20261012/browser/fitness-martial-first-20261012-four-layouts.png"
+      ]
+    },
+    {
+      "id": "fitness-stretch-first-20261012",
+      "source": {
+        "path": "animation/fitness-stretch-v1/atlas-generated.png",
+        "sha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17"
+      },
+      "regions": {
+        "path": "animation/fitness-stretch-v1/regions-v1.json",
+        "sha256": "fda682ba08d90cfe95e546bfb124259eb28aa153995d2690fbbbee40393cb516"
+      },
+      "version": 1,
+      "scale": 2.4021842354567307,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 79.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 2.2911734457666113,
+        "fixedFactor": 1.9986172839,
+        "actualStagePixels": 159.38972839102502,
+        "shortfallPercent": 12.768835218789986,
+        "sourceSha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+        "canvas": 800,
+        "catalogScale": 2.4021842354567307,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.9986172839,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "totalMs": 3580,
+      "lastFrameStartedAfterMs": 2933.0,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 12,
+          "minStrongY": 246.08000001640005,
+          "maxStrongY": 893.6320000000002,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 12,
+          "minStrongY": 458.795200011316,
+          "maxStrongY": 905.60608,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 12,
+          "minStrongY": 189.77600001558005,
+          "maxStrongY": 804.9504000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 12,
+          "minStrongY": 243.62880001410412,
+          "maxStrongY": 800.5235200000002,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/fitness-20261012/fitness-stretch-first-20261012/browser/fitness-stretch-first-20261012-reference-first.png",
+        "output/playwright/fitness-20261012/fitness-stretch-first-20261012/browser/fitness-stretch-first-20261012-reference-last.png",
+        "output/playwright/fitness-20261012/fitness-stretch-first-20261012/browser/fitness-stretch-first-20261012-four-layouts.png"
+      ]
+    },
+    {
+      "id": "fitness-kettlebell-first-20261012",
+      "source": {
+        "path": "animation/fitness-kettlebell-v2/atlas-generated.png",
+        "sha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711"
+      },
+      "regions": {
+        "path": "animation/fitness-kettlebell-v2/regions-v1.json",
+        "sha256": "e6632b92207b3857ebd4618c17bd5c9609814f88d237903a863870249ac87548"
+      },
+      "version": 2,
+      "scale": 1.8545408993070913,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 123.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.4765339983829273,
+        "fixedFactor": 1.4765339983,
+        "actualStagePixels": 182.721082289625,
+        "shortfallPercent": 5.616351828052757e-09,
+        "sourceSha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+        "canvas": 836,
+        "catalogScale": 1.8545408993070913,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "4.5 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.4765339983,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 2900,
+      "lastFrameStartedAfterMs": 2216.4000000003725,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 397.51657657119983,
+          "maxStrongY": 908.3973399829998,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 563.2864378341279,
+          "maxStrongY": 915.79416458827,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 333.64074774263975,
+          "maxStrongY": 818.9774729838498,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 373.8642558512318,
+          "maxStrongY": 813.2217123853798,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/fitness-20261012/fitness-kettlebell-first-20261012/browser/fitness-kettlebell-first-20261012-reference-first.png",
+        "output/playwright/fitness-20261012/fitness-kettlebell-first-20261012/browser/fitness-kettlebell-first-20261012-reference-last.png",
+        "output/playwright/fitness-20261012/fitness-kettlebell-first-20261012/browser/fitness-kettlebell-first-20261012-four-layouts.png"
+      ]
+    }
+  ],
+  "sourceUnchanged": true,
+  "priorCandidateBaselinePreserved": true,
+  "remaining": [
+    {
+      "id": "fitness-boxing-first-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            5
+          ],
+          "message": "紅拳套跨越名義方格右界但與手臂相連；須保留完整輪廓，不硬裁格。"
+        },
+        {
+          "sourceFrames": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "message": "出拳及收回缺中間原畫，不能靠播放速度宣稱平順。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "首格認真、末格微笑，不能當無縫待機。"
+        }
+      ]
+    },
+    {
+      "id": "fitness-tracksuit-first-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            2,
+            3
+          ],
+          "message": "握住拉鍊兩格近同姿，不宣稱已有完整拉鍊動作。"
+        },
+        {
+          "sourceFrames": [
+            4,
+            5,
+            6
+          ],
+          "message": "半開到敞開、再抬雙手舒氣仍有較大姿勢轉換。"
+        },
+        {
+          "sourceFrames": [
+            6
+          ],
+          "message": "闭眼眼皮已是粉色；呼氣雲須歸屬第6格，不當人體外框。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "首格拉鍊閉合、末格外套敞開，不是無縫待機循環。"
+        }
+      ]
+    },
+    {
+      "id": "fitness-basketball-first-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "message": "雙手持球接觸可見；球的接縫線條与兩側握持細節有变化。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "首格平靜末格微笑，非無縫循環；抬球不是運球或投籃。"
+        }
+      ]
+    },
+    {
+      "id": "fitness-cycling-first-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            4,
+            5
+          ],
+          "message": "v2第4格鏡框已留在眼上方，修掉原先過衝；到第5格戴好仍缺中間手勢。"
+        },
+        {
+          "sourceFrames": [
+            5
+          ],
+          "message": "第5格鏡片全遮眼，眼尺規未知；v2第4/6格上移後眼白下緣可見，已重新量測。全8格臉外緣仍被頭盔帶遮擋，臉寬未知。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "頭盔與鏡框細節也有變化，未驗收首末無縫。"
+        }
+      ]
+    },
+    {
+      "id": "fitness-coach-first-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            4,
+            5,
+            8
+          ],
+          "message": "碼表已由v2修回畫面左側手，舊換手原圖保留中間對照。"
+        },
+        {
+          "sourceFrames": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "message": "伸手取哨／抬到嘴邊／放回仍有姿勢跳換；吹哨鼓頰是表情变化，不能作臉型穩定尺度。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "首末手势不同，並非無縫待機。"
+        }
+      ]
+    },
+    {
+      "id": "fitness-martial-first-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "message": "鞠躬有姿勢透視與低頭，不能逐格fit成同高或用縮短眼足距判定縮放瑕疵。"
+        },
+        {
+          "sourceFrames": [
+            5
+          ],
+          "message": "深鞠躬閉眼，眼部尺規未知。"
+        },
+        {
+          "sourceFrames": [
+            5,
+            6
+          ],
+          "message": "深鞠躬轉起身變化大，仍待中間稿。"
+        }
+      ]
+    },
+    {
+      "id": "fitness-stretch-first-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            8
+          ],
+          "message": "閉眼眼皮仍紫色；修圖未成功，顏色瑕疵明确待修。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            2
+          ],
+          "message": "前兩格近同姿，不能算新增動作過渡。"
+        },
+        {
+          "sourceFrames": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "message": "高舉到下降有較大角度跳換，需補中間原畫。"
+        }
+      ]
+    },
+    {
+      "id": "fitness-kettlebell-first-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            2,
+            3,
+            4
+          ],
+          "message": "眼白內有粉紫帶，修色请求未產生圖；必須重畫眼睛。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "壺鈴低於裸腳底；使用真腳落位保留完整壺鈴，地面接觸美術仍待調整。"
+        },
+        {
+          "sourceFrames": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "message": "抬鈴高度轉換仍跳，需補充實際過渡原畫。"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "先前教練頁面初始化曾碰到同步編輯HTML期間的載入失敗；頁面完整後單套重跑通過，不掩蓋先前失敗。",
+    "四版式檢查使用全來源strong alpha，保留全部alpha像素；極淡碎點不當人物或道具本體。",
+    "拳擊/外套由v1小尺寸明確升為v2校準；舊候選資料和舊測試另存，不增候選數。",
+    "UI人體量尺的最終接入由獨立body audit與父代理頁面測試驗證；部分早期截圖當時該數字仍未知。"
+  ],
+  "mainAndNativeUpdated": false,
+  "deviceTested": false
+}

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "reason": "本批依主睡衣的可見臉部尺規重校；保留舊版本與評價識別，不逐格縮放。",
+  "candidate": {
+    "id": "fitness-kettlebell-first-20261012",
+    "title": "灰橙訓練服・雙手提壺鈴",
+    "category": "新造型待審",
+    "version": 1,
+    "batch": "20261012-fitness",
+    "reviewGroup": "scene",
+    "atlas": "animation/fitness-kettlebell-v2/atlas-generated.png",
+    "width": 1774,
+    "height": 887,
+    "columns": 4,
+    "rows": 2,
+    "frameCount": 8,
+    "frameIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "durationsMs": [
+      650,
+      230,
+      250,
+      260,
+      320,
+      230,
+      260,
+      700
+    ],
+    "frameLabels": [
+      "低位握鈴",
+      "準備抬起（眼白待修）",
+      "開始抬鈴（眼白待修）",
+      "提到胸前（眼白待修）",
+      "穩住壺鈴",
+      "慢慢放低",
+      "回到腰下",
+      "放回低位"
+    ],
+    "sha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+    "anchorNormalized": [
+      0.5,
+      0.8803827751196173
+    ],
+    "masterId": "patrick-candidate-review-v1",
+    "scale": 1.3840174417728366,
+    "status": "quality-revision-required",
+    "scenes": [
+      "exercise"
+    ],
+    "triggerKinds": [
+      "manual-review"
+    ],
+    "description": "灰色短上衣、橙色訓練短褲與紫壺鈴，雙手握同一把手抬起再放下。v2已改短圓身形；第2/3/4格眼白內粉紫帶仍待修，修色未產生新圖。1/8壺底低於腳，保留原畫問題；抬放仍缺中間姿勢。",
+    "frameRegions": {
+      "path": "animation/fitness-kettlebell-v2/regions-v1.json",
+      "sha256": "e6632b92207b3857ebd4618c17bd5c9609814f88d237903a863870249ac87548",
+      "version": 1
+    },
+    "renderingRevision": "fitness-20261012-v1",
+    "comparisonClipId": "yawn",
+    "artApproved": false,
+    "variantGroup": "grey-orange-training-purple-kettlebell",
+    "pose": "standing-kettlebell-lift",
+    "newOutfit": true,
+    "scaleProvenance": {
+      "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+      "sourcePixelToStagePixel": 1.101916279,
+      "catalogScale": 1.3840174417728366,
+      "canvas": 836,
+      "perFrameScale": false,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 123.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.4765339983829273,
+        "fixedFactor": 1.101916279,
+        "actualStagePixels": 136.36213952625002,
+        "shortfallPercent": 25.37142522916517,
+        "sourceSha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+        "canvas": 836,
+        "catalogScale": 1.3840174417728366,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      }
+    },
+    "reviewProvenance": {
+      "qc": "animation/production-20261012-fitness/fitness-kettlebell-first-20261012-qc.json",
+      "bodyQC": "animation/production-20261012-fitness/fitness-kettlebell-v2-body-qc.json",
+      "sourceFrameCount": 8,
+      "reorderingIsNotRedrawing": true
+    }
+  }
+}

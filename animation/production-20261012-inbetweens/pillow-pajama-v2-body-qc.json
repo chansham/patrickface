@@ -1,0 +1,965 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "reviewRequired": true,
+  "frameIndexBasis": "one-based source reading order",
+  "source": {
+    "path": "animation/pillow-pajama-v2/atlas-generated.png",
+    "sha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/pillow-pajama-v2/regions-v1.json",
+    "sha256": "e5055e4775c25e6364477cde360157ab835e0bdfd5ce0c10bbf8a69a9cdc9ed0"
+  },
+  "canvas": {
+    "width": 684,
+    "height": 684,
+    "anchorPixels": [
+      342,
+      602
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8801169590643275
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 611074,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceUnchanged": true,
+  "reviewConfiguration": {
+    "path": "animation/production-20261012-inbetweens/measurements/pillow-pajama-v2.json",
+    "sha256": "77caeb6afd172d69d0d1f260ab5b7850e41a4ed70f8636cede49992c172ed37d"
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "faceWidthPx": 102.0,
+      "eyeLowerRimSeparationPx": 31.016124838541646,
+      "eyeLineToFootPx": 193.5,
+      "anchorSource": [
+        205,
+        336
+      ],
+      "footROI": [
+        113,
+        296,
+        283,
+        341
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          138,
+          310,
+          186,
+          334
+        ],
+        [
+          220,
+          310,
+          269,
+          334
+        ]
+      ],
+      "visibleFootBaselineY": 333.0,
+      "eyeROI": [
+        158,
+        85,
+        246,
+        153
+      ],
+      "eyeWhiteBounds": [
+        [
+          174,
+          98,
+          203,
+          141
+        ],
+        [
+          205,
+          97,
+          234,
+          140
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          188.0,
+          140.0
+        ],
+        [
+          219.0,
+          139.0
+        ]
+      ],
+      "eyeMidpoint": [
+        203.5,
+        139.5
+      ],
+      "faceCaliperPoints": [
+        [
+          152,
+          141
+        ],
+        [
+          253,
+          138
+        ]
+      ],
+      "footSourcePoint": [
+        203.5,
+        333.0
+      ],
+      "eyeToFootPoints": [
+        [
+          203.5,
+          139.5
+        ],
+        [
+          203.5,
+          333.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 29.88728826775691,
+      "eyeLineToFootPx": 198.5,
+      "anchorSource": [
+        577,
+        336
+      ],
+      "footROI": [
+        491,
+        296,
+        665,
+        341
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          509,
+          310,
+          560,
+          334
+        ],
+        [
+          595,
+          310,
+          644,
+          334
+        ]
+      ],
+      "visibleFootBaselineY": 333.0,
+      "eyeROI": [
+        541,
+        79,
+        625,
+        150
+      ],
+      "eyeWhiteBounds": [
+        [
+          553,
+          97,
+          584,
+          140
+        ],
+        [
+          583,
+          91,
+          611,
+          131
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          568.0,
+          139.0
+        ],
+        [
+          596.5,
+          130.0
+        ]
+      ],
+      "eyeMidpoint": [
+        582.25,
+        134.5
+      ],
+      "faceWidthUnavailableReason": "轉頭看枕頭，斜眼線延伸的右臉截面貼近枕緣；不作與中立正臉可比的臉寬。",
+      "footSourcePoint": [
+        582.25,
+        333.0
+      ],
+      "eyeToFootPoints": [
+        [
+          582.25,
+          134.5
+        ],
+        [
+          582.25,
+          333.0
+        ]
+      ],
+      "measurementCaveat": "完整眼白下緣可见；眼足距仍為轉頭當下的姿勢代理。"
+    },
+    {
+      "sourceFrame": 3,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 29.60152023123137,
+      "eyeLineToFootPx": 198.0,
+      "anchorSource": [
+        960,
+        336
+      ],
+      "footROI": [
+        875,
+        296,
+        1049,
+        341
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          895,
+          310,
+          943,
+          334
+        ],
+        [
+          976,
+          310,
+          1024,
+          334
+        ]
+      ],
+      "visibleFootBaselineY": 333.0,
+      "eyeROI": [
+        922,
+        79,
+        1006,
+        152
+      ],
+      "eyeWhiteBounds": [
+        [
+          937,
+          98,
+          967,
+          140
+        ],
+        [
+          967,
+          91,
+          994,
+          132
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          951.5,
+          139.0
+        ],
+        [
+          980.0,
+          131.0
+        ]
+      ],
+      "eyeMidpoint": [
+        965.75,
+        135.0
+      ],
+      "faceWidthUnavailableReason": "側轉向抱枕，右臉截面被抬起的枕頭遮住；不把枕邊或露出皮膚寬當完整臉寬。",
+      "footSourcePoint": [
+        965.75,
+        333.0
+      ],
+      "eyeToFootPoints": [
+        [
+          965.75,
+          135.0
+        ],
+        [
+          965.75,
+          333.0
+        ]
+      ],
+      "measurementCaveat": "眼白外輪廓完整可量；側轉的眼線投影不當中立身高。"
+    },
+    {
+      "sourceFrame": 4,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "anchorSource": [
+        1338,
+        336
+      ],
+      "footROI": [
+        1253,
+        296,
+        1427,
+        341
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1272,
+          310,
+          1321,
+          334
+        ],
+        [
+          1355,
+          310,
+          1403,
+          334
+        ]
+      ],
+      "visibleFootBaselineY": 333.0,
+      "eyeUnavailableReason": "枕頭接觸並遮住右眼外側下半輪廓；完整眼白外框不可靠，不以被截短的白眼估眼下緣中點。",
+      "unavailableReason": "枕頭接觸並遮住右眼外側下半輪廓；完整眼白外框不可靠，不以被截短的白眼估眼下緣中點。",
+      "faceWidthUnavailableReason": "右臉及右眼外緣被抱枕遮住，完整臉截線未知。",
+      "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+      "faceReviewROI": [
+        1267,
+        58,
+        1442,
+        209
+      ]
+    },
+    {
+      "sourceFrame": 5,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "anchorSource": [
+        194,
+        679
+      ],
+      "footROI": [
+        108,
+        636,
+        278,
+        688
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          126,
+          653,
+          176,
+          677
+        ],
+        [
+          211,
+          653,
+          261,
+          677
+        ]
+      ],
+      "visibleFootBaselineY": 676.0,
+      "eyeUnavailableReason": "雙眼完全閉合靠枕，沒有可見白眼下緣；暖粉眼皮不是白眼。",
+      "unavailableReason": "雙眼完全閉合靠枕，沒有可見白眼下緣；暖粉眼皮不是白眼。",
+      "faceWidthUnavailableReason": "眼下緣基準不可見，因此臉部截線未知。",
+      "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+      "faceReviewROI": [
+        118,
+        394,
+        293,
+        551
+      ]
+    },
+    {
+      "sourceFrame": 6,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "anchorSource": [
+        583,
+        679
+      ],
+      "footROI": [
+        496,
+        636,
+        670,
+        688
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          514,
+          653,
+          565,
+          677
+        ],
+        [
+          600,
+          653,
+          651,
+          677
+        ]
+      ],
+      "visibleFootBaselineY": 676.0,
+      "eyeUnavailableReason": "雙眼仍完全閉合抱枕，沒有眼白下緣；不借用前後格數字。",
+      "unavailableReason": "雙眼仍完全閉合抱枕，沒有眼白下緣；不借用前後格數字。",
+      "faceWidthUnavailableReason": "眼下緣基準不可見，因此臉部截線未知。",
+      "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+      "faceReviewROI": [
+        501,
+        394,
+        676,
+        551
+      ]
+    },
+    {
+      "sourceFrame": 7,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "anchorSource": [
+        965,
+        679
+      ],
+      "footROI": [
+        877,
+        636,
+        1054,
+        688
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          896,
+          653,
+          947,
+          677
+        ],
+        [
+          982,
+          654,
+          1033,
+          677
+        ]
+      ],
+      "visibleFootBaselineY": 676.0,
+      "eyeUnavailableReason": "睜眼後右眼外邊與瞳孔貼住枕緣且被截，完整眼白輪廓不可可靠追蹤；保留未知。",
+      "unavailableReason": "睜眼後右眼外邊與瞳孔貼住枕緣且被截，完整眼白輪廓不可可靠追蹤；保留未知。",
+      "faceWidthUnavailableReason": "右臉截面被枕頭遮住，不能量完整臉寬。",
+      "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+      "faceReviewROI": [
+        887,
+        394,
+        1062,
+        551
+      ]
+    },
+    {
+      "sourceFrame": 8,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 31.04834939252005,
+      "eyeLineToFootPx": 195.0,
+      "anchorSource": [
+        1344,
+        679
+      ],
+      "footROI": [
+        1255,
+        636,
+        1429,
+        688
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1275,
+          653,
+          1326,
+          677
+        ],
+        [
+          1361,
+          653,
+          1412,
+          677
+        ]
+      ],
+      "visibleFootBaselineY": 676.0,
+      "eyeROI": [
+        1312,
+        427,
+        1403,
+        497
+      ],
+      "eyeWhiteBounds": [
+        [
+          1326,
+          442,
+          1356,
+          486
+        ],
+        [
+          1357,
+          436,
+          1385,
+          478
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1340.5,
+          485.0
+        ],
+        [
+          1370.5,
+          477.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1355.5,
+        481.0
+      ],
+      "faceWidthUnavailableReason": "頭仍轉向枕頭，右側臉在眼線延長處與抱枕相接；不把投影截面當中立臉寬。",
+      "footSourcePoint": [
+        1355.5,
+        676.0
+      ],
+      "eyeToFootPoints": [
+        [
+          1355.5,
+          481.0
+        ],
+        [
+          1355.5,
+          676.0
+        ]
+      ],
+      "measurementCaveat": "完整白眼下緣已離開枕頭可見；眼足距為此轉頭姿勢。"
+    },
+    {
+      "sourceFrame": 9,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 29.614185789921695,
+      "eyeLineToFootPx": 195.5,
+      "anchorSource": [
+        200,
+        1011
+      ],
+      "footROI": [
+        107,
+        965,
+        285,
+        1023
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          132,
+          981,
+          183,
+          1008
+        ],
+        [
+          216,
+          983,
+          266,
+          1009
+        ]
+      ],
+      "visibleFootBaselineY": 1007.5,
+      "eyeROI": [
+        173,
+        762,
+        253,
+        828
+      ],
+      "eyeWhiteBounds": [
+        [
+          184,
+          775,
+          213,
+          816
+        ],
+        [
+          214,
+          770,
+          241,
+          810
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          198.0,
+          815.0
+        ],
+        [
+          227.0,
+          809.0
+        ]
+      ],
+      "eyeMidpoint": [
+        212.5,
+        812.0
+      ],
+      "faceWidthUnavailableReason": "視線和頭部仍偏向下降中的抱枕，右臉截線被枕頭遮住；保留不可比臉寬。",
+      "footSourcePoint": [
+        212.5,
+        1007.5
+      ],
+      "eyeToFootPoints": [
+        [
+          212.5,
+          812.0
+        ],
+        [
+          212.5,
+          1007.5
+        ]
+      ],
+      "measurementCaveat": "白眼外輪廓完整；眼足距只反映轉頭及抱枕下降姿勢。"
+    },
+    {
+      "sourceFrame": 10,
+      "faceWidthPx": 110.5,
+      "eyeLowerRimSeparationPx": 30.103986446980738,
+      "eyeLineToFootPx": 191.0,
+      "anchorSource": [
+        584,
+        1012
+      ],
+      "footROI": [
+        493,
+        965,
+        671,
+        1023
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          515,
+          984,
+          566,
+          1009
+        ],
+        [
+          601,
+          985,
+          652,
+          1009
+        ]
+      ],
+      "visibleFootBaselineY": 1008.0,
+      "eyeROI": [
+        550,
+        762,
+        633,
+        832
+      ],
+      "eyeWhiteBounds": [
+        [
+          564,
+          781,
+          594,
+          821
+        ],
+        [
+          595,
+          775,
+          622,
+          815
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          578.5,
+          820.0
+        ],
+        [
+          608.0,
+          814.0
+        ]
+      ],
+      "eyeMidpoint": [
+        593.25,
+        817.0
+      ],
+      "faceCaliperPoints": [
+        [
+          527,
+          831
+        ],
+        [
+          635,
+          809
+        ]
+      ],
+      "footSourcePoint": [
+        593.25,
+        1008.0
+      ],
+      "eyeToFootPoints": [
+        [
+          593.25,
+          817.0
+        ],
+        [
+          593.25,
+          1008.0
+        ]
+      ],
+      "measurementCaveat": "臉部正面完整，眼神向下；可量截線但表情及輕微傾頭仍會影響眼距。"
+    },
+    {
+      "sourceFrame": 11,
+      "faceWidthPx": 100.75,
+      "eyeLowerRimSeparationPx": 30.01666203960727,
+      "eyeLineToFootPx": 193.5,
+      "anchorSource": [
+        970,
+        1012
+      ],
+      "footROI": [
+        883,
+        965,
+        1061,
+        1023
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          903,
+          984,
+          953,
+          1009
+        ],
+        [
+          986,
+          984,
+          1036,
+          1009
+        ]
+      ],
+      "visibleFootBaselineY": 1008.0,
+      "eyeROI": [
+        921,
+        761,
+        1003,
+        829
+      ],
+      "eyeWhiteBounds": [
+        [
+          937,
+          774,
+          965,
+          816
+        ],
+        [
+          967,
+          773,
+          995,
+          815
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          950.5,
+          815.0
+        ],
+        [
+          980.5,
+          814.0
+        ]
+      ],
+      "eyeMidpoint": [
+        965.5,
+        814.5
+      ],
+      "faceCaliperPoints": [
+        [
+          915,
+          816
+        ],
+        [
+          1015,
+          813
+        ]
+      ],
+      "footSourcePoint": [
+        965.5,
+        1008.0
+      ],
+      "eyeToFootPoints": [
+        [
+          965.5,
+          814.5
+        ],
+        [
+          965.5,
+          1008.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 12,
+      "faceWidthPx": 103.0,
+      "eyeLowerRimSeparationPx": 31.016124838541646,
+      "eyeLineToFootPx": 193.5,
+      "anchorSource": [
+        1350,
+        1011
+      ],
+      "footROI": [
+        1262,
+        965,
+        1440,
+        1023
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1282,
+          983,
+          1332,
+          1009
+        ],
+        [
+          1366,
+          984,
+          1416,
+          1009
+        ]
+      ],
+      "visibleFootBaselineY": 1008.0,
+      "eyeROI": [
+        1305,
+        761,
+        1387,
+        829
+      ],
+      "eyeWhiteBounds": [
+        [
+          1319,
+          774,
+          1347,
+          816
+        ],
+        [
+          1350,
+          773,
+          1378,
+          815
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1332.5,
+          815.0
+        ],
+        [
+          1363.5,
+          814.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1348.0,
+        814.5
+      ],
+      "faceCaliperPoints": [
+        [
+          1297,
+          816
+        ],
+        [
+          1399,
+          813
+        ]
+      ],
+      "footSourcePoint": [
+        1348.0,
+        1008.0
+      ],
+      "eyeToFootPoints": [
+        [
+          1348.0,
+          814.5
+        ],
+        [
+          1348.0,
+          1008.0
+        ]
+      ]
+    }
+  ],
+  "firstLast": {
+    "faceWidthPx": {
+      "first": 102.0,
+      "last": 103.0,
+      "changePercent": 0.9803921568627416
+    },
+    "eyeLowerRimSeparationPx": {
+      "first": 31.016124838541646,
+      "last": 31.016124838541646,
+      "changePercent": 0.0
+    },
+    "eyeLineToFootPx": {
+      "first": 193.5,
+      "last": 193.5,
+      "changePercent": 0.0
+    }
+  },
+  "wholeClipSpread": {
+    "faceWidthPx": 9.677419354838701,
+    "eyeLowerRimSeparationPx": 4.8876853282764365,
+    "eyeLineToFootPx": 3.926701570680624
+  },
+  "edgeSamplingUncertaintySourcePixels": 2,
+  "limitations": [
+    "新PNG及regions逐格重新設定搜尋範圍，沒有複用舊v1坐標或假設修圖只改過渡。",
+    "5/6閉眼、4/7右眼外緣被抱枕截住，三項尺規未知；2/3/8/9不把遮擋或側轉臉截面當正臉寬。",
+    "腳底只取兩隻可見裸腳粉色填色下緣，睡褲、帽子、枕頭及透明雜點不算人體。",
+    "同套只用單一倍率；側轉、擠枕及視線變化不以逐格fit消除。數值約有2來源像素取點不確定度。",
+    "量尺通過不表示每個中間姿勢、接觸、五官、衣紋或動作順暢已獲美術批准。"
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        5,
+        6
+      ],
+      "severity": "info",
+      "message": "閉眼使用暖粉色眼皮，沒有把眼皮當成白眼量測；兩格姿勢相近，需要以停留節奏表達靠枕休息。"
+    },
+    {
+      "sourceFrames": [
+        1,
+        2
+      ],
+      "message": "1→2從胸前水平抱枕直接變成明顯斜舉；預期的小幅抬枕前置姿勢仍不足，不能把新增格數當成lift-a已完成。"
+    },
+    {
+      "sourceFrames": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "message": "7→8離臉、9→10→11回橫放有可辨實畫姿勢；8/9長軸斜角仍近，主要是下降，不能說每個轉枕中間姿勢都已補齊。10→11回正仍需正常速度審閱，12格不是平順批准。"
+    },
+    {
+      "sourceFrames": [
+        1,
+        11,
+        12
+      ],
+      "severity": "info",
+      "message": "首末皆正面抱枕，可比較真臉與眼足尺規；帽子或抱枕高度不拿來判定身形縮放。"
+    },
+    {
+      "sourceFrames": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10
+      ],
+      "message": "雙手沿枕頭兩端持握，遮擋格保持未知；仍須逐格覆核手枕接觸及布料形變，未批准美術。"
+    }
+  ]
+}

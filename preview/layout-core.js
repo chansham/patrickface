@@ -20,6 +20,23 @@ export function transformRect(rect, layout = DEFAULT_LAYOUT) {
   const [scale, x, y] = layout.characterTransform;
   return [rect[0] * scale + x, rect[1] * scale + y, rect[2] * scale, rect[3] * scale];
 }
+// Size review uses the same footer geometry as the DOM/native presentation.
+// Text is illustrative here; the product DOM keeps its live countdown and state.
+export function drawLayoutInformation(context, layout, { title = '陪伴倒數', countdown = '—:—', state = '還沒開始', progress = 0 } = {}) {
+  if (!layout.informationRect) return;
+  const [x, y, width] = layout.informationRect;
+  context.save(); context.textBaseline = 'middle';
+  context.strokeStyle = '#85608077'; context.lineWidth = 2;
+  context.beginPath(); context.moveTo(x, y); context.lineTo(x + width, y); context.stroke();
+  context.fillStyle = '#cbb6d1'; context.textAlign = 'left';
+  context.font = '42px "Microsoft JhengHei", sans-serif'; context.fillText(title, x, y + 47);
+  context.font = '34px "Microsoft JhengHei", sans-serif'; context.fillText(state, x, y + 90);
+  context.fillStyle = '#fff0f9'; context.textAlign = 'right';
+  context.font = '550 72px "Segoe UI", sans-serif'; context.fillText(countdown, x + width, y + 65);
+  context.fillStyle = '#4c3b50'; context.fillRect(x, y + 129, width, 8);
+  context.fillStyle = '#dda3ce'; context.fillRect(x, y + 129, width * Math.min(1, Math.max(0, progress)), 8);
+  context.restore();
+}
 export function applyLayoutDOM(layout) {
   for (const screen of document.querySelectorAll('.screen')) {
     screen.dataset.layout = layout.id;

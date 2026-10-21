@@ -58,6 +58,17 @@ xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickExperience.swift" "$ROOT/iOSCompa
 "$DERIVED_ROOT/native-automation" "$ROOT/tools/fixtures/automation-events.json"
 xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickHealthSummary.swift" "$ROOT/tools/NativeHealthChecks.swift" -o "$DERIVED_ROOT/native-health"
 "$DERIVED_ROOT/native-health"
+xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickHealthTrend.swift" "$ROOT/tools/NativeHealthTrendChecks.swift" -o "$DERIVED_ROOT/native-health-trend"
+"$DERIVED_ROOT/native-health-trend" "$ROOT/ecosystem/health-trend-fixtures.json"
+xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickHealthTrend.swift" "$ROOT/PatrickFace/PatrickHealthTrendAggregation.swift" "$ROOT/tools/NativeHealthTrendAggregationChecks.swift" -o "$DERIVED_ROOT/native-health-trend-aggregation"
+"$DERIVED_ROOT/native-health-trend-aggregation"
+xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickAftercare.swift" "$ROOT/tools/NativeAftercareChecks.swift" -o "$DERIVED_ROOT/native-aftercare"
+"$DERIVED_ROOT/native-aftercare" "$ROOT/preview/aftercare-fixtures.json"
+
+xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickWatchStatus.swift" "$ROOT/tools/NativeWatchStatusChecks.swift" -o "$DERIVED_ROOT/native-watch-status"
+"$DERIVED_ROOT/native-watch-status"
+xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickRoutineRun.swift" "$ROOT/tools/NativeRoutineRunChecks.swift" -o "$DERIVED_ROOT/native-routine-runs"
+"$DERIVED_ROOT/native-routine-runs" "$ROOT/ecosystem/routine-run-fixtures.json"
 
 xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickExperience.swift" "$ROOT/iOSCompanion/Shared/PatrickSettingsMerge.swift" "$ROOT/tools/NativeSettingsMergeChecks.swift" -o "$DERIVED_ROOT/native-settings-merge"
 "$DERIVED_ROOT/native-settings-merge" "$ROOT/tools/fixtures/settings-merge.json"

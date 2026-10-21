@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>收操後的小劇場 · PatrickFace</title><link rel="stylesheet" href="aftercare.css?v=20261013-aftercare1"></head>
+<body><main>
+  <nav><a href="./">PATRICK / 陪伴實驗室</a><a href="../preview/?review=candidates&group=fitness">回運動素材審稿 ↗</a></nav>
+  <header><div class="eyebrow">AFTER THE LAST REP <span>候選動作 · 手動試演</span></div><h1>收操以後，<br>還有一點戲。</h1><p class="intro">擦擦汗、鬆開外套，或慢慢喝一口水。讓每次結束有不同表情，也可以直接略過，安靜休息。</p></header>
+  <section class="studio" aria-label="候選動畫試演">
+    <div class="stage-side"><div class="stage-heading"><span>01 / 看動作</span><label>錶面安排 <select id="layout" aria-label="錶面安排"></select></label></div>
+      <div class="watch-pair"><figure><canvas id="large-watch" class="watch large" width="832" height="992" aria-label="放大動畫預覽"></canvas><figcaption>放大看表情與輪廓</figcaption></figure><figure class="small-figure"><canvas id="small-watch" class="watch small" width="832" height="992" aria-label="固定 200 像素動畫預覽"></canvas><figcaption>固定 200 px 實際顯示寬度</figcaption></figure></div>
+      <div class="frame-control"><button id="previous-frame" aria-label="上一幀" disabled>←</button><label for="frame">逐幀檢查 <output id="frame-label">—</output></label><input id="frame" type="range" min="0" max="0" value="0" step="1" disabled><button id="next-frame" aria-label="下一幀" disabled>→</button></div>
+      <div class="play-row"><button id="play-review" class="primary" disabled>播放候選 · 一次</button><button id="stop" disabled>停止</button><span>原定時序 1× · 不循環</span></div>
+      <p id="playback-status" class="status" role="status">正在核對來源及載入輪廓…</p>
+    </div>
+    <aside><span class="section-number">02 / 選一個結尾</span><div id="endings" class="endings"></div><div class="candidate-note"><strong>每套都是獨立結尾</strong><p>服裝與姿勢不同，這裡分開試看。尚未畫出接續動作，不能把不同套素材直接接成一場完整演出。</p></div><div id="clip-facts" class="clip-facts"></div><a id="review-link" class="text-link" href="../size-review/?review=candidates">放到尺寸審稿／標記問題 ↗</a></aside>
+  </section>
+  <section class="flow"><div><span class="section-number">03 / 結束時怎麼出現</span><h2>先詢問，再演一小段。</h2><p>這組按鈕只演練倒數完成事件。它不會建立運動紀錄，也沒有讀取手錶的訓練狀態。</p><div class="event-buttons"><button id="simulate-complete" class="primary" disabled>模擬完成一段運動倒數</button><button id="replay-event" disabled>重送同一完成事件</button><button id="new-timer" disabled>模擬開始新倒數</button></div><div class="safety-controls"><label><input id="quiet" type="checkbox">安靜／減少動態</label><button id="background">模擬退到背景</button></div></div><div class="flow-receipt"><div id="phase-pill">尚未觸發</div><h3 id="offer-title">要看時，再叫派大星。</h3><p id="offer-detail">頁面打開時不自動播，也不補播先前結束的動作。</p><div class="event-buttons"><button id="accept-ending" disabled>演這個結尾</button><button id="dismiss" disabled>略過</button></div><div id="event-log" aria-live="polite"></div></div></section>
+  <footer><p><strong>目前是瀏覽器候選試演。</strong>整段固定倍率、共同腳底錨點及四種版式沿用尺寸審稿的繪製方式。框內不裁切，不代表原畫比例、動作銜接已通過你的確認。</p><p>不儲存健康資料、評分或審稿結果；需要標記時，請使用原有尺寸審稿頁。Apple Watch 實機效果仍需另行驗證。</p></footer>
+</main><script type="module" src="aftercare-ui.js?v=20261013-aftercare1"></script></body></html>

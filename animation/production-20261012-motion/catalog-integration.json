@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "artApproval": false,
+  "manifestSha256": "27d3e50bdf0203e95a612ebc3b087d3df327fed28bb95c2803e25647f8bc8c41",
+  "mainCatalogSha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+  "candidateCount": 38,
+  "candidateFrames": 408,
+  "processedSourceIDs": [
+    "boxing-timing-20261012",
+    "tracksuit-timing-20261012"
+  ],
+  "integratedCandidateIDs": [
+    "boxing-timing-20261012",
+    "tracksuit-timing-20261012"
+  ]
+}

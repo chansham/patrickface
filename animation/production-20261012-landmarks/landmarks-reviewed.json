@@ -1,0 +1,2838 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "visualReview": "Original atlases and all four enlarged caliper sheets inspected; cozy frame 9 face line excluded after occlusion was seen.",
+  "method": "Reviewed source-specific eye ROIs and white connected components, then visible skin-section endpoints; all coordinates in original source pixels.",
+  "uncertaintySourcePixels": 2,
+  "sources": [
+    {
+      "id": "exercise-repair-20261006",
+      "sourcePath": "animation/exercise-v3/atlas-generated.png",
+      "sourceSha256": "0a3fdcd7fc489fb89457b76145ce3e249f2a401c3ffc0a1a566872cb7da1627f",
+      "regionsPath": "animation/exercise-v3/regions-v1.json",
+      "regionsSha256": "60b52d9cf086221cfe3f30731b3665bd657d81096b69f8392377ddfd6edf13d5",
+      "frames": [
+        {
+          "sourceFrame": 0,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 96.24758126831033,
+            "eyeSeparation": 28.935272592460574,
+            "eyeToFoot": 128.5,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              145,
+              60,
+              240,
+              140
+            ],
+            "eyeWhiteBounds": [
+              [
+                166,
+                98,
+                191,
+                116
+              ],
+              [
+                193,
+                101,
+                221,
+                121
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                178.0,
+                115
+              ],
+              [
+                206.5,
+                120
+              ]
+            ],
+            "eyeMidpoint": [
+              192.25,
+              117.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                150.64,
+                110.2
+              ],
+              [
+                245.44,
+                126.83
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                192.25,
+                117.5
+              ],
+              [
+                192.25,
+                246
+              ]
+            ],
+            "footSourcePoint": [
+              192.25,
+              246
+            ],
+            "footBaselineY": 246,
+            "visibleFootPinkFillBounds": [
+              [
+                207,
+                207,
+                265,
+                247
+              ]
+            ],
+            "footROI": [
+              205,
+              205,
+              273,
+              253
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 1,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 93.74972053291673,
+            "eyeSeparation": 26.800186566514792,
+            "eyeToFoot": 131.0,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              529,
+              60,
+              624,
+              140
+            ],
+            "eyeWhiteBounds": [
+              [
+                553,
+                81,
+                578,
+                114
+              ],
+              [
+                579,
+                85,
+                605,
+                118
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                565.0,
+                113
+              ],
+              [
+                591.5,
+                117
+              ]
+            ],
+            "eyeMidpoint": [
+              578.25,
+              115.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                535.73,
+                108.58
+              ],
+              [
+                628.43,
+                122.57
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                578.25,
+                115.0
+              ],
+              [
+                578.25,
+                246
+              ]
+            ],
+            "footSourcePoint": [
+              578.25,
+              246
+            ],
+            "footBaselineY": 246,
+            "visibleFootPinkFillBounds": [
+              [
+                591,
+                207,
+                649,
+                247
+              ]
+            ],
+            "footROI": [
+              589,
+              205,
+              657,
+              253
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 2,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 90.7484269836122,
+            "eyeSeparation": 27.294688127912362,
+            "eyeToFoot": 135.0,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              913,
+              60,
+              1008,
+              140
+            ],
+            "eyeWhiteBounds": [
+              [
+                939,
+                80,
+                963,
+                110
+              ],
+              [
+                965,
+                81,
+                991,
+                114
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                950.5,
+                109
+              ],
+              [
+                977.5,
+                113
+              ]
+            ],
+            "eyeMidpoint": [
+              964.0,
+              111.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                921.71,
+                104.74
+              ],
+              [
+                1011.48,
+                118.03
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                964.0,
+                111.0
+              ],
+              [
+                964.0,
+                246
+              ]
+            ],
+            "footSourcePoint": [
+              964.0,
+              246
+            ],
+            "footBaselineY": 246,
+            "visibleFootPinkFillBounds": [
+              [
+                975,
+                207,
+                1033,
+                247
+              ]
+            ],
+            "footROI": [
+              973,
+              205,
+              1041,
+              253
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 3,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 87.49669308036744,
+            "eyeSeparation": 33.737960815674676,
+            "eyeToFoot": 141.0,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              1297,
+              60,
+              1392,
+              140
+            ],
+            "eyeWhiteBounds": [
+              [
+                1322,
+                92,
+                1335,
+                104
+              ],
+              [
+                1351,
+                96,
+                1373,
+                108
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1328.0,
+                103
+              ],
+              [
+                1361.5,
+                107
+              ]
+            ],
+            "eyeMidpoint": [
+              1344.75,
+              105.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                1306.52,
+                100.44
+              ],
+              [
+                1393.4,
+                110.81
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                1344.75,
+                105.0
+              ],
+              [
+                1344.75,
+                246
+              ]
+            ],
+            "footSourcePoint": [
+              1344.75,
+              246
+            ],
+            "footBaselineY": 246,
+            "visibleFootPinkFillBounds": [
+              [
+                1359,
+                207,
+                1416,
+                247
+              ]
+            ],
+            "footROI": [
+              1357,
+              205,
+              1425,
+              253
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 4,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 83.24899578973911,
+            "eyeSeparation": 26.669270706189174,
+            "eyeToFoot": 147.5,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              145,
+              316,
+              240,
+              396
+            ],
+            "eyeWhiteBounds": [
+              [
+                172,
+                326,
+                195,
+                353
+              ],
+              [
+                197,
+                328,
+                223,
+                356
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                183.0,
+                352
+              ],
+              [
+                209.5,
+                355
+              ]
+            ],
+            "eyeMidpoint": [
+              196.25,
+              353.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                158.74,
+                349.25
+              ],
+              [
+                241.46,
+                358.62
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                196.25,
+                353.5
+              ],
+              [
+                196.25,
+                501
+              ]
+            ],
+            "footSourcePoint": [
+              196.25,
+              501
+            ],
+            "footBaselineY": 501,
+            "visibleFootPinkFillBounds": [
+              [
+                207,
+                462,
+                265,
+                502
+              ]
+            ],
+            "footROI": [
+              205,
+              461,
+              273,
+              509
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 5,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 83.49968443054141,
+            "eyeSeparation": 27.789386463180506,
+            "eyeToFoot": 147.0,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              529,
+              316,
+              624,
+              396
+            ],
+            "eyeWhiteBounds": [
+              [
+                554,
+                338,
+                579,
+                353
+              ],
+              [
+                581,
+                341,
+                607,
+                357
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                566.0,
+                352
+              ],
+              [
+                593.5,
+                356
+              ]
+            ],
+            "eyeMidpoint": [
+              579.75,
+              354.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                542.64,
+                348.6
+              ],
+              [
+                625.27,
+                360.62
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                579.75,
+                354.0
+              ],
+              [
+                579.75,
+                501
+              ]
+            ],
+            "footSourcePoint": [
+              579.75,
+              501
+            ],
+            "footBaselineY": 501,
+            "visibleFootPinkFillBounds": [
+              [
+                591,
+                462,
+                649,
+                502
+              ]
+            ],
+            "footROI": [
+              589,
+              461,
+              657,
+              509
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 6,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 87.50870699536132,
+            "eyeSeparation": 28.284271247461902,
+            "eyeToFoot": 140.0,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              913,
+              316,
+              1008,
+              396
+            ],
+            "eyeWhiteBounds": [
+              [
+                937,
+                344,
+                961,
+                360
+              ],
+              [
+                964,
+                347,
+                990,
+                364
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                948.5,
+                359
+              ],
+              [
+                976.5,
+                363
+              ]
+            ],
+            "eyeMidpoint": [
+              962.5,
+              361.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                923.64,
+                355.45
+              ],
+              [
+                1010.27,
+                367.82
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                962.5,
+                361.0
+              ],
+              [
+                962.5,
+                501
+              ]
+            ],
+            "footSourcePoint": [
+              962.5,
+              501
+            ],
+            "footBaselineY": 501,
+            "visibleFootPinkFillBounds": [
+              [
+                975,
+                462,
+                1033,
+                502
+              ]
+            ],
+            "footROI": [
+              973,
+              461,
+              1041,
+              509
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 7,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 88.25203963648659,
+            "eyeSeparation": 28.160255680657446,
+            "eyeToFoot": 139.5,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              1297,
+              316,
+              1392,
+              396
+            ],
+            "eyeWhiteBounds": [
+              [
+                1321,
+                346,
+                1345,
+                362
+              ],
+              [
+                1348,
+                348,
+                1374,
+                365
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1332.5,
+                361
+              ],
+              [
+                1360.5,
+                364
+              ]
+            ],
+            "eyeMidpoint": [
+              1346.5,
+              362.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                1306.73,
+                358.24
+              ],
+              [
+                1394.48,
+                367.64
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                1346.5,
+                362.5
+              ],
+              [
+                1346.5,
+                502
+              ]
+            ],
+            "footSourcePoint": [
+              1346.5,
+              502
+            ],
+            "footBaselineY": 502,
+            "visibleFootPinkFillBounds": [
+              [
+                1359,
+                462,
+                1417,
+                503
+              ]
+            ],
+            "footROI": [
+              1357,
+              461,
+              1425,
+              509
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 8,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 88.49865648697723,
+            "eyeSeparation": 28.284271247461902,
+            "eyeToFoot": 139.0,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              145,
+              572,
+              240,
+              652
+            ],
+            "eyeWhiteBounds": [
+              [
+                169,
+                600,
+                194,
+                617
+              ],
+              [
+                196,
+                603,
+                223,
+                621
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                181.0,
+                616
+              ],
+              [
+                209.0,
+                620
+              ]
+            ],
+            "eyeMidpoint": [
+              195.0,
+              618.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                155.65,
+                612.38
+              ],
+              [
+                243.26,
+                624.89
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                195.0,
+                618.0
+              ],
+              [
+                195.0,
+                757
+              ]
+            ],
+            "footSourcePoint": [
+              195.0,
+              757
+            ],
+            "footBaselineY": 757,
+            "visibleFootPinkFillBounds": [
+              [
+                207,
+                718,
+                265,
+                758
+              ]
+            ],
+            "footROI": [
+              205,
+              717,
+              273,
+              765
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 9,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 91.49933333090469,
+            "eyeSeparation": 27.663152387246107,
+            "eyeToFoot": 133.5,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              529,
+              572,
+              624,
+              652
+            ],
+            "eyeWhiteBounds": [
+              [
+                553,
+                597,
+                579,
+                623
+              ],
+              [
+                580,
+                603,
+                607,
+                626
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                565.5,
+                622
+              ],
+              [
+                593.0,
+                625
+              ]
+            ],
+            "eyeMidpoint": [
+              579.25,
+              623.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                536.5,
+                618.84
+              ],
+              [
+                627.46,
+                628.76
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                579.25,
+                623.5
+              ],
+              [
+                579.25,
+                757
+              ]
+            ],
+            "footSourcePoint": [
+              579.25,
+              757
+            ],
+            "footBaselineY": 757,
+            "visibleFootPinkFillBounds": [
+              [
+                591,
+                718,
+                649,
+                758
+              ]
+            ],
+            "footROI": [
+              589,
+              717,
+              657,
+              765
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 10,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 91.2491715030882,
+            "eyeSeparation": 28.160255680657446,
+            "eyeToFoot": 134.5,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              913,
+              572,
+              1008,
+              652
+            ],
+            "eyeWhiteBounds": [
+              [
+                937,
+                607,
+                961,
+                622
+              ],
+              [
+                964,
+                609,
+                990,
+                625
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                948.5,
+                621
+              ],
+              [
+                976.5,
+                624
+              ]
+            ],
+            "eyeMidpoint": [
+              962.5,
+              622.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                920.74,
+                618.03
+              ],
+              [
+                1011.47,
+                627.75
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                962.5,
+                622.5
+              ],
+              [
+                962.5,
+                757
+              ]
+            ],
+            "footSourcePoint": [
+              962.5,
+              757
+            ],
+            "footBaselineY": 757,
+            "visibleFootPinkFillBounds": [
+              [
+                975,
+                718,
+                1033,
+                758
+              ]
+            ],
+            "footROI": [
+              973,
+              717,
+              1041,
+              765
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 11,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 95.25250915330261,
+            "eyeSeparation": 28.442925306655784,
+            "eyeToFoot": 127.5,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              1297,
+              572,
+              1392,
+              652
+            ],
+            "eyeWhiteBounds": [
+              [
+                1319,
+                613,
+                1344,
+                628
+              ],
+              [
+                1346,
+                616,
+                1373,
+                633
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1331.0,
+                627
+              ],
+              [
+                1359.0,
+                632
+              ]
+            ],
+            "eyeMidpoint": [
+              1345.0,
+              629.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                1303.65,
+                622.12
+              ],
+              [
+                1397.42,
+                638.86
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                1345.0,
+                629.5
+              ],
+              [
+                1345.0,
+                757
+              ]
+            ],
+            "footSourcePoint": [
+              1345.0,
+              757
+            ],
+            "footBaselineY": 757,
+            "visibleFootPinkFillBounds": [
+              [
+                1359,
+                718,
+                1416,
+                758
+              ]
+            ],
+            "footROI": [
+              1357,
+              717,
+              1425,
+              765
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 12,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "閉眼，眼白下緣基準未知，因此眼足距維持未知。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              145,
+              828,
+              240,
+              908
+            ],
+            "eyeSeparationUnavailableReason": "閉眼，沒有兩個可見眼白下緣，不能用眼皮或前一格推估。",
+            "faceWidthUnavailableReason": "本尺規沿眼白下緣線取臉部橫截；閉眼沒有這條基準。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 13,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 90.49862319394698,
+            "eyeSeparation": 28.77933286231632,
+            "eyeToFoot": 135.0,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              529,
+              828,
+              624,
+              908
+            ],
+            "eyeWhiteBounds": [
+              [
+                553,
+                855,
+                579,
+                877
+              ],
+              [
+                581,
+                858,
+                608,
+                881
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                565.5,
+                876
+              ],
+              [
+                594.0,
+                880
+              ]
+            ],
+            "eyeMidpoint": [
+              579.75,
+              878.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                537.66,
+                872.09
+              ],
+              [
+                627.28,
+                884.67
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                579.75,
+                878.0
+              ],
+              [
+                579.75,
+                1013
+              ]
+            ],
+            "footSourcePoint": [
+              579.75,
+              1013
+            ],
+            "footBaselineY": 1013,
+            "visibleFootPinkFillBounds": [
+              [
+                591,
+                974,
+                649,
+                1014
+              ]
+            ],
+            "footROI": [
+              589,
+              973,
+              657,
+              1021
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 14,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 89.75164956701356,
+            "eyeSeparation": 28.284271247461902,
+            "eyeToFoot": 137.0,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              913,
+              828,
+              1008,
+              908
+            ],
+            "eyeWhiteBounds": [
+              [
+                936,
+                857,
+                961,
+                875
+              ],
+              [
+                963,
+                859,
+                990,
+                879
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                948.0,
+                874
+              ],
+              [
+                976.0,
+                878
+              ]
+            ],
+            "eyeMidpoint": [
+              962.0,
+              876.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                922.65,
+                870.38
+              ],
+              [
+                1011.5,
+                883.07
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                962.0,
+                876.0
+              ],
+              [
+                962.0,
+                1013
+              ]
+            ],
+            "footSourcePoint": [
+              962.0,
+              1013
+            ],
+            "footBaselineY": 1013,
+            "visibleFootPinkFillBounds": [
+              [
+                975,
+                974,
+                1033,
+                1014
+              ]
+            ],
+            "footROI": [
+              973,
+              973,
+              1041,
+              1021
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 15,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 95.25294746095804,
+            "eyeSeparation": 28.935272592460574,
+            "eyeToFoot": 128.5,
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              1297,
+              828,
+              1392,
+              908
+            ],
+            "eyeWhiteBounds": [
+              [
+                1318,
+                866,
+                1343,
+                883
+              ],
+              [
+                1345,
+                869,
+                1373,
+                888
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1330.0,
+                882
+              ],
+              [
+                1358.5,
+                887
+              ]
+            ],
+            "eyeMidpoint": [
+              1344.25,
+              884.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                1303.62,
+                877.37
+              ],
+              [
+                1397.44,
+                893.83
+              ]
+            ],
+            "comparisonGroup": "visible-face-section",
+            "eyeToFootPoints": [
+              [
+                1344.25,
+                884.5
+              ],
+              [
+                1344.25,
+                1013
+              ]
+            ],
+            "footSourcePoint": [
+              1344.25,
+              1013
+            ],
+            "footBaselineY": 1013,
+            "visibleFootPinkFillBounds": [
+              [
+                1359,
+                974,
+                1417,
+                1014
+              ]
+            ],
+            "footROI": [
+              1357,
+              973,
+              1425,
+              1021
+            ],
+            "footPointMeaning": "眼中線向下投影至已覆核裸腳填色下緣的水平基線；該投影x並非實際腳掌位置。",
+            "footBaselineMethod": "逐格覆核右側可見裸腳粉色填色下緣；量測坐姿代理，不是站立身高，也不包含黑色描邊。"
+          },
+          "flags": []
+        }
+      ],
+      "evidence": "output/body-landmarks-20261012/exercise-v3-face-calipers.png"
+    },
+    {
+      "id": "running-first-20261006",
+      "sourcePath": "animation/running-v1/atlas-generated.png",
+      "sourceSha256": "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4",
+      "regionsPath": "animation/running-v1/regions-v1.json",
+      "regionsSha256": "9e858752a4cf852e173a80a72510999e7daf64b48ea31325aa061fb82c6cc276",
+      "frames": [
+        {
+          "sourceFrame": 0,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 89.49338523041799,
+            "eyeSeparation": 25.675864152935535,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              100,
+              82,
+              240,
+              155
+            ],
+            "eyeWhiteBounds": [
+              [
+                142,
+                105,
+                163,
+                124
+              ],
+              [
+                165,
+                107,
+                191,
+                127
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                152.0,
+                123
+              ],
+              [
+                177.5,
+                126
+              ]
+            ],
+            "eyeMidpoint": [
+              164.75,
+              124.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                127.51,
+                120.12
+              ],
+              [
+                216.39,
+                130.58
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 1,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 95.50830173340955,
+            "eyeSeparation": 23.69071548096427,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              414,
+              82,
+              554,
+              155
+            ],
+            "eyeWhiteBounds": [
+              [
+                459,
+                99,
+                483,
+                134
+              ],
+              [
+                484,
+                96,
+                505,
+                131
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                470.5,
+                133
+              ],
+              [
+                494.0,
+                130
+              ]
+            ],
+            "eyeMidpoint": [
+              482.25,
+              131.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                423.72,
+                138.97
+              ],
+              [
+                518.46,
+                126.88
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 2,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 23.69071548096427,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              727,
+              82,
+              867,
+              155
+            ],
+            "eyeWhiteBounds": [
+              [
+                761,
+                87,
+                785,
+                123
+              ],
+              [
+                786,
+                84,
+                807,
+                120
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                772.5,
+                122
+              ],
+              [
+                796.0,
+                119
+              ]
+            ],
+            "eyeMidpoint": [
+              784.25,
+              120.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceWidthUnavailableReason": "此格側轉或大幅傾斜，投影橫截不與正面臉寬混比；只記錄可見眼白間距。",
+            "comparisonGroup": "side-pose-eye-proxy-only"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 3,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 22.699118925632334,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              1040,
+              82,
+              1180,
+              155
+            ],
+            "eyeWhiteBounds": [
+              [
+                1099,
+                87,
+                1122,
+                122
+              ],
+              [
+                1123,
+                84,
+                1143,
+                119
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1110.0,
+                121
+              ],
+              [
+                1132.5,
+                118
+              ]
+            ],
+            "eyeMidpoint": [
+              1121.25,
+              119.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceWidthUnavailableReason": "此格側轉或大幅傾斜，投影橫截不與正面臉寬混比；只記錄可見眼白間距。",
+            "comparisonGroup": "side-pose-eye-proxy-only"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 4,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 23.08679276123039,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              100,
+              396,
+              240,
+              469
+            ],
+            "eyeWhiteBounds": [
+              [
+                147,
+                396,
+                169,
+                427
+              ],
+              [
+                169,
+                396,
+                193,
+                429
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                157.5,
+                426
+              ],
+              [
+                180.5,
+                428
+              ]
+            ],
+            "eyeMidpoint": [
+              169.0,
+              427.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceWidthUnavailableReason": "此格側轉或大幅傾斜，投影橫截不與正面臉寬混比；只記錄可見眼白間距。",
+            "comparisonGroup": "side-pose-eye-proxy-only"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 5,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 23.521266972678152,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              414,
+              396,
+              554,
+              469
+            ],
+            "eyeWhiteBounds": [
+              [
+                457,
+                396,
+                477,
+                426
+              ],
+              [
+                479,
+                396,
+                502,
+                427
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                466.5,
+                425
+              ],
+              [
+                490.0,
+                426
+              ]
+            ],
+            "eyeMidpoint": [
+              478.25,
+              425.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceWidthUnavailableReason": "此格側轉或大幅傾斜，投影橫截不與正面臉寬混比；只記錄可見眼白間距。",
+            "comparisonGroup": "side-pose-eye-proxy-only"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 6,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 23.08679276123039,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              727,
+              396,
+              867,
+              469
+            ],
+            "eyeWhiteBounds": [
+              [
+                786,
+                396,
+                810,
+                422
+              ],
+              [
+                811,
+                396,
+                831,
+                420
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                797.5,
+                421
+              ],
+              [
+                820.5,
+                419
+              ]
+            ],
+            "eyeMidpoint": [
+              809.0,
+              420.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceWidthUnavailableReason": "此格側轉或大幅傾斜，投影橫截不與正面臉寬混比；只記錄可見眼白間距。",
+            "comparisonGroup": "side-pose-eye-proxy-only"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 7,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 22.522211259110417,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              1040,
+              396,
+              1180,
+              469
+            ],
+            "eyeWhiteBounds": [
+              [
+                1108,
+                396,
+                1131,
+                429
+              ],
+              [
+                1133,
+                396,
+                1151,
+                428
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1119.0,
+                428
+              ],
+              [
+                1141.5,
+                427
+              ]
+            ],
+            "eyeMidpoint": [
+              1130.25,
+              427.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceWidthUnavailableReason": "此格側轉或大幅傾斜，投影橫截不與正面臉寬混比；只記錄可見眼白間距。",
+            "comparisonGroup": "side-pose-eye-proxy-only"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 8,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 24.020824298928627,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              100,
+              709,
+              240,
+              782
+            ],
+            "eyeWhiteBounds": [
+              [
+                137,
+                709,
+                157,
+                730
+              ],
+              [
+                159,
+                709,
+                183,
+                731
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                146.5,
+                729
+              ],
+              [
+                170.5,
+                730
+              ]
+            ],
+            "eyeMidpoint": [
+              158.5,
+              729.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceWidthUnavailableReason": "此格側轉或大幅傾斜，投影橫截不與正面臉寬混比；只記錄可見眼白間距。",
+            "comparisonGroup": "side-pose-eye-proxy-only"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 9,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 23.345235059857504,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              414,
+              709,
+              554,
+              782
+            ],
+            "eyeWhiteBounds": [
+              [
+                477,
+                709,
+                501,
+                736
+              ],
+              [
+                502,
+                709,
+                522,
+                732
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                488.5,
+                735
+              ],
+              [
+                511.5,
+                731
+              ]
+            ],
+            "eyeMidpoint": [
+              500.0,
+              733.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceWidthUnavailableReason": "此格側轉或大幅傾斜，投影橫截不與正面臉寬混比；只記錄可見眼白間距。",
+            "comparisonGroup": "side-pose-eye-proxy-only"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 10,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 24.520399670478458,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              727,
+              709,
+              867,
+              782
+            ],
+            "eyeWhiteBounds": [
+              [
+                781,
+                710,
+                805,
+                745
+              ],
+              [
+                807,
+                709,
+                828,
+                744
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                792.5,
+                744
+              ],
+              [
+                817.0,
+                743
+              ]
+            ],
+            "eyeMidpoint": [
+              804.75,
+              743.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceWidthUnavailableReason": "此格側轉或大幅傾斜，投影橫截不與正面臉寬混比；只記錄可見眼白間距。",
+            "comparisonGroup": "side-pose-eye-proxy-only"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 11,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 87.99935965676116,
+            "eyeSeparation": 25.578311124857326,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              1040,
+              709,
+              1180,
+              782
+            ],
+            "eyeWhiteBounds": [
+              [
+                1088,
+                721,
+                1113,
+                742
+              ],
+              [
+                1115,
+                720,
+                1137,
+                740
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1100.0,
+                741
+              ],
+              [
+                1125.5,
+                739
+              ]
+            ],
+            "eyeMidpoint": [
+              1112.75,
+              740.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                1063.65,
+                743.85
+              ],
+              [
+                1151.38,
+                736.97
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 12,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "閉眼，眼白下緣基準未知，因此眼足距維持未知。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              100,
+              1022,
+              240,
+              1095
+            ],
+            "eyeSeparationUnavailableReason": "閉眼，沒有兩個可見眼白下緣，不能用眼皮或前一格推估。",
+            "faceWidthUnavailableReason": "本尺規沿眼白下緣線取臉部橫截；閉眼沒有這條基準。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 13,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 89.00245221340815,
+            "eyeSeparation": 26.076809620810597,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              414,
+              1022,
+              554,
+              1095
+            ],
+            "eyeWhiteBounds": [
+              [
+                454,
+                1022,
+                477,
+                1041
+              ],
+              [
+                479,
+                1022,
+                504,
+                1043
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                465.0,
+                1040
+              ],
+              [
+                491.0,
+                1042
+              ]
+            ],
+            "eyeMidpoint": [
+              478.0,
+              1041.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                437.62,
+                1037.89
+              ],
+              [
+                526.36,
+                1044.72
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 14,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 87.00185055503135,
+            "eyeSeparation": 26.51886121235224,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              727,
+              1022,
+              867,
+              1095
+            ],
+            "eyeWhiteBounds": [
+              [
+                766,
+                1022,
+                789,
+                1040
+              ],
+              [
+                792,
+                1022,
+                816,
+                1041
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                777.0,
+                1039
+              ],
+              [
+                803.5,
+                1040
+              ]
+            ],
+            "eyeMidpoint": [
+              790.25,
+              1039.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                749.53,
+                1037.96
+              ],
+              [
+                836.47,
+                1041.24
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 15,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 87.9993573840173,
+            "eyeSeparation": 26.575364531836623,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "跑步側身、屈膝和抬腳變化，不使用支撐輪廓基線假冒可比的人體身高。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              1040,
+              1022,
+              1180,
+              1095
+            ],
+            "eyeWhiteBounds": [
+              [
+                1083,
+                1023,
+                1105,
+                1042
+              ],
+              [
+                1108,
+                1024,
+                1133,
+                1044
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1093.5,
+                1041
+              ],
+              [
+                1120.0,
+                1043
+              ]
+            ],
+            "eyeMidpoint": [
+              1106.75,
+              1042.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                1067.61,
+                1039.05
+              ],
+              [
+                1155.36,
+                1045.67
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        }
+      ],
+      "evidence": "output/body-landmarks-20261012/running-v1-face-calipers.png"
+    },
+    {
+      "id": "charging-cozy-20261007",
+      "sourcePath": "animation/charging-cozy-v2/atlas-generated.png",
+      "sourceSha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+      "regionsPath": "animation/charging-cozy-v2/regions-v1.json",
+      "regionsSha256": "10bc3295dcb15b327365c1c0985e14d0da0c1a798a35822551e1da5074541e74",
+      "frames": [
+        {
+          "sourceFrame": 0,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 121.25123092158694,
+            "eyeSeparation": 35.20298282816387,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              120,
+              105,
+              255,
+              180
+            ],
+            "eyeWhiteBounds": [
+              [
+                150,
+                138,
+                182,
+                161
+              ],
+              [
+                184,
+                145,
+                217,
+                168
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                165.5,
+                160
+              ],
+              [
+                200.0,
+                167
+              ]
+            ],
+            "eyeMidpoint": [
+              182.75,
+              163.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                119.54,
+                150.67
+              ],
+              [
+                238.37,
+                174.78
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 1,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 122.49989265301414,
+            "eyeSeparation": 35.510561809129406,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              482,
+              105,
+              617,
+              180
+            ],
+            "eyeWhiteBounds": [
+              [
+                506,
+                145,
+                538,
+                168
+              ],
+              [
+                541,
+                152,
+                573,
+                174
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                521.5,
+                167
+              ],
+              [
+                556.5,
+                173
+              ]
+            ],
+            "eyeMidpoint": [
+              539.0,
+              170.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                474.69,
+                158.98
+              ],
+              [
+                595.43,
+                179.67
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 2,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 120.2530203362893,
+            "eyeSeparation": 35.20298282816387,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              844,
+              105,
+              979,
+              180
+            ],
+            "eyeWhiteBounds": [
+              [
+                870,
+                146,
+                901,
+                168
+              ],
+              [
+                904,
+                153,
+                936,
+                175
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                885.0,
+                167
+              ],
+              [
+                919.5,
+                174
+              ]
+            ],
+            "eyeMidpoint": [
+              902.25,
+              170.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                838.55,
+                157.57
+              ],
+              [
+                956.4,
+                181.49
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 3,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 117.74400197037639,
+            "eyeSeparation": 35.415392133929565,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              120,
+              467,
+              255,
+              532
+            ],
+            "eyeWhiteBounds": [
+              [
+                151,
+                496,
+                183,
+                519
+              ],
+              [
+                185,
+                503,
+                218,
+                527
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                166.5,
+                518
+              ],
+              [
+                201.0,
+                526
+              ]
+            ],
+            "eyeMidpoint": [
+              183.75,
+              522.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                121.65,
+                507.6
+              ],
+              [
+                236.35,
+                534.2
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 4,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 121.25123092158692,
+            "eyeSeparation": 35.20298282816387,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              482,
+              467,
+              617,
+              532
+            ],
+            "eyeWhiteBounds": [
+              [
+                506,
+                492,
+                538,
+                516
+              ],
+              [
+                540,
+                500,
+                573,
+                523
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                521.5,
+                515
+              ],
+              [
+                556.0,
+                522
+              ]
+            ],
+            "eyeMidpoint": [
+              538.75,
+              518.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                474.56,
+                505.48
+              ],
+              [
+                593.39,
+                529.59
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 5,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 119.74525042773094,
+            "eyeSeparation": 35.415392133929565,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              844,
+              467,
+              979,
+              532
+            ],
+            "eyeWhiteBounds": [
+              [
+                873,
+                499,
+                905,
+                523
+              ],
+              [
+                907,
+                508,
+                940,
+                531
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                888.5,
+                522
+              ],
+              [
+                923.0,
+                530
+              ]
+            ],
+            "eyeMidpoint": [
+              905.75,
+              526.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                840.73,
+                510.92
+              ],
+              [
+                957.38,
+                537.97
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 6,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 124.99558752212016,
+            "eyeSeparation": 36.05551275463989,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              120,
+              829,
+              255,
+              894
+            ],
+            "eyeWhiteBounds": [
+              [
+                162,
+                841,
+                194,
+                866
+              ],
+              [
+                196,
+                854,
+                228,
+                878
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                177.5,
+                865
+              ],
+              [
+                211.5,
+                877
+              ]
+            ],
+            "eyeMidpoint": [
+              194.5,
+              871.0
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                127.55,
+                847.37
+              ],
+              [
+                245.42,
+                888.97
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 7,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "閉眼，眼白下緣基準未知，因此眼足距維持未知。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              482,
+              829,
+              617,
+              894
+            ],
+            "eyeSeparationUnavailableReason": "閉眼，沒有兩個可見眼白下緣，不能用眼皮或前一格推估。",
+            "faceWidthUnavailableReason": "本尺規沿眼白下緣線取臉部橫截；閉眼沒有這條基準。"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 8,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 35.4682957019364,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              844,
+              829,
+              979,
+              889
+            ],
+            "eyeWhiteBounds": [
+              [
+                881,
+                839,
+                913,
+                864
+              ],
+              [
+                914,
+                852,
+                946,
+                877
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                896.5,
+                863
+              ],
+              [
+                929.5,
+                876
+              ]
+            ],
+            "eyeMidpoint": [
+              913.0,
+              869.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceWidthUnavailableReason": "電池遮擋右側臉部在眼下緣延長線上的輪廓；可見粉色截段不是完整臉寬。",
+            "comparisonGroup": "occluded-face-eye-proxy-only"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 9,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 122.24507065726617,
+            "eyeSeparation": 35.6931365951495,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              120,
+              1191,
+              255,
+              1236
+            ],
+            "eyeWhiteBounds": [
+              [
+                156,
+                1195,
+                189,
+                1217
+              ],
+              [
+                191,
+                1201,
+                224,
+                1224
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                172.0,
+                1216
+              ],
+              [
+                207.0,
+                1223
+              ]
+            ],
+            "eyeMidpoint": [
+              189.5,
+              1219.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                125.52,
+                1206.7
+              ],
+              [
+                245.39,
+                1230.68
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 10,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 122.24944212551647,
+            "eyeSeparation": 35.20298282816387,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              482,
+              1191,
+              617,
+              1236
+            ],
+            "eyeWhiteBounds": [
+              [
+                506,
+                1201,
+                538,
+                1223
+              ],
+              [
+                540,
+                1208,
+                573,
+                1230
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                521.5,
+                1222
+              ],
+              [
+                556.0,
+                1229
+              ]
+            ],
+            "eyeMidpoint": [
+              538.75,
+              1225.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                474.56,
+                1212.48
+              ],
+              [
+                594.37,
+                1236.78
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        },
+        {
+          "sourceFrame": 11,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 120.99973305755677,
+            "eyeSeparation": 35.6931365951495,
+            "eyeToFoot": null,
+            "eyeToFootUnavailableReason": "真腳被紫色拖鞋與褲裝遮擋，不使用鞋底作人體足底。",
+            "edgeSamplingUncertaintySourcePixels": 2,
+            "eyeROI": [
+              844,
+              1191,
+              979,
+              1236
+            ],
+            "eyeWhiteBounds": [
+              [
+                879,
+                1197,
+                911,
+                1218
+              ],
+              [
+                914,
+                1202,
+                946,
+                1225
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                894.5,
+                1217
+              ],
+              [
+                929.5,
+                1224
+              ]
+            ],
+            "eyeMidpoint": [
+              912.0,
+              1220.5
+            ],
+            "eyeMeasurementMethod": "兩個可見眼白連通區包圍盒的下緣中點；非瞳孔距，表情/朝向敏感。",
+            "faceCaliperPoints": [
+              [
+                849.73,
+                1208.05
+              ],
+              [
+                968.38,
+                1231.78
+              ]
+            ],
+            "comparisonGroup": "visible-face-section"
+          },
+          "flags": []
+        }
+      ],
+      "evidence": "output/body-landmarks-20261012/charging-cozy-v2-face-calipers.png"
+    }
+  ]
+}

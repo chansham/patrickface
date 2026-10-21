@@ -7,6 +7,44 @@ non-vocal sound cues and creates machine-readable manifests.
 
 from __future__ import annotations
 
+
+# Retirement guard: this runs before image libraries or filesystem setup.
+# The implementation below is preserved as historical source evidence only.
+# It cannot be executed or imported to recreate obsolete runtime artwork.
+import argparse as _retired_argparse
+import json as _retired_json
+
+_RETIRED_MESSAGE = (
+    "The historical static theme-pack builder is retired. "
+    "It cannot rebuild or overwrite assets, including custom output paths. "
+    "Retained artwork is historical research, not approval of the new "
+    "expression/pose animation. Use --status to inspect this state."
+)
+
+
+def _retired_entrypoint() -> None:
+    parser = _retired_argparse.ArgumentParser(description=_RETIRED_MESSAGE)
+    parser.add_argument("--status", action="store_true", help="Print retirement metadata without writing files.")
+    args, unsupported = parser.parse_known_args()
+    if not args.status or unsupported:
+        parser.error(_RETIRED_MESSAGE)
+    print(_retired_json.dumps({
+        "lifecycle": "retired-static-delivery",
+        "retiredAt": "2026-09-27",
+        "generationEnabled": False,
+        "currentApproval": False,
+        "newAnimationIntegrated": False,
+        "message": _RETIRED_MESSAGE,
+    }, indent=2))
+
+
+if __name__ == "__main__":
+    _retired_entrypoint()
+    raise SystemExit(0)
+raise RuntimeError(_RETIRED_MESSAGE)
+
+
+import argparse
 import csv
 import hashlib
 import json
@@ -25,10 +63,9 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 PACKAGE = Path(__file__).resolve().parent.parent
 PROJECT = PACKAGE.parent.parent
-LEGACY_PACKAGE = PACKAGE.parent / "theme-pack-before-rebuild-20260924"
 FONT_REGULAR = Path(r"C:\Windows\Fonts\segoeui.ttf")
 FONT_BOLD = Path(r"C:\Windows\Fonts\segoeuib.ttf")
-PACKAGE_VERSION = "1.0.0"
+PACKAGE_VERSION = "1.0.1"
 
 SOURCES = {
     "2d_body_preview": PROJECT / "preview" / "assets" / "season1-body-normal.png",
@@ -56,7 +93,7 @@ STYLE_META = {
     "2d": {
         "label": "Season-1 clean cel",
         "source": (
-            "Approved RGBA body from preview/assets/season1-body-normal.png "
+            "Candidate RGBA body from preview/assets/season1-body-normal.png "
             "with clean hour/minute arm layers from preview/assets"
         ),
         "top": (4, 10, 29),
@@ -67,7 +104,7 @@ STYLE_META = {
     "3d": {
         "label": "Season-1 smooth Toon 3D",
         "source": (
-            "Approved RGBA body and arm layers from "
+            "Candidate RGBA body and arm layers from "
             "preview/assets/season1-3d-body.png and season1-3d-arm.png"
         ),
         "top": (13, 6, 29),
@@ -83,7 +120,7 @@ ASSET_RECORDS: list[dict[str, Any]] = []
 def ensure_sources() -> None:
     missing = [str(path) for path in SOURCES.values() if not path.exists()]
     if missing:
-        raise FileNotFoundError("Missing approved source layer(s):\n" + "\n".join(missing))
+        raise FileNotFoundError("Missing candidate source layer(s):\n" + "\n".join(missing))
 
 
 def relative(path: Path) -> str:
@@ -1015,12 +1052,8 @@ def copy_source_layers() -> None:
         image = Image.open(destination)
         add_record(
             destination,
-            category=(
-                "approved-source-reference"
-                if key == "3d_comparison"
-                else "approved-source-layer"
-            ),
-            style="Approved source reference",
+            category="candidate-source-layer",
+            style="Current runtime source; visual approval pending",
             source=str(SOURCES[key].relative_to(PROJECT)).replace("\\", "/"),
             destination=(
                 "Approved comparison render reference; not used as a transparent layer."
@@ -1029,22 +1062,8 @@ def copy_source_layers() -> None:
             ),
             width=image.width,
             height=image.height,
-            notes=f"RGBA mode: {image.mode}",
+            notes=f"RGBA mode: {image.mode}. Historical filename is not current user approval.",
         )
-
-    legacy_reference = target / "season1-3d-comparison-approved.png"
-    if legacy_reference.exists():
-        with Image.open(legacy_reference) as image:
-            add_record(
-                legacy_reference,
-                category="legacy-source-reference",
-                style="Rejected clay-era reference",
-                source="Preserved from the pre-rebuild package",
-                destination="Archive only; not used by any rebuilt output.",
-                width=image.width,
-                height=image.height,
-                notes="Retained to avoid destructive deletion.",
-            )
 
 
 def export_composites(characters: dict[str, Image.Image]) -> None:
@@ -1056,7 +1075,7 @@ def export_composites(characters: dict[str, Image.Image]) -> None:
             style=STYLE_META[style]["label"],
             source=STYLE_META[style]["source"],
             destination="Reusable transparent 10:10 pose master for theme artwork.",
-            notes="Character body overlays approved independent arm layers; transparent background.",
+            notes="Character body overlays candidate independent arm layers; transparent background.",
         )
 
 
@@ -1405,28 +1424,6 @@ def export_audio() -> tuple[list[Path], list[tuple[Path, str]]]:
 
 def export_qr_codes() -> None:
     qr_dir = PACKAGE / "qr"
-    legacy_payloads = {
-        "create-new-shortcut": "shortcuts://create-shortcut",
-        "run-patrick-mode": "shortcuts://run-shortcut?name=Patrick%20Mode",
-        "official-shortcuts-guide": "https://support.apple.com/guide/shortcuts/welcome/ios",
-    }
-    for name, payload in legacy_payloads.items():
-        legacy_path = qr_dir / f"{name}-900x900.png"
-        if legacy_path.exists():
-            with Image.open(legacy_path) as legacy_image:
-                add_record(
-                    legacy_path,
-                    category="qr-build-artifact",
-                    style="Archived first-pass QR",
-                    source=f"Payload text was written with a trailing line terminator: {payload}",
-                    destination=(
-                        "Retained to honor the no-delete requirement. Do not distribute; "
-                        "use the verified QR with the corresponding name."
-                    ),
-                    width=legacy_image.width,
-                    height=legacy_image.height,
-                    notes="Superseded by verified-* QR. Not referenced by the setup guide.",
-                )
 
     payloads = {
         "verified-create-new-shortcut": "shortcuts://create-shortcut",
@@ -1530,8 +1527,9 @@ def write_manifests() -> None:
         "root": str(PACKAGE),
         "source_project": str(PROJECT),
         "source_policy": (
-            "Only the corrected RGBA Season-1 2D and smooth Toon-3D layers named "
-            "in each record were used for character imagery."
+            "Character imagery uses the source layers named in each record. "
+            "All art remains a candidate pending current user review; historical "
+            "approved filenames do not establish approval."
         ),
         "delivery_notes": {
             "standby": "Landscape files are photo sources; StandBy has no generic wallpaper importer.",
@@ -1588,13 +1586,23 @@ def write_manifests() -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--overwrite", action="store_true", help="Rebuild existing output after a verified external backup.")
+    args = parser.parse_args()
     ensure_sources()
-    if (PACKAGE / "MANIFEST.json").exists() and not LEGACY_PACKAGE.exists():
+    if (PACKAGE / "MANIFEST.json").exists():
+        if not args.overwrite:
+            parser.error("Existing media retained. Use --overwrite only when an intentional rebuild is required.")
+        backup = Path.home() / ".codex" / "backups" / ("PatrickFace-theme-pack-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ"))
         shutil.copytree(
             PACKAGE,
-            LEGACY_PACKAGE,
+            backup,
             ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
         )
+        for source in PACKAGE.rglob("*"):
+            if source.is_file() and "__pycache__" not in source.parts and source.suffix != ".pyc":
+                if sha256(source) != sha256(backup / source.relative_to(PACKAGE)):
+                    raise RuntimeError(f"Backup verification failed: {source}")
     PACKAGE.mkdir(parents=True, exist_ok=True)
     copy_source_layers()
 

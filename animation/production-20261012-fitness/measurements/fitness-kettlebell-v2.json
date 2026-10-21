@@ -1,0 +1,182 @@
+{
+  "asset": "fitness-kettlebell-v2",
+  "clipID": "fitness-kettlebell-first-20261012",
+  "newOutfit": true,
+  "source": {
+    "path": "animation/fitness-kettlebell-v2/atlas-generated.png",
+    "sha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+    "width": 1774,
+    "height": 887
+  },
+  "regions": {
+    "path": "animation/fitness-kettlebell-v2/regions-v1.json",
+    "sha256": "e6632b92207b3857ebd4618c17bd5c9609814f88d237903a863870249ac87548"
+  },
+  "standingComparisonSourceFrame": 1,
+  "standingComparisonBasis": "來源1正面站姿的真眼白、可見臉側及兩裸腳填色，排除壺鈴及服裝；僅眼足／臉截面姿勢代理。",
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "eyeROI": [
+        210,
+        140,
+        300,
+        211
+      ],
+      "footROI": [
+        110,
+        370,
+        395,
+        438
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "eyeROI": [
+        632,
+        140,
+        720,
+        211
+      ],
+      "footROI": [
+        530,
+        370,
+        810,
+        438
+      ],
+      "measurementCaveat": "上眼白仍有粉紫色帶待修；只量仍可見白色眼睛的下緣，不用有色眼皮當眼距。"
+    },
+    {
+      "sourceFrame": 3,
+      "eyeROI": [
+        1065,
+        140,
+        1155,
+        211
+      ],
+      "footROI": [
+        965,
+        355,
+        1250,
+        438
+      ],
+      "measurementCaveat": "上眼白仍有粉紫色帶待修；只量仍可見白色眼睛的下緣，不用有色眼皮當眼距。"
+    },
+    {
+      "sourceFrame": 4,
+      "eyeROI": [
+        1510,
+        140,
+        1600,
+        211
+      ],
+      "footROI": [
+        1407,
+        350,
+        1697,
+        438
+      ],
+      "measurementCaveat": "上眼白仍有粉紫色帶待修；只量仍可見白色眼睛的下緣，不用有色眼皮當眼距。"
+    },
+    {
+      "sourceFrame": 5,
+      "eyeROI": [
+        210,
+        540,
+        300,
+        615
+      ],
+      "footROI": [
+        110,
+        775,
+        395,
+        850
+      ]
+    },
+    {
+      "sourceFrame": 6,
+      "eyeROI": [
+        632,
+        540,
+        720,
+        615
+      ],
+      "footROI": [
+        530,
+        775,
+        810,
+        850
+      ]
+    },
+    {
+      "sourceFrame": 7,
+      "eyeROI": [
+        1065,
+        540,
+        1155,
+        615
+      ],
+      "footROI": [
+        965,
+        775,
+        1250,
+        850
+      ]
+    },
+    {
+      "sourceFrame": 8,
+      "eyeROI": [
+        1510,
+        540,
+        1600,
+        615
+      ],
+      "footROI": [
+        1407,
+        771,
+        1697,
+        850
+      ]
+    }
+  ],
+  "limitations": [
+    "每格重新辨識v2真眼白與裸腳，未沿用較高瘦的v1；沒有編輯PNG或逐格改尺寸。",
+    "來源1/8壺鈴低於腳，不以全圖最下像素作身高；人體尺規只用兩裸腳填色底線，輪廓落位另用已覆核且釘SHA的雙腳強alpha支撐點。",
+    "來源2/3/4粉紫上眼白是未修好的美術問題；可測量下眼緣不代表眼睛顏色已合格。"
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        2,
+        3,
+        4
+      ],
+      "message": "上眼白仍有粉紫色帶；逐格放大確認第4也有，不能只記第2/3。眼睛專項v3重試沒有產生輸出，v2保留為待修候選，不能稱為全白眼睛合格。"
+    },
+    {
+      "sourceFrames": [
+        1,
+        8
+      ],
+      "message": "低位壺鈴比真腳更低，輪廓完整保留；腳支撐註冊與人体眼足尺規均排除紫色壺鈴。",
+      "severity": "info"
+    },
+    {
+      "sourceFrames": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "message": "上提與放下的关键姿勢仍稀疏，5/6高位接近，6→7下放跨度較大，需原速審阅並補中間姿勢。"
+    },
+    {
+      "sourceFrames": [
+        1,
+        8
+      ],
+      "message": "末格表情與眼睛位置不同於首格，8張並不自動形成無縫循環。"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "asset": "fitness-stretch-v1",
+  "clipID": "fitness-stretch-first-20261012",
+  "newOutfit": true,
+  "source": {"path": "animation/fitness-stretch-v1/atlas-generated.png", "sha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17", "width": 1448, "height": 1086},
+  "regions": {"path": "animation/fitness-stretch-v1/regions-v1.json", "sha256": "fda682ba08d90cfe95e546bfb124259eb28aa153995d2690fbbbee40393cb516"},
+  "standingComparisonSourceFrame": 1,
+  "standingComparisonBasis": "只用來源1雙臂垂下的正面站姿，兩個裸腳可見；抬臂伸展格另外看姿勢差。",
+  "frames": [
+    {"sourceFrame":1,"eyeROI":[150,105,210,164],"footROI":[119,291,249,355]},
+    {"sourceFrame":2,"eyeROI":[515,104,580,167],"footROI":[481,291,611,355]},
+    {"sourceFrame":3,"eyeROI":[870,116,943,179],"footROI":[843,291,973,355]},
+    {"sourceFrame":4,"eyeROI":[1225,116,1302,181],"footROI":[1205,291,1336,355]},
+    {"sourceFrame":5,"eyeROI":[151,469,216,531],"footROI":[119,638,249,710]},
+    {"sourceFrame":6,"eyeROI":[513,463,579,522],"footROI":[481,638,611,710]},
+    {"sourceFrame":7,"eyeROI":[867,460,941,526],"footROI":[843,638,973,710]},
+    {"sourceFrame":8,"eyeUnavailableReason":"雙眼完全閉合，且閉眼眼皮為紫色待修；不把眼皮當可量眼白。","faceReviewROI":[1190,415,1330,553],"footROI":[1205,638,1336,711]},
+    {"sourceFrame":9,"eyeROI":[151,827,216,884],"footROI":[118,987,252,1067]},
+    {"sourceFrame":10,"eyeROI":[513,827,584,887],"footROI":[480,987,615,1067]},
+    {"sourceFrame":11,"eyeROI":[867,828,941,887],"footROI":[842,987,977,1067]},
+    {"sourceFrame":12,"eyeROI":[1228,817,1303,881],"footROI":[1204,987,1339,1067]}
+  ],
+  "limitations": [
+    "本來源為1448×1086、4×3共12格，所有眼腳ROI重新確認，不套用8格大圖座標。",
+    "來源8閉眼且紫色眼皮未修，三項未知；高舉雙臂不作頭高，臉附近的手臂亦不能當臉寬。",
+    "全段單一倍率受最高舉手姿勢與四版式安全區限制，達不到主要角色目標大小時明示，不逐格fit。"
+  ],
+  "visualFindings": [
+    {"sourceFrames":[8],"message":"第8來源格閉眼眼皮仍呈紫色，精修未成功，明確待修，沒有批准美術。"},
+    {"sourceFrames":[1,2,8,9],"message":"1與2近同姿，8→9從合手高舉降至斜舉跨度仍大，需要下降中間姿勢，12格不等於平順。"},
+    {"sourceFrames":[6,7,8],"message":"高舉雙臂應保留完整手尖；為避免上方數字時間碰撞採整段固定安全上限，不單獨縮小這幾格。","severity":"info"},
+    {"sourceFrames":[1,12],"message":"首末垂臂可對尺，但頭臉與站姿細節仍有差異，需正常速度驗收。"}
+  ]
+}

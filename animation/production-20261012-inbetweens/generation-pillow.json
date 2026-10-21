@@ -1,0 +1,19 @@
+{
+  "createdAt": "2026-10-12",
+  "tool": "built-in image_gen",
+  "request": "pillow-pajama-v2",
+  "status": "generated-integrated-candidate-art-review-pending",
+  "prompt": "Use case: illustration-story. Asset: 12-frame transparent animation sheet for a personal Patrick Star watch companion.\nReference image 1 is the existing 8-frame outfit and character design. Create a revised 12-frame sequence of the SAME Patrick Star in the lime-green purple-flower pajamas, matching soft sleeping cap, bare pink feet, and ONE pale mint ruffled pillow. Preserve the appealing original flat cartoon drawing, white sclera, black outlines, round belly, head shape, clothing pattern and camera distance. Pink eyelids when closed.\nLayout: exactly 4 columns x 3 rows, row-major chronological order, transparent background, wide clear gutters; every complete head, cap, arm and foot stays inside its own cell. Fixed feet baseline and fixed anatomy scale throughout, no camera zoom or added environment, no text or cell borders.\nAction: lift pillow from horizontal chest hold to the side of the face, briefly snuggle, then gradually lower and rotate it back to horizontal. Both hands continuously keep their original left/right grip on the same pillow; no hand swap or teleport.\n12 genuinely distinct hand-drawn poses:\n1 horizontal chest hold facing front.\n2 pillow lifted slightly with a small tilt, gaze toward it.\n3 pillow diagonal partway up, elbows bending.\n4 pillow near cheek and upright diagonal.\n5 softly hug cheek to pillow.\n6 close eyes and gently press cheek.\n7 open eyes, pillow still against cheek.\n8 separate cheek slightly, pillow still steeply angled, hands start down.\n9 lower to upper chest and rotate pillow to about 55 degrees.\n10 lower more and rotate to about 25 degrees, elbows follow continuously.\n11 horizontal pillow at chest.\n12 settle into a relaxed front-facing hold like frame 1.\nThe added return poses 8–10 must show real arm and pillow-angle changes, not whole-image rotation or duplicate stills. Keep pillow size consistent except gentle local compression. Leave generous transparent margins and no cast shadow.",
+  "reference": "animation/pillow-pajama-v1/atlas-generated.png",
+  "transparentBackground": true,
+  "actualGeneratedFiles": 1,
+  "actualSourceFrames": 12,
+  "netIncreaseAgainstPriorSequence": 4,
+  "generatedPath": "<USER_HOME>/.codex/generated_images/01a0e1ea-ba7e-7a63-9365-a46b103ac7af/exec-41cb14f1-d2ff-4c51-959a-4149be0af464.png",
+  "workspacePath": "animation/pillow-pajama-v2/atlas-generated.png",
+  "sha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+  "artApproval": false,
+  "notes": ["New full 12-frame sheet, not 12 new movements; keep original 8-frame candidate.", "Fresh source inspection, anatomical measurements and normal1x / four-layout playback checks completed. Art approval remains false; partial transitions and proportion differences recorded."],
+  "candidateID": "pillow-pajama-inbetweens-20261012",
+  "evidence": "animation/production-20261012-inbetweens/runtime-review.json"
+}

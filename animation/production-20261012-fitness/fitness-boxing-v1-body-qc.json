@@ -1,0 +1,762 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "reviewRequired": true,
+  "frameIndexBasis": "one-based source reading order",
+  "source": {
+    "path": "animation/fitness-boxing-v1/atlas-generated.png",
+    "sha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/fitness-boxing-v1/regions-v1.json",
+    "sha256": "dc1a5e161289c6a2787b0123be96f2dd58c72aa4f7b83d86cada001d4b063385"
+  },
+  "canvas": {
+    "width": 784,
+    "height": 784,
+    "anchorPixels": [
+      392,
+      690
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8801020408163265
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 594838,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceUnchanged": true,
+  "reviewConfiguration": {
+    "path": "animation/production-20261012-fitness/measurements/fitness-boxing-v1.json",
+    "sha256": "69b2bdf92caafdb780bb42e3540a93dc95c98776f44da076018c270ab440e1fe"
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "faceWidthPx": 115.75,
+      "eyeLowerRimSeparationPx": 32.56148031032987,
+      "eyeLineToFootPx": 281.5,
+      "anchorSource": [
+        206,
+        470
+      ],
+      "footROI": [
+        60,
+        385,
+        335,
+        490
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          110,
+          412,
+          169,
+          466
+        ],
+        [
+          238,
+          413,
+          299,
+          467
+        ]
+      ],
+      "visibleFootBaselineY": 465.5,
+      "eyeROI": [
+        160,
+        115,
+        255,
+        202
+      ],
+      "eyeWhiteBounds": [
+        [
+          180,
+          131,
+          214,
+          186
+        ],
+        [
+          215,
+          130,
+          244,
+          184
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          196.5,
+          185.0
+        ],
+        [
+          229.0,
+          183.0
+        ]
+      ],
+      "eyeMidpoint": [
+        212.75,
+        184.0
+      ],
+      "faceCaliperPoints": [
+        [
+          140,
+          188
+        ],
+        [
+          255,
+          181
+        ]
+      ],
+      "footSourcePoint": [
+        212.75,
+        465.5
+      ],
+      "eyeToFootPoints": [
+        [
+          212.75,
+          184.0
+        ],
+        [
+          212.75,
+          465.5
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "faceWidthPx": 115.0,
+      "eyeLowerRimSeparationPx": 32.14031735997639,
+      "eyeLineToFootPx": 281.0,
+      "anchorSource": [
+        568,
+        470
+      ],
+      "footROI": [
+        444,
+        385,
+        719,
+        490
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          475,
+          413,
+          533,
+          467
+        ],
+        [
+          599,
+          413,
+          660,
+          468
+        ]
+      ],
+      "visibleFootBaselineY": 466.5,
+      "eyeROI": [
+        524,
+        115,
+        640,
+        202
+      ],
+      "eyeWhiteBounds": [
+        [
+          540,
+          133,
+          574,
+          188
+        ],
+        [
+          574,
+          131,
+          604,
+          185
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          556.5,
+          187.0
+        ],
+        [
+          588.5,
+          184.0
+        ]
+      ],
+      "eyeMidpoint": [
+        572.5,
+        185.5
+      ],
+      "faceCaliperPoints": [
+        [
+          501,
+          192
+        ],
+        [
+          615,
+          182
+        ]
+      ],
+      "footSourcePoint": [
+        572.5,
+        466.5
+      ],
+      "eyeToFootPoints": [
+        [
+          572.5,
+          185.5
+        ],
+        [
+          572.5,
+          466.5
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 3,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 32.515380975778214,
+      "eyeLineToFootPx": 279.0,
+      "anchorSource": [
+        944,
+        471
+      ],
+      "footROI": [
+        828,
+        385,
+        1103,
+        490
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          849,
+          413,
+          907,
+          467
+        ],
+        [
+          979,
+          414,
+          1039,
+          468
+        ]
+      ],
+      "visibleFootBaselineY": 466.5,
+      "eyeROI": [
+        898,
+        115,
+        1005,
+        205
+      ],
+      "eyeWhiteBounds": [
+        [
+          918,
+          134,
+          952,
+          189
+        ],
+        [
+          953,
+          133,
+          982,
+          188
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          934.5,
+          188.0
+        ],
+        [
+          967.0,
+          187.0
+        ]
+      ],
+      "eyeMidpoint": [
+        950.75,
+        187.5
+      ],
+      "faceWidthUnavailableReason": "左側拳套高於眼下緣延長線並遮住臉側邊界；不把露出的中間皮膚當完整臉寬。",
+      "footSourcePoint": [
+        950.75,
+        466.5
+      ],
+      "eyeToFootPoints": [
+        [
+          950.75,
+          187.5
+        ],
+        [
+          950.75,
+          466.5
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 4,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 31.25699921617557,
+      "eyeLineToFootPx": 278.5,
+      "anchorSource": [
+        1304,
+        469
+      ],
+      "footROI": [
+        1180,
+        385,
+        1487,
+        490
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1211,
+          413,
+          1270,
+          467
+        ],
+        [
+          1341,
+          411,
+          1402,
+          466
+        ]
+      ],
+      "visibleFootBaselineY": 465.5,
+      "eyeROI": [
+        1262,
+        115,
+        1387,
+        205
+      ],
+      "eyeWhiteBounds": [
+        [
+          1276,
+          136,
+          1309,
+          190
+        ],
+        [
+          1309,
+          133,
+          1338,
+          186
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1292.0,
+          189.0
+        ],
+        [
+          1323.0,
+          185.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1307.5,
+        187.0
+      ],
+      "faceWidthUnavailableReason": "轉體向右出拳且左側護臉拳套遮住臉截面；不能與正臉當作可比臉寬。",
+      "footSourcePoint": [
+        1307.5,
+        465.5
+      ],
+      "eyeToFootPoints": [
+        [
+          1307.5,
+          187.0
+        ],
+        [
+          1307.5,
+          465.5
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 5,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 30.64718584144391,
+      "eyeLineToFootPx": 281.5,
+      "anchorSource": [
+        176,
+        962
+      ],
+      "footROI": [
+        60,
+        890,
+        335,
+        990
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          80,
+          903,
+          140,
+          959
+        ],
+        [
+          210,
+          903,
+          274,
+          959
+        ]
+      ],
+      "visibleFootBaselineY": 958.0,
+      "eyeROI": [
+        135,
+        615,
+        235,
+        702
+      ],
+      "eyeWhiteBounds": [
+        [
+          150,
+          625,
+          183,
+          679
+        ],
+        [
+          183,
+          622,
+          211,
+          676
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          166.0,
+          678.0
+        ],
+        [
+          196.5,
+          675.0
+        ]
+      ],
+      "eyeMidpoint": [
+        181.25,
+        676.5
+      ],
+      "faceWidthUnavailableReason": "轉體出拳、左側拳套遮擋眼下緣延長線的脸边界；脸宽保持未知。",
+      "footSourcePoint": [
+        181.25,
+        958.0
+      ],
+      "eyeToFootPoints": [
+        [
+          181.25,
+          676.5
+        ],
+        [
+          181.25,
+          958.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 6,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 30.64718584144391,
+      "eyeLineToFootPx": 278.5,
+      "anchorSource": [
+        585,
+        962
+      ],
+      "footROI": [
+        444,
+        890,
+        719,
+        990
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          489,
+          904,
+          549,
+          959
+        ],
+        [
+          620,
+          903,
+          682,
+          959
+        ]
+      ],
+      "visibleFootBaselineY": 958.0,
+      "eyeROI": [
+        534,
+        615,
+        649,
+        702
+      ],
+      "eyeWhiteBounds": [
+        [
+          559,
+          628,
+          593,
+          682
+        ],
+        [
+          592,
+          625,
+          621,
+          679
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          575.5,
+          681.0
+        ],
+        [
+          606.0,
+          678.0
+        ]
+      ],
+      "eyeMidpoint": [
+        590.75,
+        679.5
+      ],
+      "faceWidthUnavailableReason": "左側拳套接觸眼下緣臉截線，使可見皮膚截面縮短；完整臉寬未知，不能誤報為突然變瘦。",
+      "footSourcePoint": [
+        590.75,
+        958.0
+      ],
+      "eyeToFootPoints": [
+        [
+          590.75,
+          679.5
+        ],
+        [
+          590.75,
+          958.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 7,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 32.14031735997639,
+      "eyeLineToFootPx": 282.5,
+      "anchorSource": [
+        965,
+        962
+      ],
+      "footROI": [
+        828,
+        890,
+        1103,
+        990
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          867,
+          904,
+          927,
+          959
+        ],
+        [
+          999,
+          905,
+          1060,
+          959
+        ]
+      ],
+      "visibleFootBaselineY": 958.0,
+      "eyeROI": [
+        918,
+        612,
+        1033,
+        702
+      ],
+      "eyeWhiteBounds": [
+        [
+          935,
+          623,
+          968,
+          678
+        ],
+        [
+          969,
+          621,
+          998,
+          675
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          951.0,
+          677.0
+        ],
+        [
+          983.0,
+          674.0
+        ]
+      ],
+      "eyeMidpoint": [
+        967.0,
+        675.5
+      ],
+      "faceWidthUnavailableReason": "左側拳套遮住臉截線左端，完整臉寬未知；不把拳套邊界當臉邊。",
+      "footSourcePoint": [
+        967.0,
+        958.0
+      ],
+      "eyeToFootPoints": [
+        [
+          967.0,
+          675.5
+        ],
+        [
+          967.0,
+          958.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 8,
+      "faceWidthPx": 113.0,
+      "eyeLowerRimSeparationPx": 31.56342820417326,
+      "eyeLineToFootPx": 279.0,
+      "anchorSource": [
+        1346,
+        962
+      ],
+      "footROI": [
+        1212,
+        890,
+        1487,
+        990
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1252,
+          905,
+          1311,
+          959
+        ],
+        [
+          1378,
+          906,
+          1440,
+          959
+        ]
+      ],
+      "visibleFootBaselineY": 958.0,
+      "eyeROI": [
+        1302,
+        612,
+        1417,
+        702
+      ],
+      "eyeWhiteBounds": [
+        [
+          1319,
+          627,
+          1351,
+          681
+        ],
+        [
+          1352,
+          625,
+          1381,
+          679
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1334.5,
+          680.0
+        ],
+        [
+          1366.0,
+          678.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1350.25,
+        679.0
+      ],
+      "faceCaliperPoints": [
+        [
+          1285,
+          683
+        ],
+        [
+          1397,
+          676
+        ]
+      ],
+      "footSourcePoint": [
+        1350.25,
+        958.0
+      ],
+      "eyeToFootPoints": [
+        [
+          1350.25,
+          679.0
+        ],
+        [
+          1350.25,
+          958.0
+        ]
+      ]
+    }
+  ],
+  "firstLast": {
+    "faceWidthPx": {
+      "first": 115.75,
+      "last": 113.0,
+      "changePercent": -2.3758099352051865
+    },
+    "eyeLowerRimSeparationPx": {
+      "first": 32.56148031032987,
+      "last": 31.56342820417326,
+      "changePercent": -3.0651312429428645
+    },
+    "eyeLineToFootPx": {
+      "first": 281.5,
+      "last": 279.0,
+      "changePercent": -0.8880994671403242
+    }
+  },
+  "wholeClipSpread": {
+    "faceWidthPx": 2.433628318584069,
+    "eyeLowerRimSeparationPx": 6.246232456023004,
+    "eyeLineToFootPx": 1.4362657091562037
+  },
+  "edgeSamplingUncertaintySourcePixels": 2,
+  "limitations": [
+    "八格來源逐格檢查，不以拳套、短褲、全圖尺寸或輪廓anchor當人體尺規。",
+    "來源3/4/5/6/7拳套或轉體使臉截面無法可靠比較，保留未知；眼白與裸腳獨立量測。",
+    "眼距和臉截面受視線、表情、轉體影響，眼足距是姿勢代理，不是完整身高。"
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "message": "轉身3→4、出拳4→5與5→6收回的姿勢跨度仍大，缺中間原畫；固定倍率與完整輪廓不能代表自然動畫。"
+    },
+    {
+      "sourceFrames": [
+        5
+      ],
+      "message": "伸出的拳套跨過名義格線，輪廓需保留完整拳套，不能用等格矩形裁切。",
+      "severity": "info"
+    },
+    {
+      "sourceFrames": [
+        1,
+        8
+      ],
+      "message": "首格嚴肅末格微笑，為一次出拳後放鬆的段落，不聲稱無縫待機循環。"
+    }
+  ]
+}

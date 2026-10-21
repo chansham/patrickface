@@ -1,0 +1,45 @@
+{
+  "asset": "pillow-pajama-v2",
+  "clipID": "pillow-pajama-inbetweens-20261012",
+  "newOutfit": false,
+  "source": {
+    "path": "animation/pillow-pajama-v2/atlas-generated.png",
+    "sha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/pillow-pajama-v2/regions-v1.json",
+    "sha256": "e5055e4775c25e6364477cde360157ab835e0bdfd5ce0c10bbf8a69a9cdc9ed0"
+  },
+  "neutralComparisonSourceFrame": 1,
+  "neutralComparisonBasis": "來源1抱枕在眼線下，正面臉側與兩裸腳可見。與11/12中立正面及舊v1首末作描述性比較；帽尖與服裝不是人體。",
+  "frames": [
+    {"sourceFrame":1,"eyeROI":[158,85,246,153],"footROI":[113,296,283,341]},
+    {"sourceFrame":2,"eyeROI":[541,79,625,150],"footROI":[491,296,665,341],"faceWidthUnavailableReason":"轉頭看枕頭，斜眼線延伸的右臉截面貼近枕緣；不作與中立正臉可比的臉寬。","measurementCaveat":"完整眼白下緣可见；眼足距仍為轉頭當下的姿勢代理。"},
+    {"sourceFrame":3,"eyeROI":[922,79,1006,152],"footROI":[875,296,1049,341],"faceWidthUnavailableReason":"側轉向抱枕，右臉截面被抬起的枕頭遮住；不把枕邊或露出皮膚寬當完整臉寬。","measurementCaveat":"眼白外輪廓完整可量；側轉的眼線投影不當中立身高。"},
+    {"sourceFrame":4,"eyeUnavailableReason":"枕頭接觸並遮住右眼外側下半輪廓；完整眼白外框不可靠，不以被截短的白眼估眼下緣中點。","faceWidthUnavailableReason":"右臉及右眼外緣被抱枕遮住，完整臉截線未知。","faceReviewROI":[1267,58,1442,209],"footROI":[1253,296,1427,341]},
+    {"sourceFrame":5,"eyeUnavailableReason":"雙眼完全閉合靠枕，沒有可見白眼下緣；暖粉眼皮不是白眼。","faceReviewROI":[118,394,293,551],"footROI":[108,636,278,688]},
+    {"sourceFrame":6,"eyeUnavailableReason":"雙眼仍完全閉合抱枕，沒有眼白下緣；不借用前後格數字。","faceReviewROI":[501,394,676,551],"footROI":[496,636,670,688]},
+    {"sourceFrame":7,"eyeUnavailableReason":"睜眼後右眼外邊與瞳孔貼住枕緣且被截，完整眼白輪廓不可可靠追蹤；保留未知。","faceWidthUnavailableReason":"右臉截面被枕頭遮住，不能量完整臉寬。","faceReviewROI":[887,394,1062,551],"footROI":[877,636,1054,688]},
+    {"sourceFrame":8,"eyeROI":[1312,427,1403,497],"footROI":[1255,636,1429,688],"faceWidthUnavailableReason":"頭仍轉向枕頭，右側臉在眼線延長處與抱枕相接；不把投影截面當中立臉寬。","measurementCaveat":"完整白眼下緣已離開枕頭可見；眼足距為此轉頭姿勢。"},
+    {"sourceFrame":9,"eyeROI":[173,762,253,828],"footROI":[107,965,285,1023],"faceWidthUnavailableReason":"視線和頭部仍偏向下降中的抱枕，右臉截線被枕頭遮住；保留不可比臉寬。","measurementCaveat":"白眼外輪廓完整；眼足距只反映轉頭及抱枕下降姿勢。"},
+    {"sourceFrame":10,"eyeROI":[550,762,633,832],"footROI":[493,965,671,1023],"measurementCaveat":"臉部正面完整，眼神向下；可量截線但表情及輕微傾頭仍會影響眼距。"},
+    {"sourceFrame":11,"eyeROI":[921,761,1003,829],"footROI":[883,965,1061,1023]},
+    {"sourceFrame":12,"eyeROI":[1305,761,1387,829],"footROI":[1262,965,1440,1023]}
+  ],
+  "limitations": [
+    "新PNG及regions逐格重新設定搜尋範圍，沒有複用舊v1坐標或假設修圖只改過渡。",
+    "5/6閉眼、4/7右眼外緣被抱枕截住，三項尺規未知；2/3/8/9不把遮擋或側轉臉截面當正臉寬。",
+    "腳底只取兩隻可見裸腳粉色填色下緣，睡褲、帽子、枕頭及透明雜點不算人體。",
+    "同套只用單一倍率；側轉、擠枕及視線變化不以逐格fit消除。數值約有2來源像素取點不確定度。",
+    "量尺通過不表示每個中間姿勢、接觸、五官、衣紋或動作順暢已獲美術批准。"
+  ],
+  "visualFindings": [
+    {"sourceFrames":[5,6],"severity":"info","message":"閉眼使用暖粉色眼皮，沒有把眼皮當成白眼量測；兩格姿勢相近，需要以停留節奏表達靠枕休息。"},
+    {"sourceFrames":[1,2],"message":"1→2從胸前水平抱枕直接變成明顯斜舉；預期的小幅抬枕前置姿勢仍不足，不能把新增格數當成lift-a已完成。"},
+    {"sourceFrames":[7,8,9,10,11],"message":"7→8離臉、9→10→11回橫放有可辨實畫姿勢；8/9長軸斜角仍近，主要是下降，不能說每個轉枕中間姿勢都已補齊。10→11回正仍需正常速度審閱，12格不是平順批准。"},
+    {"sourceFrames":[1,11,12],"severity":"info","message":"首末皆正面抱枕，可比較真臉與眼足尺規；帽子或抱枕高度不拿來判定身形縮放。"},
+    {"sourceFrames":[2,3,4,7,8,9,10],"message":"雙手沿枕頭兩端持握，遮擋格保持未知；仍須逐格覆核手枕接觸及布料形變，未批准美術。"}
+  ]
+}

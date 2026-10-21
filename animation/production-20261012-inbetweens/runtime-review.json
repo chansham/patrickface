@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "browserEvidence": [
+    {
+      "path": "output/playwright/inbetweens-20261012/pillow-pajama-inbetweens-20261012/browser/report.json",
+      "sha256": "352c13b8db8806fd05d2544bb5d119dee3e182d35f646d9c97c26ca1c6d3a55b"
+    },
+    {
+      "path": "output/playwright/inbetweens-20261012/pillow-pajama-inbetweens-20261012/contours/report.json",
+      "sha256": "a5e52533ab0f65e5d7fd5d6f228cf4f1d765db54d8bbea7c200945b0bf357c5b"
+    },
+    {
+      "path": "output/playwright/inbetweens-20261012/martial-inbetweens-20261012/browser/report.json",
+      "sha256": "19277b12a279c0d7d5943a730e1af68a5385d8ce235bd0db1dc0fbcf82f83eae"
+    },
+    {
+      "path": "output/playwright/inbetweens-20261012/martial-inbetweens-20261012/contours/report.json",
+      "sha256": "985b81659e77d3d732a63714dd5217aafade01aad565abf6bf5367ad542a1278"
+    }
+  ],
+  "testedLayoutManifest": {
+    "path": "experience/layouts.json",
+    "sha256": "e6dbd737e17a4691a0c8cbc8cb942e8b311cccfecda1ab8d5de49eb3c4f4cbdd"
+  },
+  "sourceFrames": 22,
+  "layoutFrameChecks": 88,
+  "newOutfits": 0,
+  "newCandidateClips": 2,
+  "clips": [
+    {
+      "id": "pillow-pajama-inbetweens-20261012",
+      "source": {
+        "path": "animation/pillow-pajama-v2/atlas-generated.png",
+        "sha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66"
+      },
+      "regions": {
+        "path": "animation/pillow-pajama-v2/regions-v1.json",
+        "sha256": "e5055e4775c25e6364477cde360157ab835e0bdfd5ce0c10bbf8a69a9cdc9ed0"
+      },
+      "version": 1,
+      "scale": 1.840904569265625,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 102.0,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.7913831598028163,
+        "fixedFactor": 1.7913831598,
+        "actualStagePixels": 182.7210822996,
+        "shortfallPercent": 1.5720758028692217e-10,
+        "sourceSha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+        "canvas": 684,
+        "catalogScale": 1.840904569265625,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.7913831598,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "totalMs": 2770,
+      "lastFrameStartedAfterMs": 2333.0,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 12,
+          "minStrongY": 307.8497067453998,
+          "maxStrongY": 893.6319999999998,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 12,
+          "minStrongY": 501.4162976543259,
+          "maxStrongY": 905.60608,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 12,
+          "minStrongY": 248.45722140812978,
+          "maxStrongY": 804.9503999999997,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 12,
+          "minStrongY": 296.7507478010439,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/inbetweens-20261012/pillow-pajama-inbetweens-20261012/browser/pillow-pajama-inbetweens-20261012-reference-first.png",
+        "output/playwright/inbetweens-20261012/pillow-pajama-inbetweens-20261012/browser/pillow-pajama-inbetweens-20261012-reference-last.png",
+        "output/playwright/inbetweens-20261012/pillow-pajama-inbetweens-20261012/browser/pillow-pajama-inbetweens-20261012-four-layouts.png"
+      ]
+    },
+    {
+      "id": "martial-inbetweens-20261012",
+      "source": {
+        "path": "animation/fitness-martial-v2/atlas-generated.png",
+        "sha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf"
+      },
+      "regions": {
+        "path": "animation/fitness-martial-v2/regions-v1.json",
+        "sha256": "a24c56842ce645dbb987f24ac90b644efc1cdac1328d239aefc51bf41b80e372"
+      },
+      "version": 1,
+      "scale": 1.9658782585186299,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 97.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.8692693841420691,
+        "fixedFactor": 1.8692693841,
+        "actualStagePixels": 182.721082295775,
+        "shortfallPercent": 2.2505663999083936e-09,
+        "sourceSha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+        "canvas": 700,
+        "catalogScale": 1.9658782585186299,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.8692693841,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "totalMs": 2180,
+      "lastFrameStartedAfterMs": 1799.8999999985099,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 10,
+          "minStrongY": 252.4726012536998,
+          "maxStrongY": 893.6319999999998,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 10,
+          "minStrongY": 463.2060948650528,
+          "maxStrongY": 905.6060799999999,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 10,
+          "minStrongY": 195.8489711910148,
+          "maxStrongY": 804.9503999999998,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 10,
+          "minStrongY": 249.12643707818185,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/inbetweens-20261012/martial-inbetweens-20261012/browser/martial-inbetweens-20261012-reference-first.png",
+        "output/playwright/inbetweens-20261012/martial-inbetweens-20261012/browser/martial-inbetweens-20261012-reference-last.png",
+        "output/playwright/inbetweens-20261012/martial-inbetweens-20261012/browser/martial-inbetweens-20261012-four-layouts.png"
+      ]
+    }
+  ],
+  "sourceUnchanged": true,
+  "priorCandidateBaselinePreserved": true,
+  "remaining": [
+    {
+      "id": "pillow-pajama-inbetweens-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            1,
+            2
+          ],
+          "message": "轉頭與抬枕同時發生，起手角度仍較大，待正常速度覆核。"
+        },
+        {
+          "sourceFrames": [
+            5,
+            6
+          ],
+          "message": "兩格均閉眼暖粉眼皮、姿勢相近；不是新眨眼循環。"
+        },
+        {
+          "sourceFrames": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "message": "確有枕頭離臉、下降與斜轉橫放的新增原畫；10→11回正仍需審，不宣稱全段順滑。"
+        },
+        {
+          "sourceFrames": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "message": "閉眼或枕頭遮右眼時保留未知，沒有借舊來源尺規。"
+        }
+      ]
+    },
+    {
+      "id": "martial-inbetweens-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            5,
+            6,
+            7
+          ],
+          "message": "第6格有從最深鞠躬抬起頭肩的實畫姿勢；完整輪廓高度的回升分成38與33來源像素，這只描述姿勢，不當成身形量尺。"
+        },
+        {
+          "sourceFrames": [
+            7,
+            8,
+            9
+          ],
+          "message": "7/8頭肩姿勢仍接近，8→9回正幅度較大，補畫尚未完全解決起身停頓與跳換。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "message": "白道服、黑腰帶、紅星與兩裸腳完整；黑白實際合成未見強不透明碎屑，alpha1散點原樣保留。"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "新來源須fresh輪廓與人体尺規，不套舊SHA坐標。",
+    "固定整段倍率，全來源/四版式真頁核安全；正常1×只代表當次瀏覽器呈現。"
+  ],
+  "mainAndNativeUpdated": false,
+  "deviceTested": false
+}

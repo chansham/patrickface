@@ -9,6 +9,8 @@ enum PatrickWatchWire {
     static let currentProtocolVersion = 1
     static let settingsSchemaVersion = 1
     static let transportKey = "patrick.envelope.v1"
+    // Kept separate from settings/timer envelopes for v1 compatibility.
+    static let watchStatusTransportKey = "patrick.watch-status.v1"
 
     enum MessageKind: String, Codable, Sendable {
         case command

@@ -72,11 +72,11 @@
     {
       "id": "activity",
       "title": "運動資訊",
-      "description": "時間在上方；左邊陪伴，右邊看倒數與進度。",
+      "description": "上方看時間，中央放大角色；底部看倒數與進度。",
       "characterTransform": [
-        0.56,
-        8,
-        354
+        0.86,
+        58.24,
+        32
       ],
       "timeCenter": [
         416,
@@ -89,10 +89,10 @@
       ],
       "dateFontSize": 40,
       "informationRect": [
-        476,
-        350,
-        310,
-        470
+        62,
+        818,
+        708,
+        162
       ]
     }
   ],

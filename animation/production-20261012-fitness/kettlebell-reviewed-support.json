@@ -1,0 +1,466 @@
+{
+  "source": "animation/fitness-kettlebell-v2/atlas-generated.png",
+  "sha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+  "footROIs": [
+    [
+      [
+        126,
+        371,
+        192,
+        420
+      ],
+      [
+        309,
+        371,
+        376,
+        420
+      ]
+    ],
+    [
+      [
+        547,
+        371,
+        614,
+        420
+      ],
+      [
+        732,
+        371,
+        799,
+        420
+      ]
+    ],
+    [
+      [
+        981,
+        371,
+        1048,
+        420
+      ],
+      [
+        1167,
+        371,
+        1234,
+        420
+      ]
+    ],
+    [
+      [
+        1428,
+        371,
+        1495,
+        420
+      ],
+      [
+        1612,
+        371,
+        1679,
+        420
+      ]
+    ],
+    [
+      [
+        127,
+        776,
+        193,
+        825
+      ],
+      [
+        310,
+        776,
+        376,
+        825
+      ]
+    ],
+    [
+      [
+        547,
+        776,
+        614,
+        825
+      ],
+      [
+        732,
+        776,
+        799,
+        825
+      ]
+    ],
+    [
+      [
+        984,
+        776,
+        1051,
+        825
+      ],
+      [
+        1170,
+        776,
+        1237,
+        825
+      ]
+    ],
+    [
+      [
+        1428,
+        776,
+        1495,
+        825
+      ],
+      [
+        1612,
+        776,
+        1679,
+        825
+      ]
+    ]
+  ],
+  "pointConvention": "source x at alpha>=128 foot outline bottom; y is exclusive edge, not pink-fill anatomy baseline",
+  "independentInitialPoints": [
+    [
+      [
+        147,
+        423
+      ],
+      [
+        354,
+        423
+      ]
+    ],
+    [
+      [
+        570,
+        423
+      ],
+      [
+        776,
+        423
+      ]
+    ],
+    [
+      [
+        1002,
+        423
+      ],
+      [
+        1212,
+        423
+      ]
+    ],
+    [
+      [
+        1448,
+        423
+      ],
+      [
+        1656,
+        423
+      ]
+    ],
+    [
+      [
+        148,
+        827
+      ],
+      [
+        352,
+        828
+      ]
+    ],
+    [
+      [
+        570,
+        828
+      ],
+      [
+        775,
+        827
+      ]
+    ],
+    [
+      [
+        1006,
+        828
+      ],
+      [
+        1214,
+        828
+      ]
+    ],
+    [
+      [
+        1450,
+        828
+      ],
+      [
+        1656,
+        828
+      ]
+    ]
+  ],
+  "adoptedReviewedFootPoints": [
+    [
+      [
+        147,
+        423
+      ],
+      [
+        354,
+        423
+      ]
+    ],
+    [
+      [
+        570,
+        423
+      ],
+      [
+        777,
+        423
+      ]
+    ],
+    [
+      [
+        1003,
+        423
+      ],
+      [
+        1212,
+        423
+      ]
+    ],
+    [
+      [
+        1448,
+        423
+      ],
+      [
+        1657,
+        423
+      ]
+    ],
+    [
+      [
+        149,
+        827
+      ],
+      [
+        352,
+        828
+      ]
+    ],
+    [
+      [
+        570,
+        828
+      ],
+      [
+        775,
+        827
+      ]
+    ],
+    [
+      [
+        1006,
+        828
+      ],
+      [
+        1215,
+        828
+      ]
+    ],
+    [
+      [
+        1450,
+        828
+      ],
+      [
+        1656,
+        828
+      ]
+    ]
+  ],
+  "independentReview": "Both sets land on the same visible strong-alpha foot edge; final policy adopts the body reviewer sample (positive midpoint rounding). No PNG pixels change.",
+  "finalRegions": {
+    "path": "animation/fitness-kettlebell-v2/regions-v1.json",
+    "sha256": "e6632b92207b3857ebd4618c17bd5c9609814f88d237903a863870249ac87548"
+  },
+  "registration": [
+    {
+      "sourceFrame": 1,
+      "beforeAnchor": [
+        251,
+        430
+      ],
+      "afterAnchor": [
+        251,
+        423
+      ],
+      "translation": [
+        167,
+        313
+      ],
+      "sourceBounds": [
+        25,
+        89,
+        419,
+        429
+      ],
+      "allPixelsPreserved": true
+    },
+    {
+      "sourceFrame": 2,
+      "beforeAnchor": [
+        673,
+        423
+      ],
+      "afterAnchor": [
+        674,
+        423
+      ],
+      "translation": [
+        -256,
+        313
+      ],
+      "sourceBounds": [
+        525,
+        49,
+        364,
+        417
+      ],
+      "allPixelsPreserved": true
+    },
+    {
+      "sourceFrame": 3,
+      "beforeAnchor": [
+        1108,
+        423
+      ],
+      "afterAnchor": [
+        1108,
+        423
+      ],
+      "translation": [
+        -690,
+        313
+      ],
+      "sourceBounds": [
+        922,
+        23,
+        352,
+        421
+      ],
+      "allPixelsPreserved": true
+    },
+    {
+      "sourceFrame": 4,
+      "beforeAnchor": [
+        1554,
+        423
+      ],
+      "afterAnchor": [
+        1553,
+        423
+      ],
+      "translation": [
+        -1135,
+        313
+      ],
+      "sourceBounds": [
+        1368,
+        29,
+        374,
+        455
+      ],
+      "allPixelsPreserved": true
+    },
+    {
+      "sourceFrame": 5,
+      "beforeAnchor": [
+        252,
+        828
+      ],
+      "afterAnchor": [
+        251,
+        828
+      ],
+      "translation": [
+        167,
+        -92
+      ],
+      "sourceBounds": [
+        90,
+        489,
+        339,
+        344
+      ],
+      "allPixelsPreserved": true
+    },
+    {
+      "sourceFrame": 6,
+      "beforeAnchor": [
+        673,
+        828
+      ],
+      "afterAnchor": [
+        673,
+        828
+      ],
+      "translation": [
+        -255,
+        -92
+      ],
+      "sourceBounds": [
+        463,
+        488,
+        366,
+        345
+      ],
+      "allPixelsPreserved": true
+    },
+    {
+      "sourceFrame": 7,
+      "beforeAnchor": [
+        1111,
+        828
+      ],
+      "afterAnchor": [
+        1111,
+        828
+      ],
+      "translation": [
+        -693,
+        -92
+      ],
+      "sourceBounds": [
+        934,
+        463,
+        374,
+        374
+      ],
+      "allPixelsPreserved": true
+    },
+    {
+      "sourceFrame": 8,
+      "beforeAnchor": [
+        1554,
+        838
+      ],
+      "afterAnchor": [
+        1553,
+        828
+      ],
+      "translation": [
+        -1135,
+        -92
+      ],
+      "sourceBounds": [
+        1404,
+        493,
+        350,
+        372
+      ],
+      "allPixelsPreserved": true
+    }
+  ]
+}

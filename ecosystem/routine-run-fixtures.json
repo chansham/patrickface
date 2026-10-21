@@ -1,0 +1,754 @@
+{
+  "schemaVersion": 1,
+  "executionID": "00000000-0000-4000-8000-000000000001",
+  "createdAtMS": 1000,
+  "cases": [
+    {
+      "name": "complete-phone-never-watch",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000100",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000101",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "existing-alarm",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000102",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "patrick-state",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "localApp",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000103",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "restore"
+        }
+      ],
+      "expected": {
+        "pending": 0,
+        "failed": 0,
+        "succeeded": 4,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "optionals-are-skips",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000105",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000106",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "existing-alarm",
+            "attempt": 1,
+            "status": "skipped",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000107",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "patrick-state",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "localApp",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000108",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 1,
+            "status": "skipped",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        }
+      ],
+      "expected": {
+        "pending": 0,
+        "failed": 0,
+        "succeeded": 2,
+        "skipped": 2
+      }
+    },
+    {
+      "name": "missing-focus-stays-pending",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000109",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "existing-alarm",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000110",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "patrick-state",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "localApp",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000111",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 1,
+            "status": "skipped",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "restore"
+        }
+      ],
+      "expected": {
+        "pending": 1,
+        "failed": 0,
+        "succeeded": 2,
+        "skipped": 1
+      }
+    },
+    {
+      "name": "failed-only-retry-with-stale-receipt",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000112",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000113",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "existing-alarm",
+            "attempt": 1,
+            "status": "skipped",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000114",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "patrick-state",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "localApp",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000115",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 1,
+            "status": "failed",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "retry",
+          "stepID": "sleep-focus",
+          "atMS": 1200,
+          "attempt": null
+        },
+        {
+          "type": "retry",
+          "stepID": "home-scene",
+          "atMS": 1200,
+          "attempt": 2
+        },
+        {
+          "type": "restore"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1300,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000116",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1300
+          },
+          "result": "staleAttempt"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1400,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000117",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 2,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1400
+          },
+          "result": "applied"
+        }
+      ],
+      "expected": {
+        "pending": 0,
+        "failed": 0,
+        "succeeded": 3,
+        "skipped": 1
+      }
+    },
+    {
+      "name": "exact-duplicate-and-mutated-duplicate",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000104",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000104",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "duplicate"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000104",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "changed",
+            "receivedAtMS": 1100
+          },
+          "result": "invalid"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1200,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000118",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "failed",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1200
+          },
+          "result": "alreadyResolved"
+        }
+      ],
+      "expected": {
+        "pending": 3,
+        "failed": 0,
+        "succeeded": 1,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "required-skip-rejected",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000119",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "skipped",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "invalid"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000120",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "patrick-state",
+            "attempt": 1,
+            "status": "skipped",
+            "source": "localApp",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "invalid"
+        }
+      ],
+      "expected": {
+        "pending": 4,
+        "failed": 0,
+        "succeeded": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "wrong-source-rejected",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000121",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "localApp",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "invalid"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000122",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "patrick-state",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "invalid"
+        }
+      ],
+      "expected": {
+        "pending": 4,
+        "failed": 0,
+        "succeeded": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "future-and-prerun-receipt-rejected",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000123",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1200
+          },
+          "result": "invalid"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000124",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 900
+          },
+          "result": "invalid"
+        }
+      ],
+      "expected": {
+        "pending": 4,
+        "failed": 0,
+        "succeeded": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "out-of-order-different-steps",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1400,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000125",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1300
+          },
+          "result": "applied"
+        },
+        {
+          "type": "receipt",
+          "atMS": 1500,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000126",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "patrick-state",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "localApp",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "restore"
+        }
+      ],
+      "expected": {
+        "pending": 2,
+        "failed": 0,
+        "succeeded": 2,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "retry-rejects-receipt-before-attempt",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000127",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 1,
+            "status": "failed",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "applied"
+        },
+        {
+          "type": "retry",
+          "stepID": "home-scene",
+          "atMS": 1400,
+          "attempt": 2
+        },
+        {
+          "type": "receipt",
+          "atMS": 1500,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000128",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 2,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1300
+          },
+          "result": "staleAttempt"
+        }
+      ],
+      "expected": {
+        "pending": 4,
+        "failed": 0,
+        "succeeded": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "wrong-execution-rejected",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1100,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000129",
+            "executionID": "00000000-0000-4000-8000-000000000002",
+            "stepID": "sleep-focus",
+            "attempt": 1,
+            "status": "succeeded",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1100
+          },
+          "result": "invalid"
+        }
+      ],
+      "expected": {
+        "pending": 4,
+        "failed": 0,
+        "succeeded": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "five-attempt-limit",
+      "operations": [
+        {
+          "type": "receipt",
+          "atMS": 1200,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000130",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 1,
+            "status": "failed",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1200
+          },
+          "result": "applied"
+        },
+        {
+          "type": "retry",
+          "stepID": "home-scene",
+          "atMS": 1300,
+          "attempt": 2
+        },
+        {
+          "type": "receipt",
+          "atMS": 1400,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000131",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 2,
+            "status": "failed",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1400
+          },
+          "result": "applied"
+        },
+        {
+          "type": "retry",
+          "stepID": "home-scene",
+          "atMS": 1500,
+          "attempt": 3
+        },
+        {
+          "type": "receipt",
+          "atMS": 1600,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000132",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 3,
+            "status": "failed",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1600
+          },
+          "result": "applied"
+        },
+        {
+          "type": "retry",
+          "stepID": "home-scene",
+          "atMS": 1700,
+          "attempt": 4
+        },
+        {
+          "type": "receipt",
+          "atMS": 1800,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000133",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 4,
+            "status": "failed",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 1800
+          },
+          "result": "applied"
+        },
+        {
+          "type": "retry",
+          "stepID": "home-scene",
+          "atMS": 1900,
+          "attempt": 5
+        },
+        {
+          "type": "receipt",
+          "atMS": 2000,
+          "receipt": {
+            "receiptID": "00000000-0000-4000-8000-000000000134",
+            "executionID": "00000000-0000-4000-8000-000000000001",
+            "stepID": "home-scene",
+            "attempt": 5,
+            "status": "failed",
+            "source": "shortcut",
+            "note": "fixture",
+            "receivedAtMS": 2000
+          },
+          "result": "applied"
+        },
+        {
+          "type": "retry",
+          "stepID": "home-scene",
+          "atMS": 2100,
+          "attempt": null
+        }
+      ],
+      "expected": {
+        "pending": 3,
+        "failed": 1,
+        "succeeded": 0,
+        "skipped": 0
+      }
+    }
+  ]
+}

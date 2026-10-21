@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "fitness-coach-first-20261012",
+  "source": {
+    "path": "animation/fitness-coach-v2/atlas-generated.png",
+    "sha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+    "width": 1774,
+    "height": 887
+  },
+  "regions": {
+    "path": "animation/fitness-coach-v2/regions-v1.json",
+    "sha256": "616c0647379394e23c25b99935775ed729207ff2ecbc559af6bb83da3625363f"
+  },
+  "canvas": {
+    "width": 820,
+    "height": 820,
+    "anchorPixels": [
+      410,
+      722
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8804878048780488
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 8,
+  "coverage": {
+    "assignedPixels": 528460,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 1045078,
+    "alphaOnePixels": 16939,
+    "edgeNonzeroPixels": 1,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 1,
+    "detachedComponents": 1058
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        43,
+        19,
+        405,
+        433
+      ],
+      "coreBounds": [
+        94,
+        22,
+        359,
+        428
+      ],
+      "anchorSource": [
+        221,
+        428
+      ],
+      "translation": [
+        189,
+        294
+      ],
+      "placement": [
+        232,
+        313
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        481,
+        19,
+        406,
+        495
+      ],
+      "coreBounds": [
+        539,
+        22,
+        803,
+        428
+      ],
+      "anchorSource": [
+        665,
+        428
+      ],
+      "translation": [
+        -255,
+        294
+      ],
+      "placement": [
+        226,
+        313
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        902,
+        19,
+        390,
+        449
+      ],
+      "coreBounds": [
+        995,
+        22,
+        1225,
+        428
+      ],
+      "anchorSource": [
+        1108,
+        428
+      ],
+      "translation": [
+        -698,
+        294
+      ],
+      "placement": [
+        204,
+        313
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1362,
+        19,
+        376,
+        457
+      ],
+      "coreBounds": [
+        1422,
+        22,
+        1690,
+        428
+      ],
+      "anchorSource": [
+        1552,
+        428
+      ],
+      "translation": [
+        -1142,
+        294
+      ],
+      "placement": [
+        220,
+        313
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        43,
+        452,
+        395,
+        435
+      ],
+      "coreBounds": [
+        95,
+        463,
+        351,
+        864
+      ],
+      "anchorSource": [
+        221,
+        864
+      ],
+      "translation": [
+        189,
+        -142
+      ],
+      "placement": [
+        232,
+        310
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        473,
+        459,
+        414,
+        410
+      ],
+      "coreBounds": [
+        540,
+        463,
+        789,
+        864
+      ],
+      "anchorSource": [
+        665,
+        864
+      ],
+      "translation": [
+        -255,
+        -142
+      ],
+      "placement": [
+        218,
+        317
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        888,
+        455,
+        418,
+        413
+      ],
+      "coreBounds": [
+        984,
+        463,
+        1231,
+        864
+      ],
+      "anchorSource": [
+        1108,
+        864
+      ],
+      "translation": [
+        -698,
+        -142
+      ],
+      "placement": [
+        190,
+        313
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1331,
+        459,
+        423,
+        410
+      ],
+      "coreBounds": [
+        1424,
+        463,
+        1679,
+        864
+      ],
+      "anchorSource": [
+        1552,
+        864
+      ],
+      "translation": [
+        -1142,
+        -142
+      ],
+      "placement": [
+        189,
+        317
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "findings": [
+      {
+        "sourceFrames": [
+          4,
+          5,
+          8
+        ],
+        "message": "碼表已由v2修回畫面左側手，舊換手原圖保留中間對照。"
+      },
+      {
+        "sourceFrames": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "message": "伸手取哨／抬到嘴邊／放回仍有姿勢跳換；吹哨鼓頰是表情变化，不能作臉型穩定尺度。"
+      },
+      {
+        "sourceFrames": [
+          1,
+          8
+        ],
+        "message": "首末手势不同，並非無縫待機。"
+      }
+    ],
+    "alignmentMethod": "8格裸腳均完整；保留default下15%支撐中心與整數平移，全段共用畫布。球、頭盔、帽子、哨聲線不作人體尺度。"
+  },
+  "bodyMeasurementReport": "animation/production-20261012-fitness/fitness-coach-v2-body-qc.json",
+  "status": "candidate-ready"
+}

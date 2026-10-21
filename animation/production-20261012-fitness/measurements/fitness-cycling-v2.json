@@ -1,0 +1,192 @@
+{
+  "asset": "fitness-cycling-v2",
+  "candidateIncluded": true,
+  "clipID": "fitness-cycling-first-20261012",
+  "newOutfit": true,
+  "source": {
+    "path": "animation/fitness-cycling-v2/atlas-generated.png",
+    "sha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/fitness-cycling-v2/regions-v1.json",
+    "sha256": "74e4c64b527e4f83eb899510b55d6dbf88db2d1277334a291373bed28e6336c1"
+  },
+  "standingComparisonUnavailableReason": "可見眼白的格，左側頭盔帶仍遮住臉截線的原始皮膚外緣；不能以扣帶右緣充當完整臉寬，因此不計跨服裝眼足／臉寬比例。",
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "eyeROI": [
+        160,
+        155,
+        255,
+        243
+      ],
+      "footROI": [
+        100,
+        421,
+        295,
+        498
+      ],
+      "faceWidthUnavailableReason": "頭盔帶遮住左側臉截線的真正皮膚外緣；帶子右側露出皮膚不是完整臉寬。"
+    },
+    {
+      "sourceFrame": 2,
+      "eyeROI": [
+        537,
+        151,
+        629,
+        233
+      ],
+      "footROI": [
+        480,
+        421,
+        674,
+        498
+      ],
+      "faceWidthUnavailableReason": "左側頭盔帶覆蓋臉截線外緣，不能把帶扣邊界當臉邊。"
+    },
+    {
+      "sourceFrame": 3,
+      "eyeROI": [
+        932,
+        151,
+        1025,
+        235
+      ],
+      "footROI": [
+        860,
+        421,
+        1070,
+        498
+      ],
+      "faceWidthUnavailableReason": "左側頭盔帶覆蓋臉截線外緣，完整臉寬未知。"
+    },
+    {
+      "sourceFrame": 4,
+      "eyeROI": [
+        1320,
+        151,
+        1415,
+        235
+      ],
+      "footROI": [
+        1245,
+        421,
+        1455,
+        498
+      ],
+      "faceWidthUnavailableReason": "頭盔帶遮住左側真臉外緣；不把扣帶右緣當完整臉寬。",
+      "measurementCaveat": "v2第4格眼鏡已提到眼睛上方，放大確認兩眼外緣可見，重新量測。"
+    },
+    {
+      "sourceFrame": 5,
+      "eyeUnavailableReason": "雙眼被墨鏡完全遮住，臉截線、眼距、眼足距均保持未知。",
+      "faceReviewROI": [
+        120,
+        607,
+        285,
+        750
+      ],
+      "footROI": [
+        100,
+        899,
+        295,
+        987
+      ]
+    },
+    {
+      "sourceFrame": 6,
+      "eyeROI": [
+        548,
+        640,
+        642,
+        720
+      ],
+      "footROI": [
+        480,
+        899,
+        674,
+        987
+      ],
+      "faceWidthUnavailableReason": "頭盔帶遮住左側真臉外緣，完整臉寬未知。",
+      "measurementCaveat": "v2第6格眼鏡亦上移，放大可見完整兩眼下緣，與v1不同，獨立重新量測。"
+    },
+    {
+      "sourceFrame": 7,
+      "eyeROI": [
+        932,
+        632,
+        1025,
+        718
+      ],
+      "footROI": [
+        860,
+        899,
+        1070,
+        987
+      ],
+      "faceWidthUnavailableReason": "左側頭盔帶遮住真臉截線外緣，不量被帶子截短的可見皮膚寬度。"
+    },
+    {
+      "sourceFrame": 8,
+      "eyeROI": [
+        1315,
+        632,
+        1410,
+        718
+      ],
+      "footROI": [
+        1245,
+        899,
+        1455,
+        987
+      ],
+      "faceWidthUnavailableReason": "左側頭盔帶遮住真臉截線外緣，完整臉寬未知。"
+    }
+  ],
+  "limitations": [
+    "v2全8格重新覆核；第4/6眼鏡上移後雙眼白可見，僅第5全遮眼未知；頭盔帶使全部臉寬仍未知。",
+    "只使用裸腳填色下緣，沒有拿短褲、鞋或輪廓支撐anchor當人体足底。",
+    "這是穿騎行服整理墨鏡動作，沒有自行車或騎行腿部動畫，不聲稱已具備騎車動作。"
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        4,
+        6
+      ],
+      "severity": "info",
+      "message": "v2第4格墨鏡不再降過頭，第6亦上移，放大可見雙眼完整下緣；這兩格重新量測而非沿用v1空值。"
+    },
+    {
+      "sourceFrames": [
+        5
+      ],
+      "message": "第5雙眼全被墨鏡遮住，三項保持未知。"
+    },
+    {
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "message": "左側頭盔帶仍遮住真臉外緣，全部臉寬未知；眼距和眼足距独立量。"
+    },
+    {
+      "sourceFrames": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "message": "眼鏡下移/戴上/拿回頭盔仍是離散關鍵姿勢，需正常速度審閱並補足中間动作；不因修正方向就稱自然動畫。"
+    }
+  ]
+}

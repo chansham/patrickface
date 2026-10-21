@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-12",
+  "scope": "local candidate review; no Apple build or device validation",
+  "artApproval": false,
+  "requestCount": 22,
+  "successfulSourceFiles": 14,
+  "failedNoOutput": 8,
+  "generatedSourceFramesIncludingIntermediates": 116,
+  "newOutfits": 8,
+  "newCandidateFrames": 68,
+  "candidateTotal": 34,
+  "candidateFrameTotal": 376,
+  "previousCandidatesUnchanged": true,
+  "mainCatalogUnchanged": true,
+  "runtime": [
+    {
+      "id": "fitness-boxing-first-20261012",
+      "version": 2,
+      "sourceFrames": 8,
+      "sourceSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+      "regionsSha256": "dc1a5e161289c6a2787b0123be96f2dd58c72aa4f7b83d86cada001d4b063385",
+      "normalPlaybackVerified": true,
+      "layoutFrameChecks": 32
+    },
+    {
+      "id": "fitness-tracksuit-first-20261012",
+      "version": 2,
+      "sourceFrames": 8,
+      "sourceSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "regionsSha256": "e8370db5c4b7e3b3cf484643d413ef4c3d69b98099d5d69ec1364922707948f4",
+      "normalPlaybackVerified": true,
+      "layoutFrameChecks": 32
+    },
+    {
+      "id": "fitness-basketball-first-20261012",
+      "version": 1,
+      "sourceFrames": 8,
+      "sourceSha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+      "regionsSha256": "ecbdd36fc84bb27c2a45b7f3edc7b42ba1f764faf5df6dfceac819355b21b86d",
+      "normalPlaybackVerified": true,
+      "layoutFrameChecks": 32
+    },
+    {
+      "id": "fitness-cycling-first-20261012",
+      "version": 1,
+      "sourceFrames": 8,
+      "sourceSha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+      "regionsSha256": "74e4c64b527e4f83eb899510b55d6dbf88db2d1277334a291373bed28e6336c1",
+      "normalPlaybackVerified": true,
+      "layoutFrameChecks": 32
+    },
+    {
+      "id": "fitness-coach-first-20261012",
+      "version": 1,
+      "sourceFrames": 8,
+      "sourceSha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+      "regionsSha256": "616c0647379394e23c25b99935775ed729207ff2ecbc559af6bb83da3625363f",
+      "normalPlaybackVerified": true,
+      "layoutFrameChecks": 32
+    },
+    {
+      "id": "fitness-martial-first-20261012",
+      "version": 1,
+      "sourceFrames": 8,
+      "sourceSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+      "regionsSha256": "363bcb8be0e7a6b8a72f9345696a46f708a9aba42980c45fd276a77d07aed0d2",
+      "normalPlaybackVerified": true,
+      "layoutFrameChecks": 32
+    },
+    {
+      "id": "fitness-stretch-first-20261012",
+      "version": 1,
+      "sourceFrames": 12,
+      "sourceSha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+      "regionsSha256": "fda682ba08d90cfe95e546bfb124259eb28aa153995d2690fbbbee40393cb516",
+      "normalPlaybackVerified": true,
+      "layoutFrameChecks": 48
+    },
+    {
+      "id": "fitness-kettlebell-first-20261012",
+      "version": 2,
+      "sourceFrames": 8,
+      "sourceSha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+      "regionsSha256": "e6632b92207b3857ebd4618c17bd5c9609814f88d237903a863870249ac87548",
+      "normalPlaybackVerified": true,
+      "layoutFrameChecks": 32
+    }
+  ],
+  "layoutFrameChecks": 272,
+  "uiCases": 19,
+  "requests": [
+    {
+      "owner": "root",
+      "id": "fitness-boxing-v1",
+      "status": "failed",
+      "path": null,
+      "sourceFrames": 0,
+      "sha256": null
+    },
+    {
+      "owner": "root",
+      "id": "fitness-drink-v1",
+      "status": "generated",
+      "path": "animation/fitness-drink-v1/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "735b778f324f07c436895e9613cb62a086f69e11075d0df6d17e2348a2b232e4"
+    },
+    {
+      "owner": "root",
+      "id": "fitness-drink-v2",
+      "status": "generated",
+      "path": "animation/fitness-drink-v2/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "6c0355b3f9d6870bba0236952ab0074d0d8afc54bb11272d20916d7ec72887d8"
+    },
+    {
+      "owner": "root",
+      "id": "fitness-drink-v3",
+      "status": "failed",
+      "path": null,
+      "sourceFrames": 0,
+      "sha256": null
+    },
+    {
+      "owner": "root",
+      "id": "fitness-boxing-v1-retry",
+      "status": "generated",
+      "path": "animation/fitness-boxing-v1/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7"
+    },
+    {
+      "owner": "root",
+      "id": "fitness-drink-v3-retry",
+      "status": "failed",
+      "path": null,
+      "sourceFrames": 0,
+      "sha256": null
+    },
+    {
+      "owner": "root",
+      "id": "sport-towel-v3-fitness",
+      "status": "failed",
+      "path": null,
+      "sourceFrames": 0,
+      "sha256": null
+    },
+    {
+      "owner": "root",
+      "id": "fitness-cycling-v1",
+      "status": "generated",
+      "path": "animation/fitness-cycling-v1/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "0fe9100eef7da6d8767a6efff317cb450e4030ab6bf76ed5c1f7ded6818b3db9"
+    },
+    {
+      "owner": "root",
+      "id": "fitness-cycling-v2",
+      "status": "failed",
+      "path": null,
+      "sourceFrames": 0,
+      "sha256": null
+    },
+    {
+      "owner": "root",
+      "id": "fitness-cycling-v2-retry",
+      "status": "generated",
+      "path": "animation/fitness-cycling-v2/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0"
+    },
+    {
+      "owner": "agent",
+      "id": "tracksuit-v1",
+      "status": "generated-inspected-candidate",
+      "path": "animation/fitness-tracksuit-v1/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "d0e1c616b41c794c8532f54a010204455543a818695f0fcb24ed8a266aa283b0"
+    },
+    {
+      "owner": "agent",
+      "id": "stretch-v1",
+      "status": "generated-inspected-candidate",
+      "path": "animation/fitness-stretch-v1/atlas-generated.png",
+      "sourceFrames": 12,
+      "sha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17"
+    },
+    {
+      "owner": "agent",
+      "id": "tracksuit-v2",
+      "status": "generated-inspected-candidate",
+      "path": "animation/fitness-tracksuit-v2/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b"
+    },
+    {
+      "owner": "agent",
+      "id": "stretch-v2-targeted-edit",
+      "status": "generation-blocked-no-file",
+      "path": null,
+      "sourceFrames": 0,
+      "sha256": null
+    },
+    {
+      "owner": "agent",
+      "id": "stretch-v2-targeted-edit-retry",
+      "status": "generation-blocked-no-file",
+      "path": null,
+      "sourceFrames": 0,
+      "sha256": null
+    },
+    {
+      "owner": "agent",
+      "id": "basketball-v1",
+      "status": "generated-pending-QC",
+      "path": "animation/fitness-basketball-v1/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721"
+    },
+    {
+      "owner": "agent",
+      "id": "coach-v1",
+      "status": "generated-prop-continuity-fix-needed",
+      "path": "animation/fitness-coach-v1/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "1d95b8b724978259b537c69377c7ab6929b8e4de7f1299631dd36e5d77302b9b"
+    },
+    {
+      "owner": "agent",
+      "id": "coach-v2-targeted-edit",
+      "status": "generated-inspected-candidate",
+      "path": "animation/fitness-coach-v2/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345"
+    },
+    {
+      "owner": "agent",
+      "id": "martial-v1",
+      "status": "generated-pending-QC",
+      "path": "animation/fitness-martial-v1/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b"
+    },
+    {
+      "owner": "agent",
+      "id": "kettlebell-v1",
+      "status": "generated-proportion-review",
+      "path": "animation/fitness-kettlebell-v1/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "5bb892445cf22261cfe45aa90600edb36a8824392e0dbdaba44d40729448b347"
+    },
+    {
+      "owner": "agent",
+      "id": "kettlebell-v2-targeted-edit",
+      "status": "generated-inspected-candidate",
+      "path": "animation/fitness-kettlebell-v2/atlas-generated.png",
+      "sourceFrames": 8,
+      "sha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711"
+    },
+    {
+      "owner": "agent",
+      "id": "kettlebell-v3-eye-edit",
+      "status": "generation-blocked-no-file",
+      "path": null,
+      "sourceFrames": 0,
+      "sha256": null
+    }
+  ],
+  "nativePromotion": false
+}

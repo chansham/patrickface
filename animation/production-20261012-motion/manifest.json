@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "batch": "20261012-motion",
+  "artApproval": false,
+  "scope": "兩套同原畫節奏比較；新原畫0張、播放變體2個。新牛仔與壺鈴修圖未產出，保留36套392播放格原候選及原始PNG/regions。",
+  "runtimeNotes": [
+    "兩套沿用原8張畫稿，各自只變每格停留時間；這16個播放位置不是新增16張原畫。",
+    "新牛仔過渡與壺鈴修色請求未產出PNG；timing-only比較不能宣稱修好了缺中間畫或眼白顏色。",
+    "原source/regions/scale/anchor/frameIndices逐欄完全相同；不重新提取輪廓、不重做或捏造人體量尺。",
+    "正常1倍速逐格觀察證明本次瀏覽器呈現；卡頓超過短格時長仍可能跳格，不保證所有設備。"
+  ],
+  "sources": [
+    {
+      "id": "boxing-timing-20261012",
+      "title": "拳擊節奏比較・同8原畫",
+      "source": "animation/fitness-boxing-v1/atlas-generated.png",
+      "sha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+      "columns": 4,
+      "rows": 2,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        320,
+        180,
+        140,
+        100,
+        140,
+        140,
+        180,
+        380
+      ],
+      "frameLabels": [
+        "認真準備",
+        "抬起拳套",
+        "護住臉旁",
+        "向前出拳",
+        "伸展拳臂",
+        "收回護拳",
+        "露出微笑",
+        "放下拳套"
+      ],
+      "status": "candidate-ready",
+      "fixedSourcePixelToStagePixel": 1.4750615034,
+      "scaleReason": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+      "scenes": [
+        "exercise"
+      ],
+      "comparisonClipId": "fitness-boxing-first-20261012",
+      "newOutfit": false,
+      "variantGroup": "purple-gold-boxing-red-gloves",
+      "pose": "standing",
+      "description": "縮短準備與末格停留，出拳較快；第3→4、第5→6仍缺中間畫，沒有新增原畫。 原問題：紫金拳擊背心、短褲與紅拳套，認真準備後出拳、收拳、微笑。第3→4與5→6格仍缺動作過渡，首末表情不同；新穿搭可審，動畫未完成。",
+      "bodyQC": "animation/production-20261012-fitness/fitness-boxing-v1-body-qc.json",
+      "visualReview": {
+        "sourceViewed": true,
+        "blackWhiteViewed": true,
+        "alignmentReviewed": true,
+        "alignmentMethod": "所有來源保留default下15%兩腳支撐中心；逐格只作整數平移。8格裸腳均完整，出拳側傾仍保留，不逐格縮放或平滑。",
+        "findings": [
+          {
+            "sourceFrames": [
+              5
+            ],
+            "message": "紅拳套跨越名義方格右界但與手臂相連；須保留完整輪廓，不硬裁格。"
+          },
+          {
+            "sourceFrames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "message": "出拳及收回缺中間原畫，不能靠播放速度宣稱平順。"
+          },
+          {
+            "sourceFrames": [
+              1,
+              8
+            ],
+            "message": "首格認真、末格微笑，不能當無縫待機。"
+          }
+        ],
+        "timingReview": {
+          "sourcePreserved": true,
+          "newDrawings": 0,
+          "method": "shorter deliberate holds; existing missing poses remain visible",
+          "originalDurationsMs": [
+            650,
+            220,
+            200,
+            160,
+            280,
+            200,
+            240,
+            700
+          ]
+        }
+      },
+      "version": 1,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 115.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.578583864361877,
+        "fixedFactor": 1.4750615034,
+        "actualStagePixels": 170.73836901855,
+        "shortfallPercent": 6.557925954964993,
+        "sourceSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+        "canvas": 784,
+        "catalogScale": 1.7374522516009616,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "variantKind": "timing-only",
+      "sourceCandidateID": "fitness-boxing-first-20261012",
+      "newOriginalFrames": 0,
+      "collectionTags": [
+        "fitness"
+      ]
+    },
+    {
+      "id": "tracksuit-timing-20261012",
+      "title": "外套節奏比較・同8原畫",
+      "source": "animation/fitness-tracksuit-v2/atlas-generated.png",
+      "sha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "columns": 4,
+      "rows": 2,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        300,
+        120,
+        120,
+        150,
+        300,
+        380,
+        160,
+        350
+      ],
+      "frameLabels": [
+        "戴耳機休息",
+        "握住星星拉鍊",
+        "準備向下拉",
+        "拉開領口",
+        "敞開外套",
+        "舒一口氣",
+        "放下雙手",
+        "微笑休息"
+      ],
+      "status": "candidate-ready",
+      "fixedSourcePixelToStagePixel": 1.4082549695,
+      "scaleReason": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+      "scenes": [
+        "exercise",
+        "awake"
+      ],
+      "comparisonClipId": "fitness-tracksuit-first-20261012",
+      "newOutfit": false,
+      "variantGroup": "burgundy-cream-tracksuit-headphones",
+      "pose": "standing",
+      "description": "縮短重複準備與末格停留，保留舒氣的稍長停頓；第4→5拉開外套仍缺過渡，沒有新增原畫。 原問題：酒紅米白運動套裝、耳機與星星拉鍊。全段粉色眼皮；握拉鍊近同姿、敞開外套與舒氣仍缺過渡，首穿好末敞開，屬一次性動作待審。",
+      "bodyQC": "animation/production-20261012-fitness/fitness-tracksuit-v2-body-qc.json",
+      "visualReview": {
+        "sourceViewed": true,
+        "blackWhiteViewed": true,
+        "alignmentReviewed": true,
+        "alignmentMethod": "所有來源保留default下15%兩脚支撐中心；每格只作整數平移，裸腳及第6格呼氣雲完整保留，不逐格fit。",
+        "findings": [
+          {
+            "sourceFrames": [
+              2,
+              3
+            ],
+            "message": "握住拉鍊兩格近同姿，不宣稱已有完整拉鍊動作。"
+          },
+          {
+            "sourceFrames": [
+              4,
+              5,
+              6
+            ],
+            "message": "半開到敞開、再抬雙手舒氣仍有較大姿勢轉換。"
+          },
+          {
+            "sourceFrames": [
+              6
+            ],
+            "message": "闭眼眼皮已是粉色；呼氣雲須歸屬第6格，不當人體外框。"
+          },
+          {
+            "sourceFrames": [
+              1,
+              8
+            ],
+            "message": "首格拉鍊閉合、末格外套敞開，不是無縫待機循環。"
+          }
+        ],
+        "timingReview": {
+          "sourcePreserved": true,
+          "newDrawings": 0,
+          "method": "shorter deliberate holds; existing missing poses remain visible",
+          "originalDurationsMs": [
+            600,
+            220,
+            180,
+            250,
+            320,
+            350,
+            240,
+            700
+          ]
+        }
+      },
+      "version": 1,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 129.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.4082549695559712,
+        "fixedFactor": 1.4082549695,
+        "actualStagePixels": 182.721082292625,
+        "shortfallPercent": 3.97450961031609e-09,
+        "sourceSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+        "canvas": 600,
+        "catalogScale": 1.2694606095252403,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "variantKind": "timing-only",
+      "sourceCandidateID": "fitness-tracksuit-first-20261012",
+      "newOriginalFrames": 0,
+      "collectionTags": [
+        "fitness"
+      ]
+    }
+  ],
+  "newOriginalFrames": 0,
+  "newPlaybackVariants": 2,
+  "newOutfits": 0
+}

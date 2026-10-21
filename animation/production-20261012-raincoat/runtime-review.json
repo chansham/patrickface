@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "userDesignPreference": "站姿設計受到正向回饋，坐姿並列可選；不表示動畫通過。",
+  "browserEvidence": [
+    {
+      "path": "output/playwright/raincoat-20261012/browser/report.json",
+      "sha256": "3060aeecdcc9e12132c91d4c901011440fc6fccaed0f7b0cadd382f4876017eb"
+    },
+    {
+      "path": "output/playwright/raincoat-20261012/contours/report.json",
+      "sha256": "605d5c673c48dacc2d4facc347d653300e73bb6438c7e63084a4b1783575ea9e"
+    }
+  ],
+  "sourceFrames": 16,
+  "layoutFrameChecks": 64,
+  "outfits": 1,
+  "poses": 2,
+  "clips": [
+    {
+      "id": "raincoat-first-20261012",
+      "source": {
+        "path": "animation/raincoat-v1/atlas-generated.png",
+        "sha256": "755d73b3e23149a1c82498f9103be1b7a3f80b42214a70890b7d44d08181f42b"
+      },
+      "regions": {
+        "path": "animation/raincoat-v1/regions-v1.json",
+        "sha256": "c98f1954705558e58bcd1da6bec4d53aef9e0ac07cfc66ce173c862329c7d16e"
+      },
+      "scale": 1.203125,
+      "sourceFrameOrder": [
+        0,
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 3290,
+      "frame8StartedAfterMs": 2500.100000000093,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 274.8319999999999,
+          "maxStrongY": 893.6320000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 478.63407999999987,
+          "maxStrongY": 905.60608,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 217.09039999999993,
+          "maxStrongY": 804.9504,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 268.35551999999996,
+          "maxStrongY": 800.5235200000001,
+          "timeDateInformationCollisions": 0
+        }
+      ]
+    },
+    {
+      "id": "raincoat-seated-20261012",
+      "source": {
+        "path": "animation/raincoat-v2/atlas-generated.png",
+        "sha256": "dc4cb4f2d66bb7d6cc56291003214a911e51f8f75bccd83cbcc42d68ebc08410"
+      },
+      "regions": {
+        "path": "animation/raincoat-v2/regions-v1.json",
+        "sha256": "74390440bc1d2a3a6266082f6cc845c1c1a5644bfdcca9eac6c225a66b3c3de8"
+      },
+      "scale": 1.3040865384615383,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 3290,
+      "frame8StartedAfterMs": 2498.7999999998137,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 247.28200000000007,
+          "maxStrongY": 893.6320000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 459.62458000000004,
+          "maxStrongY": 905.6060799999999,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 190.9179000000001,
+          "maxStrongY": 804.9504000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 244.66252000000003,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ]
+    }
+  ],
+  "remaining": [
+    "抬手及收手缺中間姿勢。",
+    "表情笑→閉眼不滿→微笑因果不足。",
+    "首末細節非無縫循環。",
+    "站姿臉呈現較主睡衣小約26.6%；保留使用者喜歡的站姿，不掩飾尺度差異。"
+  ],
+  "mainAndNativeUpdated": false,
+  "deviceTested": false
+}

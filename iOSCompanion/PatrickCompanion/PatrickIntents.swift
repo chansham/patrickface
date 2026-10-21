@@ -242,10 +242,14 @@ enum PatrickActivityChoice: String, AppEnum {
     static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "陪伴種類")
     static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [.focus: "專注", .breathing: "呼吸休息", .exercise: "運動陪伴", .walking: "散步陪伴", .running: "跑步陪伴", .strength: "肌力陪伴"]
 }
-enum PatrickActivityControlChoice: String, AppEnum {
-    case pause, resume, cancel
+enum PatrickActivityControlChoice: String, AppEnum, Sendable {
+    // Keep the existing raw values so saved Shortcuts keep working.
+    case pause, resume, cancel, takeBreak, returnToActivity
     static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "計時控制")
-    static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [.pause: "暫停", .resume: "繼續", .cancel: "結束"]
+    static var caseDisplayRepresentations: [Self: DisplayRepresentation] = [
+        .pause: "暫停", .resume: "繼續", .cancel: "結束",
+        .takeBreak: "休息一下", .returnToActivity: "返回原活動"
+    ]
 }
 struct PatrickCareIntent: AppIntent {
     static var title: LocalizedStringResource = "照顧派大星"
@@ -286,17 +290,71 @@ struct PatrickTimerIntent: AppIntent {
 }
 struct PatrickTimerControlIntent: AppIntent {
     static var title: LocalizedStringResource = "控制派大星陪伴計時"
-    static var description = IntentDescription("暫停、繼續或結束現有陪伴倒數，並同步至配對手錶；不啟動或結束Apple健身訓練。")
+    static var description = IntentDescription("暫停、繼續、結束，或保存原活動去休息1至15分鐘。休息結束不會自動返回；選返回原活動才接續原倒數，原本暫停的活動仍保持暫停。結果先儲存在iPhone並送出同步，不代表手錶已收到。不啟動或結束Apple健身訓練。")
     // The phone app reconciles its local Live Activity while opening. There is
     // no promise that a Shortcuts process can keep the app alive in background.
     static var openAppWhenRun = true
     @Parameter(title: "操作") var action: PatrickActivityControlChoice
-    static var parameterSummary: some ParameterSummary { Summary("\(\.$action)派大星陪伴計時") }
+    @Parameter(title: "休息分鐘", default: 3) var breakMinutes: Int
+    static var parameterSummary: some ParameterSummary {
+        Switch(\.$action) {
+            Case(.takeBreak) {
+                Summary("保存派大星陪伴進度，\(\.$action)\(\.$breakMinutes)分鐘")
+            }
+            DefaultCase() { Summary("\(\.$action)派大星陪伴計時") }
+        }
+    }
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        let result = await PatrickExperienceIntentExecutor.control(PatrickActivityControl(rawValue: action.rawValue)!)
+        let result = await PatrickTimerControlIntentExecutor.control(action, breakMinutes: breakMinutes)
         return .result(dialog: "\(result.message)")
     }
 }
+
+enum PatrickTimerControlIntentResult: Equatable, Sendable {
+    case activity(PatrickActivityControlResult)
+    case rest(PatrickBreakResult)
+
+    var message: String {
+        switch self {
+        case .activity(let result): result.message
+        case .rest(let result): result.message
+        }
+    }
+}
+
+/// Shortcuts uses the same break state machine as TimerControlView. An explicit
+/// store and delivery seam lets tests exercise persisted commands without a
+/// WatchConnectivity session. Delivery is a request, never a Watch acknowledgement.
+@MainActor enum PatrickTimerControlIntentExecutor {
+    static func control(_ action: PatrickActivityControlChoice, breakMinutes: Int = 3,
+                        using store: PatrickSharedStore = .shared, at date: Date = .now,
+                        deliver: ((PatrickSettings) -> Void)? = nil) -> PatrickTimerControlIntentResult {
+        var state = store.loadExperience()
+        let previousRevision = state.revision
+        let result: PatrickTimerControlIntentResult
+        switch action {
+        case .pause: result = .activity(state.controlActivity(.pause, at: date))
+        case .resume: result = .activity(state.controlActivity(.resume, at: date))
+        case .cancel: result = .activity(state.controlActivity(.cancel, at: date))
+        case .takeBreak: result = .rest(state.manageBreak(.begin(minutes: breakMinutes), at: date))
+        case .returnToActivity: result = .rest(state.manageBreak(.returnToActivity, at: date))
+        }
+        // manageBreak also settles an expired activity. Persist that completion
+        // even when it cannot start a break, but never rewrite a repeated command.
+        if state.revision != previousRevision {
+            store.saveExperience(state)
+            let settings = store.updateSettings { $0.experience = state }
+            if let deliver { deliver(settings) }
+            else {
+                WatchSyncService.shared.send(command: PatrickCommandPayload(name: .updateExperience), settings: settings)
+                WidgetCenter.shared.reloadAllTimelines()
+                NotificationCenter.default.post(name: .patrickExperienceChanged, object: nil)
+            }
+        }
+        return result
+    }
+}
+
 @MainActor private enum PatrickExperienceIntentExecutor {
     static func automation(_ kind: PatrickAutomationEvent.Kind) -> Bool {
         let event = PatrickAutomationEvent(kind: kind, source: .shortcut)
@@ -320,13 +378,6 @@ struct PatrickTimerControlIntent: AppIntent {
         var state = PatrickSharedStore.shared.loadExperience()
         let previousRevision = state.revision
         let result = state.requestActivityStart(kind, minutes: minutes)
-        if state.revision != previousRevision { send(state) }
-        return result
-    }
-    static func control(_ command: PatrickActivityControl) -> PatrickActivityControlResult {
-        var state = PatrickSharedStore.shared.loadExperience()
-        let previousRevision = state.revision
-        let result = state.controlActivity(command)
         if state.revision != previousRevision { send(state) }
         return result
     }

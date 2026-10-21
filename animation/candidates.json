@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "version": 1,
-  "updatedAt": "2026-10-08",
+  "updatedAt": "2026-10-12",
   "reviewOnly": true,
   "master": {
     "id": "patrick-candidate-review-v1",
@@ -1243,6 +1243,1816 @@
         "qc": "animation/production-20261007-completion/charging-cozy-v2-qc.json",
         "repairReferenceCandidate": null
       }
+    },
+    {
+      "id": "raincoat-first-20261012",
+      "title": "雨衣・站姿看天",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-raincoat",
+      "reviewGroup": "scene",
+      "atlas": "animation/raincoat-v1/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        700,
+        330,
+        240,
+        300,
+        350,
+        220,
+        350,
+        800
+      ],
+      "sha256": "755d73b3e23149a1c82498f9103be1b7a3f80b42214a70890b7d44d08181f42b",
+      "anchorNormalized": [
+        0.5,
+        0.8793706293706294
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.203125,
+      "status": "quality-revision-required",
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "使用者喜歡的站姿設計，保留高傘與雨衣。原8格重新排序；臉部比睡衣小，抬手收手與表情跳換仍待修。",
+      "frameLabels": [
+        "休息看前方",
+        "抬眼看傘",
+        "小幅抬手",
+        "舉手看天",
+        "攤手微笑",
+        "閉眼不滿",
+        "收手微笑",
+        "回到休息"
+      ],
+      "frameRegions": {
+        "path": "animation/raincoat-v1/regions-v1.json",
+        "sha256": "c98f1954705558e58bcd1da6bec4d53aef9e0ac07cfc66ce173c862329c7d16e",
+        "version": 1
+      },
+      "renderingRevision": "raincoat-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "yellow-raincoat-blue-umbrella",
+      "pose": "standing",
+      "designFeedback": "使用者明確喜歡站姿設計；不代表動畫逐格通過。",
+      "scaleProvenance": {
+        "catalogScale": 1.203125,
+        "sourcePixelToStagePixel": 1.4,
+        "perFrameScale": false,
+        "reason": "使用者明確喜歡站姿設計，保留原姿態；此固定倍率容納完整高傘，臉部比主睡衣小約26.6%，如實呈現差異，不宣稱相同本體尺寸。",
+        "canvas": 572,
+        "firstFaceWidthSource": 95.75
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-raincoat/raincoat-v1-qc.json",
+        "sourceFrameCount": 8,
+        "outfitCountSharedWithVariant": 1
+      }
+    },
+    {
+      "id": "raincoat-seated-20261012",
+      "title": "雨衣・坐姿看天",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-raincoat",
+      "reviewGroup": "scene",
+      "atlas": "animation/raincoat-v2/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        700,
+        330,
+        240,
+        300,
+        350,
+        220,
+        350,
+        800
+      ],
+      "sha256": "dc4cb4f2d66bb7d6cc56291003214a911e51f8f75bccd83cbcc42d68ebc08410",
+      "anchorNormalized": [
+        0.5,
+        0.8803571428571428
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.3040865384615383,
+      "status": "quality-revision-required",
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "同一套雨衣的坐姿短柄傘選項，原8格順序。角色可放較大；仍缺抬手與收手中間姿勢，不取代站姿。",
+      "frameLabels": [
+        "休息看前方",
+        "抬眼看傘",
+        "小幅抬手",
+        "舉手看天",
+        "攤手微笑",
+        "閉眼不滿",
+        "收手微笑",
+        "回到休息"
+      ],
+      "frameRegions": {
+        "path": "animation/raincoat-v2/regions-v1.json",
+        "sha256": "74390440bc1d2a3a6266082f6cc845c1c1a5644bfdcca9eac6c225a66b3c3de8",
+        "version": 1
+      },
+      "renderingRevision": "raincoat-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "yellow-raincoat-blue-umbrella",
+      "pose": "seated",
+      "designFeedback": "並列姿態選項，尚未得到使用者偏好評價。",
+      "scaleProvenance": {
+        "catalogScale": 1.3040865384615383,
+        "sourcePixelToStagePixel": 1.55,
+        "perFrameScale": false,
+        "reason": "坐姿短柄傘另作選項；首格臉部呈現比主睡衣小約2.66%，整段固定倍率兼顧四版式時間區。不能用坐姿取代使用者偏好的站姿。",
+        "canvas": 560,
+        "firstFaceWidthSource": 114.75
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-raincoat/raincoat-v2-qc.json",
+        "sourceFrameCount": 8,
+        "outfitCountSharedWithVariant": 1
+      }
+    },
+    {
+      "id": "raincoat-smooth-20261012",
+      "title": "雨衣・站姿抬手過渡修訂",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261012-wardrobe",
+      "reviewGroup": "scene",
+      "atlas": "animation/raincoat-v3/atlas-generated.png",
+      "width": 1086,
+      "height": 1448,
+      "columns": 3,
+      "rows": 4,
+      "frameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        3,
+        4,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "durationsMs": [
+        650,
+        300,
+        180,
+        180,
+        180,
+        260,
+        320,
+        180,
+        180,
+        180,
+        130,
+        700
+      ],
+      "sha256": "e3fdb977617c6a73718a6bb12b31d27be1e1a737a5ccba4304c39417d2ff2e74",
+      "anchorNormalized": [
+        0.5,
+        0.8792372881355932
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.2345388986013985,
+      "status": "quality-revision-required",
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "保留站姿雨衣，新增腰前、胸口與收手姿勢。12原畫重排讓抬手較連續；眼神與嘴部仍有跳換，首末臉寬約差2.6%，仍待審。",
+      "frameLabels": [
+        "站姿休息",
+        "抬眼看傘",
+        "手到腰前",
+        "抬至胸口",
+        "抬至肩側",
+        "举手看天",
+        "攤手笑",
+        "開始收手",
+        "收至胸前",
+        "收至腰前",
+        "半睜眼收回",
+        "回到微笑"
+      ],
+      "frameRegions": {
+        "path": "animation/raincoat-v3/regions-v1.json",
+        "sha256": "8eeb5a8722d024941f54cf801333418d99f8eb67af2ac6c9e6d5c17d8273fb71",
+        "version": 1
+      },
+      "renderingRevision": "wardrobe-20261012-v1",
+      "comparisonClipId": "raincoat-first-20261012",
+      "artApproved": false,
+      "variantGroup": "yellow-raincoat-blue-umbrella",
+      "pose": "standing",
+      "newOutfit": false,
+      "designFeedback": "延續使用者喜歡的站姿造型；新增動作畫稿未經逐格批准。",
+      "scaleProvenance": {
+        "method": "match-prior-standing-first-visible-face-caliper",
+        "referenceCandidate": "raincoat-first-20261012",
+        "referenceSourceSHA": "755d73b3e23149a1c82498f9103be1b7a3f80b42214a70890b7d44d08181f42b",
+        "referenceFirstFaceWidthSource": 95.75,
+        "referenceSourcePixelToStagePixel": 1.4000000000000001,
+        "newFirstFaceWidthSource": 77.0,
+        "sourcePixelToStagePixel": 1.740909090909091,
+        "catalogScale": 1.2345388986013985,
+        "canvas": 472,
+        "perFrameScale": false,
+        "note": "只將新段首格臉截線與既有站姿對齊；其餘各格保持同倍率，原畫尺寸變化仍保留。雨傘外框不是人體尺規。"
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-wardrobe/raincoat-v3-qc.json",
+        "bodyQC": "animation/production-20261012-wardrobe/raincoat-v3-body-qc.json",
+        "repairReferenceCandidate": "raincoat-first-20261012",
+        "sourceFrameCount": 12,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "sport-towel-first-20261012",
+      "title": "運動背心・毛巾擦汗",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-wardrobe",
+      "reviewGroup": "scene",
+      "atlas": "animation/sport-towel-v2/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        650,
+        250,
+        200,
+        180,
+        320,
+        200,
+        230,
+        700
+      ],
+      "sha256": "01e212bf5c64471fec5f6c836e88e54406803562da0f8e2a0eea4a2e9d1abead",
+      "anchorNormalized": [
+        0.5,
+        0.8801369863013698
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.1844951923076925,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "新運動背心、髮帶與白毛巾。粉眼皮已修；8格仍有抬手／降毛巾跳換，身形比雨衣高瘦，首疲憊末微笑，尚待動作與比例修訂。",
+      "frameLabels": [
+        "運動後喘氣",
+        "拿起毛巾",
+        "抬到臉旁",
+        "輕擦臉頰",
+        "閉眼擦汗",
+        "睜眼停留",
+        "毛巾降到胸前",
+        "微笑放手"
+      ],
+      "frameRegions": {
+        "path": "animation/sport-towel-v2/regions-v1.json",
+        "sha256": "87be718d717990969317c3b6ff964161c9ce3709c0fdb76d56bdf221cf1d787e",
+        "version": 1
+      },
+      "renderingRevision": "wardrobe-20261012-v1",
+      "comparisonClipId": "exercise",
+      "artApproved": false,
+      "variantGroup": "teal-sport-orange-headband-white-towel",
+      "pose": "standing",
+      "newOutfit": true,
+      "designFeedback": "新穿搭探索；色彩修訂沿用同一套衣服，不將中間紫眼皮稿另算新造型。",
+      "scaleProvenance": {
+        "method": "fixed-whole-clip-factor-with-visible-face-and-four-layout-safety-review",
+        "newFirstFaceWidthSource": 105.75,
+        "sourcePixelToStagePixel": 1.35,
+        "catalogScale": 1.1844951923076925,
+        "canvas": 584,
+        "perFrameScale": false,
+        "note": "以可見臉截線核對，整段固定1.35來源像素／舞台像素換算。高瘦比例差保留為待修，不用毛巾或全身外框冒充人體一致。"
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-wardrobe/sport-towel-v2-qc.json",
+        "bodyQC": "animation/production-20261012-wardrobe/sport-towel-v2-body-qc.json",
+        "sourceFrameCount": 8,
+        "intermediateSource": "animation/sport-towel-v1/atlas-generated.png",
+        "intermediateNotCandidate": true
+      }
+    },
+    {
+      "id": "fitness-boxing-first-20261012",
+      "title": "紫金拳擊服・認真出拳",
+      "category": "新造型待審",
+      "version": 2,
+      "batch": "20261012-fitness",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-boxing-v1/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        650,
+        220,
+        200,
+        160,
+        280,
+        200,
+        240,
+        700
+      ],
+      "frameLabels": [
+        "認真準備",
+        "抬起拳套",
+        "護住臉旁",
+        "向前出拳",
+        "伸展拳臂",
+        "收回護拳",
+        "露出微笑",
+        "放下拳套"
+      ],
+      "sha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+      "anchorNormalized": [
+        0.5,
+        0.8801020408163265
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.7374522516009616,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "紫金拳擊背心、短褲與紅拳套，認真準備後出拳、收拳、微笑。第3→4與5→6格仍缺動作過渡，首末表情不同；新穿搭可審，動畫未完成。",
+      "frameRegions": {
+        "path": "animation/fitness-boxing-v1/regions-v1.json",
+        "sha256": "dc1a5e161289c6a2787b0123be96f2dd58c72aa4f7b83d86cada001d4b063385",
+        "version": 1
+      },
+      "renderingRevision": "fitness-20261012-v1",
+      "comparisonClipId": "raincoat-first-20261012",
+      "artApproved": false,
+      "variantGroup": "purple-gold-boxing-red-gloves",
+      "pose": "standing",
+      "newOutfit": true,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.4750615034,
+        "catalogScale": 1.7374522516009616,
+        "canvas": 784,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 115.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.578583864361877,
+          "fixedFactor": 1.4750615034,
+          "actualStagePixels": 170.73836901855,
+          "shortfallPercent": 6.557925954964993,
+          "sourceSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+          "canvas": 784,
+          "catalogScale": 1.7374522516009616,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-fitness/fitness-boxing-first-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-fitness/fitness-boxing-v1-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "fitness-tracksuit-first-20261012",
+      "title": "酒紅運動套裝・拉開外套",
+      "category": "新造型待審",
+      "version": 2,
+      "batch": "20261012-fitness",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-tracksuit-v2/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        600,
+        220,
+        180,
+        250,
+        320,
+        350,
+        240,
+        700
+      ],
+      "frameLabels": [
+        "戴耳機休息",
+        "握住星星拉鍊",
+        "準備向下拉",
+        "拉開領口",
+        "敞開外套",
+        "舒一口氣",
+        "放下雙手",
+        "微笑休息"
+      ],
+      "sha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "anchorNormalized": [
+        0.5,
+        0.88
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.2694606095252403,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise",
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "酒紅米白運動套裝、耳機與星星拉鍊。全段粉色眼皮；握拉鍊近同姿、敞開外套與舒氣仍缺過渡，首穿好末敞開，屬一次性動作待審。",
+      "frameRegions": {
+        "path": "animation/fitness-tracksuit-v2/regions-v1.json",
+        "sha256": "e8370db5c4b7e3b3cf484643d413ef4c3d69b98099d5d69ec1364922707948f4",
+        "version": 1
+      },
+      "renderingRevision": "fitness-20261012-v1",
+      "comparisonClipId": "raincoat-first-20261012",
+      "artApproved": false,
+      "variantGroup": "burgundy-cream-tracksuit-headphones",
+      "pose": "standing",
+      "newOutfit": true,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.4082549695,
+        "catalogScale": 1.2694606095252403,
+        "canvas": 600,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 129.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.4082549695559712,
+          "fixedFactor": 1.4082549695,
+          "actualStagePixels": 182.721082292625,
+          "shortfallPercent": 3.97450961031609e-09,
+          "sourceSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+          "canvas": 600,
+          "catalogScale": 1.2694606095252403,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-fitness/fitness-tracksuit-first-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-fitness/fitness-tracksuit-v2-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "fitness-basketball-first-20261012",
+      "title": "橙白籃球服・雙手抱球",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-fitness",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-basketball-v1/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        600,
+        220,
+        240,
+        250,
+        240,
+        220,
+        260,
+        650
+      ],
+      "frameLabels": [
+        "雙手抱球",
+        "低頭看球",
+        "抬到胸前",
+        "繼續抬高",
+        "握穩籃球",
+        "露出微笑",
+        "放低籃球",
+        "回到腰前"
+      ],
+      "sha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+      "anchorNormalized": [
+        0.5,
+        0.8802281368821293
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 2.6076382968191103,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "橙白籃球服、藍白頭帶護腕；雙手把球由腰前抬到胸前再放下，沒有換手。球紋與手臂細節仍有跳變，首末表情不同，屬抱球短反應待審，不是已完成運球。",
+      "frameRegions": {
+        "path": "animation/fitness-basketball-v1/regions-v1.json",
+        "sha256": "ecbdd36fc84bb27c2a45b7f3edc7b42ba1f764faf5df6dfceac819355b21b86d",
+        "version": 1
+      },
+      "renderingRevision": "fitness-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "orange-white-basketball-blue-band",
+      "pose": "standing",
+      "newOutfit": true,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.6498517589,
+        "catalogScale": 2.6076382968191103,
+        "canvas": 1052,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 110.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.6498517589154607,
+          "fixedFactor": 1.6498517589,
+          "actualStagePixels": 182.721082298175,
+          "shortfallPercent": 9.370948461651096e-10,
+          "sourceSha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+          "canvas": 1052,
+          "catalogScale": 2.6076382968191103,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-fitness/fitness-basketball-first-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-fitness/fitness-basketball-v1-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "fitness-cycling-first-20261012",
+      "title": "檸黃騎行衣・整理運動眼鏡",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-fitness",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-cycling-v2/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        650,
+        220,
+        240,
+        220,
+        400,
+        220,
+        240,
+        700
+      ],
+      "frameLabels": [
+        "眼鏡放在頭盔",
+        "抬手整理",
+        "扶住鏡框",
+        "拉至眼上方",
+        "戴好眼鏡",
+        "抬回鏡框",
+        "放上頭盔",
+        "微笑放手"
+      ],
+      "sha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+      "anchorNormalized": [
+        0.5,
+        0.8796296296296297
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.2105015951472355,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "檸黃騎行衣、珊瑚頭盔與藍色運動眼鏡。第4格鏡框過衝已修回眼上方；抬手與戴鏡仍有姿勢跳換，未完成平順動畫。頭盔帶遮臉邊，臉寬未知，使用可見雙眼距代理及全段安全上限。",
+      "frameRegions": {
+        "path": "animation/fitness-cycling-v2/regions-v1.json",
+        "sha256": "74e4c64b527e4f83eb899510b55d6dbf88db2d1277334a291373bed28e6336c1",
+        "version": 1
+      },
+      "renderingRevision": "fitness-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "lemon-teal-cycling-coral-helmet",
+      "pose": "standing",
+      "newOutfit": true,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.4920552995,
+        "catalogScale": 1.2105015951472355,
+        "canvas": 540,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "eyeSeparation",
+          "sourcePixels": 34.55792239125495,
+          "targetStagePixels": 64.31104899177188,
+          "desiredFactor": 1.8609639857298281,
+          "fixedFactor": 1.4920552995,
+          "actualStagePixels": 51.56233124358166,
+          "shortfallPercent": 19.82352635831104,
+          "sourceSha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+          "canvas": 540,
+          "catalogScale": 1.2105015951472355,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": false
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-fitness/fitness-cycling-first-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-fitness/fitness-cycling-v2-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "fitness-coach-first-20261012",
+      "title": "白綠教練服・按錶吹哨",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-fitness",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-coach-v2/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        600,
+        230,
+        230,
+        280,
+        220,
+        240,
+        320,
+        700
+      ],
+      "frameLabels": [
+        "拿好碼表",
+        "低頭看錶",
+        "按下碼表",
+        "抬頭招呼",
+        "伸手取哨",
+        "把哨子放到嘴邊",
+        "鼓頰吹哨",
+        "放下哨子"
+      ],
+      "sha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+      "anchorNormalized": [
+        0.5,
+        0.8804878048780488
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.9649393709435097,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "白綠教練上衣、紅帽、藍短褲、碼表與哨子。原換手已修，碼表維持同側；吹哨鼓頰有真姿勢，但拿哨／放哨仍缺過渡，並非完成動畫或真運動記錄。",
+      "frameRegions": {
+        "path": "animation/fitness-coach-v2/regions-v1.json",
+        "sha256": "616c0647379394e23c25b99935775ed729207ff2ecbc559af6bb83da3625363f",
+        "version": 1
+      },
+      "renderingRevision": "fitness-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "white-green-coach-red-cap",
+      "pose": "standing",
+      "newOutfit": true,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.594955665,
+        "catalogScale": 1.9649393709435097,
+        "canvas": 820,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 111.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.6350879847864632,
+          "fixedFactor": 1.594955665,
+          "actualStagePixels": 178.23629556375002,
+          "shortfallPercent": 2.4544440519330246,
+          "sourceSha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+          "canvas": 820,
+          "catalogScale": 1.9649393709435097,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-fitness/fitness-coach-first-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-fitness/fitness-coach-v2-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "fitness-martial-first-20261012",
+      "title": "白道服・認真鞠躬",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-fitness",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-martial-v1/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        650,
+        230,
+        250,
+        280,
+        420,
+        280,
+        250,
+        700
+      ],
+      "frameLabels": [
+        "站好準備",
+        "低頭致意",
+        "上身前傾",
+        "繼續鞠躬",
+        "停留致意",
+        "抬起上身",
+        "站直微笑",
+        "回到站姿"
+      ],
+      "sha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+      "anchorNormalized": [
+        0.5,
+        0.8803879310344828
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 2.3821554698124996,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "白色道服、黑帶與紅星徽；頭肩腰真正前傾鞠躬再站直。低頭造成的投影縮短不當人物縮小；第5→6起身仍偏跳，保留逐格審稿。",
+      "frameRegions": {
+        "path": "animation/fitness-martial-v1/regions-v1.json",
+        "sha256": "363bcb8be0e7a6b8a72f9345696a46f708a9aba42980c45fd276a77d07aed0d2",
+        "version": 1
+      },
+      "renderingRevision": "fitness-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "white-martial-black-belt-red-star",
+      "pose": "standing-bow",
+      "newOutfit": true,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.7085804749,
+        "catalogScale": 2.3821554698124996,
+        "canvas": 928,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 100.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.8136087573189803,
+          "fixedFactor": 1.7085804749,
+          "actualStagePixels": 172.13948284617499,
+          "shortfallPercent": 5.791121265550214,
+          "sourceSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+          "canvas": 928,
+          "catalogScale": 2.3821554698124996,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-fitness/fitness-martial-first-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-fitness/fitness-martial-v1-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "fitness-stretch-first-20261012",
+      "title": "薄荷伸展服・雙臂舉高",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-fitness",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-stretch-v1/atlas-generated.png",
+      "width": 1448,
+      "height": 1086,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "durationsMs": [
+        600,
+        180,
+        180,
+        220,
+        200,
+        230,
+        260,
+        400,
+        200,
+        220,
+        240,
+        650
+      ],
+      "frameLabels": [
+        "站好準備",
+        "抬眼看前方",
+        "雙臂展開",
+        "平舉手臂",
+        "向斜上方抬手",
+        "繼續舉高",
+        "雙臂伸直",
+        "閉眼停留（眼皮待修）",
+        "放低雙臂",
+        "回到平舉",
+        "垂下手臂",
+        "放鬆站立"
+      ],
+      "sha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+      "anchorNormalized": [
+        0.5,
+        0.88
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 2.4021842354567307,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "薄荷背心、淡紫短褲與白頭帶，雙臂平舉、舉高再放下。第8格閉眼眼皮仍紫色，兩次精修未產生新圖；原畫待修。高舉與下降仍缺過渡，不能當動作完成。",
+      "frameRegions": {
+        "path": "animation/fitness-stretch-v1/regions-v1.json",
+        "sha256": "fda682ba08d90cfe95e546bfb124259eb28aa153995d2690fbbbee40393cb516",
+        "version": 1
+      },
+      "renderingRevision": "fitness-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "mint-stretch-white-band",
+      "pose": "standing-overhead-stretch",
+      "newOutfit": true,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.9986172839,
+        "catalogScale": 2.4021842354567307,
+        "canvas": 800,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 79.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 2.2911734457666113,
+          "fixedFactor": 1.9986172839,
+          "actualStagePixels": 159.38972839102502,
+          "shortfallPercent": 12.768835218789986,
+          "sourceSha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+          "canvas": 800,
+          "catalogScale": 2.4021842354567307,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-fitness/fitness-stretch-first-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-fitness/fitness-stretch-v1-body-qc.json",
+        "sourceFrameCount": 12,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "fitness-kettlebell-first-20261012",
+      "title": "灰橙訓練服・雙手提壺鈴",
+      "category": "新造型待審",
+      "version": 2,
+      "batch": "20261012-fitness",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-kettlebell-v2/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        650,
+        230,
+        250,
+        260,
+        320,
+        230,
+        260,
+        700
+      ],
+      "frameLabels": [
+        "低位握鈴",
+        "準備抬起（眼白待修）",
+        "開始抬鈴（眼白待修）",
+        "提到胸前（眼白待修）",
+        "穩住壺鈴",
+        "慢慢放低",
+        "回到腰下",
+        "放回低位"
+      ],
+      "sha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+      "anchorNormalized": [
+        0.5,
+        0.8803827751196173
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.8545408993070913,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "灰色短上衣、橙色訓練短褲與紫壺鈴，雙手握同一把手抬起再放下。v2已改短圓身形；第2/3/4格眼白內粉紫帶仍待修，修色未產生新圖。1/8壺底低於腳，保留原畫問題；抬放仍缺中間姿勢。",
+      "frameRegions": {
+        "path": "animation/fitness-kettlebell-v2/regions-v1.json",
+        "sha256": "e6632b92207b3857ebd4618c17bd5c9609814f88d237903a863870249ac87548",
+        "version": 1
+      },
+      "renderingRevision": "fitness-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "grey-orange-training-purple-kettlebell",
+      "pose": "standing-kettlebell-lift",
+      "newOutfit": true,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.4765339983,
+        "catalogScale": 1.8545408993070913,
+        "canvas": 836,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 123.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.4765339983829273,
+          "fixedFactor": 1.4765339983,
+          "actualStagePixels": 182.721082289625,
+          "shortfallPercent": 5.616351828052757e-09,
+          "sourceSha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+          "canvas": 836,
+          "catalogScale": 1.8545408993070913,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "4.5 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-fitness/fitness-kettlebell-first-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-fitness/fitness-kettlebell-v2-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "cowboy-first-20261012",
+      "title": "牛仔背心・脫帽致意",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-playful",
+      "reviewGroup": "scene",
+      "atlas": "animation/cowboy-v1/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        650,
+        230,
+        260,
+        340,
+        400,
+        250,
+        260,
+        700
+      ],
+      "frameLabels": [
+        "微笑站好",
+        "抬手扶帽",
+        "抬起帽沿",
+        "脫帽打招呼",
+        "低頭致意",
+        "舉回帽子",
+        "戴回帽子",
+        "放下手臂"
+      ],
+      "sha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+      "anchorNormalized": [
+        0.5,
+        0.8802816901408451
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.8795866037620192,
+      "status": "quality-revision-required",
+      "scenes": [
+        "awake",
+        "celebrate"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "棕色牛仔帽與背心、星星腰帶、青色短褲及固定腰繩圈。同側手脫帽致意後戴回；第5格低頭、第6格仰眼轉換較大，後排頭高與首末比例待逐格審，不宣稱平順循環。",
+      "frameRegions": {
+        "path": "animation/cowboy-v1/regions-v1.json",
+        "sha256": "5f6e8bef69db8321ed6107504e96a396af95866bafbb7264f8cbba2eab63cea4",
+        "version": 1
+      },
+      "renderingRevision": "playful-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "cowboy-vest-hat-lasso",
+      "pose": "standing-hat-greeting",
+      "newOutfit": true,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.468371882,
+        "catalogScale": 1.8795866037620192,
+        "canvas": 852,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 116.0,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.5751817439645452,
+          "fixedFactor": 1.468371882,
+          "actualStagePixels": 170.331138312,
+          "shortfallPercent": 6.78079608107427,
+          "sourceSha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+          "canvas": 852,
+          "catalogScale": 1.8795866037620192,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-playful/cowboy-first-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-playful/cowboy-v1-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "pillow-pajama-first-20261012",
+      "title": "花花睡衣・抱緊小枕頭",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-playful",
+      "reviewGroup": "scene",
+      "atlas": "animation/pillow-pajama-v1/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        700,
+        260,
+        260,
+        260,
+        500,
+        280,
+        300,
+        800
+      ],
+      "frameLabels": [
+        "胸前抱枕",
+        "抬起枕頭",
+        "靠近臉旁",
+        "抱緊枕頭",
+        "閉眼依偎",
+        "重新睜眼",
+        "轉回橫抱",
+        "抱枕休息"
+      ],
+      "sha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+      "anchorNormalized": [
+        0.5,
+        0.8794326241134752
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.1322103344825722,
+      "status": "quality-revision-required",
+      "scenes": [
+        "sleeping",
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "檸綠紫花睡衣、同色睡帽與薄荷荷葉邊枕頭。胸前抱枕、靠向臉旁、闭眼依偎再抱回；第6→7直抱轉橫抱缺中間姿勢，12格修訂未產生新圖，保留此8格待審。首末可比人體尺規差異小，不代表過渡已完成。",
+      "frameRegions": {
+        "path": "animation/pillow-pajama-v1/regions-v1.json",
+        "sha256": "0ea6c2cd665df5e1647134bd1e61be032099109e815679e7db67ac5865ad8d05",
+        "version": 1
+      },
+      "renderingRevision": "playful-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "lime-flower-pajamas-mint-pillow",
+      "pose": "standing-pillow-hug",
+      "newOutfit": true,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.3361687919,
+        "catalogScale": 1.1322103344825722,
+        "canvas": 564,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 136.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.3361687919552998,
+          "fixedFactor": 1.3361687919,
+          "actualStagePixels": 182.721082292325,
+          "shortfallPercent": 4.1386893911976586e-09,
+          "sourceSha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+          "canvas": 564,
+          "catalogScale": 1.1322103344825722,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-playful/pillow-pajama-first-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-playful/pillow-pajama-v1-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "boxing-timing-20261012",
+      "title": "拳擊節奏比較・同8原畫",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261012-motion",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-boxing-v1/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        320,
+        180,
+        140,
+        100,
+        140,
+        140,
+        180,
+        380
+      ],
+      "frameLabels": [
+        "認真準備",
+        "抬起拳套",
+        "護住臉旁",
+        "向前出拳",
+        "伸展拳臂",
+        "收回護拳",
+        "露出微笑",
+        "放下拳套"
+      ],
+      "sha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+      "anchorNormalized": [
+        0.5,
+        0.8801020408163265
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.7374522516009616,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "縮短準備與末格停留，出拳較快；第3→4、第5→6仍缺中間畫，沒有新增原畫。 原問題：紫金拳擊背心、短褲與紅拳套，認真準備後出拳、收拳、微笑。第3→4與5→6格仍缺動作過渡，首末表情不同；新穿搭可審，動畫未完成。",
+      "frameRegions": {
+        "path": "animation/fitness-boxing-v1/regions-v1.json",
+        "sha256": "dc1a5e161289c6a2787b0123be96f2dd58c72aa4f7b83d86cada001d4b063385",
+        "version": 1
+      },
+      "renderingRevision": "motion-20261012-v1",
+      "comparisonClipId": "fitness-boxing-first-20261012",
+      "artApproved": false,
+      "variantGroup": "purple-gold-boxing-red-gloves",
+      "pose": "standing",
+      "newOutfit": false,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.4750615034,
+        "catalogScale": 1.7374522516009616,
+        "canvas": 784,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 115.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.578583864361877,
+          "fixedFactor": 1.4750615034,
+          "actualStagePixels": 170.73836901855,
+          "shortfallPercent": 6.557925954964993,
+          "sourceSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+          "canvas": 784,
+          "catalogScale": 1.7374522516009616,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-motion/boxing-timing-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-fitness/fitness-boxing-v1-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      },
+      "collectionTags": [
+        "fitness"
+      ],
+      "variantKind": "timing-only",
+      "sourceCandidateID": "fitness-boxing-first-20261012",
+      "newOriginalFrames": 0
+    },
+    {
+      "id": "tracksuit-timing-20261012",
+      "title": "外套節奏比較・同8原畫",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261012-motion",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-tracksuit-v2/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        300,
+        120,
+        120,
+        150,
+        300,
+        380,
+        160,
+        350
+      ],
+      "frameLabels": [
+        "戴耳機休息",
+        "握住星星拉鍊",
+        "準備向下拉",
+        "拉開領口",
+        "敞開外套",
+        "舒一口氣",
+        "放下雙手",
+        "微笑休息"
+      ],
+      "sha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "anchorNormalized": [
+        0.5,
+        0.88
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.2694606095252403,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise",
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "縮短重複準備與末格停留，保留舒氣的稍長停頓；第4→5拉開外套仍缺過渡，沒有新增原畫。 原問題：酒紅米白運動套裝、耳機與星星拉鍊。全段粉色眼皮；握拉鍊近同姿、敞開外套與舒氣仍缺過渡，首穿好末敞開，屬一次性動作待審。",
+      "frameRegions": {
+        "path": "animation/fitness-tracksuit-v2/regions-v1.json",
+        "sha256": "e8370db5c4b7e3b3cf484643d413ef4c3d69b98099d5d69ec1364922707948f4",
+        "version": 1
+      },
+      "renderingRevision": "motion-20261012-v1",
+      "comparisonClipId": "fitness-tracksuit-first-20261012",
+      "artApproved": false,
+      "variantGroup": "burgundy-cream-tracksuit-headphones",
+      "pose": "standing",
+      "newOutfit": false,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.4082549695,
+        "catalogScale": 1.2694606095252403,
+        "canvas": 600,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 129.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.4082549695559712,
+          "fixedFactor": 1.4082549695,
+          "actualStagePixels": 182.721082292625,
+          "shortfallPercent": 3.97450961031609e-09,
+          "sourceSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+          "canvas": 600,
+          "catalogScale": 1.2694606095252403,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-motion/tracksuit-timing-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-fitness/fitness-tracksuit-v2-body-qc.json",
+        "sourceFrameCount": 8,
+        "reorderingIsNotRedrawing": true
+      },
+      "collectionTags": [
+        "fitness"
+      ],
+      "variantKind": "timing-only",
+      "sourceCandidateID": "fitness-tracksuit-first-20261012",
+      "newOriginalFrames": 0
+    },
+    {
+      "id": "pillow-pajama-inbetweens-20261012",
+      "title": "花花睡衣・抱枕回落12格",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261012-inbetweens",
+      "reviewGroup": "scene",
+      "atlas": "animation/pillow-pajama-v2/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "durationsMs": [
+        420,
+        160,
+        180,
+        180,
+        180,
+        360,
+        180,
+        160,
+        160,
+        160,
+        180,
+        450
+      ],
+      "frameLabels": [
+        "胸前抱枕",
+        "轉頭抬枕",
+        "枕頭靠近",
+        "貼近臉旁",
+        "閉眼依偎",
+        "抱枕停留",
+        "重新睜眼",
+        "枕頭離臉",
+        "斜向下降",
+        "轉回橫抱",
+        "回正休息",
+        "抱枕收尾"
+      ],
+      "sha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+      "anchorNormalized": [
+        0.5,
+        0.8801169590643275
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.840904569265625,
+      "status": "quality-revision-required",
+      "scenes": [
+        "sleeping",
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "沿用花花睡衣造型的12張新原畫，補入枕頭離臉、斜向下降及回橫抱姿勢，保留原8格比較。第1→2起手角度仍大，第5/6均閉眼且相近，第10→11回正看前仍待正常速度審阅；增加格數不代表動作已完成。首末真臉約+0.98%、眼距與眼足距0%，全段固定倍率，遮擋及閉眼尺規保留未知。",
+      "frameRegions": {
+        "path": "animation/pillow-pajama-v2/regions-v1.json",
+        "sha256": "e5055e4775c25e6364477cde360157ab835e0bdfd5ce0c10bbf8a69a9cdc9ed0",
+        "version": 1
+      },
+      "renderingRevision": "inbetweens-20261012-v1",
+      "comparisonClipId": "pillow-pajama-first-20261012",
+      "artApproved": false,
+      "variantGroup": "lime-flower-pajamas-mint-pillow",
+      "pose": "standing-pillow-hug-inbetweens",
+      "newOutfit": false,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.7913831598,
+        "catalogScale": 1.840904569265625,
+        "canvas": 684,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 102.0,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.7913831598028163,
+          "fixedFactor": 1.7913831598,
+          "actualStagePixels": 182.7210822996,
+          "shortfallPercent": 1.5720758028692217e-10,
+          "sourceSha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+          "canvas": 684,
+          "catalogScale": 1.840904569265625,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-inbetweens/pillow-pajama-inbetweens-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-inbetweens/pillow-pajama-v2-body-qc.json",
+        "sourceFrameCount": 12,
+        "reorderingIsNotRedrawing": true
+      },
+      "collectionTags": [
+        "playful"
+      ]
+    },
+    {
+      "id": "martial-inbetweens-20261012",
+      "title": "白道服・鞠躬起身10格",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261012-inbetweens",
+      "reviewGroup": "scene",
+      "atlas": "animation/fitness-martial-v2/atlas-generated.png",
+      "width": 1983,
+      "height": 793,
+      "columns": 5,
+      "rows": 2,
+      "frameCount": 10,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "durationsMs": [
+        350,
+        160,
+        160,
+        160,
+        330,
+        160,
+        140,
+        140,
+        180,
+        400
+      ],
+      "frameLabels": [
+        "站好準備",
+        "點頭預備",
+        "低身鞠躬",
+        "繼續下俯",
+        "低頭致意",
+        "開始起身",
+        "抬起頭肩",
+        "繼續起身",
+        "回正站好",
+        "收尾休息"
+      ],
+      "sha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+      "anchorNormalized": [
+        0.5,
+        0.88
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.9658782585186299,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise",
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "白道服鞠躬的10張新原畫，補第6格起身姿勢並保留原8格比較。第7/8格仍近似、8→9起直可能仍快，需正常速度審阅；鞠躬投影不能當人物縮小修正。首末真臉+4.09%、眼距+3.33%、眼足距−2.05%，fresh輪廓與人體尺規後採單段固定倍率，未批准美術。",
+      "frameRegions": {
+        "path": "animation/fitness-martial-v2/regions-v1.json",
+        "sha256": "a24c56842ce645dbb987f24ac90b644efc1cdac1328d239aefc51bf41b80e372",
+        "version": 1
+      },
+      "renderingRevision": "inbetweens-20261012-v1",
+      "comparisonClipId": "fitness-martial-first-20261012",
+      "artApproved": false,
+      "variantGroup": "white-martial-black-belt",
+      "pose": "standing-bow-inbetweens",
+      "newOutfit": false,
+      "scaleProvenance": {
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "sourcePixelToStagePixel": 1.8692693841,
+        "catalogScale": 1.9658782585186299,
+        "canvas": 700,
+        "perFrameScale": false,
+        "calibration": {
+          "metric": "faceWidth",
+          "sourcePixels": 97.75,
+          "targetStagePixels": 182.72108229988726,
+          "desiredFactor": 1.8692693841420691,
+          "fixedFactor": 1.8692693841,
+          "actualStagePixels": 182.721082295775,
+          "shortfallPercent": 2.2505663999083936e-09,
+          "sourceSha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+          "canvas": 700,
+          "catalogScale": 1.9658782585186299,
+          "reference": "yawn:first actual source frame",
+          "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+          "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+          "perFrameScale": false,
+          "faceWidthKnown": true
+        }
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-inbetweens/martial-inbetweens-20261012-qc.json",
+        "bodyQC": "animation/production-20261012-inbetweens/fitness-martial-v2-body-qc.json",
+        "sourceFrameCount": 10,
+        "reorderingIsNotRedrawing": true
+      },
+      "collectionTags": [
+        "fitness"
+      ]
     }
   ]
 }

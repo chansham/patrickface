@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "artApproval": false,
+  "manifestSha256": "6779bc79de2b14bfdf15b10aae02329a38bece01088db1249918ae2de88044be",
+  "mainCatalogSha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+  "candidateCount": 36,
+  "candidateFrames": 392,
+  "processedSourceIDs": [
+    "cowboy-first-20261012",
+    "pillow-pajama-first-20261012"
+  ],
+  "integratedCandidateIDs": [
+    "cowboy-first-20261012",
+    "pillow-pajama-first-20261012"
+  ]
+}

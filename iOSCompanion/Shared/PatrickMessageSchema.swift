@@ -57,6 +57,8 @@ struct PatrickAcknowledgement: Codable, Equatable, Sendable {
 struct PatrickMessageEnvelope: Codable, Equatable, Sendable {
     static let currentProtocolVersion = 1
     static let transportKey = "patrick.envelope.v1"
+    // Additive sibling key, not a new message kind. Older peers ignore it.
+    static let watchStatusTransportKey = "patrick.watch-status.v1"
 
     var protocolVersion: Int
     var id: UUID

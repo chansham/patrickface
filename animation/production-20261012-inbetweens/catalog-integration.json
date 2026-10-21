@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "artApproval": false,
+  "manifestSha256": "1de172edf57a9cb9bba09c9a51e22d6bddd78af41e4fa5e544e735ea28b636a1",
+  "mainCatalogSha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+  "candidateCount": 40,
+  "candidateFrames": 430,
+  "processedSourceIDs": [
+    "pillow-pajama-inbetweens-20261012",
+    "martial-inbetweens-20261012"
+  ],
+  "integratedCandidateIDs": [
+    "pillow-pajama-inbetweens-20261012",
+    "martial-inbetweens-20261012"
+  ]
+}

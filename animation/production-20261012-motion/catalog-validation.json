@@ -1,0 +1,8070 @@
+{
+  "scope": "Read-only structural, hash and alpha-grid diagnostics; no visual approval",
+  "artApproval": "not-assessed",
+  "errors": [],
+  "warnings": [
+    {
+      "code": "source-outer-edge",
+      "message": "Original art touches the outer PNG edge; extraction cannot reconstruct pixels outside the source.",
+      "clipId": "celebrate-candidate",
+      "sourceFrame": 15
+    }
+  ],
+  "clips": [
+    {
+      "id": "candidate-yawn16",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8804347826086957
+        ],
+        "scale": 1.4431372549019608
+      },
+      "durationMs": 3500,
+      "sourceCellSize": [
+        318.75,
+        308.5
+      ],
+      "sourceCellCount": 16,
+      "playbackFrameCount": 16,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "available": true,
+      "actualSha256": "5a2d1def5ee4ab2440cccde0ff10ca01b59926fb569fcce16701129ed4a90798",
+      "contours": {
+        "metadata": "animation/yawn-v3/regions-v1.json",
+        "commonCanvas": [
+          460,
+          460
+        ],
+        "anchorPixels": [
+          230,
+          405
+        ],
+        "sourcePixelsPreserved": 827780,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              31,
+              0,
+              260,
+              314
+            ],
+            "pixelCount": 49897,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              338,
+              0,
+              292,
+              314
+            ],
+            "pixelCount": 50817,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              663,
+              0,
+              285,
+              314
+            ],
+            "pixelCount": 50790,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1001,
+              1,
+              250,
+              313
+            ],
+            "pixelCount": 51019,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              34,
+              312,
+              253,
+              313
+            ],
+            "pixelCount": 50841,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              355,
+              310,
+              257,
+              345
+            ],
+            "pixelCount": 52376,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              651,
+              310,
+              285,
+              315
+            ],
+            "pixelCount": 52071,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1001,
+              311,
+              254,
+              314
+            ],
+            "pixelCount": 52776,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              31,
+              617,
+              268,
+              314
+            ],
+            "pixelCount": 56520,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              348,
+              620,
+              267,
+              350
+            ],
+            "pixelCount": 52989,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              644,
+              622,
+              292,
+              311
+            ],
+            "pixelCount": 53285,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              999,
+              622,
+              258,
+              338
+            ],
+            "pixelCount": 52346,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 12,
+            "sourceBounds": [
+              32,
+              928,
+              259,
+              306
+            ],
+            "pixelCount": 50133,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 13,
+            "sourceBounds": [
+              353,
+              928,
+              258,
+              306
+            ],
+            "pixelCount": 50538,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 14,
+            "sourceBounds": [
+              663,
+              927,
+              265,
+              307
+            ],
+            "pixelCount": 50416,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 15,
+            "sourceBounds": [
+              977,
+              928,
+              274,
+              306
+            ],
+            "pixelCount": 50966,
+            "footAnchor": [
+              230,
+              405
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "focus-candidate",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8804347826086957
+        ],
+        "scale": 1.7790055248618784
+      },
+      "durationMs": 3540,
+      "sourceCellSize": [
+        362.0,
+        271.5
+      ],
+      "sourceCellCount": 16,
+      "playbackFrameCount": 16,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "available": true,
+      "actualSha256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "contours": {
+        "metadata": "animation/focus-v1/regions-v1.json",
+        "commonCanvas": [
+          644,
+          644
+        ],
+        "anchorPixels": [
+          322,
+          567
+        ],
+        "sourcePixelsPreserved": 638819,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              79,
+              0,
+              259,
+              326
+            ],
+            "pixelCount": 41707,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              387,
+              8,
+              305,
+              343
+            ],
+            "pixelCount": 41416,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              787,
+              1,
+              247,
+              295
+            ],
+            "pixelCount": 42093,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1142,
+              6,
+              244,
+              332
+            ],
+            "pixelCount": 42366,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              81,
+              291,
+              297,
+              309
+            ],
+            "pixelCount": 41373,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              427,
+              293,
+              281,
+              341
+            ],
+            "pixelCount": 41387,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              739,
+              293,
+              335,
+              331
+            ],
+            "pixelCount": 42462,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1143,
+              294,
+              249,
+              316
+            ],
+            "pixelCount": 41629,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              83,
+              565,
+              243,
+              312
+            ],
+            "pixelCount": 40747,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              385,
+              565,
+              315,
+              319
+            ],
+            "pixelCount": 40517,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              781,
+              565,
+              309,
+              298
+            ],
+            "pixelCount": 40482,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              1151,
+              566,
+              238,
+              281
+            ],
+            "pixelCount": 39293,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 12,
+            "sourceBounds": [
+              82,
+              837,
+              260,
+              249
+            ],
+            "pixelCount": 36041,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 13,
+            "sourceBounds": [
+              439,
+              837,
+              261,
+              249
+            ],
+            "pixelCount": 35726,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 14,
+            "sourceBounds": [
+              794,
+              838,
+              268,
+              248
+            ],
+            "pixelCount": 35875,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 15,
+            "sourceBounds": [
+              1095,
+              836,
+              309,
+              250
+            ],
+            "pixelCount": 35705,
+            "footAnchor": [
+              322,
+              567
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "celebrate-candidate",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803827751196173
+        ],
+        "scale": 2.8302083333333337
+      },
+      "durationMs": 3550,
+      "sourceCellSize": [
+        384.0,
+        256.0
+      ],
+      "sourceCellCount": 16,
+      "playbackFrameCount": 16,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "available": true,
+      "actualSha256": "a59fd87813d1babfc1bb254462b6e527aa2c5ab2a504f3bda40b3da2b57cf6a8",
+      "contours": {
+        "metadata": "animation/celebrate-v1/regions-v1.json",
+        "commonCanvas": [
+          836,
+          836
+        ],
+        "anchorPixels": [
+          418,
+          736
+        ],
+        "sourcePixelsPreserved": 475709,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              63,
+              0,
+              317,
+              262
+            ],
+            "pixelCount": 28297,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              473,
+              0,
+              200,
+              263
+            ],
+            "pixelCount": 29033,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              825,
+              0,
+              299,
+              264
+            ],
+            "pixelCount": 28948,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1223,
+              0,
+              263,
+              308
+            ],
+            "pixelCount": 28897,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              57,
+              258,
+              281,
+              274
+            ],
+            "pixelCount": 29937,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              451,
+              258,
+              289,
+              276
+            ],
+            "pixelCount": 30796,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              841,
+              258,
+              361,
+              312
+            ],
+            "pixelCount": 32040,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1159,
+              255,
+              369,
+              345
+            ],
+            "pixelCount": 32773,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              69,
+              511,
+              281,
+              265
+            ],
+            "pixelCount": 30242,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              449,
+              513,
+              321,
+              277
+            ],
+            "pixelCount": 29712,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              793,
+              512,
+              357,
+              264
+            ],
+            "pixelCount": 29230,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              1167,
+              512,
+              276,
+              284
+            ],
+            "pixelCount": 29321,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 12,
+            "sourceBounds": [
+              47,
+              767,
+              273,
+              257
+            ],
+            "pixelCount": 29995,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 13,
+            "sourceBounds": [
+              429,
+              768,
+              253,
+              256
+            ],
+            "pixelCount": 29120,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 14,
+            "sourceBounds": [
+              799,
+              767,
+              323,
+              257
+            ],
+            "pixelCount": 29195,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 15,
+            "sourceBounds": [
+              1179,
+              769,
+              309,
+              255
+            ],
+            "pixelCount": 28173,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 4
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "bath-candidate",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803763440860215
+        ],
+        "scale": 1.6775648252536641
+      },
+      "durationMs": 2700,
+      "sourceCellSize": [
+        443.5,
+        443.5
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "898314d0253fc4d236af465a92bb7ad7120f51d1faf76c6ade5af98700707bfd",
+      "contours": {
+        "metadata": "animation/bath-v1/regions-v1.json",
+        "commonCanvas": [
+          744,
+          744
+        ],
+        "anchorPixels": [
+          372,
+          655
+        ],
+        "sourcePixelsPreserved": 720834,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              36,
+              0,
+              416,
+              425
+            ],
+            "pixelCount": 89595,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              482,
+              11,
+              401,
+              441
+            ],
+            "pixelCount": 87754,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              910,
+              11,
+              429,
+              487
+            ],
+            "pixelCount": 90281,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1332,
+              12,
+              407,
+              470
+            ],
+            "pixelCount": 89454,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              36,
+              451,
+              385,
+              418
+            ],
+            "pixelCount": 93636,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              452,
+              451,
+              433,
+              418
+            ],
+            "pixelCount": 91846,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              925,
+              452,
+              381,
+              419
+            ],
+            "pixelCount": 89360,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1371,
+              451,
+              375,
+              418
+            ],
+            "pixelCount": 88908,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "wake-candidate",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803680981595092
+        ],
+        "scale": 1.4701240135287486
+      },
+      "durationMs": 2320,
+      "sourceCellSize": [
+        443.5,
+        443.5
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "607a903a36f7d85d7a9ce0dfbee04f2b2bcaef6f43d7045131915cbdd916f1a4",
+      "contours": {
+        "metadata": "animation/wake-v1/regions-v1.json",
+        "commonCanvas": [
+          652,
+          652
+        ],
+        "anchorPixels": [
+          326,
+          574
+        ],
+        "sourcePixelsPreserved": 777162,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              49,
+              11,
+              387,
+              439
+            ],
+            "pixelCount": 96777,
+            "footAnchor": [
+              326,
+              574
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              495,
+              10,
+              374,
+              442
+            ],
+            "pixelCount": 96229,
+            "footAnchor": [
+              326,
+              574
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              938,
+              10,
+              354,
+              444
+            ],
+            "pixelCount": 97050,
+            "footAnchor": [
+              326,
+              574
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1335,
+              8,
+              396,
+              502
+            ],
+            "pixelCount": 98859,
+            "footAnchor": [
+              326,
+              574
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              58,
+              449,
+              355,
+              438
+            ],
+            "pixelCount": 98569,
+            "footAnchor": [
+              326,
+              574
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              463,
+              448,
+              386,
+              439
+            ],
+            "pixelCount": 97771,
+            "footAnchor": [
+              326,
+              574
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              935,
+              448,
+              381,
+              439
+            ],
+            "pixelCount": 95777,
+            "footAnchor": [
+              326,
+              574
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1372,
+              447,
+              372,
+              440
+            ],
+            "pixelCount": 96130,
+            "footAnchor": [
+              326,
+              574
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "blink-batch2-candidate",
+      "status": "pending-user-review",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803571428571428
+        ],
+        "scale": 1.2626832018038332
+      },
+      "durationMs": 1665,
+      "sourceCellSize": [
+        443.5,
+        443.5
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "48b481f2bb798e2f1a2933ec1d854db366b1cebd0b01db3263bf17fd2e4f3926",
+      "contours": {
+        "metadata": "animation/blink-v2/regions-v1.json",
+        "commonCanvas": [
+          560,
+          560
+        ],
+        "anchorPixels": [
+          280,
+          493
+        ],
+        "sourcePixelsPreserved": 779678,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              49,
+              13,
+              403,
+              435
+            ],
+            "pixelCount": 96820,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              487,
+              13,
+              363,
+              439
+            ],
+            "pixelCount": 96586,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              912,
+              14,
+              365,
+              484
+            ],
+            "pixelCount": 96944,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1346,
+              13,
+              376,
+              469
+            ],
+            "pixelCount": 97313,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              50,
+              447,
+              361,
+              440
+            ],
+            "pixelCount": 97960,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              485,
+              447,
+              359,
+              440
+            ],
+            "pixelCount": 98141,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              882,
+              448,
+              400,
+              439
+            ],
+            "pixelCount": 98028,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1365,
+              448,
+              359,
+              439
+            ],
+            "pixelCount": 97886,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "pet-batch2-candidate",
+      "status": "pending-user-review",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8801020408163265
+        ],
+        "scale": 2.165745856353591
+      },
+      "durationMs": 2680,
+      "sourceCellSize": [
+        362.0,
+        362.0
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "7706da7c4875dafc5263f693b81af59f1702cc86a8f8e5ce13e46774d8f4483b",
+      "contours": {
+        "metadata": "animation/pet-v2/regions-v1.json",
+        "commonCanvas": [
+          784,
+          784
+        ],
+        "anchorPixels": [
+          392,
+          690
+        ],
+        "sourcePixelsPreserved": 673195,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              17,
+              12,
+              347,
+              410
+            ],
+            "pixelCount": 56713,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              379,
+              12,
+              355,
+              426
+            ],
+            "pixelCount": 56418,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              735,
+              17,
+              369,
+              382
+            ],
+            "pixelCount": 56914,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1141,
+              18,
+              277,
+              381
+            ],
+            "pixelCount": 57024,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              47,
+              372,
+              323,
+              412
+            ],
+            "pixelCount": 55683,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              403,
+              372,
+              315,
+              398
+            ],
+            "pixelCount": 55590,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              737,
+              372,
+              329,
+              422
+            ],
+            "pixelCount": 55595,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1099,
+              373,
+              315,
+              399
+            ],
+            "pixelCount": 54423,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              49,
+              725,
+              273,
+              345
+            ],
+            "pixelCount": 55807,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              377,
+              729,
+              329,
+              341
+            ],
+            "pixelCount": 57698,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              767,
+              727,
+              325,
+              345
+            ],
+            "pixelCount": 55615,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              1119,
+              726,
+              299,
+              344
+            ],
+            "pixelCount": 55715,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "charging-batch2-candidate",
+      "status": "pending-user-review",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803763440860215
+        ],
+        "scale": 2.0552486187845305
+      },
+      "durationMs": 2790,
+      "sourceCellSize": [
+        362.0,
+        362.0
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "contours": {
+        "metadata": "animation/charging-v2/regions-v1.json",
+        "commonCanvas": [
+          744,
+          744
+        ],
+        "anchorPixels": [
+          372,
+          655
+        ],
+        "sourcePixelsPreserved": 627951,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              23,
+              19,
+              331,
+              372
+            ],
+            "pixelCount": 54069,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              387,
+              9,
+              334,
+              393
+            ],
+            "pixelCount": 51967,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              721,
+              15,
+              357,
+              416
+            ],
+            "pixelCount": 54227,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1103,
+              27,
+              331,
+              378
+            ],
+            "pixelCount": 55337,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              31,
+              384,
+              331,
+              358
+            ],
+            "pixelCount": 49966,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              371,
+              388,
+              347,
+              350
+            ],
+            "pixelCount": 49793,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              739,
+              380,
+              357,
+              382
+            ],
+            "pixelCount": 50489,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1099,
+              370,
+              327,
+              402
+            ],
+            "pixelCount": 51032,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              45,
+              728,
+              323,
+              340
+            ],
+            "pixelCount": 53348,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              369,
+              734,
+              339,
+              336
+            ],
+            "pixelCount": 53716,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              747,
+              733,
+              347,
+              335
+            ],
+            "pixelCount": 52793,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              1113,
+              733,
+              315,
+              337
+            ],
+            "pixelCount": 51214,
+            "footAnchor": [
+              372,
+              655
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "exercise-batch2-candidate",
+      "status": "pending-user-review",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8804945054945055
+        ],
+        "scale": 2.6541666666666663
+      },
+      "durationMs": 3380,
+      "sourceCellSize": [
+        384.0,
+        256.0
+      ],
+      "sourceCellCount": 16,
+      "playbackFrameCount": 16,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "available": true,
+      "actualSha256": "e49971a249f9405651121d30c23bc7e05a94635698de25af6729125f4a0f347f",
+      "contours": {
+        "metadata": "animation/exercise-v2/regions-v1.json",
+        "commonCanvas": [
+          728,
+          728
+        ],
+        "anchorPixels": [
+          364,
+          641
+        ],
+        "sourcePixelsPreserved": 514482,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              37,
+              8,
+              325,
+              304
+            ],
+            "pixelCount": 32400,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              379,
+              9,
+              363,
+              263
+            ],
+            "pixelCount": 31508,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              825,
+              9,
+              309,
+              269
+            ],
+            "pixelCount": 31241,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1223,
+              8,
+              269,
+              274
+            ],
+            "pixelCount": 32317,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              59,
+              262,
+              319,
+              274
+            ],
+            "pixelCount": 32365,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              451,
+              262,
+              291,
+              272
+            ],
+            "pixelCount": 32166,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              777,
+              262,
+              371,
+              314
+            ],
+            "pixelCount": 31859,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1151,
+              261,
+              335,
+              297
+            ],
+            "pixelCount": 31909,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              59,
+              513,
+              301,
+              323
+            ],
+            "pixelCount": 31930,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              385,
+              517,
+              369,
+              297
+            ],
+            "pixelCount": 31507,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              767,
+              517,
+              377,
+              307
+            ],
+            "pixelCount": 31548,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              1147,
+              516,
+              355,
+              306
+            ],
+            "pixelCount": 31740,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 12,
+            "sourceBounds": [
+              41,
+              769,
+              327,
+              255
+            ],
+            "pixelCount": 34405,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 13,
+            "sourceBounds": [
+              377,
+              771,
+              379,
+              253
+            ],
+            "pixelCount": 32284,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 14,
+            "sourceBounds": [
+              807,
+              768,
+              337,
+              256
+            ],
+            "pixelCount": 32517,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 15,
+            "sourceBounds": [
+              1209,
+              773,
+              299,
+              251
+            ],
+            "pixelCount": 32786,
+            "footAnchor": [
+              364,
+              641
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "mint-pajama-batch2-candidate",
+      "status": "pending-user-review",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803571428571428
+        ],
+        "scale": 1.2626832018038332
+      },
+      "durationMs": 2390,
+      "sourceCellSize": [
+        443.5,
+        443.5
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "3f77e66d38bfe53d415e7cc7b660212a04b59c8b83b75d01f5eda7b613c81b8b",
+      "contours": {
+        "metadata": "animation/mint-pajama-v1/regions-v1.json",
+        "commonCanvas": [
+          560,
+          560
+        ],
+        "anchorPixels": [
+          280,
+          493
+        ],
+        "sourcePixelsPreserved": 770377,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              49,
+              0,
+              389,
+              490
+            ],
+            "pixelCount": 97152,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              442,
+              15,
+              481,
+              437
+            ],
+            "pixelCount": 96789,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              904,
+              12,
+              473,
+              486
+            ],
+            "pixelCount": 99566,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1407,
+              15,
+              345,
+              437
+            ],
+            "pixelCount": 95534,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              50,
+              446,
+              386,
+              441
+            ],
+            "pixelCount": 96877,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              463,
+              463,
+              390,
+              424
+            ],
+            "pixelCount": 95573,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              947,
+              452,
+              351,
+              435
+            ],
+            "pixelCount": 95230,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1403,
+              460,
+              351,
+              427
+            ],
+            "pixelCount": 93656,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "moon-robe-batch2-candidate",
+      "status": "pending-user-review",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8801369863013698
+        ],
+        "scale": 1.3167981961668547
+      },
+      "durationMs": 2460,
+      "sourceCellSize": [
+        443.5,
+        443.5
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "1e1d261cfde1ff1fe3414a94c0d6e63edb01c3156ae996d7d5c097d1b436854f",
+      "contours": {
+        "metadata": "animation/moon-robe-v1/regions-v1.json",
+        "commonCanvas": [
+          584,
+          584
+        ],
+        "anchorPixels": [
+          292,
+          514
+        ],
+        "sourcePixelsPreserved": 679204,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              60,
+              24,
+              376,
+              420
+            ],
+            "pixelCount": 85628,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              503,
+              23,
+              334,
+              419
+            ],
+            "pixelCount": 86686,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              914,
+              24,
+              363,
+              472
+            ],
+            "pixelCount": 85345,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1395,
+              23,
+              332,
+              420
+            ],
+            "pixelCount": 84629,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              59,
+              451,
+              331,
+              417
+            ],
+            "pixelCount": 82939,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              503,
+              451,
+              336,
+              412
+            ],
+            "pixelCount": 84678,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              947,
+              450,
+              331,
+              417
+            ],
+            "pixelCount": 84720,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1390,
+              451,
+              335,
+              413
+            ],
+            "pixelCount": 84579,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "charging-space-batch3-candidate",
+      "status": "pending-user-review",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.88
+        ],
+        "scale": 2.3094867807153965
+      },
+      "durationMs": 2900,
+      "sourceCellSize": [
+        305.75,
+        428.6666666666667
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "1b21a61e2f1bfcb98e65a3ff42973365f781a3f2db58945739bddea83ae2bd22",
+      "contours": {
+        "metadata": "animation/charging-space-v1/regions-v1.json",
+        "commonCanvas": [
+          900,
+          900
+        ],
+        "anchorPixels": [
+          450,
+          792
+        ],
+        "sourcePixelsPreserved": 849551,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              0,
+              33,
+              338,
+              459
+            ],
+            "pixelCount": 69541,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              325,
+              25,
+              319,
+              473
+            ],
+            "pixelCount": 71753,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              626,
+              17,
+              326,
+              477
+            ],
+            "pixelCount": 69454,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              918,
+              9,
+              305,
+              485
+            ],
+            "pixelCount": 67294,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              0,
+              443,
+              354,
+              435
+            ],
+            "pixelCount": 76754,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              329,
+              441,
+              315,
+              477
+            ],
+            "pixelCount": 70606,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              631,
+              442,
+              321,
+              484
+            ],
+            "pixelCount": 70944,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              918,
+              435,
+              305,
+              467
+            ],
+            "pixelCount": 69321,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              0,
+              867,
+              358,
+              419
+            ],
+            "pixelCount": 74869,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              332,
+              868,
+              326,
+              418
+            ],
+            "pixelCount": 70524,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              624,
+              857,
+              328,
+              397
+            ],
+            "pixelCount": 70150,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              915,
+              857,
+              308,
+              429
+            ],
+            "pixelCount": 68341,
+            "footAnchor": [
+              450,
+              792
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "feeding-chef-batch3-candidate",
+      "status": "pending-user-review",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.88
+        ],
+        "scale": 1.4354066985645932
+      },
+      "durationMs": 2900,
+      "sourceCellSize": [
+        313.5,
+        418.0
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "00aa77c176132f6abe19edcdcff6a4235769195b818b0abd6f789a99f4eb6e66",
+      "contours": {
+        "metadata": "animation/feeding-chef-v1/regions-v1.json",
+        "commonCanvas": [
+          600,
+          600
+        ],
+        "anchorPixels": [
+          300,
+          528
+        ],
+        "sourcePixelsPreserved": 794550,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              23,
+              1,
+              307,
+              409
+            ],
+            "pixelCount": 65314,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              338,
+              0,
+              277,
+              425
+            ],
+            "pixelCount": 65689,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              651,
+              0,
+              281,
+              412
+            ],
+            "pixelCount": 64975,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              960,
+              7,
+              283,
+              459
+            ],
+            "pixelCount": 64248,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              23,
+              421,
+              283,
+              419
+            ],
+            "pixelCount": 67107,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              337,
+              422,
+              281,
+              408
+            ],
+            "pixelCount": 65813,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              650,
+              421,
+              283,
+              413
+            ],
+            "pixelCount": 67612,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              964,
+              423,
+              281,
+              409
+            ],
+            "pixelCount": 67585,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              23,
+              832,
+              282,
+              409
+            ],
+            "pixelCount": 68175,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              337,
+              834,
+              281,
+              407
+            ],
+            "pixelCount": 67702,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              650,
+              833,
+              319,
+              408
+            ],
+            "pixelCount": 65369,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              964,
+              829,
+              282,
+              412
+            ],
+            "pixelCount": 64961,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "detective-20261005-candidate",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8805418719211823
+        ],
+        "scale": 2.2430939226519335
+      },
+      "durationMs": 3100,
+      "sourceCellSize": [
+        362.0,
+        362.0
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "90f181e3887b9ec3cf64a5ef2260abae25ec70f2bdb676308d81ba4c1d822d0a",
+      "contours": {
+        "metadata": "animation/detective-v1/regions-v1.json",
+        "commonCanvas": [
+          812,
+          812
+        ],
+        "anchorPixels": [
+          406,
+          715
+        ],
+        "sourcePixelsPreserved": 607083,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              23,
+              20,
+              377,
+              399
+            ],
+            "pixelCount": 50962,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              383,
+              20,
+              361,
+              420
+            ],
+            "pixelCount": 51071,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              733,
+              19,
+              379,
+              411
+            ],
+            "pixelCount": 50711,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1111,
+              17,
+              317,
+              376
+            ],
+            "pixelCount": 48806,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              57,
+              374,
+              319,
+              422
+            ],
+            "pixelCount": 48693,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              379,
+              375,
+              375,
+              411
+            ],
+            "pixelCount": 50711,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              753,
+              374,
+              357,
+              394
+            ],
+            "pixelCount": 50829,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1117,
+              374,
+              315,
+              386
+            ],
+            "pixelCount": 49663,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              25,
+              728,
+              369,
+              358
+            ],
+            "pixelCount": 51830,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              393,
+              729,
+              353,
+              341
+            ],
+            "pixelCount": 51962,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              747,
+              728,
+              363,
+              340
+            ],
+            "pixelCount": 51313,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              1107,
+              728,
+              321,
+              340
+            ],
+            "pixelCount": 50532,
+            "footAnchor": [
+              406,
+              715
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "focus-repair-20261006",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803571428571428
+        ],
+        "scale": 1.5469613259668507
+      },
+      "durationMs": 3540,
+      "sourceCellSize": [
+        362.0,
+        271.5
+      ],
+      "sourceCellCount": 16,
+      "playbackFrameCount": 16,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "available": true,
+      "actualSha256": "7ee112183d2c9e5d911bf89cedc8b4afba705f6a72659838410daa934939322f",
+      "contours": {
+        "metadata": "animation/focus-v2/regions-v1.json",
+        "commonCanvas": [
+          560,
+          560
+        ],
+        "anchorPixels": [
+          280,
+          493
+        ],
+        "sourcePixelsPreserved": 653633,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              80,
+              1,
+              274,
+              291
+            ],
+            "pixelCount": 41938,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              387,
+              1,
+              303,
+              339
+            ],
+            "pixelCount": 41967,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              799,
+              0,
+              275,
+              292
+            ],
+            "pixelCount": 41953,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1156,
+              0,
+              250,
+              332
+            ],
+            "pixelCount": 42387,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              81,
+              287,
+              267,
+              279
+            ],
+            "pixelCount": 41914,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              429,
+              288,
+              311,
+              324
+            ],
+            "pixelCount": 40855,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              789,
+              287,
+              257,
+              305
+            ],
+            "pixelCount": 43142,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1158,
+              286,
+              249,
+              279
+            ],
+            "pixelCount": 42187,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              82,
+              564,
+              250,
+              269
+            ],
+            "pixelCount": 41439,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              442,
+              564,
+              249,
+              271
+            ],
+            "pixelCount": 40576,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              798,
+              564,
+              249,
+              269
+            ],
+            "pixelCount": 40701,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              1159,
+              565,
+              249,
+              270
+            ],
+            "pixelCount": 40637,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 12,
+            "sourceBounds": [
+              81,
+              822,
+              285,
+              264
+            ],
+            "pixelCount": 38691,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 13,
+            "sourceBounds": [
+              435,
+              832,
+              256,
+              254
+            ],
+            "pixelCount": 38328,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 14,
+            "sourceBounds": [
+              799,
+              828,
+              259,
+              258
+            ],
+            "pixelCount": 37854,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 15,
+            "sourceBounds": [
+              1160,
+              822,
+              247,
+              264
+            ],
+            "pixelCount": 39064,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "chef-repair-20261006",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8802395209580839
+        ],
+        "scale": 1.5980861244019138
+      },
+      "durationMs": 2900,
+      "sourceCellSize": [
+        313.5,
+        418.0
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "cf5115d199e0d0cbc8bac8983cec04fed215dcb4bafc0734e8e6bad9dbbfa8a0",
+      "contours": {
+        "metadata": "animation/feeding-chef-v2/regions-v1.json",
+        "commonCanvas": [
+          668,
+          668
+        ],
+        "anchorPixels": [
+          334,
+          588
+        ],
+        "sourcePixelsPreserved": 859981,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              13,
+              11,
+              291,
+              403
+            ],
+            "pixelCount": 71734,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              331,
+              15,
+              290,
+              405
+            ],
+            "pixelCount": 71675,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              645,
+              15,
+              289,
+              401
+            ],
+            "pixelCount": 70106,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              961,
+              17,
+              293,
+              399
+            ],
+            "pixelCount": 69950,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              0,
+              426,
+              307,
+              466
+            ],
+            "pixelCount": 72032,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              327,
+              423,
+              297,
+              405
+            ],
+            "pixelCount": 73195,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              644,
+              426,
+              291,
+              404
+            ],
+            "pixelCount": 72849,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              957,
+              427,
+              297,
+              401
+            ],
+            "pixelCount": 73314,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              12,
+              836,
+              292,
+              404
+            ],
+            "pixelCount": 73527,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              328,
+              840,
+              295,
+              400
+            ],
+            "pixelCount": 70735,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              644,
+              841,
+              293,
+              400
+            ],
+            "pixelCount": 70050,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              959,
+              841,
+              295,
+              399
+            ],
+            "pixelCount": 70814,
+            "footAnchor": [
+              334,
+              588
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "exercise-repair-20261006",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8798076923076923
+        ],
+        "scale": 1.5166666666666666
+      },
+      "durationMs": 3380,
+      "sourceCellSize": [
+        384.0,
+        256.0
+      ],
+      "sourceCellCount": 16,
+      "playbackFrameCount": 16,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "available": true,
+      "actualSha256": "0a3fdcd7fc489fb89457b76145ce3e249f2a401c3ffc0a1a566872cb7da1627f",
+      "contours": {
+        "metadata": "animation/exercise-v3/regions-v1.json",
+        "commonCanvas": [
+          416,
+          416
+        ],
+        "anchorPixels": [
+          208,
+          366
+        ],
+        "sourcePixelsPreserved": 512356,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              55,
+              8,
+              275,
+              246
+            ],
+            "pixelCount": 31643,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              441,
+              8,
+              261,
+              246
+            ],
+            "pixelCount": 31613,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              837,
+              2,
+              267,
+              252
+            ],
+            "pixelCount": 31007,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1225,
+              0,
+              261,
+              254
+            ],
+            "pixelCount": 32332,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              87,
+              260,
+              275,
+              250
+            ],
+            "pixelCount": 32355,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              387,
+              261,
+              313,
+              251
+            ],
+            "pixelCount": 32303,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              783,
+              261,
+              282,
+              249
+            ],
+            "pixelCount": 31885,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1232,
+              261,
+              218,
+              251
+            ],
+            "pixelCount": 31688,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              79,
+              515,
+              223,
+              253
+            ],
+            "pixelCount": 32084,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              457,
+              516,
+              283,
+              252
+            ],
+            "pixelCount": 31549,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              840,
+              516,
+              261,
+              276
+            ],
+            "pixelCount": 31594,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              1217,
+              517,
+              237,
+              251
+            ],
+            "pixelCount": 31489,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 12,
+            "sourceBounds": [
+              47,
+              771,
+              255,
+              253
+            ],
+            "pixelCount": 34346,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 13,
+            "sourceBounds": [
+              450,
+              772,
+              270,
+              252
+            ],
+            "pixelCount": 31994,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 14,
+            "sourceBounds": [
+              807,
+              772,
+              305,
+              252
+            ],
+            "pixelCount": 32051,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 15,
+            "sourceBounds": [
+              1215,
+              773,
+              273,
+              251
+            ],
+            "pixelCount": 32423,
+            "footAnchor": [
+              208,
+              366
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "focus-followup-20261006",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8801369863013698
+        ],
+        "scale": 1.47
+      },
+      "durationMs": 2940,
+      "sourceCellSize": [
+        418.0,
+        313.5
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "d1376033bd5efe8c3de53b6c0763a8308ef9c820cad41c9799d15a70052d8847",
+      "contours": {
+        "metadata": "animation/focus-v5/regions-v1.json",
+        "commonCanvas": [
+          584,
+          584
+        ],
+        "anchorPixels": [
+          292,
+          514
+        ],
+        "sourcePixelsPreserved": 563433,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              111,
+              16,
+              295,
+              322
+            ],
+            "pixelCount": 47237,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              496,
+              16,
+              267,
+              298
+            ],
+            "pixelCount": 47209,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              858,
+              16,
+              310,
+              312
+            ],
+            "pixelCount": 47328,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              142,
+              318,
+              267,
+              333
+            ],
+            "pixelCount": 46724,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              473,
+              318,
+              293,
+              349
+            ],
+            "pixelCount": 49345,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              857,
+              319,
+              281,
+              294
+            ],
+            "pixelCount": 48235,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              19,
+              619,
+              389,
+              334
+            ],
+            "pixelCount": 46900,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              496,
+              619,
+              271,
+              284
+            ],
+            "pixelCount": 46178,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              817,
+              619,
+              345,
+              306
+            ],
+            "pixelCount": 45544,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              89,
+              913,
+              347,
+              301
+            ],
+            "pixelCount": 46312,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              496,
+              912,
+              271,
+              284
+            ],
+            "pixelCount": 45956,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              855,
+              912,
+              273,
+              286
+            ],
+            "pixelCount": 46465,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "running-first-20261006",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8800675675675675
+        ],
+        "scale": 2.0
+      },
+      "durationMs": 3390,
+      "sourceCellSize": [
+        313.5,
+        313.5
+      ],
+      "sourceCellCount": 16,
+      "playbackFrameCount": 16,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "available": true,
+      "actualSha256": "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4",
+      "contours": {
+        "metadata": "animation/running-v1/regions-v1.json",
+        "commonCanvas": [
+          592,
+          592
+        ],
+        "anchorPixels": [
+          296,
+          521
+        ],
+        "sourcePixelsPreserved": 521397,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              39,
+              18,
+              283,
+              342
+            ],
+            "pixelCount": 33339,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              351,
+              26,
+              228,
+              312
+            ],
+            "pixelCount": 33501,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              662,
+              16,
+              267,
+              292
+            ],
+            "pixelCount": 32555,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              968,
+              19,
+              255,
+              343
+            ],
+            "pixelCount": 36151,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              33,
+              329,
+              295,
+              282
+            ],
+            "pixelCount": 30408,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              339,
+              324,
+              274,
+              293
+            ],
+            "pixelCount": 31919,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              684,
+              323,
+              234,
+              289
+            ],
+            "pixelCount": 31338,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              947,
+              327,
+              269,
+              340
+            ],
+            "pixelCount": 32251,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              27,
+              629,
+              293,
+              300
+            ],
+            "pixelCount": 31329,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              349,
+              632,
+              286,
+              285
+            ],
+            "pixelCount": 30609,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              698,
+              644,
+              257,
+              313
+            ],
+            "pixelCount": 29460,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              953,
+              640,
+              247,
+              301
+            ],
+            "pixelCount": 31755,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 12,
+            "sourceBounds": [
+              43,
+              923,
+              271,
+              301
+            ],
+            "pixelCount": 36067,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 13,
+            "sourceBounds": [
+              351,
+              931,
+              274,
+              294
+            ],
+            "pixelCount": 33595,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 14,
+            "sourceBounds": [
+              680,
+              933,
+              271,
+              292
+            ],
+            "pixelCount": 33842,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 15,
+            "sourceBounds": [
+              952,
+              936,
+              254,
+              296
+            ],
+            "pixelCount": 33278,
+            "footAnchor": [
+              296,
+              521
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "chef-cookie-repair-20261007",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8802521008403361
+        ],
+        "scale": 1.138755980861244
+      },
+      "durationMs": 2900,
+      "sourceCellSize": [
+        313.5,
+        418.0
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "cd432cf83e782c99eed61f496cc8ab1cdd50559f95401f1b1c576ec1037cdc80",
+      "contours": {
+        "metadata": "animation/feeding-chef-v6/regions-v1.json",
+        "commonCanvas": [
+          476,
+          476
+        ],
+        "anchorPixels": [
+          238,
+          419
+        ],
+        "sourcePixelsPreserved": 867248,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              14,
+              11,
+              290,
+              403
+            ],
+            "pixelCount": 72476,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              329,
+              15,
+              293,
+              401
+            ],
+            "pixelCount": 72010,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              645,
+              15,
+              290,
+              401
+            ],
+            "pixelCount": 70844,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              961,
+              15,
+              292,
+              401
+            ],
+            "pixelCount": 70954,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              13,
+              427,
+              294,
+              403
+            ],
+            "pixelCount": 72524,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              331,
+              426,
+              294,
+              404
+            ],
+            "pixelCount": 73538,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              644,
+              426,
+              291,
+              406
+            ],
+            "pixelCount": 73465,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              959,
+              427,
+              295,
+              401
+            ],
+            "pixelCount": 73657,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              12,
+              834,
+              293,
+              407
+            ],
+            "pixelCount": 74258,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              328,
+              841,
+              295,
+              400
+            ],
+            "pixelCount": 71494,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              643,
+              842,
+              294,
+              400
+            ],
+            "pixelCount": 70636,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              959,
+              841,
+              295,
+              401
+            ],
+            "pixelCount": 71392,
+            "footAnchor": [
+              238,
+              419
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "focus-transition-repair-20261007",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803571428571428
+        ],
+        "scale": 1.4095890410958902
+      },
+      "durationMs": 2940,
+      "sourceCellSize": [
+        418.0,
+        313.5
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "3a6a7cc2f463eb4537e0a36109505be7a6d7cbb5502a463dcb646aff2d89492e",
+      "contours": {
+        "metadata": "animation/focus-v7/regions-v1.json",
+        "commonCanvas": [
+          560,
+          560
+        ],
+        "anchorPixels": [
+          280,
+          493
+        ],
+        "sourcePixelsPreserved": 574261,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              142,
+              15,
+              266,
+              305
+            ],
+            "pixelCount": 48151,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              495,
+              15,
+              269,
+              303
+            ],
+            "pixelCount": 48270,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              857,
+              15,
+              270,
+              305
+            ],
+            "pixelCount": 48473,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              141,
+              317,
+              271,
+              318
+            ],
+            "pixelCount": 47622,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              483,
+              317,
+              284,
+              349
+            ],
+            "pixelCount": 50400,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              856,
+              318,
+              271,
+              297
+            ],
+            "pixelCount": 48920,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              19,
+              619,
+              431,
+              334
+            ],
+            "pixelCount": 47496,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              494,
+              618,
+              274,
+              286
+            ],
+            "pixelCount": 46785,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              817,
+              619,
+              311,
+              322
+            ],
+            "pixelCount": 46568,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              141,
+              913,
+              295,
+              301
+            ],
+            "pixelCount": 47011,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              494,
+              912,
+              275,
+              290
+            ],
+            "pixelCount": 47151,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              854,
+              912,
+              284,
+              290
+            ],
+            "pixelCount": 47414,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "charging-cozy-20261007",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.88
+        ],
+        "scale": 1.75
+      },
+      "durationMs": 3300,
+      "sourceCellSize": [
+        362.0,
+        362.0
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+      "contours": {
+        "metadata": "animation/charging-cozy-v2/regions-v1.json",
+        "commonCanvas": [
+          700,
+          700
+        ],
+        "anchorPixels": [
+          350,
+          616
+        ],
+        "sourcePixelsPreserved": 716097,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              25,
+              16,
+              366,
+              390
+            ],
+            "pixelCount": 60377,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              356,
+              23,
+              371,
+              350
+            ],
+            "pixelCount": 59220,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              740,
+              24,
+              291,
+              380
+            ],
+            "pixelCount": 58766,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              46,
+              373,
+              331,
+              352
+            ],
+            "pixelCount": 59964,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              394,
+              371,
+              327,
+              355
+            ],
+            "pixelCount": 60718,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              726,
+              380,
+              316,
+              410
+            ],
+            "pixelCount": 59762,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              48,
+              733,
+              327,
+              337
+            ],
+            "pixelCount": 60586,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              402,
+              747,
+              352,
+              323
+            ],
+            "pixelCount": 59300,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              755,
+              736,
+              292,
+              368
+            ],
+            "pixelCount": 59317,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              50,
+              1077,
+              331,
+              343
+            ],
+            "pixelCount": 59880,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              372,
+              1075,
+              347,
+              349
+            ],
+            "pixelCount": 59029,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              779,
+              1076,
+              266,
+              345
+            ],
+            "pixelCount": 59178,
+            "footAnchor": [
+              350,
+              616
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "raincoat-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8793706293706294
+        ],
+        "scale": 1.203125
+      },
+      "durationMs": 3290,
+      "sourceCellSize": [
+        384.0,
+        512.0
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "755d73b3e23149a1c82498f9103be1b7a3f80b42214a70890b7d44d08181f42b",
+      "contours": {
+        "metadata": "animation/raincoat-v1/regions-v1.json",
+        "commonCanvas": [
+          572,
+          572
+        ],
+        "anchorPixels": [
+          286,
+          503
+        ],
+        "sourcePixelsPreserved": 599503,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              33,
+              41,
+              365,
+              472
+            ],
+            "pixelCount": 72678,
+            "footAnchor": [
+              286,
+              503
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              387,
+              40,
+              363,
+              496
+            ],
+            "pixelCount": 73876,
+            "footAnchor": [
+              286,
+              503
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              770,
+              40,
+              382,
+              474
+            ],
+            "pixelCount": 74151,
+            "footAnchor": [
+              286,
+              503
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1113,
+              19,
+              405,
+              519
+            ],
+            "pixelCount": 78080,
+            "footAnchor": [
+              286,
+              503
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              23,
+              497,
+              375,
+              503
+            ],
+            "pixelCount": 75435,
+            "footAnchor": [
+              286,
+              503
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              383,
+              543,
+              399,
+              457
+            ],
+            "pixelCount": 78276,
+            "footAnchor": [
+              286,
+              503
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              777,
+              543,
+              405,
+              455
+            ],
+            "pixelCount": 74154,
+            "footAnchor": [
+              286,
+              503
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1115,
+              522,
+              397,
+              502
+            ],
+            "pixelCount": 72853,
+            "footAnchor": [
+              286,
+              503
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "raincoat-seated-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803571428571428
+        ],
+        "scale": 1.3040865384615383
+      },
+      "durationMs": 3290,
+      "sourceCellSize": [
+        384.0,
+        512.0
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "dc4cb4f2d66bb7d6cc56291003214a911e51f8f75bccd83cbcc42d68ebc08410",
+      "contours": {
+        "metadata": "animation/raincoat-v2/regions-v1.json",
+        "commonCanvas": [
+          560,
+          560
+        ],
+        "anchorPixels": [
+          280,
+          493
+        ],
+        "sourcePixelsPreserved": 706801,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              37,
+              57,
+              313,
+              422
+            ],
+            "pixelCount": 87755,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              410,
+              51,
+              356,
+              433
+            ],
+            "pixelCount": 86703,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              783,
+              58,
+              353,
+              422
+            ],
+            "pixelCount": 91302,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1161,
+              57,
+              365,
+              423
+            ],
+            "pixelCount": 91262,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              44,
+              534,
+              339,
+              450
+            ],
+            "pixelCount": 89733,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              409,
+              515,
+              352,
+              441
+            ],
+            "pixelCount": 90056,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              787,
+              513,
+              349,
+              441
+            ],
+            "pixelCount": 85191,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1145,
+              534,
+              327,
+              471
+            ],
+            "pixelCount": 84799,
+            "footAnchor": [
+              280,
+              493
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "raincoat-smooth-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8792372881355932
+        ],
+        "scale": 1.2345388986013985
+      },
+      "durationMs": 3440,
+      "sourceCellSize": [
+        362.0,
+        362.0
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        3,
+        4,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "e3fdb977617c6a73718a6bb12b31d27be1e1a737a5ccba4304c39417d2ff2e74",
+      "contours": {
+        "metadata": "animation/raincoat-v3/regions-v1.json",
+        "commonCanvas": [
+          472,
+          472
+        ],
+        "anchorPixels": [
+          236,
+          415
+        ],
+        "sourcePixelsPreserved": 585087,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              50,
+              14,
+              331,
+              342
+            ],
+            "pixelCount": 47203,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              355,
+              14,
+              383,
+              340
+            ],
+            "pixelCount": 47428,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              708,
+              14,
+              346,
+              340
+            ],
+            "pixelCount": 48849,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              50,
+              339,
+              339,
+              371
+            ],
+            "pixelCount": 47923,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              356,
+              368,
+              388,
+              348
+            ],
+            "pixelCount": 47600,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              738,
+              351,
+              320,
+              359
+            ],
+            "pixelCount": 50301,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              51,
+              723,
+              324,
+              345
+            ],
+            "pixelCount": 50982,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              407,
+              723,
+              298,
+              347
+            ],
+            "pixelCount": 49836,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              757,
+              723,
+              295,
+              344
+            ],
+            "pixelCount": 47871,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              50,
+              1058,
+              327,
+              372
+            ],
+            "pixelCount": 49189,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              407,
+              1083,
+              322,
+              349
+            ],
+            "pixelCount": 48842,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              753,
+              1080,
+              319,
+              352
+            ],
+            "pixelCount": 49063,
+            "footAnchor": [
+              236,
+              415
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "sport-towel-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8801369863013698
+        ],
+        "scale": 1.1844951923076925
+      },
+      "durationMs": 2730,
+      "sourceCellSize": [
+        384.0,
+        512.0
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "01e212bf5c64471fec5f6c836e88e54406803562da0f8e2a0eea4a2e9d1abead",
+      "contours": {
+        "metadata": "animation/sport-towel-v2/regions-v1.json",
+        "commonCanvas": [
+          584,
+          584
+        ],
+        "anchorPixels": [
+          292,
+          514
+        ],
+        "sourcePixelsPreserved": 634297,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              33,
+              10,
+              369,
+              526
+            ],
+            "pixelCount": 78329,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              403,
+              11,
+              365,
+              525
+            ],
+            "pixelCount": 77971,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              773,
+              10,
+              389,
+              518
+            ],
+            "pixelCount": 78562,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1163,
+              11,
+              359,
+              513
+            ],
+            "pixelCount": 76231,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              29,
+              504,
+              371,
+              496
+            ],
+            "pixelCount": 77726,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              377,
+              503,
+              418,
+              497
+            ],
+            "pixelCount": 82363,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              773,
+              502,
+              381,
+              500
+            ],
+            "pixelCount": 82778,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1157,
+              504,
+              361,
+              497
+            ],
+            "pixelCount": 80337,
+            "footAnchor": [
+              292,
+              514
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "fitness-boxing-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8801020408163265
+        ],
+        "scale": 1.7374522516009616
+      },
+      "durationMs": 2650,
+      "sourceCellSize": [
+        384.0,
+        512.0
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+      "contours": {
+        "metadata": "animation/fitness-boxing-v1/regions-v1.json",
+        "commonCanvas": [
+          784,
+          784
+        ],
+        "anchorPixels": [
+          392,
+          690
+        ],
+        "sourcePixelsPreserved": 594838,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              12,
+              19,
+              374,
+              509
+            ],
+            "pixelCount": 74187,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              387,
+              27,
+              363,
+              525
+            ],
+            "pixelCount": 73806,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              785,
+              31,
+              349,
+              497
+            ],
+            "pixelCount": 72381,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1131,
+              19,
+              382,
+              519
+            ],
+            "pixelCount": 78283,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              0,
+              503,
+              423,
+              521
+            ],
+            "pixelCount": 78603,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              391,
+              490,
+              361,
+              501
+            ],
+            "pixelCount": 73247,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              831,
+              523,
+              338,
+              475
+            ],
+            "pixelCount": 72359,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1161,
+              527,
+              356,
+              473
+            ],
+            "pixelCount": 71972,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "fitness-tracksuit-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.88
+        ],
+        "scale": 1.2694606095252403
+      },
+      "durationMs": 2860,
+      "sourceCellSize": [
+        384.0,
+        512.0
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "contours": {
+        "metadata": "animation/fitness-tracksuit-v2/regions-v1.json",
+        "commonCanvas": [
+          600,
+          600
+        ],
+        "anchorPixels": [
+          300,
+          528
+        ],
+        "sourcePixelsPreserved": 680808,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              17,
+              33,
+              377,
+              499
+            ],
+            "pixelCount": 86319,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              389,
+              23,
+              395,
+              493
+            ],
+            "pixelCount": 82315,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              769,
+              17,
+              391,
+              498
+            ],
+            "pixelCount": 84525,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1163,
+              31,
+              355,
+              482
+            ],
+            "pixelCount": 81919,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              21,
+              535,
+              367,
+              469
+            ],
+            "pixelCount": 86606,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              389,
+              521,
+              403,
+              503
+            ],
+            "pixelCount": 94245,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              783,
+              515,
+              385,
+              489
+            ],
+            "pixelCount": 83580,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1159,
+              542,
+              359,
+              466
+            ],
+            "pixelCount": 81299,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "fitness-basketball-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8802281368821293
+        ],
+        "scale": 2.6076382968191103
+      },
+      "durationMs": 2680,
+      "sourceCellSize": [
+        443.5,
+        443.5
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+      "contours": {
+        "metadata": "animation/fitness-basketball-v1/regions-v1.json",
+        "commonCanvas": [
+          1052,
+          1052
+        ],
+        "anchorPixels": [
+          526,
+          926
+        ],
+        "sourcePixelsPreserved": 501608,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              29,
+              21,
+              423,
+              481
+            ],
+            "pixelCount": 60091,
+            "footAnchor": [
+              526,
+              926
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              465,
+              15,
+              420,
+              507
+            ],
+            "pixelCount": 65586,
+            "footAnchor": [
+              526,
+              926
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              886,
+              29,
+              424,
+              481
+            ],
+            "pixelCount": 63296,
+            "footAnchor": [
+              526,
+              926
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1315,
+              20,
+              435,
+              466
+            ],
+            "pixelCount": 66868,
+            "footAnchor": [
+              526,
+              926
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              27,
+              444,
+              427,
+              409
+            ],
+            "pixelCount": 59516,
+            "footAnchor": [
+              526,
+              926
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              459,
+              453,
+              428,
+              398
+            ],
+            "pixelCount": 62842,
+            "footAnchor": [
+              526,
+              926
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              912,
+              469,
+              409,
+              396
+            ],
+            "pixelCount": 61099,
+            "footAnchor": [
+              526,
+              926
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1329,
+              450,
+              415,
+              403
+            ],
+            "pixelCount": 62310,
+            "footAnchor": [
+              526,
+              926
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "fitness-cycling-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8796296296296297
+        ],
+        "scale": 1.2105015951472355
+      },
+      "durationMs": 2890,
+      "sourceCellSize": [
+        384.0,
+        512.0
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+      "contours": {
+        "metadata": "animation/fitness-cycling-v2/regions-v1.json",
+        "commonCanvas": [
+          540,
+          540
+        ],
+        "anchorPixels": [
+          270,
+          475
+        ],
+        "sourcePixelsPreserved": 644659,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              0,
+              25,
+              398,
+              503
+            ],
+            "pixelCount": 75973,
+            "footAnchor": [
+              270,
+              475
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              385,
+              25,
+              387,
+              489
+            ],
+            "pixelCount": 82932,
+            "footAnchor": [
+              270,
+              475
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              773,
+              31,
+              389,
+              493
+            ],
+            "pixelCount": 83468,
+            "footAnchor": [
+              270,
+              475
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1163,
+              33,
+              355,
+              490
+            ],
+            "pixelCount": 81937,
+            "footAnchor": [
+              270,
+              475
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              29,
+              505,
+              369,
+              503
+            ],
+            "pixelCount": 79232,
+            "footAnchor": [
+              270,
+              475
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              375,
+              538,
+              405,
+              472
+            ],
+            "pixelCount": 82275,
+            "footAnchor": [
+              270,
+              475
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              781,
+              525,
+              383,
+              483
+            ],
+            "pixelCount": 82265,
+            "footAnchor": [
+              270,
+              475
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1153,
+              515,
+              365,
+              493
+            ],
+            "pixelCount": 76577,
+            "footAnchor": [
+              270,
+              475
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "fitness-coach-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8804878048780488
+        ],
+        "scale": 1.9649393709435097
+      },
+      "durationMs": 2820,
+      "sourceCellSize": [
+        443.5,
+        443.5
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+      "contours": {
+        "metadata": "animation/fitness-coach-v2/regions-v1.json",
+        "commonCanvas": [
+          820,
+          820
+        ],
+        "anchorPixels": [
+          410,
+          722
+        ],
+        "sourcePixelsPreserved": 528460,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              43,
+              19,
+              405,
+              433
+            ],
+            "pixelCount": 67086,
+            "footAnchor": [
+              410,
+              722
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              481,
+              19,
+              406,
+              495
+            ],
+            "pixelCount": 67790,
+            "footAnchor": [
+              410,
+              722
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              902,
+              19,
+              390,
+              449
+            ],
+            "pixelCount": 63356,
+            "footAnchor": [
+              410,
+              722
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1362,
+              19,
+              376,
+              457
+            ],
+            "pixelCount": 68131,
+            "footAnchor": [
+              410,
+              722
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              43,
+              452,
+              395,
+              435
+            ],
+            "pixelCount": 64965,
+            "footAnchor": [
+              410,
+              722
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              473,
+              459,
+              414,
+              410
+            ],
+            "pixelCount": 65137,
+            "footAnchor": [
+              410,
+              722
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              888,
+              455,
+              418,
+              413
+            ],
+            "pixelCount": 66769,
+            "footAnchor": [
+              410,
+              722
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1331,
+              459,
+              423,
+              410
+            ],
+            "pixelCount": 65226,
+            "footAnchor": [
+              410,
+              722
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "fitness-martial-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803879310344828
+        ],
+        "scale": 2.3821554698124996
+      },
+      "durationMs": 3060,
+      "sourceCellSize": [
+        443.5,
+        443.5
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+      "contours": {
+        "metadata": "animation/fitness-martial-v1/regions-v1.json",
+        "commonCanvas": [
+          928,
+          928
+        ],
+        "anchorPixels": [
+          464,
+          817
+        ],
+        "sourcePixelsPreserved": 567493,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              0,
+              19,
+              486,
+              498
+            ],
+            "pixelCount": 77407,
+            "footAnchor": [
+              464,
+              817
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              444,
+              3,
+              453,
+              501
+            ],
+            "pixelCount": 77538,
+            "footAnchor": [
+              464,
+              817
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              874,
+              9,
+              483,
+              495
+            ],
+            "pixelCount": 77314,
+            "footAnchor": [
+              464,
+              817
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1325,
+              29,
+              443,
+              465
+            ],
+            "pixelCount": 61502,
+            "footAnchor": [
+              464,
+              817
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              0,
+              499,
+              468,
+              388
+            ],
+            "pixelCount": 61393,
+            "footAnchor": [
+              464,
+              817
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              440,
+              465,
+              453,
+              422
+            ],
+            "pixelCount": 64847,
+            "footAnchor": [
+              464,
+              817
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              864,
+              442,
+              501,
+              445
+            ],
+            "pixelCount": 77920,
+            "footAnchor": [
+              464,
+              817
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1329,
+              442,
+              444,
+              445
+            ],
+            "pixelCount": 69572,
+            "footAnchor": [
+              464,
+              817
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "fitness-stretch-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.88
+        ],
+        "scale": 2.4021842354567307
+      },
+      "durationMs": 3580,
+      "sourceCellSize": [
+        362.0,
+        362.0
+      ],
+      "sourceCellCount": 12,
+      "playbackFrameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "available": true,
+      "actualSha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+      "contours": {
+        "metadata": "animation/fitness-stretch-v1/regions-v1.json",
+        "commonCanvas": [
+          800,
+          800
+        ],
+        "anchorPixels": [
+          400,
+          704
+        ],
+        "sourcePixelsPreserved": 519265,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              21,
+              25,
+              345,
+              384
+            ],
+            "pixelCount": 42910,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              366,
+              17,
+              366,
+              356
+            ],
+            "pixelCount": 43829,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              697,
+              17,
+              423,
+              362
+            ],
+            "pixelCount": 45952,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1043,
+              15,
+              395,
+              359
+            ],
+            "pixelCount": 48372,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              27,
+              382,
+              353,
+              384
+            ],
+            "pixelCount": 42882,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              379,
+              349,
+              359,
+              433
+            ],
+            "pixelCount": 44259,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              725,
+              371,
+              357,
+              407
+            ],
+            "pixelCount": 42962,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1083,
+              371,
+              349,
+              367
+            ],
+            "pixelCount": 42368,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 8,
+            "sourceBounds": [
+              29,
+              740,
+              371,
+              346
+            ],
+            "pixelCount": 42947,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 9,
+            "sourceBounds": [
+              339,
+              755,
+              437,
+              315
+            ],
+            "pixelCount": 43525,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 10,
+            "sourceBounds": [
+              699,
+              753,
+              401,
+              333
+            ],
+            "pixelCount": 39828,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 11,
+            "sourceBounds": [
+              1095,
+              745,
+              337,
+              341
+            ],
+            "pixelCount": 39431,
+            "footAnchor": [
+              400,
+              704
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "fitness-kettlebell-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8803827751196173
+        ],
+        "scale": 1.8545408993070913
+      },
+      "durationMs": 2900,
+      "sourceCellSize": [
+        443.5,
+        443.5
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+      "contours": {
+        "metadata": "animation/fitness-kettlebell-v2/regions-v1.json",
+        "commonCanvas": [
+          836,
+          836
+        ],
+        "anchorPixels": [
+          418,
+          736
+        ],
+        "sourcePixelsPreserved": 500176,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              25,
+              89,
+              419,
+              429
+            ],
+            "pixelCount": 62384,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              525,
+              49,
+              364,
+              417
+            ],
+            "pixelCount": 62547,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              922,
+              23,
+              352,
+              421
+            ],
+            "pixelCount": 61073,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1368,
+              29,
+              374,
+              455
+            ],
+            "pixelCount": 61016,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              90,
+              489,
+              339,
+              344
+            ],
+            "pixelCount": 62341,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              463,
+              488,
+              366,
+              345
+            ],
+            "pixelCount": 62586,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              934,
+              463,
+              374,
+              374
+            ],
+            "pixelCount": 63901,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1404,
+              493,
+              350,
+              372
+            ],
+            "pixelCount": 64328,
+            "footAnchor": [
+              418,
+              736
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "cowboy-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8802816901408451
+        ],
+        "scale": 1.8795866037620192
+      },
+      "durationMs": 3090,
+      "sourceCellSize": [
+        384.0,
+        512.0
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+      "contours": {
+        "metadata": "animation/cowboy-v1/regions-v1.json",
+        "commonCanvas": [
+          852,
+          852
+        ],
+        "anchorPixels": [
+          426,
+          750
+        ],
+        "sourcePixelsPreserved": 647369,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              0,
+              24,
+              386,
+              530
+            ],
+            "pixelCount": 80876,
+            "footAnchor": [
+              426,
+              750
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              383,
+              19,
+              423,
+              499
+            ],
+            "pixelCount": 80511,
+            "footAnchor": [
+              426,
+              750
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              751,
+              21,
+              419,
+              503
+            ],
+            "pixelCount": 82518,
+            "footAnchor": [
+              426,
+              750
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1131,
+              43,
+              391,
+              483
+            ],
+            "pixelCount": 78106,
+            "footAnchor": [
+              426,
+              750
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              19,
+              485,
+              422,
+              539
+            ],
+            "pixelCount": 83484,
+            "footAnchor": [
+              426,
+              750
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              397,
+              481,
+              409,
+              543
+            ],
+            "pixelCount": 84453,
+            "footAnchor": [
+              426,
+              750
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              760,
+              511,
+              424,
+              513
+            ],
+            "pixelCount": 80441,
+            "footAnchor": [
+              426,
+              750
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1149,
+              503,
+              375,
+              507
+            ],
+            "pixelCount": 76980,
+            "footAnchor": [
+              426,
+              750
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "pillow-pajama-first-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8794326241134752
+        ],
+        "scale": 1.1322103344825722
+      },
+      "durationMs": 3360,
+      "sourceCellSize": [
+        384.0,
+        512.0
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+      "contours": {
+        "metadata": "animation/pillow-pajama-v1/regions-v1.json",
+        "commonCanvas": [
+          564,
+          564
+        ],
+        "anchorPixels": [
+          282,
+          496
+        ],
+        "sourcePixelsPreserved": 766495,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              38,
+              11,
+              364,
+              487
+            ],
+            "pixelCount": 91738,
+            "footAnchor": [
+              282,
+              496
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              393,
+              19,
+              407,
+              478
+            ],
+            "pixelCount": 101971,
+            "footAnchor": [
+              282,
+              496
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              793,
+              24,
+              377,
+              524
+            ],
+            "pixelCount": 101071,
+            "footAnchor": [
+              282,
+              496
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1173,
+              18,
+              335,
+              510
+            ],
+            "pixelCount": 97360,
+            "footAnchor": [
+              282,
+              496
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              0,
+              527,
+              384,
+              497
+            ],
+            "pixelCount": 97774,
+            "footAnchor": [
+              282,
+              496
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              397,
+              522,
+              385,
+              472
+            ],
+            "pixelCount": 96817,
+            "footAnchor": [
+              282,
+              496
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              801,
+              525,
+              359,
+              471
+            ],
+            "pixelCount": 89487,
+            "footAnchor": [
+              282,
+              496
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1163,
+              521,
+              357,
+              475
+            ],
+            "pixelCount": 90277,
+            "footAnchor": [
+              282,
+              496
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "boxing-timing-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.8801020408163265
+        ],
+        "scale": 1.7374522516009616
+      },
+      "durationMs": 1580,
+      "sourceCellSize": [
+        384.0,
+        512.0
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+      "contours": {
+        "metadata": "animation/fitness-boxing-v1/regions-v1.json",
+        "commonCanvas": [
+          784,
+          784
+        ],
+        "anchorPixels": [
+          392,
+          690
+        ],
+        "sourcePixelsPreserved": 594838,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              12,
+              19,
+              374,
+              509
+            ],
+            "pixelCount": 74187,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              387,
+              27,
+              363,
+              525
+            ],
+            "pixelCount": 73806,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              785,
+              31,
+              349,
+              497
+            ],
+            "pixelCount": 72381,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1131,
+              19,
+              382,
+              519
+            ],
+            "pixelCount": 78283,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              0,
+              503,
+              423,
+              521
+            ],
+            "pixelCount": 78603,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              391,
+              490,
+              361,
+              501
+            ],
+            "pixelCount": 73247,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              831,
+              523,
+              338,
+              475
+            ],
+            "pixelCount": 72359,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1161,
+              527,
+              356,
+              473
+            ],
+            "pixelCount": 71972,
+            "footAnchor": [
+              392,
+              690
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    },
+    {
+      "id": "tracksuit-timing-20261012",
+      "status": "quality-revision-required",
+      "sourceCells": [],
+      "registration": {
+        "masterId": "patrick-candidate-review-v1",
+        "anchorNormalized": [
+          0.5,
+          0.88
+        ],
+        "scale": 1.2694606095252403
+      },
+      "durationMs": 1880,
+      "sourceCellSize": [
+        384.0,
+        512.0
+      ],
+      "sourceCellCount": 8,
+      "playbackFrameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "available": true,
+      "actualSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "contours": {
+        "metadata": "animation/fitness-tracksuit-v2/regions-v1.json",
+        "commonCanvas": [
+          600,
+          600
+        ],
+        "anchorPixels": [
+          300,
+          528
+        ],
+        "sourcePixelsPreserved": 680808,
+        "sourcePixelsDuplicated": 0,
+        "frames": [
+          {
+            "index": 0,
+            "sourceBounds": [
+              17,
+              33,
+              377,
+              499
+            ],
+            "pixelCount": 86319,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 1,
+            "sourceBounds": [
+              389,
+              23,
+              395,
+              493
+            ],
+            "pixelCount": 82315,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 2,
+            "sourceBounds": [
+              769,
+              17,
+              391,
+              498
+            ],
+            "pixelCount": 84525,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 3,
+            "sourceBounds": [
+              1163,
+              31,
+              355,
+              482
+            ],
+            "pixelCount": 81919,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 4,
+            "sourceBounds": [
+              21,
+              535,
+              367,
+              469
+            ],
+            "pixelCount": 86606,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 5,
+            "sourceBounds": [
+              389,
+              521,
+              403,
+              503
+            ],
+            "pixelCount": 94245,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 6,
+            "sourceBounds": [
+              783,
+              515,
+              385,
+              489
+            ],
+            "pixelCount": 83580,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          },
+          {
+            "index": 7,
+            "sourceBounds": [
+              1159,
+              542,
+              359,
+              466
+            ],
+            "pixelCount": 81299,
+            "footAnchor": [
+              300,
+              528
+            ],
+            "sourceOuterEdgePixels128": 0
+          }
+        ],
+        "rendering": "contour-mask; fixed 1:1 pixels, integer foot registration"
+      }
+    }
+  ],
+  "plannedClipCount": 0,
+  "status": "TECHNICAL_PASS_WITH_WARNINGS",
+  "counts": {
+    "clips": 38,
+    "errors": 0,
+    "warnings": 1
+  }
+}

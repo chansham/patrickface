@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "batch": "20261012-playful",
+  "tool": "built-in image_gen",
+  "artApproval": false,
+  "referenceManifest": "animation/references/user-playful-20261012/manifest.json",
+  "attempts": [
+    {
+      "id": "cowboy-v1",
+      "type": "reference-guided-style-transfer",
+      "reference": "animation/references/user-playful-20261012/a02.jpg",
+      "requestedGrid": {
+        "columns": 4,
+        "rows": 2,
+        "frameCount": 8
+      },
+      "destination": "animation/cowboy-v1/atlas-generated.png",
+      "prompt": "Use case: style-transfer.\nAsset type: transparent 2D animation sprite atlas, exactly 8 consecutive full-body frames in a 4-column by 2-row grid, reading left to right then next row.\nInput image 1 is CLOTHING REFERENCE ONLY: the small central cowboy Patrick plush in the photo. Transform that cowboy outfit idea into clean hand-drawn 2D Patrick Star animation. Do not reproduce the screenshot, interface, text, shop, real hands, background toys, photographic texture, or plush elongated head.\nSubject: recognizably original Patrick Star, naturally broad pink starfish body and rounded belly, short feet, not a tall thin humanoid. Brown cowboy hat and open brown vest with light trim, turquoise shorts, round yellow belt buckle, bare pink feet. A small neat yellow coiled rope hangs fixed at his waist, not held or swung. Black clean outlines, simple flat cel colors, pure white sclera and black pupils; any eyelid is warm coral pink matching his skin, never purple or grey.\nAnimation narrative: a friendly polite hat-off greeting and hat-back-on. Frame 1: hat worn, calm smile, both arms relaxed. Frame 2: his screen-right arm reaches the hat brim. Frame 3: that same hand grips the brim and begins lifting. Frame 4: hat clearly off the head just above and to screen-right; same hand holds it. Frame 5: he gives a tiny friendly nod while holding the hat beside his head; eyes lively, the opposite arm remains relaxed. Frame 6: the same hand brings the same hat back above his head. Frame 7: hat settled on his head, hand still lightly touching brim. Frame 8: hand lowered, hat worn, gentle smile.\nThis must be eight genuinely redrawn consecutive poses with hand/arm/head expression changes, not eight shifted copies. Exactly one hat, two arms, two feet throughout, and hand contact is physically continuous. No new hats, changing hands, detached fingers, or duplicate props.\nComposition: one locked frontal camera and consistent character body volume and drawing scale across all eight frames. Feet remain on the same local ground baseline. Natural small projection changes for the nod only, no sudden changes in torso/head proportions. Leave generous transparent top room for the lifted hat, and wide transparent gutters between all frames. Full hat, hands, entire body and both feet fit comfortably inside each cell. Do not automatically enlarge or center each pose separately. No floor, cast shadow, vignette, glow, motion blur, panel borders, labels or numbers.\nBackground must be genuine transparent alpha, including all gutters.",
+      "status": "generated-review-pending",
+      "generatedPath": "<USER_HOME>\\.codex\\generated_images\\01a0e1eb-4817-71a0-a1e1-df6d7be40887\\exec-e8f0870c-33a7-459a-ab07-dc3e15f041ee.png",
+      "sha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaZeroFraction": 0.5884138743082682,
+      "alphaOpaqueFraction": 0,
+      "sourcePixelsUnchanged": true,
+      "artApproval": false,
+      "visualNotes": [
+        "8格有取帽與戴回姿勢，screen-right同手持帽，腰間繩圈位置持續。",
+        "初看後排頭帽輪廓似較矮；獨立人體尺規已釐清中性首末臉寬116/116、眼距33.5149/33.5149、眼足252.5/252.5，三项0%，不據全頭帽高度誤判人體縮小。",
+        "第5低頭→第6仰眼及帽子傾轉過渡跨度仍需1×覆核；中段姿勢投影不等於逐格等比例，未批准美術。"
+      ],
+      "alphaMax": 254,
+      "alphaCompositeEvidence": "output/playwright/20261012-playful-generation/cowboy-pillow-alpha-composite.png",
+      "alphaCompositeObservation": "已實看黑底 alpha 合成，生成工具預覽的彩色漸層在合成後不顯示為底色；素材仍待輪廓與正常速驗收。",
+      "visualReviewStatus": "source-look-reviewed-art-pending",
+      "independentBodyQC": "animation/production-20261012-playful/cowboy-v1-body-qc.json"
+    },
+    {
+      "id": "pillow-pajama-v1",
+      "type": "reference-guided-style-transfer",
+      "reference": "animation/references/user-playful-20261012/a08.jpg",
+      "requestedGrid": {
+        "columns": 4,
+        "rows": 2,
+        "frameCount": 8
+      },
+      "destination": "animation/pillow-pajama-v1/atlas-generated.png",
+      "prompt": "Use case: style-transfer.\nAsset type: transparent 2D animation sprite atlas, exactly 8 consecutive full-body frames in a 4-column by 2-row grid, reading left to right then next row.\nInput image 1 is CLOTHING AND MOOD REFERENCE ONLY: the central Patrick plush in green floral pajamas with a pale green pillow. Transform this outfit into clean hand-drawn 2D Patrick Star animation. Do not copy the social-media screenshot, words, play button, shelf, other toys, photographic texture or the plush long tube-like head.\nSubject: recognizably original Patrick Star, a broad round-bellied pink starfish, natural compact cartoon anatomy with short feet, not elongated or a realistic person. He wears a chartreuse/lime-green collared button pajama top and pajama shorts with large simple purple flower motifs, purple cuffs, and matching floppy sleeping cap. His pink bare feet remain visible. One soft pale mint-green rectangular pillow with subtle ruffled edge. Clean black outlines, simple flat cel colors, warm friendly sleepy mood.\nEyes: sclera pure white when visible, black pupils; both upper and lower eyelid skin is the exact warm coral pink of Patrick's face. Closed eyes are gentle curved black lines on continuous warm pink skin. Absolutely no purple, lavender, grey or pale pink band inside the eye whites.\nAnimation narrative: hugging a pillow to the cheek and back. Frame 1: pillow held horizontally at chest, both hands visibly hold the left and right lower corners, gentle smile. Frame 2: eyes glance toward the pillow and arms begin lifting it toward screen-right cheek. Frame 3: pillow raised halfway, hands retain the same corners. Frame 4: the same pillow softly touches his screen-right cheek, both eyes and most face still visible. Frame 5: eyes comfortably close with warm pink eyelids, cheek gently squishes against the pillow, content little smile. Frame 6: eyes reopen slowly, pillow still near cheek. Frame 7: both hands lower pillow toward chest. Frame 8: pillow back at chest, relaxed content smile, hands on same two corners.\nEight genuinely distinct redrawn consecutive arm, hand and facial poses. Maintain exactly one pillow and two hands in physically continuous contact; pillow may gently compress but cannot grow, vanish, become a blanket, obscure the entire face or switch hand contact. Do not illustrate whole-image translations instead of motion.\nCamera locked frontal. Same physical body volume, eye size, feet and drawing scale for all 8 frames; modest cheek/head tilt can change projection naturally without shrinking or stretching the entire character. Feet at the same local ground baseline, no hopping. All feet, cap, hands and pillow fully inside every cell with generous transparent top/bottom safety and wide gutters. Do not scale each pose separately. No floor, cast shadow, glow, vignette, blur, frames, labels, text or numbers.\nBackground must be genuine transparent alpha including gutters.",
+      "status": "generated-review-pending",
+      "generatedPath": "<USER_HOME>\\.codex\\generated_images\\01a0e1eb-4817-71a0-a1e1-df6d7be40887\\exec-8ffed004-5ae0-4e15-9f0d-fc8160a828d6.png",
+      "sha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaZeroFraction": 0.5126756032307943,
+      "alphaOpaqueFraction": 0,
+      "sourcePixelsUnchanged": true,
+      "artApproval": false,
+      "visualNotes": [
+        "8格由胸前抬枕至臉旁、閉眼、抱回，兩手均接觸同一枕頭；第5格眼皮為暖粉。",
+        "第6→7枕頭轉回水平的中間過渡較少，root獨立實看同意需真正補中間姿勢。",
+        "獨立尺規首末face136.75→138.75(+1.46%)、eye42→42、eyefoot289.5→286(−1.21%)，不足以支持初看整體縮小的猜測；不做比例矯正。"
+      ],
+      "alphaMax": 254,
+      "alphaCompositeEvidence": "output/playwright/20261012-playful-generation/cowboy-pillow-alpha-composite.png",
+      "alphaCompositeObservation": "已實看黑底 alpha 合成，生成工具預覽的彩色漸層在合成後不顯示為底色；素材仍待輪廓與正常速驗收。",
+      "visualReviewStatus": "source-look-reviewed-art-pending",
+      "independentBodyQC": "animation/production-20261012-playful/pillow-pajama-v1-body-qc.json"
+    },
+    {
+      "id": "pillow-pajama-v2",
+      "type": "targeted-continuity-revision",
+      "target": "animation/pillow-pajama-v1/atlas-generated.png",
+      "requestedGrid": {
+        "columns": 4,
+        "rows": 3,
+        "frameCount": 12
+      },
+      "destination": "animation/pillow-pajama-v2/atlas-generated.png",
+      "prompt": "Use case: precise-object-edit.\nEdit target: this existing Patrick floral-pajama animation atlas. Make one targeted animation-continuity revision: replace the abrupt return from upright cheek-hugged pillow to horizontal chest pillow with genuinely redrawn intermediate arm/hand/pillow poses.\nKeep the exact existing character design, clothing, color palette, soft mint pillow, clean 2D line style, warm coral skin, pure white sclera, coral-pink eyelids, matching green floppy sleeping cap, green/purple floral pajamas and bare feet. Do NOT redesign or shrink the body. Existing first and last body measurements were already consistent. Preserve those proportions instead of normalizing per-frame bounding boxes.\nOutput a new complete atlas of exactly 12 frames, 4 columns by 3 rows, reading order left-to-right top-to-bottom. Prefer overall 4:3 sheet aspect with equal square cells. No text or drawn grid. Increase the number of actual poses, not duplicated still frames or motion blur.\nSequence:\n1. Same relaxed frontal start, pillow horizontal at chest, two hands holding its lower left and right edges.\n2. Arms lift pillow slightly and tilt it about 15 degrees toward the screen-right cheek; eyes look at pillow.\n3. Pillow at about 35 degrees, rising; the same two hands keep their respective contact points.\n4. Pillow at about 60 degrees near cheek, both hands attached, face remains visible.\n5. Near-vertical pillow gently touches screen-right cheek, content smile.\n6. Gentle cheek lean with eyes closed, eyelid areas exactly warm coral-pink skin; no lavender eye color.\n7. Eyes reopen, pillow still touching cheek, both hands remain in place.\n8. Cheek separates from pillow a little; both arms start lowering it while the pillow remains steeply tilted.\n9. Pillow lowers to upper chest at about 55 degrees; elbows lower and each hand follows the same pillow edge.\n10. Pillow lowers farther and rotates to about 25 degrees; same left/right hand contact is visibly continuous.\n11. Pillow nearly horizontal at chest, arm positions settle.\n12. Resting horizontal pillow at chest, same neutral camera/body proportions and foot baseline as frame 1, relaxed smile.\nExactly one pillow throughout, consistent pillow dimensions except slight soft compression at cheek. Hands cannot teleport, swap sides, fuse into pillow, or multiply. The pillow does not disappear, flip front/back, become a blanket or cover the entire face.\nLocked frontal camera; maintain the same anatomy, eye size, torso volume, feet and drawing scale throughout all 12 cells. Genuine small head tilt only during cheek contact; no full-body swaying, scaling or shifting. Every cap, hand, pillow and both feet must fit fully within its cell with wide transparent gutters and safe top/bottom margins. Use the same local ground baseline in every cell, not per-pose fitting.\nGenuine transparent alpha background as in the original. No background color, lighting halo, floor, shadow, vignette, panel border, text or numbers.",
+      "status": "output-moderation-blocked-no-file",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID cf72ff28-3a99-42ac-8eaa-6a302a358456.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "outputFileExists": false,
+      "requestID": "cf72ff28-3a99-42ac-8eaa-6a302a358456"
+    }
+  ],
+  "referenceSummary": {
+    "count": 15,
+    "bytePreserved": true,
+    "visuallyReviewedCount": 15,
+    "artApproval": false
+  },
+  "currentCandidates": [
+    {
+      "id": "cowboy-v1",
+      "path": "animation/cowboy-v1/atlas-generated.png",
+      "frameCount": 8,
+      "artApproval": false
+    },
+    {
+      "id": "pillow-pajama-v1",
+      "path": "animation/pillow-pajama-v1/atlas-generated.png",
+      "frameCount": 8,
+      "artApproval": false,
+      "knownBlocker": "第6→7放低／轉枕過渡不足；12格 targeted 修稿服務攔截，無新版檔案。"
+    }
+  ]
+}

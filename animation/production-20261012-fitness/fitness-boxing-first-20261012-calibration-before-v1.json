@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "reason": "本批依主睡衣的可見臉部尺規重校；保留舊版本與評價識別，不逐格縮放。",
+  "candidate": {
+    "id": "fitness-boxing-first-20261012",
+    "title": "紫金拳擊服・認真出拳",
+    "category": "新造型待審",
+    "version": 1,
+    "batch": "20261012-fitness",
+    "reviewGroup": "scene",
+    "atlas": "animation/fitness-boxing-v1/atlas-generated.png",
+    "width": 1536,
+    "height": 1024,
+    "columns": 4,
+    "rows": 2,
+    "frameCount": 8,
+    "frameIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "durationsMs": [
+      650,
+      220,
+      200,
+      160,
+      280,
+      200,
+      240,
+      700
+    ],
+    "frameLabels": [
+      "認真準備",
+      "抬起拳套",
+      "護住臉旁",
+      "向前出拳",
+      "伸展拳臂",
+      "收回護拳",
+      "露出微笑",
+      "放下拳套"
+    ],
+    "sha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+    "anchorNormalized": [
+      0.5,
+      0.8801020408163265
+    ],
+    "masterId": "patrick-candidate-review-v1",
+    "scale": 1.3641074098687487,
+    "status": "quality-revision-required",
+    "scenes": [
+      "exercise"
+    ],
+    "triggerKinds": [
+      "manual-review"
+    ],
+    "description": "紫金拳擊背心、短褲與紅拳套，認真準備後出拳、收拳、微笑。第3→4與5→6格仍缺動作過渡，首末表情不同；新穿搭可審，動畫未完成。",
+    "frameRegions": {
+      "path": "animation/fitness-boxing-v1/regions-v1.json",
+      "sha256": "dc1a5e161289c6a2787b0123be96f2dd58c72aa4f7b83d86cada001d4b063385",
+      "version": 1
+    },
+    "renderingRevision": "fitness-20261012-v1",
+    "comparisonClipId": "raincoat-first-20261012",
+    "artApproved": false,
+    "variantGroup": "purple-gold-boxing-red-gloves",
+    "pose": "standing",
+    "newOutfit": true,
+    "scaleProvenance": {
+      "method": "首格可見臉截線115.75來源px，固定整段倍率匹配既有站姿雨衣134.05舞台px；拳套外框不作人體尺度，側轉與收拳差異保留。",
+      "sourcePixelToStagePixel": 1.1580993520518357,
+      "catalogScale": 1.3641074098687487,
+      "canvas": 784,
+      "perFrameScale": false
+    },
+    "reviewProvenance": {
+      "qc": "animation/production-20261012-fitness/fitness-boxing-first-20261012-qc.json",
+      "bodyQC": "animation/production-20261012-fitness/fitness-boxing-v1-body-qc.json",
+      "sourceFrameCount": 8,
+      "reorderingIsNotRedrawing": true
+    }
+  }
+}

@@ -33,6 +33,21 @@ SOURCES = (
 # The hash gate keeps seated support-band rules separate from the explicitly
 # reviewed running registration; unreviewed running/jumping art gets no override.
 REVIEWED_SUPPORT_POLICIES = {
+    ("animation/fitness-kettlebell-v2/atlas-generated.png",
+     "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711"): {
+        "id": "fitness-kettlebell-v2-visible-feet-20261012",
+        "kind": "reviewed-visible-feet",
+        "sourcePath": "animation/fitness-kettlebell-v2/atlas-generated.png",
+        "sourceSha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+        "sourceSize": [1774, 887],
+        "reviewedFootPoints": [
+            [[147, 423], [354, 423]], [[570, 423], [777, 423]],
+            [[1003, 423], [1212, 423]], [[1448, 423], [1657, 423]],
+            [[149, 827], [352, 828]], [[570, 828], [775, 827]],
+            [[1006, 828], [1215, 828]], [[1450, 828], [1656, 828]],
+        ],
+        "reason": "All eight pairs of visible bare feet were independently reviewed. Points use the strong-alpha foot outline, with y as its exclusive bottom edge; anatomical pink-fill measurements remain separate. The kettlebell hangs below the feet in frames 1 and 8, so the overall core bottom is not a foot baseline. Register only by integer translation from the two foot points; retain the whole prop, source masks, body pose, common canvas and one clip scale.",
+    },
     ("animation/running-v1/atlas-generated.png",
      "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4"): {
         "id": "running-first-20261006-hybrid-reviewed-support",
@@ -67,7 +82,26 @@ def apply_reviewed_support_policy(data: dict, alpha: np.ndarray, policy: dict) -
     """
     depth = policy.get("depthPixels")
     grounded = policy.get("kind") == "nominal-cell-x-reviewed-ground-y"
-    if grounded:
+    visible_feet = policy.get("kind") == "reviewed-visible-feet"
+    if visible_feet:
+        points = policy.get("reviewedFootPoints")
+        if (data.get("source", {}).get("path") != policy.get("sourcePath")
+                or data.get("source", {}).get("sha256") != policy.get("sourceSha256")
+                or policy.get("sourceSize") != [alpha.shape[1], alpha.shape[0]]
+                or not isinstance(points, list) or len(points) != len(data["frames"])):
+            raise ValueError("reviewed feet policy does not match exact source")
+        for pair in points:
+            if not isinstance(pair, list) or len(pair) != 2:
+                raise ValueError("reviewed feet require two source points")
+            for point in pair:
+                if (not isinstance(point, list) or len(point) != 2
+                        or any(isinstance(v, bool) or not isinstance(v, int) for v in point)):
+                    raise ValueError("reviewed foot point must have integer source coordinates")
+                x, bottom = point
+                if not (0 <= x < alpha.shape[1] and 1 <= bottom <= alpha.shape[0]
+                        and alpha[bottom - 1, x] >= 128):
+                    raise ValueError("reviewed foot point is outside source or has no strong alpha")
+    elif grounded:
         columns, rows = policy.get("columns"), policy.get("rows")
         valid_grid(columns, rows)
         ground = policy.get("reviewedGroundY")
@@ -83,14 +117,22 @@ def apply_reviewed_support_policy(data: dict, alpha: np.ndarray, policy: dict) -
     updates = []
     for index, frame in enumerate(data["frames"]):
         left, top, right, bottom = frame["diagnostics"]["coreBounds"]
-        if grounded:
+        if visible_feet:
+            pair = points[index]
+            for x, bottom in pair:
+                owned = any(row[0] == bottom - 1 and any(start <= x < end for start, end in zip(row[1::2], row[2::2])) for row in frame["rows"])
+                if not owned or not (left <= x < right and top < bottom <= data["source"]["height"]):
+                    raise ValueError("reviewed foot belongs to another source frame")
+            anchor = [round_positive((pair[0][0] + pair[1][0]) / 2), max(p[1] for p in pair)]
+            start = None
+        elif grounded:
             if ground[index] != bottom:
                 raise ValueError("reviewed supporting foot no longer matches the core bottom")
             anchor = [round_positive((index % columns + .5) * alpha.shape[1] / columns), ground[index]]
             start = None
         elif depth > bottom - top:
             raise ValueError("reviewed support band exceeds the character core")
-        if not grounded:
+        if not grounded and not visible_feet:
             start = bottom - depth
             support = []
             for row in frame["rows"]:
@@ -111,13 +153,15 @@ def apply_reviewed_support_policy(data: dict, alpha: np.ndarray, policy: dict) -
                 and 0 <= placement[1] <= placement[1] + h <= data["canvas"]["height"]):
             raise ValueError("reviewed anchor would exceed the unchanged common canvas")
         updates.append((frame, anchor, translation, placement, start))
-    for frame, anchor, translation, placement, start in updates:
-        if grounded:
+    for index, (frame, anchor, translation, placement, start) in enumerate(updates):
+        if grounded or visible_feet:
             frame["diagnostics"].setdefault("defaultLower15AnchorSource", frame["anchorSource"])
         frame["anchorSource"] = anchor
         frame["translation"] = translation
         frame["placement"] = placement
-        if grounded:
+        if visible_feet:
+            frame["diagnostics"]["reviewedFootPoints"] = points[index]
+        elif grounded:
             frame["diagnostics"]["reviewedGroundY"] = anchor[1]
             frame["diagnostics"]["fixedNominalCellCenterX"] = anchor[0]
         else:

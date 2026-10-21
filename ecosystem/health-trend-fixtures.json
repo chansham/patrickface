@@ -1,0 +1,3597 @@
+{
+  "schemaVersion": 1,
+  "description": "Synthetic daily aggregates only. Personal comparison is descriptive; HRV SDNN is not a stress/readiness score or Apple Recovery HRV.",
+  "rules": {
+    "minimumPriorDays": 7,
+    "maximumPriorDays": 28,
+    "freshnessHours": 36,
+    "localDayHours": [
+      22,
+      26
+    ],
+    "baseline": "median of same-source prior complete days within caller calendar cutoff",
+    "delta": "current minus median in original unit",
+    "currentDayExcluded": true,
+    "conflicts": "reject entire affected metric; never combine source/day aggregates",
+    "notPersistence": "Fixtures are synthetic; production health samples are not persisted by this core"
+  },
+  "cases": [
+    {
+      "id": "ready",
+      "title": "Seven prior distinct days form a median; current day stays out",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "building",
+      "title": "Missing days are absent rather than zero-filled",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "building",
+          "reason": "insufficientHistory",
+          "baselineCount": 3,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "stale",
+      "title": "A last observation older than 36 hours is not a current comparison",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791158400000,
+            "dayEndMS": 1791244800000,
+            "observedAtMS": 1791187200000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791072000000,
+            "dayEndMS": 1791158400000,
+            "observedAtMS": 1791100800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "stale",
+          "reason": "staleObservation",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "no-data",
+      "title": "No samples remain noData",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": []
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "source-change",
+      "title": "Another device cannot inherit the previous device baseline",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-B",
+            "sourceLabel": "Watch B"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "building",
+          "reason": "sourceChanged",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-B",
+            "sourceLabel": "Watch B"
+          },
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "duplicate-exact",
+      "title": "Repeated identical records count once",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "conflicting-day",
+      "title": "Conflicting values from the same source/day reject the metric",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 6.5,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "noData",
+          "reason": "conflictingDay",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "conflicting-source",
+      "title": "Multiple source aggregates for one day are not averaged",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-B",
+            "sourceLabel": "Watch B"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "noData",
+          "reason": "conflictingDay",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "invalid-value",
+      "title": "Sleep exceeding its actual day duration is invalid, not zero",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 24.1,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "noData",
+          "reason": "invalidPoint",
+          "baselineCount": 0,
+          "invalidPointCount": 1,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "current-excluded",
+      "title": "Six prior days plus today are still only six baseline days",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 20,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "building",
+          "reason": "insufficientHistory",
+          "baselineCount": 6,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 20,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "future-observation",
+      "title": "A future observation is rejected even if dayEnd is future",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791892800001,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "noData",
+          "reason": "invalidPoint",
+          "baselineCount": 0,
+          "invalidPointCount": 1,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "window-cutoff",
+      "title": "An older complete day is outside the explicit history cutoff",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1791244800000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791158400000,
+            "dayEndMS": 1791244800000,
+            "observedAtMS": 1791187200000,
+            "value": 1,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "partial-cutoff",
+      "title": "A partially included day cannot become a full baseline day",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1791244800000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791241200000,
+            "dayEndMS": 1791327600000,
+            "observedAtMS": 1791270000000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "building",
+          "reason": "insufficientHistory",
+          "baselineCount": 6,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "dst-23h",
+      "title": "Explicit 23-hour DST interval remains one distinct local day",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791820800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791734400000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791648000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791507600000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791561600000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791421200000,
+            "dayEndMS": 1791507600000,
+            "observedAtMS": 1791478800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791334800000,
+            "dayEndMS": 1791421200000,
+            "observedAtMS": 1791392400000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791248400000,
+            "dayEndMS": 1791334800000,
+            "observedAtMS": 1791306000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "dst-25h",
+      "title": "Explicit 25-hour DST interval remains one distinct local day",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791820800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791734400000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791648000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791500400000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791561600000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791414000000,
+            "dayEndMS": 1791500400000,
+            "observedAtMS": 1791471600000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791327600000,
+            "dayEndMS": 1791414000000,
+            "observedAtMS": 1791385200000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791241200000,
+            "dayEndMS": 1791327600000,
+            "observedAtMS": 1791298800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "overlapping-days",
+      "title": "Overlapping aggregate intervals cannot count as distinct days",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791853200000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "noData",
+          "reason": "overlappingDays",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "hrv-zero-baseline",
+      "title": "Real zero-valued HRV aggregates permit an absolute difference, not a percentage",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 15,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 15,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 0,
+          "delta": 15
+        }
+      ]
+    },
+    {
+      "id": "rhr-even-median",
+      "title": "Even-length baseline uses the midpoint median",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 50,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 51,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 52,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 53,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 55,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 56,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791158400000,
+            "dayEndMS": 1791244800000,
+            "observedAtMS": 1791187200000,
+            "value": 57,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 8,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 53.5,
+          "delta": 0.5
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "rhr-zero-invalid",
+      "title": "Zero resting heart rate is invalid rather than interpreted as health data",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "invalidPoint",
+          "baselineCount": 0,
+          "invalidPointCount": 1,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "freshness-boundary",
+      "title": "Exactly 36 hours remains fresh",
+      "input": {
+        "nowMS": 1791979200000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791849600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791849600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "invalid-window",
+      "title": "Reversed history window rejects all metric results",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1791892800001,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "noData",
+          "reason": "invalidInput",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "invalidInput",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "invalidInput",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "all-metrics",
+      "title": "Metric histories do not mix with each other",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 15,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 50,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 51,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 52,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 53,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 55,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 56,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791158400000,
+            "dayEndMS": 1791244800000,
+            "observedAtMS": 1791187200000,
+            "value": 57,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 8,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 53.5,
+          "delta": 0.5
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 15,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 0,
+          "delta": 15
+        }
+      ]
+    },
+    {
+      "id": "shuffled",
+      "title": "Query order cannot change a result",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791158400000,
+            "dayEndMS": 1791244800000,
+            "observedAtMS": 1791187200000,
+            "value": 57,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 56,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 55,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 53,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 52,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 51,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 50,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 15,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 0,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 8,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 53.5,
+          "delta": 0.5
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 15,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 0,
+          "delta": 15
+        }
+      ]
+    },
+    {
+      "id": "mixed-missing",
+      "title": "Missing HRV does not hide ready sleep and resting-heart-rate comparisons",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 50,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 51,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 52,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 53,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 55,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 56,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791158400000,
+            "dayEndMS": 1791244800000,
+            "observedAtMS": 1791187200000,
+            "value": 57,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 8,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 53.5,
+          "delta": 0.5
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "dst-late-window",
+      "title": "28 local prior days plus a late current day and fall-back can exceed 29 elapsed UTC days",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789385400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "noData",
+          "reason": "noSamples",
+          "baselineCount": 0,
+          "invalidPointCount": 0,
+          "current": null,
+          "baseline": null,
+          "delta": null
+        }
+      ]
+    },
+    {
+      "id": "presentation-ready",
+      "title": "Everyday synthetic example with all three metrics available",
+      "input": {
+        "nowMS": 1791892800000,
+        "historyStartMS": 1789430400000,
+        "points": [
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 6,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 9,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 7,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 40,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 40,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 40,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 40,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 40,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 40,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 40,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 55,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791763200000,
+            "dayEndMS": 1791849600000,
+            "observedAtMS": 1791792000000,
+            "value": 50,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791676800000,
+            "dayEndMS": 1791763200000,
+            "observedAtMS": 1791705600000,
+            "value": 51,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791590400000,
+            "dayEndMS": 1791676800000,
+            "observedAtMS": 1791619200000,
+            "value": 52,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791504000000,
+            "dayEndMS": 1791590400000,
+            "observedAtMS": 1791532800000,
+            "value": 53,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791417600000,
+            "dayEndMS": 1791504000000,
+            "observedAtMS": 1791446400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791331200000,
+            "dayEndMS": 1791417600000,
+            "observedAtMS": 1791360000000,
+            "value": 55,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791244800000,
+            "dayEndMS": 1791331200000,
+            "observedAtMS": 1791273600000,
+            "value": 56,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791158400000,
+            "dayEndMS": 1791244800000,
+            "observedAtMS": 1791187200000,
+            "value": 57,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          }
+        ]
+      },
+      "expected": [
+        {
+          "metric": "sleepHours",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "sleepHours",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 8,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 7,
+          "delta": 1
+        },
+        {
+          "metric": "restingHeartRate",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 8,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "restingHeartRate",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 54,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 53.5,
+          "delta": 0.5
+        },
+        {
+          "metric": "hrvSDNN",
+          "state": "ready",
+          "reason": "comparable",
+          "baselineCount": 7,
+          "invalidPointCount": 0,
+          "current": {
+            "metric": "hrvSDNN",
+            "dayStartMS": 1791849600000,
+            "dayEndMS": 1791936000000,
+            "observedAtMS": 1791878400000,
+            "value": 55,
+            "sourceKey": "watch-A",
+            "sourceLabel": "Watch A"
+          },
+          "baseline": 40,
+          "delta": 15
+        }
+      ]
+    }
+  ]
+}

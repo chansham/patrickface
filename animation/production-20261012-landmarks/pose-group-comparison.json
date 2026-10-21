@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "landmarksPath": "animation/production-20261012-landmarks/landmarks-reviewed.json",
+  "landmarksSha256": "cdf400a2cef54d7ca1a06568ba6d3268298258b72e017116f752770f38326bcd",
+  "limits": "相近姿勢分組不是骨架重建；眼白下緣仍受表情與注視影響，不能把全段極差直接稱為縮放錯誤。邊緣取點不確定度約2 source px；小於此級別的首末差異不作精確改善宣稱。",
+  "clips": [
+    {
+      "id": "exercise-repair-20261006",
+      "sourceSha256": "0a3fdcd7fc489fb89457b76145ce3e249f2a401c3ffc0a1a566872cb7da1627f",
+      "regionsSha256": "60b52d9cf086221cfe3f30731b3665bd657d81096b69f8392377ddfd6edf13d5",
+      "group": "坐姿、放鬆半睜眼",
+      "sourceFramesOneBased": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        14,
+        15,
+        16
+      ],
+      "metrics": {
+        "faceWidth": {
+          "first": 96.24758126831033,
+          "last": 95.25294746095804,
+          "endpointDeltaPercent": -1.0334117431788137,
+          "groupSourceValues": [
+            {
+              "sourceFrameOneBased": 1,
+              "value": 96.24758126831033
+            },
+            {
+              "sourceFrameOneBased": 6,
+              "value": 83.49968443054141
+            },
+            {
+              "sourceFrameOneBased": 7,
+              "value": 87.50870699536132
+            },
+            {
+              "sourceFrameOneBased": 8,
+              "value": 88.25203963648659
+            },
+            {
+              "sourceFrameOneBased": 9,
+              "value": 88.49865648697723
+            },
+            {
+              "sourceFrameOneBased": 11,
+              "value": 91.2491715030882
+            },
+            {
+              "sourceFrameOneBased": 12,
+              "value": 95.25250915330261
+            },
+            {
+              "sourceFrameOneBased": 14,
+              "value": 90.49862319394698
+            },
+            {
+              "sourceFrameOneBased": 15,
+              "value": 89.75164956701356
+            },
+            {
+              "sourceFrameOneBased": 16,
+              "value": 95.25294746095804
+            }
+          ],
+          "groupSpreadPercent": 15.267000018872112
+        },
+        "eyeSeparation": {
+          "first": 28.935272592460574,
+          "last": 28.935272592460574,
+          "endpointDeltaPercent": 0.0,
+          "groupSourceValues": [
+            {
+              "sourceFrameOneBased": 1,
+              "value": 28.935272592460574
+            },
+            {
+              "sourceFrameOneBased": 6,
+              "value": 27.789386463180506
+            },
+            {
+              "sourceFrameOneBased": 7,
+              "value": 28.284271247461902
+            },
+            {
+              "sourceFrameOneBased": 8,
+              "value": 28.160255680657446
+            },
+            {
+              "sourceFrameOneBased": 9,
+              "value": 28.284271247461902
+            },
+            {
+              "sourceFrameOneBased": 11,
+              "value": 28.160255680657446
+            },
+            {
+              "sourceFrameOneBased": 12,
+              "value": 28.442925306655784
+            },
+            {
+              "sourceFrameOneBased": 14,
+              "value": 28.77933286231632
+            },
+            {
+              "sourceFrameOneBased": 15,
+              "value": 28.284271247461902
+            },
+            {
+              "sourceFrameOneBased": 16,
+              "value": 28.935272592460574
+            }
+          ],
+          "groupSpreadPercent": 4.12346681636282
+        },
+        "eyeToFoot": {
+          "first": 128.5,
+          "last": 128.5,
+          "endpointDeltaPercent": 0.0,
+          "groupSourceValues": [
+            {
+              "sourceFrameOneBased": 1,
+              "value": 128.5
+            },
+            {
+              "sourceFrameOneBased": 6,
+              "value": 147.0
+            },
+            {
+              "sourceFrameOneBased": 7,
+              "value": 140.0
+            },
+            {
+              "sourceFrameOneBased": 8,
+              "value": 139.5
+            },
+            {
+              "sourceFrameOneBased": 9,
+              "value": 139.0
+            },
+            {
+              "sourceFrameOneBased": 11,
+              "value": 134.5
+            },
+            {
+              "sourceFrameOneBased": 12,
+              "value": 127.5
+            },
+            {
+              "sourceFrameOneBased": 14,
+              "value": 135.0
+            },
+            {
+              "sourceFrameOneBased": 15,
+              "value": 137.0
+            },
+            {
+              "sourceFrameOneBased": 16,
+              "value": 128.5
+            }
+          ],
+          "groupSpreadPercent": 15.294117647058814
+        }
+      }
+    },
+    {
+      "id": "running-first-20261006",
+      "sourceSha256": "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4",
+      "regionsSha256": "9e858752a4cf852e173a80a72510999e7daf64b48ea31325aa061fb82c6cc276",
+      "group": "回到接近正面、放鬆半睜眼",
+      "sourceFramesOneBased": [
+        1,
+        12,
+        14,
+        16
+      ],
+      "metrics": {
+        "faceWidth": {
+          "first": 89.49338523041799,
+          "last": 87.9993573840173,
+          "endpointDeltaPercent": -1.6694282404828287,
+          "groupSourceValues": [
+            {
+              "sourceFrameOneBased": 1,
+              "value": 89.49338523041799
+            },
+            {
+              "sourceFrameOneBased": 12,
+              "value": 87.99935965676116
+            },
+            {
+              "sourceFrameOneBased": 14,
+              "value": 89.00245221340815
+            },
+            {
+              "sourceFrameOneBased": 16,
+              "value": 87.9993573840173
+            }
+          ],
+          "groupSpreadPercent": 1.69777131426192
+        },
+        "eyeSeparation": {
+          "first": 25.675864152935535,
+          "last": 26.575364531836623,
+          "endpointDeltaPercent": 3.503291548604981,
+          "groupSourceValues": [
+            {
+              "sourceFrameOneBased": 1,
+              "value": 25.675864152935535
+            },
+            {
+              "sourceFrameOneBased": 12,
+              "value": 25.578311124857326
+            },
+            {
+              "sourceFrameOneBased": 14,
+              "value": 26.076809620810597
+            },
+            {
+              "sourceFrameOneBased": 16,
+              "value": 26.575364531836623
+            }
+          ],
+          "groupSpreadPercent": 3.898042377044786
+        },
+        "eyeToFoot": {
+          "first": null,
+          "last": null,
+          "endpointDeltaPercent": null,
+          "groupSourceValues": [],
+          "groupSpreadPercent": null
+        }
+      }
+    },
+    {
+      "id": "charging-cozy-20261007",
+      "sourceSha256": "993feacbb4e57dc9acd393be690e3f96321bf543921c2ccb5b971cd617fae194",
+      "regionsSha256": "10bc3295dcb15b327365c1c0985e14d0da0c1a798a35822551e1da5074541e74",
+      "group": "接近相同傾角，排除傾頭及被電池遮臉",
+      "sourceFramesOneBased": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "metrics": {
+        "faceWidth": {
+          "first": 121.25123092158694,
+          "last": 120.99973305755677,
+          "endpointDeltaPercent": -0.20741881308636856,
+          "groupSourceValues": [
+            {
+              "sourceFrameOneBased": 1,
+              "value": 121.25123092158694
+            },
+            {
+              "sourceFrameOneBased": 2,
+              "value": 122.49989265301414
+            },
+            {
+              "sourceFrameOneBased": 3,
+              "value": 120.2530203362893
+            },
+            {
+              "sourceFrameOneBased": 4,
+              "value": 117.74400197037639
+            },
+            {
+              "sourceFrameOneBased": 5,
+              "value": 121.25123092158692
+            },
+            {
+              "sourceFrameOneBased": 6,
+              "value": 119.74525042773094
+            },
+            {
+              "sourceFrameOneBased": 10,
+              "value": 122.24507065726617
+            },
+            {
+              "sourceFrameOneBased": 11,
+              "value": 122.24944212551647
+            },
+            {
+              "sourceFrameOneBased": 12,
+              "value": 120.99973305755677
+            }
+          ],
+          "groupSpreadPercent": 4.039178729320159
+        },
+        "eyeSeparation": {
+          "first": 35.20298282816387,
+          "last": 35.6931365951495,
+          "endpointDeltaPercent": 1.3923643044062795,
+          "groupSourceValues": [
+            {
+              "sourceFrameOneBased": 1,
+              "value": 35.20298282816387
+            },
+            {
+              "sourceFrameOneBased": 2,
+              "value": 35.510561809129406
+            },
+            {
+              "sourceFrameOneBased": 3,
+              "value": 35.20298282816387
+            },
+            {
+              "sourceFrameOneBased": 4,
+              "value": 35.415392133929565
+            },
+            {
+              "sourceFrameOneBased": 5,
+              "value": 35.20298282816387
+            },
+            {
+              "sourceFrameOneBased": 6,
+              "value": 35.415392133929565
+            },
+            {
+              "sourceFrameOneBased": 10,
+              "value": 35.6931365951495
+            },
+            {
+              "sourceFrameOneBased": 11,
+              "value": 35.20298282816387
+            },
+            {
+              "sourceFrameOneBased": 12,
+              "value": 35.6931365951495
+            }
+          ],
+          "groupSpreadPercent": 1.3923643044062795
+        },
+        "eyeToFoot": {
+          "first": null,
+          "last": null,
+          "endpointDeltaPercent": null,
+          "groupSourceValues": [],
+          "groupSpreadPercent": null
+        }
+      }
+    }
+  ]
+}

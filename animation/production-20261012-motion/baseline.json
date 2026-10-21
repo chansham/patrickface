@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-12",
+  "mainCatalogSha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+  "candidateCount": 36,
+  "candidateFrames": 392,
+  "previousCandidates": [
+    {
+      "id": "candidate-yawn16",
+      "canonicalSha256": "b5be4a8859fae680599fff9fa5289ff6643f3cab5e7184efd776185051ab466a"
+    },
+    {
+      "id": "focus-candidate",
+      "canonicalSha256": "96f0e8973d849d392d84fe76b56cd6d6b2005e23d201db145347212afe90d947"
+    },
+    {
+      "id": "celebrate-candidate",
+      "canonicalSha256": "e49b99faec6494e5218e41dd5734a3e737811226da95ce1ff21e6dd82d0f4936"
+    },
+    {
+      "id": "bath-candidate",
+      "canonicalSha256": "082b7eb7387e07810344f885ca1cbedfc77c00611557402492cbc66367c0316a"
+    },
+    {
+      "id": "wake-candidate",
+      "canonicalSha256": "021d3efda42f8123918c5eaf126412fab0f95992675bb3d98131f98895393653"
+    },
+    {
+      "id": "blink-batch2-candidate",
+      "canonicalSha256": "8c1f52f1063cace258e665cb150aed947fe9580933bb724fa13823cf416a62cd"
+    },
+    {
+      "id": "pet-batch2-candidate",
+      "canonicalSha256": "b2c3af6f43c003339637f8ca42bae12fc9cd79e7fdb7b23fe7af204a127bdcd1"
+    },
+    {
+      "id": "charging-batch2-candidate",
+      "canonicalSha256": "cc33ec7edc05ca08c192a72455e9d5ee0b575d8caa3509f63c3b89e656944e12"
+    },
+    {
+      "id": "exercise-batch2-candidate",
+      "canonicalSha256": "662e8f0b273e185d2056bfc9590eb6f975343d339e8ba8d75e13b0d1d68a2901"
+    },
+    {
+      "id": "mint-pajama-batch2-candidate",
+      "canonicalSha256": "d4a074ed22b2e3f8a1cf1a76fa17148a101753ad988fb9ffbbc5bf4763d95a5f"
+    },
+    {
+      "id": "moon-robe-batch2-candidate",
+      "canonicalSha256": "739742ea0975f4fde0d39721884a443e7ecc666c4f305ad23ae6d4919f4e04c2"
+    },
+    {
+      "id": "charging-space-batch3-candidate",
+      "canonicalSha256": "e1a6e585f2bcdabee1cbe17466213104b6a8b14a49b56a306a617c914a249424"
+    },
+    {
+      "id": "feeding-chef-batch3-candidate",
+      "canonicalSha256": "d2da7d2a1a4980cbf25729b3085dd7b459b9665d05901ad935e576423c3332db"
+    },
+    {
+      "id": "detective-20261005-candidate",
+      "canonicalSha256": "29725f45a8ee2bdcd402e4a0e26300708f99bb23bf99b3b04646801f0e9b952c"
+    },
+    {
+      "id": "focus-repair-20261006",
+      "canonicalSha256": "9a4107b0ec938a9814d561d27d45b86f029c4c2fc6f11bdfe35dfa8472ecd7ba"
+    },
+    {
+      "id": "chef-repair-20261006",
+      "canonicalSha256": "ee90f601032b2b05e16945291c9e4cf6821ecaaf652439ce5d066ecf23aa680e"
+    },
+    {
+      "id": "exercise-repair-20261006",
+      "canonicalSha256": "a78acc059c5a4c82a571626e0e38a1c56ef3b07e33c88f15e0a123857e6eaf50"
+    },
+    {
+      "id": "focus-followup-20261006",
+      "canonicalSha256": "1c38fbaf913a4dfd3684d18b77f58d17b2746c3493834741bff4699b55be751f"
+    },
+    {
+      "id": "running-first-20261006",
+      "canonicalSha256": "d4723827db2ef48d216a3745f5bb4b312a8934fced4710c17033b74f8e90db36"
+    },
+    {
+      "id": "chef-cookie-repair-20261007",
+      "canonicalSha256": "0e351026163db3856132798e36b6d1e2962eee7ee3318c7899359c9710dce672"
+    },
+    {
+      "id": "focus-transition-repair-20261007",
+      "canonicalSha256": "a6471fec1e7012b726c768e92dff4742499e2b1c036bd19363d30947b97a1f8a"
+    },
+    {
+      "id": "charging-cozy-20261007",
+      "canonicalSha256": "b0a4c45e8a0c4584beb47ea57b786a80d5f4bbee3b5c5e9cede3cc7706a1f86d"
+    },
+    {
+      "id": "raincoat-first-20261012",
+      "canonicalSha256": "88934ea2f6c67307a108de1636c968330e0fe4fe487223b9f3f68d9778d62234"
+    },
+    {
+      "id": "raincoat-seated-20261012",
+      "canonicalSha256": "26bc292598e1bb21cf6f9b5530d76fbb0cfbd7725f0dcbc605fd29f7c8b7758b"
+    },
+    {
+      "id": "raincoat-smooth-20261012",
+      "canonicalSha256": "7737442b886fb45d4226d353b0a5187896c6dbab2663737d375be85521ef6f7a"
+    },
+    {
+      "id": "sport-towel-first-20261012",
+      "canonicalSha256": "13f34bb2ee3163dd4371478b4c03df6c5095ea7c20e055a075860e19c6d327b0"
+    },
+    {
+      "id": "fitness-boxing-first-20261012",
+      "canonicalSha256": "33d6136e8d48cb90cd86caee86627b4500c795d771181cfccadf50df80a88084"
+    },
+    {
+      "id": "fitness-tracksuit-first-20261012",
+      "canonicalSha256": "458c6199a964bb108ff1cebe21791f65890d61dc8fcbed9fdb967acc7d421c6e"
+    },
+    {
+      "id": "fitness-basketball-first-20261012",
+      "canonicalSha256": "df3a4553cec9aa530c1315e0a3874ff368a59c5ecc8b82664d74c49555d7c61e"
+    },
+    {
+      "id": "fitness-cycling-first-20261012",
+      "canonicalSha256": "39d4f5aebb5645533deff95654747f29e6c8e60c01205600f924b032cef3c51e"
+    },
+    {
+      "id": "fitness-coach-first-20261012",
+      "canonicalSha256": "044a036b86a62071cfc85a4bf18c2d94cdf0295db27373861918b834984425ac"
+    },
+    {
+      "id": "fitness-martial-first-20261012",
+      "canonicalSha256": "5dba7b4b03639a72dc39217e4bd62a2c19a9659ea5150b5274a92df2de863061"
+    },
+    {
+      "id": "fitness-stretch-first-20261012",
+      "canonicalSha256": "27bfafa886f5beb2039c65b7a86a4d6a3ccb875e75e3b5bc1667db66a6cc0f70"
+    },
+    {
+      "id": "fitness-kettlebell-first-20261012",
+      "canonicalSha256": "8af5da7ca73f2b76d0d04ffa9d60fb0dc6ea371a5c306a258ef2a289276ecde0"
+    },
+    {
+      "id": "cowboy-first-20261012",
+      "canonicalSha256": "bb8318162f96f95a1dd64e5bbb04e8684eaa8008e8e4030626bb901da0870803"
+    },
+    {
+      "id": "pillow-pajama-first-20261012",
+      "canonicalSha256": "aae1642fcbfe175fe8190f4dba28864c9739271a0548b769f42524ca16db3fc1"
+    }
+  ]
+}

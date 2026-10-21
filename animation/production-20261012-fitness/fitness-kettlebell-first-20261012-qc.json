@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "fitness-kettlebell-first-20261012",
+  "source": {
+    "path": "animation/fitness-kettlebell-v2/atlas-generated.png",
+    "sha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+    "width": 1774,
+    "height": 887
+  },
+  "regions": {
+    "path": "animation/fitness-kettlebell-v2/regions-v1.json",
+    "sha256": "e6632b92207b3857ebd4618c17bd5c9609814f88d237903a863870249ac87548"
+  },
+  "canvas": {
+    "width": 836,
+    "height": 836,
+    "anchorPixels": [
+      418,
+      736
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8803827751196173
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 8,
+  "coverage": {
+    "assignedPixels": 500176,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 1073362,
+    "alphaOnePixels": 13191,
+    "edgeNonzeroPixels": 0,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 0,
+    "detachedComponents": 423
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        25,
+        89,
+        419,
+        429
+      ],
+      "coreBounds": [
+        123,
+        92,
+        378,
+        430
+      ],
+      "anchorSource": [
+        251,
+        423
+      ],
+      "translation": [
+        167,
+        313
+      ],
+      "placement": [
+        192,
+        402
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        525,
+        49,
+        364,
+        417
+      ],
+      "coreBounds": [
+        544,
+        92,
+        802,
+        423
+      ],
+      "anchorSource": [
+        674,
+        423
+      ],
+      "translation": [
+        -256,
+        313
+      ],
+      "placement": [
+        269,
+        362
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        922,
+        23,
+        352,
+        421
+      ],
+      "coreBounds": [
+        978,
+        92,
+        1237,
+        423
+      ],
+      "anchorSource": [
+        1108,
+        423
+      ],
+      "translation": [
+        -690,
+        313
+      ],
+      "placement": [
+        232,
+        336
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1368,
+        29,
+        374,
+        455
+      ],
+      "coreBounds": [
+        1423,
+        92,
+        1682,
+        423
+      ],
+      "anchorSource": [
+        1553,
+        423
+      ],
+      "translation": [
+        -1135,
+        313
+      ],
+      "placement": [
+        233,
+        342
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        90,
+        489,
+        339,
+        344
+      ],
+      "coreBounds": [
+        121,
+        492,
+        384,
+        828
+      ],
+      "anchorSource": [
+        251,
+        828
+      ],
+      "translation": [
+        167,
+        -92
+      ],
+      "placement": [
+        257,
+        397
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        463,
+        488,
+        366,
+        345
+      ],
+      "coreBounds": [
+        541,
+        492,
+        804,
+        828
+      ],
+      "anchorSource": [
+        673,
+        828
+      ],
+      "translation": [
+        -255,
+        -92
+      ],
+      "placement": [
+        208,
+        396
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        934,
+        463,
+        374,
+        374
+      ],
+      "coreBounds": [
+        981,
+        493,
+        1240,
+        828
+      ],
+      "anchorSource": [
+        1111,
+        828
+      ],
+      "translation": [
+        -693,
+        -92
+      ],
+      "placement": [
+        241,
+        371
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1404,
+        493,
+        350,
+        372
+      ],
+      "coreBounds": [
+        1425,
+        497,
+        1682,
+        838
+      ],
+      "anchorSource": [
+        1553,
+        828
+      ],
+      "translation": [
+        -1135,
+        -92
+      ],
+      "placement": [
+        269,
+        401
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "alignmentMethod": "依獨立覆核8格雙裸腳的strong-alpha支撐點釘path+SHA政策。只作整數平移，保留身體姿勢、全部壺鈴及共同836畫布；不把低垂壺鈴當足底，不逐格縮放。",
+    "findings": [
+      {
+        "sourceFrames": [
+          2,
+          3,
+          4
+        ],
+        "message": "眼白內有粉紫帶，修色请求未產生圖；必須重畫眼睛。"
+      },
+      {
+        "sourceFrames": [
+          1,
+          8
+        ],
+        "message": "壺鈴低於裸腳底；使用真腳落位保留完整壺鈴，地面接觸美術仍待調整。"
+      },
+      {
+        "sourceFrames": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "message": "抬鈴高度轉換仍跳，需補充實際過渡原畫。"
+      }
+    ]
+  },
+  "bodyMeasurementReport": "animation/production-20261012-fitness/fitness-kettlebell-v2-body-qc.json",
+  "status": "candidate-ready"
+}

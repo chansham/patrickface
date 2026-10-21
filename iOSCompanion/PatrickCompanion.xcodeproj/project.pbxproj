@@ -51,6 +51,10 @@
 		7057479EBDD0862784419424 /* PatrickAutomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848DA14948C2FC07B1511C3 /* PatrickAutomation.swift */; };
 		CE6C6D943AE94C3F848DFE03 /* PatrickSettingsMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C6D943AE94C3F848DFE04 /* PatrickSettingsMerge.swift */; };
 		660B08A6CDDCD6C0EC22C694 /* PatrickAutomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848DA14948C2FC07B1511C3 /* PatrickAutomation.swift */; };
+		0B645A59D806CBFE75FBB843 /* PatrickRoutineRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED8323EBA7A5F7531BD09 /* PatrickRoutineRun.swift */; };
+		8BD4421F2F09E0EEBB67678A /* PatrickWatchStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B46250C00DAC18629571F5 /* PatrickWatchStatus.swift */; };
+		21BE2DA22DE4D36EBB4FBCD4 /* PatrickRoutineIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B8377291D2BA6536C5D875 /* PatrickRoutineIntents.swift */; };
+		5F0526B1F9D56CE264583892 /* PatrickRoutineHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F4E330880C4E5820310E77 /* PatrickRoutineHistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +163,10 @@
 		F61E4BD1F7B4E139AFBEF425 /* PatrickClockArtwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickClockArtwork.swift"; sourceTree = SOURCE_ROOT; };
 		5848DA14948C2FC07B1511C3 /* PatrickAutomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickAutomation.swift"; sourceTree = SOURCE_ROOT; };
 		CE6C6D943AE94C3F848DFE04 /* PatrickSettingsMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickSettingsMerge.swift"; sourceTree = SOURCE_ROOT; };
+		2C5ED8323EBA7A5F7531BD09 /* PatrickRoutineRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickRoutineRun.swift"; sourceTree = SOURCE_ROOT; };
+		23B46250C00DAC18629571F5 /* PatrickWatchStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickWatchStatus.swift"; sourceTree = SOURCE_ROOT; };
+		A6B8377291D2BA6536C5D875 /* PatrickRoutineIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatrickCompanion/PatrickRoutineIntents.swift"; sourceTree = SOURCE_ROOT; };
+		B8F4E330880C4E5820310E77 /* PatrickRoutineHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatrickCompanion/PatrickRoutineHistoryView.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +214,8 @@
 		C00000000000000000000021 /* PatrickCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				B8F4E330880C4E5820310E77 /* PatrickRoutineHistoryView.swift */,
+				A6B8377291D2BA6536C5D875 /* PatrickRoutineIntents.swift */,
 				C00000000000000000000110 /* PatrickCompanionApp.swift */,
 				C00000000000000000000111 /* AppModel.swift */,
 				C00000000000000000000112 /* RootView.swift */,
@@ -237,6 +247,8 @@
 		C00000000000000000000023 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				23B46250C00DAC18629571F5 /* PatrickWatchStatus.swift */,
+				2C5ED8323EBA7A5F7531BD09 /* PatrickRoutineRun.swift */,
 				F61E4BD1F7B4E139AFBEF425 /* PatrickClockArtwork.swift */,
 				F6DFE881D2E8F44FC8BB8BAC /* Experience */,
 				F69EF6BB897261BE75DAF869 /* Animation */,
@@ -483,6 +495,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0526B1F9D56CE264583892 /* PatrickRoutineHistoryView.swift in Sources */,
+				21BE2DA22DE4D36EBB4FBCD4 /* PatrickRoutineIntents.swift in Sources */,
+				8BD4421F2F09E0EEBB67678A /* PatrickWatchStatus.swift in Sources */,
+				0B645A59D806CBFE75FBB843 /* PatrickRoutineRun.swift in Sources */,
 				F7EB608A30DD483F788EA333 /* PatrickClockArtwork.swift in Sources */,
 				F7B8FECC84C5B501AA58E094 /* PatrickPhoneExperienceView.swift in Sources */,
 				F71ED08E3FAAABD8AD09D9F5 /* PatrickAnimationPlayer.swift in Sources */,

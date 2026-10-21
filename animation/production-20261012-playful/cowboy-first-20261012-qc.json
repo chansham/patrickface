@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "cowboy-first-20261012",
+  "source": {
+    "path": "animation/cowboy-v1/atlas-generated.png",
+    "sha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/cowboy-v1/regions-v1.json",
+    "sha256": "5f6e8bef69db8321ed6107504e96a396af95866bafbb7264f8cbba2eab63cea4"
+  },
+  "canvas": {
+    "width": 852,
+    "height": 852,
+    "anchorPixels": [
+      426,
+      750
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8802816901408451
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 8,
+  "coverage": {
+    "assignedPixels": 647369,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 925495,
+    "alphaOnePixels": 51920,
+    "edgeNonzeroPixels": 55,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 1,
+    "detachedComponents": 4566
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        0,
+        24,
+        386,
+        530
+      ],
+      "coreBounds": [
+        38,
+        47,
+        329,
+        464
+      ],
+      "anchorSource": [
+        173,
+        464
+      ],
+      "translation": [
+        253,
+        286
+      ],
+      "placement": [
+        253,
+        310
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        383,
+        19,
+        423,
+        499
+      ],
+      "coreBounds": [
+        438,
+        53,
+        728,
+        465
+      ],
+      "anchorSource": [
+        574,
+        465
+      ],
+      "translation": [
+        -148,
+        285
+      ],
+      "placement": [
+        235,
+        304
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        751,
+        21,
+        419,
+        503
+      ],
+      "coreBounds": [
+        806,
+        33,
+        1086,
+        464
+      ],
+      "anchorSource": [
+        942,
+        464
+      ],
+      "translation": [
+        -516,
+        286
+      ],
+      "placement": [
+        235,
+        307
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1131,
+        43,
+        391,
+        483
+      ],
+      "coreBounds": [
+        1194,
+        47,
+        1502,
+        464
+      ],
+      "anchorSource": [
+        1330,
+        464
+      ],
+      "translation": [
+        -904,
+        286
+      ],
+      "placement": [
+        227,
+        329
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        19,
+        485,
+        422,
+        539
+      ],
+      "coreBounds": [
+        40,
+        570,
+        357,
+        961
+      ],
+      "anchorSource": [
+        174,
+        961
+      ],
+      "translation": [
+        252,
+        -211
+      ],
+      "placement": [
+        271,
+        274
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        397,
+        481,
+        409,
+        543
+      ],
+      "coreBounds": [
+        441,
+        520,
+        721,
+        961
+      ],
+      "anchorSource": [
+        577,
+        961
+      ],
+      "translation": [
+        -151,
+        -211
+      ],
+      "placement": [
+        246,
+        270
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        760,
+        511,
+        424,
+        513
+      ],
+      "coreBounds": [
+        819,
+        553,
+        1102,
+        962
+      ],
+      "anchorSource": [
+        956,
+        962
+      ],
+      "translation": [
+        -530,
+        -212
+      ],
+      "placement": [
+        230,
+        299
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1149,
+        503,
+        375,
+        507
+      ],
+      "coreBounds": [
+        1202,
+        557,
+        1493,
+        962
+      ],
+      "anchorSource": [
+        1337,
+        962
+      ],
+      "translation": [
+        -911,
+        -212
+      ],
+      "placement": [
+        238,
+        291
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "findings": [
+      {
+        "sourceFrames": [
+          4,
+          5,
+          6
+        ],
+        "message": "拿帽、低頭、仰眼回戴仍有姿勢跳換，需補原畫過渡。"
+      },
+      {
+        "sourceFrames": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "message": "後排頭高與姿勢投影不同，人體比例獨立量測，不能逐格fit抹掉。"
+      }
+    ],
+    "alignmentMethod": "8格裸腳完整且支撐可見；保留下15%雙腳中心、逐格整數平移，不因拿高牛仔帽而改人物倍率。"
+  },
+  "bodyMeasurementReport": "animation/production-20261012-playful/cowboy-v1-body-qc.json",
+  "status": "candidate-ready"
+}

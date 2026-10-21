@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-13",
+  "tool": "built-in image_gen",
+  "calls": [
+    {
+      "intent": "12-frame drinking redraw",
+      "prompt": "drink-prompt.txt",
+      "inputReference": "animation/fitness-drink-v2/atlas-generated.png",
+      "status": "produced-but-unusable",
+      "output": "animation/fitness-drink-v3/atlas-generated.png",
+      "sha256": "64be2a39a631ee0212fe72e1427e3f17b7ea894f406b6b2f536557a57b799a03",
+      "sourceFrames": 12,
+      "acceptedFrames": 0,
+      "reason": "Bottle and wristband change hands at frames 7-9; not integrated or offered for playback."
+    },
+    {
+      "intent": "targeted same-hand continuity correction",
+      "prompt": "drink-fix-prompt.txt",
+      "inputReference": "animation/fitness-drink-v3/atlas-generated.png",
+      "status": "rejected-no-output",
+      "requestID": "f7ff932f-0908-4055-8a06-2914e5dbb6fa",
+      "errorCode": "moderation_blocked",
+      "stage": "output",
+      "output": null
+    }
+  ],
+  "generatedSheets": 1,
+  "generatedSourceFrames": 12,
+  "integratedNewFrames": 0,
+  "artApproved": false,
+  "fallbackUsed": false
+}

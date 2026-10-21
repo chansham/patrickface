@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "martial-inbetweens-20261012",
+  "source": {
+    "path": "animation/fitness-martial-v2/atlas-generated.png",
+    "sha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+    "width": 1983,
+    "height": 793
+  },
+  "regions": {
+    "path": "animation/fitness-martial-v2/regions-v1.json",
+    "sha256": "a24c56842ce645dbb987f24ac90b644efc1cdac1328d239aefc51bf41b80e372"
+  },
+  "canvas": {
+    "width": 700,
+    "height": 700,
+    "anchorPixels": [
+      350,
+      616
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.88
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 10,
+  "coverage": {
+    "assignedPixels": 504503,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 1068016,
+    "alphaOnePixels": 34086,
+    "edgeNonzeroPixels": 89,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 1,
+    "detachedComponents": 4013
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        25,
+        28,
+        392,
+        403
+      ],
+      "coreBounds": [
+        98,
+        32,
+        335,
+        375
+      ],
+      "anchorSource": [
+        217,
+        375
+      ],
+      "translation": [
+        133,
+        241
+      ],
+      "placement": [
+        158,
+        269
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        418,
+        9,
+        390,
+        428
+      ],
+      "coreBounds": [
+        500,
+        47,
+        738,
+        375
+      ],
+      "anchorSource": [
+        619,
+        375
+      ],
+      "translation": [
+        -269,
+        241
+      ],
+      "placement": [
+        149,
+        250
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        805,
+        29,
+        383,
+        408
+      ],
+      "coreBounds": [
+        876,
+        80,
+        1106,
+        375
+      ],
+      "anchorSource": [
+        990,
+        375
+      ],
+      "translation": [
+        -640,
+        241
+      ],
+      "placement": [
+        165,
+        270
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1186,
+        33,
+        392,
+        414
+      ],
+      "coreBounds": [
+        1268,
+        97,
+        1498,
+        375
+      ],
+      "anchorSource": [
+        1382,
+        375
+      ],
+      "translation": [
+        -1032,
+        241
+      ],
+      "placement": [
+        154,
+        274
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        1577,
+        78,
+        390,
+        359
+      ],
+      "coreBounds": [
+        1655,
+        136,
+        1885,
+        375
+      ],
+      "anchorSource": [
+        1771,
+        375
+      ],
+      "translation": [
+        -1421,
+        241
+      ],
+      "placement": [
+        156,
+        319
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        0,
+        424,
+        421,
+        369
+      ],
+      "coreBounds": [
+        95,
+        468,
+        337,
+        745
+      ],
+      "anchorSource": [
+        216,
+        745
+      ],
+      "translation": [
+        134,
+        -129
+      ],
+      "placement": [
+        134,
+        295
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        416,
+        424,
+        392,
+        369
+      ],
+      "coreBounds": [
+        495,
+        435,
+        739,
+        745
+      ],
+      "anchorSource": [
+        618,
+        745
+      ],
+      "translation": [
+        -268,
+        -129
+      ],
+      "placement": [
+        148,
+        295
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        807,
+        406,
+        392,
+        387
+      ],
+      "coreBounds": [
+        874,
+        436,
+        1115,
+        745
+      ],
+      "anchorSource": [
+        994,
+        745
+      ],
+      "translation": [
+        -644,
+        -129
+      ],
+      "placement": [
+        163,
+        277
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 9,
+      "sourceBounds": [
+        1184,
+        403,
+        398,
+        378
+      ],
+      "coreBounds": [
+        1261,
+        409,
+        1500,
+        746
+      ],
+      "anchorSource": [
+        1381,
+        746
+      ],
+      "translation": [
+        -1031,
+        -130
+      ],
+      "placement": [
+        153,
+        273
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 10,
+      "sourceBounds": [
+        1576,
+        404,
+        393,
+        389
+      ],
+      "coreBounds": [
+        1651,
+        409,
+        1893,
+        746
+      ],
+      "anchorSource": [
+        1773,
+        746
+      ],
+      "translation": [
+        -1423,
+        -130
+      ],
+      "placement": [
+        153,
+        274
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "findings": [
+      {
+        "sourceFrames": [
+          5,
+          6,
+          7
+        ],
+        "message": "第6格有從最深鞠躬抬起頭肩的實畫姿勢；完整輪廓高度的回升分成38與33來源像素，這只描述姿勢，不當成身形量尺。"
+      },
+      {
+        "sourceFrames": [
+          7,
+          8,
+          9
+        ],
+        "message": "7/8頭肩姿勢仍接近，8→9回正幅度較大，補畫尚未完全解決起身停頓與跳換。"
+      },
+      {
+        "sourceFrames": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "message": "白道服、黑腰帶、紅星與兩裸腳完整；黑白實際合成未見強不透明碎屑，alpha1散點原樣保留。"
+      }
+    ],
+    "alignmentMethod": "10格實看雙裸腳支撐，下15%支撐中心只作整數平移；鞠躬的頭肩下降保持原姿態，不逐格縮放或以軀幹高度自動fit。"
+  },
+  "bodyMeasurementReport": "animation/production-20261012-inbetweens/fitness-martial-v2-body-qc.json",
+  "status": "candidate-ready"
+}

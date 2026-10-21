@@ -1,0 +1,29 @@
+{
+  "asset": "fitness-basketball-v1",
+  "clipID": "fitness-basketball-first-20261012",
+  "newOutfit": true,
+  "source": {"path": "animation/fitness-basketball-v1/atlas-generated.png", "sha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721", "width": 1774, "height": 887},
+  "regions": {"path": "animation/fitness-basketball-v1/regions-v1.json", "sha256": "ecbdd36fc84bb27c2a45b7f3edc7b42ba1f764faf5df6dfceac819355b21b86d"},
+  "standingComparisonSourceFrame": 1,
+  "standingComparisonBasis": "來源1正面站姿，球低於臉，兩隻真裸腳可見；眼足／臉截面與原雨衣站姿比較，衣服遮住骨架不得稱全身等大。",
+  "frames": [
+    {"sourceFrame":1,"eyeROI":[190,120,280,202],"footROI":[130,355,345,425]},
+    {"sourceFrame":2,"eyeROI":[620,134,710,216],"footROI":[565,355,775,425],"measurementCaveat":"低頭半睜眼仍有完整白眼白下緣，但眼足距受低頭姿勢影響，不當人體忽然縮短。"},
+    {"sourceFrame":3,"eyeROI":[1055,120,1140,201],"footROI":[1000,355,1210,425]},
+    {"sourceFrame":4,"eyeROI":[1485,120,1575,201],"footROI":[1430,355,1650,425]},
+    {"sourceFrame":5,"eyeROI":[188,548,283,625],"footROI":[130,795,345,865]},
+    {"sourceFrame":6,"eyeROI":[620,550,710,638],"footROI":[565,795,775,865]},
+    {"sourceFrame":7,"eyeROI":[1055,563,1140,639],"footROI":[1000,795,1210,865],"measurementCaveat":"低頭半睜眼，眼下緣位置受動作影響，不能以單一格眼足距當完整身高。"},
+    {"sourceFrame":8,"eyeROI":[1485,548,1585,639],"footROI":[1430,795,1650,865]}
+  ],
+  "limitations": [
+    "新原圖1774×887，8格各自重新選絕對座標，不使用1536×1024運動稿的格尺寸或眼座標。",
+    "頭帶、球、手環、衣服外框與大片透明碎屑不作人體大小；只量可見臉、眼白下緣和裸腳填色基線。",
+    "來源2/7低頭與半睜眼影響姿勢代理，數字變化不等於全人物縮放。"
+  ],
+  "visualFindings": [
+    {"sourceFrames":[1,2,3,4,5,6,7,8],"message":"雙手保持持球，球由腰間抬至胸前再放低；目前是抱球動作，不能宣稱已有拍球、跳投或完整籃球運動循環。","severity":"info"},
+    {"sourceFrames":[1,2,3,7,8],"message":"低頭/抬頭和表情切換仍需正常速度審閱；眼足距全段差異包含姿勢變化，不自動調整每格倍率。"},
+    {"sourceFrames":[1,8],"message":"首格嚴肅末格微笑，不將首末接近的臉部大小當成無縫循環批准。"}
+  ]
+}

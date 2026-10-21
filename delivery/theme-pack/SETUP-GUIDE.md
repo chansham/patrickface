@@ -207,7 +207,7 @@ For a Shortcuts NFC trigger, Apple states that the tag’s content is ignored; S
 - `verified-run-patrick-mode-900x900.png` → `shortcuts://run-shortcut?name=Patrick%20Mode`
 - `verified-official-shortcuts-guide-900x900.png` → Apple’s Shortcuts guide
 
-Use only files prefixed `verified-`. Three first-pass QR files without that prefix are retained solely because this delivery was built under a no-delete requirement; the manifest marks them `qr-build-artifact` and they are not installation assets.
+Use only files prefixed `verified-`. The three first-pass QR files and their CRLF-terminated payloads were removed from the active delivery on 2026-09-27 after verified backup. They were superseded by these exact-payload QR files; the builder and validator prevent their accidental return.
 
 The run QR works only after a shortcut named exactly `Patrick Mode` exists. It launches software; it does not install a shortcut or a personal automation.
 

@@ -1,0 +1,817 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "reviewRequired": true,
+  "frameIndexBasis": "one-based source reading order",
+  "source": {
+    "path": "animation/cowboy-v1/atlas-generated.png",
+    "sha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/cowboy-v1/regions-v1.json",
+    "sha256": "5f6e8bef69db8321ed6107504e96a396af95866bafbb7264f8cbba2eab63cea4"
+  },
+  "canvas": {
+    "width": 852,
+    "height": 852,
+    "anchorPixels": [
+      426,
+      750
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8802816901408451
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 647369,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceUnchanged": true,
+  "reviewConfiguration": {
+    "path": "animation/production-20261012-playful/measurements/cowboy-v1.json",
+    "sha256": "abf20647278c68888acdaa23caf3f3e79fe1041db89899f296f40545231a025a"
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "faceWidthPx": 116.0,
+      "eyeLowerRimSeparationPx": 33.514922049737784,
+      "eyeLineToFootPx": 252.5,
+      "anchorSource": [
+        173,
+        464
+      ],
+      "footROI": [
+        85,
+        405,
+        284,
+        480
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          112,
+          424,
+          168,
+          462
+        ],
+        [
+          206,
+          423,
+          263,
+          462
+        ]
+      ],
+      "visibleFootBaselineY": 461.0,
+      "eyeROI": [
+        130,
+        140,
+        230,
+        220
+      ],
+      "eyeWhiteBounds": [
+        [
+          152,
+          156,
+          183,
+          210
+        ],
+        [
+          186,
+          155,
+          216,
+          209
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          167.0,
+          209.0
+        ],
+        [
+          200.5,
+          208.0
+        ]
+      ],
+      "eyeMidpoint": [
+        183.75,
+        208.5
+      ],
+      "faceCaliperPoints": [
+        [
+          125,
+          210
+        ],
+        [
+          240,
+          207
+        ]
+      ],
+      "footSourcePoint": [
+        183.75,
+        461.0
+      ],
+      "eyeToFootPoints": [
+        [
+          183.75,
+          208.5
+        ],
+        [
+          183.75,
+          461.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "faceWidthPx": 113.75,
+      "eyeLowerRimSeparationPx": 33.5,
+      "eyeLineToFootPx": 252.0,
+      "anchorSource": [
+        574,
+        465
+      ],
+      "footROI": [
+        500,
+        405,
+        677,
+        480
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          513,
+          425,
+          568,
+          462
+        ],
+        [
+          606,
+          424,
+          662,
+          462
+        ]
+      ],
+      "visibleFootBaselineY": 461.0,
+      "eyeROI": [
+        540,
+        142,
+        635,
+        220
+      ],
+      "eyeWhiteBounds": [
+        [
+          554,
+          158,
+          585,
+          210
+        ],
+        [
+          588,
+          157,
+          618,
+          210
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          569.0,
+          209.0
+        ],
+        [
+          602.5,
+          209.0
+        ]
+      ],
+      "eyeMidpoint": [
+        585.75,
+        209.0
+      ],
+      "faceCaliperPoints": [
+        [
+          527,
+          209
+        ],
+        [
+          640,
+          209
+        ]
+      ],
+      "footSourcePoint": [
+        585.75,
+        461.0
+      ],
+      "eyeToFootPoints": [
+        [
+          585.75,
+          209.0
+        ],
+        [
+          585.75,
+          461.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 3,
+      "faceWidthPx": 112.75,
+      "eyeLowerRimSeparationPx": 33.0,
+      "eyeLineToFootPx": 252.0,
+      "anchorSource": [
+        942,
+        464
+      ],
+      "footROI": [
+        866,
+        405,
+        1047,
+        480
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          881,
+          424,
+          937,
+          462
+        ],
+        [
+          974,
+          423,
+          1031,
+          462
+        ]
+      ],
+      "visibleFootBaselineY": 461.0,
+      "eyeROI": [
+        909,
+        146,
+        1005,
+        222
+      ],
+      "eyeWhiteBounds": [
+        [
+          920,
+          158,
+          951,
+          210
+        ],
+        [
+          954,
+          158,
+          983,
+          210
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          935.0,
+          209.0
+        ],
+        [
+          968.0,
+          209.0
+        ]
+      ],
+      "eyeMidpoint": [
+        951.5,
+        209.0
+      ],
+      "faceCaliperPoints": [
+        [
+          894,
+          209
+        ],
+        [
+          1006,
+          209
+        ]
+      ],
+      "footSourcePoint": [
+        951.5,
+        461.0
+      ],
+      "eyeToFootPoints": [
+        [
+          951.5,
+          209.0
+        ],
+        [
+          951.5,
+          461.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 4,
+      "faceWidthPx": 111.5,
+      "eyeLowerRimSeparationPx": 32.2490309931942,
+      "eyeLineToFootPx": 250.5,
+      "anchorSource": [
+        1330,
+        464
+      ],
+      "footROI": [
+        1260,
+        405,
+        1440,
+        480
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1269,
+          425,
+          1325,
+          462
+        ],
+        [
+          1363,
+          422,
+          1419,
+          461
+        ]
+      ],
+      "visibleFootBaselineY": 460.5,
+      "eyeROI": [
+        1290,
+        150,
+        1377,
+        222
+      ],
+      "eyeWhiteBounds": [
+        [
+          1308,
+          164,
+          1339,
+          213
+        ],
+        [
+          1341,
+          160,
+          1370,
+          209
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1323.0,
+          212.0
+        ],
+        [
+          1355.0,
+          208.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1339.0,
+        210.0
+      ],
+      "faceCaliperPoints": [
+        [
+          1280,
+          217
+        ],
+        [
+          1390,
+          204
+        ]
+      ],
+      "footSourcePoint": [
+        1339.0,
+        460.5
+      ],
+      "eyeToFootPoints": [
+        [
+          1339.0,
+          210.0
+        ],
+        [
+          1339.0,
+          460.5
+        ]
+      ],
+      "measurementCaveat": "張嘴微側頭致意，眼線斜度及臉截面包含表情／頭部投影。"
+    },
+    {
+      "sourceFrame": 5,
+      "faceWidthPx": 116.75,
+      "eyeLowerRimSeparationPx": 31.25699921617557,
+      "eyeLineToFootPx": 232.0,
+      "anchorSource": [
+        174,
+        961
+      ],
+      "footROI": [
+        97,
+        910,
+        282,
+        976
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          112,
+          921,
+          168,
+          959
+        ],
+        [
+          206,
+          921,
+          262,
+          959
+        ]
+      ],
+      "visibleFootBaselineY": 958.0,
+      "eyeROI": [
+        150,
+        665,
+        237,
+        737
+      ],
+      "eyeWhiteBounds": [
+        [
+          169,
+          682,
+          199,
+          725
+        ],
+        [
+          201,
+          684,
+          229,
+          729
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          183.5,
+          724.0
+        ],
+        [
+          214.5,
+          728.0
+        ]
+      ],
+      "eyeMidpoint": [
+        199.0,
+        726.0
+      ],
+      "faceCaliperPoints": [
+        [
+          131,
+          717
+        ],
+        [
+          246,
+          732
+        ]
+      ],
+      "footSourcePoint": [
+        199.0,
+        958.0
+      ],
+      "eyeToFootPoints": [
+        [
+          199.0,
+          726.0
+        ],
+        [
+          199.0,
+          958.0
+        ]
+      ],
+      "measurementCaveat": "低頭致意時眼線與臉截面下降；眼足距縮短是此姿勢投影，不能自動當整個人物缩小。"
+    },
+    {
+      "sourceFrame": 6,
+      "faceWidthPx": 109.75,
+      "eyeLowerRimSeparationPx": 32.5,
+      "eyeLineToFootPx": 258.0,
+      "anchorSource": [
+        577,
+        961
+      ],
+      "footROI": [
+        500,
+        910,
+        682,
+        976
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          516,
+          921,
+          572,
+          959
+        ],
+        [
+          610,
+          920,
+          668,
+          959
+        ]
+      ],
+      "visibleFootBaselineY": 958.0,
+      "eyeROI": [
+        544,
+        640,
+        636,
+        712
+      ],
+      "eyeWhiteBounds": [
+        [
+          559,
+          654,
+          589,
+          701
+        ],
+        [
+          592,
+          654,
+          621,
+          701
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          573.5,
+          700.0
+        ],
+        [
+          606.0,
+          700.0
+        ]
+      ],
+      "eyeMidpoint": [
+        589.75,
+        700.0
+      ],
+      "faceCaliperPoints": [
+        [
+          533,
+          700
+        ],
+        [
+          642,
+          700
+        ]
+      ],
+      "footSourcePoint": [
+        589.75,
+        958.0
+      ],
+      "eyeToFootPoints": [
+        [
+          589.75,
+          700.0
+        ],
+        [
+          589.75,
+          958.0
+        ]
+      ],
+      "measurementCaveat": "眼神仰望帽子，眼下緣形狀不同；可見眼白仍量，但不把瞳孔位置當眼距。"
+    },
+    {
+      "sourceFrame": 7,
+      "faceWidthPx": 115.75,
+      "eyeLowerRimSeparationPx": 33.5,
+      "eyeLineToFootPx": 253.0,
+      "anchorSource": [
+        956,
+        962
+      ],
+      "footROI": [
+        875,
+        910,
+        1060,
+        976
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          893,
+          921,
+          950,
+          959
+        ],
+        [
+          988,
+          920,
+          1045,
+          959
+        ]
+      ],
+      "visibleFootBaselineY": 958.0,
+      "eyeROI": [
+        922,
+        640,
+        1010,
+        717
+      ],
+      "eyeWhiteBounds": [
+        [
+          934,
+          653,
+          965,
+          706
+        ],
+        [
+          968,
+          653,
+          998,
+          706
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          949.0,
+          705.0
+        ],
+        [
+          982.5,
+          705.0
+        ]
+      ],
+      "eyeMidpoint": [
+        965.75,
+        705.0
+      ],
+      "faceCaliperPoints": [
+        [
+          907,
+          705
+        ],
+        [
+          1022,
+          705
+        ]
+      ],
+      "footSourcePoint": [
+        965.75,
+        958.0
+      ],
+      "eyeToFootPoints": [
+        [
+          965.75,
+          705.0
+        ],
+        [
+          965.75,
+          958.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 8,
+      "faceWidthPx": 116.0,
+      "eyeLowerRimSeparationPx": 33.514922049737784,
+      "eyeLineToFootPx": 252.5,
+      "anchorSource": [
+        1337,
+        962
+      ],
+      "footROI": [
+        1268,
+        910,
+        1452,
+        976
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1276,
+          921,
+          1332,
+          959
+        ],
+        [
+          1369,
+          921,
+          1426,
+          959
+        ]
+      ],
+      "visibleFootBaselineY": 958.0,
+      "eyeROI": [
+        1300,
+        640,
+        1388,
+        717
+      ],
+      "eyeWhiteBounds": [
+        [
+          1317,
+          654,
+          1348,
+          707
+        ],
+        [
+          1351,
+          654,
+          1381,
+          706
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1332.0,
+          706.0
+        ],
+        [
+          1365.5,
+          705.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1348.75,
+        705.5
+      ],
+      "faceCaliperPoints": [
+        [
+          1290,
+          707
+        ],
+        [
+          1405,
+          704
+        ]
+      ],
+      "footSourcePoint": [
+        1348.75,
+        958.0
+      ],
+      "eyeToFootPoints": [
+        [
+          1348.75,
+          705.5
+        ],
+        [
+          1348.75,
+          958.0
+        ]
+      ]
+    }
+  ],
+  "firstLast": {
+    "faceWidthPx": {
+      "first": 116.0,
+      "last": 116.0,
+      "changePercent": 0.0
+    },
+    "eyeLowerRimSeparationPx": {
+      "first": 33.514922049737784,
+      "last": 33.514922049737784,
+      "changePercent": 0.0
+    },
+    "eyeLineToFootPx": {
+      "first": 252.5,
+      "last": 252.5,
+      "changePercent": 0.0
+    }
+  },
+  "wholeClipSpread": {
+    "faceWidthPx": 6.378132118451019,
+    "eyeLowerRimSeparationPx": 7.22373513191803,
+    "eyeLineToFootPx": 11.206896551724132
+  },
+  "edgeSamplingUncertaintySourcePixels": 2,
+  "limitations": [
+    "全8格重新辨識白眼下緣、可見粉色臉側及真裸腳；沒有用帽子、腰繩、褲腳或矩形方格計人物尺寸。",
+    "第4/5/6表情及低頭／仰眼不同，尺規是可見姿勢代理而非骨架高度。",
+    "只描述這一套內的首末及全段差異；沒有要求不同造型一律變成同樣短胖。"
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "message": "原圖逐格看，維持同一手接帽、離頭、回帽，腰繩固定於另一側；白眼未見藍紫染色。仍需原速覆核手帽接觸。",
+      "severity": "info"
+    },
+    {
+      "sourceFrames": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "message": "帽子離頭後傾轉、低頭再抬眼回帽的姿勢跨度大，尤其5→6，需要補中間頭部與帽子旋轉。"
+    },
+    {
+      "sourceFrames": [
+        1,
+        8
+      ],
+      "message": "首末都回到正面帽子戴好，可比同套的身體尺規；頭帽輪廓及表情細節仍需實際逐格與原速檢查，不批准無縫循環。"
+    }
+  ]
+}

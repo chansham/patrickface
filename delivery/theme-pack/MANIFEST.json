@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
   "package_name": "Patrick Face Season-1 Theme Pack",
-  "package_version": "1.0.0",
+  "package_version": "1.0.1",
   "generated_utc": "2026-09-24T06:09:43.116506+00:00",
   "root": "<PROJECT_DIR>\\delivery\\theme-pack",
   "source_project": "<PROJECT_DIR>",
-  "source_policy": "Only the corrected RGBA Season-1 2D and smooth Toon-3D layers named in each record were used for character imagery.",
+  "source_policy": "Retired static delivery retained for provenance. Three source arm references were refreshed on 2026-09-27; derived artwork was not regenerated. Historical approved filenames are not current approval. This package cannot be rebuilt as the new expression/pose animation.",
   "delivery_notes": {
     "standby": "Landscape files are photo sources; StandBy has no generic wallpaper importer.",
     "watch": "Photo-face files are static fallbacks; complication PNGs require a signed WidgetKit app.",
@@ -13,7 +13,7 @@
     "nfc": "A passive NFC tag triggers software only; it cannot power LEDs or other case hardware.",
     "audio": "All sounds are original synthesis with no speech or voice imitation."
   },
-  "asset_count": 109,
+  "asset_count": 105,
   "assets": [
     {
       "path": "contact-sheets/audio-waveforms-contact-sheet.png",
@@ -26,7 +26,9 @@
       "intended_destination": "Waveform visual QA sheet for the five original cues.",
       "width": 1800,
       "height": 1410,
-      "notes": "Inspection aid only; use the individual full-resolution files for installation."
+      "notes": "Inspection aid only; use the individual full-resolution files for installation.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "contact-sheets/shortcuts-icons-contact-sheet.jpg",
@@ -39,7 +41,9 @@
       "intended_destination": "Shortcuts icon visual QA sheet.",
       "width": 1474,
       "height": 1418,
-      "notes": "Inspection aid only; use the individual full-resolution files for installation."
+      "notes": "Inspection aid only; use the individual full-resolution files for installation.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "contact-sheets/wallpapers-contact-sheet.jpg",
@@ -52,7 +56,9 @@
       "intended_destination": "Wallpaper and StandBy visual QA sheet.",
       "width": 1878,
       "height": 2218,
-      "notes": "Inspection aid only; use the individual full-resolution files for installation."
+      "notes": "Inspection aid only; use the individual full-resolution files for installation.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "contact-sheets/watch-faces-contact-sheet.jpg",
@@ -65,7 +71,9 @@
       "intended_destination": "Apple Watch photo-face visual QA sheet.",
       "width": 1698,
       "height": 844,
-      "notes": "Inspection aid only; use the individual full-resolution files for installation."
+      "notes": "Inspection aid only; use the individual full-resolution files for installation.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "contact-sheets/widgets-contact-sheet.jpg",
@@ -78,46 +86,9 @@
       "intended_destination": "Widget and complication visual QA sheet.",
       "width": 1624,
       "height": 1690,
-      "notes": "Inspection aid only; use the individual full-resolution files for installation."
-    },
-    {
-      "path": "qr/create-new-shortcut-900x900.png",
-      "category": "qr-build-artifact",
-      "format": "png",
-      "bytes": 7399,
-      "sha256": "c040e17769f5b85df2542727437260de2c81820617bafd5647dcde9655f198a8",
-      "source": "Payload text was written with a trailing line terminator: shortcuts://create-shortcut",
-      "style": "Archived first-pass QR",
-      "intended_destination": "Retained to honor the no-delete requirement. Do not distribute; use the verified QR with the corresponding name.",
-      "width": 900,
-      "height": 900,
-      "notes": "Superseded by verified-* QR. Not referenced by the setup guide."
-    },
-    {
-      "path": "qr/official-shortcuts-guide-900x900.png",
-      "category": "qr-build-artifact",
-      "format": "png",
-      "bytes": 8414,
-      "sha256": "96d6e52561003e634b74c71795e6311cbdd73e7130fa288034fd7ad726b22876",
-      "source": "Payload text was written with a trailing line terminator: https://support.apple.com/guide/shortcuts/welcome/ios",
-      "style": "Archived first-pass QR",
-      "intended_destination": "Retained to honor the no-delete requirement. Do not distribute; use the verified QR with the corresponding name.",
-      "width": 900,
-      "height": 900,
-      "notes": "Superseded by verified-* QR. Not referenced by the setup guide."
-    },
-    {
-      "path": "qr/run-patrick-mode-900x900.png",
-      "category": "qr-build-artifact",
-      "format": "png",
-      "bytes": 8480,
-      "sha256": "0a3b89bd390a5b1406d54a9bbdc497fc410ef4d325d575fd0fb3cbd4f741690e",
-      "source": "Payload text was written with a trailing line terminator: shortcuts://run-shortcut?name=Patrick%20Mode",
-      "style": "Archived first-pass QR",
-      "intended_destination": "Retained to honor the no-delete requirement. Do not distribute; use the verified QR with the corresponding name.",
-      "width": 900,
-      "height": 900,
-      "notes": "Superseded by verified-* QR. Not referenced by the setup guide."
+      "notes": "Inspection aid only; use the individual full-resolution files for installation.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "qr/verified-create-new-shortcut-900x900.png",
@@ -130,7 +101,9 @@
       "intended_destination": "Scan with iPhone Camera; requires the named shortcut to already exist when using run-shortcut.",
       "width": 900,
       "height": 900,
-      "notes": "QR is a launcher/fallback only. It does not import a personal automation."
+      "notes": "QR is a launcher/fallback only. It does not import a personal automation.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "qr/verified-official-shortcuts-guide-900x900.png",
@@ -143,7 +116,9 @@
       "intended_destination": "Scan with iPhone Camera; requires the named shortcut to already exist when using run-shortcut.",
       "width": 900,
       "height": 900,
-      "notes": "QR is a launcher/fallback only. It does not import a personal automation."
+      "notes": "QR is a launcher/fallback only. It does not import a personal automation.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "qr/verified-run-patrick-mode-900x900.png",
@@ -156,7 +131,9 @@
       "intended_destination": "Scan with iPhone Camera; requires the named shortcut to already exist when using run-shortcut.",
       "width": 900,
       "height": 900,
-      "notes": "QR is a launcher/fallback only. It does not import a personal automation."
+      "notes": "QR is a launcher/fallback only. It does not import a personal automation.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/calculator-1024.png",
@@ -169,7 +146,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Calculator Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/calendar-1024.png",
@@ -182,7 +161,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Calendar Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/camera-1024.png",
@@ -195,7 +176,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Camera Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/clock-1024.png",
@@ -208,7 +191,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Clock Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/files-1024.png",
@@ -221,7 +206,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Files Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/health-1024.png",
@@ -234,7 +221,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Health Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/home-1024.png",
@@ -247,7 +236,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Home Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/mail-1024.png",
@@ -260,7 +251,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Mail Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/maps-1024.png",
@@ -273,7 +266,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Maps Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/messages-1024.png",
@@ -286,7 +281,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Messages Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/music-1024.png",
@@ -299,7 +296,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Music Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/notes-1024.png",
@@ -312,7 +311,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Notes Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/phone-1024.png",
@@ -325,7 +326,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Phone Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/photos-1024.png",
@@ -338,7 +341,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Photos Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/reminders-1024.png",
@@ -351,7 +356,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Reminders Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/safari-1024.png",
@@ -364,7 +371,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Safari Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/settings-1024.png",
@@ -377,7 +386,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Settings Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/shortcuts-1024.png",
@@ -390,7 +401,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Shortcuts Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/wallet-1024.png",
@@ -403,7 +416,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Wallet Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "shortcuts-icons/1024/weather-1024.png",
@@ -416,7 +431,9 @@
       "intended_destination": "Shortcuts “Add to Home Screen” custom icon for the Weather Open App shortcut.",
       "width": 1024,
       "height": 1024,
-      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round."
+      "notes": "Square source; iOS applies the Home Screen icon mask. Do not pre-round.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "sounds/m4a/charge-aac-192k.m4a",
@@ -430,7 +447,9 @@
       "duration_seconds": 1.45,
       "sample_rate_hz": 48000,
       "channels": 2,
-      "codec": "AAC-LC approximately 192 kb/s"
+      "codec": "AAC-LC approximately 192 kb/s",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "sounds/m4a/disconnect-aac-192k.m4a",
@@ -444,7 +463,9 @@
       "duration_seconds": 1.1,
       "sample_rate_hz": 48000,
       "channels": 2,
-      "codec": "AAC-LC approximately 192 kb/s"
+      "codec": "AAC-LC approximately 192 kb/s",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "sounds/m4a/hour-chime-aac-192k.m4a",
@@ -458,7 +479,9 @@
       "duration_seconds": 2.75,
       "sample_rate_hz": 48000,
       "channels": 2,
-      "codec": "AAC-LC approximately 192 kb/s"
+      "codec": "AAC-LC approximately 192 kb/s",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "sounds/m4a/low-battery-aac-192k.m4a",
@@ -472,7 +495,9 @@
       "duration_seconds": 1.55,
       "sample_rate_hz": 48000,
       "channels": 2,
-      "codec": "AAC-LC approximately 192 kb/s"
+      "codec": "AAC-LC approximately 192 kb/s",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "sounds/m4a/sleep-focus-aac-192k.m4a",
@@ -486,7 +511,9 @@
       "duration_seconds": 3.6,
       "sample_rate_hz": 48000,
       "channels": 2,
-      "codec": "AAC-LC approximately 192 kb/s"
+      "codec": "AAC-LC approximately 192 kb/s",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "sounds/wav/charge-48k-stereo.wav",
@@ -500,7 +527,9 @@
       "duration_seconds": 1.45,
       "sample_rate_hz": 48000,
       "channels": 2,
-      "codec": "PCM signed 16-bit little-endian"
+      "codec": "PCM signed 16-bit little-endian",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "sounds/wav/disconnect-48k-stereo.wav",
@@ -514,7 +543,9 @@
       "duration_seconds": 1.1,
       "sample_rate_hz": 48000,
       "channels": 2,
-      "codec": "PCM signed 16-bit little-endian"
+      "codec": "PCM signed 16-bit little-endian",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "sounds/wav/hour-chime-48k-stereo.wav",
@@ -528,7 +559,9 @@
       "duration_seconds": 2.75,
       "sample_rate_hz": 48000,
       "channels": 2,
-      "codec": "PCM signed 16-bit little-endian"
+      "codec": "PCM signed 16-bit little-endian",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "sounds/wav/low-battery-48k-stereo.wav",
@@ -542,7 +575,9 @@
       "duration_seconds": 1.55,
       "sample_rate_hz": 48000,
       "channels": 2,
-      "codec": "PCM signed 16-bit little-endian"
+      "codec": "PCM signed 16-bit little-endian",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "sounds/wav/sleep-focus-48k-stereo.wav",
@@ -556,7 +591,9 @@
       "duration_seconds": 3.6,
       "sample_rate_hz": 48000,
       "channels": 2,
-      "codec": "PCM signed 16-bit little-endian"
+      "codec": "PCM signed 16-bit little-endian",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "source-layers/composite-2d-1010-transparent.png",
@@ -569,7 +606,9 @@
       "intended_destination": "Reusable transparent 10:10 pose master for theme artwork.",
       "width": 1260,
       "height": 1545,
-      "notes": "Character body overlays approved independent arm layers; transparent background."
+      "notes": "Character body overlays approved independent arm layers; transparent background.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "source-layers/composite-3d-1010-transparent.png",
@@ -582,98 +621,99 @@
       "intended_destination": "Reusable transparent 10:10 pose master for theme artwork.",
       "width": 1250,
       "height": 1545,
-      "notes": "Character body overlays approved independent arm layers; transparent background."
+      "notes": "Character body overlays approved independent arm layers; transparent background.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "source-layers/season1-2d-body-clean-approved.png",
-      "category": "approved-source-layer",
+      "category": "candidate-source-layer",
       "format": "png",
       "bytes": 243220,
       "sha256": "8b59d7ebaf45f9b604d1b7a90b489bfd6f12357f6cc8b90d04fe877149e93997",
       "source": "preview/assets/season1-body-normal.png",
-      "style": "Approved source reference",
+      "style": "Current runtime source; visual approval pending",
       "intended_destination": "Source reference for future derivative exports; preserve alpha.",
       "width": 463,
       "height": 787,
-      "notes": "RGBA mode: RGBA"
+      "notes": "Historical approved filename does not imply current user approval. Existing static compositions remain historical design candidates.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "source-layers/season1-2d-body-preview-approved.png",
-      "category": "approved-source-layer",
+      "category": "candidate-source-layer",
       "format": "png",
       "bytes": 243220,
       "sha256": "8b59d7ebaf45f9b604d1b7a90b489bfd6f12357f6cc8b90d04fe877149e93997",
       "source": "preview/assets/season1-body-normal.png",
-      "style": "Approved source reference",
+      "style": "Current runtime source; visual approval pending",
       "intended_destination": "Source reference for future derivative exports; preserve alpha.",
       "width": 463,
       "height": 787,
-      "notes": "RGBA mode: RGBA"
+      "notes": "Historical approved filename does not imply current user approval. Existing static compositions remain historical design candidates.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "source-layers/season1-2d-hour-arm-approved.png",
-      "category": "approved-source-layer",
+      "category": "candidate-source-layer",
       "format": "png",
-      "bytes": 164319,
-      "sha256": "2a3d046f49480f188f3099798013aa7e36c932377ae53c416914f70412008071",
+      "bytes": 115106,
+      "sha256": "d6b5100dc3fb55f073ece241f010644e4454270f07b3ed0877b316b9146077d6",
       "source": "preview/assets/season1-hour-arm.png",
-      "style": "Approved source reference",
+      "style": "Current runtime source; visual approval pending",
       "intended_destination": "Source reference for future derivative exports; preserve alpha.",
-      "width": 425,
-      "height": 898,
-      "notes": "RGBA mode: RGBA"
+      "width": 431,
+      "height": 904,
+      "notes": "Historical approved filename does not imply current user approval. Existing static compositions remain historical design candidates.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "source-layers/season1-2d-minute-arm-approved.png",
-      "category": "approved-source-layer",
+      "category": "candidate-source-layer",
       "format": "png",
-      "bytes": 164319,
-      "sha256": "2a3d046f49480f188f3099798013aa7e36c932377ae53c416914f70412008071",
+      "bytes": 129290,
+      "sha256": "4e5cf2e0e7318a5a78bdcb64dfc75c296abe258c1c43e1bf53a66f7684167fc0",
       "source": "preview/assets/season1-minute-arm.png",
-      "style": "Approved source reference",
+      "style": "Current runtime source; visual approval pending",
       "intended_destination": "Source reference for future derivative exports; preserve alpha.",
-      "width": 425,
-      "height": 898,
-      "notes": "RGBA mode: RGBA"
+      "width": 431,
+      "height": 976,
+      "notes": "Historical approved filename does not imply current user approval. Existing static compositions remain historical design candidates.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "source-layers/season1-3d-arm-approved.png",
-      "category": "approved-source-layer",
+      "category": "candidate-source-layer",
       "format": "png",
-      "bytes": 175391,
-      "sha256": "38d7185b1fe88e9ce9528cdb0ed0c5e4dc0cde90ecfbbeb5fd8056d06c1cbafb",
+      "bytes": 153263,
+      "sha256": "dd7547cbf404ced93954e249938a57266c7c0086a6df7f91b4bb64737a2a0f08",
       "source": "preview/assets/season1-3d-arm.png",
-      "style": "Approved source reference",
+      "style": "Current runtime source; visual approval pending",
       "intended_destination": "Source reference for future derivative exports; preserve alpha.",
-      "width": 448,
-      "height": 850,
-      "notes": "RGBA mode: RGBA"
+      "width": 454,
+      "height": 924,
+      "notes": "Historical approved filename does not imply current user approval. Existing static compositions remain historical design candidates.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "source-layers/season1-3d-body-approved.png",
-      "category": "approved-source-layer",
+      "category": "candidate-source-layer",
       "format": "png",
       "bytes": 294579,
       "sha256": "1ab704f217c6acbf214ccf30ac48b4edd2e89796d6971207095e3f9df891c606",
       "source": "preview/assets/season1-3d-body.png",
-      "style": "Approved source reference",
+      "style": "Current runtime source; visual approval pending",
       "intended_destination": "Source reference for future derivative exports; preserve alpha.",
       "width": 461,
       "height": 790,
-      "notes": "RGBA mode: RGBA"
-    },
-    {
-      "path": "source-layers/season1-3d-comparison-approved.png",
-      "category": "legacy-source-reference",
-      "format": "png",
-      "bytes": 275573,
-      "sha256": "fca1298ba862e2ba5b9b0a8814963ecd705d44362789e135e286fe7544f95ccb",
-      "source": "Preserved from the pre-rebuild package",
-      "style": "Rejected clay-era reference",
-      "intended_destination": "Archive only; not used by any rebuilt output.",
-      "width": 864,
-      "height": 1152,
-      "notes": "Retained to avoid destructive deletion."
+      "notes": "Historical approved filename does not imply current user approval. Existing static compositions remain historical design candidates.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/2d/home/iphone-16-1179x2556-home.png",
@@ -686,7 +726,9 @@
       "intended_destination": "iphone-16 Home Screen wallpaper (native 1179×2556px).",
       "width": 1179,
       "height": 2556,
-      "notes": "Home version is darkened for icon-label readability."
+      "notes": "Home version is darkened for icon-label readability.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/2d/home/iphone-16-plus-1290x2796-home.png",
@@ -699,7 +741,9 @@
       "intended_destination": "iphone-16-plus Home Screen wallpaper (native 1290×2796px).",
       "width": 1290,
       "height": 2796,
-      "notes": "Home version is darkened for icon-label readability."
+      "notes": "Home version is darkened for icon-label readability.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/2d/home/iphone-16-pro-1206x2622-home.png",
@@ -712,7 +756,9 @@
       "intended_destination": "iphone-16-pro Home Screen wallpaper (native 1206×2622px).",
       "width": 1206,
       "height": 2622,
-      "notes": "Home version is darkened for icon-label readability."
+      "notes": "Home version is darkened for icon-label readability.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/2d/home/iphone-16-pro-max-1320x2868-home.png",
@@ -725,7 +771,9 @@
       "intended_destination": "iphone-16-pro-max Home Screen wallpaper (native 1320×2868px).",
       "width": 1320,
       "height": 2868,
-      "notes": "Home version is darkened for icon-label readability."
+      "notes": "Home version is darkened for icon-label readability.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/2d/lock/iphone-16-1179x2556-lock.png",
@@ -738,7 +786,9 @@
       "intended_destination": "iphone-16 Lock Screen wallpaper (native 1179×2556px).",
       "width": 1179,
       "height": 2556,
-      "notes": "Lock version keeps the upper clock/widget zone quiet."
+      "notes": "Lock version keeps the upper clock/widget zone quiet.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/2d/lock/iphone-16-plus-1290x2796-lock.png",
@@ -751,7 +801,9 @@
       "intended_destination": "iphone-16-plus Lock Screen wallpaper (native 1290×2796px).",
       "width": 1290,
       "height": 2796,
-      "notes": "Lock version keeps the upper clock/widget zone quiet."
+      "notes": "Lock version keeps the upper clock/widget zone quiet.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/2d/lock/iphone-16-pro-1206x2622-lock.png",
@@ -764,7 +816,9 @@
       "intended_destination": "iphone-16-pro Lock Screen wallpaper (native 1206×2622px).",
       "width": 1206,
       "height": 2622,
-      "notes": "Lock version keeps the upper clock/widget zone quiet."
+      "notes": "Lock version keeps the upper clock/widget zone quiet.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/2d/lock/iphone-16-pro-max-1320x2868-lock.png",
@@ -777,7 +831,9 @@
       "intended_destination": "iphone-16-pro-max Lock Screen wallpaper (native 1320×2868px).",
       "width": 1320,
       "height": 2868,
-      "notes": "Lock version keeps the upper clock/widget zone quiet."
+      "notes": "Lock version keeps the upper clock/widget zone quiet.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/3d/home/iphone-16-1179x2556-home.png",
@@ -790,7 +846,9 @@
       "intended_destination": "iphone-16 Home Screen wallpaper (native 1179×2556px).",
       "width": 1179,
       "height": 2556,
-      "notes": "Home version is darkened for icon-label readability."
+      "notes": "Home version is darkened for icon-label readability.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/3d/home/iphone-16-plus-1290x2796-home.png",
@@ -803,7 +861,9 @@
       "intended_destination": "iphone-16-plus Home Screen wallpaper (native 1290×2796px).",
       "width": 1290,
       "height": 2796,
-      "notes": "Home version is darkened for icon-label readability."
+      "notes": "Home version is darkened for icon-label readability.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/3d/home/iphone-16-pro-1206x2622-home.png",
@@ -816,7 +876,9 @@
       "intended_destination": "iphone-16-pro Home Screen wallpaper (native 1206×2622px).",
       "width": 1206,
       "height": 2622,
-      "notes": "Home version is darkened for icon-label readability."
+      "notes": "Home version is darkened for icon-label readability.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/3d/home/iphone-16-pro-max-1320x2868-home.png",
@@ -829,7 +891,9 @@
       "intended_destination": "iphone-16-pro-max Home Screen wallpaper (native 1320×2868px).",
       "width": 1320,
       "height": 2868,
-      "notes": "Home version is darkened for icon-label readability."
+      "notes": "Home version is darkened for icon-label readability.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/3d/lock/iphone-16-1179x2556-lock.png",
@@ -842,7 +906,9 @@
       "intended_destination": "iphone-16 Lock Screen wallpaper (native 1179×2556px).",
       "width": 1179,
       "height": 2556,
-      "notes": "Lock version keeps the upper clock/widget zone quiet."
+      "notes": "Lock version keeps the upper clock/widget zone quiet.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/3d/lock/iphone-16-plus-1290x2796-lock.png",
@@ -855,7 +921,9 @@
       "intended_destination": "iphone-16-plus Lock Screen wallpaper (native 1290×2796px).",
       "width": 1290,
       "height": 2796,
-      "notes": "Lock version keeps the upper clock/widget zone quiet."
+      "notes": "Lock version keeps the upper clock/widget zone quiet.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/3d/lock/iphone-16-pro-1206x2622-lock.png",
@@ -868,7 +936,9 @@
       "intended_destination": "iphone-16-pro Lock Screen wallpaper (native 1206×2622px).",
       "width": 1206,
       "height": 2622,
-      "notes": "Lock version keeps the upper clock/widget zone quiet."
+      "notes": "Lock version keeps the upper clock/widget zone quiet.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/iphone/3d/lock/iphone-16-pro-max-1320x2868-lock.png",
@@ -881,7 +951,9 @@
       "intended_destination": "iphone-16-pro-max Lock Screen wallpaper (native 1320×2868px).",
       "width": 1320,
       "height": 2868,
-      "notes": "Lock version keeps the upper clock/widget zone quiet."
+      "notes": "Lock version keeps the upper clock/widget zone quiet.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/standby/2d/iphone-16-2556x1179-standby.png",
@@ -894,7 +966,9 @@
       "intended_destination": "iphone-16 landscape Photos/StandBy photo source (native 2556×1179px).",
       "width": 2556,
       "height": 1179,
-      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker."
+      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/standby/2d/iphone-16-plus-2796x1290-standby.png",
@@ -907,7 +981,9 @@
       "intended_destination": "iphone-16-plus landscape Photos/StandBy photo source (native 2796×1290px).",
       "width": 2796,
       "height": 1290,
-      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker."
+      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/standby/2d/iphone-16-pro-2622x1206-standby.png",
@@ -920,7 +996,9 @@
       "intended_destination": "iphone-16-pro landscape Photos/StandBy photo source (native 2622×1206px).",
       "width": 2622,
       "height": 1206,
-      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker."
+      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/standby/2d/iphone-16-pro-max-2868x1320-standby.png",
@@ -933,7 +1011,9 @@
       "intended_destination": "iphone-16-pro-max landscape Photos/StandBy photo source (native 2868×1320px).",
       "width": 2868,
       "height": 1320,
-      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker."
+      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/standby/3d/iphone-16-2556x1179-standby.png",
@@ -946,7 +1026,9 @@
       "intended_destination": "iphone-16 landscape Photos/StandBy photo source (native 2556×1179px).",
       "width": 2556,
       "height": 1179,
-      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker."
+      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/standby/3d/iphone-16-plus-2796x1290-standby.png",
@@ -959,7 +1041,9 @@
       "intended_destination": "iphone-16-plus landscape Photos/StandBy photo source (native 2796×1290px).",
       "width": 2796,
       "height": 1290,
-      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker."
+      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/standby/3d/iphone-16-pro-2622x1206-standby.png",
@@ -972,7 +1056,9 @@
       "intended_destination": "iphone-16-pro landscape Photos/StandBy photo source (native 2622×1206px).",
       "width": 2622,
       "height": 1206,
-      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker."
+      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "wallpapers/standby/3d/iphone-16-pro-max-2868x1320-standby.png",
@@ -985,7 +1071,9 @@
       "intended_destination": "iphone-16-pro-max landscape Photos/StandBy photo source (native 2868×1320px).",
       "width": 2868,
       "height": 1320,
-      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker."
+      "notes": "Use as a Photos source or in a photo-widget provider. iOS StandBy does not expose a generic wallpaper picker.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/2d/series-10-42mm-374x446-time-bottom.png",
@@ -998,7 +1086,9 @@
       "intended_destination": "Apple Watch Photos face source for series-10-42mm; choose the system time position “bottom”.",
       "width": 374,
       "height": 446,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/2d/series-10-42mm-374x446-time-top.png",
@@ -1011,7 +1101,9 @@
       "intended_destination": "Apple Watch Photos face source for series-10-42mm; choose the system time position “top”.",
       "width": 374,
       "height": 446,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/2d/series-10-46mm-416x496-time-bottom.png",
@@ -1024,7 +1116,9 @@
       "intended_destination": "Apple Watch Photos face source for series-10-46mm; choose the system time position “bottom”.",
       "width": 416,
       "height": 496,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/2d/series-10-46mm-416x496-time-top.png",
@@ -1037,7 +1131,9 @@
       "intended_destination": "Apple Watch Photos face source for series-10-46mm; choose the system time position “top”.",
       "width": 416,
       "height": 496,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/2d/ultra-2-49mm-410x502-time-bottom.png",
@@ -1050,7 +1146,9 @@
       "intended_destination": "Apple Watch Photos face source for ultra-2-49mm; choose the system time position “bottom”.",
       "width": 410,
       "height": 502,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/2d/ultra-2-49mm-410x502-time-top.png",
@@ -1063,7 +1161,9 @@
       "intended_destination": "Apple Watch Photos face source for ultra-2-49mm; choose the system time position “top”.",
       "width": 410,
       "height": 502,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/3d/series-10-42mm-374x446-time-bottom.png",
@@ -1076,7 +1176,9 @@
       "intended_destination": "Apple Watch Photos face source for series-10-42mm; choose the system time position “bottom”.",
       "width": 374,
       "height": 446,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/3d/series-10-42mm-374x446-time-top.png",
@@ -1089,7 +1191,9 @@
       "intended_destination": "Apple Watch Photos face source for series-10-42mm; choose the system time position “top”.",
       "width": 374,
       "height": 446,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/3d/series-10-46mm-416x496-time-bottom.png",
@@ -1102,7 +1206,9 @@
       "intended_destination": "Apple Watch Photos face source for series-10-46mm; choose the system time position “bottom”.",
       "width": 416,
       "height": 496,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/3d/series-10-46mm-416x496-time-top.png",
@@ -1115,7 +1221,9 @@
       "intended_destination": "Apple Watch Photos face source for series-10-46mm; choose the system time position “top”.",
       "width": 416,
       "height": 496,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/3d/ultra-2-49mm-410x502-time-bottom.png",
@@ -1128,7 +1236,9 @@
       "intended_destination": "Apple Watch Photos face source for ultra-2-49mm; choose the system time position “bottom”.",
       "width": 410,
       "height": 502,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "watch/photo-faces/3d/ultra-2-49mm-410x502-time-top.png",
@@ -1141,7 +1251,9 @@
       "intended_destination": "Apple Watch Photos face source for ultra-2-49mm; choose the system time position “top”.",
       "width": 410,
       "height": 502,
-      "notes": "Static photo fallback only; arms do not become live clock hands."
+      "notes": "Static photo fallback only; arms do not become live clock hands.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/iphone-lock-screen/2d/accessory-circular-228x228@3x.png",
@@ -1154,7 +1266,9 @@
       "intended_destination": "WidgetKit accessory-circular artwork master for the 428/430-point iPhone class.",
       "width": 228,
       "height": 228,
-      "notes": "Developer handoff; static PNG cannot become a native Lock Screen widget by itself."
+      "notes": "Developer handoff; static PNG cannot become a native Lock Screen widget by itself.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/iphone-lock-screen/2d/accessory-rectangular-516x228@3x.png",
@@ -1167,7 +1281,9 @@
       "intended_destination": "WidgetKit accessory-rectangular artwork master for the 428/430-point iPhone class.",
       "width": 516,
       "height": 228,
-      "notes": "Developer handoff; static PNG cannot become a native Lock Screen widget by itself."
+      "notes": "Developer handoff; static PNG cannot become a native Lock Screen widget by itself.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/iphone-lock-screen/3d/accessory-circular-228x228@3x.png",
@@ -1180,7 +1296,9 @@
       "intended_destination": "WidgetKit accessory-circular artwork master for the 428/430-point iPhone class.",
       "width": 228,
       "height": 228,
-      "notes": "Developer handoff; static PNG cannot become a native Lock Screen widget by itself."
+      "notes": "Developer handoff; static PNG cannot become a native Lock Screen widget by itself.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/iphone-lock-screen/3d/accessory-rectangular-516x228@3x.png",
@@ -1193,7 +1311,9 @@
       "intended_destination": "WidgetKit accessory-rectangular artwork master for the 428/430-point iPhone class.",
       "width": 516,
       "height": 228,
-      "notes": "Developer handoff; static PNG cannot become a native Lock Screen widget by itself."
+      "notes": "Developer handoff; static PNG cannot become a native Lock Screen widget by itself.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/iphone/2d/system-large-1092x1146@3x.png",
@@ -1206,7 +1326,9 @@
       "intended_destination": "@3x image master for a large WidgetKit/photo-widget layout on the 428/430-point iPhone class.",
       "width": 1092,
       "height": 1146,
-      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget."
+      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/iphone/2d/system-medium-1092x510@3x.png",
@@ -1219,7 +1341,9 @@
       "intended_destination": "@3x image master for a medium WidgetKit/photo-widget layout on the 428/430-point iPhone class.",
       "width": 1092,
       "height": 510,
-      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget."
+      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/iphone/2d/system-small-510x510@3x.png",
@@ -1232,7 +1356,9 @@
       "intended_destination": "@3x image master for a small WidgetKit/photo-widget layout on the 428/430-point iPhone class.",
       "width": 510,
       "height": 510,
-      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget."
+      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/iphone/3d/system-large-1092x1146@3x.png",
@@ -1245,7 +1371,9 @@
       "intended_destination": "@3x image master for a large WidgetKit/photo-widget layout on the 428/430-point iPhone class.",
       "width": 1092,
       "height": 1146,
-      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget."
+      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/iphone/3d/system-medium-1092x510@3x.png",
@@ -1258,7 +1386,9 @@
       "intended_destination": "@3x image master for a medium WidgetKit/photo-widget layout on the 428/430-point iPhone class.",
       "width": 1092,
       "height": 510,
-      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget."
+      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/iphone/3d/system-small-510x510@3x.png",
@@ -1271,7 +1401,9 @@
       "intended_destination": "@3x image master for a small WidgetKit/photo-widget layout on the 428/430-point iPhone class.",
       "width": 510,
       "height": 510,
-      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget."
+      "notes": "A third-party photo-widget app or a WidgetKit app is required to display this image as a widget.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/2d/accessory-circular-45-49mm-100x100@2x.png",
@@ -1284,7 +1416,9 @@
       "intended_destination": "WidgetKit/watchOS image master for accessory-circular-45-49mm.",
       "width": 100,
       "height": 100,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/2d/accessory-rectangular-full-45-49mm-386x164@2x.png",
@@ -1297,7 +1431,9 @@
       "intended_destination": "WidgetKit/watchOS image master for accessory-rectangular-full-45-49mm.",
       "width": 386,
       "height": 164,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/2d/accessory-rectangular-with-title-45-49mm-357x112@2x.png",
@@ -1310,7 +1446,9 @@
       "intended_destination": "WidgetKit/watchOS image master for accessory-rectangular-with-title-45-49mm.",
       "width": 357,
       "height": 112,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/2d/smart-stack-41mm-330x145@2x.png",
@@ -1323,7 +1461,9 @@
       "intended_destination": "WidgetKit/watchOS image master for smart-stack-41mm.",
       "width": 330,
       "height": 145,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/2d/smart-stack-45mm-368x161@2x.png",
@@ -1336,7 +1476,9 @@
       "intended_destination": "WidgetKit/watchOS image master for smart-stack-45mm.",
       "width": 368,
       "height": 161,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/2d/smart-stack-49mm-382x163@2x.png",
@@ -1349,7 +1491,9 @@
       "intended_destination": "WidgetKit/watchOS image master for smart-stack-49mm.",
       "width": 382,
       "height": 163,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/3d/accessory-circular-45-49mm-100x100@2x.png",
@@ -1362,7 +1506,9 @@
       "intended_destination": "WidgetKit/watchOS image master for accessory-circular-45-49mm.",
       "width": 100,
       "height": 100,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/3d/accessory-rectangular-full-45-49mm-386x164@2x.png",
@@ -1375,7 +1521,9 @@
       "intended_destination": "WidgetKit/watchOS image master for accessory-rectangular-full-45-49mm.",
       "width": 386,
       "height": 164,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/3d/accessory-rectangular-with-title-45-49mm-357x112@2x.png",
@@ -1388,7 +1536,9 @@
       "intended_destination": "WidgetKit/watchOS image master for accessory-rectangular-with-title-45-49mm.",
       "width": 357,
       "height": 112,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/3d/smart-stack-41mm-330x145@2x.png",
@@ -1401,7 +1551,9 @@
       "intended_destination": "WidgetKit/watchOS image master for smart-stack-41mm.",
       "width": 330,
       "height": 145,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/3d/smart-stack-45mm-368x161@2x.png",
@@ -1414,7 +1566,9 @@
       "intended_destination": "WidgetKit/watchOS image master for smart-stack-45mm.",
       "width": 368,
       "height": 161,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/3d/smart-stack-49mm-382x163@2x.png",
@@ -1427,7 +1581,9 @@
       "intended_destination": "WidgetKit/watchOS image master for smart-stack-49mm.",
       "width": 382,
       "height": 163,
-      "notes": "Developer handoff; requires a signed watchOS app/widget extension."
+      "notes": "Developer handoff; requires a signed watchOS app/widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     },
     {
       "path": "widgets/watch/template/accessory-circular-template-100x100@2x.png",
@@ -1440,7 +1596,15 @@
       "intended_destination": "WidgetKit accessoryCircular template image at @2x.",
       "width": 100,
       "height": 100,
-      "notes": "Transparent PNG intended for system tinting; requires a watchOS widget extension."
+      "notes": "Transparent PNG intended for system tinting; requires a watchOS widget extension.",
+      "reviewStatus": "retired-static-delivery",
+      "currentApproval": false
     }
-  ]
+  ],
+  "audited_utc": "2026-09-27T08:52:03.791635+00:00",
+  "lifecycle": "retired-static-delivery",
+  "retiredAt": "2026-09-27",
+  "currentApproval": false,
+  "activeAnimationLibrary": false,
+  "generationEnabled": false
 }

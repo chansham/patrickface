@@ -37,12 +37,34 @@ queued user-info delivery; the newest state also uses application context. The
 watch app remains authoritative for watch-only signals such as battery, Focus,
 and frontmost state.
 
-Four App Intents are exposed as App Shortcuts:
+The provider exposes ten App Shortcuts: care, scene, mood, activity timer,
+timer control, wake-up report, lifestyle, sleep mode, sound, and in-app face.
+Timer control now also offers **休息一下** and **返回原活動**. It preserves the
+original timer; returning to an originally paused timer keeps it paused.
+The five additional routine-record actions below are discoverable actions for
+composed Shortcuts, not five extra provider slots. Their Apple build and device
+discovery still need verification.
 
-- Set Patrick Theme
-- Set Patrick Sleep Mode
-- Play Patrick Theme Sound
-- Open Patrick Watch Face
+## 2026-10-13: 晚安流程紀錄與充電回報
+
+本輪新增原生程式，尚未 Apple 編譯或裝機。瀏覽器的[流程試演](../ecosystem/ideas.html#routine-rehearsal)只操作示範資料；App「流程」分頁只顯示本機真正收到的步驟回報，兩者不互相匯入。
+
+晚安組合捷徑的接線次序如下；這仍是設定說明，不是已安裝的 `.shortcut`：
+
+1. 「開始晚安流程紀錄」取得流程編號，保存為本次變數。
+2. 執行系統睡眠專注動作，其後「回報晚安步驟結果」選睡眠專注、已完成、次數1。同一動作若中斷捷徑而未回報，紀錄保持「尚無回報」，不假定成功或失敗。
+3. 有預先選好的鬧鐘才啟用那一筆，之後回報指定鬧鐘結果；未選鬧鐘則回報「未選用」。不建立重複鬧鐘。
+4. 「執行晚安中的派大星步驟」傳入相同編號、次數1。由 App 套用睡前狀態後記錄本機結果，不能用外部結果把這步直接標成功。
+5. 有選 Home 場景才執行並回報晚安燈光結果，否則回報「未選用」。
+6. 「讀取晚安流程結果」取得四步摘要，可交給捷徑的顯示結果動作；App「流程」也保留最近50次紀錄。手機回報完整仍不表示 Watch Focus 或角色狀態已確認。
+
+只有明確收到「未完成」的步驟才可用「準備重試晚安失敗步驟」，它回傳新的執行次數。另行執行那一步並傳入新次數回報；這個準備動作本身不重跑設定。舊次數、重複回報與衝突結果不覆蓋成功項；尚無回報的步驟先確認狀態，不自動重試。最多5次。不提供把所有步驟一鍵標成功的入口。
+
+充電資料使用獨立最新狀態通道。Watch 畫面在前景觀測實際電量與充電狀態；手機「連線」頁顯示觀測時間和收到時間，超過5分鐘標記過期。離線只保留最新資料，充電試演不會生成真實觀測；這不是系統充電畫面替換，也不是背景持續監測。重設本機資料會清除流程紀錄和最後觀測。
+
+測試入口：`ecosystem/test-routine-run.mjs` 和共用情境 `ecosystem/routine-run-fixtures.json`；Foundation 測試為 `tools/NativeRoutineRunChecks.swift`、`tools/NativeWatchStatusChecks.swift`，休息入口行為測試在 `PatrickContractTests.swift`。Windows 的 JS／結構檢查不能當作 Swift 或實機測試通過。
+
+API依據：[Apple App Intent parameters](https://developer.apple.com/documentation/appintents/adding-parameters-to-an-app-intent)、[Return a value](https://developer.apple.com/documentation/appintents/returnsvalue)、[Watch battery level](https://developer.apple.com/documentation/watchkit/wkinterfacedevice/batterylevel)、[Latest application context](https://developer.apple.com/documentation/watchconnectivity/wcsession/updateapplicationcontext(_:))。
 
 An NFC tag can trigger any of these by using a user-created **Shortcuts Personal
 Automation → NFC → Run App Shortcut**. The app intentionally does not request
@@ -82,6 +104,11 @@ actions, revisions, and recent message IDs. There is no account, cloud sync,
 analytics SDK, advertising SDK, location, contacts, microphone recording, or
 health-data access. The generated theme cue is synthesized locally and records
 nothing.
+
+The local routine ledger additionally stores step results and user-supplied
+notes (up to 240 characters per receipt; latest 50 runs). Watch charging
+observations are stored separately in local defaults with observation and
+receipt timestamps; they are not health records or an analytics feed.
 
 Both the app and widget use the same App Group entitlement. The standard
 defaults fallback exists only so previews and unsigned development runs remain

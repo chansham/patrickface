@@ -1,0 +1,22 @@
+{
+  "createdAt": "2026-10-12",
+  "tool": "built-in image_gen",
+  "request": "fitness-stretch-v2",
+  "status": "output-moderation-blocked-no-file",
+  "prompt": "Use case: illustration-story. Edit target: reference image 1, the existing Patrick Star 12-frame exercise animation sheet. Create a revised 16-frame sequence with real intermediate arm poses. Keep exactly this mint sleeveless exercise shirt, lavender shorts with white side stripes, white headband, bare pink feet, original flat cartoon drawing, black outlines, round torso, fixed camera and body volume. White sclera, black pupils; the closed eyelids must be warm pink like his skin, correcting the purple eyelids in the reference.\nOutput exactly 4 columns by 4 rows, 16 chronological full-body drawings, transparent background. Clear wide gutters and outer margins, no labels, no border, no background, no shadow. Keep both feet grounded at the same baseline within each cell. Full arm tips, head and feet visible in every cell. Never shrink raised-arm frames to fit; reserve enough room above for all poses at one body scale.\nAction: one slow overhead stretch, then arms lower smoothly to rest. Draw these 16 distinct poses:\n1 relaxed arms down.\n2 prepare, shoulders start to lift.\n3 arms open to low diagonal.\n4 arms extend horizontally.\n5 arms lift to upward diagonal.\n6 intermediate upward angle, between diagonal and overhead.\n7 arms nearly overhead.\n8 arms reach fully overhead, slight smile.\n9 hold overhead with softly closed pink eyelids.\n10 arms separate just a little from overhead and eyes begin to open.\n11 arms open farther to a high V.\n12 arms at upward diagonal.\n13 arms horizontal.\n14 arms lower between horizontal and low diagonal.\n15 arms at low downward diagonal.\n16 arms settle at sides, return to the front-facing relaxed expression.\nThis must be an arm/shoulder animation with consistent anatomy, not scaling, rocking, duplicate drawings or camera motion. Keep headband and clothing shape consistent. Preserve genuinely transparent alpha around the character.",
+  "reference": "animation/fitness-stretch-v1/atlas-generated.png",
+  "transparentBackground": true,
+  "actualGeneratedFiles": 0,
+  "actualSourceFrames": 0,
+  "artApproval": false,
+  "error": {
+    "httpStatus": 400,
+    "type": "image_generation_user_error",
+    "code": "moderation_blocked",
+    "moderationStage": "output",
+    "categories": ["other"],
+    "requestID": "c9585cc0-5379-46e2-a418-0499408f6283",
+    "message": "Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID c9585cc0-5379-46e2-a418-0499408f6283."
+  },
+  "notes": ["No new PNG or source frames. Existing 12-frame candidate unchanged; purple eyelids and 16-frame target remain unfinished."]
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "artApproval": false,
+  "manifestSha256": "d1a4a37e1dbff811da2bc7a95c187836533ee401d61957a056171b164e40f556",
+  "mainCatalogSha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+  "candidateCount": 34,
+  "candidateFrames": 376,
+  "processedSourceIDs": [
+    "fitness-boxing-first-20261012",
+    "fitness-tracksuit-first-20261012",
+    "fitness-basketball-first-20261012",
+    "fitness-cycling-first-20261012",
+    "fitness-coach-first-20261012",
+    "fitness-martial-first-20261012",
+    "fitness-stretch-first-20261012",
+    "fitness-kettlebell-first-20261012"
+  ],
+  "integratedCandidateIDs": [
+    "fitness-boxing-first-20261012",
+    "fitness-tracksuit-first-20261012",
+    "fitness-basketball-first-20261012",
+    "fitness-cycling-first-20261012",
+    "fitness-coach-first-20261012",
+    "fitness-martial-first-20261012",
+    "fitness-stretch-first-20261012",
+    "fitness-kettlebell-first-20261012"
+  ]
+}

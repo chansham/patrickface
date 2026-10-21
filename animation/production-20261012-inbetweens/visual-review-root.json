@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-13",
+  "artApproval": false,
+  "clips": [
+    {
+      "id": "pillow-pajama-inbetweens-20261012",
+      "source": "animation/pillow-pajama-v2/atlas-generated.png",
+      "sha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+      "sourceViewed": true,
+      "blackWhiteViewed": true,
+      "observations": [
+        "12格完整裸足、睡帽與枕頭分離；黑白底未見參考顯示中的黃綠光暈。",
+        "第8至11逐段離臉、下降、轉成橫抱，比舊第6至7的大跳多了實際姿勢。",
+        "第5及6皆閉眼，表情/姿勢接近，不能說每格都是不同動作。",
+        "第1至2抬枕角度仍偏大；第10至11回正與看前仍須正常速度確認。",
+        "第4/7貼枕遮住眼外邊，第5/6閉眼，不補猜完整眼距。"
+      ],
+      "runtimeReview": "12-of-12 normal1x; 48 layout-frame checks; source RGBA oracle passed",
+      "runtimeEvidence": "animation/production-20261012-inbetweens/runtime-review.json",
+      "rootScreenshotsViewed": ["four-layouts", "reference-first"],
+      "proportionFinding": "Fresh first-frame eye-to-foot / face-width ratio is about 10.39% shorter than old v1. It is a changed drawing proportion, not proof that the new and old body shapes match."
+    },
+    {
+      "id": "martial-inbetweens-20261012",
+      "source": "animation/fitness-martial-v2/atlas-generated.png",
+      "sha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+      "sourceViewed": true,
+      "blackWhiteViewed": true,
+      "observations": [
+        "10格白道服與黑腰帶、紅星保留，第6確有開始起身姿勢。",
+        "第7和8頭肩近似，第8至9轉為直立與睜大眼較快，幀數達10不代表過渡完成。",
+        "黑白合成未見直接透明圖所顯示的紅白碎塊；來源QC判定detached碎點全alpha1，未擦除像素。"
+      ],
+      "runtimeReview": "10-of-10 normal1x; 40 layout-frame checks; source RGBA oracle passed",
+      "runtimeEvidence": "animation/production-20261012-inbetweens/runtime-review.json",
+      "rootScreenshotsViewed": ["four-layouts", "reference-last"],
+      "proportionFinding": "Fresh first-frame eye-to-foot / face-width ratio is about 7.45% shorter than old v1. Within new source, first/last face-width differs +4.09%; no per-frame scaling applied."
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "fitness-boxing-first-20261012",
+  "source": {
+    "path": "animation/fitness-boxing-v1/atlas-generated.png",
+    "sha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/fitness-boxing-v1/regions-v1.json",
+    "sha256": "dc1a5e161289c6a2787b0123be96f2dd58c72aa4f7b83d86cada001d4b063385"
+  },
+  "canvas": {
+    "width": 784,
+    "height": 784,
+    "anchorPixels": [
+      392,
+      690
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8801020408163265
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 8,
+  "coverage": {
+    "assignedPixels": 594838,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 978026,
+    "alphaOnePixels": 24915,
+    "edgeNonzeroPixels": 23,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 1,
+    "detachedComponents": 1716
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        12,
+        19,
+        374,
+        509
+      ],
+      "coreBounds": [
+        70,
+        31,
+        334,
+        470
+      ],
+      "anchorSource": [
+        206,
+        470
+      ],
+      "translation": [
+        186,
+        220
+      ],
+      "placement": [
+        198,
+        239
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        387,
+        27,
+        363,
+        525
+      ],
+      "coreBounds": [
+        435,
+        33,
+        710,
+        470
+      ],
+      "anchorSource": [
+        568,
+        470
+      ],
+      "translation": [
+        -176,
+        220
+      ],
+      "placement": [
+        211,
+        247
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        785,
+        31,
+        349,
+        497
+      ],
+      "coreBounds": [
+        815,
+        35,
+        1075,
+        471
+      ],
+      "anchorSource": [
+        944,
+        471
+      ],
+      "translation": [
+        -552,
+        219
+      ],
+      "placement": [
+        233,
+        250
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1131,
+        19,
+        382,
+        519
+      ],
+      "coreBounds": [
+        1177,
+        34,
+        1509,
+        469
+      ],
+      "anchorSource": [
+        1304,
+        469
+      ],
+      "translation": [
+        -912,
+        221
+      ],
+      "placement": [
+        219,
+        240
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        0,
+        503,
+        423,
+        521
+      ],
+      "coreBounds": [
+        50,
+        525,
+        419,
+        962
+      ],
+      "anchorSource": [
+        176,
+        962
+      ],
+      "translation": [
+        216,
+        -272
+      ],
+      "placement": [
+        216,
+        231
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        391,
+        490,
+        361,
+        501
+      ],
+      "coreBounds": [
+        457,
+        529,
+        742,
+        962
+      ],
+      "anchorSource": [
+        585,
+        962
+      ],
+      "translation": [
+        -193,
+        -272
+      ],
+      "placement": [
+        198,
+        218
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        831,
+        523,
+        338,
+        475
+      ],
+      "coreBounds": [
+        834,
+        525,
+        1098,
+        962
+      ],
+      "anchorSource": [
+        965,
+        962
+      ],
+      "translation": [
+        -573,
+        -272
+      ],
+      "placement": [
+        258,
+        251
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1161,
+        527,
+        356,
+        473
+      ],
+      "coreBounds": [
+        1216,
+        529,
+        1479,
+        962
+      ],
+      "anchorSource": [
+        1346,
+        962
+      ],
+      "translation": [
+        -954,
+        -272
+      ],
+      "placement": [
+        207,
+        255
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "alignmentMethod": "所有來源保留default下15%兩腳支撐中心；逐格只作整數平移。8格裸腳均完整，出拳側傾仍保留，不逐格縮放或平滑。",
+    "findings": [
+      {
+        "sourceFrames": [
+          5
+        ],
+        "message": "紅拳套跨越名義方格右界但與手臂相連；須保留完整輪廓，不硬裁格。"
+      },
+      {
+        "sourceFrames": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "message": "出拳及收回缺中間原畫，不能靠播放速度宣稱平順。"
+      },
+      {
+        "sourceFrames": [
+          1,
+          8
+        ],
+        "message": "首格認真、末格微笑，不能當無縫待機。"
+      }
+    ]
+  },
+  "bodyMeasurementReport": "animation/production-20261012-fitness/fitness-boxing-v1-body-qc.json",
+  "status": "candidate-ready"
+}

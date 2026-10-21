@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-09-27T09:34:49.269Z",
+  "scope": "wardrobe concept feedback only",
+  "approvalGranted": false,
+  "note": "喜歡／修改／不喜歡只是個別靜態稿的意見，不代表批准畫風、動畫或安裝。",
+  "concepts": {
+    "charging-cel-v1": {
+      "title": "補充一點能量",
+      "image": "concepts/2026-09-27/charging-cel-v1.png",
+      "category": "daily",
+      "mood": "開心",
+      "status": "concept-review",
+      "generationNote": "",
+      "fingerprint": "concepts/2026-09-27/charging-cel-v1.png|da69bf66f43548c51119f5bf27a21fa6700100b724057db555cf2a485c579984|concept-review"
+    },
+    "fitness-toon-v1": {
+      "title": "下一組，再一起來",
+      "image": "concepts/2026-09-27/fitness-toon-v1.png",
+      "category": "leisure",
+      "mood": "得意",
+      "status": "concept-review",
+      "generationNote": "",
+      "fingerprint": "concepts/2026-09-27/fitness-toon-v1.png|983e3c03bf9e5bc993499135fed295975425ad46d508db696105014046579bfc|concept-review"
+    },
+    "bedtime-cel-v1": {
+      "title": "星星晚安",
+      "image": "concepts/2026-09-27/bedtime-cel-v1.png",
+      "category": "sleep",
+      "mood": "放鬆",
+      "status": "concept-review",
+      "generationNote": "",
+      "fingerprint": "concepts/2026-09-27/bedtime-cel-v1.png|b8457fc9e9a604af9143d0f40b8f34fbdb72788778507d2436587592e20b246f|concept-review"
+    },
+    "serious-suit": {
+      "title": "今天很正經",
+      "image": "concepts/2026-09-27-wardrobe/serious-suit.png",
+      "category": "work",
+      "mood": "嚴肅",
+      "status": "concept-review",
+      "generationNote": "靜態概念，尚未拆層動畫。",
+      "fingerprint": "concepts/2026-09-27-wardrobe/serious-suit.png|23b5a96cd2c376e0ad5883c8f7f92d8c1201ccd5b2258d82d3c0a9385434a402|concept-review"
+    },
+    "after-work": {
+      "title": "今天先到這裡",
+      "image": "concepts/2026-09-27-wardrobe/after-work.png",
+      "category": "work",
+      "mood": "疲倦",
+      "status": "concept-review",
+      "generationNote": "靜態概念，尚未拆層動畫。",
+      "fingerprint": "concepts/2026-09-27-wardrobe/after-work.png|cc95ff57a77a9a71c9696406b9d4ae5e1b5badb19a9224af281273cdb78b0801|concept-review"
+    },
+    "mint-striped-pajamas": {
+      "title": "再睡五分鐘",
+      "image": "concepts/2026-09-27-wardrobe/mint-striped-pajamas.png",
+      "category": "sleep",
+      "mood": "不耐煩",
+      "status": "generation-blocked",
+      "generationNote": "本輪圖片服務輸出檢查攔截，未生成。",
+      "fingerprint": "concepts/2026-09-27-wardrobe/mint-striped-pajamas.png||generation-blocked"
+    },
+    "navy-moon-robe": {
+      "title": "夜裡的思想家",
+      "image": "concepts/2026-09-27-wardrobe/navy-moon-robe.png",
+      "category": "sleep",
+      "mood": "沉思",
+      "status": "generation-blocked",
+      "generationNote": "本輪圖片服務輸出檢查攔截，未生成。",
+      "fingerprint": "concepts/2026-09-27-wardrobe/navy-moon-robe.png||generation-blocked"
+    },
+    "summer-pajamas": {
+      "title": "刷牙也要放空",
+      "image": "concepts/2026-09-27-wardrobe/summer-pajamas.png",
+      "category": "sleep",
+      "mood": "發呆",
+      "status": "generation-blocked",
+      "generationNote": "本輪圖片服務輸出檢查攔截，未生成。",
+      "fingerprint": "concepts/2026-09-27-wardrobe/summer-pajamas.png||generation-blocked"
+    },
+    "bath-duck": {
+      "title": "泡泡裡放空",
+      "image": "concepts/2026-09-27-wardrobe/bath-duck.png",
+      "category": "leisure",
+      "mood": "放鬆",
+      "status": "concept-review",
+      "generationNote": "靜態概念，尚未拆層動畫。",
+      "fingerprint": "concepts/2026-09-27-wardrobe/bath-duck.png|665f065a72174db273e118edbbd5a705e102c07ecd2582c154645027e4e210c0|concept-review"
+    },
+    "detective": {
+      "title": "事情沒有那麼簡單",
+      "image": "concepts/2026-09-27-wardrobe/detective.png",
+      "category": "daily",
+      "mood": "懷疑",
+      "status": "concept-review",
+      "generationNote": "靜態概念，尚未拆層動畫。",
+      "fingerprint": "concepts/2026-09-27-wardrobe/detective.png|23f9d971f39a4f2486ca08b372899339141efacdd725eff823e2ad5b6fb0cd48|concept-review"
+    },
+    "street-confident": {
+      "title": "今天我說了算",
+      "image": "concepts/2026-09-27-wardrobe/street-confident.png",
+      "category": "daily",
+      "mood": "得意",
+      "status": "concept-review",
+      "generationNote": "靜態概念，尚未拆層動畫。",
+      "fingerprint": "concepts/2026-09-27-wardrobe/street-confident.png|9078ffb8d4ce3ecf21a318fe83cea9ff151c8faa21ec9c9d0d7af5363c1487b2|concept-review"
+    }
+  },
+  "reviews": {
+    "serious-suit": {
+      "verdict": "rejected",
+      "note": "",
+      "image": "concepts/2026-09-27-wardrobe/serious-suit.png",
+      "fingerprint": "concepts/2026-09-27-wardrobe/serious-suit.png|23b5a96cd2c376e0ad5883c8f7f92d8c1201ccd5b2258d82d3c0a9385434a402|concept-review",
+      "imageAvailableAtReview": true,
+      "reviewedAt": "2026-09-27T09:34:01.146Z"
+    },
+    "after-work": {
+      "verdict": "rejected",
+      "note": "",
+      "image": "concepts/2026-09-27-wardrobe/after-work.png",
+      "fingerprint": "concepts/2026-09-27-wardrobe/after-work.png|cc95ff57a77a9a71c9696406b9d4ae5e1b5badb19a9224af281273cdb78b0801|concept-review",
+      "imageAvailableAtReview": true,
+      "reviewedAt": "2026-09-27T09:34:09.177Z"
+    },
+    "street-confident": {
+      "verdict": "rejected",
+      "note": "",
+      "image": "concepts/2026-09-27-wardrobe/street-confident.png",
+      "fingerprint": "concepts/2026-09-27-wardrobe/street-confident.png|9078ffb8d4ce3ecf21a318fe83cea9ff151c8faa21ec9c9d0d7af5363c1487b2|concept-review",
+      "imageAvailableAtReview": true,
+      "reviewedAt": "2026-09-27T09:34:14.585Z"
+    }
+  }
+}

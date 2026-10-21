@@ -1,0 +1,731 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "reviewRequired": true,
+  "frameIndexBasis": "one-based source reading order",
+  "source": {
+    "path": "animation/fitness-martial-v1/atlas-generated.png",
+    "sha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+    "width": 1774,
+    "height": 887
+  },
+  "regions": {
+    "path": "animation/fitness-martial-v1/regions-v1.json",
+    "sha256": "363bcb8be0e7a6b8a72f9345696a46f708a9aba42980c45fd276a77d07aed0d2"
+  },
+  "canvas": {
+    "width": 928,
+    "height": 928,
+    "anchorPixels": [
+      464,
+      817
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8803879310344828
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 567493,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceUnchanged": true,
+  "reviewConfiguration": {
+    "path": "animation/production-20261012-fitness/measurements/fitness-martial-v1.json",
+    "sha256": "628a75ca9bc67c9aff618f3a0f014b86b02d24f9f17364732e2e64873b7f482b"
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "faceWidthPx": 100.75,
+      "eyeLowerRimSeparationPx": 32.0,
+      "eyeLineToFootPx": 245.0,
+      "anchorSource": [
+        223,
+        418
+      ],
+      "footROI": [
+        145,
+        360,
+        300,
+        432
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          167,
+          384,
+          222,
+          416
+        ],
+        [
+          225,
+          384,
+          280,
+          416
+        ]
+      ],
+      "visibleFootBaselineY": 415.0,
+      "eyeROI": [
+        183,
+        110,
+        267,
+        185
+      ],
+      "eyeWhiteBounds": [
+        [
+          194,
+          127,
+          223,
+          171
+        ],
+        [
+          226,
+          127,
+          255,
+          171
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          208.0,
+          170.0
+        ],
+        [
+          240.0,
+          170.0
+        ]
+      ],
+      "eyeMidpoint": [
+        224.0,
+        170.0
+      ],
+      "faceCaliperPoints": [
+        [
+          173,
+          170
+        ],
+        [
+          273,
+          170
+        ]
+      ],
+      "footSourcePoint": [
+        224.0,
+        415.0
+      ],
+      "eyeToFootPoints": [
+        [
+          224.0,
+          170.0
+        ],
+        [
+          224.0,
+          415.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 33.015148038438355,
+      "eyeLineToFootPx": 225.5,
+      "anchorSource": [
+        671,
+        417
+      ],
+      "footROI": [
+        590,
+        360,
+        743,
+        432
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          615,
+          382,
+          672,
+          415
+        ],
+        [
+          672,
+          383,
+          727,
+          415
+        ]
+      ],
+      "visibleFootBaselineY": 414.0,
+      "eyeROI": [
+        626,
+        140,
+        714,
+        209
+      ],
+      "eyeWhiteBounds": [
+        [
+          641,
+          158,
+          671,
+          190
+        ],
+        [
+          674,
+          158,
+          704,
+          189
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          655.5,
+          189.0
+        ],
+        [
+          688.5,
+          188.0
+        ]
+      ],
+      "eyeMidpoint": [
+        672.0,
+        188.5
+      ],
+      "faceWidthUnavailableReason": "已低頭開始鞠躬，臉的俯視投影與正面站姿不同，不把投影截面當中立臉寬。",
+      "footSourcePoint": [
+        672.0,
+        414.0
+      ],
+      "eyeToFootPoints": [
+        [
+          672.0,
+          188.5
+        ],
+        [
+          672.0,
+          414.0
+        ]
+      ],
+      "measurementCaveat": "眼足距為鞠躬姿勢的垂直投影，不能當身體縮小。"
+    },
+    {
+      "sourceFrame": 3,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 32.01562118716424,
+      "eyeLineToFootPx": 195.5,
+      "anchorSource": [
+        1112,
+        417
+      ],
+      "footROI": [
+        1035,
+        360,
+        1190,
+        432
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1057,
+          382,
+          1111,
+          415
+        ],
+        [
+          1112,
+          381,
+          1168,
+          415
+        ]
+      ],
+      "visibleFootBaselineY": 414.0,
+      "eyeROI": [
+        1082,
+        171,
+        1172,
+        235
+      ],
+      "eyeWhiteBounds": [
+        [
+          1095,
+          190,
+          1126,
+          220
+        ],
+        [
+          1128,
+          190,
+          1157,
+          219
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1110.0,
+          219.0
+        ],
+        [
+          1142.0,
+          218.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1126.0,
+        218.5
+      ],
+      "faceWidthUnavailableReason": "中度鞠躬，頭部俯視投影不能與中立正臉比寬度。",
+      "footSourcePoint": [
+        1126.0,
+        414.0
+      ],
+      "eyeToFootPoints": [
+        [
+          1126.0,
+          218.5
+        ],
+        [
+          1126.0,
+          414.0
+        ]
+      ],
+      "measurementCaveat": "鞠躬使眼線下降，垂直眼足距縮短是姿勢投影。"
+    },
+    {
+      "sourceFrame": 4,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 32.0,
+      "eyeLineToFootPx": 147.0,
+      "anchorSource": [
+        1561,
+        417
+      ],
+      "footROI": [
+        1475,
+        360,
+        1635,
+        432
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1506,
+          382,
+          1560,
+          415
+        ],
+        [
+          1560,
+          380,
+          1616,
+          415
+        ]
+      ],
+      "visibleFootBaselineY": 414.0,
+      "eyeROI": [
+        1520,
+        237,
+        1615,
+        285
+      ],
+      "eyeWhiteBounds": [
+        [
+          1537,
+          250,
+          1567,
+          268
+        ],
+        [
+          1570,
+          250,
+          1598,
+          268
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1551.5,
+          267.0
+        ],
+        [
+          1583.5,
+          267.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1567.5,
+        267.0
+      ],
+      "faceWidthUnavailableReason": "深鞠躬，正面臉型與真頭高無法可靠比較；不使用俯視外框補猜。",
+      "footSourcePoint": [
+        1567.5,
+        414.0
+      ],
+      "eyeToFootPoints": [
+        [
+          1567.5,
+          267.0
+        ],
+        [
+          1567.5,
+          414.0
+        ]
+      ],
+      "measurementCaveat": "深鞠躬造成垂直眼足距大幅縮短，非全人物縮放；白道服位在眼下方，依本圖眼部位置排除衣領白塊。"
+    },
+    {
+      "sourceFrame": 5,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "anchorSource": [
+        223,
+        841
+      ],
+      "footROI": [
+        145,
+        782,
+        300,
+        863
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          167,
+          809,
+          222,
+          839
+        ],
+        [
+          225,
+          809,
+          279,
+          839
+        ]
+      ],
+      "visibleFootBaselineY": 838.0,
+      "eyeUnavailableReason": "最深鞠躬且雙眼完全閉合，沒有眼白下緣，三項尺規未知。",
+      "unavailableReason": "最深鞠躬且雙眼完全閉合，沒有眼白下緣，三項尺規未知。",
+      "faceWidthUnavailableReason": "眼下緣基準不可見，因此臉部截線未知。",
+      "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+      "faceReviewROI": [
+        155,
+        625,
+        295,
+        755
+      ]
+    },
+    {
+      "sourceFrame": 6,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 32.01562118716424,
+      "eyeLineToFootPx": 191.5,
+      "anchorSource": [
+        670,
+        839
+      ],
+      "footROI": [
+        590,
+        782,
+        743,
+        863
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          615,
+          806,
+          669,
+          837
+        ],
+        [
+          672,
+          806,
+          726,
+          837
+        ]
+      ],
+      "visibleFootBaselineY": 836.0,
+      "eyeROI": [
+        642,
+        604,
+        730,
+        666
+      ],
+      "eyeWhiteBounds": [
+        [
+          654,
+          619,
+          684,
+          646
+        ],
+        [
+          687,
+          619,
+          715,
+          645
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          668.5,
+          645.0
+        ],
+        [
+          700.5,
+          644.0
+        ]
+      ],
+      "eyeMidpoint": [
+        684.5,
+        644.5
+      ],
+      "faceWidthUnavailableReason": "起身中的低頭投影，正臉截面不可與中立站姿比較。",
+      "footSourcePoint": [
+        684.5,
+        836.0
+      ],
+      "eyeToFootPoints": [
+        [
+          684.5,
+          644.5
+        ],
+        [
+          684.5,
+          836.0
+        ]
+      ],
+      "measurementCaveat": "起身中的垂直眼足距是姿勢代理，不是站立身高；排除眼部ROI下方進入的白道服。"
+    },
+    {
+      "sourceFrame": 7,
+      "faceWidthPx": 107.75,
+      "eyeLowerRimSeparationPx": 32.5,
+      "eyeLineToFootPx": 232.0,
+      "anchorSource": [
+        1113,
+        838
+      ],
+      "footROI": [
+        1035,
+        782,
+        1190,
+        863
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1056,
+          804,
+          1112,
+          836
+        ],
+        [
+          1115,
+          804,
+          1169,
+          836
+        ]
+      ],
+      "visibleFootBaselineY": 835.0,
+      "eyeROI": [
+        1065,
+        550,
+        1155,
+        628
+      ],
+      "eyeWhiteBounds": [
+        [
+          1083,
+          563,
+          1112,
+          604
+        ],
+        [
+          1115,
+          563,
+          1145,
+          604
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1097.0,
+          603.0
+        ],
+        [
+          1129.5,
+          603.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1113.25,
+        603.0
+      ],
+      "faceCaliperPoints": [
+        [
+          1060,
+          603
+        ],
+        [
+          1167,
+          603
+        ]
+      ],
+      "footSourcePoint": [
+        1113.25,
+        835.0
+      ],
+      "eyeToFootPoints": [
+        [
+          1113.25,
+          603.0
+        ],
+        [
+          1113.25,
+          835.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 8,
+      "faceWidthPx": 105.75,
+      "eyeLowerRimSeparationPx": 32.5,
+      "eyeLineToFootPx": 234.0,
+      "anchorSource": [
+        1555,
+        838
+      ],
+      "footROI": [
+        1475,
+        782,
+        1635,
+        863
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1498,
+          804,
+          1553,
+          836
+        ],
+        [
+          1556,
+          804,
+          1611,
+          836
+        ]
+      ],
+      "visibleFootBaselineY": 835.0,
+      "eyeROI": [
+        1510,
+        548,
+        1605,
+        629
+      ],
+      "eyeWhiteBounds": [
+        [
+          1523,
+          559,
+          1553,
+          602
+        ],
+        [
+          1556,
+          559,
+          1585,
+          602
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1537.5,
+          601.0
+        ],
+        [
+          1570.0,
+          601.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1553.75,
+        601.0
+      ],
+      "faceCaliperPoints": [
+        [
+          1501,
+          601
+        ],
+        [
+          1606,
+          601
+        ]
+      ],
+      "footSourcePoint": [
+        1553.75,
+        835.0
+      ],
+      "eyeToFootPoints": [
+        [
+          1553.75,
+          601.0
+        ],
+        [
+          1553.75,
+          835.0
+        ]
+      ]
+    }
+  ],
+  "firstLast": {
+    "faceWidthPx": {
+      "first": 100.75,
+      "last": 105.75,
+      "changePercent": 4.962779156327546
+    },
+    "eyeLowerRimSeparationPx": {
+      "first": 32.0,
+      "last": 32.5,
+      "changePercent": 1.5625
+    },
+    "eyeLineToFootPx": {
+      "first": 245.0,
+      "last": 234.0,
+      "changePercent": -4.489795918367346
+    }
+  },
+  "wholeClipSpread": {
+    "faceWidthPx": 6.94789081885856,
+    "eyeLowerRimSeparationPx": 3.1723376201198583,
+    "eyeLineToFootPx": 66.66666666666667
+  },
+  "edgeSamplingUncertaintySourcePixels": 2,
+  "limitations": [
+    "比較體型只使用中立站姿1/7/8；2–6鞠躬俯視投影的臉寬不作正臉尺規。",
+    "第5閉眼三項未知；其餘眼距/眼足距仍只表示當下姿勢。全段眼足距極差預期很大，不能因此逐格放大鞠躬的人物。",
+    "道服和腰帶遮住軀幹，帽或道具外框沒有用作人體；真裸腳獨立可見。"
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "message": "中段真的由头肩腰俯身鞠躬，量到眼足距縮短是姿勢投影，不能當變小後再fit放大。",
+      "severity": "info"
+    },
+    {
+      "sourceFrames": [
+        5,
+        6,
+        7
+      ],
+      "message": "最深鞠躬→半起身→直立仍需正常速度審閱，起身中間稿較少，未批准自然循環。"
+    },
+    {
+      "sourceFrames": [
+        1,
+        8
+      ],
+      "message": "首末正面站姿可以對尺；首末接近不等於中段每格都應同高度。",
+      "severity": "info"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "reason": "本批依主睡衣的可見臉部尺規重校；保留舊版本與評價識別，不逐格縮放。",
+  "candidate": {
+    "id": "fitness-tracksuit-first-20261012",
+    "title": "酒紅運動套裝・拉開外套",
+    "category": "新造型待審",
+    "version": 1,
+    "batch": "20261012-fitness",
+    "reviewGroup": "scene",
+    "atlas": "animation/fitness-tracksuit-v2/atlas-generated.png",
+    "width": 1536,
+    "height": 1024,
+    "columns": 4,
+    "rows": 2,
+    "frameCount": 8,
+    "frameIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "durationsMs": [
+      600,
+      220,
+      180,
+      250,
+      320,
+      350,
+      240,
+      700
+    ],
+    "frameLabels": [
+      "戴耳機休息",
+      "握住星星拉鍊",
+      "準備向下拉",
+      "拉開領口",
+      "敞開外套",
+      "舒一口氣",
+      "放下雙手",
+      "微笑休息"
+    ],
+    "sha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+    "anchorNormalized": [
+      0.5,
+      0.88
+    ],
+    "masterId": "patrick-candidate-review-v1",
+    "scale": 0.931316696309471,
+    "status": "quality-revision-required",
+    "scenes": [
+      "exercise",
+      "awake"
+    ],
+    "triggerKinds": [
+      "manual-review"
+    ],
+    "description": "酒紅米白運動套裝、耳機與星星拉鍊。全段粉色眼皮；握拉鍊近同姿、敞開外套與舒氣仍缺過渡，首穿好末敞開，屬一次性動作待審。",
+    "frameRegions": {
+      "path": "animation/fitness-tracksuit-v2/regions-v1.json",
+      "sha256": "e8370db5c4b7e3b3cf484643d413ef4c3d69b98099d5d69ec1364922707948f4",
+      "version": 1
+    },
+    "renderingRevision": "fitness-20261012-v1",
+    "comparisonClipId": "raincoat-first-20261012",
+    "artApproved": false,
+    "variantGroup": "burgundy-cream-tracksuit-headphones",
+    "pose": "standing",
+    "newOutfit": true,
+    "scaleProvenance": {
+      "method": "首格可見臉截線129.75來源px，固定整段倍率匹配既有站姿雨衣134.05舞台px；短圓體型仍是來源差異，耳機與呼氣雲不算人物臉寬。",
+      "sourcePixelToStagePixel": 1.0331406551059732,
+      "catalogScale": 0.931316696309471,
+      "canvas": 600,
+      "perFrameScale": false
+    },
+    "reviewProvenance": {
+      "qc": "animation/production-20261012-fitness/fitness-tracksuit-first-20261012-qc.json",
+      "bodyQC": "animation/production-20261012-fitness/fitness-tracksuit-v2-body-qc.json",
+      "sourceFrameCount": 8,
+      "reorderingIsNotRedrawing": true
+    }
+  }
+}

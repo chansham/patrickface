@@ -1,0 +1,414 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "fitness-stretch-first-20261012",
+  "source": {
+    "path": "animation/fitness-stretch-v1/atlas-generated.png",
+    "sha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+    "width": 1448,
+    "height": 1086
+  },
+  "regions": {
+    "path": "animation/fitness-stretch-v1/regions-v1.json",
+    "sha256": "fda682ba08d90cfe95e546bfb124259eb28aa153995d2690fbbbee40393cb516"
+  },
+  "canvas": {
+    "width": 800,
+    "height": 800,
+    "anchorPixels": [
+      400,
+      704
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.88
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 12,
+  "coverage": {
+    "assignedPixels": 519265,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 1053263,
+    "alphaOnePixels": 66604,
+    "edgeNonzeroPixels": 50,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 1,
+    "detachedComponents": 5945
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        21,
+        25,
+        345,
+        384
+      ],
+      "coreBounds": [
+        82,
+        39,
+        287,
+        342
+      ],
+      "anchorSource": [
+        187,
+        342
+      ],
+      "translation": [
+        213,
+        362
+      ],
+      "placement": [
+        234,
+        387
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        366,
+        17,
+        366,
+        356
+      ],
+      "coreBounds": [
+        445,
+        39,
+        649,
+        342
+      ],
+      "anchorSource": [
+        548,
+        342
+      ],
+      "translation": [
+        -148,
+        362
+      ],
+      "placement": [
+        218,
+        379
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        697,
+        17,
+        423,
+        362
+      ],
+      "coreBounds": [
+        747,
+        51,
+        1054,
+        342
+      ],
+      "anchorSource": [
+        902,
+        342
+      ],
+      "translation": [
+        -502,
+        362
+      ],
+      "placement": [
+        195,
+        379
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1043,
+        15,
+        395,
+        359
+      ],
+      "coreBounds": [
+        1097,
+        51,
+        1428,
+        342
+      ],
+      "anchorSource": [
+        1264,
+        342
+      ],
+      "translation": [
+        -864,
+        362
+      ],
+      "placement": [
+        179,
+        377
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        27,
+        382,
+        353,
+        384
+      ],
+      "coreBounds": [
+        52,
+        406,
+        321,
+        698
+      ],
+      "anchorSource": [
+        187,
+        698
+      ],
+      "translation": [
+        213,
+        6
+      ],
+      "placement": [
+        240,
+        388
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        379,
+        349,
+        359,
+        433
+      ],
+      "coreBounds": [
+        438,
+        398,
+        651,
+        698
+      ],
+      "anchorSource": [
+        548,
+        698
+      ],
+      "translation": [
+        -148,
+        6
+      ],
+      "placement": [
+        231,
+        355
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        725,
+        371,
+        357,
+        407
+      ],
+      "coreBounds": [
+        823,
+        374,
+        978,
+        698
+      ],
+      "anchorSource": [
+        901,
+        698
+      ],
+      "translation": [
+        -501,
+        6
+      ],
+      "placement": [
+        224,
+        377
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1083,
+        371,
+        349,
+        367
+      ],
+      "coreBounds": [
+        1186,
+        374,
+        1340,
+        698
+      ],
+      "anchorSource": [
+        1264,
+        698
+      ],
+      "translation": [
+        -864,
+        6
+      ],
+      "placement": [
+        219,
+        377
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 9,
+      "sourceBounds": [
+        29,
+        740,
+        371,
+        346
+      ],
+      "coreBounds": [
+        44,
+        759,
+        329,
+        1047
+      ],
+      "anchorSource": [
+        187,
+        1047
+      ],
+      "translation": [
+        213,
+        -343
+      ],
+      "placement": [
+        242,
+        397
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 10,
+      "sourceBounds": [
+        339,
+        755,
+        437,
+        315
+      ],
+      "coreBounds": [
+        380,
+        759,
+        711,
+        1047
+      ],
+      "anchorSource": [
+        547,
+        1047
+      ],
+      "translation": [
+        -147,
+        -343
+      ],
+      "placement": [
+        192,
+        412
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 11,
+      "sourceBounds": [
+        699,
+        753,
+        401,
+        333
+      ],
+      "coreBounds": [
+        774,
+        759,
+        1032,
+        1047
+      ],
+      "anchorSource": [
+        904,
+        1047
+      ],
+      "translation": [
+        -504,
+        -343
+      ],
+      "placement": [
+        195,
+        410
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 12,
+      "sourceBounds": [
+        1095,
+        745,
+        337,
+        341
+      ],
+      "coreBounds": [
+        1169,
+        748,
+        1362,
+        1047
+      ],
+      "anchorSource": [
+        1266,
+        1047
+      ],
+      "translation": [
+        -866,
+        -343
+      ],
+      "placement": [
+        229,
+        402
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "alignmentMethod": "12格雙腳可見，保留下15%支撐中心與逐格整數平移；高舉手臂只影響安全上限，不逐格縮放。",
+    "findings": [
+      {
+        "sourceFrames": [
+          8
+        ],
+        "message": "閉眼眼皮仍紫色；修圖未成功，顏色瑕疵明确待修。"
+      },
+      {
+        "sourceFrames": [
+          1,
+          2
+        ],
+        "message": "前兩格近同姿，不能算新增動作過渡。"
+      },
+      {
+        "sourceFrames": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "message": "高舉到下降有較大角度跳換，需補中間原畫。"
+      }
+    ]
+  },
+  "bodyMeasurementReport": "animation/production-20261012-fitness/fitness-stretch-v1-body-qc.json",
+  "status": "candidate-ready"
+}

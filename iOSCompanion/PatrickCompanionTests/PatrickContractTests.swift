@@ -2,6 +2,164 @@ import XCTest
 @testable import PatrickCompanion
 
 final class PatrickContractTests: XCTestCase {
+    @MainActor func testBreakIntentSavesOnceAndReturnsPersistedOriginalWithoutExtendingOnRepeat() throws {
+        let suite = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suite)!
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let store = PatrickSharedStore(defaults: defaults)
+        let now = Date(timeIntervalSince1970: 1_800_000_000.375)
+        var original = PatrickExperienceState()
+        original.settings.outfitID = "mint-pajama"
+        original.settings.scene = .focus
+        original.start(.focus, seconds: 600, at: now)
+        store.saveExperience(original)
+        var initialSettings = PatrickSettings.defaults
+        initialSettings.experience = original
+        store.saveSettings(initialSettings)
+        var deliveries: [PatrickSettings] = []
+
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.takeBreak, breakMinutes: 3,
+            using: store, at: now.addingTimeInterval(30), deliver: { deliveries.append($0) }), .rest(.started(.focus)))
+        let resting = store.loadExperience()
+        XCTAssertEqual(resting.breakSession?.savedActivity.id, original.activity?.id)
+        XCTAssertEqual(resting.breakSession?.savedActivity.remainingSeconds, 570)
+        XCTAssertEqual(resting.activity?.kind, .breathing)
+        XCTAssertEqual(resting.activity?.endsAt, now.addingTimeInterval(210))
+        XCTAssertEqual(resting.settings, original.settings)
+        XCTAssertEqual(deliveries.count, 1)
+        XCTAssertEqual(deliveries.last?.experience, resting)
+        let persistedBytes = defaults.data(forKey: PatrickAppGroup.settingsKey)
+        let reopened = PatrickSharedStore(defaults: defaults)
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.takeBreak, breakMinutes: 15,
+            using: reopened, at: now.addingTimeInterval(40), deliver: { deliveries.append($0) }), .rest(.alreadySaved))
+        XCTAssertEqual(defaults.data(forKey: PatrickAppGroup.settingsKey), persistedBytes)
+        XCTAssertEqual(reopened.loadExperience(), resting)
+        XCTAssertEqual(deliveries.count, 1, "A repeated break cannot rewrite or send a new command")
+
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.returnToActivity,
+            using: reopened, at: now.addingTimeInterval(100), deliver: { deliveries.append($0) }),
+            .rest(.returned(.focus, running: true)))
+        let returned = reopened.loadExperience()
+        XCTAssertEqual(returned.activity?.id, original.activity?.id)
+        XCTAssertEqual(returned.activity?.endsAt, now.addingTimeInterval(670))
+        XCTAssertNil(returned.breakSession)
+        XCTAssertEqual(returned.care.bond, 0, "Returning early cancels the break without a completion reward")
+        XCTAssertEqual(deliveries.count, 2)
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.returnToActivity,
+            using: reopened, at: now.addingTimeInterval(101), deliver: { deliveries.append($0) }), .rest(.nothingSaved))
+        XCTAssertEqual(reopened.loadExperience(), returned)
+        XCTAssertEqual(deliveries.count, 2)
+        let wire = try PatrickMessageEnvelope.decode(PatrickMessageEnvelope.snapshot(settings: deliveries[1]).encoded())
+        XCTAssertEqual(wire.settings?.experience, returned)
+        XCTAssertTrue(reopened.consumePendingActions().isEmpty, "No delayed animation or sound is queued by a break")
+    }
+
+    @MainActor func testBreakIntentKeepsPausedOriginalThroughPauseResumeAndCancelOfBreak() throws {
+        let suite = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suite)!
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let store = PatrickSharedStore(defaults: defaults)
+        let now = Date(timeIntervalSince1970: 1_800_000_000)
+        var state = PatrickExperienceState(); state.start(.strength, seconds: 300, at: now)
+        state.pause(at: now.addingTimeInterval(20))
+        let original = try XCTUnwrap(state.activity)
+        store.saveExperience(state)
+        var deliveries: [PatrickSettings] = []
+        let send: (PatrickSettings) -> Void = { deliveries.append($0) }
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.takeBreak,
+            using: store, at: now.addingTimeInterval(100), deliver: send), .rest(.started(.strength)))
+        let saved = store.loadExperience().breakSession
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.pause,
+            using: store, at: now.addingTimeInterval(110), deliver: send), .activity(.paused))
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.resume,
+            using: store, at: now.addingTimeInterval(120), deliver: send), .activity(.resumed))
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.cancel,
+            using: store, at: now.addingTimeInterval(130), deliver: send), .activity(.cancelled))
+        XCTAssertEqual(store.loadExperience().breakSession, saved)
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.returnToActivity,
+            using: store, at: now.addingTimeInterval(500), deliver: send), .rest(.returned(.strength, running: false)))
+        XCTAssertEqual(store.loadExperience().activity, original, "A pre-existing pause is not converted into running work")
+        XCTAssertEqual(store.loadExperience().care.bond, 0)
+        XCTAssertEqual(deliveries.count, 5)
+    }
+
+    @MainActor func testExpiredBreakIntentSettlesOnceAndWaitsForExplicitReturn() throws {
+        let suite = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suite)!
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let store = PatrickSharedStore(defaults: defaults)
+        let now = Date(timeIntervalSince1970: 1_800_000_000)
+        var state = PatrickExperienceState(); state.start(.running, seconds: 600, at: now)
+        let originalID = state.activity?.id
+        store.saveExperience(state)
+        var deliveries: [PatrickSettings] = []
+        let send: (PatrickSettings) -> Void = { deliveries.append($0) }
+        _ = PatrickTimerControlIntentExecutor.control(.takeBreak, breakMinutes: 1,
+            using: store, at: now.addingTimeInterval(30), deliver: send)
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.takeBreak, breakMinutes: 5,
+            using: store, at: now.addingTimeInterval(1000), deliver: send), .rest(.alreadySaved))
+        let settled = store.loadExperience()
+        XCTAssertEqual(settled.activity?.status, .completed)
+        XCTAssertEqual(settled.breakSession?.savedActivity.id, originalID)
+        XCTAssertEqual(settled.breakSession?.savedActivity.remainingSeconds, 570)
+        XCTAssertEqual(settled.care.bond, 1)
+        XCTAssertEqual(deliveries.count, 2, "The expired break must be persisted even when the requested new break is refused")
+        _ = PatrickTimerControlIntentExecutor.control(.takeBreak,
+            using: store, at: now.addingTimeInterval(1001), deliver: send)
+        XCTAssertEqual(store.loadExperience(), settled)
+        XCTAssertEqual(deliveries.count, 2)
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.returnToActivity,
+            using: store, at: now.addingTimeInterval(1002), deliver: send), .rest(.returned(.running, running: true)))
+        XCTAssertEqual(store.loadExperience().activity?.endsAt, now.addingTimeInterval(1572))
+        XCTAssertEqual(store.loadExperience().care.bond, 1)
+    }
+
+    @MainActor func testBreakIntentEmptyAndExpiredOriginalNeverCreatesAnUnattachedBreak() throws {
+        let suite = "PatrickContractTests.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suite)!
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let store = PatrickSharedStore(defaults: defaults)
+        let now = Date(timeIntervalSince1970: 1_800_000_000)
+        var deliveries: [PatrickSettings] = []
+        let send: (PatrickSettings) -> Void = { deliveries.append($0) }
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.takeBreak,
+            using: store, at: now, deliver: send), .rest(.noActiveActivity))
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.returnToActivity,
+            using: store, at: now, deliver: send), .rest(.nothingSaved))
+        XCTAssertTrue(deliveries.isEmpty)
+        XCTAssertNil(defaults.data(forKey: PatrickAppGroup.settingsKey))
+        var state = PatrickExperienceState(); state.start(.focus, seconds: 60, at: now)
+        store.saveExperience(state)
+        XCTAssertEqual(PatrickTimerControlIntentExecutor.control(.takeBreak,
+            using: store, at: now.addingTimeInterval(60), deliver: send), .rest(.noActiveActivity))
+        let expired = store.loadExperience()
+        XCTAssertNil(expired.breakSession)
+        XCTAssertEqual(expired.activity?.status, .completed)
+        XCTAssertEqual(expired.care.bond, 1)
+        XCTAssertEqual(deliveries.count, 1)
+        _ = PatrickTimerControlIntentExecutor.control(.takeBreak,
+            using: store, at: now.addingTimeInterval(61), deliver: send)
+        XCTAssertEqual(store.loadExperience(), expired)
+        XCTAssertEqual(deliveries.count, 1)
+    }
+
+    @MainActor func testBreakIntentUsesSharedDurationBounds() throws {
+        for (requested, expected) in [(-1, 60.0), (3, 180.0), (999, 900.0)] {
+            let suite = "PatrickContractTests.\(UUID().uuidString)"
+            let defaults = UserDefaults(suiteName: suite)!
+            defer { defaults.removePersistentDomain(forName: suite) }
+            let store = PatrickSharedStore(defaults: defaults)
+            let now = Date(timeIntervalSince1970: 1_800_000_000)
+            var state = PatrickExperienceState(); state.start(.focus, seconds: 600, at: now)
+            store.saveExperience(state)
+            _ = PatrickTimerControlIntentExecutor.control(.takeBreak, breakMinutes: requested,
+                using: store, at: now.addingTimeInterval(30), deliver: { _ in })
+            XCTAssertEqual(store.loadExperience().activity?.remainingSeconds, expected)
+            XCTAssertEqual(store.loadExperience().activity?.endsAt, now.addingTimeInterval(30 + expected))
+            XCTAssertEqual(store.loadExperience().breakSession?.savedActivity.remainingSeconds, 570)
+        }
+    }
+
     func testBreakSurvivesSleepMergeWireAndReloadWithoutAutomaticReturn() throws {
         let now = Date(timeIntervalSince1970: 1_800_000_000.375)
         var state = PatrickExperienceState(); state.start(.running, seconds: 600, at: now)

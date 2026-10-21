@@ -1,0 +1,82 @@
+{
+  "id": "pillow-pajama-first-20261012",
+  "title": "花花睡衣・抱緊小枕頭",
+  "source": "animation/pillow-pajama-v1/atlas-generated.png",
+  "sha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+  "columns": 4,
+  "rows": 2,
+  "frameIndices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "durationsMs": [
+    700,
+    260,
+    260,
+    260,
+    500,
+    280,
+    300,
+    800
+  ],
+  "frameLabels": [
+    "胸前抱枕",
+    "抬起枕頭",
+    "靠近臉旁",
+    "抱緊枕頭",
+    "閉眼依偎",
+    "重新睜眼",
+    "轉回橫抱",
+    "抱枕休息"
+  ],
+  "status": "intermediate-awaiting-transition-revision",
+  "scenes": [
+    "sleeping",
+    "awake"
+  ],
+  "comparisonClipId": "yawn",
+  "newOutfit": true,
+  "variantGroup": "lime-flower-pajamas-mint-pillow",
+  "pose": "standing-pillow-hug",
+  "description": "檸綠紫花睡衣與薄荷抱枕v1對照稿；首末可比尺規差異小，但第6→7直抱轉橫抱缺真中間姿勢，等待12格修訂結果。尚未加入候選。",
+  "bodyQC": "animation/production-20261012-playful/pillow-pajama-v1-body-qc.json",
+  "visualReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "findings": [
+      {
+        "sourceFrames": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "message": "側臉與枕頭遮擋不能硬補人體尺規；第5格閉眼暖粉，眼尺規未知。"
+      },
+      {
+        "sourceFrames": [
+          6,
+          7
+        ],
+        "message": "直立抱枕回橫抱角度跳換，需要補原畫過渡。"
+      },
+      {
+        "sourceFrames": [
+          1,
+          7,
+          8
+        ],
+        "message": "頭帽及軀幹高度改變需獨立量測，不能靠逐格縮放補救。"
+      }
+    ],
+    "alignmentMethod": "8格雙裸腳可見且枕頭不進足部支撐區；保留下15%支撐中心與逐格整數平移。側身/依偎姿勢保留，全段單倍率，不用枕頭外框推人體大小。"
+  }
+}

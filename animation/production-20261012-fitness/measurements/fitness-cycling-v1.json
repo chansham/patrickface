@@ -1,0 +1,30 @@
+{
+  "asset": "fitness-cycling-v1",
+  "candidateIncluded": false,
+  "clipID": "fitness-cycling-first-20261012",
+  "newOutfit": true,
+  "source": {"path": "animation/fitness-cycling-v1/atlas-generated.png", "sha256": "0fe9100eef7da6d8767a6efff317cb450e4030ab6bf76ed5c1f7ded6818b3db9", "width": 1536, "height": 1024},
+  "regions": {"path": "animation/fitness-cycling-v1/regions-v1.json", "sha256": "08ba945a522e5608933e7fd67e98a57b40046bbb723dde98f8bf56497681d230"},
+  "standingComparisonUnavailableReason": "可見眼白的格，左側頭盔帶仍遮住臉截線的原始皮膚外緣；不能以扣帶右緣充當完整臉寬，因此不計跨服裝眼足／臉寬比例。",
+  "frames": [
+    {"sourceFrame":1,"eyeROI":[160,155,255,243],"footROI":[100,421,295,498],"faceWidthUnavailableReason":"頭盔帶遮住左側臉截線的真正皮膚外緣；帶子右側露出皮膚不是完整臉寬。"},
+    {"sourceFrame":2,"eyeROI":[537,151,629,233],"footROI":[480,421,674,498],"faceWidthUnavailableReason":"左側頭盔帶覆蓋臉截線外緣，不能把帶扣邊界當臉邊。"},
+    {"sourceFrame":3,"eyeROI":[932,151,1025,235],"footROI":[860,421,1070,498],"faceWidthUnavailableReason":"左側頭盔帶覆蓋臉截線外緣，完整臉寬未知。"},
+    {"sourceFrame":4,"eyeUnavailableReason":"墨鏡遮住雙眼白下半部和下緣，不能把鏡框下緣當眼白基準。","faceReviewROI":[1280,127,1450,270],"footROI":[1245,421,1455,498]},
+    {"sourceFrame":5,"eyeUnavailableReason":"雙眼被墨鏡完全遮住，臉截線、眼距、眼足距均保持未知。","faceReviewROI":[120,607,285,750],"footROI":[100,899,295,987]},
+    {"sourceFrame":6,"eyeUnavailableReason":"墨鏡框遮上半眼白及眼角，可見部分不足以可靠定位完整兩眼範圍；保守保留未知，不沿用相鄰格。","faceReviewROI":[517,602,686,745],"footROI":[480,899,674,987]},
+    {"sourceFrame":7,"eyeROI":[932,632,1025,718],"footROI":[860,899,1070,987],"faceWidthUnavailableReason":"左側頭盔帶遮住真臉截線外緣，不量被帶子截短的可見皮膚寬度。"},
+    {"sourceFrame":8,"eyeROI":[1315,632,1410,718],"footROI":[1245,899,1455,987],"faceWidthUnavailableReason":"左側頭盔帶遮住真臉截線外緣，完整臉寬未知。"}
+  ],
+  "limitations": [
+    "頭盔、墨鏡與帽帶不能充當頭高、眼白或臉邊；4/5/6眼基準未知，其餘格頭盔帶遮住真臉外緣，全部臉寬未知。",
+    "只使用裸腳填色下緣，沒有拿短褲、鞋或輪廓支撐anchor當人体足底。",
+    "這是穿騎行服整理墨鏡動作，沒有自行車或騎行腿部動畫，不聲稱已具備騎車動作。"
+  ],
+  "visualFindings": [
+    {"sourceFrames":[3,4,5,6],"message":"來源4墨鏡降至過低位置，5又向上回到眼睛，方向存在折返；與6/7拿回頭盔仍需修正中間動作。"},
+    {"sourceFrames":[4,5,6],"message":"墨鏡遮眼三格缺可靠眼白範圍，保留三項未知，不能將覆蓋完整當量測通過。"},
+    {"sourceFrames":[1,2,3,7,8],"message":"頭盔帶擋住左側臉外緣，臉寬不量；仍可獨立量兩眼下緣與真裸腳，不按道具邊界校臉大小。"},
+    {"sourceFrames":[1,8],"message":"首末皆抬鏡狀態，但是否自然回環仍需正常速度審閱，不自動批准。"}
+  ]
+}

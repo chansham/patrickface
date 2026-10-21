@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "batch": "20261012-motion",
+  "tool": "built-in image_gen",
+  "artApproval": false,
+  "attempts": [
+    {
+      "id": "fitness-kettlebell-eye-v1",
+      "type": "precise-color-edit",
+      "reference": "animation/fitness-kettlebell-v2/atlas-generated.png",
+      "sourceFramesToRepair": [
+        2,
+        3,
+        4
+      ],
+      "requestedGrid": {
+        "columns": 4,
+        "rows": 2,
+        "frameCount": 8
+      },
+      "destination": "animation/fitness-kettlebell-eye-v1/atlas-generated.png",
+      "prompt": "Edit the attached eight-frame Patrick Star kettlebell animation sheet. Correct only the pink-purple strips inside the open eye whites in source frames 2, 3 and 4 (top row, second through fourth drawings): make those sclera areas white, matching the white eyes in the other frames. Preserve black outlines, pupils, eyebrows, expression and the coral-pink skin outside the eye outlines. Keep the gray sleeveless hoodie, orange shorts, purple wristbands and kettlebell, hand grips, head/body proportions, feet, poses, all eight frame positions and drawing sizes unchanged. Preserve the four-column two-row layout and the genuine transparent alpha background. Do not add frames, redraw different poses, crop feet, add text, a background, or a glow. Output the complete repaired sheet.",
+      "status": "output-moderation-blocked-no-file",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID e3c3e245-cc79-45e5-8a5d-b09756bb4af5.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "requestID": "e3c3e245-cc79-45e5-8a5d-b09756bb4af5",
+      "outputFileExists": false
+    }
+  ],
+  "actualGeneratedFiles": 0,
+  "actualSourceFrames": 0
+}

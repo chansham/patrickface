@@ -1,0 +1,711 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "reviewRequired": true,
+  "frameIndexBasis": "one-based source reading order",
+  "source": {
+    "path": "animation/fitness-cycling-v2/atlas-generated.png",
+    "sha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/fitness-cycling-v2/regions-v1.json",
+    "sha256": "74e4c64b527e4f83eb899510b55d6dbf88db2d1277334a291373bed28e6336c1"
+  },
+  "canvas": {
+    "width": 540,
+    "height": 540,
+    "anchorPixels": [
+      270,
+      475
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8796296296296297
+    ]
+  },
+  "coverage": {
+    "assignedPixels": 644659,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceUnchanged": true,
+  "reviewConfiguration": {
+    "path": "animation/production-20261012-fitness/measurements/fitness-cycling-v2.json",
+    "sha256": "7d1bed84370c0b63d4cee1c87160eccd9d38f1fe8211e8010df0cc08e7681d3f"
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 34.55792239125495,
+      "eyeLineToFootPx": 256.0,
+      "anchorSource": [
+        203,
+        486
+      ],
+      "footROI": [
+        100,
+        421,
+        295,
+        498
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          129,
+          440,
+          184,
+          483
+        ],
+        [
+          220,
+          440,
+          275,
+          483
+        ]
+      ],
+      "visibleFootBaselineY": 482.0,
+      "eyeROI": [
+        160,
+        155,
+        255,
+        243
+      ],
+      "eyeWhiteBounds": [
+        [
+          174,
+          172,
+          211,
+          228
+        ],
+        [
+          211,
+          169,
+          243,
+          226
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          192.0,
+          227.0
+        ],
+        [
+          226.5,
+          225.0
+        ]
+      ],
+      "eyeMidpoint": [
+        209.25,
+        226.0
+      ],
+      "faceWidthUnavailableReason": "頭盔帶遮住左側臉截線的真正皮膚外緣；帶子右側露出皮膚不是完整臉寬。",
+      "footSourcePoint": [
+        209.25,
+        482.0
+      ],
+      "eyeToFootPoints": [
+        [
+          209.25,
+          226.0
+        ],
+        [
+          209.25,
+          482.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 2,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 33.737960815674676,
+      "eyeLineToFootPx": 265.0,
+      "anchorSource": [
+        578,
+        487
+      ],
+      "footROI": [
+        480,
+        421,
+        674,
+        498
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          504,
+          440,
+          560,
+          484
+        ],
+        [
+          595,
+          440,
+          651,
+          484
+        ]
+      ],
+      "visibleFootBaselineY": 483.0,
+      "eyeROI": [
+        537,
+        151,
+        629,
+        233
+      ],
+      "eyeWhiteBounds": [
+        [
+          549,
+          164,
+          586,
+          221
+        ],
+        [
+          585,
+          162,
+          617,
+          217
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          567.0,
+          220.0
+        ],
+        [
+          600.5,
+          216.0
+        ]
+      ],
+      "eyeMidpoint": [
+        583.75,
+        218.0
+      ],
+      "faceWidthUnavailableReason": "左側頭盔帶覆蓋臉截線外緣，不能把帶扣邊界當臉邊。",
+      "footSourcePoint": [
+        583.75,
+        483.0
+      ],
+      "eyeToFootPoints": [
+        [
+          583.75,
+          218.0
+        ],
+        [
+          583.75,
+          483.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 3,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 33.63406011768428,
+      "eyeLineToFootPx": 262.5,
+      "anchorSource": [
+        972,
+        487
+      ],
+      "footROI": [
+        860,
+        421,
+        1070,
+        498
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          899,
+          441,
+          954,
+          484
+        ],
+        [
+          989,
+          440,
+          1045,
+          484
+        ]
+      ],
+      "visibleFootBaselineY": 483.0,
+      "eyeROI": [
+        932,
+        151,
+        1025,
+        235
+      ],
+      "eyeWhiteBounds": [
+        [
+          944,
+          166,
+          980,
+          223
+        ],
+        [
+          980,
+          164,
+          1011,
+          220
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          961.5,
+          222.0
+        ],
+        [
+          995.0,
+          219.0
+        ]
+      ],
+      "eyeMidpoint": [
+        978.25,
+        220.5
+      ],
+      "faceWidthUnavailableReason": "左側頭盔帶覆蓋臉截線外緣，完整臉寬未知。",
+      "footSourcePoint": [
+        978.25,
+        483.0
+      ],
+      "eyeToFootPoints": [
+        [
+          978.25,
+          220.5
+        ],
+        [
+          978.25,
+          483.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 4,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 33.63406011768428,
+      "eyeLineToFootPx": 263.5,
+      "anchorSource": [
+        1361,
+        487
+      ],
+      "footROI": [
+        1245,
+        421,
+        1455,
+        498
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1287,
+          440,
+          1343,
+          484
+        ],
+        [
+          1378,
+          440,
+          1433,
+          484
+        ]
+      ],
+      "visibleFootBaselineY": 483.0,
+      "eyeROI": [
+        1320,
+        151,
+        1415,
+        235
+      ],
+      "eyeWhiteBounds": [
+        [
+          1333,
+          166,
+          1370,
+          222
+        ],
+        [
+          1369,
+          164,
+          1401,
+          219
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1351.0,
+          221.0
+        ],
+        [
+          1384.5,
+          218.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1367.75,
+        219.5
+      ],
+      "faceWidthUnavailableReason": "頭盔帶遮住左側真臉外緣；不把扣帶右緣當完整臉寬。",
+      "footSourcePoint": [
+        1367.75,
+        483.0
+      ],
+      "eyeToFootPoints": [
+        [
+          1367.75,
+          219.5
+        ],
+        [
+          1367.75,
+          483.0
+        ]
+      ],
+      "measurementCaveat": "v2第4格眼鏡已提到眼睛上方，放大確認兩眼外緣可見，重新量測。"
+    },
+    {
+      "sourceFrame": 5,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": null,
+      "eyeLineToFootPx": null,
+      "anchorSource": [
+        209,
+        966
+      ],
+      "footROI": [
+        100,
+        899,
+        295,
+        987
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          135,
+          920,
+          190,
+          963
+        ],
+        [
+          225,
+          920,
+          281,
+          963
+        ]
+      ],
+      "visibleFootBaselineY": 962.0,
+      "eyeUnavailableReason": "雙眼被墨鏡完全遮住，臉截線、眼距、眼足距均保持未知。",
+      "unavailableReason": "雙眼被墨鏡完全遮住，臉截線、眼距、眼足距均保持未知。",
+      "faceWidthUnavailableReason": "眼下緣基準不可見，因此臉部截線未知。",
+      "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+      "faceReviewROI": [
+        120,
+        607,
+        285,
+        750
+      ]
+    },
+    {
+      "sourceFrame": 6,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 33.737960815674676,
+      "eyeLineToFootPx": 259.0,
+      "anchorSource": [
+        591,
+        967
+      ],
+      "footROI": [
+        480,
+        899,
+        674,
+        987
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          518,
+          921,
+          572,
+          964
+        ],
+        [
+          607,
+          921,
+          663,
+          964
+        ]
+      ],
+      "visibleFootBaselineY": 963.0,
+      "eyeROI": [
+        548,
+        640,
+        642,
+        720
+      ],
+      "eyeWhiteBounds": [
+        [
+          562,
+          653,
+          598,
+          707
+        ],
+        [
+          598,
+          651,
+          629,
+          703
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          579.5,
+          706.0
+        ],
+        [
+          613.0,
+          702.0
+        ]
+      ],
+      "eyeMidpoint": [
+        596.25,
+        704.0
+      ],
+      "faceWidthUnavailableReason": "頭盔帶遮住左側真臉外緣，完整臉寬未知。",
+      "footSourcePoint": [
+        596.25,
+        963.0
+      ],
+      "eyeToFootPoints": [
+        [
+          596.25,
+          704.0
+        ],
+        [
+          596.25,
+          963.0
+        ]
+      ],
+      "measurementCaveat": "v2第6格眼鏡亦上移，放大可見完整兩眼下緣，與v1不同，獨立重新量測。"
+    },
+    {
+      "sourceFrame": 7,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 33.737960815674676,
+      "eyeLineToFootPx": 260.0,
+      "anchorSource": [
+        973,
+        967
+      ],
+      "footROI": [
+        860,
+        899,
+        1070,
+        987
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          900,
+          921,
+          955,
+          964
+        ],
+        [
+          989,
+          921,
+          1045,
+          964
+        ]
+      ],
+      "visibleFootBaselineY": 963.0,
+      "eyeROI": [
+        932,
+        632,
+        1025,
+        718
+      ],
+      "eyeWhiteBounds": [
+        [
+          946,
+          652,
+          982,
+          706
+        ],
+        [
+          982,
+          650,
+          1013,
+          702
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          963.5,
+          705.0
+        ],
+        [
+          997.0,
+          701.0
+        ]
+      ],
+      "eyeMidpoint": [
+        980.25,
+        703.0
+      ],
+      "faceWidthUnavailableReason": "左側頭盔帶遮住真臉截線外緣，不量被帶子截短的可見皮膚寬度。",
+      "footSourcePoint": [
+        980.25,
+        963.0
+      ],
+      "eyeToFootPoints": [
+        [
+          980.25,
+          703.0
+        ],
+        [
+          980.25,
+          963.0
+        ]
+      ]
+    },
+    {
+      "sourceFrame": 8,
+      "faceWidthPx": null,
+      "eyeLowerRimSeparationPx": 34.058772731852805,
+      "eyeLineToFootPx": 254.0,
+      "anchorSource": [
+        1365,
+        967
+      ],
+      "footROI": [
+        1245,
+        899,
+        1455,
+        987
+      ],
+      "visibleFootPinkFillBounds": [
+        [
+          1291,
+          921,
+          1347,
+          964
+        ],
+        [
+          1381,
+          922,
+          1437,
+          964
+        ]
+      ],
+      "visibleFootBaselineY": 963.0,
+      "eyeROI": [
+        1315,
+        632,
+        1410,
+        718
+      ],
+      "eyeWhiteBounds": [
+        [
+          1335,
+          655,
+          1371,
+          711
+        ],
+        [
+          1371,
+          653,
+          1403,
+          709
+        ]
+      ],
+      "eyeLowerRimPoints": [
+        [
+          1352.5,
+          710.0
+        ],
+        [
+          1386.5,
+          708.0
+        ]
+      ],
+      "eyeMidpoint": [
+        1369.5,
+        709.0
+      ],
+      "faceWidthUnavailableReason": "左側頭盔帶遮住真臉截線外緣，完整臉寬未知。",
+      "footSourcePoint": [
+        1369.5,
+        963.0
+      ],
+      "eyeToFootPoints": [
+        [
+          1369.5,
+          709.0
+        ],
+        [
+          1369.5,
+          963.0
+        ]
+      ]
+    }
+  ],
+  "firstLast": {
+    "faceWidthPx": {
+      "first": null,
+      "last": null,
+      "changePercent": null
+    },
+    "eyeLowerRimSeparationPx": {
+      "first": 34.55792239125495,
+      "last": 34.058772731852805,
+      "changePercent": -1.4443856136688749
+    },
+    "eyeLineToFootPx": {
+      "first": 256.0,
+      "last": 254.0,
+      "changePercent": -0.78125
+    }
+  },
+  "wholeClipSpread": {
+    "faceWidthPx": null,
+    "eyeLowerRimSeparationPx": 2.746805679534714,
+    "eyeLineToFootPx": 4.330708661417315
+  },
+  "edgeSamplingUncertaintySourcePixels": 2,
+  "limitations": [
+    "v2全8格重新覆核；第4/6眼鏡上移後雙眼白可見，僅第5全遮眼未知；頭盔帶使全部臉寬仍未知。",
+    "只使用裸腳填色下緣，沒有拿短褲、鞋或輪廓支撐anchor當人体足底。",
+    "這是穿騎行服整理墨鏡動作，沒有自行車或騎行腿部動畫，不聲稱已具備騎車動作。"
+  ],
+  "visualFindings": [
+    {
+      "sourceFrames": [
+        4,
+        6
+      ],
+      "severity": "info",
+      "message": "v2第4格墨鏡不再降過頭，第6亦上移，放大可見雙眼完整下緣；這兩格重新量測而非沿用v1空值。"
+    },
+    {
+      "sourceFrames": [
+        5
+      ],
+      "message": "第5雙眼全被墨鏡遮住，三項保持未知。"
+    },
+    {
+      "sourceFrames": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "message": "左側頭盔帶仍遮住真臉外緣，全部臉寬未知；眼距和眼足距独立量。"
+    },
+    {
+      "sourceFrames": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "message": "眼鏡下移/戴上/拿回頭盔仍是離散關鍵姿勢，需正常速度審閱並補足中間动作；不因修正方向就稱自然動畫。"
+    }
+  ]
+}

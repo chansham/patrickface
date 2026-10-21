@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-13",
+  "status": "unintegrated-unusable-motion-draft",
+  "artApproval": false,
+  "source": {
+    "path": "animation/fitness-drink-v3/atlas-generated.png",
+    "sha256": "64be2a39a631ee0212fe72e1427e3f17b7ea894f406b6b2f536557a57b799a03",
+    "width": 1536,
+    "height": 1024
+  },
+  "sourceDrawingCount": 12,
+  "grid": {
+    "columns": 4,
+    "rows": 3
+  },
+  "fullPoseCountVisuallyObserved": 12,
+  "sourceViewed": true,
+  "sourceInspection": "Read actual original PNG at full sheet view; twelve complete posed characters visible. No contour extraction or fixed-scale render was run because the hand continuity fails.",
+  "blockingFindings": [
+    {
+      "code": "bottle-hand-swap",
+      "sourceFramesZeroBased": [
+        6,
+        7,
+        8
+      ],
+      "sourceFramesOneBased": [
+        7,
+        8,
+        9
+      ],
+      "message": "Frames 1–6 hold the bottle with the viewer-left arm. Frames 7–9 hold it with viewer-right arm; frame10 switches back to viewer-left. The wristband switches with the bottle. More drawings did not repair the anatomical continuity."
+    }
+  ],
+  "sourceAlpha": {
+    "nonzeroPixels": 587603,
+    "edgeNonzeroPixels": 19,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 1
+  },
+  "technicalVerification": {
+    "regionsCreated": false,
+    "bodyMeasurementPerformed": false,
+    "fixedScaleCalibrated": false,
+    "normalSpeedPlaybackTested": false,
+    "fourLayoutTestsRun": false,
+    "nativeUpdated": false
+  },
+  "limitations": [
+    "A full-sheet visible silhouette and source alpha-edge count are not a no-clipping proof for extracted frames or Watch layouts.",
+    "No bodily dimensions or proportion approval inferred from equal nominal grid cells.",
+    "This unintegrated draft is not added to the candidate catalog or enabled for aftercare playback."
+  ],
+  "followup": {
+    "requestedRevision": "fitness-drink-v4",
+    "producedPNG": false,
+    "result": "Image generation output moderation blocked the targeted repair; parent requested no retry."
+  }
+}

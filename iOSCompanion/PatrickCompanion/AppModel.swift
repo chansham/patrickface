@@ -8,6 +8,7 @@ final class AppModel: ObservableObject {
     enum Tab: Hashable {
         case control
         case timer
+        case routines
         case status
     }
 
@@ -446,6 +447,8 @@ final class AppModel: ObservableObject {
 
     func resetLocalData() {
         store.resetLocalData()
+        PatrickRoutineStore.shared.clear()
+        watchSync.clearWatchStatus()
         settings = .defaults
         timer = .inactive
         experience = PatrickExperienceState()

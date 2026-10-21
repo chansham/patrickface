@@ -55,20 +55,52 @@ final class WatchSyncService: NSObject, ObservableObject {
     @Published private(set) var lastAcknowledgement: String?
     @Published private(set) var lastDeliveryAt: Date?
     @Published private(set) var lastEnvelopeID: UUID?
+    @Published private(set) var lastWatchStatus: PatrickWatchStatusReceipt?
+    @Published private(set) var watchStatusIssue: String?
 
     var onSettingsReceived: ((PatrickSettings) -> Void)?
     var onTimerReceived: ((PatrickTimerSnapshot) -> Void)?
     var onCommandReceived: ((PatrickCommandPayload) -> Void)?
 
     private let store: PatrickSharedStore
+    private let watchStatusStore: PatrickWatchStatusStore
+    private let watchContextReplayGate = PatrickWatchContextReplayGate()
     private var session: WCSession?
     private var demoMode = false
     private var pendingDeliveries: [(PatrickMessageEnvelope, PatrickMessageEnvelope?)] = []
 
-    init(store: PatrickSharedStore = .shared) {
+    init(store: PatrickSharedStore = .shared, watchStatusStore: PatrickWatchStatusStore = PatrickWatchStatusStore()) {
         self.store = store
+        self.watchStatusStore = watchStatusStore
+        self.lastWatchStatus = watchStatusStore.receipt
         super.init()
         activateIfSupported()
+    }
+
+    func clearWatchStatus() {
+        watchStatusStore.reset()
+        watchContextReplayGate.reset()
+        lastWatchStatus = nil
+        watchStatusIssue = nil
+    }
+
+    private func receiveWatchStatus(_ data: Data) {
+        guard !demoMode, let session, session.activationState == .activated, session.isPaired else { return }
+        guard let observation = try? PatrickWatchStatusObservation.decode(data) else {
+            watchStatusIssue = "手錶狀態資料無法讀取；保留最後一次有效觀測。"
+            return
+        }
+        switch watchStatusStore.accept(observation) {
+        case .accepted:
+            lastWatchStatus = watchStatusStore.receipt
+            watchStatusIssue = nil
+        case .duplicate, .older, .beforeReset:
+            break // A late delivery cannot refresh the displayed observation age.
+        case .invalid:
+            watchStatusIssue = "手錶狀態資料無效；保留最後一次有效觀測。"
+        case .clockAhead:
+            watchStatusIssue = "手錶觀測時間比手機超前；請檢查兩台裝置的時間。"
+        }
     }
 
     func setDemoMode(_ enabled: Bool) {
@@ -78,6 +110,9 @@ final class WatchSyncService: NSObject, ObservableObject {
         } else {
             activateIfSupported()
             refreshLinkState()
+            if let data = session?.receivedApplicationContext[PatrickMessageEnvelope.watchStatusTransportKey] as? Data {
+                receiveWatchStatus(data)
+            }
         }
     }
 
@@ -306,6 +341,7 @@ final class WatchSyncService: NSObject, ObservableObject {
             return
         }
         guard session.isPaired else {
+            clearWatchStatus()
             linkState = .noPairedWatch
             return
         }
@@ -329,6 +365,9 @@ extension WatchSyncService: WCSessionDelegate {
             } else {
                 self?.refreshLinkState()
                 if activationState == .activated, let self {
+                    if let data = session.receivedApplicationContext[PatrickMessageEnvelope.watchStatusTransportKey] as? Data {
+                        self.receiveWatchStatus(data)
+                    }
                     let pending = self.pendingDeliveries; self.pendingDeliveries = []
                     for (envelope, context) in pending { self.deliver(envelope, updateContextWith: context) }
                 }
@@ -338,6 +377,8 @@ extension WatchSyncService: WCSessionDelegate {
 
     nonisolated func sessionDidBecomeInactive(_ session: WCSession) {
         Task { @MainActor [weak self] in
+            // A watch switch must not display the previous watch's charge.
+            self?.clearWatchStatus()
             self?.linkState = .activating
         }
     }
@@ -356,6 +397,14 @@ extension WatchSyncService: WCSessionDelegate {
         Task { @MainActor [weak self] in
             self?.refreshLinkState()
         }
+    }
+
+    nonisolated func session(
+        _ session: WCSession,
+        didReceiveMessage message: [String: Any]
+    ) {
+        guard let data = message[PatrickMessageEnvelope.watchStatusTransportKey] as? Data else { return }
+        Task { @MainActor [weak self] in self?.receiveWatchStatus(data) }
     }
 
     nonisolated func session(
@@ -407,6 +456,9 @@ extension WatchSyncService: WCSessionDelegate {
         _ session: WCSession,
         didReceiveApplicationContext applicationContext: [String: Any]
     ) {
+        if let data = applicationContext[PatrickMessageEnvelope.watchStatusTransportKey] as? Data {
+            Task { @MainActor [weak self] in self?.receiveWatchStatus(data) }
+        }
         guard
             let data = applicationContext[PatrickMessageEnvelope.transportKey] as? Data
         else {
@@ -415,11 +467,18 @@ extension WatchSyncService: WCSessionDelegate {
         Task { @MainActor [weak self] in
             guard
                 let self,
+                !watchContextReplayGate.alreadyApplied(data),
                 let acknowledgement = receive(data)
             else {
                 return
             }
-            sendAcknowledgement(acknowledgement)
+            watchContextReplayGate.rememberApplied(data)
+            // Status heartbeats preserve the last settings envelope. A
+            // repeated context must not create another queued ACK while the
+            // watch is unreachable. Commands have their own durable channel.
+            if session.isReachable {
+                session.sendMessageData(acknowledgement, replyHandler: nil, errorHandler: nil)
+            }
         }
     }
 }

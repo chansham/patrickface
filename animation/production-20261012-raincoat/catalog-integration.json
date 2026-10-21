@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "newOutfits": 1,
+  "poseVariants": 2,
+  "newSourceFrames": 16,
+  "candidateCount": 24,
+  "candidateFrames": 288,
+  "mainCatalogSha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+  "clips": [
+    {
+      "id": "raincoat-first-20261012",
+      "title": "雨衣・站姿看天",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-raincoat",
+      "reviewGroup": "scene",
+      "atlas": "animation/raincoat-v1/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        700,
+        330,
+        240,
+        300,
+        350,
+        220,
+        350,
+        800
+      ],
+      "sha256": "755d73b3e23149a1c82498f9103be1b7a3f80b42214a70890b7d44d08181f42b",
+      "anchorNormalized": [
+        0.5,
+        0.8793706293706294
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.203125,
+      "status": "quality-revision-required",
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "使用者喜歡的站姿設計，保留高傘與雨衣。原8格重新排序；臉部比睡衣小，抬手收手與表情跳換仍待修。",
+      "frameLabels": [
+        "休息看前方",
+        "抬眼看傘",
+        "小幅抬手",
+        "舉手看天",
+        "攤手微笑",
+        "閉眼不滿",
+        "收手微笑",
+        "回到休息"
+      ],
+      "frameRegions": {
+        "path": "animation/raincoat-v1/regions-v1.json",
+        "sha256": "c98f1954705558e58bcd1da6bec4d53aef9e0ac07cfc66ce173c862329c7d16e",
+        "version": 1
+      },
+      "renderingRevision": "raincoat-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "yellow-raincoat-blue-umbrella",
+      "pose": "standing",
+      "designFeedback": "使用者明確喜歡站姿設計；不代表動畫逐格通過。",
+      "scaleProvenance": {
+        "catalogScale": 1.203125,
+        "sourcePixelToStagePixel": 1.4,
+        "perFrameScale": false,
+        "reason": "使用者明確喜歡站姿設計，保留原姿態；此固定倍率容納完整高傘，臉部比主睡衣小約26.6%，如實呈現差異，不宣稱相同本體尺寸。",
+        "canvas": 572,
+        "firstFaceWidthSource": 95.75
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-raincoat/raincoat-v1-qc.json",
+        "sourceFrameCount": 8,
+        "outfitCountSharedWithVariant": 1
+      }
+    },
+    {
+      "id": "raincoat-seated-20261012",
+      "title": "雨衣・坐姿看天",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-raincoat",
+      "reviewGroup": "scene",
+      "atlas": "animation/raincoat-v2/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        700,
+        330,
+        240,
+        300,
+        350,
+        220,
+        350,
+        800
+      ],
+      "sha256": "dc4cb4f2d66bb7d6cc56291003214a911e51f8f75bccd83cbcc42d68ebc08410",
+      "anchorNormalized": [
+        0.5,
+        0.8803571428571428
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.3040865384615383,
+      "status": "quality-revision-required",
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "同一套雨衣的坐姿短柄傘選項，原8格順序。角色可放較大；仍缺抬手與收手中間姿勢，不取代站姿。",
+      "frameLabels": [
+        "休息看前方",
+        "抬眼看傘",
+        "小幅抬手",
+        "舉手看天",
+        "攤手微笑",
+        "閉眼不滿",
+        "收手微笑",
+        "回到休息"
+      ],
+      "frameRegions": {
+        "path": "animation/raincoat-v2/regions-v1.json",
+        "sha256": "74390440bc1d2a3a6266082f6cc845c1c1a5644bfdcca9eac6c225a66b3c3de8",
+        "version": 1
+      },
+      "renderingRevision": "raincoat-20261012-v1",
+      "comparisonClipId": "yawn",
+      "artApproved": false,
+      "variantGroup": "yellow-raincoat-blue-umbrella",
+      "pose": "seated",
+      "designFeedback": "並列姿態選項，尚未得到使用者偏好評價。",
+      "scaleProvenance": {
+        "catalogScale": 1.3040865384615383,
+        "sourcePixelToStagePixel": 1.55,
+        "perFrameScale": false,
+        "reason": "坐姿短柄傘另作選項；首格臉部呈現比主睡衣小約2.66%，整段固定倍率兼顧四版式時間區。不能用坐姿取代使用者偏好的站姿。",
+        "canvas": 560,
+        "firstFaceWidthSource": 114.75
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-raincoat/raincoat-v2-qc.json",
+        "sourceFrameCount": 8,
+        "outfitCountSharedWithVariant": 1
+      }
+    }
+  ]
+}

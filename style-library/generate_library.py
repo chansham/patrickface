@@ -1,5 +1,42 @@
 from __future__ import annotations
 
+
+# Retirement guard: this runs before image libraries or filesystem setup.
+# The implementation below is preserved as historical source evidence only.
+# It cannot be executed or imported to recreate obsolete runtime artwork.
+import argparse as _retired_argparse
+import json as _retired_json
+
+_RETIRED_MESSAGE = (
+    "The procedural style-library generator is retired. "
+    "It cannot rebuild or overwrite assets, including custom output paths. "
+    "Retained artwork is historical research, not approval of the new "
+    "expression/pose animation. Use --status to inspect this state."
+)
+
+
+def _retired_entrypoint() -> None:
+    parser = _retired_argparse.ArgumentParser(description=_RETIRED_MESSAGE)
+    parser.add_argument("--status", action="store_true", help="Print retirement metadata without writing files.")
+    args, unsupported = parser.parse_known_args()
+    if not args.status or unsupported:
+        parser.error(_RETIRED_MESSAGE)
+    print(_retired_json.dumps({
+        "lifecycle": "retired-research",
+        "retiredAt": "2026-09-27",
+        "generationEnabled": False,
+        "currentApproval": False,
+        "newAnimationIntegrated": False,
+        "message": _RETIRED_MESSAGE,
+    }, indent=2))
+
+
+if __name__ == "__main__":
+    _retired_entrypoint()
+    raise SystemExit(0)
+raise RuntimeError(_RETIRED_MESSAGE)
+
+
 import hashlib
 import json
 import math
@@ -942,6 +979,8 @@ def library_board() -> None:
 
 
 def write_specs(records: list[dict]) -> None:
+    for record in records:
+        record["reviewStatus"] = "pending-review"
     rig = {
         "schemaVersion": "1.0.0",
         "coordinateSystem": {"origin": "top-left", "x": "right", "y": "down", "units": "pixels"},
@@ -979,6 +1018,8 @@ def write_specs(records: list[dict]) -> None:
     manifest = {
         "schemaVersion": "1.0.0",
         "library": "Patrick Apple Watch Modular Style Library",
+        "reviewStatus": "pending-review",
+        "reviewNote": "Style selection was reopened. Technical integrity does not imply user approval.",
         "generatedAtUtc": datetime.now(timezone.utc).isoformat(),
         "rootContract": "All generated work is contained below this manifest's directory.",
         "reference": {
@@ -1023,6 +1064,8 @@ def write_readme() -> None:
     text = """# Patrick Apple Watch Modular Style Library
 
 This directory is a self-contained, independently generated asset system. It does not modify the parallel clean Season-1 master workstream.
+
+All six families and their components are **pending visual review**. Style selection has been reopened; technical integrity does not imply user approval. Do not discard a family solely for aesthetic differences.
 
 ## Core contract
 

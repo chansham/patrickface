@@ -1,0 +1,433 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12T04:13:24.415Z",
+  "reviewer": "watch_preview_read",
+  "frameNumbering": "one-based source frame numbers, row-major",
+  "scope": {
+    "outfits": 8,
+    "originalFrames": 68,
+    "includesOnly": [
+      "fitness-tracksuit-v2",
+      "fitness-stretch-v1",
+      "fitness-basketball-v1",
+      "fitness-coach-v2",
+      "fitness-martial-v1",
+      "fitness-kettlebell-v2",
+      "fitness-boxing-v1",
+      "fitness-cycling-v2"
+    ]
+  },
+  "method": [
+    "直接實看8份原始atlas，另用真RGBA合成到#070609檢查。",
+    "放大外套2、伸展8、籃球2、道服2/4、壺鈴2的眼睛；壺鈴3亦有獨立放大證據。",
+    "這次沒有播放正常速度，沒有以人體數字或renderer測試推導美術批准。"
+  ],
+  "limits": [
+    "未新增/覆寫PNG、catalog或其他agent報告。",
+    "黑底合成沒有大面積假背景，不等於alpha雜點已清除。",
+    "衣帽/道具總外框不能代替身體大小；跨造型尺寸由獨立人體尺規與同舞台再核。",
+    "review-at-playback 是待核事項，並非已確認的播放故障。"
+  ],
+  "artApproval": false,
+  "clips": [
+    {
+      "id": "fitness-tracksuit-v2",
+      "sourcePath": "animation/fitness-tracksuit-v2/atlas-generated.png",
+      "sourceSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "title": "復古運動外套",
+      "frameCount": 8,
+      "outfit": "酒紅奶油外套、星形拉鍊、短褲、耳機清楚；第5–8格外套保持打開，沒有末格突然拉回。",
+      "propContact": "第2–4格手連著拉鍊；第5–6格轉抓衣領；耳機始終留在頭上。",
+      "eyes": "放大第2格可見白眼白與珊瑚粉眼皮；第6格閉眼也是膚色粉紅。本次未見紫眼皮。",
+      "sequence": "有伸手、拉下、開襟、放鬆、放手的因果；不是整圖位移。",
+      "knownIssues": [
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            2,
+            3
+          ],
+          "message": "兩格手勢很接近，需實播確認是否停頓。"
+        },
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            4,
+            5
+          ],
+          "message": "由半開直接到兩手開襟，姿勢差較大，需實播看是否跳接。"
+        },
+        {
+          "kind": "non-looping-end-state",
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "首格閉襟、末格開襟，不能當無縫循環。"
+        }
+      ],
+      "evidence": [
+        "output/playwright/20261012-fitness-generation/actual-alpha-composite.png",
+        "output/playwright/20261012-fitness-generation/eye-color-crosscheck.png"
+      ],
+      "visualStatus": "pending-art-review",
+      "artApproval": false
+    },
+    {
+      "id": "fitness-stretch-v1",
+      "sourcePath": "animation/fitness-stretch-v1/atlas-generated.png",
+      "sourceSha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "columns": 4,
+      "rows": 3,
+      "title": "薄荷伸展背心",
+      "frameCount": 12,
+      "outfit": "薄荷背心、淡紫短褲、白頭帶清楚；裸足可見。",
+      "propContact": "無道具；兩臂確實從身側抬到頭頂再放下，沒有新增手臂。",
+      "eyes": "第8格閉眼為明顯紫粉色，與周圍珊瑚膚色不同；其他可見眼白保持白色。",
+      "sequence": "抬臂、上舉停留、閉眼、放下可辨；高舉時輪廓變化不能用含手總高判斷身高。",
+      "knownIssues": [
+        {
+          "kind": "requires-art-fix",
+          "sourceFrames": [
+            8
+          ],
+          "message": "紫粉閉眼皮未修；兩次同提示局部修圖均被服務攔截，無新版。"
+        },
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            1,
+            2
+          ],
+          "message": "首兩格很相似，實播需確認準備動作可見。"
+        },
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            8,
+            9
+          ],
+          "message": "從雙臂垂直上舉直接放到斜側，需檢查回落節奏。"
+        },
+        {
+          "kind": "rendering-requirement",
+          "sourceFrames": [
+            7,
+            8
+          ],
+          "message": "最高雙手距名義格上緣很近，不可重新以狹窄格裁切。"
+        }
+      ],
+      "evidence": [
+        "output/playwright/20261012-fitness-generation/actual-alpha-composite.png",
+        "output/playwright/20261012-fitness-generation/eye-color-crosscheck.png"
+      ],
+      "visualStatus": "pending-art-review",
+      "artApproval": false
+    },
+    {
+      "id": "fitness-basketball-v1",
+      "sourcePath": "animation/fitness-basketball-v1/atlas-generated.png",
+      "sourceSha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "columns": 4,
+      "rows": 2,
+      "title": "橙白籃球服",
+      "frameCount": 8,
+      "outfit": "橙白球衣短褲、藍頭帶及雙護腕清楚。",
+      "propContact": "八格都是一顆球，雙手始終接觸左右側；球從腰前到胸前再下降，沒有投出或憑空回球。",
+      "eyes": "放大第2格可見眼皮為膚色粉紅、眼白為白色；沒有壺鈴稿那種眼白內粉紫色帶。",
+      "sequence": "抬球、認真準備、微笑、收球順序成立；沒有靠整張角色平移假裝提球。",
+      "knownIssues": [
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "message": "球的黑色接縫與外形有細微重畫差異；需正常速度看有無跳動，不能僅憑雙手有接觸判為道具一致。"
+        },
+        {
+          "kind": "non-looping-end-state",
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "首末表情不同，不是完全一致的循環端點。"
+        }
+      ],
+      "evidence": [
+        "output/playwright/20261012-fitness-generation/second-group-alpha-composite.png",
+        "output/playwright/20261012-fitness-generation/eye-color-crosscheck.png"
+      ],
+      "visualStatus": "pending-art-review",
+      "artApproval": false
+    },
+    {
+      "id": "fitness-coach-v2",
+      "sourcePath": "animation/fitness-coach-v2/atlas-generated.png",
+      "sourceSha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "columns": 4,
+      "rows": 2,
+      "title": "運動教練",
+      "frameCount": 8,
+      "outfit": "白綠polo、海軍藍短褲、紅帽清楚；哨子有頸繩、碼表是獨立小道具。",
+      "propContact": "v2八格碼表都在畫面左側那隻手；另一手按表、拿哨、吹哨、放回。v1第4/5/8格換手問題在選定v2已修。",
+      "eyes": "可見眼白為白色；本段没有明顯閉眼格，不能據此驗證未出現的閉眼皮。",
+      "sequence": "低頭看表→按鈕→抬頭→提哨→鼓頰吹哨→放回，因果可辨。",
+      "knownIssues": [
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            3,
+            4,
+            5
+          ],
+          "message": "第4格頭轉向較明顯，下一格回正並換手臂動作，需實播看轉折是否自然。"
+        },
+        {
+          "kind": "visibility-limitation",
+          "sourceFrames": [
+            7
+          ],
+          "message": "吹氣放射線在黑底較暗，動作主要靠哨子到嘴邊及鼓頰辨認。"
+        }
+      ],
+      "evidence": [
+        "output/playwright/20261012-fitness-generation/second-group-alpha-composite.png"
+      ],
+      "visualStatus": "pending-art-review",
+      "artApproval": false
+    },
+    {
+      "id": "fitness-martial-v1",
+      "sourcePath": "animation/fitness-martial-v1/atlas-generated.png",
+      "sourceSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "columns": 4,
+      "rows": 2,
+      "title": "武術道服",
+      "frameCount": 8,
+      "outfit": "白道服、黑腰帶、紅星徽保持；兩手沿身側、裸足可見。",
+      "propContact": "沒有手持道具；腰帶仍在腰部，並未因彎腰消失。",
+      "eyes": "放大第2/4格是有黑線界定的粉紅眼皮與白眼白；第5格閉眼為暖粉色，本次未見明顯紫眼皮。",
+      "sequence": "頭頂、肩線與腰部投影逐步改變，確有彎腰鞠躬後站起；不是完整立姿圖片旋轉。",
+      "knownIssues": [
+        {
+          "kind": "measurement-limitation",
+          "sourceFrames": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "message": "鞠躬使頭身投影縮短、眼睛朝下，不能把總高下降當成原畫同比縮小。"
+        },
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            5,
+            6,
+            7
+          ],
+          "message": "從最深彎腰回到近直立的差距較大，需實播評估起身是否太快。"
+        },
+        {
+          "kind": "non-looping-end-state",
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "中性首末輪廓不是同一張圖，仍需檢查回到待機時的切換。"
+        }
+      ],
+      "evidence": [
+        "output/playwright/20261012-fitness-generation/third-group-alpha-composite.png",
+        "output/playwright/20261012-fitness-generation/eye-color-crosscheck.png"
+      ],
+      "visualStatus": "pending-art-review",
+      "artApproval": false
+    },
+    {
+      "id": "fitness-kettlebell-v2",
+      "sourcePath": "animation/fitness-kettlebell-v2/atlas-generated.png",
+      "sourceSha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "columns": 4,
+      "rows": 2,
+      "title": "連帽背心壺鈴",
+      "frameCount": 8,
+      "outfit": "淺灰無袖連帽背心、橙黑短褲、紫護腕清楚；v2比v1明顯短圓寬腹，沒有用播放器拉伸掩飾。",
+      "propContact": "雙手在同一紫色握把左右，低位提到腹前再放下；沒有高舉或甩動。",
+      "eyes": "第2/3/4格眼白上緣有淺粉紫帶，無清楚眼皮分隔線；這是尚未修掉的顏色問題。第4格由獨立人體覆核追加指出。",
+      "sequence": "屈肘提起、腹前停留、下降可辨；握把與壺鈴實際改變高度。",
+      "knownIssues": [
+        {
+          "kind": "requires-art-fix",
+          "sourceFrames": [
+            2,
+            3,
+            4
+          ],
+          "message": "眼白內粉紫帶待修；原v3眼睛專項請求針對2/3格、被服務攔截，未產生新檔。其後獨立覆核確認第4格也受影響，原生成請求紀錄保持不變。"
+        },
+        {
+          "kind": "requires-art-review",
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "低位壺鈴底略低於雙腳底，落地關係不自然；不得拿壺鈴作人物腳底anchor。"
+        },
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "message": "手型、握把開口及壺鈴外形仍有逐格重畫差，需正常速度核對。"
+        }
+      ],
+      "evidence": [
+        "output/playwright/20261012-fitness-generation/third-group-alpha-composite.png",
+        "output/playwright/20261012-fitness-generation/eye-color-crosscheck.png",
+        "output/body-landmarks-20261012-fitness/kettlebell-v2-source2-3-eye-inspection.png"
+      ],
+      "visualStatus": "pending-art-review",
+      "artApproval": false
+    },
+    {
+      "id": "fitness-boxing-v1",
+      "sourcePath": "animation/fitness-boxing-v1/atlas-generated.png",
+      "sourceSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "title": "紫金拳擊服",
+      "frameCount": 8,
+      "outfit": "紫金運動服、星徽、兩隻紅拳套與白腕圈維持；沒有憑空更換拳套。",
+      "propContact": "拳套連著各自前臂；一手護臉、一手伸拳，之後收拳，未見脫手或多肢。",
+      "eyes": "八格可見眼白均呈白色；沒有可評估的閉眼皮。",
+      "sequence": "垂拳→架勢→伸拳→收拳→放鬆可辨；第4/5格有頭與上身轉向，是真姿勢差。",
+      "knownIssues": [
+        {
+          "kind": "rendering-requirement",
+          "sourceFrames": [
+            5
+          ],
+          "message": "伸直拳套超過名義4×2等格的右邊界，但全PNG保留完整；必須用輪廓分離，不能等格切圖。"
+        },
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "message": "護臉至伸直再收回是本段最大位移，需看實播與四版式避免拳套碰日期/邊界；source概覽未驗這部分。"
+        },
+        {
+          "kind": "non-looping-end-state",
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "首格認真、末格微笑且拳位不同，不是無縫循環。"
+        }
+      ],
+      "evidence": [
+        "output/playwright/20261012-fitness-generation/boxing-cycling-alpha-review.png"
+      ],
+      "visualStatus": "pending-art-review",
+      "artApproval": false
+    },
+    {
+      "id": "fitness-cycling-v2",
+      "sourcePath": "animation/fitness-cycling-v2/atlas-generated.png",
+      "sourceSha256": "2958902d4e8de80077ead7471c6be8b8f578eed400d779dc0830749d4513f7d0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "title": "騎行頭盔服",
+      "frameCount": 8,
+      "outfit": "黃青騎行服、海軍藍短褲、橘頭盔、藍護目鏡清楚；帽鏡都是固定穿搭的一部分。",
+      "propContact": "第3/4格雙手移動同一副眼鏡，第5格眼鏡戴在眼前，第6/7格抬回帽上；沒有同時出現兩副眼鏡。",
+      "eyes": "第1–4及6–8格眼白呈白色；第5格被鏡片遮住，眼白顏色不可評估，不能算作通過。",
+      "sequence": "抬手→拉下護目鏡→展示→抬回→放手可辨，非整图平移。",
+      "knownIssues": [
+        {
+          "kind": "measurement-limitation",
+          "sourceFrames": [
+            5
+          ],
+          "message": "鏡片遮眼，不能用該格推斷眼白/眼距或臉部尺規。"
+        },
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            4,
+            5,
+            6
+          ],
+          "message": "第5格雙手放到身側，前後兩格在額頭抓鏡；戴上/再拿起的手勢轉折需實播。"
+        },
+        {
+          "kind": "review-at-playback",
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "首末頭盔及眼鏡位置接近但非完全同圖，回到待機仍需檢查跳變。"
+        }
+      ],
+      "evidence": [
+        "output/playwright/20261012-fitness-generation/boxing-cycling-alpha-review.png"
+      ],
+      "visualStatus": "pending-art-review",
+      "artApproval": false
+    }
+  ]
+}

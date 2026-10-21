@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-12T03:36:34.036Z",
+  "tool": "built-in image_gen",
+  "referenceViewed": "animation/raincoat-v1/atlas-generated.png",
+  "artApproval": false,
+  "attempts": [
+    {
+      "id": "tracksuit-v1",
+      "status": "generated-inspected-candidate",
+      "prompt": "Use case: stylized-concept. Asset type: a complete 8-frame 2D character animation sprite atlas for a watch pet, arranged in exactly 4 columns by 2 rows, read left to right then top to bottom. Create a NEW distinct fitness outfit for Patrick Star, keeping his familiar coral-pink skin, short broad rounded body, friendly simple face, small two feet, white sclera and pink eyelids. Clean flat 2D television-cel cartoon ink and flat colors, no realistic skin, no 3D shading. Clothing: burgundy and cream retro sport zip jacket with a small star-shaped zipper pull, matching burgundy shorts, cream over-ear sports headphones resting on his head. Action: after exercising he loosens/unzips his jacket and relaxes, with genuine distinct arm, zipper, collar and facial poses. Frame 1 neutral, jacket closed and tired but content; 2 right flipper reaches the zipper; 3 holds star pull near upper chest; 4 pulls it halfway down; 5 finishes opening the jacket with visible cream inner shirt; 6 gently loosens both sides of the collar and exhales, eyes half closed; 7 lowers arms, relieved smile; 8 rests naturally with jacket still open, no magical re-zipping. Keep exactly the same broad short head, torso, eye size, belly width and camera distance in all eight frames. Fixed frontal view, no body shifting across frames, no scale changes, no whole-body squash. Both feet remain visibly on the same baseline within every cell. Full body and headphone band completely inside every cell. Generous transparent gutter between all characters, with minimum 12% empty space above and 10% below, and enough side room for flippers. All character pixels stay within their own logical equal cell. Transparent RGBA background, truly zero-alpha empty areas, no checkerboard, no backdrop, no gradients, no colored glow, no floor shadow. No panel borders, text, numbering, extra characters, extra arms, props besides stated clothing/headphones. Preserve clear readable character anatomy and animation continuity. This is an original outfit sheet, not eight copies of one pose.",
+      "transparent_background": true,
+      "sourcePath": "<USER_HOME>/.codex/generated_images/01a0e1eb-4817-71a0-a1e1-df6d7be40887/exec-cbd9aa7f-42d4-4d6a-b409-dc67a327580d.png",
+      "projectPath": "animation/fitness-tracksuit-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "sha256": "d0e1c616b41c794c8532f54a010204455543a818695f0fcb24ed8a266aa283b0",
+      "width": 1536,
+      "height": 1024,
+      "alphaInspection": {
+        "zero": 848658,
+        "nonzero": 724206,
+        "alpha1To15": 108373,
+        "maximum": 254,
+        "strongBBox": [
+          33,
+          44,
+          1496,
+          966
+        ],
+        "alpha128Plus": 607388
+      },
+      "artApproval": false
+    },
+    {
+      "id": "stretch-v1",
+      "status": "generated-inspected-candidate",
+      "prompt": "Use case: stylized-concept. Asset type: a complete 12-frame 2D character animation sprite atlas for a watch pet, exactly 4 columns by 3 rows, read left to right then top to bottom. Create a NEW distinct yoga/stretching outfit for Patrick Star. Keep his familiar coral-pink skin, short broad rounded head and body, soft round belly, two small feet, white eye sclera and pink eyelids. Clean flat 2D television-cel cartoon ink and flat colors close to his classic animated appearance, not realistic, not 3D. Clothing: mint green sports tank top, pale lavender athletic shorts, simple white headband. Action is a full slow two-arm overhead stretch and return, with genuinely redrawn arm poses and face changes: 1 arms down neutral and attentive; 2 inhale shoulders ready; 3 both flippers lift sideways low; 4 both rise to horizontal; 5 arms diagonally up; 6 arms nearly overhead; 7 overhead long stretch with a calm open-eyed expression; 8 hold overhead briefly and blink with pink lids; 9 arms begin lowering diagonally; 10 arms level sideways; 11 arms lower past hips; 12 arms down rested smile. Arms may reach up without stretching or narrowing the head/torso. Fixed identical camera, face scale, head width, belly width, torso height, feet size and two foot positions throughout. Body stays short, stout and rounded; no slim athletic or human anatomy. The feet stay on the same baseline within every equal cell. Reserve headroom in ALL cells for the highest raised hands, leaving at least 12% blank above the maximum silhouette and 10% blank below the feet. Keep generous blank transparent side gutters, all hand and body pixels wholly inside their own cell; no neighboring fragments. Full body visible in all twelve. Actually transparent RGBA with zero-alpha empty areas; no checkerboard painting, no backdrop, no gradient, no floor or shadows, no haze/glow. No text or numbering, no grid lines, no extra arms or objects, no exercise mat. The action must change poses rather than translate or scale one drawing.",
+      "transparent_background": true,
+      "projectPath": "animation/fitness-stretch-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "sourcePath": "<USER_HOME>/.codex/generated_images/01a0e1eb-4817-71a0-a1e1-df6d7be40887/exec-dd51ed7b-d623-4179-8f15-bc3743018f09.png",
+      "sha256": "0f61178d1d61749a0ce3aef06ddbef6bb6d50f92b4f465b86515567901e71b17",
+      "width": 1448,
+      "height": 1086,
+      "alphaInspection": {
+        "zero": 1053263,
+        "nonzero": 519265,
+        "alpha1To15": 82713,
+        "maximum": 255,
+        "strongBBox": [
+          44,
+          39,
+          1428,
+          1047
+        ],
+        "alpha128Plus": 427085
+      },
+      "artApproval": false
+    },
+    {
+      "id": "tracksuit-v2",
+      "status": "generated-inspected-candidate",
+      "prompt": "Use case: precise-object-edit. Edit this existing 8-frame sprite atlas only for color/alpha cleanup. Preserve all eight drawings exactly: same 4 columns by 2 rows, same character positions, scale, full body proportions, jacket colors and zipper action, headphones, expressions, timing poses, ink outlines and spacing. Change every visible upper or closed eyelid from the current cool mauve/purple to the SAME warm coral pink family as the adjacent face skin, around RGB 255,135,127. Keep the white sclera pure white and black pupils/outlines unchanged. The eyelids must read as pink skin, not purple eye shadow. Make all empty space genuinely alpha=0 with no colored halo, gradient haze or stray pixels around the characters; preserve clean antialiased silhouette edges. Keep the small breath puff only where it is already drawn. Do not add, remove, rearrange, resize or redraw poses or clothing. No background/checkerboard, no words, no panel borders. Preserve transparency; this is a targeted color and transparency cleanup of the exact atlas, not a new design.",
+      "transparent_background": true,
+      "referenceImage": "animation/fitness-tracksuit-v1/atlas-generated.png",
+      "sourcePath": "<USER_HOME>/.codex/generated_images/01a0e1eb-4817-71a0-a1e1-df6d7be40887/exec-27c91b33-cef7-4a11-ab3f-c6b5e5ce02be.png",
+      "projectPath": "animation/fitness-tracksuit-v2/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "artApproval": false,
+      "sha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+      "width": 1536,
+      "height": 1024,
+      "alphaInspection": {
+        "zero": 892056,
+        "nonzero": 680808,
+        "alpha1To15": 61956,
+        "maximum": 254,
+        "strongBBox": [
+          33,
+          43,
+          1497,
+          967
+        ],
+        "alpha128Plus": 611188
+      }
+    },
+    {
+      "id": "stretch-v2-targeted-edit",
+      "status": "generation-blocked-no-file",
+      "prompt": "Use case: precise-object-edit. Edit this exact 12-frame sprite atlas only for eyelid color and alpha cleanup. Preserve exactly the 4-column by 3-row arrangement and all existing positions, scales, short round head/body shapes, feet positions, white headband, mint tank, lavender shorts, facial expressions and distinct arm poses. In frame 8 (row 2 column 4), change BOTH closed eyelids from cool purple/magenta to warm coral pink matching the adjacent face skin, approximately RGB 255,135,127. Any eyelids elsewhere must also match pink skin. Keep all visible white sclera pure white, black pupils/ink unchanged. Remove scattered red/green colored speckles, colored edge glow and any stray marks from otherwise empty areas: those regions must be truly alpha=0, with clean antialiased character edges. Do not change the real body silhouettes or details. Full transparent RGBA, no painted backdrop, no checkerboard, no shadows, no added frames or text. Keep all twelve motion poses and exact framing intact, not a new illustration.",
+      "transparent_background": true,
+      "referenceImage": "animation/fitness-stretch-v1/atlas-generated.png",
+      "error": {
+        "httpStatus": 400,
+        "code": "moderation_blocked",
+        "stage": "output",
+        "category": "other",
+        "requestID": "9cb95e94-6de8-40fa-91cf-17092aa0d95d",
+        "message": "Your request was rejected by the safety system.",
+        "retried": false
+      },
+      "sourcePath": null,
+      "projectPath": null,
+      "artApproval": false
+    },
+    {
+      "id": "stretch-v2-targeted-edit-retry",
+      "status": "generation-blocked-no-file",
+      "prompt": "Use case: precise-object-edit. Edit this exact 12-frame sprite atlas only for eyelid color and alpha cleanup. Preserve exactly the 4-column by 3-row arrangement and all existing positions, scales, short round head/body shapes, feet positions, white headband, mint tank, lavender shorts, facial expressions and distinct arm poses. In frame 8 (row 2 column 4), change BOTH closed eyelids from cool purple/magenta to warm coral pink matching the adjacent face skin, approximately RGB 255,135,127. Any eyelids elsewhere must also match pink skin. Keep all visible white sclera pure white, black pupils/ink unchanged. Remove scattered red/green colored speckles, colored edge glow and any stray marks from otherwise empty areas: those regions must be truly alpha=0, with clean antialiased character edges. Do not change the real body silhouettes or details. Full transparent RGBA, no painted backdrop, no checkerboard, no shadows, no added frames or text. Keep all twelve motion poses and exact framing intact, not a new illustration.",
+      "exactPromptRetryOf": "stretch-v2-targeted-edit",
+      "transparent_background": true,
+      "referenceImage": "animation/fitness-stretch-v1/atlas-generated.png",
+      "sourcePath": null,
+      "projectPath": null,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 73551dbe-229d-4619-9f37-89f1dcf37f0c.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "artApproval": false,
+      "attemptedAt": "2026-10-12T03:46:36.625Z"
+    },
+    {
+      "id": "basketball-v1",
+      "status": "generated-pending-QC",
+      "prompt": "Use case: stylized-concept. Asset type: a new eight-frame 2D pet animation atlas, exactly 4 columns and 2 rows. Read left to right, then top to bottom. Subject: Patrick Star with his classic coral-pink skin, very short stout round body and broad soft belly, small feet, simple pointed rounded head, white sclera, black pupils and warm coral-pink eyelids matching his skin. Clean flat 2D animated cartoon linework and flat cel colors, not realistic or 3D. NEW outfit: orange basketball jersey with broad white trim, orange athletic shorts with white side panels, blue sports headband and blue-and-white wristbands. No writing, numbers, branding or logos. He holds ONE orange basketball with both flippers the whole time. The ball has the same diameter and black seam pattern across all poses. Action: he seriously prepares a shot without ever throwing. Frame 1: both hands holding the ball low in front of his waist, eyes forward. 2: glances at the ball and firms both side grips. 3: both hands begin lifting ball slightly. 4: ball halfway from waist to chest, elbows bend. 5: ball at chest below his mouth, focused eyes, both side grips still touching. 6: pauses at chest with a tiny confident smile. 7: both hands lower ball halfway. 8: ball back at original waist level, a satisfied look. Hand contact must remain physically consistent on the left and right sides of the single ball; never extra fingers or arms, never detached floating ball. Only the arm/ball and face poses animate: no change in camera, body scale, head width, belly width, or foot positions. Keep him compact and broad, NOT tall or slim. All eight drawings full-body, same size, centered at matching coordinates within each equal cell, feet at the same baseline. Reserve generous empty padding: at least 12% of cell height above headband, 10% below the feet and at least 10% on each side. No cropped head, feet or ball, no neighboring pieces. Truly transparent RGBA background, completely zero-alpha empty space, no background color, no shadows, no glow, no checkerboard, no grid borders, no labels. The eight frames must be eight meaningful consecutive redraws of the arm/ball action, not repeated poses moved across the canvas.",
+      "transparent_background": true,
+      "projectPath": "animation/fitness-basketball-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "artApproval": false,
+      "sourcePath": "<USER_HOME>/.codex/generated_images/01a0e1eb-4817-71a0-a1e1-df6d7be40887/exec-0bb87124-2828-4159-9c4e-74f366214708.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+      "alphaInspection": {
+        "zero": 1071930,
+        "nonzero": 501608,
+        "alpha1To15": 79209,
+        "maximum": 255,
+        "strongBBox": [
+          113,
+          37,
+          1656,
+          845
+        ],
+        "alpha128Plus": 415907
+      }
+    },
+    {
+      "id": "coach-v1",
+      "status": "generated-prop-continuity-fix-needed",
+      "prompt": "Use case: stylized-concept. Asset type: a new eight-frame 2D animated pet sprite atlas in exactly 4 columns by 2 rows, read left to right then top to bottom. Character: Patrick Star, classic coral-pink skin, compact short rounded body, broad belly, small feet, friendly simple face, white sclera, black pupils, warm coral-pink skin-matching eyelids. Clean flat 2D animation ink and cel colors; no realism or 3D. NEW fitness coach outfit: white short-sleeve polo with green collar and sleeve trim, navy blue sport shorts, red baseball cap worn forward. One SMALL whistle on a visible cord around his neck, and one SMALL round stopwatch held in his right flipper throughout. No logos, numerals or lettering. Simple causal action with eight clearly distinct consecutive poses: 1 facing forward with right flipper holding stopwatch at lower chest and left flipper relaxed, whistle hanging at collar; 2 tilts only eyes/head a little down toward stopwatch; 3 left flipper presses the stopwatch top button while right still supports it; 4 looks at the stopped watch, satisfied; 5 raises gaze and left flipper reaches hanging whistle while right watch hand lowers to waist; 6 left flipper lifts whistle to lips with cord still attached; 7 blows once with lightly puffed cheeks and a small drawn breath mark, right hand still holds stopwatch; 8 lowers whistle back to collar, calm smile, right hand still holds watch. Whistle never appears from nowhere or duplicates; stopwatch never vanishes; exactly two flippers, no human fingers. Red cap and body/head proportions remain identical throughout. Keep body short, round, broad and stout, not tall or slender. Static front camera and same physical scale, no global body rotation, squash or sliding. Two feet at the same cell baseline, full head/cap, whole body and all props uncut. Generous consistent empty safety padding in every equal cell: minimum 12% above cap and 10% below feet and enough side space for bent arms. Actual transparent RGBA, empty space fully alpha=0, no checkerboard painting, backdrop, floor, shadow, glow, panel lines or text. This is an original independent outfit and genuine arm/face animation, not a recolored older outfit or translated single pose.",
+      "transparent_background": true,
+      "projectPath": "animation/fitness-coach-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "artApproval": false,
+      "sourcePath": "<USER_HOME>/.codex/generated_images/01a0e1eb-4817-71a0-a1e1-df6d7be40887/exec-0760a1c8-2852-433d-b606-e84d99259b9c.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "1d95b8b724978259b537c69377c7ab6929b8e4de7f1299631dd36e5d77302b9b",
+      "knownIssues": [
+        "Stopwatch switches screen sides in frames 4,5,8; targeted edit needed to keep the same physical hand."
+      ],
+      "alphaInspection": {
+        "zero": 1047002,
+        "nonzero": 526536,
+        "alpha1To15": 33673,
+        "maximum": 255,
+        "strongBBox": [
+          96,
+          22,
+          1696,
+          862
+        ],
+        "alpha128Plus": 485481
+      }
+    },
+    {
+      "id": "coach-v2-targeted-edit",
+      "status": "generated-inspected-candidate",
+      "prompt": "Use case: precise-object-edit. Fix ONLY hand/prop continuity in this existing 8-frame fitness-coach atlas, keep exact 4 columns by 2 rows and every character's original position, full-body size, red cap, head, expression, polo, shorts, feet, transparency and ink style. Frames are numbered 1-4 top row, 5-8 bottom row. The stopwatch must remain in the character's RIGHT flipper, which is on the VIEWER'S LEFT, in ALL EIGHT frames, exactly as already correct in frames 1, 2, 3, 6 and 7. Do not alter those five correct frames. Correct only frames 4, 5 and 8: place the same small stopwatch in the viewer-left flipper; the viewer-right flipper is the free hand which reaches/lower the whistle. Frame 4: right/viewer-left flipper supports stopwatch at lower chest, other flipper relaxed after pressing its button. Frame 5: right/viewer-left flipper supports stopwatch at waist, left/viewer-right flipper reaches the whistle hanging from the cord at the center collar. Frame 8: right/viewer-left flipper still holds stopwatch at waist, left/viewer-right flipper lowers the whistle back onto the center collar. There is exactly one stopwatch and one neck whistle per frame; all visible hand contacts make sense. Preserve the neck cord, the single blow in frame 7, all facial expressions, eye colors (white sclera and coral pink lids), proportions, camera and framing. Do not mirror whole characters, do not modify body or clothes, do not crop or scale frames. No text or new markings; retain clean actual transparent RGBA background.",
+      "transparent_background": true,
+      "referenceImage": "animation/fitness-coach-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "artApproval": false,
+      "sourcePath": "<USER_HOME>/.codex/generated_images/01a0e1eb-4817-71a0-a1e1-df6d7be40887/exec-52537aff-df85-45d5-8c27-494643d8a3e1.png",
+      "projectPath": "animation/fitness-coach-v2/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345",
+      "alphaInspection": {
+        "zero": 1045078,
+        "nonzero": 528460,
+        "alpha1To15": 30214,
+        "maximum": 255,
+        "strongBBox": [
+          94,
+          22,
+          1690,
+          864
+        ],
+        "alpha128Plus": 491302
+      }
+    },
+    {
+      "id": "martial-v1",
+      "status": "generated-pending-QC",
+      "prompt": "Use case: stylized-concept. Asset type: a NEW 8-frame 2D animated pet sprite atlas, exactly 4 columns by 2 rows, read left to right then top to bottom. Subject: Patrick Star with classic coral-pink skin, WHITE eye sclera and black pupils, warm coral-pink eyelids matching his skin, short stout round body, broad soft belly, small bare pink feet. Clean familiar flat 2D cartoon cel animation with crisp black lines, not realistic and not 3D. Distinct new outfit: simple WHITE martial arts gi jacket and white short pants, tied BLACK belt, one tiny RED STAR chest patch, no other logos or text. He performs a respectful practice bow and returns, NOT a fighting scene. Entire action faces forward, feet fixed side by side on one ground baseline; hands remain alongside the thighs and move naturally with the body. EXACT motion order: 1 stands upright relaxed; 2 chin dips and shoulders start to relax forward; 3 upper body bends a little from the waist, neck and shoulders following; 4 deeper respectful forward bow, head and shoulders visibly lower, upper torso foreshortened, hands sliding lower along thighs; 5 holds the deepest bow with downward gaze and coral-pink blink lids; 6 begins unbending waist and raising shoulders/head; 7 almost straight with face returning toward viewer; 8 returns to the same full upright relaxed stance as frame 1. The head/shoulders/waist must genuinely redraw and articulate during bowing; do NOT rotate, translate or shrink the entire upright drawing. His belly remains round and broad throughout; feet and lower legs stay fixed, no stretching body into a tall slim shape. Keep identical physical character scale, head width, outfit details, belt thickness and camera distance across all frames. No extra limbs, no weapons, no opponent, no impacts. Full head, hands, belt ends and both bare feet wholly visible. Make every cell roomy: upright silhouette occupies about 65% of cell height, feet around 84% down the cell; at least 12% empty transparent padding above the highest head, 12% below feet, and 12% side gutters. Fixed center/foot placement within every equal cell. Genuine transparent RGBA background with alpha=0 empty pixels, no colored backdrop, checkerboard, gradient, floor, shadow, glow, panel lines, numbers or captions.",
+      "transparent_background": true,
+      "projectPath": "animation/fitness-martial-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "artApproval": false,
+      "sourcePath": "<USER_HOME>/.codex/generated_images/01a0e1eb-4817-71a0-a1e1-df6d7be40887/exec-760999cd-9cb9-4b16-b158-ec046ddcdcde.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+      "alphaInspection": {
+        "zero": 1006045,
+        "nonzero": 567493,
+        "alpha1To15": 148630,
+        "maximum": 255,
+        "strongBBox": [
+          92,
+          39,
+          1684,
+          841
+        ],
+        "alpha128Plus": 412717
+      }
+    },
+    {
+      "id": "kettlebell-v1",
+      "status": "generated-proportion-review",
+      "prompt": "Use case: stylized-concept. Asset type: a NEW 8-frame 2D animated pet sprite sheet, exactly 4 columns by 2 rows, read left to right then top to bottom. Patrick Star in a distinct fitness outfit: light-grey sleeveless hooded exercise vest with hood DOWN behind his neck, orange-and-black athletic shorts, purple wristbands, bare pink feet. Classic coral-pink skin, short stout rounded body and broad round belly, WHITE eye sclera, black pupils, warm coral-pink lids matching skin (no purple/grey eyelids). Clean flat 2D television-cel cartoon ink and flat colors, not realistic and not 3D. Prop: ONE small purple kettlebell with one clearly visible thick rounded handle. Both flippers hold the left and right portions of this same handle in all eight frames; continuous believable hand contact, no extra fingers, no floating weight, no duplicate handles. Slow controlled low lift, no swing and no overhead lift: 1 arms down holding kettlebell between upper thighs but above feet, calm focus; 2 firms both grips and slightly bends elbows; 3 weight rises a small amount while elbows bend; 4 weight halfway up toward lower belly; 5 weight reaches belly level, both elbows bent, determined look; 6 brief hold at belly level with a small satisfied smile; 7 lowers slowly halfway; 8 weight back to starting low height, shoulders relaxed. The handle opening, body diameter and purple color remain constant, and arms move with the weight. Keep feet planted in the same two positions, torso and head the same physical width/height throughout, camera and framing fixed. Do not squash, elongate, rotate or shift the whole character. True arm and facial poses must progress across frames. No simulated full-image bobbing. Keep compact stocky Patrick anatomy, no muscles or tall human proportions. Every frame shows full body, hood, all hands, full handle and both bare feet. Upright silhouette occupies about 65% of cell height, feet around 84% down; reserve at least 12% transparent padding above head and below feet and generous side gutters. Truly transparent RGBA with zero-alpha blank space; no opaque backdrop, checkerboard, glow, shadows, ground line, grid, text or logos.",
+      "transparent_background": true,
+      "projectPath": "animation/fitness-kettlebell-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "artApproval": false,
+      "sourcePath": "<USER_HOME>/.codex/generated_images/01a0e1eb-4817-71a0-a1e1-df6d7be40887/exec-0ba27ed5-2b9d-4125-9861-a568deb17751.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "5bb892445cf22261cfe45aa90600edb36a8824392e0dbdaba44d40729448b347",
+      "alphaInspection": {
+        "zero": 1131640,
+        "nonzero": 441898,
+        "alpha1To15": 41563,
+        "maximum": 255,
+        "strongBBox": [
+          137,
+          34,
+          1656,
+          849
+        ],
+        "alpha128Plus": 393278
+      }
+    },
+    {
+      "id": "kettlebell-v2-targeted-edit",
+      "status": "generated-inspected-candidate",
+      "prompt": "Use case: identity-preserve targeted proportion correction. Edit this existing eight-frame kettlebell atlas. Keep the exact 4-by-2 arrangement, all eight causal arm/weight poses, grip positions on the single purple handle, same outfit colors/design, expression sequence, small purple kettlebell size and same planted bare-foot positions. The problem to correct is that the character currently looks tall, narrow and lean. Redraw the anatomy in ALL frames as classic Patrick Star's SHORT, STOUT, SOFT-ROUND physique: a broader rounded head/cheek area, shorter upper head triangle, wide round belly and short thick flippers. Make the head-to-feet silhouette roughly 12% shorter while feet remain on the existing baseline, and make the real belly/torso about 15% broader, consistently in all eight drawings. This is an anatomical redraw, NOT squashing or stretching the whole bitmap: keep eyes round and equal-sized, the kettlebell circle/handle undistorted, line thickness unchanged, round limbs and natural garment construction. The shorter rounded head has more empty space above, the belly bulges softly under the light-grey sleeveless hooded vest; not muscular or narrow-waisted. Use the SAME head/body proportions for all frames; only articulated flippers and facial expression change. Keep both hands continuously grasping the handle and exactly two arms. Retain orange-and-black shorts, hood DOWN, purple wristbands, bare feet. Visible eyelids are warm coral pink matching skin, with WHITE sclera, never purple/grey. Preserve flat 2D cartoon ink style and genuinely transparent RGBA, blank alpha=0, no background, no glow, no shadows, no text or frame borders. Do not recenter individual frames or change their viewing angle. Preserve the slow low lift to belly and return, never overhead.",
+      "transparent_background": true,
+      "referenceImage": "animation/fitness-kettlebell-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "artApproval": false,
+      "sourcePath": "<USER_HOME>/.codex/generated_images/01a0e1eb-4817-71a0-a1e1-df6d7be40887/exec-3ec53b82-2caf-4bba-9f34-5316863faba8.png",
+      "projectPath": "animation/fitness-kettlebell-v2/atlas-generated.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711",
+      "alphaInspection": {
+        "zero": 1073362,
+        "nonzero": 500176,
+        "alpha1To15": 26332,
+        "maximum": 255,
+        "strongBBox": [
+          121,
+          92,
+          1682,
+          838
+        ],
+        "alpha128Plus": 467016
+      }
+    },
+    {
+      "id": "kettlebell-v3-eye-edit",
+      "status": "generation-blocked-no-file",
+      "prompt": "Use case: precise-object-edit. This is a STRICT TWO-FRAME EYE COLOR correction to the attached existing sprite atlas, NOT a new design. Keep the entire original 1774-by-887 eight-frame 4-column/2-row atlas, all body proportions, compact stout belly/head shape, clothing, feet, every hand/grip, kettlebell positions, outlines, poses, scale, spacing and transparent background unchanged. Edit ONLY the eye interiors of frame 2 and frame 3, which are the top-row SECOND and THIRD characters. Their open white eye ovals currently have a pale lavender-pink horizontal band along the upper inside area. Remove that band: the COMPLETE open sclera inside each existing black oval outline should be clean pure WHITE, except for its existing black pupil. Keep the angry black eyebrows outside the eyes exactly as they are, and keep the pupil sizes/positions unchanged. Do not add a shaded lid inside these open eyes. If any actual visible eyelid skin remains, it must be the SAME warm coral pink as the immediately surrounding face, never lilac, purple, cool pink or grey. All other eyes and all other pixels/designs are to remain unchanged. Preserve RGBA transparency, no backdrop/glow/shadow. No text, no re-layout, no mirroring, no facial pose change. This is only removing two pairs of incorrectly tinted eye-white bands.",
+      "transparent_background": true,
+      "referenceImage": "animation/fitness-kettlebell-v2/atlas-generated.png",
+      "evidence": "output/body-landmarks-20261012-fitness/kettlebell-v2-source2-3-eye-inspection.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "artApproval": false,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID ecf2e48e-cfc2-4c62-a88b-8e5ec71a4274.\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "sourcePath": null,
+      "projectPath": null,
+      "attemptedAt": "2026-10-12T04:07:09.746Z"
+    }
+  ],
+  "selectedCandidates": [
+    {
+      "id": "fitness-tracksuit",
+      "path": "animation/fitness-tracksuit-v2/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "knownIssues": [
+        "The second row feet are roughly 17–18 source pixels higher relative to nominal cell baseline; contour placement must anchor actual feet, not blindly crop equal cells.",
+        "Frames 2/3 are close and 7/8 are close; the unzipping step 4→5 has a larger change, normal-speed review still needed.",
+        "Strong silhouette top padding is 32–44 px in 512 px cells, less than requested 12%; outer source border is not touched by strong core.",
+        "PNG has substantial fully transparent space but also low-alpha stray/halo pixels; do not describe source as cleaned rig-ready without composited QA."
+      ],
+      "artApproval": false
+    },
+    {
+      "id": "fitness-stretch",
+      "path": "animation/fitness-stretch-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 12,
+      "knownIssues": [
+        "Closed eyelids in source frame 8 remain purple/magenta; the targeted edit was output-blocked and no v2 image exists.",
+        "The three rows have different nominal-cell foot baselines (342,336,323 px); use actual feet for contour placement.",
+        "Highest hands in source frames 7/8 have only 12 px top padding in their nominal cells; still uncut, but less than requested safe space.",
+        "Visible posture/torso-width changes accompany lifting the arms; full normal-speed and body-scale QC remain pending.",
+        "RGBA includes low-alpha stray colored pixels, most visibly in a raw-RGB viewer; must inspect actual compositing before classifying visible glow."
+      ],
+      "artApproval": false
+    },
+    {
+      "id": "fitness-basketball",
+      "path": "animation/fitness-basketball-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "knownIssues": [
+        "Ball stays in contact with both hands and returns to waist; seam/diameter stability still needs independent prop QC.",
+        "Nominal-cell foot baseline changes by about 7 source pixels between rows; actual-foot contour alignment needed.",
+        "Top padding is 28–39 source pixels in approximately 443.5 pixel cells, below requested 12%; strong core does not touch source image edge.",
+        "Front torso/eye expression changes still need per-frame body-size and normal-speed review."
+      ],
+      "artApproval": false
+    },
+    {
+      "id": "fitness-coach",
+      "path": "animation/fitness-coach-v2/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "knownIssues": [
+        "Targeted v2 corrected stopwatch side in frames 4,5,8; now held on viewer-left in every frame.",
+        "Head/eye glance in frame 4 includes a small apparent turn; exact face-scale continuity needs independent review.",
+        "Top padding is only 19–22 source pixels in approximately 443.5 pixel cells, and feet close to cell bottom; all strong core remains inside the source.",
+        "Nominal-cell foot baseline changes by about 8 pixels between rows; actual-foot contour positioning needed.",
+        "Whistle breath lines in frame 7 are dark on black; blowing remains visible via mouth/cheeks/raised whistle."
+      ],
+      "artApproval": false
+    },
+    {
+      "id": "fitness-martial",
+      "path": "animation/fitness-martial-v1/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "knownIssues": [
+        "Bow changes true projected head/torso height; deep bow frames are not comparable neutral-body height measurements.",
+        "Foot/body contours still need independent frame-region alignment and a normal-speed check, not nominal equal-cell rendering.",
+        "Frame 1 versus 8 neutral outlines differ slightly; not claiming a perfect seamless loop.",
+        "Low-alpha stray source pixels remain outside strong silhouettes; no local cleanup was performed."
+      ],
+      "artApproval": false
+    },
+    {
+      "id": "fitness-kettlebell",
+      "path": "animation/fitness-kettlebell-v2/atlas-generated.png",
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "knownIssues": [
+        "Source frames 2 and 3 have a pale lavender-pink band inside upper sclera, confirmed by magnified independent inspection. A targeted eye-only v3 edit was output-blocked; no v3 PNG exists. V2 remains candidate with eye colors requiring revision.",
+        "V2 anatomically redraws v1 taller/narrow body into a visibly shorter and broader belly/head; source changed, so no v1 regions/measurements may be reused.",
+        "Low kettlebell in frames 1 and 8 reaches slightly below actual bare-foot baseline. Actual foot ROI must exclude purple weight; prop-ground relation remains an art review issue.",
+        "Both hands visibly keep contact with the one handle and motion is a low lift/return, but normal-speed prop diameter/grip continuity needs independent review.",
+        "A small amount of head/foot shape drift remains across frames; no per-frame normalization or local source edits."
+      ],
+      "artApproval": false
+    }
+  ],
+  "completedAt": "2026-10-12T03:41:48.622Z",
+  "catalogModified": false,
+  "imageBytesModifiedLocally": false,
+  "qcStatus": "source visual, alpha histogram and actual black-background composites inspected; normal-speed/body-scale/contour QA delegated separately; artApproval false",
+  "compositeInspection": {
+    "screenshot": "output/playwright/20261012-fitness-generation/actual-alpha-composite.png",
+    "background": "#070609",
+    "viewed": true,
+    "observation": "Actual alpha composite shows no opaque brown background or conspicuous red speckle cloud at this atlas display scale. Tracksuit eyelids now read coral pink; stretch frame 8 remains violet/magenta. No source pixels were cleaned or removed locally. This atlas overview is not normal-speed, per-frame, body-scale or layout acceptance."
+  },
+  "secondGroupCompositeInspection": {
+    "screenshot": "output/playwright/20261012-fitness-generation/second-group-alpha-composite.png",
+    "background": "#070609",
+    "viewed": true,
+    "observation": "Original RGBA compositing shows no opaque backdrop or large red speckle cloud at this display size. Basketball grip stays attached to both hands; coach v2 watch remains on viewer-left throughout. This source overview is not per-frame scale/playback/layout acceptance."
+  },
+  "updatedAt": "2026-10-12T04:07:09.746Z",
+  "thirdGroupCompositeInspection": {
+    "screenshot": "output/playwright/20261012-fitness-generation/third-group-alpha-composite.png",
+    "background": "#070609",
+    "viewed": true,
+    "observation": "Actual alpha compositing shows no opaque backdrop at this overview size. Martial bow has real head/shoulder/waist projection changes, not whole-image rotation. Kettlebell v2 is visibly shorter and broader than v1, with grip poses intact. All remain candidates; no normal-speed/layout/art acceptance claimed."
+  },
+  "ownedScopeSummary": {
+    "distinctOutfits": 6,
+    "selectedOriginalFrames": 52,
+    "successfulSourceFilesIncludingRevisions": 9,
+    "blockedNoFile": 3,
+    "artApproved": 0,
+    "scope": "This agent ledger only; root-generated outfits are separate."
+  }
+}

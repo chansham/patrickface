@@ -1,0 +1,6359 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-12",
+  "artApproval": false,
+  "method": "fresh-source-inbetween-body-review-v1",
+  "frameIndexBasis": "zero-based",
+  "coordinateSize": [
+    832.0,
+    992.0
+  ],
+  "catalogPath": "animation/candidates.json",
+  "catalogSha256": "89401891f2c6e1fc138e4495a0a990c99491232ffc4bf7faf1c9fff07b7375f5",
+  "layoutsSha256": "e6dbd737e17a4691a0c8cbc8cb942e8b311cccfecda1ab8d5de49eb3c4f4cbdd",
+  "playerCoreSha256": "f1daf5e8913b209b7cdc5584825afb8358bb31167f6e5a4e262caed5bf8983c1",
+  "stageConstants": {
+    "width": 832.0,
+    "height": 992.0,
+    "x": 83.2,
+    "y": 248.0,
+    "size": 665.6,
+    "safeTop": 238.08,
+    "safeBottom": 922.56
+  },
+  "sourceReports": [
+    {
+      "path": "animation/production-20261012-inbetweens/fitness-martial-v2-body-qc.json",
+      "sha256": "f325a4ebcbcc39bae93b03f806043ba74f715994ab77e42a6436aec992b5eb4f"
+    },
+    {
+      "path": "animation/production-20261012-inbetweens/pillow-pajama-v2-body-qc.json",
+      "sha256": "a2eb15b45e9336aa91e3974dc6c355b9c538e0191f5a4df2ca08b3e037cda18c"
+    },
+    {
+      "path": "animation/production-20261012-inbetweens/manifest.json",
+      "sha256": "1de172edf57a9cb9bba09c9a51e22d6bddd78af41e4fa5e544e735ea28b636a1"
+    },
+    {
+      "path": "animation/production-20261012-inbetweens/measurements/fitness-martial-v2.json",
+      "sha256": "34aedb1989099f0371568a85ea8b0d73e180d0b2a9afbf4f26eb0c904ea6ca1f"
+    },
+    {
+      "path": "animation/production-20261012-inbetweens/measurements/pillow-pajama-v2.json",
+      "sha256": "77caeb6afd172d69d0d1f260ab5b7850e41a4ed70f8636cede49992c172ed37d"
+    },
+    {
+      "path": "animation/production-20261012-fitness/fitness-martial-v1-body-qc.json",
+      "sha256": "6ed948ffbe00bac08c27e5c574460f663b3508f7fa315d249d0ca406aaad1237"
+    },
+    {
+      "path": "animation/production-20261012-fitness/measurements/fitness-martial-v1.json",
+      "sha256": "628a75ca9bc67c9aff618f3a0f014b86b02d24f9f17364732e2e64873b7f482b"
+    },
+    {
+      "path": "animation/production-20261012-playful/pillow-pajama-v1-body-qc.json",
+      "sha256": "f23e19c2a181153806db4d16a53f21fb1702d2aced85ce1f8138398b259b3f49"
+    },
+    {
+      "path": "animation/production-20261012-playful/measurements/pillow-pajama-v1.json",
+      "sha256": "9bae3f5a9d943ca2b27ab9e4abc9bedd73e872f2280803bfcef6306fdb6b29eb"
+    }
+  ],
+  "sources": [
+    {
+      "path": "animation/fitness-martial-v2/atlas-generated.png",
+      "sha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+      "sourceFrames": 10,
+      "qc": {
+        "path": "animation/production-20261012-inbetweens/fitness-martial-v2-body-qc.json",
+        "sha256": "f325a4ebcbcc39bae93b03f806043ba74f715994ab77e42a6436aec992b5eb4f"
+      }
+    },
+    {
+      "path": "animation/pillow-pajama-v2/atlas-generated.png",
+      "sha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+      "sourceFrames": 12,
+      "qc": {
+        "path": "animation/production-20261012-inbetweens/pillow-pajama-v2-body-qc.json",
+        "sha256": "a2eb15b45e9336aa91e3974dc6c355b9c538e0191f5a4df2ca08b3e037cda18c"
+      }
+    }
+  ],
+  "clips": [
+    {
+      "id": "martial-inbetweens-20261012",
+      "title": "白道服・鞠躬起身10格",
+      "catalog": "candidates",
+      "atlas": "animation/fitness-martial-v2/atlas-generated.png",
+      "sourceSha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+      "regionsSha256": "a24c56842ce645dbb987f24ac90b644efc1cdac1328d239aefc51bf41b80e372",
+      "referenceFrame": 0,
+      "catalogScale": 1.9658782585186299,
+      "sourcePixelToStagePixel": 1.8692693841,
+      "sourceFrameCount": 10,
+      "playbackFrameCount": 10,
+      "actualUsedSourceFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "calibration": {
+        "currentScale": 1.9658782585186299,
+        "reason": "讀取目錄目前單一整段倍率；不作逐格fit或自動人体校準。"
+      },
+      "measurements": {
+        "unit": "px",
+        "labels": {
+          "faceWidth": "眼下緣線可見臉部橫截寬",
+          "eyeSeparation": "兩眼下緣中點距離（非瞳孔距）",
+          "eyeToFoot": "眼下緣中線至真足底垂直距離（姿勢代理）"
+        },
+        "reference": {
+          "sourceFrame": 0,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 97.75,
+            "eyeSeparation": 30.0,
+            "eyeToFoot": 220.0,
+            "eyeWhiteBounds": [
+              [
+                189,
+                114,
+                217,
+                153
+              ],
+              [
+                219,
+                113,
+                247,
+                153
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                202.5,
+                152.0
+              ],
+              [
+                232.5,
+                152.0
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                169,
+                152
+              ],
+              [
+                266,
+                152
+              ]
+            ],
+            "eyeMidpoint": [
+              217.5,
+              152.0
+            ],
+            "eyeLineAngleDegrees": 0.0,
+            "footBaselineY": 372.0,
+            "footSourcePoint": [
+              217.5,
+              372.0
+            ],
+            "eyeToFootPoints": [
+              [
+                217.5,
+                152.0
+              ],
+              [
+                217.5,
+                372.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                161,
+                342,
+                214,
+                373
+              ],
+              [
+                217,
+                342,
+                271,
+                373
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": 182.721082295775,
+            "eyeSeparation": 56.078081523,
+            "eyeToFoot": 411.239264502,
+            "eyeLowerRimPoints": [
+              [
+                388.89559393055,
+                476.78492734569994
+              ],
+              [
+                444.97367545355,
+                476.78492734569994
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                326.27506956319996,
+                476.78492734569994
+              ],
+              [
+                507.59419982090003,
+                476.78492734569994
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                416.93463469205,
+                476.78492734569994
+              ],
+              [
+                416.93463469205,
+                888.0241918477
+              ]
+            ],
+            "footSourcePoint": [
+              416.93463469205,
+              888.0241918477
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": 182.721082295775,
+                "eyeSeparation": 56.078081523,
+                "eyeToFoot": 411.239264502
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 43.923337090330534,
+                "eyeSeparation": 13.480308058413462,
+                "eyeToFoot": 98.85559242836538
+              },
+              "eyeLowerRimPoints": [
+                [
+                  388.89559393055,
+                  476.78492734569994
+                ],
+                [
+                  444.97367545355,
+                  476.78492734569994
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  326.27506956319996,
+                  476.78492734569994
+                ],
+                [
+                  507.59419982090003,
+                  476.78492734569994
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  416.93463469205,
+                  476.78492734569994
+                ],
+                [
+                  416.93463469205,
+                  888.0241918477
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": 126.07754678408475,
+                "eyeSeparation": 38.69387625087,
+                "eyeToFoot": 283.75509250638
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 30.307102592328064,
+                "eyeSeparation": 9.301412560305288,
+                "eyeToFoot": 68.21035877557212
+              },
+              "eyeLowerRimPoints": [
+                [
+                  397.2979598120795,
+                  617.981599868533
+                ],
+                [
+                  435.99183606294946,
+                  617.981599868533
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  354.089797998608,
+                  617.981599868533
+                ],
+                [
+                  479.199997876421,
+                  617.981599868533
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  416.64489793751443,
+                  617.981599868533
+                ],
+                [
+                  416.64489793751443,
+                  901.7366923749129
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": 173.58502818098626,
+                "eyeSeparation": 53.27417744685,
+                "eyeToFoot": 390.6773012769
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 41.72717023581401,
+                "eyeSeparation": 12.806292655492788,
+                "eyeToFoot": 93.9128128069471
+              },
+              "eyeLowerRimPoints": [
+                [
+                  390.25081423402247,
+                  408.94568097841494
+                ],
+                [
+                  443.5249916808725,
+                  408.94568097841494
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  330.76131608503994,
+                  408.94568097841494
+                ],
+                [
+                  503.014489829855,
+                  408.94568097841494
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  416.88790295744747,
+                  408.94568097841494
+                ],
+                [
+                  416.88790295744747,
+                  799.6229822553149
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": 157.1401307743665,
+                "eyeSeparation": 48.22715010978,
+                "eyeToFoot": 353.66576747172
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 37.77406989768426,
+                "eyeSeparation": 11.593064930235576,
+                "eyeToFoot": 85.01580948839424
+              },
+              "eyeLowerRimPoints": [
+                [
+                  392.690210780273,
+                  442.03503751730193
+                ],
+                [
+                  440.91736089005303,
+                  442.03503751730193
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  338.836559824352,
+                  442.03503751730193
+                ],
+                [
+                  494.77101184597404,
+                  442.03503751730193
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  416.803785835163,
+                  442.03503751730193
+                ],
+                [
+                  416.803785835163,
+                  795.700804989022
+                ]
+              ]
+            }
+          },
+          "flags": [],
+          "alignmentEvidence": {
+            "anchorSource": [
+              217,
+              375
+            ],
+            "translation": [
+              133,
+              241
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        }
+      },
+      "frames": [
+        {
+          "sourceFrame": 0,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 97.75,
+            "eyeSeparation": 30.0,
+            "eyeToFoot": 220.0,
+            "eyeWhiteBounds": [
+              [
+                189,
+                114,
+                217,
+                153
+              ],
+              [
+                219,
+                113,
+                247,
+                153
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                202.5,
+                152.0
+              ],
+              [
+                232.5,
+                152.0
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                169,
+                152
+              ],
+              [
+                266,
+                152
+              ]
+            ],
+            "eyeMidpoint": [
+              217.5,
+              152.0
+            ],
+            "eyeLineAngleDegrees": 0.0,
+            "footBaselineY": 372.0,
+            "footSourcePoint": [
+              217.5,
+              372.0
+            ],
+            "eyeToFootPoints": [
+              [
+                217.5,
+                152.0
+              ],
+              [
+                217.5,
+                372.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                161,
+                342,
+                214,
+                373
+              ],
+              [
+                217,
+                342,
+                271,
+                373
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": 182.721082295775,
+            "eyeSeparation": 56.078081523,
+            "eyeToFoot": 411.239264502,
+            "eyeLowerRimPoints": [
+              [
+                388.89559393055,
+                476.78492734569994
+              ],
+              [
+                444.97367545355,
+                476.78492734569994
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                326.27506956319996,
+                476.78492734569994
+              ],
+              [
+                507.59419982090003,
+                476.78492734569994
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                416.93463469205,
+                476.78492734569994
+              ],
+              [
+                416.93463469205,
+                888.0241918477
+              ]
+            ],
+            "footSourcePoint": [
+              416.93463469205,
+              888.0241918477
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": 182.721082295775,
+                "eyeSeparation": 56.078081523,
+                "eyeToFoot": 411.239264502
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 43.923337090330534,
+                "eyeSeparation": 13.480308058413462,
+                "eyeToFoot": 98.85559242836538
+              },
+              "eyeLowerRimPoints": [
+                [
+                  388.89559393055,
+                  476.78492734569994
+                ],
+                [
+                  444.97367545355,
+                  476.78492734569994
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  326.27506956319996,
+                  476.78492734569994
+                ],
+                [
+                  507.59419982090003,
+                  476.78492734569994
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  416.93463469205,
+                  476.78492734569994
+                ],
+                [
+                  416.93463469205,
+                  888.0241918477
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": 126.07754678408475,
+                "eyeSeparation": 38.69387625087,
+                "eyeToFoot": 283.75509250638
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 30.307102592328064,
+                "eyeSeparation": 9.301412560305288,
+                "eyeToFoot": 68.21035877557212
+              },
+              "eyeLowerRimPoints": [
+                [
+                  397.2979598120795,
+                  617.981599868533
+                ],
+                [
+                  435.99183606294946,
+                  617.981599868533
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  354.089797998608,
+                  617.981599868533
+                ],
+                [
+                  479.199997876421,
+                  617.981599868533
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  416.64489793751443,
+                  617.981599868533
+                ],
+                [
+                  416.64489793751443,
+                  901.7366923749129
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": 173.58502818098626,
+                "eyeSeparation": 53.27417744685,
+                "eyeToFoot": 390.6773012769
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 41.72717023581401,
+                "eyeSeparation": 12.806292655492788,
+                "eyeToFoot": 93.9128128069471
+              },
+              "eyeLowerRimPoints": [
+                [
+                  390.25081423402247,
+                  408.94568097841494
+                ],
+                [
+                  443.5249916808725,
+                  408.94568097841494
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  330.76131608503994,
+                  408.94568097841494
+                ],
+                [
+                  503.014489829855,
+                  408.94568097841494
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  416.88790295744747,
+                  408.94568097841494
+                ],
+                [
+                  416.88790295744747,
+                  799.6229822553149
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": 157.1401307743665,
+                "eyeSeparation": 48.22715010978,
+                "eyeToFoot": 353.66576747172
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 37.77406989768426,
+                "eyeSeparation": 11.593064930235576,
+                "eyeToFoot": 85.01580948839424
+              },
+              "eyeLowerRimPoints": [
+                [
+                  392.690210780273,
+                  442.03503751730193
+                ],
+                [
+                  440.91736089005303,
+                  442.03503751730193
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  338.836559824352,
+                  442.03503751730193
+                ],
+                [
+                  494.77101184597404,
+                  442.03503751730193
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  416.803785835163,
+                  442.03503751730193
+                ],
+                [
+                  416.803785835163,
+                  795.700804989022
+                ]
+              ]
+            }
+          },
+          "flags": [],
+          "alignmentEvidence": {
+            "anchorSource": [
+              217,
+              375
+            ],
+            "translation": [
+              133,
+              241
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 1,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 30.5,
+            "eyeToFoot": 202.0,
+            "eyeWhiteBounds": [
+              [
+                596,
+                143,
+                624,
+                171
+              ],
+              [
+                627,
+                143,
+                654,
+                171
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                609.5,
+                170.0
+              ],
+              [
+                640.0,
+                170.0
+              ]
+            ],
+            "eyeMidpoint": [
+              624.75,
+              170.0
+            ],
+            "eyeLineAngleDegrees": 0.0,
+            "footBaselineY": 372.0,
+            "footSourcePoint": [
+              624.75,
+              372.0
+            ],
+            "eyeToFootPoints": [
+              [
+                624.75,
+                170.0
+              ],
+              [
+                624.75,
+                372.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                563,
+                342,
+                616,
+                373
+              ],
+              [
+                619,
+                342,
+                673,
+                373
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "faceWidthUnavailableReason": "開始低頭鞠躬，俯视截面不同於中立正臉；不把投影寬度當體型。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": 57.012716215050006,
+            "eyeToFoot": 377.5924155882,
+            "eyeLowerRimPoints": [
+              [
+                398.24194085105,
+                510.43177625949994
+              ],
+              [
+                455.2546570661,
+                510.43177625949994
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                426.748298958575,
+                510.43177625949994
+              ],
+              [
+                426.748298958575,
+                888.0241918477
+              ]
+            ],
+            "footSourcePoint": [
+              426.748298958575,
+              888.0241918477
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 57.012716215050006,
+                "eyeToFoot": 377.5924155882
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 13.70497985938702,
+                "eyeToFoot": 90.76740759331732
+              },
+              "eyeLowerRimPoints": [
+                [
+                  398.24194085105,
+                  510.43177625949994
+                ],
+                [
+                  455.2546570661,
+                  510.43177625949994
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  426.748298958575,
+                  510.43177625949994
+                ],
+                [
+                  426.748298958575,
+                  888.0241918477
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 39.3387741883845,
+                "eyeToFoot": 260.538766755858
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 9.456436102977044,
+                "eyeToFoot": 62.62951123938894
+              },
+              "eyeLowerRimPoints": [
+                [
+                  403.7469391872245,
+                  641.197925619055
+                ],
+                [
+                  443.085713375609,
+                  641.197925619055
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  423.4163262814167,
+                  641.197925619055
+                ],
+                [
+                  423.4163262814167,
+                  901.7366923749129
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 54.162080404297505,
+                "eyeToFoot": 358.71279480879
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 13.01973086641767,
+                "eyeToFoot": 86.22903721365145
+              },
+              "eyeLowerRimPoints": [
+                [
+                  399.12984380849747,
+                  440.9101874465249
+                ],
+                [
+                  453.291924212795,
+                  440.9101874465249
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  426.2108840106462,
+                  440.9101874465249
+                ],
+                [
+                  426.2108840106462,
+                  799.6229822553149
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 49.030935944943,
+                "eyeToFoot": 324.72947740585204
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 11.786282679072837,
+                "eyeToFoot": 78.0599705302529
+              },
+              "eyeLowerRimPoints": [
+                [
+                  400.728069131903,
+                  470.97132758316997
+                ],
+                [
+                  449.759005076846,
+                  470.97132758316997
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  425.24353710437447,
+                  470.97132758316997
+                ],
+                [
+                  425.24353710437447,
+                  795.700804989022
+                ]
+              ]
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              619,
+              375
+            ],
+            "translation": [
+              -269,
+              241
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 2,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 29.516944286290883,
+            "eyeToFoot": 174.5,
+            "eyeWhiteBounds": [
+              [
+                974,
+                172,
+                1001,
+                199
+              ],
+              [
+                1004,
+                172,
+                1030,
+                198
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                987.0,
+                198.0
+              ],
+              [
+                1016.5,
+                197.0
+              ]
+            ],
+            "eyeMidpoint": [
+              1001.75,
+              197.5
+            ],
+            "eyeLineAngleDegrees": -1.9414863909143774,
+            "footBaselineY": 372.0,
+            "footSourcePoint": [
+              1001.75,
+              372.0
+            ],
+            "eyeToFootPoints": [
+              [
+                1001.75,
+                197.5
+              ],
+              [
+                1001.75,
+                372.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                938,
+                343,
+                990,
+                373
+              ],
+              [
+                992,
+                343,
+                1045,
+                373
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "faceWidthUnavailableReason": "中度前傾鞠躬，臉部俯視投影不與正臉比寬。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": 55.17512026654897,
+            "eyeToFoot": 326.18750752545003,
+            "eyeLowerRimPoints": [
+              [
+                410.3921918477,
+                562.7713190142999
+              ],
+              [
+                465.53563867865,
+                560.9020496301999
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                437.963915263175,
+                561.83668432225
+              ],
+              [
+                437.963915263175,
+                888.0241918477
+              ]
+            ],
+            "footSourcePoint": [
+              437.963915263175,
+              888.0241918477
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 55.17512026654897,
+                "eyeToFoot": 326.18750752545003
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 13.263250064074272,
+                "eyeToFoot": 78.41045853977164
+              },
+              "eyeLowerRimPoints": [
+                [
+                  410.3921918477,
+                  562.7713190142999
+                ],
+                [
+                  465.53563867865,
+                  560.9020496301999
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  437.963915263175,
+                  561.83668432225
+                ],
+                [
+                  437.963915263175,
+                  888.0241918477
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 38.07083298391879,
+                "eyeToFoot": 225.06938019256052
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 9.151642544211247,
+                "eyeToFoot": 54.103216392442434
+              },
+              "eyeLowerRimPoints": [
+                [
+                  412.13061237491297,
+                  677.3122101198669
+                ],
+                [
+                  450.1795906882685,
+                  676.0224142448379
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  431.15510153159073,
+                  676.6673121823525
+                ],
+                [
+                  431.15510153159073,
+                  901.7366923749129
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 52.41636425322152,
+                "eyeToFoot": 309.87813214917753
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.60008756087056,
+                "eyeToFoot": 74.48993561278306
+              },
+              "eyeLowerRimPoints": [
+                [
+                  410.67258225531504,
+                  490.6327530635849
+                ],
+                [
+                  463.0588567447175,
+                  488.85694714868987
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  436.86571950001627,
+                  489.7448501061375
+                ],
+                [
+                  436.86571950001627,
+                  799.6229822553149
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 47.45060342923212,
+                "eyeToFoot": 280.521256471887
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 11.406395055103873,
+                "eyeToFoot": 67.4329943442036
+              },
+              "eyeLowerRimPoints": [
+                [
+                  411.17728498902204,
+                  515.983334352298
+                ],
+                [
+                  458.600649263639,
+                  514.375762681972
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  434.8889671263305,
+                  515.179548517135
+                ],
+                [
+                  434.8889671263305,
+                  795.700804989022
+                ]
+              ]
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              990,
+              375
+            ],
+            "translation": [
+              -640,
+              241
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 3,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 29.017236257093817,
+            "eyeToFoot": 160.5,
+            "eyeWhiteBounds": [
+              [
+                1364,
+                187,
+                1390,
+                212
+              ],
+              [
+                1393,
+                188,
+                1419,
+                213
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1376.5,
+                211.0
+              ],
+              [
+                1405.5,
+                212.0
+              ]
+            ],
+            "eyeMidpoint": [
+              1391.0,
+              211.5
+            ],
+            "eyeLineAngleDegrees": 1.9749340108819766,
+            "footBaselineY": 372.0,
+            "footSourcePoint": [
+              1391.0,
+              372.0
+            ],
+            "eyeToFootPoints": [
+              [
+                1391.0,
+                211.5
+              ],
+              [
+                1391.0,
+                372.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                1329,
+                343,
+                1381,
+                373
+              ],
+              [
+                1383,
+                342,
+                1435,
+                373
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "faceWidthUnavailableReason": "深鞠躬，臉型和頭高為俯視投影，完整正臉截面未知。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": 54.24103134658195,
+            "eyeToFoot": 300.01773614805,
+            "eyeLowerRimPoints": [
+              [
+                405.71901838745,
+                587.0718210076
+              ],
+              [
+                459.92783052635,
+                588.9410903917
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                432.8234244569,
+                588.0064556996499
+              ],
+              [
+                432.8234244569,
+                888.0241918477
+              ]
+            ],
+            "footSourcePoint": [
+              432.8234244569,
+              888.0241918477
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 54.24103134658195,
+                "eyeToFoot": 300.01773614805
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 13.038709458312969,
+                "eyeToFoot": 72.11964811251201
+              },
+              "eyeLowerRimPoints": [
+                [
+                  405.71901838745,
+                  587.0718210076
+                ],
+                [
+                  459.92783052635,
+                  588.9410903917
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  432.8234244569,
+                  588.0064556996499
+                ],
+                [
+                  432.8234244569,
+                  888.0241918477
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 37.426311629141544,
+                "eyeToFoot": 207.01223794215448
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 8.996709526235948,
+                "eyeToFoot": 49.76255719763329
+              },
+              "eyeLowerRimPoints": [
+                [
+                  408.9061226873405,
+                  694.0795564952439
+                ],
+                [
+                  446.31020306318146,
+                  695.369352370273
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  427.608162875261,
+                  694.7244544327584
+                ],
+                [
+                  427.608162875261,
+                  901.7366923749129
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 51.52897977925285,
+                "eyeToFoot": 285.01684934064747
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.386773985397319,
+                "eyeToFoot": 68.51366570688641
+              },
+              "eyeLowerRimPoints": [
+                [
+                  406.2330674680775,
+                  513.7182299572199
+                ],
+                [
+                  457.73143900003254,
+                  515.494035872115
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  431.982253234055,
+                  514.6061329146673
+                ],
+                [
+                  431.982253234055,
+                  799.6229822553149
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 46.64728695806048,
+                "eyeToFoot": 258.015253087323
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 11.213290134149153,
+                "eyeToFoot": 62.02289737676033
+              },
+              "eyeLowerRimPoints": [
+                [
+                  407.158355813207,
+                  536.881766066536
+                ],
+                [
+                  453.777934252661,
+                  538.4893377368619
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  430.468145032934,
+                  537.6855519016989
+                ],
+                [
+                  430.468145032934,
+                  795.700804989022
+                ]
+              ]
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              1382,
+              375
+            ],
+            "translation": [
+              -1032,
+              241
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 4,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null,
+            "unavailableReason": "最深鞠躬且雙眼完全閉合，没有眼白下緣；暖粉眼皮不作眼睛尺規。",
+            "eyeUnavailableReason": "最深鞠躬且雙眼完全閉合，没有眼白下緣；暖粉眼皮不作眼睛尺規。",
+            "faceWidthUnavailableReason": "眼下緣基準不可見，因此臉部截線未知。",
+            "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth",
+                "eyeSeparation",
+                "eyeToFoot"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              1771,
+              375
+            ],
+            "translation": [
+              -1421,
+              241
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 5,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 31.0,
+            "eyeToFoot": 160.0,
+            "eyeWhiteBounds": [
+              [
+                193,
+                561,
+                220,
+                583
+              ],
+              [
+                224,
+                562,
+                251,
+                583
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                206.0,
+                582.0
+              ],
+              [
+                237.0,
+                582.0
+              ]
+            ],
+            "eyeMidpoint": [
+              221.5,
+              582.0
+            ],
+            "eyeLineAngleDegrees": 0.0,
+            "footBaselineY": 742.0,
+            "footSourcePoint": [
+              221.5,
+              742.0
+            ],
+            "eyeToFootPoints": [
+              [
+                221.5,
+                582.0
+              ],
+              [
+                221.5,
+                742.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                160,
+                709,
+                215,
+                743
+              ],
+              [
+                217,
+                709,
+                271,
+                743
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "faceWidthUnavailableReason": "新增起身姿勢仍大幅俯身，正臉可比截線未知。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": 57.9473509071,
+            "eyeToFoot": 299.083101456,
+            "eyeLowerRimPoints": [
+              [
+                397.307306159,
+                588.9410903917
+              ],
+              [
+                455.2546570661,
+                588.9410903917
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                426.28098161255,
+                588.9410903917
+              ],
+              [
+                426.28098161255,
+                888.0241918477
+              ]
+            ],
+            "footSourcePoint": [
+              426.28098161255,
+              888.0241918477
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 57.9473509071,
+                "eyeToFoot": 299.083101456
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 13.929651660360577,
+                "eyeToFoot": 71.89497631153846
+              },
+              "eyeLowerRimPoints": [
+                [
+                  397.307306159,
+                  588.9410903917
+                ],
+                [
+                  455.2546570661,
+                  588.9410903917
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  426.28098161255,
+                  588.9410903917
+                ],
+                [
+                  426.28098161255,
+                  888.0241918477
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 39.983672125899,
+                "eyeToFoot": 206.36734000464
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 9.611459645648797,
+                "eyeToFoot": 49.607533654961536
+              },
+              "eyeLowerRimPoints": [
+                [
+                  403.10204124970994,
+                  695.369352370273
+                ],
+                [
+                  443.085713375609,
+                  695.369352370273
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  423.0938773126595,
+                  695.369352370273
+                ],
+                [
+                  423.0938773126595,
+                  901.7366923749129
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 55.049983361745,
+                "eyeToFoot": 284.1289463832
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 13.233169077342549,
+                "eyeToFoot": 68.30022749596154
+              },
+              "eyeLowerRimPoints": [
+                [
+                  398.24194085105,
+                  515.494035872115
+                ],
+                [
+                  453.291924212795,
+                  515.494035872115
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  425.7669325319225,
+                  515.494035872115
+                ],
+                [
+                  425.7669325319225,
+                  799.6229822553149
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 49.834721780106,
+                "eyeToFoot": 257.21146725216
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 11.979500427910097,
+                "eyeToFoot": 61.82967962792308
+              },
+              "eyeLowerRimPoints": [
+                [
+                  399.92428329674,
+                  538.4893377368619
+                ],
+                [
+                  449.759005076846,
+                  538.4893377368619
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  424.841644186793,
+                  538.4893377368619
+                ],
+                [
+                  424.841644186793,
+                  795.700804989022
+                ]
+              ]
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              216,
+              745
+            ],
+            "translation": [
+              134,
+              -129
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 6,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 30.0,
+            "eyeToFoot": 186.0,
+            "eyeWhiteBounds": [
+              [
+                597,
+                531,
+                624,
+                557
+              ],
+              [
+                627,
+                532,
+                654,
+                557
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                610.0,
+                556.0
+              ],
+              [
+                640.0,
+                556.0
+              ]
+            ],
+            "eyeMidpoint": [
+              625.0,
+              556.0
+            ],
+            "eyeLineAngleDegrees": 0.0,
+            "footBaselineY": 742.0,
+            "footSourcePoint": [
+              625.0,
+              742.0
+            ],
+            "eyeToFootPoints": [
+              [
+                625.0,
+                556.0
+              ],
+              [
+                625.0,
+                742.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                561,
+                711,
+                616,
+                743
+              ],
+              [
+                619,
+                710,
+                673,
+                743
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "faceWidthUnavailableReason": "中段抬頭起身但仍前傾，投影截面不作中立臉寬。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": 56.078081523,
+            "eyeToFoot": 347.6841054426,
+            "eyeLowerRimPoints": [
+              [
+                401.0458449272,
+                540.3400864051
+              ],
+              [
+                457.1239264502,
+                540.3400864051
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                429.0848856887,
+                540.3400864051
+              ],
+              [
+                429.0848856887,
+                888.0241918477
+              ]
+            ],
+            "footSourcePoint": [
+              429.0848856887,
+              888.0241918477
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 56.078081523,
+                "eyeToFoot": 347.6841054426
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 13.480308058413462,
+                "eyeToFoot": 83.57790996216347
+              },
+              "eyeLowerRimPoints": [
+                [
+                  401.0458449272,
+                  540.3400864051
+                ],
+                [
+                  457.1239264502,
+                  540.3400864051
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  429.0848856887,
+                  540.3400864051
+                ],
+                [
+                  429.0848856887,
+                  888.0241918477
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 38.69387625087,
+                "eyeToFoot": 239.902032755394
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 9.301412560305288,
+                "eyeToFoot": 57.66875787389279
+              },
+              "eyeLowerRimPoints": [
+                [
+                  405.681632999768,
+                  661.834659619519
+                ],
+                [
+                  444.37550925063795,
+                  661.834659619519
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  425.02857112520303,
+                  661.834659619519
+                ],
+                [
+                  425.02857112520303,
+                  901.7366923749129
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 53.27417744685,
+                "eyeToFoot": 330.29990017047
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.806292655492788,
+                "eyeToFoot": 79.39901446405528
+              },
+              "eyeLowerRimPoints": [
+                [
+                  401.79355268084,
+                  469.32308208484494
+                ],
+                [
+                  455.06773012768997,
+                  469.32308208484494
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  428.43064140426503,
+                  469.32308208484494
+                ],
+                [
+                  428.43064140426503,
+                  799.6229822553149
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 48.22715010978,
+                "eyeToFoot": 299.008330680636
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 11.593064930235576,
+                "eyeToFoot": 71.87700256746058
+              },
+              "eyeLowerRimPoints": [
+                [
+                  403.139426637392,
+                  496.692474308386
+                ],
+                [
+                  451.36657674717196,
+                  496.692474308386
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  427.253001692282,
+                  496.692474308386
+                ],
+                [
+                  427.253001692282,
+                  795.700804989022
+                ]
+              ]
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              618,
+              745
+            ],
+            "translation": [
+              -268,
+              -129
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 7,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 30.0,
+            "eyeToFoot": 187.0,
+            "eyeWhiteBounds": [
+              [
+                975,
+                526,
+                1003,
+                556
+              ],
+              [
+                1006,
+                527,
+                1032,
+                556
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                988.5,
+                555.0
+              ],
+              [
+                1018.5,
+                555.0
+              ]
+            ],
+            "eyeMidpoint": [
+              1003.5,
+              555.0
+            ],
+            "eyeLineAngleDegrees": 0.0,
+            "footBaselineY": 742.0,
+            "footSourcePoint": [
+              1003.5,
+              742.0
+            ],
+            "eyeToFootPoints": [
+              [
+                1003.5,
+                555.0
+              ],
+              [
+                1003.5,
+                742.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                938,
+                710,
+                992,
+                743
+              ],
+              [
+                994,
+                710,
+                1048,
+                743
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "faceWidthUnavailableReason": "起身中的前傾俯視投影仍不同於中立正臉。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": 56.078081523,
+            "eyeToFoot": 349.5533748267,
+            "eyeLowerRimPoints": [
+              [
+                405.71901838745,
+                538.4708170209999
+              ],
+              [
+                461.79709991045,
+                538.4708170209999
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                433.75805914895,
+                538.4708170209999
+              ],
+              [
+                433.75805914895,
+                888.0241918477
+              ]
+            ],
+            "footSourcePoint": [
+              433.75805914895,
+              888.0241918477
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 56.078081523,
+                "eyeToFoot": 349.5533748267
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 13.480308058413462,
+                "eyeToFoot": 84.02725356411058
+              },
+              "eyeLowerRimPoints": [
+                [
+                  405.71901838745,
+                  538.4708170209999
+                ],
+                [
+                  461.79709991045,
+                  538.4708170209999
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  433.75805914895,
+                  538.4708170209999
+                ],
+                [
+                  433.75805914895,
+                  888.0241918477
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 38.69387625087,
+                "eyeToFoot": 241.19182863042298
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 9.301412560305288,
+                "eyeToFoot": 57.97880495923629
+              },
+              "eyeLowerRimPoints": [
+                [
+                  408.9061226873405,
+                  660.5448637444899
+                ],
+                [
+                  447.59999893821055,
+                  660.5448637444899
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  428.2530608127755,
+                  660.5448637444899
+                ],
+                [
+                  428.2530608127755,
+                  901.7366923749129
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 53.27417744685,
+                "eyeToFoot": 332.07570608536497
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.806292655492788,
+                "eyeToFoot": 79.82589088590504
+              },
+              "eyeLowerRimPoints": [
+                [
+                  406.2330674680775,
+                  467.5472761699499
+                ],
+                [
+                  459.5072449149275,
+                  467.5472761699499
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  432.8701561915025,
+                  467.5472761699499
+                ],
+                [
+                  432.8701561915025,
+                  799.6229822553149
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 48.22715010978,
+                "eyeToFoot": 300.615902350962
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 11.593064930235576,
+                "eyeToFoot": 72.2634380651351
+              },
+              "eyeLowerRimPoints": [
+                [
+                  407.158355813207,
+                  495.08490263805993
+                ],
+                [
+                  455.385505922987,
+                  495.08490263805993
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  431.271930868097,
+                  495.08490263805993
+                ],
+                [
+                  431.271930868097,
+                  795.700804989022
+                ]
+              ]
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              994,
+              745
+            ],
+            "translation": [
+              -644,
+              -129
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 8,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 103.75,
+            "eyeSeparation": 31.0,
+            "eyeToFoot": 214.5,
+            "eyeWhiteBounds": [
+              [
+                1353,
+                489,
+                1381,
+                529
+              ],
+              [
+                1384,
+                489,
+                1412,
+                529
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1366.5,
+                528.0
+              ],
+              [
+                1397.5,
+                528.0
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                1330,
+                528
+              ],
+              [
+                1433,
+                528
+              ]
+            ],
+            "eyeMidpoint": [
+              1382.0,
+              528.0
+            ],
+            "eyeLineAngleDegrees": 0.0,
+            "footBaselineY": 742.5,
+            "footSourcePoint": [
+              1382.0,
+              742.5
+            ],
+            "eyeToFootPoints": [
+              [
+                1382.0,
+                528.0
+              ],
+              [
+                1382.0,
+                742.5
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                1325,
+                713,
+                1379,
+                744
+              ],
+              [
+                1381,
+                713,
+                1435,
+                743
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": 193.93669860037502,
+            "eyeSeparation": 57.9473509071,
+            "eyeToFoot": 400.95828288945,
+            "eyeLowerRimPoints": [
+              [
+                388.89559393055,
+                486.1312742661999
+              ],
+              [
+                446.84294483765,
+                486.1312742661999
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                320.6672614109,
+                486.1312742661999
+              ],
+              [
+                513.2020079732,
+                486.1312742661999
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                417.8692693841,
+                486.1312742661999
+              ],
+              [
+                417.8692693841,
+                887.0895571556499
+              ]
+            ],
+            "footSourcePoint": [
+              417.8692693841,
+              887.0895571556499
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": 193.93669860037502,
+                "eyeSeparation": 57.9473509071,
+                "eyeToFoot": 400.95828288945
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 46.61939870201323,
+                "eyeSeparation": 13.929651660360577,
+                "eyeToFoot": 96.38420261765624
+              },
+              "eyeLowerRimPoints": [
+                [
+                  388.89559393055,
+                  486.1312742661999
+                ],
+                [
+                  446.84294483765,
+                  486.1312742661999
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  320.6672614109,
+                  486.1312742661999
+                ],
+                [
+                  513.2020079732,
+                  486.1312742661999
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  417.8692693841,
+                  486.1312742661999
+                ],
+                [
+                  417.8692693841,
+                  887.0895571556499
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": 133.81632203425875,
+                "eyeSeparation": 39.983672125899,
+                "eyeToFoot": 276.66121519372047
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 32.16738510438912,
+                "eyeSeparation": 9.611459645648797,
+                "eyeToFoot": 66.5050998061828
+              },
+              "eyeLowerRimPoints": [
+                [
+                  397.2979598120795,
+                  624.4305792436779
+                ],
+                [
+                  437.28163193797855,
+                  624.4305792436779
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  350.22041037352096,
+                  624.4305792436779
+                ],
+                [
+                  483.069385501508,
+                  624.4305792436779
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  417.289795875029,
+                  624.4305792436779
+                ],
+                [
+                  417.289795875029,
+                  901.0917944373984
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": 184.23986367035627,
+                "eyeSeparation": 55.049983361745,
+                "eyeToFoot": 380.91036874497746
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 44.28842876691257,
+                "eyeSeparation": 13.233169077342549,
+                "eyeToFoot": 91.56499248677343
+              },
+              "eyeLowerRimPoints": [
+                [
+                  390.25081423402247,
+                  417.8247105528899
+                ],
+                [
+                  445.3007975957675,
+                  417.8247105528899
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  325.433898340355,
+                  417.8247105528899
+                ],
+                [
+                  508.34190757454,
+                  417.8247105528899
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  417.775805914895,
+                  417.8247105528899
+                ],
+                [
+                  417.775805914895,
+                  798.7350792978674
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": 166.78556079632253,
+                "eyeSeparation": 49.834721780106,
+                "eyeToFoot": 344.824123284927
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 40.09268288373138,
+                "eyeSeparation": 11.979500427910097,
+                "eyeToFoot": 82.89041425118437
+              },
+              "eyeLowerRimPoints": [
+                [
+                  392.690210780273,
+                  450.07289586893194
+                ],
+                [
+                  442.524932560379,
+                  450.07289586893194
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  334.01384481337396,
+                  450.07289586893194
+                ],
+                [
+                  499.593726856952,
+                  450.07289586893194
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  417.607571670326,
+                  450.07289586893194
+                ],
+                [
+                  417.607571670326,
+                  794.8970191538589
+                ]
+              ]
+            }
+          },
+          "flags": [],
+          "alignmentEvidence": {
+            "anchorSource": [
+              1381,
+              746
+            ],
+            "translation": [
+              -1031,
+              -130
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 9,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 101.75,
+            "eyeSeparation": 31.0,
+            "eyeToFoot": 215.5,
+            "eyeWhiteBounds": [
+              [
+                1743,
+                488,
+                1772,
+                528
+              ],
+              [
+                1775,
+                488,
+                1802,
+                528
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1757.0,
+                527.0
+              ],
+              [
+                1788.0,
+                527.0
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                1722,
+                527
+              ],
+              [
+                1823,
+                527
+              ]
+            ],
+            "eyeMidpoint": [
+              1772.5,
+              527.0
+            ],
+            "eyeLineAngleDegrees": 0.0,
+            "footBaselineY": 742.5,
+            "footSourcePoint": [
+              1772.5,
+              742.5
+            ],
+            "eyeToFootPoints": [
+              [
+                1772.5,
+                527.0
+              ],
+              [
+                1772.5,
+                742.5
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                1717,
+                713,
+                1770,
+                744
+              ],
+              [
+                1773,
+                713,
+                1827,
+                743
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": 190.198159832175,
+            "eyeSeparation": 57.9473509071,
+            "eyeToFoot": 402.82755227355,
+            "eyeLowerRimPoints": [
+              [
+                386.0916898544,
+                484.2620048820999
+              ],
+              [
+                444.0390407615,
+                484.2620048820999
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                320.6672614109,
+                484.2620048820999
+              ],
+              [
+                509.463469205,
+                484.2620048820999
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                415.06536530795,
+                484.2620048820999
+              ],
+              [
+                415.06536530795,
+                887.0895571556499
+              ]
+            ],
+            "footSourcePoint": [
+              415.06536530795,
+              887.0895571556499
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": 190.198159832175,
+                "eyeSeparation": 57.9473509071,
+                "eyeToFoot": 402.82755227355
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 45.720711498118995,
+                "eyeSeparation": 13.929651660360577,
+                "eyeToFoot": 96.83354621960338
+              },
+              "eyeLowerRimPoints": [
+                [
+                  386.0916898544,
+                  484.2620048820999
+                ],
+                [
+                  444.0390407615,
+                  484.2620048820999
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  320.6672614109,
+                  484.2620048820999
+                ],
+                [
+                  509.463469205,
+                  484.2620048820999
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  415.06536530795,
+                  484.2620048820999
+                ],
+                [
+                  415.06536530795,
+                  887.0895571556499
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": 131.23673028420075,
+                "eyeSeparation": 39.983672125899,
+                "eyeToFoot": 277.9510110687495
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 31.547290933702104,
+                "eyeSeparation": 9.611459645648797,
+                "eyeToFoot": 66.81514689152633
+              },
+              "eyeLowerRimPoints": [
+                [
+                  395.363265999536,
+                  623.140783368649
+                ],
+                [
+                  435.34693812543503,
+                  623.140783368649
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  350.22041037352096,
+                  623.140783368649
+                ],
+                [
+                  480.48979375144995,
+                  623.140783368649
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  415.35510206248546,
+                  623.140783368649
+                ],
+                [
+                  415.35510206248546,
+                  901.0917944373984
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": 180.68825184056624,
+                "eyeSeparation": 55.049983361745,
+                "eyeToFoot": 382.6861746598725
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 43.434675923213035,
+                "eyeSeparation": 13.233169077342549,
+                "eyeToFoot": 91.99186890862319
+              },
+              "eyeLowerRimPoints": [
+                [
+                  387.58710536167996,
+                  416.0489046379949
+                ],
+                [
+                  442.637088723425,
+                  416.0489046379949
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  325.433898340355,
+                  416.0489046379949
+                ],
+                [
+                  504.79029574475004,
+                  416.0489046379949
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  415.1120970425525,
+                  416.0489046379949
+                ],
+                [
+                  415.1120970425525,
+                  798.7350792978674
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": 163.5704174556705,
+                "eyeSeparation": 49.834721780106,
+                "eyeToFoot": 346.43169495525296
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 39.31981188838233,
+                "eyeSeparation": 11.979500427910097,
+                "eyeToFoot": 83.2768497488589
+              },
+              "eyeLowerRimPoints": [
+                [
+                  390.278853274784,
+                  448.4653241986059
+                ],
+                [
+                  440.11357505489,
+                  448.4653241986059
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  334.01384481337396,
+                  448.4653241986059
+                ],
+                [
+                  496.3785835163,
+                  448.4653241986059
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  415.196214164837,
+                  448.4653241986059
+                ],
+                [
+                  415.196214164837,
+                  794.8970191538589
+                ]
+              ]
+            }
+          },
+          "flags": [],
+          "alignmentEvidence": {
+            "anchorSource": [
+              1773,
+              746
+            ],
+            "translation": [
+              -1423,
+              -130
+            ],
+            "canvasAnchorPixels": [
+              350,
+              616
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        }
+      ],
+      "flags": [
+        {
+          "code": "visual-review-1",
+          "severity": "info",
+          "message": "第5最深鞠躬眼睛閉合，暖粉眼皮正確；沒有把閉眼或衣領白色當眼睛。",
+          "frameIndices": [
+            4
+          ]
+        },
+        {
+          "code": "visual-review-2",
+          "severity": "info",
+          "message": "第6確有由最深鞠躬抬起的實畫姿勢，頭肩腰有變化；不是旋轉或上下搬動整張角色。",
+          "frameIndices": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "code": "visual-review-3",
+          "severity": "warning",
+          "message": "第7/8頭肩高度及表情仍接近，8→9才明顯抬頭回正；總10格不代表原計畫兩個起身中間姿勢均已充分達成，仍待修/正常速度審閱。",
+          "frameIndices": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "code": "visual-review-4",
+          "severity": "info",
+          "message": "首末正面站姿可比較身體尺規，與中段低頭姿勢分開；不以白道服外框或頭頂高度逐格縮放。",
+          "frameIndices": [
+            0,
+            8,
+            9
+          ]
+        },
+        {
+          "code": "redrawn-neutral-proportion-difference",
+          "severity": "warning",
+          "message": "新稿首格眼足／臉比2.251，舊稿2.432，差-7.45%；重畫有比例差異，不能稱為只加中間格且身形完全不變。這是描述性代理，不要求不同造型同體型。"
+        }
+      ],
+      "artApproval": false,
+      "measurementProvenance": {
+        "path": "animation/production-20261012-inbetweens/fitness-martial-v2-body-qc.json",
+        "sha256": "f325a4ebcbcc39bae93b03f806043ba74f715994ab77e42a6436aec992b5eb4f"
+      },
+      "alignmentEvidence": {
+        "supportAnchorPolicy": null,
+        "notAnatomicalMeasurement": true
+      },
+      "renderCalibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 97.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.8692693841420691,
+        "fixedFactor": 1.8692693841,
+        "actualStagePixels": 182.721082295775,
+        "shortfallPercent": 2.2505663999083936e-09,
+        "sourceSha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+        "canvas": 700,
+        "catalogScale": 1.9658782585186299,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "firstLast": {
+        "faceWidthPx": {
+          "first": 97.75,
+          "last": 101.75,
+          "changePercent": 4.092071611253201
+        },
+        "eyeLowerRimSeparationPx": {
+          "first": 30.0,
+          "last": 31.0,
+          "changePercent": 3.3333333333333437
+        },
+        "eyeLineToFootPx": {
+          "first": 220.0,
+          "last": 215.5,
+          "changePercent": -2.0454545454545503
+        }
+      },
+      "wholeClipSpread": {
+        "faceWidthPx": 6.13810741687979,
+        "eyeLowerRimSeparationPx": 6.833055103314534,
+        "eyeLineToFootPx": 37.5
+      },
+      "referenceInterpretation": {
+        "wholeReferenceImageApproved": false,
+        "sourceArtApproved": false,
+        "note": "參考圖的造型、比例、氛圍各自評估；喜歡其中一部分不表示整張參考圖或這份生成稿已批准。"
+      },
+      "previousSourceComparison": {
+        "previousClipID": "fitness-martial-first-20261012",
+        "previousSourceSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+        "previousRegionsSha256": "363bcb8be0e7a6b8a72f9345696a46f708a9aba42980c45fd276a77d07aed0d2",
+        "previousBodyQC": {
+          "path": "animation/production-20261012-fitness/fitness-martial-v1-body-qc.json",
+          "sha256": "6ed948ffbe00bac08c27e5c574460f663b3508f7fa315d249d0ca406aaad1237"
+        },
+        "newBodyQC": {
+          "path": "animation/production-20261012-inbetweens/fitness-martial-v2-body-qc.json",
+          "sha256": "f325a4ebcbcc39bae93b03f806043ba74f715994ab77e42a6436aec992b5eb4f"
+        },
+        "endpoints": [
+          {
+            "label": "neutral-first",
+            "previousSourceFrame": 1,
+            "newSourceFrame": 1,
+            "previousEyeFootToFaceRatio": 2.431761786600496,
+            "newEyeFootToFaceRatio": 2.2506393861892584,
+            "changePercent": -7.448196669972329,
+            "notWholeBodyEquality": true,
+            "measurementUncertaintySourcePixels": 2
+          },
+          {
+            "label": "neutral-last",
+            "previousSourceFrame": 8,
+            "newSourceFrame": 10,
+            "previousEyeFootToFaceRatio": 2.2127659574468086,
+            "newEyeFootToFaceRatio": 2.117936117936118,
+            "changePercent": -4.2855792855792885,
+            "notWholeBodyEquality": true,
+            "measurementUncertaintySourcePixels": 2
+          }
+        ],
+        "meaning": "Separate fresh measurements; source pixel sizes are not directly comparable across different atlas resolutions. Neutral eye-to-foot/face ratios describe changed drawing proportions, not an imposed target."
+      }
+    },
+    {
+      "id": "pillow-pajama-inbetweens-20261012",
+      "title": "花花睡衣・抱枕回落12格",
+      "catalog": "candidates",
+      "atlas": "animation/pillow-pajama-v2/atlas-generated.png",
+      "sourceSha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+      "regionsSha256": "e5055e4775c25e6364477cde360157ab835e0bdfd5ce0c10bbf8a69a9cdc9ed0",
+      "referenceFrame": 0,
+      "catalogScale": 1.840904569265625,
+      "sourcePixelToStagePixel": 1.7913831598,
+      "sourceFrameCount": 12,
+      "playbackFrameCount": 12,
+      "actualUsedSourceFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "calibration": {
+        "currentScale": 1.840904569265625,
+        "reason": "讀取目錄目前單一整段倍率；不作逐格fit或自動人体校準。"
+      },
+      "measurements": {
+        "unit": "px",
+        "labels": {
+          "faceWidth": "眼下緣線可見臉部橫截寬",
+          "eyeSeparation": "兩眼下緣中點距離（非瞳孔距）",
+          "eyeToFoot": "眼下緣中線至真足底垂直距離（姿勢代理）"
+        },
+        "reference": {
+          "sourceFrame": 0,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 102.0,
+            "eyeSeparation": 31.016124838541646,
+            "eyeToFoot": 193.5,
+            "eyeWhiteBounds": [
+              [
+                174,
+                98,
+                203,
+                141
+              ],
+              [
+                205,
+                97,
+                234,
+                140
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                188.0,
+                140.0
+              ],
+              [
+                219.0,
+                139.0
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                152,
+                141
+              ],
+              [
+                253,
+                138
+              ]
+            ],
+            "eyeMidpoint": [
+              203.5,
+              139.5
+            ],
+            "eyeLineAngleDegrees": -1.8476102659945959,
+            "footBaselineY": 333.0,
+            "footSourcePoint": [
+              203.5,
+              333.0
+            ],
+            "eyeToFootPoints": [
+              [
+                203.5,
+                139.5
+              ],
+              [
+                203.5,
+                333.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                138,
+                310,
+                186,
+                334
+              ],
+              [
+                220,
+                310,
+                269,
+                334
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": 182.7210822996,
+            "eyeSeparation": 55.561763718018,
+            "eyeToFoot": 346.63264142130004,
+            "eyeLowerRimPoints": [
+              [
+                385.5464862834,
+                542.5209006791999
+              ],
+              [
+                441.0793642372,
+                540.7295175193999
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                321.0566925306,
+                544.312283839
+              ],
+              [
+                501.9863916704,
+                538.9381343595999
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                413.3129252603,
+                541.6252090992999
+              ],
+              [
+                413.3129252603,
+                888.2578505206
+              ]
+            ],
+            "footSourcePoint": [
+              413.3129252603,
+              888.2578505206
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": 182.7210822996,
+                "eyeSeparation": 55.561763718018,
+                "eyeToFoot": 346.63264142130004
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 43.92333709125,
+                "eyeSeparation": 13.356193201446635,
+                "eyeToFoot": 83.32515418781252
+              },
+              "eyeLowerRimPoints": [
+                [
+                  385.5464862834,
+                  542.5209006791999
+                ],
+                [
+                  441.0793642372,
+                  540.7295175193999
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  321.0566925306,
+                  544.312283839
+                ],
+                [
+                  501.9863916704,
+                  538.9381343595999
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  413.3129252603,
+                  541.6252090992999
+                ],
+                [
+                  413.3129252603,
+                  888.2578505206
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": 126.07754678672399,
+                "eyeSeparation": 38.33761696543242,
+                "eyeToFoot": 239.176522580697
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 30.307102592962494,
+                "eyeSeparation": 9.215773308998177,
+                "eyeToFoot": 57.49435638959062
+              },
+              "eyeLowerRimPoints": [
+                [
+                  394.98707553554596,
+                  663.339421468648
+                ],
+                [
+                  433.304761323668,
+                  662.1033670883859
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  350.489117846114,
+                  664.57547584891
+                ],
+                [
+                  475.330610252576,
+                  660.8673127081239
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  414.14591842960704,
+                  662.721394278517
+                ],
+                [
+                  414.14591842960704,
+                  901.897916859214
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": 173.58502818462,
+                "eyeSeparation": 52.783675532117094,
+                "eyeToFoot": 329.301009350235
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 41.7271702366875,
+                "eyeSeparation": 12.688383541374302,
+                "eyeToFoot": 79.15889647842188
+              },
+              "eyeLowerRimPoints": [
+                [
+                  387.06916196923,
+                  471.3948556452399
+                ],
+                [
+                  439.82539602534,
+                  469.69304164342986
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  325.80385790407,
+                  473.0966696470499
+                ],
+                [
+                  497.68707208688,
+                  467.99122764161984
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  413.447278997285,
+                  470.54394864433493
+                ],
+                [
+                  413.447278997285,
+                  799.8449579945699
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": 157.140130777656,
+                "eyeSeparation": 47.78311679749548,
+                "eyeToFoot": 298.10407162231803
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 37.774069898475,
+                "eyeSeparation": 11.486326153244105,
+                "eyeToFoot": 71.65963260151877
+              },
+              "eyeLowerRimPoints": [
+                [
+                  389.809978203724,
+                  498.56797458411194
+                ],
+                [
+                  437.56825324399205,
+                  497.0273850666839
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  334.348755576316,
+                  500.10856410153997
+                ],
+                [
+                  489.948296836544,
+                  495.4867955492559
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  413.689115723858,
+                  497.79767982539795
+                ],
+                [
+                  413.689115723858,
+                  795.9017514477159
+                ]
+              ]
+            }
+          },
+          "flags": [],
+          "alignmentEvidence": {
+            "anchorSource": [
+              205,
+              336
+            ],
+            "translation": [
+              137,
+              266
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        }
+      },
+      "frames": [
+        {
+          "sourceFrame": 0,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 102.0,
+            "eyeSeparation": 31.016124838541646,
+            "eyeToFoot": 193.5,
+            "eyeWhiteBounds": [
+              [
+                174,
+                98,
+                203,
+                141
+              ],
+              [
+                205,
+                97,
+                234,
+                140
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                188.0,
+                140.0
+              ],
+              [
+                219.0,
+                139.0
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                152,
+                141
+              ],
+              [
+                253,
+                138
+              ]
+            ],
+            "eyeMidpoint": [
+              203.5,
+              139.5
+            ],
+            "eyeLineAngleDegrees": -1.8476102659945959,
+            "footBaselineY": 333.0,
+            "footSourcePoint": [
+              203.5,
+              333.0
+            ],
+            "eyeToFootPoints": [
+              [
+                203.5,
+                139.5
+              ],
+              [
+                203.5,
+                333.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                138,
+                310,
+                186,
+                334
+              ],
+              [
+                220,
+                310,
+                269,
+                334
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": 182.7210822996,
+            "eyeSeparation": 55.561763718018,
+            "eyeToFoot": 346.63264142130004,
+            "eyeLowerRimPoints": [
+              [
+                385.5464862834,
+                542.5209006791999
+              ],
+              [
+                441.0793642372,
+                540.7295175193999
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                321.0566925306,
+                544.312283839
+              ],
+              [
+                501.9863916704,
+                538.9381343595999
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                413.3129252603,
+                541.6252090992999
+              ],
+              [
+                413.3129252603,
+                888.2578505206
+              ]
+            ],
+            "footSourcePoint": [
+              413.3129252603,
+              888.2578505206
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": 182.7210822996,
+                "eyeSeparation": 55.561763718018,
+                "eyeToFoot": 346.63264142130004
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 43.92333709125,
+                "eyeSeparation": 13.356193201446635,
+                "eyeToFoot": 83.32515418781252
+              },
+              "eyeLowerRimPoints": [
+                [
+                  385.5464862834,
+                  542.5209006791999
+                ],
+                [
+                  441.0793642372,
+                  540.7295175193999
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  321.0566925306,
+                  544.312283839
+                ],
+                [
+                  501.9863916704,
+                  538.9381343595999
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  413.3129252603,
+                  541.6252090992999
+                ],
+                [
+                  413.3129252603,
+                  888.2578505206
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": 126.07754678672399,
+                "eyeSeparation": 38.33761696543242,
+                "eyeToFoot": 239.176522580697
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 30.307102592962494,
+                "eyeSeparation": 9.215773308998177,
+                "eyeToFoot": 57.49435638959062
+              },
+              "eyeLowerRimPoints": [
+                [
+                  394.98707553554596,
+                  663.339421468648
+                ],
+                [
+                  433.304761323668,
+                  662.1033670883859
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  350.489117846114,
+                  664.57547584891
+                ],
+                [
+                  475.330610252576,
+                  660.8673127081239
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  414.14591842960704,
+                  662.721394278517
+                ],
+                [
+                  414.14591842960704,
+                  901.897916859214
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": 173.58502818462,
+                "eyeSeparation": 52.783675532117094,
+                "eyeToFoot": 329.301009350235
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 41.7271702366875,
+                "eyeSeparation": 12.688383541374302,
+                "eyeToFoot": 79.15889647842188
+              },
+              "eyeLowerRimPoints": [
+                [
+                  387.06916196923,
+                  471.3948556452399
+                ],
+                [
+                  439.82539602534,
+                  469.69304164342986
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  325.80385790407,
+                  473.0966696470499
+                ],
+                [
+                  497.68707208688,
+                  467.99122764161984
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  413.447278997285,
+                  470.54394864433493
+                ],
+                [
+                  413.447278997285,
+                  799.8449579945699
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": 157.140130777656,
+                "eyeSeparation": 47.78311679749548,
+                "eyeToFoot": 298.10407162231803
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 37.774069898475,
+                "eyeSeparation": 11.486326153244105,
+                "eyeToFoot": 71.65963260151877
+              },
+              "eyeLowerRimPoints": [
+                [
+                  389.809978203724,
+                  498.56797458411194
+                ],
+                [
+                  437.56825324399205,
+                  497.0273850666839
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  334.348755576316,
+                  500.10856410153997
+                ],
+                [
+                  489.948296836544,
+                  495.4867955492559
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  413.689115723858,
+                  497.79767982539795
+                ],
+                [
+                  413.689115723858,
+                  795.9017514477159
+                ]
+              ]
+            }
+          },
+          "flags": [],
+          "alignmentEvidence": {
+            "anchorSource": [
+              205,
+              336
+            ],
+            "translation": [
+              137,
+              266
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 1,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 29.88728826775691,
+            "eyeToFoot": 198.5,
+            "eyeWhiteBounds": [
+              [
+                553,
+                97,
+                584,
+                140
+              ],
+              [
+                583,
+                91,
+                611,
+                131
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                568.0,
+                139.0
+              ],
+              [
+                596.5,
+                130.0
+              ]
+            ],
+            "eyeMidpoint": [
+              582.25,
+              134.5
+            ],
+            "eyeLineAngleDegrees": -17.52556837372287,
+            "footBaselineY": 333.0,
+            "footSourcePoint": [
+              582.25,
+              333.0
+            ],
+            "eyeToFootPoints": [
+              [
+                582.25,
+                134.5
+              ],
+              [
+                582.25,
+                333.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                509,
+                310,
+                560,
+                334
+              ],
+              [
+                595,
+                310,
+                644,
+                334
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "faceWidthUnavailableReason": "轉頭看枕頭，斜眼線延伸的右臉截面貼近枕緣；不作與中立正臉可比的臉寬。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": 53.53958489494784,
+            "eyeToFoot": 355.58955722030004,
+            "eyeLowerRimPoints": [
+              [
+                399.8775515618,
+                540.7295175193999
+              ],
+              [
+                450.9319716161,
+                524.6070690811999
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                425.40476158895,
+                532.6682933002999
+              ],
+              [
+                425.40476158895,
+                888.2578505206
+              ]
+            ],
+            "footSourcePoint": [
+              425.40476158895,
+              888.2578505206
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 53.53958489494784,
+                "eyeToFoot": 355.58955722030004
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.870092522824002,
+                "eyeToFoot": 85.47825894718751
+              },
+              "eyeLowerRimPoints": [
+                [
+                  399.8775515618,
+                  540.7295175193999
+                ],
+                [
+                  450.9319716161,
+                  524.6070690811999
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  425.40476158895,
+                  532.6682933002999
+                ],
+                [
+                  425.40476158895,
+                  888.2578505206
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 36.94231357751401,
+                "eyeToFoot": 245.35679448200702
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 8.88036384074856,
+                "eyeToFoot": 58.97999867355938
+              },
+              "eyeLowerRimPoints": [
+                [
+                  404.875510577642,
+                  662.1033670883859
+                ],
+                [
+                  440.103060415109,
+                  650.978877666028
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  422.4892854963755,
+                  656.5411223772069
+                ],
+                [
+                  422.4892854963755,
+                  901.897916859214
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 50.86260565020045,
+                "eyeToFoot": 337.810079359285
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.2265878966828,
+                "eyeToFoot": 81.20434599982812
+              },
+              "eyeLowerRimPoints": [
+                [
+                  400.68367398371,
+                  469.69304164342986
+                ],
+                [
+                  449.18537303529496,
+                  454.3767156271399
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  424.9345235095025,
+                  462.0348786352848
+                ],
+                [
+                  424.9345235095025,
+                  799.8449579945699
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 46.04404300965515,
+                "eyeToFoot": 305.807019209458
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 11.068279569628642,
+                "eyeToFoot": 73.51130269458125
+              },
+              "eyeLowerRimPoints": [
+                [
+                  402.134694343148,
+                  497.0273850666839
+                ],
+                [
+                  446.04149558984597,
+                  483.16207940983196
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  424.088094966497,
+                  490.0947322382579
+                ],
+                [
+                  424.088094966497,
+                  795.9017514477159
+                ]
+              ]
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              577,
+              336
+            ],
+            "translation": [
+              -235,
+              266
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 2,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 29.60152023123137,
+            "eyeToFoot": 198.0,
+            "eyeWhiteBounds": [
+              [
+                937,
+                98,
+                967,
+                140
+              ],
+              [
+                967,
+                91,
+                994,
+                132
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                951.5,
+                139.0
+              ],
+              [
+                980.0,
+                131.0
+              ]
+            ],
+            "eyeMidpoint": [
+              965.75,
+              135.0
+            ],
+            "eyeLineAngleDegrees": -15.679524122419252,
+            "footBaselineY": 333.0,
+            "footSourcePoint": [
+              965.75,
+              333.0
+            ],
+            "eyeToFootPoints": [
+              [
+                965.75,
+                135.0
+              ],
+              [
+                965.75,
+                333.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                895,
+                310,
+                943,
+                334
+              ],
+              [
+                976,
+                310,
+                1024,
+                334
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "faceWidthUnavailableReason": "側轉向抱枕，右臉截面被抬起的枕頭遮住；不把枕邊或露出皮膚寬當完整臉寬。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": 53.02766484670688,
+            "eyeToFoot": 354.6938656404,
+            "eyeLowerRimPoints": [
+              [
+                400.7732431417,
+                540.7295175193999
+              ],
+              [
+                451.827663196,
+                526.3984522409999
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                426.30045316885,
+                533.5639848802
+              ],
+              [
+                426.30045316885,
+                888.2578505206
+              ]
+            ],
+            "footSourcePoint": [
+              426.30045316885,
+              888.2578505206
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 53.02766484670688,
+                "eyeToFoot": 354.6938656404
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.747034818919921,
+                "eyeToFoot": 85.26294847125001
+              },
+              "eyeLowerRimPoints": [
+                [
+                  400.7732431417,
+                  540.7295175193999
+                ],
+                [
+                  451.827663196,
+                  526.3984522409999
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  426.30045316885,
+                  533.5639848802
+                ],
+                [
+                  426.30045316885,
+                  888.2578505206
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 36.589088744227745,
+                "eyeToFoot": 244.738767291876
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 8.795454025054745,
+                "eyeToFoot": 58.8314344451625
+              },
+              "eyeLowerRimPoints": [
+                [
+                  405.493537767773,
+                  662.1033670883859
+                ],
+                [
+                  440.72108760524,
+                  652.21493204629
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  423.1073126865065,
+                  657.159149567338
+                ],
+                [
+                  423.1073126865065,
+                  901.897916859214
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 50.37628160437153,
+                "eyeToFoot": 336.95917235838
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.109683077973925,
+                "eyeToFoot": 80.9998010476875
+              },
+              "eyeLowerRimPoints": [
+                [
+                  401.534580984615,
+                  469.69304164342986
+                ],
+                [
+                  450.03628003619997,
+                  456.07852962894987
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  425.78543051040754,
+                  462.88578563618995
+                ],
+                [
+                  425.78543051040754,
+                  799.8449579945699
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 45.603791768167916,
+                "eyeToFoot": 305.03672445074403
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 10.962449944271132,
+                "eyeToFoot": 73.326135685275
+              },
+              "eyeLowerRimPoints": [
+                [
+                  402.904989101862,
+                  497.0273850666839
+                ],
+                [
+                  446.81179034856,
+                  484.7026689272599
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  424.85838972521105,
+                  490.865026996972
+                ],
+                [
+                  424.85838972521105,
+                  795.9017514477159
+                ]
+              ]
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              960,
+              336
+            ],
+            "translation": [
+              -618,
+              266
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 3,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null,
+            "unavailableReason": "枕頭接觸並遮住右眼外側下半輪廓；完整眼白外框不可靠，不以被截短的白眼估眼下緣中點。",
+            "eyeUnavailableReason": "枕頭接觸並遮住右眼外側下半輪廓；完整眼白外框不可靠，不以被截短的白眼估眼下緣中點。",
+            "faceWidthUnavailableReason": "右臉及右眼外緣被抱枕遮住，完整臉截線未知。",
+            "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth",
+                "eyeSeparation",
+                "eyeToFoot"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              1338,
+              336
+            ],
+            "translation": [
+              -996,
+              266
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 4,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null,
+            "unavailableReason": "雙眼完全閉合靠枕，沒有可見白眼下緣；暖粉眼皮不是白眼。",
+            "eyeUnavailableReason": "雙眼完全閉合靠枕，沒有可見白眼下緣；暖粉眼皮不是白眼。",
+            "faceWidthUnavailableReason": "眼下緣基準不可見，因此臉部截線未知。",
+            "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth",
+                "eyeSeparation",
+                "eyeToFoot"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              194,
+              679
+            ],
+            "translation": [
+              148,
+              -77
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 5,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null,
+            "unavailableReason": "雙眼仍完全閉合抱枕，沒有眼白下緣；不借用前後格數字。",
+            "eyeUnavailableReason": "雙眼仍完全閉合抱枕，沒有眼白下緣；不借用前後格數字。",
+            "faceWidthUnavailableReason": "眼下緣基準不可見，因此臉部截線未知。",
+            "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth",
+                "eyeSeparation",
+                "eyeToFoot"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              583,
+              679
+            ],
+            "translation": [
+              -241,
+              -77
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 6,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null,
+            "unavailableReason": "睜眼後右眼外邊與瞳孔貼住枕緣且被截，完整眼白輪廓不可可靠追蹤；保留未知。",
+            "eyeUnavailableReason": "睜眼後右眼外邊與瞳孔貼住枕緣且被截，完整眼白輪廓不可可靠追蹤；保留未知。",
+            "faceWidthUnavailableReason": "右臉截面被枕頭遮住，不能量完整臉寬。",
+            "footUnavailableReason": "沒有可見眼下緣基準，眼足距未知；不以眼皮或鄰格估算。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": null,
+            "eyeToFoot": null
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": null,
+                "eyeToFoot": null
+              }
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth",
+                "eyeSeparation",
+                "eyeToFoot"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              965,
+              679
+            ],
+            "translation": [
+              -623,
+              -77
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 7,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 31.04834939252005,
+            "eyeToFoot": 195.0,
+            "eyeWhiteBounds": [
+              [
+                1326,
+                442,
+                1356,
+                486
+              ],
+              [
+                1357,
+                436,
+                1385,
+                478
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1340.5,
+                485.0
+              ],
+              [
+                1370.5,
+                477.0
+              ]
+            ],
+            "eyeMidpoint": [
+              1355.5,
+              481.0
+            ],
+            "eyeLineAngleDegrees": -14.931417178137554,
+            "footBaselineY": 676.0,
+            "footSourcePoint": [
+              1355.5,
+              676.0
+            ],
+            "eyeToFootPoints": [
+              [
+                1355.5,
+                481.0
+              ],
+              [
+                1355.5,
+                676.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                1275,
+                653,
+                1326,
+                677
+              ],
+              [
+                1361,
+                653,
+                1412,
+                677
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "faceWidthUnavailableReason": "頭仍轉向枕頭，右側臉在眼線延長處與抱枕相接；不把投影截面當中立臉寬。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": 55.61949024134698,
+            "eyeToFoot": 349.31971616100003,
+            "eyeLowerRimPoints": [
+              [
+                409.7301589407,
+                546.1036669988
+              ],
+              [
+                463.4716537347,
+                531.7726017204
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                436.6009063377,
+                538.9381343595999
+              ],
+              [
+                436.6009063377,
+                888.2578505206
+              ]
+            ],
+            "footSourcePoint": [
+              436.6009063377,
+              888.2578505206
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 55.61949024134698,
+                "eyeToFoot": 349.31971616100003
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 13.370069769554563,
+                "eyeToFoot": 83.97108561562501
+              },
+              "eyeLowerRimPoints": [
+                [
+                  409.7301589407,
+                  546.1036669988
+                ],
+                [
+                  463.4716537347,
+                  531.7726017204
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  436.6009063377,
+                  538.9381343595999
+                ],
+                [
+                  436.6009063377,
+                  888.2578505206
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 38.37744826652941,
+                "eyeToFoot": 241.03060415109
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 9.225348140992647,
+                "eyeToFoot": 57.94004907478124
+              },
+              "eyeLowerRimPoints": [
+                [
+                  411.67380966908297,
+                  665.8115302291719
+                ],
+                [
+                  448.75544107694293,
+                  655.9230951870759
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  430.21462537301295,
+                  660.8673127081239
+                ],
+                [
+                  430.21462537301295,
+                  901.897916859214
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 52.83851572927963,
+                "eyeToFoot": 331.85373035295004
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.701566281076833,
+                "eyeToFoot": 79.77253133484375
+              },
+              "eyeLowerRimPoints": [
+                [
+                  410.043650993665,
+                  474.79848364885993
+                ],
+                [
+                  461.098071047965,
+                  461.18397163437993
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  435.570861020815,
+                  467.99122764161984
+                ],
+                [
+                  435.570861020815,
+                  799.8449579945699
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 47.8327616075584,
+                "eyeToFoot": 300.41495589846
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 11.498260001816924,
+                "eyeToFoot": 72.2151336294375
+              },
+              "eyeLowerRimPoints": [
+                [
+                  410.607936689002,
+                  501.649153618968
+                ],
+                [
+                  456.825622211842,
+                  489.324437479544
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  433.716779450422,
+                  495.4867955492559
+                ],
+                [
+                  433.716779450422,
+                  795.9017514477159
+                ]
+              ]
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              1344,
+              679
+            ],
+            "translation": [
+              -1002,
+              -77
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 8,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": null,
+            "eyeSeparation": 29.614185789921695,
+            "eyeToFoot": 195.5,
+            "eyeWhiteBounds": [
+              [
+                184,
+                775,
+                213,
+                816
+              ],
+              [
+                214,
+                770,
+                241,
+                810
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                198.0,
+                815.0
+              ],
+              [
+                227.0,
+                809.0
+              ]
+            ],
+            "eyeMidpoint": [
+              212.5,
+              812.0
+            ],
+            "eyeLineAngleDegrees": -11.689369175439193,
+            "footBaselineY": 1007.5,
+            "footSourcePoint": [
+              212.5,
+              1007.5
+            ],
+            "eyeToFootPoints": [
+              [
+                212.5,
+                812.0
+              ],
+              [
+                212.5,
+                1007.5
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                132,
+                981,
+                183,
+                1008
+              ],
+              [
+                216,
+                983,
+                266,
+                1009
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "faceWidthUnavailableReason": "視線和頭部仍偏向下降中的抱枕，右臉截線被枕頭遮住；保留不可比臉寬。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": null,
+            "eyeSeparation": 53.05035371525419,
+            "eyeToFoot": 350.2154077409,
+            "eyeLowerRimPoints": [
+              [
+                412.4172336804,
+                542.5209006791999
+              ],
+              [
+                464.3673453146,
+                531.7726017204
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                438.3922894975,
+                537.1467511998
+              ],
+              [
+                438.3922894975,
+                887.3621589406999
+              ]
+            ],
+            "footSourcePoint": [
+              438.3922894975,
+              887.3621589406999
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 53.05035371525419,
+                "eyeToFoot": 350.2154077409
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.75248887385918,
+                "eyeToFoot": 84.1863960915625
+              },
+              "eyeLowerRimPoints": [
+                [
+                  412.4172336804,
+                  542.5209006791999
+                ],
+                [
+                  464.3673453146,
+                  531.7726017204
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  438.3922894975,
+                  537.1467511998
+                ],
+                [
+                  438.3922894975,
+                  887.3621589406999
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 36.60474406352539,
+                "eyeToFoot": 241.64863134122098
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 8.799217322962834,
+                "eyeToFoot": 58.08861330317812
+              },
+              "eyeLowerRimPoints": [
+                [
+                  413.52789123947593,
+                  663.339421468648
+                ],
+                [
+                  449.37346826707403,
+                  655.9230951870759
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  431.4506797532749,
+                  659.6312583278619
+                ],
+                [
+                  431.4506797532749,
+                  901.2798896690829
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 50.39783602949148,
+                "eyeToFoot": 332.704637353855
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 12.114864430166222,
+                "eyeToFoot": 79.97707628698437
+              },
+              "eyeLowerRimPoints": [
+                [
+                  412.59637199637996,
+                  471.3948556452399
+                ],
+                [
+                  461.94897804887,
+                  461.18397163437993
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  437.272675022625,
+                  466.28941363980994
+                ],
+                [
+                  437.272675022625,
+                  798.9940509936649
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": null,
+                "eyeSeparation": 45.6233041951186,
+                "eyeToFoot": 301.185250657174
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": null,
+                "eyeSeparation": 10.967140431518894,
+                "eyeToFoot": 72.40030063874374
+              },
+              "eyeLowerRimPoints": [
+                [
+                  412.918820965144,
+                  498.56797458411194
+                ],
+                [
+                  457.595916970556,
+                  489.324437479544
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  435.25736896784997,
+                  493.94620603182796
+                ],
+                [
+                  435.25736896784997,
+                  795.131456689002
+                ]
+              ]
+            }
+          },
+          "flags": [
+            {
+              "code": "unmeasured-metrics",
+              "metrics": [
+                "faceWidth"
+              ],
+              "message": "沒有可靠尺規的欄位維持空值，不以人物外框補猜。"
+            }
+          ],
+          "alignmentEvidence": {
+            "anchorSource": [
+              200,
+              1011
+            ],
+            "translation": [
+              142,
+              -409
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 9,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 110.5,
+            "eyeSeparation": 30.103986446980738,
+            "eyeToFoot": 191.0,
+            "eyeWhiteBounds": [
+              [
+                564,
+                781,
+                594,
+                821
+              ],
+              [
+                595,
+                775,
+                622,
+                815
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                578.5,
+                820.0
+              ],
+              [
+                608.0,
+                814.0
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                527,
+                831
+              ],
+              [
+                635,
+                809
+              ]
+            ],
+            "eyeMidpoint": [
+              593.25,
+              817.0
+            ],
+            "eyeLineAngleDegrees": -11.49656301758578,
+            "footBaselineY": 1008.0,
+            "footSourcePoint": [
+              593.25,
+              1008.0
+            ],
+            "eyeToFootPoints": [
+              [
+                593.25,
+                817.0
+              ],
+              [
+                593.25,
+                1008.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                515,
+                984,
+                566,
+                1009
+              ],
+              [
+                601,
+                985,
+                652,
+                1009
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": 197.9478391579,
+            "eyeSeparation": 53.92777436396873,
+            "eyeToFoot": 342.1541835218,
+            "eyeLowerRimPoints": [
+              [
+                406.1473926211,
+                549.6864333184
+              ],
+              [
+                458.9931958352,
+                538.9381343595999
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                313.8911598914,
+                569.3916480762
+              ],
+              [
+                507.3605411498,
+                529.9812185605999
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                432.57029422815,
+                544.312283839
+              ],
+              [
+                432.57029422815,
+                886.4664673607999
+              ]
+            ],
+            "footSourcePoint": [
+              432.57029422815,
+              886.4664673607999
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": 197.9478391579,
+                "eyeSeparation": 53.92777436396873,
+                "eyeToFoot": 342.1541835218
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 47.5836151821875,
+                "eyeSeparation": 12.963407299030944,
+                "eyeToFoot": 82.248601808125
+              },
+              "eyeLowerRimPoints": [
+                [
+                  406.1473926211,
+                  549.6864333184
+                ],
+                [
+                  458.9931958352,
+                  538.9381343595999
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  313.8911598914,
+                  569.3916480762
+                ],
+                [
+                  507.3605411498,
+                  529.9812185605999
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  432.57029422815,
+                  544.312283839
+                ],
+                [
+                  432.57029422815,
+                  886.4664673607999
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": 136.58400901895098,
+                "eyeSeparation": 37.21016431113842,
+                "eyeToFoot": 236.086386630042
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 32.832694475709374,
+                "eyeSeparation": 8.94475103633135,
+                "eyeToFoot": 56.75153524760625
+              },
+              "eyeLowerRimPoints": [
+                [
+                  409.201700908559,
+                  668.2836389896959
+                ],
+                [
+                  445.665305126288,
+                  660.8673127081239
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  345.544900325066,
+                  681.880237172578
+                ],
+                [
+                  479.038773393362,
+                  654.6870408068139
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  427.4335030174235,
+                  664.57547584891
+                ],
+                [
+                  427.4335030174235,
+                  900.6618624789519
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": 188.050447200005,
+                "eyeSeparation": 51.23138564577029,
+                "eyeToFoot": 325.04647434571
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 45.204434423078126,
+                "eyeSeparation": 12.315236934079396,
+                "eyeToFoot": 78.13617171771875
+              },
+              "eyeLowerRimPoints": [
+                [
+                  406.640022990045,
+                  478.20211165247997
+                ],
+                [
+                  456.84353604344,
+                  467.99122764161984
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  318.99660189683,
+                  496.92206567239
+                ],
+                [
+                  502.79251409231,
+                  459.4821576325699
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  431.7417795167425,
+                  473.0966696470499
+                ],
+                [
+                  431.7417795167425,
+                  798.1431439927599
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": 170.235141675794,
+                "eyeSeparation": 46.377885953013106,
+                "eyeToFoot": 294.252597828748
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 40.92190905668125,
+                "eyeSeparation": 11.14853027716661,
+                "eyeToFoot": 70.73379755498749
+              },
+              "eyeLowerRimPoints": [
+                [
+                  407.52675765414597,
+                  504.73033265382395
+                ],
+                [
+                  452.974148418272,
+                  495.4867955492559
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  328.186397506604,
+                  521.6768173455321
+                ],
+                [
+                  494.57006538882797,
+                  487.78384796211594
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  430.25045303620897,
+                  500.10856410153997
+                ],
+                [
+                  430.25045303620897,
+                  794.361161930288
+                ]
+              ]
+            }
+          },
+          "flags": [],
+          "alignmentEvidence": {
+            "anchorSource": [
+              584,
+              1012
+            ],
+            "translation": [
+              -242,
+              -410
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 10,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 100.75,
+            "eyeSeparation": 30.01666203960727,
+            "eyeToFoot": 193.5,
+            "eyeWhiteBounds": [
+              [
+                937,
+                774,
+                965,
+                816
+              ],
+              [
+                967,
+                773,
+                995,
+                815
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                950.5,
+                815.0
+              ],
+              [
+                980.5,
+                814.0
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                915,
+                816
+              ],
+              [
+                1015,
+                813
+              ]
+            ],
+            "eyeMidpoint": [
+              965.5,
+              814.5
+            ],
+            "eyeLineAngleDegrees": -1.9091524329963763,
+            "footBaselineY": 1008.0,
+            "footSourcePoint": [
+              965.5,
+              1008.0
+            ],
+            "eyeToFootPoints": [
+              [
+                965.5,
+                814.5
+              ],
+              [
+                965.5,
+                1008.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                903,
+                984,
+                953,
+                1009
+              ],
+              [
+                986,
+                984,
+                1036,
+                1009
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": 180.48185334985,
+            "eyeSeparation": 53.77134289116039,
+            "eyeToFoot": 346.63264142130004,
+            "eyeLowerRimPoints": [
+              [
+                381.0680283839,
+                540.7295175193999
+              ],
+              [
+                434.8095231779,
+                538.9381343595999
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                317.473926211,
+                542.5209006791999
+              ],
+              [
+                496.612242191,
+                537.1467511998
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                407.9387757809,
+                539.8338259395
+              ],
+              [
+                407.9387757809,
+                886.4664673607999
+              ]
+            ],
+            "footSourcePoint": [
+              407.9387757809,
+              886.4664673607999
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": 180.48185334985,
+                "eyeSeparation": 53.77134289116039,
+                "eyeToFoot": 346.63264142130004
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 43.385060901406256,
+                "eyeSeparation": 12.925803579605862,
+                "eyeToFoot": 83.32515418781252
+              },
+              "eyeLowerRimPoints": [
+                [
+                  381.0680283839,
+                  540.7295175193999
+                ],
+                [
+                  434.8095231779,
+                  538.9381343595999
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  317.473926211,
+                  542.5209006791999
+                ],
+                [
+                  496.612242191,
+                  537.1467511998
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  407.9387757809,
+                  539.8338259395
+                ],
+                [
+                  407.9387757809,
+                  886.4664673607999
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": 124.5324788113965,
+                "eyeSeparation": 37.102226594900664,
+                "eyeToFoot": 239.176522580697
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 29.935692021970315,
+                "eyeSeparation": 8.918804469928045,
+                "eyeToFoot": 57.49435638959062
+              },
+              "eyeLowerRimPoints": [
+                [
+                  391.896939584891,
+                  662.1033670883859
+                ],
+                [
+                  428.978570992751,
+                  660.8673127081239
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  348.01700908558996,
+                  663.339421468648
+                ],
+                [
+                  471.62244711178994,
+                  659.6312583278619
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  410.437755288821,
+                  661.485339898255
+                ],
+                [
+                  410.437755288821,
+                  900.6618624789519
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": 171.4577606823575,
+                "eyeSeparation": 51.082775746602366,
+                "eyeToFoot": 329.301009350235
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 41.21580785633594,
+                "eyeSeparation": 12.279513400625568,
+                "eyeToFoot": 79.15889647842188
+              },
+              "eyeLowerRimPoints": [
+                [
+                  382.814626964705,
+                  469.69304164342986
+                ],
+                [
+                  433.869047019005,
+                  467.99122764161984
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  322.40022990045,
+                  471.3948556452399
+                ],
+                [
+                  492.58163008145,
+                  466.28941363980994
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  408.341836991855,
+                  468.842134642525
+                ],
+                [
+                  408.341836991855,
+                  798.1431439927599
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": 155.214393880871,
+                "eyeSeparation": 46.24335488639793,
+                "eyeToFoot": 298.10407162231803
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 37.311152375209375,
+                "eyeSeparation": 11.116191078461041,
+                "eyeToFoot": 71.65963260151877
+              },
+              "eyeLowerRimPoints": [
+                [
+                  385.95850441015403,
+                  497.0273850666839
+                ],
+                [
+                  432.176189932994,
+                  495.4867955492559
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  331.26757654146,
+                  498.56797458411194
+                ],
+                [
+                  485.32652828426,
+                  493.94620603182796
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  409.067347171574,
+                  496.25709030797
+                ],
+                [
+                  409.067347171574,
+                  794.361161930288
+                ]
+              ]
+            }
+          },
+          "flags": [],
+          "alignmentEvidence": {
+            "anchorSource": [
+              970,
+              1012
+            ],
+            "translation": [
+              -628,
+              -410
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        },
+        {
+          "sourceFrame": 11,
+          "actualUsed": true,
+          "source": {
+            "faceWidth": 103.0,
+            "eyeSeparation": 31.016124838541646,
+            "eyeToFoot": 193.5,
+            "eyeWhiteBounds": [
+              [
+                1319,
+                774,
+                1347,
+                816
+              ],
+              [
+                1350,
+                773,
+                1378,
+                815
+              ]
+            ],
+            "eyeLowerRimPoints": [
+              [
+                1332.5,
+                815.0
+              ],
+              [
+                1363.5,
+                814.0
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                1297,
+                816
+              ],
+              [
+                1399,
+                813
+              ]
+            ],
+            "eyeMidpoint": [
+              1348.0,
+              814.5
+            ],
+            "eyeLineAngleDegrees": -1.8476102659945959,
+            "footBaselineY": 1008.0,
+            "footSourcePoint": [
+              1348.0,
+              1008.0
+            ],
+            "eyeToFootPoints": [
+              [
+                1348.0,
+                814.5
+              ],
+              [
+                1348.0,
+                1008.0
+              ]
+            ],
+            "visibleFootPinkFillBounds": [
+              [
+                1282,
+                983,
+                1332,
+                1009
+              ],
+              [
+                1366,
+                984,
+                1416,
+                1009
+              ]
+            ],
+            "footBaselineMethod": "本來源逐格覆核的兩個粉色腳部填色下緣，與輪廓落位基線分開。",
+            "footPointMeaning": "眼中線投影至已覆核足底水平基線；不表示此x座標上一定有一隻腳。",
+            "edgeSamplingUncertaintySourcePixels": 2
+          },
+          "stage": {
+            "faceWidth": 184.5124654594,
+            "eyeSeparation": 55.561763718018,
+            "eyeToFoot": 346.63264142130004,
+            "eyeLowerRimPoints": [
+              [
+                384.65079470349997,
+                542.5209006791999
+              ],
+              [
+                440.1836726573,
+                540.7295175193999
+              ]
+            ],
+            "faceCaliperPoints": [
+              [
+                321.0566925306,
+                544.312283839
+              ],
+              [
+                503.7777748302,
+                538.9381343595999
+              ]
+            ],
+            "eyeToFootPoints": [
+              [
+                412.4172336804,
+                541.6252090992999
+              ],
+              [
+                412.4172336804,
+                888.2578505206
+              ]
+            ],
+            "footSourcePoint": [
+              412.4172336804,
+              888.2578505206
+            ]
+          },
+          "layouts": {
+            "classic": {
+              "logicalPixels": {
+                "faceWidth": 184.5124654594,
+                "eyeSeparation": 55.561763718018,
+                "eyeToFoot": 346.63264142130004
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 44.353958043125004,
+                "eyeSeparation": 13.356193201446635,
+                "eyeToFoot": 83.32515418781252
+              },
+              "eyeLowerRimPoints": [
+                [
+                  384.65079470349997,
+                  542.5209006791999
+                ],
+                [
+                  440.1836726573,
+                  540.7295175193999
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  321.0566925306,
+                  544.312283839
+                ],
+                [
+                  503.7777748302,
+                  538.9381343595999
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  412.4172336804,
+                  541.6252090992999
+                ],
+                [
+                  412.4172336804,
+                  888.2578505206
+                ]
+              ]
+            },
+            "bold": {
+              "logicalPixels": {
+                "faceWidth": 127.31360116698599,
+                "eyeSeparation": 38.33761696543242,
+                "eyeToFoot": 239.176522580697
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 30.604231049756248,
+                "eyeSeparation": 9.215773308998177,
+                "eyeToFoot": 57.49435638959062
+              },
+              "eyeLowerRimPoints": [
+                [
+                  394.36904834541497,
+                  663.339421468648
+                ],
+                [
+                  432.686734133537,
+                  662.1033670883859
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  350.489117846114,
+                  664.57547584891
+                ],
+                [
+                  476.56666463283796,
+                  660.8673127081239
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  413.52789123947593,
+                  662.721394278517
+                ],
+                [
+                  413.52789123947593,
+                  901.897916859214
+                ]
+              ]
+            },
+            "theater": {
+              "logicalPixels": {
+                "faceWidth": 175.28684218643,
+                "eyeSeparation": 52.783675532117094,
+                "eyeToFoot": 329.301009350235
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 42.13626014096875,
+                "eyeSeparation": 12.688383541374302,
+                "eyeToFoot": 79.15889647842188
+              },
+              "eyeLowerRimPoints": [
+                [
+                  386.21825496832497,
+                  471.3948556452399
+                ],
+                [
+                  438.974489024435,
+                  469.69304164342986
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  325.80385790407,
+                  473.0966696470499
+                ],
+                [
+                  499.38888608868996,
+                  467.99122764161984
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  412.59637199637996,
+                  470.54394864433493
+                ],
+                [
+                  412.59637199637996,
+                  799.8449579945699
+                ]
+              ]
+            },
+            "activity": {
+              "logicalPixels": {
+                "faceWidth": 158.680720295084,
+                "eyeSeparation": 47.78311679749548,
+                "eyeToFoot": 298.10407162231803
+              },
+              "cssPixelsAt200Width": {
+                "faceWidth": 38.1444039170875,
+                "eyeSeparation": 11.486326153244105,
+                "eyeToFoot": 71.65963260151877
+              },
+              "eyeLowerRimPoints": [
+                [
+                  389.03968344501,
+                  498.56797458411194
+                ],
+                [
+                  436.797958485278,
+                  497.0273850666839
+                ]
+              ],
+              "faceCaliperPoints": [
+                [
+                  334.348755576316,
+                  500.10856410153997
+                ],
+                [
+                  491.48888635397196,
+                  495.4867955492559
+                ]
+              ],
+              "eyeToFootPoints": [
+                [
+                  412.918820965144,
+                  497.79767982539795
+                ],
+                [
+                  412.918820965144,
+                  795.9017514477159
+                ]
+              ]
+            }
+          },
+          "flags": [],
+          "alignmentEvidence": {
+            "anchorSource": [
+              1350,
+              1011
+            ],
+            "translation": [
+              -1008,
+              -409
+            ],
+            "canvasAnchorPixels": [
+              342,
+              602
+            ],
+            "notAnatomicalMeasurement": true
+          }
+        }
+      ],
+      "flags": [
+        {
+          "code": "visual-review-1",
+          "severity": "info",
+          "message": "閉眼使用暖粉色眼皮，沒有把眼皮當成白眼量測；兩格姿勢相近，需要以停留節奏表達靠枕休息。",
+          "frameIndices": [
+            4,
+            5
+          ]
+        },
+        {
+          "code": "visual-review-2",
+          "severity": "warning",
+          "message": "1→2從胸前水平抱枕直接變成明顯斜舉；預期的小幅抬枕前置姿勢仍不足，不能把新增格數當成lift-a已完成。",
+          "frameIndices": [
+            0,
+            1
+          ]
+        },
+        {
+          "code": "visual-review-3",
+          "severity": "warning",
+          "message": "7→8離臉、9→10→11回橫放有可辨實畫姿勢；8/9長軸斜角仍近，主要是下降，不能說每個轉枕中間姿勢都已補齊。10→11回正仍需正常速度審閱，12格不是平順批准。",
+          "frameIndices": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "code": "visual-review-4",
+          "severity": "info",
+          "message": "首末皆正面抱枕，可比較真臉與眼足尺規；帽子或抱枕高度不拿來判定身形縮放。",
+          "frameIndices": [
+            0,
+            10,
+            11
+          ]
+        },
+        {
+          "code": "visual-review-5",
+          "severity": "warning",
+          "message": "雙手沿枕頭兩端持握，遮擋格保持未知；仍須逐格覆核手枕接觸及布料形變，未批准美術。",
+          "frameIndices": [
+            1,
+            2,
+            3,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "code": "redrawn-neutral-proportion-difference",
+          "severity": "warning",
+          "message": "新稿首格眼足／臉比1.897，舊稿2.117，差-10.39%；重畫有比例差異，不能稱為只加中間格且身形完全不變。這是描述性代理，不要求不同造型同體型。"
+        }
+      ],
+      "artApproval": false,
+      "measurementProvenance": {
+        "path": "animation/production-20261012-inbetweens/pillow-pajama-v2-body-qc.json",
+        "sha256": "a2eb15b45e9336aa91e3974dc6c355b9c538e0191f5a4df2ca08b3e037cda18c"
+      },
+      "alignmentEvidence": {
+        "supportAnchorPolicy": null,
+        "notAnatomicalMeasurement": true
+      },
+      "renderCalibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 102.0,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.7913831598028163,
+        "fixedFactor": 1.7913831598,
+        "actualStagePixels": 182.7210822996,
+        "shortfallPercent": 1.5720758028692217e-10,
+        "sourceSha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+        "canvas": 684,
+        "catalogScale": 1.840904569265625,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "firstLast": {
+        "faceWidthPx": {
+          "first": 102.0,
+          "last": 103.0,
+          "changePercent": 0.9803921568627416
+        },
+        "eyeLowerRimSeparationPx": {
+          "first": 31.016124838541646,
+          "last": 31.016124838541646,
+          "changePercent": 0.0
+        },
+        "eyeLineToFootPx": {
+          "first": 193.5,
+          "last": 193.5,
+          "changePercent": 0.0
+        }
+      },
+      "wholeClipSpread": {
+        "faceWidthPx": 9.677419354838701,
+        "eyeLowerRimSeparationPx": 4.8876853282764365,
+        "eyeLineToFootPx": 3.926701570680624
+      },
+      "referenceInterpretation": {
+        "wholeReferenceImageApproved": false,
+        "sourceArtApproved": false,
+        "note": "參考圖的造型、比例、氛圍各自評估；喜歡其中一部分不表示整張參考圖或這份生成稿已批准。"
+      },
+      "previousSourceComparison": {
+        "previousClipID": "pillow-pajama-first-20261012",
+        "previousSourceSha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+        "previousRegionsSha256": "0ea6c2cd665df5e1647134bd1e61be032099109e815679e7db67ac5865ad8d05",
+        "previousBodyQC": {
+          "path": "animation/production-20261012-playful/pillow-pajama-v1-body-qc.json",
+          "sha256": "f23e19c2a181153806db4d16a53f21fb1702d2aced85ce1f8138398b259b3f49"
+        },
+        "newBodyQC": {
+          "path": "animation/production-20261012-inbetweens/pillow-pajama-v2-body-qc.json",
+          "sha256": "a2eb15b45e9336aa91e3974dc6c355b9c538e0191f5a4df2ca08b3e037cda18c"
+        },
+        "endpoints": [
+          {
+            "label": "neutral-first",
+            "previousSourceFrame": 1,
+            "newSourceFrame": 1,
+            "previousEyeFootToFaceRatio": 2.117001828153565,
+            "newEyeFootToFaceRatio": 1.8970588235294117,
+            "changePercent": -10.38936299908565,
+            "notWholeBodyEquality": true,
+            "measurementUncertaintySourcePixels": 2
+          },
+          {
+            "label": "neutral-last",
+            "previousSourceFrame": 8,
+            "newSourceFrame": 12,
+            "previousEyeFootToFaceRatio": 2.061261261261261,
+            "newEyeFootToFaceRatio": 1.8786407766990292,
+            "changePercent": -8.859647633919465,
+            "notWholeBodyEquality": true,
+            "measurementUncertaintySourcePixels": 2
+          }
+        ],
+        "meaning": "Separate fresh measurements; source pixel sizes are not directly comparable across different atlas resolutions. Neutral eye-to-foot/face ratios describe changed drawing proportions, not an imposed target."
+      }
+    }
+  ],
+  "limitations": [
+    "逐來源全部格實看真眼白下緣、可見臉側及真裸腳；帽、鞋、抱枕與服裝不代替人體。",
+    "閉眼、遮擋、側轉或不可靠的腳基線保持null；不沿用其他圖或鄰格數字。",
+    "同套內核查camera與體積穩定，但低頭、擠壓抱枕、屈身和表情變化不直接當作縮放錯誤。",
+    "跨造型比例只描述，不强制共同短胖輪廓；參考圖的一個受喜歡部分不等於整圖美術批准。",
+    "每段只讀一個目錄倍率，沒有逐格fit或改PNG；約2source px測點不確定度。",
+    "量尺與來源完整不表示動作接觸、眼睛颜色、表情或流暢度已合格。",
+    "本批兩個舊服裝的重畫來源共22格，按新PNG身份算新來源；相對舊8+8格只是增加6個播放位置，不能稱新增22種動作或兩套新服裝。",
+    "舊稿只供中立首末姿勢對照，不向新稿複用ROI、尺線或數字。生成提示要求保持角色不構成實際像素保持證據。",
+    "道服7/8姿勢近似、8→9仍較大；抱枕新增下降和轉枕姿勢仍需正常速度與接觸審閱，沒有美術批准。"
+  ],
+  "totals": {
+    "uniqueSources": 2,
+    "sourceFrames": 22,
+    "clipVariants": 2,
+    "measuredSourceFrames": 17,
+    "unmeasuredSourceFrames": 5,
+    "measuredSourceFramesByMetric": {
+      "faceWidth": 7,
+      "eyeSeparation": 17,
+      "eyeToFoot": 17
+    }
+  },
+  "outfitCount": 0,
+  "newSourceFrames": 22,
+  "anatomicalProxySummary": [
+    {
+      "clipID": "martial-inbetweens-20261012",
+      "sourceFrame": 0,
+      "eyeFootToFaceRatio": 2.2506393861892584,
+      "basis": "來源1中立正面站姿可見真臉與兩裸腳；只與9/10中立站姿及舊v1首末作描述性對照。2–8低頭或起身不視作中立站立身高。",
+      "descriptiveOnly": true,
+      "commonShapeTarget": false
+    },
+    {
+      "clipID": "pillow-pajama-inbetweens-20261012",
+      "sourceFrame": 0,
+      "eyeFootToFaceRatio": 1.8970588235294117,
+      "basis": "來源1抱枕在眼線下，正面臉側與兩裸腳可見。與11/12中立正面及舊v1首末作描述性比較；帽尖與服裝不是人體。",
+      "descriptiveOnly": true,
+      "commonShapeTarget": false
+    }
+  ],
+  "referenceInterpretation": {
+    "wholeReferenceImageApproval": false,
+    "uniformShortRoundShapeRequired": false
+  },
+  "newlyDrawnSourceFrameIdentities": 22,
+  "netAdditionalPlaybackPositionsComparedWithOriginals": 6,
+  "previousSourceComparisons": [
+    {
+      "clipID": "martial-inbetweens-20261012",
+      "previousClipID": "fitness-martial-first-20261012",
+      "previousSourceSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+      "previousRegionsSha256": "363bcb8be0e7a6b8a72f9345696a46f708a9aba42980c45fd276a77d07aed0d2",
+      "previousBodyQC": {
+        "path": "animation/production-20261012-fitness/fitness-martial-v1-body-qc.json",
+        "sha256": "6ed948ffbe00bac08c27e5c574460f663b3508f7fa315d249d0ca406aaad1237"
+      },
+      "newBodyQC": {
+        "path": "animation/production-20261012-inbetweens/fitness-martial-v2-body-qc.json",
+        "sha256": "f325a4ebcbcc39bae93b03f806043ba74f715994ab77e42a6436aec992b5eb4f"
+      },
+      "endpoints": [
+        {
+          "label": "neutral-first",
+          "previousSourceFrame": 1,
+          "newSourceFrame": 1,
+          "previousEyeFootToFaceRatio": 2.431761786600496,
+          "newEyeFootToFaceRatio": 2.2506393861892584,
+          "changePercent": -7.448196669972329,
+          "notWholeBodyEquality": true,
+          "measurementUncertaintySourcePixels": 2
+        },
+        {
+          "label": "neutral-last",
+          "previousSourceFrame": 8,
+          "newSourceFrame": 10,
+          "previousEyeFootToFaceRatio": 2.2127659574468086,
+          "newEyeFootToFaceRatio": 2.117936117936118,
+          "changePercent": -4.2855792855792885,
+          "notWholeBodyEquality": true,
+          "measurementUncertaintySourcePixels": 2
+        }
+      ],
+      "meaning": "Separate fresh measurements; source pixel sizes are not directly comparable across different atlas resolutions. Neutral eye-to-foot/face ratios describe changed drawing proportions, not an imposed target."
+    },
+    {
+      "clipID": "pillow-pajama-inbetweens-20261012",
+      "previousClipID": "pillow-pajama-first-20261012",
+      "previousSourceSha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+      "previousRegionsSha256": "0ea6c2cd665df5e1647134bd1e61be032099109e815679e7db67ac5865ad8d05",
+      "previousBodyQC": {
+        "path": "animation/production-20261012-playful/pillow-pajama-v1-body-qc.json",
+        "sha256": "f23e19c2a181153806db4d16a53f21fb1702d2aced85ce1f8138398b259b3f49"
+      },
+      "newBodyQC": {
+        "path": "animation/production-20261012-inbetweens/pillow-pajama-v2-body-qc.json",
+        "sha256": "a2eb15b45e9336aa91e3974dc6c355b9c538e0191f5a4df2ca08b3e037cda18c"
+      },
+      "endpoints": [
+        {
+          "label": "neutral-first",
+          "previousSourceFrame": 1,
+          "newSourceFrame": 1,
+          "previousEyeFootToFaceRatio": 2.117001828153565,
+          "newEyeFootToFaceRatio": 1.8970588235294117,
+          "changePercent": -10.38936299908565,
+          "notWholeBodyEquality": true,
+          "measurementUncertaintySourcePixels": 2
+        },
+        {
+          "label": "neutral-last",
+          "previousSourceFrame": 8,
+          "newSourceFrame": 12,
+          "previousEyeFootToFaceRatio": 2.061261261261261,
+          "newEyeFootToFaceRatio": 1.8786407766990292,
+          "changePercent": -8.859647633919465,
+          "notWholeBodyEquality": true,
+          "measurementUncertaintySourcePixels": 2
+        }
+      ],
+      "meaning": "Separate fresh measurements; source pixel sizes are not directly comparable across different atlas resolutions. Neutral eye-to-foot/face ratios describe changed drawing proportions, not an imposed target."
+    }
+  ]
+}

@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "browserEvidence": [
+    {
+      "path": "output/playwright/playful-20261012/cowboy-first-20261012/browser/report.json",
+      "sha256": "22559e1b4fc0e628cf6beb27c323982b2a38b0fa2c56e056ecbebf6c8ff921a9"
+    },
+    {
+      "path": "output/playwright/playful-20261012/cowboy-first-20261012/contours/report.json",
+      "sha256": "ae2011707600a4412c23238396e222251c19d1bf80fbf02a2740d2c0048d399d"
+    },
+    {
+      "path": "output/playwright/playful-20261012/pillow-pajama-first-20261012/browser/report.json",
+      "sha256": "f222d34a8c0b332b61ec6468ea8de49dcd79acbfe3ab2c1d9a48c29e40987a85"
+    },
+    {
+      "path": "output/playwright/playful-20261012/pillow-pajama-first-20261012/contours/report.json",
+      "sha256": "37511a167b7e71338b5dc526d419fcfeb8842f83ab19f921ad7d1d7cdf78f7ec"
+    }
+  ],
+  "testedLayoutManifest": {
+    "path": "experience/layouts.json",
+    "sha256": "e6dbd737e17a4691a0c8cbc8cb942e8b311cccfecda1ab8d5de49eb3c4f4cbdd"
+  },
+  "sourceFrames": 16,
+  "layoutFrameChecks": 64,
+  "newOutfits": 2,
+  "newCandidateClips": 2,
+  "clips": [
+    {
+      "id": "cowboy-first-20261012",
+      "source": {
+        "path": "animation/cowboy-v1/atlas-generated.png",
+        "sha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad"
+      },
+      "regions": {
+        "path": "animation/cowboy-v1/regions-v1.json",
+        "sha256": "5f6e8bef69db8321ed6107504e96a396af95866bafbb7264f8cbba2eab63cea4"
+      },
+      "version": 1,
+      "scale": 1.8795866037620192,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 116.0,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.5751817439645452,
+        "fixedFactor": 1.468371882,
+        "actualStagePixels": 170.331138312,
+        "shortfallPercent": 6.78079608107427,
+        "sourceSha256": "e2bf1f51b8039269d8bec22ab2d0a28edd7f8d4eed1efe689235b36b61fd36ad",
+        "canvas": 852,
+        "catalogScale": 1.8795866037620192,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.468371882,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 3090,
+      "lastFrameStartedAfterMs": 2399.9000000003725,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 246.08000003799992,
+          "maxStrongY": 893.632,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 458.7952000262199,
+          "maxStrongY": 905.6060799999998,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 189.7760000361,
+          "maxStrongY": 804.9504000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 243.62880003267992,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/playful-20261012/cowboy-first-20261012/browser/cowboy-first-20261012-reference-first.png",
+        "output/playwright/playful-20261012/cowboy-first-20261012/browser/cowboy-first-20261012-reference-last.png",
+        "output/playwright/playful-20261012/cowboy-first-20261012/browser/cowboy-first-20261012-four-layouts.png"
+      ]
+    },
+    {
+      "id": "pillow-pajama-first-20261012",
+      "source": {
+        "path": "animation/pillow-pajama-v1/atlas-generated.png",
+        "sha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106"
+      },
+      "regions": {
+        "path": "animation/pillow-pajama-v1/regions-v1.json",
+        "sha256": "0ea6c2cd665df5e1647134bd1e61be032099109e815679e7db67ac5865ad8d05"
+      },
+      "version": 1,
+      "scale": 1.1322103344825722,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 136.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.3361687919552998,
+        "fixedFactor": 1.3361687919,
+        "actualStagePixels": 182.721082292325,
+        "shortfallPercent": 4.1386893911976586e-09,
+        "sourceSha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+        "canvas": 564,
+        "catalogScale": 1.1322103344825722,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.3361687919,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 3360,
+      "lastFrameStartedAfterMs": 2566.5999999996275,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 253.6071486798998,
+          "maxStrongY": 893.6319999999998,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 463.98893258913085,
+          "maxStrongY": 905.6060799999998,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 196.9267912459048,
+          "maxStrongY": 804.9504,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 250.10214786471386,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/playful-20261012/pillow-pajama-first-20261012/browser/pillow-pajama-first-20261012-reference-first.png",
+        "output/playwright/playful-20261012/pillow-pajama-first-20261012/browser/pillow-pajama-first-20261012-reference-last.png",
+        "output/playwright/playful-20261012/pillow-pajama-first-20261012/browser/pillow-pajama-first-20261012-four-layouts.png"
+      ]
+    }
+  ],
+  "sourceUnchanged": true,
+  "priorCandidateBaselinePreserved": true,
+  "remaining": [
+    {
+      "id": "cowboy-first-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            4,
+            5,
+            6
+          ],
+          "message": "拿帽、低頭、仰眼回戴仍有姿勢跳換，需補原畫過渡。"
+        },
+        {
+          "sourceFrames": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "message": "後排頭高與姿勢投影不同，人體比例獨立量測，不能逐格fit抹掉。"
+        }
+      ]
+    },
+    {
+      "id": "pillow-pajama-first-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "message": "側臉與枕頭遮擋不能硬補人體尺規；第5格閉眼暖粉，眼尺規未知。"
+        },
+        {
+          "sourceFrames": [
+            6,
+            7
+          ],
+          "message": "直立抱枕回橫抱角度跳換，需要補原畫過渡。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            7,
+            8
+          ],
+          "message": "首末臉寬+1.46%、眼距0%、眼足距−1.21%，沒有明顯縮身；頭帽與表情細節仍需審，不以逐格縮放修補。"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "逐套真來源及實際播放驗證；技術通過不等於美術完成。"
+  ],
+  "mainAndNativeUpdated": false,
+  "deviceTested": false
+}

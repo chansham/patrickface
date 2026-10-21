@@ -1,0 +1,29 @@
+{
+  "asset": "fitness-martial-v1",
+  "clipID": "fitness-martial-first-20261012",
+  "newOutfit": true,
+  "source": {"path": "animation/fitness-martial-v1/atlas-generated.png", "sha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b", "width": 1774, "height": 887},
+  "regions": {"path": "animation/fitness-martial-v1/regions-v1.json", "sha256": "363bcb8be0e7a6b8a72f9345696a46f708a9aba42980c45fd276a77d07aed0d2"},
+  "standingComparisonSourceFrame": 1,
+  "standingComparisonBasis": "只用來源1中立正面站姿比較雨衣1；中段鞠躬屈身的垂直眼足距不當身高。",
+  "frames": [
+    {"sourceFrame":1,"eyeROI":[183,110,267,185],"footROI":[145,360,300,432]},
+    {"sourceFrame":2,"eyeROI":[626,140,714,209],"footROI":[590,360,743,432],"faceWidthUnavailableReason":"已低頭開始鞠躬，臉的俯視投影與正面站姿不同，不把投影截面當中立臉寬。","measurementCaveat":"眼足距為鞠躬姿勢的垂直投影，不能當身體縮小。"},
+    {"sourceFrame":3,"eyeROI":[1082,171,1172,235],"footROI":[1035,360,1190,432],"faceWidthUnavailableReason":"中度鞠躬，頭部俯視投影不能與中立正臉比寬度。","measurementCaveat":"鞠躬使眼線下降，垂直眼足距縮短是姿勢投影。"},
+    {"sourceFrame":4,"eyeROI":[1520,237,1615,285],"eyeUpperYCutoff":253,"footROI":[1475,360,1635,432],"faceWidthUnavailableReason":"深鞠躬，正面臉型與真頭高無法可靠比較；不使用俯視外框補猜。","measurementCaveat":"深鞠躬造成垂直眼足距大幅縮短，非全人物縮放；白道服位在眼下方，依本圖眼部位置排除衣領白塊。"},
+    {"sourceFrame":5,"eyeUnavailableReason":"最深鞠躬且雙眼完全閉合，沒有眼白下緣，三項尺規未知。","faceReviewROI":[155,625,295,755],"footROI":[145,782,300,863]},
+    {"sourceFrame":6,"eyeROI":[642,604,730,666],"eyeUpperYCutoff":630,"footROI":[590,782,743,863],"faceWidthUnavailableReason":"起身中的低頭投影，正臉截面不可與中立站姿比較。","measurementCaveat":"起身中的垂直眼足距是姿勢代理，不是站立身高；排除眼部ROI下方進入的白道服。"},
+    {"sourceFrame":7,"eyeROI":[1065,550,1155,628],"footROI":[1035,782,1190,863]},
+    {"sourceFrame":8,"eyeROI":[1510,548,1605,629],"footROI":[1475,782,1635,863]}
+  ],
+  "limitations": [
+    "比較體型只使用中立站姿1/7/8；2–6鞠躬俯視投影的臉寬不作正臉尺規。",
+    "第5閉眼三項未知；其餘眼距/眼足距仍只表示當下姿勢。全段眼足距極差預期很大，不能因此逐格放大鞠躬的人物。",
+    "道服和腰帶遮住軀幹，帽或道具外框沒有用作人體；真裸腳獨立可見。"
+  ],
+  "visualFindings": [
+    {"sourceFrames":[2,3,4,5,6],"message":"中段真的由头肩腰俯身鞠躬，量到眼足距縮短是姿勢投影，不能當變小後再fit放大。","severity":"info"},
+    {"sourceFrames":[5,6,7],"message":"最深鞠躬→半起身→直立仍需正常速度審閱，起身中間稿較少，未批准自然循環。"},
+    {"sourceFrames":[1,8],"message":"首末正面站姿可以對尺；首末接近不等於中段每格都應同高度。","severity":"info"}
+  ]
+}

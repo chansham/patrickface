@@ -36,8 +36,9 @@
         },
         {
           "owner": "派大星",
-          "action": "分項顯示 Focus 動作、指定鬧鐘、App 狀態、Home 回覆；Home 失敗不撤銷已開 Focus，不把手機成功當成 Watch 已驗證。",
-          "state": "待開發"
+          "action": "已新增晚安逐步回報、只重試失敗項與本機紀錄頁的程式；四步為 Focus、指定鬧鐘、App 狀態、Home。尚待 Apple 編譯、組合捷徑配置及裝機；Watch 是否跟隨仍未確認，系統動作中断而沒有回報會保留未知。",
+          "state": "已有App入口",
+          "verification": "source-only; Apple build and device pending"
         }
       ],
       "benefit": "手機真正減少打擾，Watch 按已設定的 Focus 共享運作，派大星才接上抱枕與晚安。",
@@ -433,7 +434,7 @@
       "title": "休息一下：保存進度，再接回原活動",
       "phrase": "Siri，派大星休息",
       "group": "工作與專注",
-      "trigger": "App 內先選 1／3／5 分鐘休息。把整段接成一句 Siri 流程仍待開發，不會因本頁配方而自動改 Focus。",
+      "trigger": "App 內可休息後接回原活動；「控制派大星陪伴計時」也已新增休息一下／返回原活動，需新版 App 編譯安裝與 Siri 驗證。系統 Focus 仍由本人組合捷徑設定。",
       "steps": [
         {
           "owner": "派大星",
@@ -452,8 +453,9 @@
         },
         {
           "owner": "派大星",
-          "action": "將保存、開始休息與明確返回接成 Siri／組合捷徑動作，並回報每一步結果；本輪只有 App 按鈕，沒有這組語音入口。",
-          "state": "待開發"
+          "action": "「控制派大星陪伴計時」已加入休息一下（預設3分鐘、1至15分鐘）與返回原活動；沿用保存進度狀態機。重複操作不延長，原本暫停的活動返回後仍暫停。入口程式與測試已寫，Apple 編譯、Siri發現及手錶同步待驗。",
+          "state": "已有App入口",
+          "verification": "source-only; Apple build and device pending"
         },
         {
           "owner": "派大星",
@@ -873,8 +875,9 @@
         },
         {
           "owner": "派大星",
-          "action": "手機端只顯示最後一次 Watch 回覆與時間；提醒到時顯示「去看看手錶」，不宣稱已充滿。",
-          "state": "待開發"
+          "action": "手機「連線」頁已加入最後電量／充電觀測與兩端時間戳程式；過期、缺資料、示範模式分開顯示。傳送與真機待驗；拿錶提醒仍使用本人設定的系統倒數，不以觀測宣稱現在已充滿。",
+          "state": "已有App入口",
+          "verification": "source-only; Apple build and device pending"
         }
       ],
       "benefit": "充電和拿回來是一件完整的事，睡前或出門不容易漏掉。",
@@ -1053,5 +1056,6 @@
         }
       ]
     }
-  ]
+  ],
+  "implementationReviewedAt": "2026-10-13"
 }

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "batch": "20261012-inbetweens",
+  "tool": "built-in image_gen",
+  "artApproval": false,
+  "attempt": {
+    "id": "fitness-martial-v2",
+    "type": "targeted-two-rise-inbetweens",
+    "source": "animation/fitness-martial-v1/atlas-generated.png",
+    "sourceSha256": "5b2eb92757b208386bd504a997239bbcbafcd3b8975990c50fb081659b53025b",
+    "plan": "animation/production-20261012-motion/frame-plan.json#fitness-martial-first-20261012",
+    "requestedGrid": {
+      "columns": 5,
+      "rows": 2,
+      "frameCount": 10
+    },
+    "requestedOrder": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      "rise-a",
+      6,
+      "rise-b",
+      7,
+      8
+    ],
+    "destination": "animation/fitness-martial-v2/atlas-generated.png",
+    "prompt": "Use case: precise-object-edit.\nEdit target: this existing8-frame transparent atlas of Patrick Star in a white martial-arts gi, black belt and small red star badge. Make one targeted10-frame revision by inserting two genuinely new rising-from-bow poses. Keep the same outfit, character identity, compact body volume, black line style, cel colors and bare feet. Do not redesign the gi, belt, badge or face.\n\nOutput exactly10 full-body poses, in5 columns and2 rows, reading left-to-right across the top row then the bottom row. Use a wide5:2 atlas with equal square cells, wide transparent gaps, no drawn grid and no labels. Every character and both feet fully inside its cell.\n\nPose order is explicit:\nNew1 = original1: upright relaxed ready stance, arms along thighs, eyes forward.\nNew2 = original2: gaze begins lowering, a slight initial head nod.\nNew3 = original3: head, shoulders and upper torso genuinely lean forward.\nNew4 = original4: deeper bow, face looks downward, arms remain along thighs.\nNew5 = original5: deepest polite bow, eyes softly closed, hips and feet stay supported.\nNew6 = NEW INBETWEEN A: begin rising only partway from the deepest bow toward original6. Head and shoulders lift a small amount, the waist begins opening, eyes still point down and start reopening. This pose must visibly sit between new5 and new7, not repeat either.\nNew7 = original6: partly risen upper body, downward gaze, hands still along the sides.\nNew8 = NEW INBETWEEN B: another genuine intermediate rise between original6 and original7. Head and shoulders are between half-risen and fully upright, gaze lifts gradually, hands follow thighs. Not a rotated or vertically stretched copy.\nNew9 = original7: fully upright, gentle forward smile, shoulders settled.\nNew10 = original8: complete neutral standing return with original first-frame camera, physical proportions, scale and foot baseline.\n\nThe actual animation is a respectful bow, not fighting. Bend and recover through head, neck/shoulder and waist drawing changes. Preserve the same underlying body volume throughout, while allowing natural foreshortening during a bow. Do NOT force the bowing silhouette to the same total height as standing; do NOT individually fit, stretch, squash or scale each drawing. No whole-image translation/rotation as a substitute for articulation.\nPure white sclera, black pupils; all visible eyelid skin is the same warm coral-pink as his face. Closed eyes are on warm pink skin, not lavender, purple or grey. Keep the original two arms, two hands at the thighs and two complete bare pink feet. One continuous black belt knot with two belt ends, and the same small red star badge.\nLocked frontal camera and consistent drawing scale across all10 cells. Foot support remains at the same local baseline; head and shoulders naturally descend and rise, without changing stance width or making the neutral first/last body taller or slimmer. Ample transparent safety around head, hands and feet. No extra props, people, numbers, text, panel borders, floor, cast shadow, glow or motion blur.\nPreserve genuine transparent RGBA background, including all gutters.",
+    "status": "generated-review-pending",
+    "retryPolicy": "單次請求，失敗不盲重試/改詞繞過或fallback。",
+    "generatedPath": "<USER_HOME>\\.codex\\generated_images\\01a0e1eb-4817-71a0-a1e1-df6d7be40887\\exec-4170f858-c94f-48d0-9a32-e0dc37268abf.png",
+    "sourcePixelsUnchanged": true,
+    "sha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+    "dimensions": [
+      1983,
+      793
+    ],
+    "mode": "RGBA",
+    "alphaZeroFraction": 0.6791752595676109,
+    "alphaMax": 255,
+    "outputFileExists": true,
+    "observedGrid": {
+      "columns": 5,
+      "rows": 2,
+      "frameCount": 10
+    },
+    "visualNotes": [
+      "10格、5×2全身白道服/黑帶/紅星及裸足可見；第5格暖粉閉眼，其餘可見白眼。",
+      "第6格確有由深鞠躬開始抬起的新姿勢；第7/8格頭肩仍十分接近，第8→9回直立的跨度可能未充分改善。",
+      "原畫來源間的人體體積、回位及安全需要獨立regions/QC，不能以10格數量當過渡已完成。"
+    ],
+    "artApproval": false
+  },
+  "sourceQC": {
+    "report": "animation/production-20261012-inbetweens/martial-v2-source-qc.json",
+    "regions": "animation/fitness-martial-v2/regions-v1.json",
+    "regionsSha256": "a24c56842ce645dbb987f24ac90b644efc1cdac1328d239aefc51bf41b80e372",
+    "canvas": [700, 700],
+    "anchorPixels": [350, 616],
+    "preservedNonzeroAlphaPixels": 504503,
+    "blackWhiteCompositesViewed": true,
+    "strongDetachedFragments": 0,
+    "note": "游離碎點全部alpha1，黑白實際合成未見顯著碎塊；原像素完整保留。第7/8近似、8→9起身跨度仍待正常速與人體審核。"
+  },
+  "summary": {
+    "successfulSourceImages": 1,
+    "newSourceFrameCount": 10,
+    "supersededSourcePreserved": true,
+    "acceptedTransitions": 0,
+    "artApproved": 0
+  }
+}

@@ -22,6 +22,56 @@ def fixture():
 
 
 class FrameRegionTests(unittest.TestCase):
+    def visible_feet_fixture(self):
+        alpha = fixture()
+        # A connected prop extends below the left character's two feet.
+        alpha[29:34, 16:18] = 255
+        data = build_regions(alpha, 2, 1, min_core_pixels=50)
+        data["source"] = {"path": "animation/feet-fixture/atlas.png", "sha256": "a" * 64,
+                          "width": 70, "height": 50}
+        policy = {"kind": "reviewed-visible-feet", "sourcePath": data["source"]["path"],
+                  "sourceSha256": "a" * 64, "sourceSize": [70, 50],
+                  "reviewedFootPoints": [[[10, 31], [22, 31]], [[45, 31], [55, 31]]]}
+        return alpha, data, policy
+
+    def test_visible_feet_retain_lower_prop_and_all_pixels(self):
+        alpha, data, policy = self.visible_feet_fixture()
+        before = deepcopy(data)
+        apply_reviewed_support_policy(data, alpha, policy)
+        self.assertEqual([f["anchorSource"] for f in data["frames"]], [[16, 31], [50, 31]])
+        self.assertEqual(data["canvas"], before["canvas"])
+        self.assertGreater(data["frames"][0]["diagnostics"]["coreBounds"][3], 31)
+        for current, original in zip(data["frames"], before["frames"]):
+            self.assertEqual(current["rows"], original["rows"])
+            self.assertEqual(current["sourceBounds"], original["sourceBounds"])
+        self.assertEqual(validate_regions(data, alpha)["assignedPixels"], int((alpha > 0).sum()))
+        registered = deepcopy(data)
+        apply_reviewed_support_policy(data, alpha, policy)
+        self.assertEqual(data, registered)
+
+    def test_visible_feet_reject_wrong_source_points_and_canvas_without_partial_changes(self):
+        alpha, original, original_policy = self.visible_feet_fixture()
+        for change in ("sha", "path", "size", "outside", "weak", "other-frame", "canvas"):
+            data, policy = deepcopy(original), deepcopy(original_policy)
+            if change == "sha": policy["sourceSha256"] = "0" * 64
+            elif change == "path": policy["sourcePath"] = "animation/other/atlas.png"
+            elif change == "size": policy["sourceSize"] = [70, 51]
+            elif change == "outside": policy["reviewedFootPoints"][0][0] = [70, 31]
+            elif change == "weak": policy["reviewedFootPoints"][0][0] = [0, 1]
+            elif change == "other-frame": policy["reviewedFootPoints"][0][0] = [45, 31]
+            else: data["canvas"]["anchorPixels"][0] = 0
+            before = deepcopy(data)
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                apply_reviewed_support_policy(data, alpha, policy)
+            self.assertEqual(data, before)
+
+    def test_visible_feet_policy_is_pinned_to_only_reviewed_kettlebell(self):
+        path = "animation/fitness-kettlebell-v2/atlas-generated.png"
+        sha = "b5469c61ae4968a102c7d64b140890956ffe9a5c478109522d815cb94d204711"
+        self.assertEqual(REVIEWED_SUPPORT_POLICIES[(path, sha)]["kind"], "reviewed-visible-feet")
+        self.assertNotIn((path, "0" * 64), REVIEWED_SUPPORT_POLICIES)
+        self.assertNotIn((path.replace("v2", "v1"), sha), REVIEWED_SUPPORT_POLICIES)
+
     def test_known_cli_source_remains_compatible(self):
         self.assertEqual(selected_sources(None, None, None), SOURCES)
         self.assertEqual(selected_sources(SOURCES[0][0], None, None), (SOURCES[0],))

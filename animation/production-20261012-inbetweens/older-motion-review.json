@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "scope": "Read-only review of three latest existing candidates. Original atlases viewed; existing QC/runtime evidence read. No browser, redraw, catalog or UI change.",
+  "sourceFrameBasis": "one-based original reading order; existing frame order unchanged",
+  "priorities": [
+    {
+      "priority": 1,
+      "id": "running-first-20261006",
+      "title": "跑步陪伴・首套動作待審",
+      "source": {
+        "path": "animation/running-v1/atlas-generated.png",
+        "sha256": "f00e4c9d0cce8bcd9a5cdac5f7f9f91228086ce6d835e928cf4b36c7b6f1a1e4"
+      },
+      "regions": {
+        "path": "animation/running-v1/regions-v1.json",
+        "sha256": "9e858752a4cf852e173a80a72510999e7daf64b48ea31325aa061fb82c6cc276",
+        "version": 1
+      },
+      "sourceFrameCount": 16,
+      "durationsMs": [
+        400,
+        220,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        170,
+        190,
+        250,
+        260,
+        200,
+        200,
+        450
+      ],
+      "totalMs": 3390,
+      "scale": 2.0,
+      "sourceAndRegionsHashesVerified": true,
+      "sourceAtlasViewed": true,
+      "evidence": [
+        "animation/running-v1/REVIEW.md",
+        "animation/production-20261006-followup/running-v1-qc.json",
+        "animation/production-20261006-followup/runtime-review.json"
+      ],
+      "newBrowserRun": false,
+      "newArtGenerated": false,
+      "priorityReason": "最明顯的動作方向不連續，優先補原畫；不是多加格數本身。",
+      "specificFindings": [
+        {
+          "sourceFrames": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "finding": "抬膝與前伸腳是真姿勢，但4→5、6→7、8→9角色朝向左右交替幅度大；原图看起来像连续换朝向，不是稳定前视跑步。",
+          "needsRedrawing": true,
+          "repair": "先選固定前視或同一個小角度；各次換腿補支撐腿承重、另一腳經身下的passing姿勢，再接抬膝。不要重排成同腿連續或鏡像複製。"
+        },
+        {
+          "sourceFrames": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "finding": "跑姿到雙腳站穩、再吐氣的收步因果已有，但收腳後肩臂落下的間隔仍可補一個過渡。",
+          "needsRedrawing": true
+        },
+        {
+          "sourceFrames": [
+            14,
+            15,
+            16
+          ],
+          "finding": "半睜放鬆→突然睜大→半睜，缺少明確敘事理由；要決定這是刻意小驚訝還是平靜收尾，不能把變眼神當補間。",
+          "needsRedrawing": true
+        }
+      ],
+      "localWork": {
+        "canDo": "保留單次開始跑步表演及既有落位政策；可在審稿準確標4→5、6→7、8→9與14→15→16。只改時間不能消除左右翻向，本輪不建議再做全段加速版本。",
+        "cannotDo": "不能靠逐格平移／縮放抹平身體擺動，不能將支撐腳定位當解剖身高；source-specific腳點政策只適用此SHA。"
+      },
+      "existingEvidence": {
+        "observedPlayback": "16格曾在10/6正常1×呈現；本輪只讀該證據，非新實播。",
+        "registration": "固定名義格中心X+逐格已覆核支撐腳Y；非逐格fit。",
+        "knownScaleCompromise": "scale2.0；中性臉約為當時坐姿啞鈴參照的86.6%。不把自然站姿較高當錯誤。",
+        "measurementUnknown": "eye-to-foot各格null；轉體/踏步不可硬追人體比例。"
+      }
+    },
+    {
+      "priority": 2,
+      "id": "focus-transition-repair-20261007",
+      "title": "正裝・收手中間姿勢改稿",
+      "source": {
+        "path": "animation/focus-v7/atlas-generated.png",
+        "sha256": "3a6a7cc2f463eb4537e0a36109505be7a6d7cbb5502a463dcb646aff2d89492e"
+      },
+      "regions": {
+        "path": "animation/focus-v7/regions-v1.json",
+        "sha256": "b6da133b31e39d9e8d7cff1dd112f904444d8b3a5db9e76c5f53ffb6d76cb76d",
+        "version": 1
+      },
+      "sourceFrameCount": 12,
+      "durationsMs": [
+        450,
+        200,
+        200,
+        220,
+        200,
+        220,
+        240,
+        180,
+        220,
+        200,
+        160,
+        450
+      ],
+      "totalMs": 2940,
+      "scale": 1.4095890410958902,
+      "sourceAndRegionsHashesVerified": true,
+      "sourceAtlasViewed": true,
+      "evidence": [
+        "animation/focus-v7/REVIEW.md",
+        "animation/production-20261007-completion/focus-v7-qc.json",
+        "animation/production-20261007-completion/runtime-review.json"
+      ],
+      "newBrowserRun": false,
+      "newArtGenerated": false,
+      "priorityReason": "真正未解決的是末段軀幹短，優先修身形一致性；不要再重做已補的第9格。",
+      "supersedesForThisReview": "focus-followup-20261006 uses focus-v5; the selected latest source is focus-v7.",
+      "alreadyImproved": [
+        {
+          "sourceFrames": [
+            8,
+            9,
+            10
+          ],
+          "finding": "第9格已有臉側到筆記本之間的收手姿勢；既有1×證據能看見，不能繼續說完全沒補這一格。"
+        }
+      ],
+      "specificFindings": [
+        {
+          "sourceFrames": [
+            1,
+            10,
+            11,
+            12
+          ],
+          "finding": "最後一排軀幹仍短；既有同法量測首末眼線至真腳154→146px(-5.195%)，頭頂至真腳286→274px(-4.196%)，臉寬只-0.765%。不是整張uniformscale能修。",
+          "needsRedrawing": true,
+          "repair": "用首格身體為基準，重畫末段胸腹至坐姿雙脚高度與袖口/筆記本位置；保留閉眼和收手動作，不只把最後一格拉長。"
+        },
+        {
+          "sourceFrames": [
+            4,
+            5
+          ],
+          "finding": "雙手在筆記本→一手到眼鏡旁仍是大位移；比8→9更值得下一次補抬手中間姿勢。",
+          "needsRedrawing": true
+        }
+      ],
+      "localWork": {
+        "canDo": "把最新v7與v5/日常v1的比較對象分清；維持原12格及單一倍率。可標出4→5的抬手缺口與10–12的身形問題。",
+        "cannotDo": "timing無法解決末段約5%軀幹縮短，不建議為看起來更順而逐格拉長或單獨縮放。"
+      },
+      "existingEvidence": {
+        "observedPlayback": "12格曾在10/8正常1×呈現；本輪未重新開browser。",
+        "measurementUnknown": "第5–8格手遮面、第10薄眼白、第11閉眼量尺保守留空；不把它們補成數字。",
+        "historicQCNote": "source QC內catalogIntegrated:false/normalSpeed pending是接入前快照；最終已整合與實播狀態見runtime-review及REVIEW，不覆寫舊快照。"
+      }
+    },
+    {
+      "priority": 3,
+      "id": "chef-cookie-repair-20261007",
+      "title": "小廚師・餅乾咬痕收尾改稿",
+      "source": {
+        "path": "animation/feeding-chef-v6/atlas-generated.png",
+        "sha256": "cd432cf83e782c99eed61f496cc8ab1cdd50559f95401f1b1c576ec1037cdc80"
+      },
+      "regions": {
+        "path": "animation/feeding-chef-v6/regions-v1.json",
+        "sha256": "438de97bf2e6e2e9078c56829a52a9e4b22e2b3e87a3a4c1a469c4751e3b70d9",
+        "version": 1
+      },
+      "sourceFrameCount": 12,
+      "durationsMs": [
+        500,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        180,
+        600
+      ],
+      "totalMs": 2900,
+      "scale": 1.138755980861244,
+      "sourceAndRegionsHashesVerified": true,
+      "sourceAtlasViewed": true,
+      "evidence": [
+        "animation/feeding-chef-v6/REVIEW.md",
+        "animation/production-20261007-completion/feeding-chef-v6-qc.json",
+        "animation/production-20261007-completion/runtime-review.json",
+        "output/playwright/20261007-completion/chef-cookie-repair-20261007-live-1x-frames.png"
+      ],
+      "newBrowserRun": false,
+      "newArtGenerated": false,
+      "priorityReason": "三套中較接近可用，適合小範圍补咬合/離口；不要再把已修好的末格咬痕當新需求。",
+      "alreadyImproved": [
+        {
+          "sourceFrames": [
+            12
+          ],
+          "finding": "盤上餅乾已有咬痕，原圖與既有200px實播擷取都可見；不再是恢復完整餅乾。"
+        }
+      ],
+      "specificFindings": [
+        {
+          "sourceFrames": [
+            5,
+            6
+          ],
+          "finding": "張嘴持完整餅乾直接跳到閉眼、咬痕已形成且手已離口。缺口出現/下顎咬合/餅乾離口三件事壓在一次跳格。",
+          "needsRedrawing": true,
+          "repair": "在5與6之間補1–2張真正咬合與剛離口姿勢，保持同手、同一餅乾缺口位置；咬後的缺口只隨餅乾剛性轉向。"
+        },
+        {
+          "sourceFrames": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "finding": "下放到盤子的流程已有；9→10手臂與餅乾朝向變得較快，握持及咬痕朝向仍需逐格審。不能單憑轉向說缺口又復原。",
+          "needsRedrawing": true,
+          "repair": "有餘力再補9→10的向下轉腕/放盤前姿勢；先保住現12格末盤上缺口。"
+        }
+      ],
+      "localWork": {
+        "canDo": "可獨立試吃東西節奏：縮短起止空等，咀嚼/享受格稍停，避免所有中段一律180ms。必須另標timing-only，不能算補好了5→6。",
+        "suggestedDurationsMsUnapplied": [
+          320,
+          180,
+          180,
+          160,
+          140,
+          260,
+          160,
+          300,
+          180,
+          160,
+          180,
+          400
+        ],
+        "suggestedTotalMs": 2620,
+        "currentTotalMs": 2900,
+        "timingApplied": false,
+        "cannotDo": "不可用時間拉長創造不存在的咬合或轉腕；不能套整張放大掩蓋道具接續。"
+      },
+      "existingEvidence": {
+        "observedPlayback": "12格曾在10/8正常1×呈現，末咬痕在200px可辨；本輪實看原atlas及既有live1×contact sheet。",
+        "measurements": "首末脸+3.26%、眼距+1.54%、眼足-0.97%；帽子和黑坐墊均排除。",
+        "measurementUnknown": "第6/8閉眼無可靠眼部尺規；部分手或道具遮擋臉寬保持unknown。"
+      }
+    }
+  ]
+}

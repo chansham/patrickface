@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "sourceReports": [
+    {
+      "path": "animation/production-20261012-wardrobe/sport-towel-v1-body-qc.json",
+      "sha256": "6842a7b48d46f1e9cbab71bb704c69df9286654592d4c277e34870adaa0de5c5"
+    },
+    {
+      "path": "animation/production-20261012-wardrobe/sport-towel-v2-body-qc.json",
+      "sha256": "329f95f40679809975b94f1dcd8b63618326bac39542ee8f8d3a78e711c83e6a"
+    }
+  ],
+  "sources": [
+    {
+      "path": "animation/sport-towel-v1/atlas-generated.png",
+      "sha256": "ddb99d07d571841537f107fd1aa35c35515ef73c1d3c7c3323de214fc7fab2ae"
+    },
+    {
+      "path": "animation/sport-towel-v2/atlas-generated.png",
+      "sha256": "01e212bf5c64471fec5f6c836e88e54406803562da0f8e2a0eea4a2e9d1abead"
+    }
+  ],
+  "pixelComparison": {
+    "width": 1536,
+    "height": 1024,
+    "changedRGBApixelCount": 1570006,
+    "changedPixelsWithinEitherVisibleSource": 701928,
+    "changedVisiblePixelsOutsideReviewedEyeROIs": 688026,
+    "meaning": "逐像素對比不是圖像配準；生成修訂會改動其它部位，不能宣稱只改了眼皮或借用舊量測。"
+  },
+  "eyelidEvidence": [
+    {
+      "sourceFrame": 1,
+      "sourceROI": [
+        145,
+        105,
+        235,
+        177
+      ],
+      "changedRGBApixelCount": 6413,
+      "reviewedEyelidInteriorSamples": [
+        {
+          "sourceBounds": [
+            169,
+            126,
+            178,
+            135
+          ],
+          "v1MedianRGB": [
+            214.0,
+            154.0,
+            188.0
+          ],
+          "v2MedianRGB": [
+            253.0,
+            123.0,
+            107.0
+          ]
+        },
+        {
+          "sourceBounds": [
+            201,
+            126,
+            210,
+            135
+          ],
+          "v1MedianRGB": [
+            214.0,
+            158.0,
+            189.0
+          ],
+          "v2MedianRGB": [
+            253.0,
+            126.0,
+            109.0
+          ]
+        }
+      ]
+    },
+    {
+      "sourceFrame": 5,
+      "sourceROI": [
+        148,
+        600,
+        242,
+        680
+      ],
+      "changedRGBApixelCount": 7503,
+      "reviewedEyelidInteriorSamples": [
+        {
+          "sourceBounds": [
+            173,
+            631,
+            182,
+            640
+          ],
+          "v1MedianRGB": [
+            211.0,
+            151.0,
+            187.0
+          ],
+          "v2MedianRGB": [
+            253.0,
+            132.0,
+            114.0
+          ]
+        },
+        {
+          "sourceBounds": [
+            205,
+            631,
+            214,
+            640
+          ],
+          "v1MedianRGB": [
+            214.0,
+            158.0,
+            191.0
+          ],
+          "v2MedianRGB": [
+            253.0,
+            134.0,
+            116.0
+          ]
+        }
+      ]
+    }
+  ],
+  "independentlyRemeasuredFrames": [
+    {
+      "sourceFrame": 1,
+      "metrics": {
+        "faceWidthPx": {
+          "v1": 105.75,
+          "v2": 105.75,
+          "differenceSourcePixels": 0.0
+        },
+        "eyeLowerRimSeparationPx": {
+          "v1": 32.01562118716424,
+          "v2": 32.0,
+          "differenceSourcePixels": -0.015621187164242656
+        },
+        "eyeLineToFootPx": {
+          "v1": 308.5,
+          "v2": 309.0,
+          "differenceSourcePixels": 0.5
+        }
+      }
+    },
+    {
+      "sourceFrame": 2,
+      "metrics": {
+        "faceWidthPx": {
+          "v1": 108.75,
+          "v2": 109.0,
+          "differenceSourcePixels": 0.25
+        },
+        "eyeLowerRimSeparationPx": {
+          "v1": 32.515380975778214,
+          "v2": 32.56148031032987,
+          "differenceSourcePixels": 0.0460993345516556
+        },
+        "eyeLineToFootPx": {
+          "v1": 308.5,
+          "v2": 309.0,
+          "differenceSourcePixels": 0.5
+        }
+      }
+    },
+    {
+      "sourceFrame": 3,
+      "metrics": {
+        "faceWidthPx": {
+          "v1": null,
+          "v2": null,
+          "differenceSourcePixels": null
+        },
+        "eyeLowerRimSeparationPx": {
+          "v1": 32.5,
+          "v2": 32.515380975778214,
+          "differenceSourcePixels": 0.015380975778214179
+        },
+        "eyeLineToFootPx": {
+          "v1": 310.0,
+          "v2": 310.5,
+          "differenceSourcePixels": 0.5
+        }
+      }
+    },
+    {
+      "sourceFrame": 4,
+      "metrics": {
+        "faceWidthPx": {
+          "v1": null,
+          "v2": null,
+          "differenceSourcePixels": null
+        },
+        "eyeLowerRimSeparationPx": {
+          "v1": 32.01562118716424,
+          "v2": 31.51586901863885,
+          "differenceSourcePixels": -0.4997521685253936
+        },
+        "eyeLineToFootPx": {
+          "v1": 309.5,
+          "v2": 310.0,
+          "differenceSourcePixels": 0.5
+        }
+      }
+    },
+    {
+      "sourceFrame": 5,
+      "metrics": {
+        "faceWidthPx": {
+          "v1": null,
+          "v2": null,
+          "differenceSourcePixels": null
+        },
+        "eyeLowerRimSeparationPx": {
+          "v1": null,
+          "v2": null,
+          "differenceSourcePixels": null
+        },
+        "eyeLineToFootPx": {
+          "v1": null,
+          "v2": null,
+          "differenceSourcePixels": null
+        }
+      }
+    },
+    {
+      "sourceFrame": 6,
+      "metrics": {
+        "faceWidthPx": {
+          "v1": null,
+          "v2": null,
+          "differenceSourcePixels": null
+        },
+        "eyeLowerRimSeparationPx": {
+          "v1": 32.63816784073518,
+          "v2": 32.14031735997639,
+          "differenceSourcePixels": -0.49785048075878535
+        },
+        "eyeLineToFootPx": {
+          "v1": 309.5,
+          "v2": 310.5,
+          "differenceSourcePixels": 1.0
+        }
+      }
+    },
+    {
+      "sourceFrame": 7,
+      "metrics": {
+        "faceWidthPx": {
+          "v1": 107.0,
+          "v2": 108.0,
+          "differenceSourcePixels": 1.0
+        },
+        "eyeLowerRimSeparationPx": {
+          "v1": 32.56148031032987,
+          "v2": 32.0624390837628,
+          "differenceSourcePixels": -0.4990412265670727
+        },
+        "eyeLineToFootPx": {
+          "v1": 309.0,
+          "v2": 310.0,
+          "differenceSourcePixels": 1.0
+        }
+      }
+    },
+    {
+      "sourceFrame": 8,
+      "metrics": {
+        "faceWidthPx": {
+          "v1": 108.0,
+          "v2": 109.0,
+          "differenceSourcePixels": 1.0
+        },
+        "eyeLowerRimSeparationPx": {
+          "v1": 32.0624390837628,
+          "v2": 32.0624390837628,
+          "differenceSourcePixels": 0.0
+        },
+        "eyeLineToFootPx": {
+          "v1": 310.0,
+          "v2": 311.0,
+          "differenceSourcePixels": 1.0
+        }
+      }
+    }
+  ],
+  "findings": [
+    "第1和5格已逐格放大覆核，眼皮由紫色改為粉色；眼白沒有塗成皮膚色。",
+    "第5格完全閉眼仍沒有三項尺規；第3/4/6格毛巾遮擋左臉截線仍不量臉寬。",
+    "保留瘦長體形、擦臉至收手缺過渡及首末表情不同的待修事項，眼皮修正不等於整段通過。"
+  ]
+}

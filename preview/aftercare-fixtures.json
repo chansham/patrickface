@@ -1,0 +1,1855 @@
+{
+  "schemaVersion": 1,
+  "description": "Shared synthetic state-machine scenarios. No health data, timer mutation, playback, or storage.",
+  "cases": [
+    {
+      "id": "observed-completion-manual-one-shot",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "reason": "completionObserved",
+            "availableVariants": [
+              "towel",
+              "drink",
+              "rest"
+            ],
+            "mode": "live",
+            "variant": null
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "drink",
+          "nowMS": 4000,
+          "expected": {
+            "phase": "playing",
+            "variant": "drink",
+            "reason": "userChoice"
+          }
+        },
+        {
+          "op": "finish",
+          "nowMS": 5000,
+          "expected": {
+            "phase": "done",
+            "reason": "finished"
+          }
+        },
+        {
+          "op": "complete",
+          "nowMS": 6000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "done",
+            "reason": "finished"
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "towel",
+          "nowMS": 7000,
+          "expected": {
+            "phase": "done",
+            "variant": "drink"
+          }
+        }
+      ]
+    },
+    {
+      "id": "first-open-no-catchup",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "notObserved"
+          }
+        }
+      ]
+    },
+    {
+      "id": "old-event-rejected",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 63001,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "staleEvent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "exact-sixty-seconds-eligible",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 63000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered"
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "rest",
+          "nowMS": 63000,
+          "expected": {
+            "phase": "playing"
+          }
+        }
+      ]
+    },
+    {
+      "id": "offer-expiry-from-completion-not-receipt",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 62000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ]
+        },
+        {
+          "op": "choose",
+          "variant": "rest",
+          "nowMS": 63001,
+          "expected": {
+            "phase": "dismissed",
+            "reason": "offerExpired",
+            "variant": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "future-event-consumed",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 2500,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "futureEvent"
+          }
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "futureEvent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cancelled-does-not-complete",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "cancelled",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "cancelled"
+          }
+        },
+        {
+          "op": "complete",
+          "nowMS": 4000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "conflictingEvent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "unknown-status",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "finished",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "invalidEvent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "unknown-kind",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "swimming",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "notExercise"
+          }
+        }
+      ]
+    },
+    {
+      "id": "focus-does-not-offer",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "focus",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "focus",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "notExercise"
+          }
+        }
+      ]
+    },
+    {
+      "id": "breathing-does-not-offer",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "breathing",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "breathing",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "notExercise"
+          }
+        }
+      ]
+    },
+    {
+      "id": "walking-supported",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "walking",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "walking",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "kind": "walking"
+          }
+        }
+      ]
+    },
+    {
+      "id": "strength-supported",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "strength",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "strength",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "kind": "strength"
+          }
+        }
+      ]
+    },
+    {
+      "id": "exercise-supported",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "exercise",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "exercise",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "kind": "exercise"
+          }
+        }
+      ]
+    },
+    {
+      "id": "visibility-loss-before-completion",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "visibility",
+          "nowMS": 2500,
+          "active": false
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "inactive"
+          }
+        },
+        {
+          "op": "visibility",
+          "nowMS": 4000,
+          "active": true
+        },
+        {
+          "op": "complete",
+          "nowMS": 5000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "inactive"
+          }
+        }
+      ]
+    },
+    {
+      "id": "invisible-gap-no-event-catchup",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "visibility",
+          "nowMS": 2500,
+          "active": false
+        },
+        {
+          "op": "visibility",
+          "nowMS": 3500,
+          "active": true
+        },
+        {
+          "op": "complete",
+          "nowMS": 4000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "notObserved"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reopened-running-can-observe-future-completion",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "visibility",
+          "nowMS": 2500,
+          "active": false
+        },
+        {
+          "op": "visibility",
+          "nowMS": 3500,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 4000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 5000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 5000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered"
+          }
+        }
+      ]
+    },
+    {
+      "id": "completion-before-new-observation",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 4000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 5000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "notObserved"
+          }
+        }
+      ]
+    },
+    {
+      "id": "repeated-running-retains-original-observation",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "observe",
+          "nowMS": 4000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 5000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered"
+          }
+        }
+      ]
+    },
+    {
+      "id": "low-power-interrupts-offer-no-replay",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "reason": "completionObserved",
+            "availableVariants": [
+              "towel",
+              "drink",
+              "rest"
+            ],
+            "mode": "live",
+            "variant": null
+          }
+        },
+        {
+          "op": "visibility",
+          "nowMS": 4000,
+          "active": true,
+          "lowPower": true,
+          "expected": {
+            "phase": "dismissed",
+            "reason": "lowPower"
+          }
+        },
+        {
+          "op": "visibility",
+          "nowMS": 5000,
+          "active": true
+        },
+        {
+          "op": "complete",
+          "nowMS": 6000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "dismissed",
+            "reason": "lowPower"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reduce-motion-interrupts-playback",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "reason": "completionObserved",
+            "availableVariants": [
+              "towel",
+              "drink",
+              "rest"
+            ],
+            "mode": "live",
+            "variant": null
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "rest",
+          "nowMS": 4000
+        },
+        {
+          "op": "visibility",
+          "nowMS": 5000,
+          "active": true,
+          "reduceMotion": true,
+          "expected": {
+            "phase": "dismissed",
+            "reason": "reduceMotion"
+          }
+        },
+        {
+          "op": "finish",
+          "nowMS": 6000,
+          "expected": {
+            "phase": "dismissed",
+            "reason": "reduceMotion"
+          }
+        }
+      ]
+    },
+    {
+      "id": "background-interrupts-playback",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "reason": "completionObserved",
+            "availableVariants": [
+              "towel",
+              "drink",
+              "rest"
+            ],
+            "mode": "live",
+            "variant": null
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "towel",
+          "nowMS": 4000
+        },
+        {
+          "op": "visibility",
+          "nowMS": 4500,
+          "active": false,
+          "expected": {
+            "phase": "dismissed",
+            "reason": "inactive"
+          }
+        },
+        {
+          "op": "visibility",
+          "nowMS": 5000,
+          "active": true
+        },
+        {
+          "op": "choose",
+          "variant": "towel",
+          "nowMS": 6000,
+          "expected": {
+            "phase": "dismissed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "new-activity-interrupts",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "reason": "completionObserved",
+            "availableVariants": [
+              "towel",
+              "drink",
+              "rest"
+            ],
+            "mode": "live",
+            "variant": null
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "drink",
+          "nowMS": 4000
+        },
+        {
+          "op": "observe",
+          "nowMS": 5000,
+          "id": "session-b",
+          "kind": "focus",
+          "status": "running",
+          "expected": {
+            "phase": "dismissed",
+            "reason": "newActivity"
+          }
+        },
+        {
+          "op": "complete",
+          "nowMS": 6000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "dismissed",
+            "reason": "newActivity"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pause-removes-continuity",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "observe",
+          "nowMS": 2500,
+          "id": "session-a",
+          "kind": "running",
+          "status": "paused"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "notObserved"
+          }
+        }
+      ]
+    },
+    {
+      "id": "resumed-running-can-complete",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "observe",
+          "nowMS": 2500,
+          "id": "session-a",
+          "kind": "running",
+          "status": "paused"
+        },
+        {
+          "op": "observe",
+          "nowMS": 3500,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 4000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 4000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered"
+          }
+        }
+      ]
+    },
+    {
+      "id": "missing-assets-no-offer",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [],
+          "expected": {
+            "phase": "idle",
+            "reason": "noAssets"
+          }
+        },
+        {
+          "op": "complete",
+          "nowMS": 4000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "noAssets"
+          }
+        }
+      ]
+    },
+    {
+      "id": "missing-variant-no-fallback",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "rest",
+            "unsupported",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "availableVariants": [
+              "rest"
+            ]
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "drink",
+          "nowMS": 4000,
+          "expected": {
+            "phase": "offered",
+            "reason": "unavailableVariant",
+            "variant": null
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "rest",
+          "nowMS": 5000,
+          "expected": {
+            "phase": "playing",
+            "variant": "rest"
+          }
+        }
+      ]
+    },
+    {
+      "id": "conflicting-event-interrupts-playback",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "reason": "completionObserved",
+            "availableVariants": [
+              "towel",
+              "drink",
+              "rest"
+            ],
+            "mode": "live",
+            "variant": null
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "towel",
+          "nowMS": 4000
+        },
+        {
+          "op": "complete",
+          "nowMS": 5000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3100
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "dismissed",
+            "reason": "conflictingEvent"
+          }
+        },
+        {
+          "op": "complete",
+          "nowMS": 6000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "dismissed",
+            "reason": "conflictingEvent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reused-running-id-does-not-reopen",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "reason": "completionObserved",
+            "availableVariants": [
+              "towel",
+              "drink",
+              "rest"
+            ],
+            "mode": "live",
+            "variant": null
+          }
+        },
+        {
+          "op": "dismiss"
+        },
+        {
+          "op": "observe",
+          "nowMS": 4000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running",
+          "expected": {
+            "phase": "dismissed",
+            "reason": "reusedActivity"
+          }
+        },
+        {
+          "op": "complete",
+          "nowMS": 5000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "dismissed",
+            "reason": "reusedActivity"
+          }
+        }
+      ]
+    },
+    {
+      "id": "explicit-dismiss-never-completes",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "reason": "completionObserved",
+            "availableVariants": [
+              "towel",
+              "drink",
+              "rest"
+            ],
+            "mode": "live",
+            "variant": null
+          }
+        },
+        {
+          "op": "dismiss",
+          "expected": {
+            "phase": "dismissed",
+            "reason": "userDismissed"
+          }
+        },
+        {
+          "op": "finish",
+          "nowMS": 4000,
+          "expected": {
+            "phase": "dismissed",
+            "reason": "userDismissed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "playback-timeout",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "reason": "completionObserved",
+            "availableVariants": [
+              "towel",
+              "drink",
+              "rest"
+            ],
+            "mode": "live",
+            "variant": null
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "towel",
+          "nowMS": 4000
+        },
+        {
+          "op": "tick",
+          "nowMS": 24000,
+          "expected": {
+            "phase": "playing"
+          }
+        },
+        {
+          "op": "tick",
+          "nowMS": 24001,
+          "expected": {
+            "phase": "dismissed",
+            "reason": "playbackTimeout"
+          }
+        }
+      ]
+    },
+    {
+      "id": "clock-rollback-cancels-continuity",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "reason": "completionObserved",
+            "availableVariants": [
+              "towel",
+              "drink",
+              "rest"
+            ],
+            "mode": "live",
+            "variant": null
+          }
+        },
+        {
+          "op": "tick",
+          "nowMS": 2000,
+          "expected": {
+            "phase": "dismissed",
+            "reason": "clockChanged"
+          }
+        },
+        {
+          "op": "complete",
+          "nowMS": 4000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "dismissed",
+            "reason": "clockChanged"
+          }
+        }
+      ]
+    },
+    {
+      "id": "manual-review-is-explicit",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "review",
+          "kind": "strength",
+          "nowMS": 2000,
+          "availableVariants": [
+            "towel",
+            "rest"
+          ],
+          "expected": {
+            "phase": "offered",
+            "mode": "review",
+            "eventID": "review-1",
+            "reason": "manualReview"
+          }
+        },
+        {
+          "op": "choose",
+          "variant": "towel",
+          "nowMS": 3000
+        },
+        {
+          "op": "finish",
+          "nowMS": 4000
+        },
+        {
+          "op": "review",
+          "kind": "exercise",
+          "nowMS": 5000,
+          "availableVariants": [
+            "drink"
+          ],
+          "expected": {
+            "phase": "offered",
+            "mode": "review",
+            "eventID": "review-2",
+            "variant": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "quiet-review-does-not-play",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true,
+          "lowPower": true
+        },
+        {
+          "op": "review",
+          "kind": "exercise",
+          "nowMS": 2000,
+          "availableVariants": [
+            "towel"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "inactive"
+          }
+        }
+      ]
+    },
+    {
+      "id": "invalid-event-id",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": " ",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": 3000
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "invalidEvent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "negative-event-time",
+      "actions": [
+        {
+          "op": "visibility",
+          "nowMS": 1000,
+          "active": true
+        },
+        {
+          "op": "observe",
+          "nowMS": 2000,
+          "id": "session-a",
+          "kind": "running",
+          "status": "running"
+        },
+        {
+          "op": "complete",
+          "nowMS": 3000,
+          "event": {
+            "id": "session-a",
+            "kind": "running",
+            "status": "completed",
+            "endedAtMS": -1
+          },
+          "availableVariants": [
+            "towel",
+            "drink",
+            "rest"
+          ],
+          "expected": {
+            "phase": "idle",
+            "reason": "invalidEvent"
+          }
+        }
+      ]
+    }
+    ,
+    {
+      "id": "conflicting-observation-id-remains-blocked",
+      "actions": [
+        { "op": "visibility", "nowMS": 1000, "active": true },
+        { "op": "observe", "nowMS": 2000, "id": "session-a", "kind": "running", "status": "running" },
+        { "op": "observe", "nowMS": 2500, "id": "session-a", "kind": "strength", "status": "running", "expected": { "phase": "idle", "reason": "conflictingActivity" } },
+        { "op": "observe", "nowMS": 2600, "id": "session-a", "kind": "running", "status": "running", "expected": { "phase": "idle", "reason": "conflictingActivity" } },
+        { "op": "complete", "nowMS": 3000, "event": { "id": "session-a", "kind": "running", "status": "completed", "endedAtMS": 3000 }, "availableVariants": ["towel"], "expected": { "phase": "idle", "reason": "conflictingActivity" } }
+      ]
+    },
+    {
+      "id": "other-completion-does-not-steal-observed-activity",
+      "actions": [
+        { "op": "visibility", "nowMS": 1000, "active": true },
+        { "op": "observe", "nowMS": 2000, "id": "session-a", "kind": "running", "status": "running" },
+        { "op": "complete", "nowMS": 3000, "event": { "id": "session-b", "kind": "strength", "status": "completed", "endedAtMS": 3000 }, "availableVariants": ["towel"], "expected": { "phase": "idle", "reason": "notObserved" } },
+        { "op": "complete", "nowMS": 4000, "event": { "id": "session-a", "kind": "running", "status": "completed", "endedAtMS": 4000 }, "availableVariants": ["towel"], "expected": { "phase": "offered", "reason": "completionObserved", "eventID": "session-a" } }
+      ]
+    }
+  ]
+}

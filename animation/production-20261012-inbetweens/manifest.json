@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "batch": "20261012-inbetweens",
+  "artApproval": false,
+  "scope": "依每段實際需求補原畫過渡；成功新來源獨立候選，保留既有38候選408播放位置，不更動主素材。",
+  "runtimeNotes": [
+    "新來源須fresh輪廓與人体尺規，不套舊SHA坐標。",
+    "固定整段倍率，全來源/四版式真頁核安全；正常1×只代表當次瀏覽器呈現。"
+  ],
+  "sources": [
+    {
+      "id": "pillow-pajama-inbetweens-20261012",
+      "title": "花花睡衣・抱枕回落12格",
+      "source": "animation/pillow-pajama-v2/atlas-generated.png",
+      "sha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+      "columns": 4,
+      "rows": 3,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "durationsMs": [
+        420,
+        160,
+        180,
+        180,
+        180,
+        360,
+        180,
+        160,
+        160,
+        160,
+        180,
+        450
+      ],
+      "frameLabels": [
+        "胸前抱枕",
+        "轉頭抬枕",
+        "枕頭靠近",
+        "貼近臉旁",
+        "閉眼依偎",
+        "抱枕停留",
+        "重新睜眼",
+        "枕頭離臉",
+        "斜向下降",
+        "轉回橫抱",
+        "回正休息",
+        "抱枕收尾"
+      ],
+      "status": "candidate-ready",
+      "scenes": [
+        "sleeping",
+        "awake"
+      ],
+      "collectionTags": [
+        "playful"
+      ],
+      "comparisonClipId": "pillow-pajama-first-20261012",
+      "newOutfit": false,
+      "variantGroup": "lime-flower-pajamas-mint-pillow",
+      "pose": "standing-pillow-hug-inbetweens",
+      "description": "沿用花花睡衣造型的12張新原畫，補入枕頭離臉、斜向下降及回橫抱姿勢，保留原8格比較。第1→2起手角度仍大，第5/6均閉眼且相近，第10→11回正看前仍待正常速度審阅；增加格數不代表動作已完成。首末真臉約+0.98%、眼距與眼足距0%，全段固定倍率，遮擋及閉眼尺規保留未知。",
+      "bodyQC": "animation/production-20261012-inbetweens/pillow-pajama-v2-body-qc.json",
+      "visualReview": {
+        "sourceViewed": true,
+        "blackWhiteViewed": true,
+        "alignmentReviewed": true,
+        "findings": [
+          {
+            "sourceFrames": [
+              1,
+              2
+            ],
+            "message": "轉頭與抬枕同時發生，起手角度仍較大，待正常速度覆核。"
+          },
+          {
+            "sourceFrames": [
+              5,
+              6
+            ],
+            "message": "兩格均閉眼暖粉眼皮、姿勢相近；不是新眨眼循環。"
+          },
+          {
+            "sourceFrames": [
+              8,
+              9,
+              10,
+              11
+            ],
+            "message": "確有枕頭離臉、下降與斜轉橫放的新增原畫；10→11回正仍需審，不宣稱全段順滑。"
+          },
+          {
+            "sourceFrames": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "message": "閉眼或枕頭遮右眼時保留未知，沒有借舊來源尺規。"
+          }
+        ],
+        "alignmentMethod": "逐格實看兩裸腳支撐，枕頭不進足部定位區；沿fresh輪廓的下15%支撐中心作整數平移，保留依偎/轉頭姿態，全段單倍率。"
+      },
+      "fixedSourcePixelToStagePixel": 1.7913831598,
+      "scaleReason": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 102.0,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.7913831598028163,
+        "fixedFactor": 1.7913831598,
+        "actualStagePixels": 182.7210822996,
+        "shortfallPercent": 1.5720758028692217e-10,
+        "sourceSha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+        "canvas": 684,
+        "catalogScale": 1.840904569265625,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      }
+    },
+    {
+      "id": "martial-inbetweens-20261012",
+      "title": "白道服・鞠躬起身10格",
+      "source": "animation/fitness-martial-v2/atlas-generated.png",
+      "sha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+      "columns": 5,
+      "rows": 2,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "durationsMs": [
+        350,
+        160,
+        160,
+        160,
+        330,
+        160,
+        140,
+        140,
+        180,
+        400
+      ],
+      "frameLabels": [
+        "站好準備",
+        "點頭預備",
+        "低身鞠躬",
+        "繼續下俯",
+        "低頭致意",
+        "開始起身",
+        "抬起頭肩",
+        "繼續起身",
+        "回正站好",
+        "收尾休息"
+      ],
+      "status": "candidate-ready",
+      "scenes": [
+        "exercise",
+        "awake"
+      ],
+      "collectionTags": [
+        "fitness"
+      ],
+      "comparisonClipId": "fitness-martial-first-20261012",
+      "newOutfit": false,
+      "variantGroup": "white-martial-black-belt",
+      "pose": "standing-bow-inbetweens",
+      "description": "白道服鞠躬的10張新原畫，補第6格起身姿勢並保留原8格比較。第7/8格仍近似、8→9起直可能仍快，需正常速度審阅；鞠躬投影不能當人物縮小修正。首末真臉+4.09%、眼距+3.33%、眼足距−2.05%，fresh輪廓與人體尺規後採單段固定倍率，未批准美術。",
+      "bodyQC": "animation/production-20261012-inbetweens/fitness-martial-v2-body-qc.json",
+      "visualReview": {
+        "sourceViewed": true,
+        "blackWhiteViewed": true,
+        "alignmentReviewed": true,
+        "findings": [
+          {
+            "sourceFrames": [
+              5,
+              6,
+              7
+            ],
+            "message": "第6格有從最深鞠躬抬起頭肩的實畫姿勢；完整輪廓高度的回升分成38與33來源像素，這只描述姿勢，不當成身形量尺。"
+          },
+          {
+            "sourceFrames": [
+              7,
+              8,
+              9
+            ],
+            "message": "7/8頭肩姿勢仍接近，8→9回正幅度較大，補畫尚未完全解決起身停頓與跳換。"
+          },
+          {
+            "sourceFrames": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "message": "白道服、黑腰帶、紅星與兩裸腳完整；黑白實際合成未見強不透明碎屑，alpha1散點原樣保留。"
+          }
+        ],
+        "alignmentMethod": "10格實看雙裸腳支撐，下15%支撐中心只作整數平移；鞠躬的頭肩下降保持原姿態，不逐格縮放或以軀幹高度自動fit。"
+      },
+      "fixedSourcePixelToStagePixel": 1.8692693841,
+      "scaleReason": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 97.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.8692693841420691,
+        "fixedFactor": 1.8692693841,
+        "actualStagePixels": 182.721082295775,
+        "shortfallPercent": 2.2505663999083936e-09,
+        "sourceSha256": "8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf",
+        "canvas": 700,
+        "catalogScale": 1.9658782585186299,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      }
+    }
+  ]
+}

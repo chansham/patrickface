@@ -1,9 +1,9 @@
 import { STAGE, normalizeClip, sourceRect, destinationRect, validateFrameRegions, frameAt, isIdleClip, IdleScheduler, restoreEvents, bedtimeRemaining, automaticAllowed, reviewKey, cleanReview } from './player-core.js?v=20261006-size2';
 import { newPet, restorePet, dispatch, resolveScene, MOODS } from './pet-core.js?v=20261006-size2';
-import { createExperience } from './experience-ui.js?v=20261008-break1';
+import { createExperience } from './experience-ui.js?v=20261013-aftercare1';
 import { EXPERIENCE_KEY } from './experience-core.js?v=20261008-break1';
 import { createClockRig } from './clock-rig.js?v=20261006-size2';
-import { DEFAULT_LAYOUT, transformRect, applyLayoutDOM } from './layout-core.js?v=20261006-size2';
+import { DEFAULT_LAYOUT, transformRect, applyLayoutDOM } from './layout-core.js?v=20261012-activity1';
 
 const $ = selector => document.querySelector(selector);
 const shell = window.__patrickPreviewShell;
@@ -53,10 +53,14 @@ const catalog = await response.json();
 if (catalog.version !== 1 || !Array.isArray(catalog.clips) || !catalog.clips.length) throw new Error('動作目錄沒有可讀取的 clips');
 const clips = catalog.clips.map(normalizeClip);
 if (new Set(clips.map(clip => clip.id)).size !== clips.length) throw new Error('動作目錄有重複識別碼');
-const candidateFilters = { all: '全部', new: '本批新增', idle: '待機', interaction: '互動', scene: '生活情境' };
+const candidateFilters = { all: '全部', new: '本批新增', fitness: '健身系列', playful: '新參考造型', idle: '待機', interaction: '互動', scene: '生活情境' };
+// Batches added on the same day retain catalog order; names are not timestamps.
 const latestBatch = [...new Set(clips.map(clip => clip.batch).filter(batch => typeof batch === 'string' && batch))]
-  .sort((a, b) => a.localeCompare(b, 'en', { numeric: true })).at(-1);
+  .sort((a, b) => a.slice(0, 8).localeCompare(b.slice(0, 8), 'en', { numeric: true })).at(-1);
 let candidateFilter = 'all', matchingClips = clips;
+// This queue lives only in the candidate page. It never writes companion state
+// or review verdicts; an object identity invalidates every delayed transition.
+let groupRun = null, groupTransition = null;
 function reviewGroup(clip) {
   if (['idle', 'interaction', 'scene'].includes(clip.reviewGroup)) return clip.reviewGroup;
   if (isIdleClip(clip) || ['待機', 'idle'].includes(clip.category)) return 'idle';
@@ -64,6 +68,8 @@ function reviewGroup(clip) {
   return 'scene';
 }
 function matchesCandidate(clip, filter) {
+  if (filter === 'fitness') return clip.batch === '20261012-fitness' || clip.collectionTags?.includes('fitness');
+  if (filter === 'playful') return clip.batch === '20261012-playful' || clip.collectionTags?.includes('playful');
   return filter === 'all' || (filter === 'new' ? Boolean(latestBatch && clip.batch === latestBatch) : reviewGroup(clip) === filter);
 }
 
@@ -156,7 +162,7 @@ if (candidateMode) {
     button.setAttribute('aria-pressed', String(filter === candidateFilter));
     button.addEventListener('click', () => applyCandidateFilter(filter)); $('#candidate-filter-buttons').append(button);
   }
-  $('#candidate-filter-summary').textContent = `全部 ${clips.length} 組。所有分類都手動播一次；待機畫稿不會在這裡自動觸發。`;
+  $('#candidate-filter-summary').textContent = `全部 ${clips.length} 組。可播放單段或連播本組；待機畫稿不會自動觸發。`;
 }
 
 function applyCandidateFilter(filter) {
@@ -170,7 +176,7 @@ function applyCandidateFilter(filter) {
   else if (state.clip) $('#clip-select').value = state.clip.id;
   document.querySelectorAll('[data-candidate-filter]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.candidateFilter === filter)));
   $('#candidate-filter-summary').textContent = matchingClips.length
-    ? `${candidateFilters[filter]} ${matchingClips.length} 組。所有分類都手動播一次；待機畫稿不會在這裡自動觸發。`
+    ? `${candidateFilters[filter]} ${matchingClips.length} 組。可播放單段或連播本組；待機畫稿不會自動觸發。`
     : `${candidateFilters[filter]}目前沒有畫稿，保留正在查看的這一格。其他分類的意見不受影響。`;
   controls();
 }
@@ -212,6 +218,12 @@ function display(index) {
     canvases[i].dataset.frame = String(index); canvases[i].dataset.clip = clip?.id || '';
   }
   shell.report.frames++; shell.report.currentClip = clip?.id; shell.report.currentFrame = index;
+  if (candidateMode && clip) {
+    const comparison = new URL('../size-review/', import.meta.url);
+    comparison.search = new URLSearchParams({ review: 'candidates', left: clip.comparisonClipId || 'yawn', right: clip.id });
+    $('#size-review-link').href = comparison.href;
+    $('#size-review-link').textContent = '這套的大小對照 ↗';
+  }
   $('#frame-count').textContent = clip?.available ? `${String(index + 1).padStart(2, '0')} / ${String(clip.frameCount).padStart(2, '0')}` : '畫稿待補';
   $('#review-frame').textContent = String(index + 1);
   $('#verdict').value = section()?.frames[index] || '';
@@ -233,13 +245,18 @@ function reviewUI() {
 function controls() {
   const available = Boolean(state.clip?.available);
   $('#clip-select').disabled = candidateMode && !matchingClips.length;
-  $('#pause').disabled = !state.playing;
+  $('#pause').disabled = !state.playing && !groupRun;
   for (const id of ['play', 'speed', 'verdict', 'review-note']) $(`#${id}`).disabled = !available;
+  $('#speed').disabled ||= Boolean(groupRun);
+  $('#play-group').hidden = !candidateMode;
+  $('#group-play-status').hidden = !candidateMode;
+  $('#play-group').disabled = !candidateMode || (!groupRun && (blocked() || document.hidden || !matchingClips.some(clip => clip.available)));
+  $('#play-group').textContent = groupRun ? '停止連播' : '連播本組 ↗';
   $('#verdict').disabled ||= state.playing;
   $('#play').textContent = blocked() ? '逐格看動作 →' : state.playing ? '從頭播放 ↗' : experienceUI && !state.reviewing ? '演一下 ↗' : '播放一次 ↗';
   $('#reduced-note').hidden = !blocked();
   $('#resume-idle').hidden = candidateMode || !state.reviewing;
-  $('#play-hint').textContent = candidateMode ? '手動播一次，或點任一格停住比較；播放結束後不循環。'
+  $('#play-hint').textContent = candidateMode ? '連播會以正常 1× 看完目前分類；點畫格、換稿、寫意見或離開頁面便停止。'
     : state.reviewing ? '正在看稿：自動待機已暫停，完成後按「繼續日常陪伴」。' : '每段演完就停。摸摸頭和投餵會優先播放，不排隊補演。';
   $('#face').setAttribute('aria-label', experienceUI && !state.reviewing ? '摸摸頭' : blocked() ? '下一格動作畫稿' : `播放${state.clip?.title || '目前動作'}一次`);
   shell.report.playing = state.playing; shell.report.playKind = state.kind; shell.report.reviewing = state.reviewing;
@@ -253,12 +270,26 @@ function controls() {
   }
   updateIdleStatus();
 }
-function pause() {
+function groupProgress(message) {
+  if (!candidateMode) return;
+  $('#group-play-status').textContent = message;
+  shell.report.groupPlayback = groupRun ? { active: true, completed: groupRun.completed, total: groupRun.clips.length,
+    clipIDs: groupRun.clips.map(clip => clip.id), currentClip: groupRun.clips[groupRun.completed]?.id || null, speed: 1 }
+    : { ...(shell.report.groupPlayback || {}), active: false };
+}
+function cancelGroup() {
+  if (!groupRun) return;
+  const run = groupRun; groupRun = null; clearTimeout(groupTransition); groupTransition = null;
+  shell.report.groupPlayback = { active: false, completed: run.completed, total: run.clips.length, cancelled: true };
+  groupProgress(`連播已停止 · 已看 ${run.completed} / ${run.clips.length} 組。`);
+}
+function pause({ preserveGroup = false } = {}) {
+  if (!preserveGroup) cancelGroup();
   state.playing = false; state.kind = null; cancelAnimationFrame(state.raf); state.raf = null; idle.reset(); controls();
 }
 function holdReview() { pause(); state.reviewing = true; idle.reset(); controls(); }
-function selectClip(clip, reviewMode = false) {
-  pause(); if (reviewMode) state.reviewing = true;
+function selectClip(clip, reviewMode = false, preserveGroup = false) {
+  pause({ preserveGroup }); if (reviewMode) state.reviewing = true;
   state.clip = clip; state.elapsed = 0;
   $('#clip-select').value = clip.id; $('#clip-title').textContent = clip.title;
   $('#clip-state').textContent = experienceUI ? `${sceneNames[experienceUI.resolvedScene()] || '日常'}陪伴` : clip.available ? `${clip.frameCount} 格 · ${clip.renderCanvas ? '輪廓分離・固定落位' : candidateMode ? '待修候選' : isIdleClip(clip) ? '待機動作' : '單次情境'}` : clip.loadError ? '載入失敗' : '畫稿待補';
@@ -293,24 +324,57 @@ function tick(now) {
   if (document.hidden || blocked()) { pause(); return; }
   try {
     const clip = state.clip;
-    const speed = state.kind === 'review' ? Number($('#speed').value) : 1;
+    const speed = groupRun ? 1 : state.kind === 'review' ? Number($('#speed').value) : 1;
     state.elapsed = Math.min(clip.totalMs, state.elapsed + Math.max(0, now - state.last) * speed); state.last = now;
     const index = frameAt(clip, state.elapsed); if (index !== state.frame) display(index);
     $('#progress').value = state.elapsed / clip.totalMs;
     if (state.elapsed >= clip.totalMs) {
-      display(clip.frameCount - 1); pause(); $('#status').textContent = `${clip.title}演完了，安靜歇一下。`; return;
+      display(clip.frameCount - 1);
+      const run = groupRun;
+      pause({ preserveGroup: Boolean(run) });
+      $('#status').textContent = `${clip.title}演完了，安靜歇一下。`;
+      if (run) finishGroupClip(run);
+      return;
     }
     state.raf = requestAnimationFrame(tick);
   } catch (error) { pause(); shell.fail(error); }
 }
-function playClip(clip, kind = 'interaction') {
+function playClip(clip, kind = 'interaction', preserveGroup = false) {
   if (candidateMode && kind !== 'review') return false;
   if (!clip?.available || document.hidden || shell.report.status !== 'ready') return false;
   if (blocked()) {
     selectClip(clip, true); selectFrame(Math.min(1, clip.frameCount - 1)); return false;
   }
-  selectClip(clip, kind === 'review'); state.elapsed = 0; state.playing = true; state.kind = kind;
+  selectClip(clip, kind === 'review', preserveGroup); state.elapsed = 0; state.playing = true; state.kind = kind;
   state.last = performance.now(); idle.reset(); controls(); state.raf = requestAnimationFrame(tick); return true;
+}
+function playGroupClip(run) {
+  if (run !== groupRun) return;
+  groupTransition = null;
+  if (document.hidden || blocked() || !playClip(run.clips[run.completed], 'review', true)) { pause(); return; }
+  groupProgress(`連播 ${candidateFilters[run.filter]} · 第 ${run.completed + 1} / ${run.clips.length} 組 · 正常 1×${run.skipped ? `（${run.skipped} 組未載入，已略過）` : ''}`);
+}
+function finishGroupClip(run) {
+  if (run !== groupRun) return;
+  run.completed++;
+  if (run.completed >= run.clips.length) {
+    groupRun = null;
+    shell.report.groupPlayback = { active: false, completed: run.completed, total: run.clips.length, cancelled: false };
+    groupProgress(`已看 ${run.completed} 組 · 本組連播完成${run.skipped ? `；另有 ${run.skipped} 組未載入` : ''}。`);
+    controls(); return;
+  }
+  groupProgress(`已看 ${run.completed} / ${run.clips.length} 組 · 稍停後繼續，按暫停即可停止。`);
+  groupTransition = setTimeout(() => playGroupClip(run), 350);
+}
+function startGroup() {
+  if (!candidateMode) return;
+  if (groupRun) { holdReview(); return; }
+  if (document.hidden || blocked() || shell.report.status !== 'ready') return;
+  const available = matchingClips.filter(clip => clip.available);
+  if (!available.length) return;
+  holdReview(); $('#speed').value = '1';
+  groupRun = { clips: available.slice(), filter: candidateFilter, completed: 0, skipped: matchingClips.length - available.length };
+  playGroupClip(groupRun);
 }
 function playSelected() {
   if (!state.clip?.available) return;
@@ -393,6 +457,7 @@ $('#face').addEventListener('keydown', event => {
   if (['ArrowLeft', 'ArrowRight'].includes(event.key)) { event.preventDefault(); selectFrame(state.frame + (event.key === 'ArrowRight' ? 1 : -1)); }
 });
 $('#pause').addEventListener('click', holdReview);
+$('#play-group').addEventListener('click', startGroup);
 $('#previous-frame').addEventListener('click', () => selectFrame(state.frame - 1));
 $('#next-frame').addEventListener('click', () => selectFrame(state.frame + 1));
 $('#speed').addEventListener('change', holdReview);

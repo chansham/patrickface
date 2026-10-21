@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "newOutfits": 1,
+  "revisedClips": 1,
+  "newSourceFrames": 20,
+  "candidateCount": 26,
+  "candidateFrames": 308,
+  "mainCatalogSha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+  "clips": [
+    {
+      "id": "raincoat-smooth-20261012",
+      "title": "雨衣・站姿抬手過渡修訂",
+      "category": "修訂稿待審",
+      "version": 1,
+      "batch": "20261012-wardrobe",
+      "reviewGroup": "scene",
+      "atlas": "animation/raincoat-v3/atlas-generated.png",
+      "width": 1086,
+      "height": 1448,
+      "columns": 3,
+      "rows": 4,
+      "frameCount": 12,
+      "frameIndices": [
+        0,
+        1,
+        3,
+        4,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "durationsMs": [
+        650,
+        300,
+        180,
+        180,
+        180,
+        260,
+        320,
+        180,
+        180,
+        180,
+        130,
+        700
+      ],
+      "sha256": "e3fdb977617c6a73718a6bb12b31d27be1e1a737a5ccba4304c39417d2ff2e74",
+      "anchorNormalized": [
+        0.5,
+        0.8792372881355932
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.2345388986013985,
+      "status": "quality-revision-required",
+      "scenes": [
+        "awake"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "保留站姿雨衣，新增腰前、胸口與收手姿勢。12原畫重排讓抬手較連續；眼神與嘴部仍有跳換，首末臉寬約差2.6%，仍待審。",
+      "frameLabels": [
+        "站姿休息",
+        "抬眼看傘",
+        "手到腰前",
+        "抬至胸口",
+        "抬至肩側",
+        "举手看天",
+        "攤手笑",
+        "開始收手",
+        "收至胸前",
+        "收至腰前",
+        "半睜眼收回",
+        "回到微笑"
+      ],
+      "frameRegions": {
+        "path": "animation/raincoat-v3/regions-v1.json",
+        "sha256": "8eeb5a8722d024941f54cf801333418d99f8eb67af2ac6c9e6d5c17d8273fb71",
+        "version": 1
+      },
+      "renderingRevision": "wardrobe-20261012-v1",
+      "comparisonClipId": "raincoat-first-20261012",
+      "artApproved": false,
+      "variantGroup": "yellow-raincoat-blue-umbrella",
+      "pose": "standing",
+      "newOutfit": false,
+      "designFeedback": "延續使用者喜歡的站姿造型；新增動作畫稿未經逐格批准。",
+      "scaleProvenance": {
+        "method": "match-prior-standing-first-visible-face-caliper",
+        "referenceCandidate": "raincoat-first-20261012",
+        "referenceSourceSHA": "755d73b3e23149a1c82498f9103be1b7a3f80b42214a70890b7d44d08181f42b",
+        "referenceFirstFaceWidthSource": 95.75,
+        "referenceSourcePixelToStagePixel": 1.4000000000000001,
+        "newFirstFaceWidthSource": 77.0,
+        "sourcePixelToStagePixel": 1.740909090909091,
+        "catalogScale": 1.2345388986013985,
+        "canvas": 472,
+        "perFrameScale": false,
+        "note": "只將新段首格臉截線與既有站姿對齊；其餘各格保持同倍率，原畫尺寸變化仍保留。雨傘外框不是人體尺規。"
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-wardrobe/raincoat-v3-qc.json",
+        "bodyQC": "animation/production-20261012-wardrobe/raincoat-v3-body-qc.json",
+        "repairReferenceCandidate": "raincoat-first-20261012",
+        "sourceFrameCount": 12,
+        "reorderingIsNotRedrawing": true
+      }
+    },
+    {
+      "id": "sport-towel-first-20261012",
+      "title": "運動背心・毛巾擦汗",
+      "category": "新造型待審",
+      "version": 1,
+      "batch": "20261012-wardrobe",
+      "reviewGroup": "scene",
+      "atlas": "animation/sport-towel-v2/atlas-generated.png",
+      "width": 1536,
+      "height": 1024,
+      "columns": 4,
+      "rows": 2,
+      "frameCount": 8,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "durationsMs": [
+        650,
+        250,
+        200,
+        180,
+        320,
+        200,
+        230,
+        700
+      ],
+      "sha256": "01e212bf5c64471fec5f6c836e88e54406803562da0f8e2a0eea4a2e9d1abead",
+      "anchorNormalized": [
+        0.5,
+        0.8801369863013698
+      ],
+      "masterId": "patrick-candidate-review-v1",
+      "scale": 1.1844951923076925,
+      "status": "quality-revision-required",
+      "scenes": [
+        "exercise"
+      ],
+      "triggerKinds": [
+        "manual-review"
+      ],
+      "description": "新運動背心、髮帶與白毛巾。粉眼皮已修；8格仍有抬手／降毛巾跳換，身形比雨衣高瘦，首疲憊末微笑，尚待動作與比例修訂。",
+      "frameLabels": [
+        "運動後喘氣",
+        "拿起毛巾",
+        "抬到臉旁",
+        "輕擦臉頰",
+        "閉眼擦汗",
+        "睜眼停留",
+        "毛巾降到胸前",
+        "微笑放手"
+      ],
+      "frameRegions": {
+        "path": "animation/sport-towel-v2/regions-v1.json",
+        "sha256": "87be718d717990969317c3b6ff964161c9ce3709c0fdb76d56bdf221cf1d787e",
+        "version": 1
+      },
+      "renderingRevision": "wardrobe-20261012-v1",
+      "comparisonClipId": "exercise",
+      "artApproved": false,
+      "variantGroup": "teal-sport-orange-headband-white-towel",
+      "pose": "standing",
+      "newOutfit": true,
+      "designFeedback": "新穿搭探索；色彩修訂沿用同一套衣服，不將中間紫眼皮稿另算新造型。",
+      "scaleProvenance": {
+        "method": "fixed-whole-clip-factor-with-visible-face-and-four-layout-safety-review",
+        "newFirstFaceWidthSource": 105.75,
+        "sourcePixelToStagePixel": 1.35,
+        "catalogScale": 1.1844951923076925,
+        "canvas": 584,
+        "perFrameScale": false,
+        "note": "以可見臉截線核對，整段固定1.35來源像素／舞台像素換算。高瘦比例差保留為待修，不用毛巾或全身外框冒充人體一致。"
+      },
+      "reviewProvenance": {
+        "qc": "animation/production-20261012-wardrobe/sport-towel-v2-qc.json",
+        "bodyQC": "animation/production-20261012-wardrobe/sport-towel-v2-body-qc.json",
+        "sourceFrameCount": 8,
+        "intermediateSource": "animation/sport-towel-v1/atlas-generated.png",
+        "intermediateNotCandidate": true
+      }
+    }
+  ]
+}

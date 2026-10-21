@@ -27,8 +27,16 @@ struct PatrickAnimatedFaceView: View {
     @State private var activityMinutes = 5
     @State private var breakMinutes = 3
     @State private var confirmDiscardBreak = false
+    @State private var activityNotice: String?
+    @State private var activityNoticeRevision: UInt64 = 0
+    @State private var aftercare = PatrickAftercarePolicy()
 
     private var monitoring: Bool { visible && scenePhase == .active && !wristDown && !showingActions }
+    // The menu can cover the face and trigger its onDisappear. A text invitation
+    // remains visible there; animation monitoring intentionally stops instead.
+    private var aftercarePresentationActive: Bool {
+        (visible || showingActions) && scenePhase == .active && !wristDown
+    }
 
     private var faceSurface: some View {
         GeometryReader { geometry in
@@ -43,14 +51,14 @@ struct PatrickAnimatedFaceView: View {
                     PatrickSceneAmbience(scene: "bath", motionAllowed: true)
                 }
                 PatrickLayoutFace(player: player, artwork: clockArtwork, experience: model.experience,
-                                  dimmed: wristDown, active: monitoring && !reduceMotion && !lowPower)
+                                  dimmed: wristDown, active: monitoring && !reduceMotion && !lowPower, notice: monitoring ? activityNotice : nil)
                     .frame(width: width, height: height)
                     .contentShape(Rectangle())
                     .onTapGesture { model.performCare(.pet) }
                     .onLongPressGesture(minimumDuration: 0.45) { showingActions = true }
                     .accessibilityLabel("摸摸派大星")
                     .accessibilityAddTraits(.isButton)
-                if PatrickFaceLayoutSpec.presentationID(model.experience.settings) != "theater" {
+                if !["theater", "activity"].contains(PatrickFaceLayoutSpec.presentationID(model.experience.settings)) {
                 Text("\(model.experience.settings.mood.title) · \(player.isPlaying && surpriseExpiresAt == nil ? player.message : model.careNotice)")
                     .font(.system(size: max(8, width * 0.04)))
                     .foregroundStyle(.secondary)
@@ -65,12 +73,31 @@ struct PatrickAnimatedFaceView: View {
                     }
                     .buttonStyle(.plain)
                     .accessibilityLabel("動作選單")
-                    .position(x: width * 0.9, y: height * 0.945)
+                    .position(x: width * 0.9, y: height * (PatrickFaceLayoutSpec.presentationID(model.experience.settings) == "activity" ? 0.11 : 0.945))
                 }
             }
             .frame(width: width, height: height)
             .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
             .contentShape(Rectangle())
+            .onReceive(model.$careNotice.dropFirst()) { value in
+                // Published also emits identical strings (cooldown or capped bond).
+                // Skip the subscription's old value; each fresh emission restarts its own expiry.
+                guard monitoring && PatrickFaceLayoutSpec.presentationID(model.experience.settings) == "activity" else { return }
+                activityNotice = value
+                activityNoticeRevision &+= 1
+            }
+            .onChange(of: monitoring) { _, isMonitoring in
+                if !isMonitoring {
+                    activityNotice = nil
+                    activityNoticeRevision &+= 1
+                }
+            }
+            .task(id: activityNoticeRevision) {
+                guard activityNotice != nil else { return }
+                do { try await Task.sleep(for: .seconds(3)) } catch { return }
+                guard !Task.isCancelled else { return }
+                activityNotice = nil
+            }
             .accessibilityAction(named: Text("摸摸派大星")) { model.performCare(.pet) }
             .accessibilityAction(named: Text("餵一口")) { model.performCare(.feed) }
             #if DEBUG && targetEnvironment(simulator)
@@ -104,6 +131,11 @@ struct PatrickAnimatedFaceView: View {
         }
         .onDisappear {
             visible = false
+            if !showingActions {
+                aftercare.updateVisibility(active: false, nowMS: Date.now.timeIntervalSince1970 * 1000)
+            }
+            activityNotice = nil
+            activityNoticeRevision &+= 1
             model.setAutomationPresentationActive(false)
             _ = completionVisibility.update(allowsMotion: false)
             surpriseExpiresAt = nil
@@ -255,6 +287,15 @@ struct PatrickAnimatedFaceView: View {
                 .confirmationDialog("放棄保存的原活動？當前休息計時會保留。", isPresented: $confirmDiscardBreak, titleVisibility: .visible) {
                     Button("放棄原活動", role: .destructive) { model.manageBreak(.discardSaved) }
                 }
+                if aftercare.state.phase == .offered {
+                    Section("運動後陪你") {
+                        Text("剛完成\(PatrickActivityKind(rawValue: aftercare.state.kind ?? "")?.title ?? "運動陪伴")，想再休息一下嗎？")
+                        Button("休息 1 分鐘") { startAftercareRest() }
+                        Button("先不用") { aftercare.dismiss() }
+                        Text("這是陪伴倒數；不代表健身訓練紀錄或身體恢復判斷。")
+                            .font(.footnote).foregroundStyle(.secondary)
+                    }
+                }
                 Section("這套造型的動作") {
                     ForEach(availableOutfitClips) { actionButton($0) }
                     if availableOutfitClips.isEmpty { Text("這套造型暫無其他動作") }
@@ -296,6 +337,15 @@ struct PatrickAnimatedFaceView: View {
                 }
             }
             .navigationTitle("陪你一下")
+            .task {
+                // The face's five-second monitor stops while this sheet is open.
+                // Only expire the invitation here; do not poll health or reconcile
+                // timers in a second loop, and never open this sheet automatically.
+                while !Task.isCancelled && showingActions {
+                    refreshAftercare()
+                    do { try await Task.sleep(for: .seconds(1)) } catch { return }
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("完成") { showingActions = false }
@@ -393,9 +443,61 @@ struct PatrickAnimatedFaceView: View {
         }
     }
 
+    private func refreshAftercare(at date: Date = .now) {
+        let nowMS = date.timeIntervalSince1970 * 1000
+        aftercare.updateVisibility(active: aftercarePresentationActive,
+            lowPower: lowPower, reduceMotion: reduceMotion, nowMS: nowMS)
+        aftercare.tick(nowMS: nowMS)
+        guard let activity = model.experience.activity else {
+            // Clearing the local countdown also clears any invitation it owned.
+            aftercare.updateVisibility(active: false, nowMS: nowMS)
+            return
+        }
+        if (aftercare.state.phase == .offered || aftercare.state.phase == .playing),
+           aftercare.state.eventID != activity.id.uuidString {
+            aftercare.dismiss()
+        }
+        if activity.status == .running {
+            // Opening the app after a deadline must not manufacture a prior
+            // foreground observation. Reconciliation owns the completed state.
+            guard let end = activity.endsAt, end > date else { return }
+            aftercare.observeActivity(id: activity.id.uuidString,
+                kind: activity.kind.rawValue, status: activity.status.rawValue, nowMS: nowMS)
+        } else if activity.status == .completed, let endedAtMS = activity.endsAtMS {
+            aftercare.receiveCompletion(PatrickAftercareCompletion(id: activity.id.uuidString,
+                kind: activity.kind.rawValue, status: activity.status.rawValue, endedAtMS: endedAtMS),
+                nowMS: nowMS, availableVariants: ["rest"])
+        } else {
+            // Paused/cancelled state interrupts an observed countdown. No journal
+            // text, remote timer or manually selected scene acts as a completion.
+            aftercare.observeActivity(id: activity.id.uuidString,
+                kind: activity.kind.rawValue, status: activity.status.rawValue, nowMS: nowMS)
+        }
+    }
+
+    private func startAftercareRest() {
+        let date = Date.now
+        refreshAftercare(at: date)
+        guard aftercare.state.phase == .offered else { return }
+        aftercare.choose("rest", nowMS: date.timeIntervalSince1970 * 1000)
+        guard aftercare.state.phase == .playing else { return }
+        // Existing start guards preserve a newer/paused activity or saved break.
+        guard model.startActivity(.breathing, minutes: 1) else {
+            aftercare.dismiss()
+            return
+        }
+        // "Finished" means the invitation handed off to the existing timer,
+        // not that the user finished resting or watched an unapproved animation.
+        aftercare.finish(nowMS: Date.now.timeIntervalSince1970 * 1000)
+        showingActions = false
+    }
+
     private func refreshContext(at date: Date = .now) {
         let device = WKInterfaceDevice.current()
         device.isBatteryMonitoringEnabled = visible && scenePhase != .background
+        // Device readings only: preview charging and chosen scenes are never
+        // reported to the phone as real battery observations.
+        PatrickWatchReceiver.shared.observeBattery(foreground: monitoring, at: date)
         lowPower = ProcessInfo.processInfo.isLowPowerModeEnabled
         let allowsMotion = monitoring && !reduceMotion && !lowPower
         model.setAutomationPresentationActive(allowsMotion, at: date)
@@ -405,6 +507,7 @@ struct PatrickAnimatedFaceView: View {
             // Birthday/holiday entry remains a separate, visible-date decision.
             model.refreshExperience(at: date, allowEffects: false, observeCalendar: false)
         }
+        refreshAftercare(at: date)
         let charging = device.batteryState == .charging || device.batteryState == .full
             || model.previewState == .charging
         let automaticSleeping = model.experience.settings.isSleepTime(date) || model.previewState == .sleeping

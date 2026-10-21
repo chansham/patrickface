@@ -1,0 +1,305 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "pillow-pajama-first-20261012",
+  "source": {
+    "path": "animation/pillow-pajama-v1/atlas-generated.png",
+    "sha256": "276a8578269ef27311572ab7fbc8eb7950636da4e3822bfe4d90914bf61d2106",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/pillow-pajama-v1/regions-v1.json",
+    "sha256": "0ea6c2cd665df5e1647134bd1e61be032099109e815679e7db67ac5865ad8d05"
+  },
+  "canvas": {
+    "width": 564,
+    "height": 564,
+    "anchorPixels": [
+      282,
+      496
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8794326241134752
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 8,
+  "coverage": {
+    "assignedPixels": 766495,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 806369,
+    "alphaOnePixels": 17367,
+    "edgeNonzeroPixels": 1,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 1,
+    "detachedComponents": 506
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        38,
+        11,
+        364,
+        487
+      ],
+      "coreBounds": [
+        42,
+        15,
+        353,
+        494
+      ],
+      "anchorSource": [
+        197,
+        494
+      ],
+      "translation": [
+        85,
+        2
+      ],
+      "placement": [
+        123,
+        13
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        393,
+        19,
+        407,
+        478
+      ],
+      "coreBounds": [
+        429,
+        30,
+        760,
+        494
+      ],
+      "anchorSource": [
+        578,
+        494
+      ],
+      "translation": [
+        -296,
+        2
+      ],
+      "placement": [
+        97,
+        21
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        793,
+        24,
+        377,
+        524
+      ],
+      "coreBounds": [
+        841,
+        28,
+        1136,
+        494
+      ],
+      "anchorSource": [
+        977,
+        494
+      ],
+      "translation": [
+        -695,
+        2
+      ],
+      "placement": [
+        98,
+        26
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1173,
+        18,
+        335,
+        510
+      ],
+      "coreBounds": [
+        1215,
+        21,
+        1489,
+        494
+      ],
+      "anchorSource": [
+        1345,
+        494
+      ],
+      "translation": [
+        -1063,
+        2
+      ],
+      "placement": [
+        110,
+        20
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        0,
+        527,
+        384,
+        497
+      ],
+      "coreBounds": [
+        59,
+        530,
+        346,
+        991
+      ],
+      "anchorSource": [
+        193,
+        991
+      ],
+      "translation": [
+        89,
+        -495
+      ],
+      "placement": [
+        89,
+        32
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        397,
+        522,
+        385,
+        472
+      ],
+      "coreBounds": [
+        451,
+        525,
+        730,
+        992
+      ],
+      "anchorSource": [
+        582,
+        992
+      ],
+      "translation": [
+        -300,
+        -496
+      ],
+      "placement": [
+        97,
+        26
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        801,
+        525,
+        359,
+        471
+      ],
+      "coreBounds": [
+        817,
+        529,
+        1126,
+        993
+      ],
+      "anchorSource": [
+        969,
+        993
+      ],
+      "translation": [
+        -687,
+        -497
+      ],
+      "placement": [
+        114,
+        28
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1163,
+        521,
+        357,
+        475
+      ],
+      "coreBounds": [
+        1198,
+        524,
+        1505,
+        993
+      ],
+      "anchorSource": [
+        1352,
+        993
+      ],
+      "translation": [
+        -1070,
+        -497
+      ],
+      "placement": [
+        93,
+        24
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "findings": [
+      {
+        "sourceFrames": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "message": "側臉與枕頭遮擋不能硬補人體尺規；第5格閉眼暖粉，眼尺規未知。"
+      },
+      {
+        "sourceFrames": [
+          6,
+          7
+        ],
+        "message": "直立抱枕回橫抱角度跳換，需要補原畫過渡。"
+      },
+      {
+        "sourceFrames": [
+          1,
+          7,
+          8
+        ],
+        "message": "首末臉寬+1.46%、眼距0%、眼足距−1.21%，沒有明顯縮身；頭帽與表情細節仍需審，不以逐格縮放修補。"
+      }
+    ],
+    "alignmentMethod": "8格雙裸腳可見且枕頭不進足部支撐區；保留下15%支撐中心與逐格整數平移。側身/依偎姿勢保留，全段單倍率，不用枕頭外框推人體大小。"
+  },
+  "bodyMeasurementReport": "animation/production-20261012-playful/pillow-pajama-v1-body-qc.json",
+  "status": "candidate-ready"
+}

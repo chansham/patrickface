@@ -1,0 +1,424 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "pillow-pajama-inbetweens-20261012",
+  "source": {
+    "path": "animation/pillow-pajama-v2/atlas-generated.png",
+    "sha256": "4dc581942e7a17dc8014a9d3fbe9a1b66a948a2244ece3d94bad403ff707ae66",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/pillow-pajama-v2/regions-v1.json",
+    "sha256": "e5055e4775c25e6364477cde360157ab835e0bdfd5ce0c10bbf8a69a9cdc9ed0"
+  },
+  "canvas": {
+    "width": 684,
+    "height": 684,
+    "anchorPixels": [
+      342,
+      602
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8801169590643275
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 12,
+  "coverage": {
+    "assignedPixels": 611074,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 961790,
+    "alphaOnePixels": 30372,
+    "edgeNonzeroPixels": 10,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 1,
+    "detachedComponents": 2366
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        35,
+        1,
+        361,
+        373
+      ],
+      "coreBounds": [
+        94,
+        10,
+        316,
+        336
+      ],
+      "anchorSource": [
+        205,
+        336
+      ],
+      "translation": [
+        137,
+        266
+      ],
+      "placement": [
+        172,
+        267
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        397,
+        10,
+        387,
+        347
+      ],
+      "coreBounds": [
+        480,
+        15,
+        711,
+        336
+      ],
+      "anchorSource": [
+        577,
+        336
+      ],
+      "translation": [
+        -235,
+        266
+      ],
+      "placement": [
+        162,
+        276
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        785,
+        13,
+        379,
+        331
+      ],
+      "coreBounds": [
+        864,
+        16,
+        1082,
+        336
+      ],
+      "anchorSource": [
+        960,
+        336
+      ],
+      "translation": [
+        -618,
+        266
+      ],
+      "placement": [
+        167,
+        279
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1165,
+        6,
+        353,
+        376
+      ],
+      "coreBounds": [
+        1245,
+        12,
+        1450,
+        336
+      ],
+      "anchorSource": [
+        1338,
+        336
+      ],
+      "translation": [
+        -996,
+        266
+      ],
+      "placement": [
+        169,
+        272
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        31,
+        349,
+        366,
+        377
+      ],
+      "coreBounds": [
+        97,
+        352,
+        307,
+        679
+      ],
+      "anchorSource": [
+        194,
+        679
+      ],
+      "translation": [
+        148,
+        -77
+      ],
+      "placement": [
+        179,
+        272
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        399,
+        349,
+        375,
+        381
+      ],
+      "coreBounds": [
+        485,
+        352,
+        698,
+        679
+      ],
+      "anchorSource": [
+        583,
+        679
+      ],
+      "translation": [
+        -241,
+        -77
+      ],
+      "placement": [
+        158,
+        272
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        775,
+        350,
+        392,
+        365
+      ],
+      "coreBounds": [
+        868,
+        353,
+        1080,
+        679
+      ],
+      "anchorSource": [
+        965,
+        679
+      ],
+      "translation": [
+        -623,
+        -77
+      ],
+      "placement": [
+        152,
+        273
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1161,
+        350,
+        361,
+        399
+      ],
+      "coreBounds": [
+        1247,
+        353,
+        1467,
+        679
+      ],
+      "anchorSource": [
+        1344,
+        679
+      ],
+      "translation": [
+        -1002,
+        -77
+      ],
+      "placement": [
+        159,
+        273
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 9,
+      "sourceBounds": [
+        49,
+        683,
+        353,
+        341
+      ],
+      "coreBounds": [
+        107,
+        689,
+        317,
+        1011
+      ],
+      "anchorSource": [
+        200,
+        1011
+      ],
+      "translation": [
+        142,
+        -409
+      ],
+      "placement": [
+        191,
+        274
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 10,
+      "sourceBounds": [
+        399,
+        685,
+        381,
+        329
+      ],
+      "coreBounds": [
+        488,
+        692,
+        710,
+        1012
+      ],
+      "anchorSource": [
+        584,
+        1012
+      ],
+      "translation": [
+        -242,
+        -410
+      ],
+      "placement": [
+        157,
+        275
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 11,
+      "sourceBounds": [
+        785,
+        683,
+        375,
+        341
+      ],
+      "coreBounds": [
+        858,
+        689,
+        1081,
+        1012
+      ],
+      "anchorSource": [
+        970,
+        1012
+      ],
+      "translation": [
+        -628,
+        -410
+      ],
+      "placement": [
+        157,
+        273
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 12,
+      "sourceBounds": [
+        1161,
+        684,
+        359,
+        331
+      ],
+      "coreBounds": [
+        1239,
+        689,
+        1463,
+        1011
+      ],
+      "anchorSource": [
+        1350,
+        1011
+      ],
+      "translation": [
+        -1008,
+        -409
+      ],
+      "placement": [
+        153,
+        275
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "findings": [
+      {
+        "sourceFrames": [
+          1,
+          2
+        ],
+        "message": "轉頭與抬枕同時發生，起手角度仍較大，待正常速度覆核。"
+      },
+      {
+        "sourceFrames": [
+          5,
+          6
+        ],
+        "message": "兩格均閉眼暖粉眼皮、姿勢相近；不是新眨眼循環。"
+      },
+      {
+        "sourceFrames": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "message": "確有枕頭離臉、下降與斜轉橫放的新增原畫；10→11回正仍需審，不宣稱全段順滑。"
+      },
+      {
+        "sourceFrames": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "message": "閉眼或枕頭遮右眼時保留未知，沒有借舊來源尺規。"
+      }
+    ],
+    "alignmentMethod": "逐格實看兩裸腳支撐，枕頭不進足部定位區；沿fresh輪廓的下15%支撐中心作整數平移，保留依偎/轉頭姿態，全段單倍率。"
+  },
+  "bodyMeasurementReport": "animation/production-20261012-inbetweens/pillow-pajama-v2-body-qc.json",
+  "status": "candidate-ready"
+}

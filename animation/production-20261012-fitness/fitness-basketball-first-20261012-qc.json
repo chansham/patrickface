@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "fitness-basketball-first-20261012",
+  "source": {
+    "path": "animation/fitness-basketball-v1/atlas-generated.png",
+    "sha256": "45e47bc3a104aa6bc6459fdcbb66c37b4472875abff80a44d27bf03d31793721",
+    "width": 1774,
+    "height": 887
+  },
+  "regions": {
+    "path": "animation/fitness-basketball-v1/regions-v1.json",
+    "sha256": "ecbdd36fc84bb27c2a45b7f3edc7b42ba1f764faf5df6dfceac819355b21b86d"
+  },
+  "canvas": {
+    "width": 1052,
+    "height": 1052,
+    "anchorPixels": [
+      526,
+      926
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8802281368821293
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 8,
+  "coverage": {
+    "assignedPixels": 501608,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 1071930,
+    "alphaOnePixels": 66312,
+    "edgeNonzeroPixels": 0,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 0,
+    "detachedComponents": 3782
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        29,
+        21,
+        423,
+        481
+      ],
+      "coreBounds": [
+        126,
+        39,
+        344,
+        408
+      ],
+      "anchorSource": [
+        236,
+        408
+      ],
+      "translation": [
+        290,
+        518
+      ],
+      "placement": [
+        319,
+        539
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        465,
+        15,
+        420,
+        507
+      ],
+      "coreBounds": [
+        557,
+        38,
+        782,
+        408
+      ],
+      "anchorSource": [
+        670,
+        408
+      ],
+      "translation": [
+        -144,
+        518
+      ],
+      "placement": [
+        321,
+        533
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        886,
+        29,
+        424,
+        481
+      ],
+      "coreBounds": [
+        987,
+        37,
+        1216,
+        408
+      ],
+      "anchorSource": [
+        1103,
+        408
+      ],
+      "translation": [
+        -577,
+        518
+      ],
+      "placement": [
+        309,
+        547
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1315,
+        20,
+        435,
+        466
+      ],
+      "coreBounds": [
+        1412,
+        38,
+        1656,
+        408
+      ],
+      "anchorSource": [
+        1536,
+        408
+      ],
+      "translation": [
+        -1010,
+        518
+      ],
+      "placement": [
+        305,
+        538
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        27,
+        444,
+        427,
+        409
+      ],
+      "coreBounds": [
+        113,
+        473,
+        361,
+        845
+      ],
+      "anchorSource": [
+        238,
+        845
+      ],
+      "translation": [
+        288,
+        81
+      ],
+      "placement": [
+        315,
+        525
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        459,
+        453,
+        428,
+        398
+      ],
+      "coreBounds": [
+        546,
+        474,
+        794,
+        845
+      ],
+      "anchorSource": [
+        671,
+        845
+      ],
+      "translation": [
+        -145,
+        81
+      ],
+      "placement": [
+        314,
+        534
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        912,
+        469,
+        409,
+        396
+      ],
+      "coreBounds": [
+        983,
+        472,
+        1220,
+        845
+      ],
+      "anchorSource": [
+        1103,
+        845
+      ],
+      "translation": [
+        -577,
+        81
+      ],
+      "placement": [
+        335,
+        550
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1329,
+        450,
+        415,
+        403
+      ],
+      "coreBounds": [
+        1424,
+        473,
+        1646,
+        845
+      ],
+      "anchorSource": [
+        1536,
+        845
+      ],
+      "translation": [
+        -1010,
+        81
+      ],
+      "placement": [
+        319,
+        531
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": true,
+    "alignmentReviewed": true,
+    "findings": [
+      {
+        "sourceFrames": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "message": "雙手持球接觸可見；球的接縫線條与兩側握持細節有变化。"
+      },
+      {
+        "sourceFrames": [
+          1,
+          8
+        ],
+        "message": "首格平靜末格微笑，非無縫循環；抬球不是運球或投籃。"
+      }
+    ],
+    "alignmentMethod": "8格裸腳均完整；保留default下15%支撐中心與整數平移，全段共用畫布。球、頭盔、帽子、哨聲線不作人體尺度。"
+  },
+  "bodyMeasurementReport": "animation/production-20261012-fitness/fitness-basketball-v1-body-qc.json",
+  "status": "candidate-ready"
+}

@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "candidateID": "fitness-cycling-first-20261012",
+  "source": {
+    "path": "animation/fitness-cycling-v1/atlas-generated.png",
+    "sha256": "0fe9100eef7da6d8767a6efff317cb450e4030ab6bf76ed5c1f7ded6818b3db9",
+    "width": 1536,
+    "height": 1024
+  },
+  "regions": {
+    "path": "animation/fitness-cycling-v1/regions-v1.json",
+    "sha256": "08ba945a522e5608933e7fd67e98a57b40046bbb723dde98f8bf56497681d230"
+  },
+  "canvas": {
+    "width": 548,
+    "height": 548,
+    "anchorPixels": [
+      274,
+      482
+    ],
+    "anchorNormalized": [
+      0.5,
+      0.8795620437956204
+    ]
+  },
+  "sourceUnchanged": true,
+  "sourceFrames": 8,
+  "coverage": {
+    "assignedPixels": 645696,
+    "overlapPixels": 0,
+    "unassignedPixels": 0,
+    "status": "METADATA_VALID_ART_NOT_APPROVED"
+  },
+  "sourceAlpha": {
+    "transparentPixels": 927168,
+    "alphaOnePixels": 27509,
+    "edgeNonzeroPixels": 0,
+    "edgeStrongPixels": 0,
+    "maximumEdgeAlpha": 0,
+    "detachedComponents": 2492
+  },
+  "frames": [
+    {
+      "sourceFrame": 1,
+      "sourceBounds": [
+        29,
+        33,
+        355,
+        493
+      ],
+      "coreBounds": [
+        63,
+        52,
+        326,
+        486
+      ],
+      "anchorSource": [
+        203,
+        486
+      ],
+      "translation": [
+        71,
+        -4
+      ],
+      "placement": [
+        100,
+        29
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 2,
+      "sourceBounds": [
+        347,
+        33,
+        427,
+        489
+      ],
+      "coreBounds": [
+        444,
+        54,
+        703,
+        487
+      ],
+      "anchorSource": [
+        579,
+        487
+      ],
+      "translation": [
+        -305,
+        -5
+      ],
+      "placement": [
+        42,
+        28
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 3,
+      "sourceBounds": [
+        775,
+        19,
+        401,
+        489
+      ],
+      "coreBounds": [
+        838,
+        54,
+        1091,
+        487
+      ],
+      "anchorSource": [
+        972,
+        487
+      ],
+      "translation": [
+        -698,
+        -5
+      ],
+      "placement": [
+        77,
+        14
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 4,
+      "sourceBounds": [
+        1149,
+        47,
+        369,
+        465
+      ],
+      "coreBounds": [
+        1224,
+        57,
+        1494,
+        487
+      ],
+      "anchorSource": [
+        1361,
+        487
+      ],
+      "translation": [
+        -1087,
+        -5
+      ],
+      "placement": [
+        62,
+        42
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 5,
+      "sourceBounds": [
+        21,
+        513,
+        363,
+        491
+      ],
+      "coreBounds": [
+        68,
+        540,
+        344,
+        965
+      ],
+      "anchorSource": [
+        208,
+        965
+      ],
+      "translation": [
+        66,
+        -483
+      ],
+      "placement": [
+        87,
+        30
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 6,
+      "sourceBounds": [
+        401,
+        521,
+        373,
+        481
+      ],
+      "coreBounds": [
+        461,
+        541,
+        718,
+        967
+      ],
+      "anchorSource": [
+        591,
+        967
+      ],
+      "translation": [
+        -317,
+        -485
+      ],
+      "placement": [
+        84,
+        36
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 7,
+      "sourceBounds": [
+        785,
+        535,
+        375,
+        461
+      ],
+      "coreBounds": [
+        843,
+        538,
+        1092,
+        967
+      ],
+      "anchorSource": [
+        973,
+        967
+      ],
+      "translation": [
+        -699,
+        -485
+      ],
+      "placement": [
+        86,
+        50
+      ],
+      "alignmentIsAnatomy": false
+    },
+    {
+      "sourceFrame": 8,
+      "sourceBounds": [
+        1161,
+        519,
+        361,
+        489
+      ],
+      "coreBounds": [
+        1224,
+        535,
+        1491,
+        967
+      ],
+      "anchorSource": [
+        1365,
+        967
+      ],
+      "translation": [
+        -1091,
+        -485
+      ],
+      "placement": [
+        70,
+        34
+      ],
+      "alignmentIsAnatomy": false
+    }
+  ],
+  "sourceReview": {
+    "sourceViewed": true,
+    "blackWhiteViewed": false,
+    "alignmentReviewed": false,
+    "findings": [
+      {
+        "sourceFrames": [
+          4,
+          5
+        ],
+        "message": "鏡框先下到眼睛下面再回升，並非順暢戴眼鏡；保留來源瑕疵標記。"
+      },
+      {
+        "sourceFrames": [
+          4,
+          5,
+          6
+        ],
+        "message": "眼睛部分或全部被鏡框遮擋，相關人体尺規不能推估。"
+      },
+      {
+        "sourceFrames": [
+          1,
+          8
+        ],
+        "message": "頭盔與鏡框細節也有變化，未驗收首末無縫。"
+      }
+    ]
+  },
+  "bodyMeasurementReport": "animation/production-20261012-fitness/fitness-cycling-v1-body-qc.json",
+  "status": "source-reviewed-awaiting-body-scale"
+}

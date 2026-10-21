@@ -17,6 +17,10 @@ struct RootView: View {
                     Label("計時", systemImage: "timer")
                 }
 
+            PatrickRoutineHistoryView()
+                .tag(AppModel.Tab.routines)
+                .tabItem { Label("流程", systemImage: "list.bullet.clipboard") }
+
             DiagnosticsView()
                 .tag(AppModel.Tab.status)
                 .tabItem {

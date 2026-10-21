@@ -1,0 +1,35 @@
+{
+  "asset": "fitness-martial-v2",
+  "clipID": "martial-inbetweens-20261012",
+  "newOutfit": false,
+  "source": {"path":"animation/fitness-martial-v2/atlas-generated.png","sha256":"8ba068acc7c9548ef002f29593afffbdc08d4666610e40d46c5f8b11cdfa3bdf","width":1983,"height":793},
+  "regions": {"path":"animation/fitness-martial-v2/regions-v1.json","sha256":"a24c56842ce645dbb987f24ac90b644efc1cdac1328d239aefc51bf41b80e372"},
+  "evidenceColumns":5,
+  "neutralComparisonSourceFrame":1,
+  "neutralComparisonBasis":"來源1中立正面站姿可見真臉與兩裸腳；只與9/10中立站姿及舊v1首末作描述性對照。2–8低頭或起身不視作中立站立身高。",
+  "frames":[
+    {"sourceFrame":1,"eyeROI":[176,103,258,165],"footROI":[144,337,287,389]},
+    {"sourceFrame":2,"eyeROI":[586,126,663,181],"footROI":[548,337,691,389],"faceWidthUnavailableReason":"開始低頭鞠躬，俯视截面不同於中立正臉；不把投影寬度當體型。","measurementCaveat":"半垂粉眼皮上方不算白眼；下緣完整可見。眼足距只量當下低頭姿勢。"},
+    {"sourceFrame":3,"eyeROI":[965,157,1041,208],"footROI":[925,337,1068,389],"faceWidthUnavailableReason":"中度前傾鞠躬，臉部俯視投影不與正臉比寬。","measurementCaveat":"頭肩下降使眼足距變短；不是人物整體縮小。"},
+    {"sourceFrame":4,"eyeROI":[1352,175,1434,223],"footROI":[1311,337,1454,389],"faceWidthUnavailableReason":"深鞠躬，臉型和頭高為俯視投影，完整正臉截面未知。","measurementCaveat":"可見眼白下緣可量，但垂直眼足距是鞠躬姿勢代理。"},
+    {"sourceFrame":5,"eyeUnavailableReason":"最深鞠躬且雙眼完全閉合，没有眼白下緣；暖粉眼皮不作眼睛尺規。","faceReviewROI":[1709,163,1854,283],"footROI":[1700,337,1843,389]},
+    {"sourceFrame":6,"eyeROI":[184,545,261,595],"footROI":[144,705,287,760],"faceWidthUnavailableReason":"新增起身姿勢仍大幅俯身，正臉可比截線未知。","measurementCaveat":"真頭肩由最低點抬起；眼足距增加是起身，不能反向縮小整圖。"},
+    {"sourceFrame":7,"eyeROI":[585,514,664,565],"footROI":[548,705,691,760],"faceWidthUnavailableReason":"中段抬頭起身但仍前傾，投影截面不作中立臉寬。","measurementCaveat":"與第8格頭肩姿勢近似；需要正常速度確認是否提供足夠起身過渡。"},
+    {"sourceFrame":8,"eyeROI":[962,513,1042,566],"footROI":[925,705,1068,760],"faceWidthUnavailableReason":"起身中的前傾俯視投影仍不同於中立正臉。","measurementCaveat":"與第7格很接近，8→9才有較大抬頭；不能因總數10就認定補幀充分。"},
+    {"sourceFrame":9,"eyeROI":[1341,480,1429,540],"footROI":[1311,705,1454,760]},
+    {"sourceFrame":10,"eyeROI":[1732,480,1820,540],"footROI":[1700,705,1843,760]}
+  ],
+  "limitations":[
+    "此10格PNG是全新SHA，全部重新設定ROI並獨立覆核，不假設生成時承諾保留原角色即像素不變。",
+    "只用1/9/10中立站姿比臉寬；2–8鞠躬或起身投影不當身形縮放，第5閉眼三尺規未知。",
+    "兩裸腳的粉色填色底部單獨量測；白道服、黑帶與source外緣淡碎屑不作人體基準。",
+    "全段只一個倍率；眼足距因真鞠躬大幅變化，不能逐格fit回同高度。尺點約2source px不確定度。",
+    "此資料只核人體可見基準和明示未知，不能自動批准動作連貫、接觸、眼皮或衣服穩定。"
+  ],
+  "visualFindings":[
+    {"sourceFrames":[5],"severity":"info","message":"第5最深鞠躬眼睛閉合，暖粉眼皮正確；沒有把閉眼或衣領白色當眼睛。"},
+    {"sourceFrames":[5,6,7],"severity":"info","message":"第6確有由最深鞠躬抬起的實畫姿勢，頭肩腰有變化；不是旋轉或上下搬動整張角色。"},
+    {"sourceFrames":[7,8,9],"message":"第7/8頭肩高度及表情仍接近，8→9才明顯抬頭回正；總10格不代表原計畫兩個起身中間姿勢均已充分達成，仍待修/正常速度審閱。"},
+    {"sourceFrames":[1,9,10],"severity":"info","message":"首末正面站姿可比較身體尺規，與中段低頭姿勢分開；不以白道服外框或頭頂高度逐格縮放。"}
+  ]
+}

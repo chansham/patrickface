@@ -1,0 +1,30 @@
+{
+  "asset": "fitness-coach-v2",
+  "clipID": "fitness-coach-first-20261012",
+  "newOutfit": true,
+  "source": {"path": "animation/fitness-coach-v2/atlas-generated.png", "sha256": "aa05cdb042181dfe35e5dffdaaa7a496b91f3e65b37de84cd300adf212398345", "width": 1774, "height": 887},
+  "regions": {"path": "animation/fitness-coach-v2/regions-v1.json", "sha256": "616c0647379394e23c25b99935775ed729207ff2ecbc559af6bb83da3625363f"},
+  "standingComparisonSourceFrame": 1,
+  "standingComparisonBasis": "來源1正面站姿，帽簷與道具低於/高於臉截線而沒有擋住臉側，真腳可見；僅眼足／臉截面姿勢代理。",
+  "frames": [
+    {"sourceFrame":1,"eyeROI":[175,100,270,180],"footROI":[125,378,318,445]},
+    {"sourceFrame":2,"eyeROI":[625,105,720,185],"footROI":[565,378,763,445]},
+    {"sourceFrame":3,"eyeROI":[1065,105,1160,185],"footROI":[1004,378,1203,445]},
+    {"sourceFrame":4,"eyeROI":[1520,100,1615,182],"footROI":[1450,378,1650,445]},
+    {"sourceFrame":5,"eyeROI":[177,530,278,610],"footROI":[125,810,320,878]},
+    {"sourceFrame":6,"eyeROI":[630,530,725,610],"footROI":[565,810,765,878],"faceWidthUnavailableReason":"側轉臉準備吹哨，正面兩側皮膚輪廓不再同樣可比；不把側臉截面當縮小的正臉。","measurementCaveat":"眼距與眼足距仍可見，但包含側轉姿勢影響。"},
+    {"sourceFrame":7,"eyeROI":[1080,530,1165,610],"footROI":[1004,810,1205,878],"faceWidthUnavailableReason":"側轉並鼓起雙頰吹哨，臉型是表情變形而非中立正臉；不作正臉大小尺規。","measurementCaveat":"吹哨的鼓頰與側頭影響位置，眼/真腳僅供該姿勢覆核。"},
+    {"sourceFrame":8,"eyeROI":[1510,530,1600,615],"footROI":[1450,810,1655,878]}
+  ],
+  "limitations": [
+    "獨立量測1774×887新來源，不沿用v1或其它衣服的眼白座標。",
+    "來源6/7側轉和鼓頰時不把臉截面當中立正臉大小，臉寬未知；可見眼/裸腳仍量，姿勢差明記。",
+    "哨子、碼表、帽子和衣服不作人體基準；沒有按矩形來源格自動fit。"
+  ],
+  "visualFindings": [
+    {"sourceFrames":[1,2,3,4,5,6,7,8],"message":"實看v2，碼表全段保留畫面左手，另一手按表/提哨；原換手問題已改善，但仍需審閱手指與道具接觸。","severity":"info"},
+    {"sourceFrames":[3,4,5,6],"message":"按表後微笑→抓哨→抬至嘴的姿勢跨度仍較大，需正常速度審閱並視情況補中間姿勢。"},
+    {"sourceFrames":[6,7,8],"message":"吹哨時轉頭鼓頰與末格收手並非完整細分回收，臉變大不可誤用縮放補償。"},
+    {"sourceFrames":[1,8],"message":"首末手臂狀態不同，不把完成一段教練動作當作無縫待機循環。"}
+  ]
+}

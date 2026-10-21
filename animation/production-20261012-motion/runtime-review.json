@@ -1,0 +1,394 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-12",
+  "artApproval": false,
+  "browserEvidence": [
+    {
+      "path": "output/playwright/motion-20261012/boxing-timing-20261012/browser/report.json",
+      "sha256": "ea94f333ced8d471f43172f91e71e659d2d133700a2ee7d0878cc281c6fc5c2b"
+    },
+    {
+      "path": "output/playwright/motion-20261012/boxing-timing-20261012/contours/report.json",
+      "sha256": "290c39229d55f1b73de5b07e0a1173e56856eff3d1a6de7656159504db611ea2"
+    },
+    {
+      "path": "output/playwright/motion-20261012/tracksuit-timing-20261012/browser/report.json",
+      "sha256": "779cdefd9b4d063905de60121e7387f789e764dbab4ef562bf685c3f9f81b329"
+    },
+    {
+      "path": "output/playwright/motion-20261012/tracksuit-timing-20261012/contours/report.json",
+      "sha256": "65e47c2fe74deb998ea481c06671a39e9fbaba16de5dcb82860b88e5e7847913"
+    }
+  ],
+  "testedLayoutManifest": {
+    "path": "experience/layouts.json",
+    "sha256": "e6dbd737e17a4691a0c8cbc8cb942e8b311cccfecda1ab8d5de49eb3c4f4cbdd"
+  },
+  "sourceFrames": 16,
+  "layoutFrameChecks": 64,
+  "newOutfits": 0,
+  "newCandidateClips": 2,
+  "clips": [
+    {
+      "id": "boxing-timing-20261012",
+      "source": {
+        "path": "animation/fitness-boxing-v1/atlas-generated.png",
+        "sha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7"
+      },
+      "regions": {
+        "path": "animation/fitness-boxing-v1/regions-v1.json",
+        "sha256": "dc1a5e161289c6a2787b0123be96f2dd58c72aa4f7b83d86cada001d4b063385"
+      },
+      "version": 1,
+      "scale": 1.7374522516009616,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 115.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.578583864361877,
+        "fixedFactor": 1.4750615034,
+        "actualStagePixels": 170.73836901855,
+        "shortfallPercent": 6.557925954964993,
+        "sourceSha256": "d264c42dad580817e1bbb41bde5bdec279fe5edaa2cf3b36f1db8383ba6510f7",
+        "canvas": 784,
+        "catalogScale": 1.7374522516009616,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.4750615034,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 1580,
+      "lastFrameStartedAfterMs": 1216.5999999996275,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 246.08000000739992,
+          "maxStrongY": 893.6320000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 458.7952000051059,
+          "maxStrongY": 905.6060799999999,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 189.77600000702992,
+          "maxStrongY": 804.9504000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 243.62880000636392,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/motion-20261012/boxing-timing-20261012/browser/boxing-timing-20261012-reference-first.png",
+        "output/playwright/motion-20261012/boxing-timing-20261012/browser/boxing-timing-20261012-reference-last.png",
+        "output/playwright/motion-20261012/boxing-timing-20261012/browser/boxing-timing-20261012-four-layouts.png"
+      ]
+    },
+    {
+      "id": "tracksuit-timing-20261012",
+      "source": {
+        "path": "animation/fitness-tracksuit-v2/atlas-generated.png",
+        "sha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b"
+      },
+      "regions": {
+        "path": "animation/fitness-tracksuit-v2/regions-v1.json",
+        "sha256": "e8370db5c4b7e3b3cf484643d413ef4c3d69b98099d5d69ec1364922707948f4"
+      },
+      "version": 1,
+      "scale": 1.2694606095252403,
+      "calibration": {
+        "metric": "faceWidth",
+        "sourcePixels": 129.75,
+        "targetStagePixels": 182.72108229988726,
+        "desiredFactor": 1.4082549695559712,
+        "fixedFactor": 1.4082549695,
+        "actualStagePixels": 182.721082292625,
+        "shortfallPercent": 3.97450961031609e-09,
+        "sourceSha256": "8dcd7c7fdeb88c235ce46abd8560009d96044660baccb8b088df322db8d52e5b",
+        "canvas": 600,
+        "catalogScale": 1.2694606095252403,
+        "reference": "yawn:first actual source frame",
+        "method": "single-factor-primary-landmark-target-with-all-source-poses-and-four-layout-safety",
+        "safety": "8 logical pixel clearance around measured browser text/info bounds; classic stage y>=246.08, y<=914.56; all layouts remain in stage",
+        "perFrameScale": false,
+        "faceWidthKnown": true
+      },
+      "sourcePixelToStagePixel": 1.4082549695,
+      "sourceFrameOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "normal1xObservedPlaybackFrames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "totalMs": 1880,
+      "lastFrameStartedAfterMs": 1549.6000000014901,
+      "pixelOracle": {
+        "mismatchChannels": 0,
+        "neighborLabels": 0,
+        "missingCore": 0,
+        "overlaps": 0,
+        "unassigned": 0
+      },
+      "layouts": [
+        {
+          "id": "classic",
+          "checkedFrames": 8,
+          "minStrongY": 289.49061808449994,
+          "maxStrongY": 893.6320000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "bold",
+          "checkedFrames": 8,
+          "minStrongY": 488.748526478305,
+          "maxStrongY": 905.60608,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "theater",
+          "checkedFrames": 8,
+          "minStrongY": 231.01608718027498,
+          "maxStrongY": 804.9504000000001,
+          "timeDateInformationCollisions": 0
+        },
+        {
+          "id": "activity",
+          "checkedFrames": 8,
+          "minStrongY": 280.96193155266997,
+          "maxStrongY": 800.52352,
+          "timeDateInformationCollisions": 0
+        }
+      ],
+      "screen200pxChecked": true,
+      "localUserStorageChanged": false,
+      "screenshots": [
+        "output/playwright/motion-20261012/tracksuit-timing-20261012/browser/tracksuit-timing-20261012-reference-first.png",
+        "output/playwright/motion-20261012/tracksuit-timing-20261012/browser/tracksuit-timing-20261012-reference-last.png",
+        "output/playwright/motion-20261012/tracksuit-timing-20261012/browser/tracksuit-timing-20261012-four-layouts.png"
+      ]
+    }
+  ],
+  "sourceUnchanged": true,
+  "priorCandidateBaselinePreserved": true,
+  "remaining": [
+    {
+      "id": "boxing-timing-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            5
+          ],
+          "message": "紅拳套跨越名義方格右界但與手臂相連；須保留完整輪廓，不硬裁格。"
+        },
+        {
+          "sourceFrames": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "message": "出拳及收回缺中間原畫，不能靠播放速度宣稱平順。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "首格認真、末格微笑，不能當無縫待機。"
+        }
+      ]
+    },
+    {
+      "id": "tracksuit-timing-20261012",
+      "findings": [
+        {
+          "sourceFrames": [
+            2,
+            3
+          ],
+          "message": "握住拉鍊兩格近同姿，不宣稱已有完整拉鍊動作。"
+        },
+        {
+          "sourceFrames": [
+            4,
+            5,
+            6
+          ],
+          "message": "半開到敞開、再抬雙手舒氣仍有較大姿勢轉換。"
+        },
+        {
+          "sourceFrames": [
+            6
+          ],
+          "message": "闭眼眼皮已是粉色；呼氣雲須歸屬第6格，不當人體外框。"
+        },
+        {
+          "sourceFrames": [
+            1,
+            8
+          ],
+          "message": "首格拉鍊閉合、末格外套敞開，不是無縫待機循環。"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "兩套沿用原8張畫稿，各自只變每格停留時間；這16個播放位置不是新增16張原畫。",
+    "新牛仔過渡與壺鈴修色請求未產出PNG；timing-only比較不能宣稱修好了缺中間畫或眼白顏色。",
+    "原source/regions/scale/anchor/frameIndices逐欄完全相同；不重新提取輪廓、不重做或捏造人體量尺。",
+    "正常1倍速逐格觀察證明本次瀏覽器呈現；卡頓超過短格時長仍可能跳格，不保證所有設備。"
+  ],
+  "mainAndNativeUpdated": false,
+  "deviceTested": false,
+  "newOriginalFrames": 0,
+  "reusedSourceFrames": 16,
+  "playbackVariants": 2,
+  "catalogCounts": {
+    "candidateClips": 38,
+    "playbackFrames": 408,
+    "uniqueSourceDrawings": 392,
+    "uniqueSourceAtlases": 36
+  },
+  "timingComparisons": [
+    {
+      "id": "boxing-timing-20261012",
+      "originalID": "fitness-boxing-first-20261012",
+      "unchangedFields": [
+        "atlas",
+        "sha256",
+        "frameRegions",
+        "width",
+        "height",
+        "columns",
+        "rows",
+        "frameCount",
+        "frameIndices",
+        "scale",
+        "anchorNormalized",
+        "masterId"
+      ],
+      "originalDurationsMs": [
+        650,
+        220,
+        200,
+        160,
+        280,
+        200,
+        240,
+        700
+      ],
+      "comparisonDurationsMs": [
+        320,
+        180,
+        140,
+        100,
+        140,
+        140,
+        180,
+        380
+      ],
+      "originalTotalMs": 2650,
+      "comparisonTotalMs": 1580,
+      "missingDrawingsRepaired": false,
+      "newOriginalFrames": 0
+    },
+    {
+      "id": "tracksuit-timing-20261012",
+      "originalID": "fitness-tracksuit-first-20261012",
+      "unchangedFields": [
+        "atlas",
+        "sha256",
+        "frameRegions",
+        "width",
+        "height",
+        "columns",
+        "rows",
+        "frameCount",
+        "frameIndices",
+        "scale",
+        "anchorNormalized",
+        "masterId"
+      ],
+      "originalDurationsMs": [
+        600,
+        220,
+        180,
+        250,
+        320,
+        350,
+        240,
+        700
+      ],
+      "comparisonDurationsMs": [
+        300,
+        120,
+        120,
+        150,
+        300,
+        380,
+        160,
+        350
+      ],
+      "originalTotalMs": 2860,
+      "comparisonTotalMs": 1880,
+      "missingDrawingsRepaired": false,
+      "newOriginalFrames": 0
+    }
+  ]
+}
