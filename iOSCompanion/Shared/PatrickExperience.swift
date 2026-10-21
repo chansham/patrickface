@@ -41,6 +41,12 @@ struct PatrickExperienceSettings: Codable, Equatable, Sendable {
     var sleepStartMinutes: Int?
     var sleepEndMinutes: Int?
     var holidaysEnabled: Bool?
+    /// Nil keeps the default: silent during the sleep window, alarms still sound.
+    var quietAlertsRaw: String?
+    var quietAlerts: PatrickQuietAlerts {
+        get { PatrickQuietAlerts(rawValue: quietAlertsRaw ?? "") ?? .silentExceptAlarms }
+        set { quietAlertsRaw = newValue == .silentExceptAlarms ? nil : newValue.rawValue }
+    }
 
     var sleepStart: Int { (0..<1440).contains(sleepStartMinutes ?? -1) ? sleepStartMinutes! : 1320 }
     var sleepEnd: Int { (0..<1440).contains(sleepEndMinutes ?? -1) ? sleepEndMinutes! : 360 }
@@ -49,6 +55,14 @@ struct PatrickExperienceSettings: Codable, Equatable, Sendable {
         guard sleepStart != sleepEnd else { return false }
         return sleepStart < sleepEnd ? minute >= sleepStart && minute < sleepEnd : minute >= sleepStart || minute < sleepEnd
     }
+}
+
+/// How a countdown alert behaves inside the sleep window or sleep scene.
+/// Missing values stay silent except alarms so older saves keep the default.
+enum PatrickQuietAlerts: String, Codable, Sendable {
+    case silentExceptAlarms
+    case allowSound
+    case hideExceptAlarms
 }
 
 enum PatrickCareAction: String, CaseIterable, Codable, Identifiable, Sendable {
@@ -356,6 +370,21 @@ struct PatrickExperienceState: Codable, Equatable, Sendable {
         guard var value = activity, value.status == .paused, value.remainingSeconds > 0 else { return }
         value.endsAt = date.addingTimeInterval(value.remainingSeconds); value.status = .running
         activity = value; changed(at: date)
+    }
+
+    /// Crown adjustment of the one local countdown. Does not journal each detent.
+    @discardableResult
+    mutating func nudgeCountdown(by minutes: Int, at date: Date = .now) -> Bool {
+        guard minutes != 0, var value = activity, value.status == .running || value.status == .paused else { return false }
+        let before = value.remaining(at: date)
+        let remaining = min(7200, max(10, before + Double(minutes) * 60))
+        guard abs(remaining - before) > 0.5 else { return false }
+        value.remainingSeconds = remaining
+        value.durationSeconds = min(7200, max(value.durationSeconds, remaining))
+        if value.status == .running { value.endsAt = date.addingTimeInterval(remaining) }
+        activity = value
+        changed(at: date)
+        return true
     }
 
     mutating func cancel(at date: Date = .now) {

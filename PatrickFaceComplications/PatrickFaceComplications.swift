@@ -6,6 +6,10 @@ private struct PatrickComplicationEntry: TimelineEntry {
     let theme: PatrickTheme
     let status: PatrickFaceStatus
     var experience = PatrickExperienceState()
+    var relevance: TimelineEntryRelevance? {
+        let value = PatrickStackRelevance.make(experience: experience, at: date)
+        return TimelineEntryRelevance(score: value.score, duration: value.duration)
+    }
 
     var deepLinkURL: URL? {
         PatrickDeepLink(

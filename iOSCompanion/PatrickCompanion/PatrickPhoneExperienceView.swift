@@ -6,6 +6,7 @@ import SwiftUI
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @StateObject private var player = PatrickAnimationPlayer()
     @StateObject private var feedback = PatrickFeedback()
+    @ObservedObject private var haptics = PatrickHaptics.shared
     @StateObject private var clockArtwork = PatrickClockArtwork()
     @State private var outfits: [PatrickOutfitCatalog.Outfit] = []
     @State private var restingID: String?
@@ -44,7 +45,13 @@ import SwiftUI
                     Text(player.message).font(.caption).foregroundStyle(.secondary)
                     HStack {
                         ForEach(PatrickCareAction.allCases) { action in
-                            Button(action.title) { model.performCare(action) }.buttonStyle(.borderedProminent)
+                            Button(action.title) {
+                                let feeds = model.experience.care.totalFeeds
+                                model.performCare(action)
+                                if action == .feed, model.experience.care.totalFeeds == feeds {
+                                    haptics.play(.feedFull, settings: model.experience.settings, foreground: active)
+                                }
+                            }.buttonStyle(.borderedProminent)
                         }
                     }
                     Button("找個小驚喜", action: findSurprise).buttonStyle(.bordered)
@@ -79,6 +86,7 @@ import SwiftUI
                         Form {
                             Toggle("音效", isOn: setting(\.soundEnabled))
                             Toggle("觸覺", isOn: setting(\.hapticsEnabled))
+                            Text("只在餵食、倒數尾聲、完成、晚安、起床和錯誤時震動。").font(.footnote)
                             Toggle("24小時制", isOn: setting(\.use24Hour))
                             Toggle("顯示日期", isOn: setting(\.showDate))
                             Toggle("場景點綴", isOn: setting(\.ambienceEnabled))
@@ -115,10 +123,18 @@ import SwiftUI
     private var actionSurface: some View {
         appearanceSurface
         .onChange(of: model.experience.settings) { _, _ in configure(); if !model.experience.settings.soundEnabled { feedback.stop() } }
-        .onChange(of: model.experience.settings.scene) { _, next in
+        .onChange(of: model.experience.settings.scene) { old, next in
             configure(); if next == .bath || next == .celebrate { player.playEvent(next.rawValue) }
+            if next == .sleeping, old != .sleeping { haptics.play(.goodnight, settings: model.experience.settings, foreground: active) }
+            if next == .awake, old == .sleeping { haptics.play(.wake, settings: model.experience.settings, foreground: active) }
         }
-        .onChange(of: model.calendarCelebrationSequence) { _, _ in player.playEvent("celebrate") }
+        .onChange(of: model.experience.care.totalFeeds) { _, _ in
+            haptics.play(.feed, settings: model.experience.settings, foreground: active)
+        }
+        .onChange(of: model.calendarCelebrationSequence) { _, _ in
+            player.playEvent("celebrate")
+            haptics.play(.celebrate, settings: model.experience.settings, foreground: active)
+        }
         .onChange(of: model.automationSequence) { _, _ in
             configure()
             if let event = model.takeAutomationForPlayback() { player.playEvent(event.clipKey) }
@@ -137,7 +153,7 @@ import SwiftUI
             guard active else { return }
             while !Task.isCancelled {
                 configure()
-                model.refreshExperience(allowEffects: !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled)
+                model.refreshExperience(allowEffects: !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled, announceCompletion: true)
                 do { try await Task.sleep(for: .seconds(2)) } catch { return }
             }
         }

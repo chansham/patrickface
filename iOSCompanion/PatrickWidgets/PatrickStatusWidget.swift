@@ -5,6 +5,11 @@ struct PatrickWidgetEntry: TimelineEntry {
     let date: Date
     let settings: PatrickSettings
     let timer: PatrickTimerSnapshot
+    var relevance: TimelineEntryRelevance? {
+        let experience = settings.experience ?? PatrickExperienceState()
+        let value = PatrickStackRelevance.make(experience: experience, at: date)
+        return TimelineEntryRelevance(score: value.score, duration: value.duration)
+    }
 }
 
 struct PatrickWidgetProvider: TimelineProvider {

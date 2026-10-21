@@ -72,6 +72,8 @@ xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickRoutineRun.swift" "$ROOT/tools/Na
 
 xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickExperience.swift" "$ROOT/iOSCompanion/Shared/PatrickSettingsMerge.swift" "$ROOT/tools/NativeSettingsMergeChecks.swift" -o "$DERIVED_ROOT/native-settings-merge"
 "$DERIVED_ROOT/native-settings-merge" "$ROOT/tools/fixtures/settings-merge.json"
+xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickExperience.swift" "$ROOT/iOSCompanion/Shared/PatrickCountdownAlert.swift" "$ROOT/iOSCompanion/Shared/PatrickHapticPolicy.swift" "$ROOT/iOSCompanion/Shared/PatrickSpokenActions.swift" "$ROOT/tools/NativeCountdownChecks.swift" -o "$DERIVED_ROOT/native-countdown"
+"$DERIVED_ROOT/native-countdown"
 
 
 xcodebuild \

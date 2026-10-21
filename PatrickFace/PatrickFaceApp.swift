@@ -27,6 +27,7 @@ final class PatrickAppModel: ObservableObject {
     private static let sceneKey = "patrick.pet-scene.v1"
     private var isRestoringCompanionState = true
     private var lastComplicationReload = Date.distantPast
+    private var cancellables = Set<AnyCancellable>()
 
     init(companion: PatrickWatchReceiver = .shared) {
         let state = PatrickSharedStore.load()
@@ -51,6 +52,30 @@ final class PatrickAppModel: ObservableObject {
         )
         isRestoringCompanionState = false
         companion.$latestTimer.assign(to: &$companionTimer)
+        NotificationCenter.default.publisher(for: .patrickWatchSpokenIntent)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in self?.reloadSpokenIntent() }
+            .store(in: &cancellables)
+    }
+
+    private func reloadSpokenIntent() {
+        let stored = PatrickExperienceState.load(from: PatrickSharedStore.defaults)
+        guard stored != experience else { syncCountdownAlerts(); return }
+        experience = stored
+        persistExperience()
+    }
+
+    private func syncCountdownAlerts() {
+        let legacy: PatrickCountdownLegacy?
+        if experience.activity == nil, let timer = companionTimer, timer.status == .running {
+            legacy = PatrickCountdownLegacy(id: timer.id, running: true, endsAt: timer.endsAt, title: timer.title)
+        } else {
+            legacy = nil
+        }
+        let activity = experience.activity
+        let session = experience.breakSession
+        let settings = experience.settings
+        Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: legacy, settings: settings) }
     }
 
     func toggleTheme() {
@@ -76,7 +101,10 @@ final class PatrickAppModel: ObservableObject {
         let result = experience.requestActivityStart(kind, minutes: minutes)
         if experience.revision != revision { persistExperience() }
         careNotice = result.message
-        if case .started = result { return true }
+        if case .started = result {
+            Task { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
+            return true
+        }
         return false
     }
 
@@ -85,6 +113,14 @@ final class PatrickAppModel: ObservableObject {
         let result = experience.manageBreak(command)
         if experience.revision != revision { persistExperience() }
         careNotice = result.message
+        if case .started = result {
+            Task { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
+        }
+    }
+
+    func nudgeCountdown(by minutes: Int) {
+        guard experience.nudgeCountdown(by: minutes) else { return }
+        persistExperience()
     }
 
     func performCare(_ action: PatrickCareAction, allowEffects: Bool = true) {
@@ -132,7 +168,7 @@ final class PatrickAppModel: ObservableObject {
         return true
     }
 
-    func refreshExperience(at date: Date = .now, allowEffects: Bool, observeCalendar: Bool = true) {
+    func refreshExperience(at date: Date = .now, allowEffects: Bool, observeCalendar: Bool = true, announceCompletion: Bool = false) {
         if !allowEffects { completedActivityID = nil }
         let revision = experience.revision
         _ = experience.updateCare(at: date)
@@ -144,12 +180,17 @@ final class PatrickAppModel: ObservableObject {
         completedActivityID = allowEffects ? id.uuidString : nil
         careNotice = "完成\(experience.activity?.kind.title ?? "陪伴計時")"
         persistExperience()
+        if announceCompletion {
+            let rest = experience.breakSession?.breakActivityID == id
+            PatrickHaptics.shared.play(rest ? .restDone : .timerDone, settings: experience.settings, foreground: true, at: date)
+        }
     }
 
     private func persistExperience(automationEvent: PatrickAutomationEvent? = nil) {
         experience.save(to: PatrickSharedStore.defaults)
         companion.sendSnapshot(theme: theme, experience: experience, automationEvent: automationEvent)
         WidgetCenter.shared.reloadTimelines(ofKind: PatrickSharedStore.complicationKind)
+        syncCountdownAlerts()
     }
 
     func setPetScene(_ scene: PatrickPetScene) {
@@ -222,6 +263,7 @@ final class PatrickAppModel: ObservableObject {
         }
         if experience != previousExperience {
             WidgetCenter.shared.reloadTimelines(ofKind: PatrickSharedStore.complicationKind)
+            syncCountdownAlerts()
         }
     }
 
@@ -256,6 +298,7 @@ struct PatrickFaceApp: App {
                 .onOpenURL { url in
                     _ = model.handle(url)
                 }
+                .task { PatrickWatchShortcuts.updateAppShortcutParameters() }
         }
     }
 }

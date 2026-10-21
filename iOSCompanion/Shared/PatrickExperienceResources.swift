@@ -2,11 +2,6 @@ import Foundation
 import AVFoundation
 import Combine
 import SwiftUI
-#if os(watchOS)
-import WatchKit
-#elseif os(iOS)
-import UIKit
-#endif
 
 enum PatrickExperienceResources {
     static func layouts(bundle: Bundle = .main) -> [PatrickFaceLayoutSpec] {
@@ -66,6 +61,12 @@ struct PatrickSchedulePreferences: View {
                 Picker("生日日期", selection: birthdayPart(month: false)) { ForEach(1...daysInMonth, id: \.self) { Text("\($0)日").tag($0) } }
             }
             Toggle("已收錄的節日", isOn: Binding(get: { settings.holidaysEnabled ?? true }, set: { settings.holidaysEnabled = $0 }))
+            Picker("睡前倒數提醒", selection: Binding(get: { settings.quietAlerts }, set: { settings.quietAlerts = $0 })) {
+                Text("靜音，鬧鐘除外").tag(PatrickQuietAlerts.silentExceptAlarms)
+                Text("照常出聲").tag(PatrickQuietAlerts.allowSound)
+                Text("不送出，鬧鐘除外").tag(PatrickQuietAlerts.hideExceptAlarms)
+            }
+            Text("預設在睡前時段或睡前情境保持安靜。鬧鐘仍會出聲。摸頭和翻看不會震動。").font(.footnote)
             Text("生日只存月日；節日依內建確切日期，每天最多一次，靜止時不補演。").font(.footnote)
         }
     }
@@ -99,13 +100,6 @@ final class PatrickFeedback: ObservableObject {
 
     func play(_ event: String, settings: PatrickExperienceSettings, active: Bool) {
         guard active else { return }
-        if settings.hapticsEnabled {
-            #if os(watchOS)
-            WKInterfaceDevice.current().play(event == "celebrate" ? .success : .click)
-            #elseif os(iOS)
-            UISelectionFeedbackGenerator().selectionChanged()
-            #endif
-        }
         guard settings.soundEnabled else { return }
         // Manifest mapping is optional; a missing cue is silent, never network audio.
         guard let url = PatrickExperienceResources.url("audio/manifest.json"),
@@ -235,7 +229,7 @@ struct PatrickLayoutPicker: View {
             ZStack(alignment: .topLeading) {
                 HStack(alignment: .firstTextBaseline, spacing: 7 * unit) {
                     Text(String(format: "%02d:%02d", settings.use24Hour ? hour : (hour % 12 == 0 ? 12 : hour % 12), parts.minute ?? 0))
-                        .font(.system(size: layout.timeFontSize * unit, weight: layout.id == "bold" ? .semibold : .medium, design: .rounded)).monospacedDigit()
+                        .font(.system(size: layout.timeFontSize * unit, weight: dimmed ? .light : (layout.id == "bold" ? .semibold : .medium), design: .rounded)).monospacedDigit()
                     if !settings.use24Hour { Text(hour < 12 ? "AM" : "PM").font(.system(size: 24 * unit)) }
                 }
                 .foregroundStyle(.white.opacity(dimmed ? 0.72 : 1))

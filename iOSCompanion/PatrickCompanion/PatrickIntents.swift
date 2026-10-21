@@ -72,42 +72,122 @@ struct OpenPatrickWatchFaceIntent: AppIntent {
     }
 }
 
+struct PatrickGoodNightIntent: AppIntent {
+    static var title: LocalizedStringResource = "派大星晚安"
+    static var description = IntentDescription("對派大星說晚安。角色進入睡前，睡前倒數保持安靜，鬧鐘除外。不切換系統睡眠專注，也不設定鬧鐘。")
+    static var openAppWhenRun = false
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let text = await MainActor.run { PatrickSpokenIntentBridge.goodNight() }
+        if #available(iOS 18.0, *) { _ = try? await donate() }
+        return .result(dialog: "\(text)")
+    }
+}
+
+struct PatrickStartRestIntent: AppIntent {
+    static var title: LocalizedStringResource = "派大星開始休息"
+    static var description = IntentDescription("開始休息。已有陪伴倒數時先保存進度；否則開始呼吸陪伴。不是 HealthKit 健身訓練。")
+    static var openAppWhenRun = false
+    @Parameter(title: "分鐘", default: 3) var minutes: Int
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let outcome = await MainActor.run { PatrickSpokenIntentBridge.rest(minutes: minutes) }
+        if outcome.armedCountdown { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
+        if #available(iOS 18.0, *) { _ = try? await donate() }
+        return .result(dialog: "\(outcome.text)")
+    }
+}
+
+struct PatrickFeedIntent: AppIntent {
+    static var title: LocalizedStringResource = "餵派大星"
+    static var description = IntentDescription("餵派大星一口。剛餵過會稍等，不會連續加飽足。")
+    static var openAppWhenRun = false
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let text = await MainActor.run { PatrickSpokenIntentBridge.feed() }
+        if #available(iOS 18.0, *) { _ = try? await donate() }
+        return .result(dialog: "\(text)")
+    }
+}
+
+struct PatrickPetIntent: AppIntent {
+    static var title: LocalizedStringResource = "摸摸派大星"
+    static var description = IntentDescription("摸摸派大星並記下照顧。不會因為摸頭而震動。")
+    static var openAppWhenRun = false
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let text = await MainActor.run { PatrickSpokenIntentBridge.pet() }
+        if #available(iOS 18.0, *) { _ = try? await donate() }
+        return .result(dialog: "\(text)")
+    }
+}
+
+struct PatrickCheckMoodIntent: AppIntent {
+    static var title: LocalizedStringResource = "看看派大星心情"
+    static var description = IntentDescription("看看派大星現在的心情、飽足和親密。心情是你選的，不是從健康資料推測。")
+    static var openAppWhenRun = false
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let text = await MainActor.run { PatrickSpokenActions.moodLine(PatrickSharedStore.shared.loadExperience()) }
+        if #available(iOS 18.0, *) { _ = try? await donate() }
+        return .result(dialog: "\(text)")
+    }
+}
+
 struct PatrickAppShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
-        AppShortcut(intent: PatrickCareIntent(), phrases: ["照顧\(.applicationName)"], shortTitle: "照顧派大星", systemImageName: "heart.fill")
-        AppShortcut(intent: PatrickSceneIntent(), phrases: ["設定\(.applicationName)情境"], shortTitle: "陪伴情境", systemImageName: "moon.stars.fill")
+        AppShortcut(intent: PatrickGoodNightIntent(), phrases: [
+            "\(.applicationName)晚安",
+            "跟\(.applicationName)說晚安"
+        ], shortTitle: "晚安", systemImageName: "moon.zzz.fill")
+        AppShortcut(intent: PatrickStartRestIntent(), phrases: [
+            "\(.applicationName)開始休息",
+            "\(.applicationName)开始休息",
+            "讓\(.applicationName)休息 \(\.$minutes) 分鐘"
+        ], shortTitle: "開始休息", systemImageName: "pause.circle")
+        AppShortcut(intent: PatrickFeedIntent(), phrases: [
+            "餵\(.applicationName)",
+            "給\(.applicationName)吃一口"
+        ], shortTitle: "餵一口", systemImageName: "fork.knife")
+        AppShortcut(intent: PatrickPetIntent(), phrases: [
+            "摸摸\(.applicationName)"
+        ], shortTitle: "摸摸", systemImageName: "hand.tap.fill")
+        AppShortcut(intent: PatrickCheckMoodIntent(), phrases: [
+            "看看\(.applicationName)心情",
+            "\(.applicationName)心情怎麼樣"
+        ], shortTitle: "看看心情", systemImageName: "face.smiling")
         AppShortcut(intent: PatrickMoodIntent(), phrases: ["設定\(.applicationName)心情"], shortTitle: "角色心情", systemImageName: "face.smiling")
         AppShortcut(intent: PatrickTimerIntent(), phrases: ["開始\(.applicationName)陪伴計時"], shortTitle: "陪伴計時", systemImageName: "timer")
-        AppShortcut(intent: PatrickTimerControlIntent(), phrases: ["控制\(.applicationName)陪伴計時"], shortTitle: "控制陪伴計時", systemImageName: "pause.circle")
+        AppShortcut(intent: PatrickTimerControlIntent(), phrases: ["控制\(.applicationName)陪伴計時"], shortTitle: "控制陪伴計時", systemImageName: "timer")
         AppShortcut(intent: PatrickAutomationIntent(), phrases: ["向\(.applicationName)回報起床"], shortTitle: "起床與鬧鐘回報", systemImageName: "sun.max.fill")
         AppShortcut(intent: PatrickLifestyleIntent(), phrases: ["套用\(.applicationName)生活流程"], shortTitle: "生活流程", systemImageName: "sun.and.horizon.fill")
+    }
+}
 
-        AppShortcut(
-            intent: SetPatrickSleepModeIntent(),
-            phrases: [
-                "Set Patrick sleep mode in \(.applicationName)",
-            ],
-            shortTitle: "Patrick Sleep Mode",
-            systemImageName: "moon.zzz.fill"
-        )
+@MainActor enum PatrickSpokenIntentBridge {
+    struct Outcome { var text: String; var armedCountdown: Bool }
 
-        AppShortcut(
-            intent: PlayPatrickThemeSoundIntent(),
-            phrases: [
-                "Play Patrick sound in \(.applicationName)",
-            ],
-            shortTitle: "Patrick Sound",
-            systemImageName: "speaker.wave.2.fill"
-        )
+    static func goodNight() -> String {
+        var state = PatrickSharedStore.shared.loadExperience()
+        let text = PatrickSpokenActions.sayGoodNight(&state)
+        PatrickSharedStore.shared.saveExperience(state)
+        _ = PatrickIntentExecutor.setSleepMode(.on)
+        patrickSyncCountdownAlerts(from: PatrickSharedStore.shared.loadExperience())
+        return text
+    }
 
-        AppShortcut(
-            intent: OpenPatrickWatchFaceIntent(),
-            phrases: [
-                "Open Patrick face in \(.applicationName)",
-            ],
-            shortTitle: "Open Patrick Face",
-            systemImageName: "applewatch"
-        )
+    static func rest(minutes: Int) -> Outcome { mutate { PatrickSpokenActions.startRest(&$0, minutes: minutes) } }
+    static func feed() -> String { mutate { PatrickSpokenActions.feed(&$0) }.text }
+    static func pet() -> String { mutate { PatrickSpokenActions.pet(&$0) }.text }
+
+    private static func mutate(_ mutation: (inout PatrickExperienceState) -> String) -> Outcome {
+        var state = PatrickSharedStore.shared.loadExperience()
+        let previous = state.revision
+        let previousID = state.activity?.id
+        let text = mutation(&state)
+        let armed = state.activity?.status == .running && state.activity?.id != previousID
+        if state.revision != previous { PatrickExperienceIntentExecutor.send(state) }
+        return Outcome(text: text, armedCountdown: armed)
     }
 }
 
@@ -285,6 +365,7 @@ struct PatrickTimerIntent: AppIntent {
     @Parameter(title: "分鐘", default: 5) var minutes: Int
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let result = await PatrickExperienceIntentExecutor.start(PatrickActivityKind(rawValue: kind.rawValue)!, minutes: minutes)
+        if case .started = result { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
         return .result(dialog: "\(result.message)")
     }
 }
@@ -350,6 +431,7 @@ enum PatrickTimerControlIntentResult: Equatable, Sendable {
                 WidgetCenter.shared.reloadAllTimelines()
                 NotificationCenter.default.post(name: .patrickExperienceChanged, object: nil)
             }
+            patrickSyncCountdownAlerts(from: state)
         }
         return result
     }
@@ -381,13 +463,23 @@ enum PatrickTimerControlIntentResult: Equatable, Sendable {
         if state.revision != previousRevision { send(state) }
         return result
     }
-    private static func send(_ state: PatrickExperienceState, action: PatrickCareAction? = nil, automationEvent: PatrickAutomationEvent? = nil) {
+    static func send(_ state: PatrickExperienceState, action: PatrickCareAction? = nil, automationEvent: PatrickAutomationEvent? = nil) {
         let store = PatrickSharedStore.shared
         store.saveExperience(state)
         let settings = store.updateSettings { $0.experience = state }
         WatchSyncService.shared.send(command: PatrickCommandPayload(name: .updateExperience, careAction: action, automationEvent: automationEvent), settings: settings)
         WidgetCenter.shared.reloadAllTimelines()
         NotificationCenter.default.post(name: .patrickExperienceChanged, object: nil)
+        patrickSyncCountdownAlerts(from: state)
+    }
+}
+
+func patrickSyncCountdownAlerts(from state: PatrickExperienceState) {
+    let activity = state.activity
+    let session = state.breakSession
+    let settings = state.settings
+    Task { @MainActor in
+        await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: nil, settings: settings)
     }
 }
 

@@ -167,7 +167,7 @@ final class AppModel: ObservableObject {
         return true
     }
 
-    func refreshExperience(allowEffects: Bool = false, observeCalendar: Bool = true) {
+    func refreshExperience(allowEffects: Bool = false, observeCalendar: Bool = true, announceCompletion: Bool = false) {
         if !allowEffects { completedActivityID = nil }
         let revision = experience.revision
         _ = experience.updateCare()
@@ -179,6 +179,10 @@ final class AppModel: ObservableObject {
             completedActivityID = allowEffects ? id.uuidString : nil
             saveExperience(); notice = "陪伴計時完成"
             synchronizeActivityPresentation()
+            if announceCompletion {
+                let rest = experience.breakSession?.breakActivityID == id
+                PatrickHaptics.shared.play(rest ? .restDone : .timerDone, settings: experience.settings, foreground: true)
+            }
         }
     }
 
@@ -190,6 +194,9 @@ final class AppModel: ObservableObject {
         timerCompletionTask?.cancel(); timerCompletionTask = nil
         saveExperience()
         synchronizeActivityPresentation()
+        if case .started = result {
+            Task { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
+        }
     }
 
     func toggleExperiencePause() async {
@@ -206,6 +213,9 @@ final class AppModel: ObservableObject {
         if experience.revision != revision {
             timerCompletionTask?.cancel(); timerCompletionTask = nil
             saveExperience(); synchronizeActivityPresentation()
+            if case .started = result {
+                Task { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
+            }
         }
         notice = result.message
     }
@@ -224,6 +234,17 @@ final class AppModel: ObservableObject {
         settings = store.updateSettings { $0.experience = value }
         watchSync.send(command: PatrickCommandPayload(name: .updateExperience, careAction: action, automationEvent: automationEvent), settings: settings)
         WidgetCenter.shared.reloadAllTimelines()
+        syncCountdownAlerts()
+    }
+
+    private func syncCountdownAlerts() {
+        let legacy: PatrickCountdownLegacy? = experience.activity == nil && timer.status == .running
+            ? PatrickCountdownLegacy(id: timer.id, running: true, endsAt: timer.endsAt, title: timer.title)
+            : nil
+        let activity = experience.activity
+        let session = experience.breakSession
+        let settings = experience.settings
+        Task { await PatrickCountdownNotifier.shared.sync(activity: activity, breakSession: session, legacy: legacy, settings: settings) }
     }
 
     func setVisualState(_ state: PatrickVisualState) {
@@ -328,6 +349,8 @@ final class AppModel: ObservableObject {
         WidgetCenter.shared.reloadAllTimelines()
         notice = "Started a \(minutes)-minute Live Activity."
         scheduleTimerCompletion(for: value)
+        syncCountdownAlerts()
+        Task { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
     }
 
     func stopTimer(completedAutomatically: Bool = false) async {
@@ -354,6 +377,7 @@ final class AppModel: ObservableObject {
         notice = completedAutomatically
             ? "Patrick timer completed."
             : "Ended the Patrick timer."
+        syncCountdownAlerts()
     }
 
     func syncNow() {
@@ -411,6 +435,7 @@ final class AppModel: ObservableObject {
                 scheduleTimerCompletion(for: timer)
             }
         }
+        syncCountdownAlerts()
     }
 
     private func synchronizeActivityPresentation() {
@@ -460,6 +485,7 @@ final class AppModel: ObservableObject {
         timerCompletionTask = nil
         WidgetCenter.shared.reloadAllTimelines()
         notice = "Local Patrick settings were reset."
+        syncCountdownAlerts()
         let preceding = activityPresentationTask
         activityPresentationGeneration &+= 1
         let generation = activityPresentationGeneration
@@ -485,6 +511,7 @@ final class AppModel: ObservableObject {
         store.saveSettings(merged)
         WidgetCenter.shared.reloadAllTimelines()
         notice = "Applied a settings update from Apple Watch."
+        syncCountdownAlerts()
     }
 
     private func acceptRemoteTimer(_ value: PatrickTimerSnapshot) {
@@ -492,6 +519,7 @@ final class AppModel: ObservableObject {
         store.saveTimer(timer)
         WidgetCenter.shared.reloadAllTimelines()
         notice = "Applied a timer update from Apple Watch."
+        syncCountdownAlerts()
     }
 
     private func acceptRemoteCommand(_ command: PatrickCommandPayload) {
