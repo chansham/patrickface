@@ -27,7 +27,8 @@ import SwiftUI
             sleeping: model.experience.settings.isSleepTime(.now),
             focus: model.experience.settings.contextFocus == true,
             workout: running && activity?.kind.isExercise == true,
-            meeting: model.experience.settings.contextMeeting == true
+            meeting: model.experience.settings.contextMeeting == true,
+            water: model.experience.settings.waterOn == true
         )
     }
     private var outfit: PatrickOutfitCatalog.Outfit? {
@@ -64,6 +65,17 @@ import SwiftUI
                     }
                     if model.experience.settings.dayLine?.contains("洗手") == true {
                         Button("洗 20 秒") { model.markHandwash() }.buttonStyle(.bordered)
+                    }
+                    if model.experience.settings.dayLine?.contains("星星") == true, model.experience.settings.moodStars == nil {
+                        HStack {
+                            ForEach(1...5, id: \.self) { star in
+                                Button("\(star)") { model.recordMood(stars: star) }
+                                    .accessibilityLabel("心情 \(star)")
+                            }
+                        }
+                    }
+                    if let page = model.experience.settings.weeklyPage, !page.isEmpty {
+                        Text(page).font(.body).multilineTextAlignment(.center).lineLimit(6).minimumScaleFactor(0.8).fixedSize(horizontal: false, vertical: true)
                     }
                     Text(player.message).font(.caption).foregroundStyle(.secondary)
                     HStack {

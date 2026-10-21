@@ -23,6 +23,34 @@ enum PatrickOvernightReader {
         ]
     }
 
+    static func lastNight(now: Date = .now) async -> (quietMinutes: Double, wakes: Int) {
+        guard HKHealthStore.isHealthDataAvailable(),
+              let type = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else { return (0, 0) }
+        let calendar = PatrickHKHolidays.calendar
+        guard let start = calendar.date(byAdding: .hour, value: -18, to: now) else { return (0, 0) }
+        let asleep: Set<Int> = [HKCategoryValueSleepAnalysis.asleepUnspecified.rawValue,
+                                HKCategoryValueSleepAnalysis.asleepCore.rawValue,
+                                HKCategoryValueSleepAnalysis.asleepDeep.rawValue,
+                                HKCategoryValueSleepAnalysis.asleepREM.rawValue]
+        let awake = HKCategoryValueSleepAnalysis.awake.rawValue
+        let predicate = HKQuery.predicateForSamples(withStart: start, end: now, options: [])
+        return await withCheckedContinuation { continuation in
+            let query = HKSampleQuery(sampleType: type, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { _, samples, _ in
+                var quiet: TimeInterval = 0
+                var wakes = 0
+                for sample in samples as? [HKCategorySample] ?? [] {
+                    if asleep.contains(sample.value) {
+                        quiet += sample.endDate.timeIntervalSince(sample.startDate)
+                    } else if sample.value == awake {
+                        wakes += 1
+                    }
+                }
+                continuation.resume(returning: (quiet / 60, wakes))
+            }
+            store.execute(query)
+        }
+    }
+
     static func latestHandwash(since: Date) async -> Date? {
         guard HKHealthStore.isHealthDataAvailable(),
               let type = HKObjectType.categoryType(forIdentifier: .handwashingEvent) else { return nil }

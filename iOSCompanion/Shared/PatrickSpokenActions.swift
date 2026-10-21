@@ -55,10 +55,12 @@ enum PatrickSpokenActions {
             return sayGoodNight(&state, at: date)
         case .leaving:
             state.settings.leavingDay = PatrickContextSnapshot.dayKey(date, calendar: PatrickHKHolidays.calendar)
+            state.settings.phoneAtHome = false
             state.record("出門", at: date)
         case .arrived:
             state.settings.arrivedHomeAtMS = (date.timeIntervalSince1970 * 1000).rounded()
             state.settings.handwashAskedMS = nil
+            state.settings.phoneAtHome = true
             state.record("回來了", at: date)
         case .tired:
             state.record("累了", at: date)

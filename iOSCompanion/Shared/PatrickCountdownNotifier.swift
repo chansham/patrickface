@@ -131,3 +131,44 @@ final class PatrickWakeNotifier {
         }
     }
 }
+
+/// One evening note. A later refresh does not cancel it; the day key is the guard.
+@MainActor
+final class PatrickEveningNotifier {
+    static let shared = PatrickEveningNotifier()
+    private let center: UNUserNotificationCenter
+    private let prefix = "patrick.evening."
+
+    init(center: UNUserNotificationCenter = .current()) {
+        self.center = center
+    }
+
+    func sync(body: String, fireAt: Date, calendar: Calendar) async {
+        let settings = await center.notificationSettings()
+        if settings.authorizationStatus == .notDetermined {
+            _ = try? await center.requestAuthorization(options: [.alert, .sound])
+        }
+        let pending = await center.pendingNotificationRequests()
+        let stale = pending.map(\.identifier).filter { $0.hasPrefix(prefix) && $0 != identifier(for: fireAt, calendar: calendar) }
+        if !stale.isEmpty { center.removePendingNotificationRequests(withIdentifiers: stale) }
+        let content = UNMutableNotificationContent()
+        content.title = "派大星"
+        content.body = body
+        content.sound = nil
+        content.interruptionLevel = .active
+        let interval = fireAt.timeIntervalSinceNow
+        let trigger: UNNotificationTrigger
+        if interval < 60 {
+            trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(1, interval), repeats: false)
+        } else {
+            let parts = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: fireAt)
+            trigger = UNCalendarNotificationTrigger(dateMatching: parts, repeats: false)
+        }
+        let request = UNNotificationRequest(identifier: identifier(for: fireAt, calendar: calendar), content: content, trigger: trigger)
+        try? await center.add(request)
+    }
+
+    private func identifier(for date: Date, calendar: Calendar) -> String {
+        prefix + PatrickContextSnapshot.dayKey(date, calendar: calendar)
+    }
+}

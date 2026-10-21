@@ -65,6 +65,7 @@
 		B11C0DE00000000000000024 /* PatrickContextSensors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE00000000000000023 /* PatrickContextSensors.swift */; };
 		B11C0DE00000000000000026 /* PatrickDayPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE00000000000000025 /* PatrickDayPlan.swift */; };
 		B11C0DE00000000000000028 /* PatrickDayServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE00000000000000027 /* PatrickDayServices.swift */; };
+		B11C0DE0000000000000002A /* PatrickWeekPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE00000000000000029 /* PatrickWeekPlan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +187,7 @@
 		B11C0DE00000000000000023 /* PatrickContextSensors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickContextSensors.swift; sourceTree = "<group>"; };
 		B11C0DE00000000000000025 /* PatrickDayPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickDayPlan.swift"; sourceTree = SOURCE_ROOT; };
 		B11C0DE00000000000000027 /* PatrickDayServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickDayServices.swift; sourceTree = "<group>"; };
+		B11C0DE00000000000000029 /* PatrickWeekPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickWeekPlan.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 				B11C0DE00000000000000009 /* PatrickCountdownNotifier.swift */,
 				B11C0DE00000000000000021 /* PatrickFocusFilter.swift */,
 				B11C0DE00000000000000025 /* PatrickDayPlan.swift */,
+				B11C0DE00000000000000029 /* PatrickWeekPlan.swift */,
 				C00000000000000000000100 /* PatrickModels.swift */,
 				C00000000000000000000101 /* PatrickMessageSchema.swift */,
 				C00000000000000000000102 /* PatrickDeepLink.swift */,
@@ -544,6 +547,7 @@
 				B11C0DE00000000000000022 /* PatrickFocusFilter.swift in Sources */,
 				B11C0DE00000000000000024 /* PatrickContextSensors.swift in Sources */,
 				B11C0DE00000000000000026 /* PatrickDayPlan.swift in Sources */,
+				B11C0DE0000000000000002A /* PatrickWeekPlan.swift in Sources */,
 				B11C0DE00000000000000028 /* PatrickDayServices.swift in Sources */,
 				C00000000000000000000200 /* PatrickModels.swift in Sources */,
 				C00000000000000000000201 /* PatrickMessageSchema.swift in Sources */,

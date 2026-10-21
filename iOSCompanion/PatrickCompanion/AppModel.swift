@@ -269,6 +269,9 @@ final class AppModel: ObservableObject {
         PatrickHomeMonitor.shared.onArrive = { [weak self] date in
             Task { @MainActor in self?.noteArrival(at: date) }
         }
+        PatrickHomeMonitor.shared.onLeave = { [weak self] date in
+            Task { @MainActor in self?.noteDeparture(at: date) }
+        }
         PatrickHomeMonitor.shared.update(latitude: experience.settings.homeLatitude, longitude: experience.settings.homeLongitude)
         PatrickContextSensors.shared.refreshCompanion(stationarySinceMS: since) { [weak self] day in
             self?.applyCompanion(day)
@@ -295,10 +298,30 @@ final class AppModel: ObservableObject {
     private func noteArrival(at date: Date) {
         experience.settings.arrivedHomeAtMS = (date.timeIntervalSince1970 * 1000).rounded()
         experience.settings.handwashAskedMS = nil
+        experience.settings.phoneAtHome = true
         experience.record("回來了", at: date)
         experience.changed(at: date)
         saveExperience()
         refreshCompanionDay()
+    }
+
+    private func noteDeparture(at date: Date) {
+        experience.settings.phoneAtHome = false
+        experience.record("離開家", at: date)
+        experience.changed(at: date)
+        saveExperience()
+    }
+
+    func recordMood(stars: Int) {
+        guard let raw = PatrickMoodStars.raw(stars: stars) else { return }
+        let now = Date()
+        let line = PatrickMoodStars.company(stars: stars)
+        experience.settings.moodStars = stars
+        experience.settings.pendingMindRaw = raw
+        experience.settings.dayLine = line
+        experience.record(line, at: now)
+        experience.changed(at: now)
+        saveExperience()
     }
 
     private func applyObservatory(_ reading: PatrickObservatoryReading) {
@@ -307,7 +330,7 @@ final class AppModel: ObservableObject {
         experience.settings.observatoryRainMM = reading.rainfallMM
         experience.settings.observatoryWarnings = reading.warningCodes.joined(separator: ",")
         experience.settings.observatoryAtMS = (Date().timeIntervalSince1970 * 1000).rounded()
-        applyDay(events: companionEvents, sitting: companionSitting, origin: origin)
+        Task { await self.finishDay(events: self.companionEvents, sitting: self.companionSitting, origin: origin) }
     }
 
     private func applyCompanion(_ day: PatrickContextSensors.CompanionDay) {
@@ -318,10 +341,29 @@ final class AppModel: ObservableObject {
         experience.settings.stationarySinceMS = day.stationarySinceMS
         companionEvents = day.events
         companionSitting = day.sittingMinutes
-        applyDay(events: day.events, sitting: day.sittingMinutes, origin: origin)
+        Task { await self.finishDay(events: day.events, sitting: day.sittingMinutes, origin: origin) }
     }
 
-    private func applyDay(events: [PatrickCalendarInterval], sitting: Int?, origin: PatrickExperienceState) {
+    private func finishDay(events: [PatrickCalendarInterval], sitting: Int?, origin: PatrickExperienceState) async {
+        let calendar = PatrickHKHolidays.calendar
+        let now = Date()
+        let day = PatrickContextSnapshot.dayKey(now, calendar: calendar)
+        var modelEvening: String?
+        var modelWeekly: String?
+        if experience.settings.eveningNoteDay != day,
+           let fireAt = PatrickJournalVoice.eveningFireDate(now: now, calendar: calendar),
+           !experience.settings.isSleepTime(fireAt, calendar: calendar) {
+            modelEvening = await PatrickJournalModel.evening(events: events.map(\.title))
+        }
+        if PatrickJournalVoice.isSunday(now, calendar: calendar), experience.settings.weeklyPageDay != day {
+            modelWeekly = await PatrickJournalModel.weekly(lines: experience.lifeJournal.map(\.text))
+        }
+        applyDay(events: events, sitting: sitting, origin: origin, journalLines: experience.lifeJournal.map(\.text),
+                 modelEvening: modelEvening, modelWeekly: modelWeekly)
+    }
+
+    private func applyDay(events: [PatrickCalendarInterval], sitting: Int?, origin: PatrickExperienceState,
+                          journalLines: [String] = [], modelEvening: String? = nil, modelWeekly: String? = nil) {
         let now = Date()
         let calendar = PatrickHKHolidays.calendar
         UIDevice.current.isBatteryMonitoringEnabled = true
@@ -330,7 +372,8 @@ final class AppModel: ObservableObject {
         let role: PatrickWakeRole = watchSync.alertOwner() == .phone ? .phone : .none
         let gate = origin.contextSnapshot(at: now, calendar: calendar)
         let advance = PatrickDayPlan.advance(settings: &experience.settings, activity: experience.activity, events: events,
-                                             sittingMinutes: sitting, battery: battery, role: role, now: now, calendar: calendar)
+                                             sittingMinutes: sitting, battery: battery, role: role, now: now, calendar: calendar,
+                                             journalLines: journalLines, modelEvening: modelEvening, modelWeekly: modelWeekly)
         for line in advance.journal { experience.record(line, at: now) }
         if experience != origin {
             experience.changed()
@@ -338,6 +381,12 @@ final class AppModel: ObservableObject {
         }
         if advance.knocks > 0 {
             _ = PatrickHaptics.shared.play(.knock, settings: experience.settings, foreground: true, context: gate)
+        }
+        if advance.phoneLeftPulses > 0 {
+            PatrickHaptics.shared.playRepeated(.timerClosing, count: advance.phoneLeftPulses, settings: experience.settings, foreground: true, context: gate)
+        }
+        if let body = advance.eveningNotice, let fireAt = advance.eveningFireAt {
+            Task { await PatrickEveningNotifier.shared.sync(body: body, fireAt: fireAt, calendar: calendar) }
         }
     }
 

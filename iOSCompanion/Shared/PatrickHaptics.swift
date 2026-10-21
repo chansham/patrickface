@@ -17,6 +17,18 @@ final class PatrickHaptics: ObservableObject {
 
     func setReadingHeartRate(_ reading: Bool) { readingHeartRate = reading }
 
+    /// Notification pulses stay one second apart so the gap rule can play each one.
+    func playRepeated(_ moment: PatrickHapticMoment, count: Int, settings: PatrickExperienceSettings,
+                      foreground: Bool, inWorkout: Bool = false, context: PatrickContextSnapshot = PatrickContextSnapshot()) {
+        let total = max(0, count)
+        Task { @MainActor in
+            for index in 0..<total {
+                if index > 0 { try? await Task.sleep(nanoseconds: 1_100_000_000) }
+                _ = self.play(moment, settings: settings, foreground: foreground, inWorkout: inWorkout, context: context)
+            }
+        }
+    }
+
     @discardableResult
     func play(
         _ moment: PatrickHapticMoment,

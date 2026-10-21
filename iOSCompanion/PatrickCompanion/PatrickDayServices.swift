@@ -57,6 +57,31 @@ enum PatrickButlerModel {
     }
 }
 
+/// Evening and Sunday lines. The model is optional; the fixed sentence is the guarantee.
+enum PatrickJournalModel {
+    static func evening(events: [String]) async -> String? {
+        await sentence("今天的行程是：\(events.joined(separator: "、"))。用一句話記下，不要安排任務。")
+    }
+
+    static func weekly(lines: [String]) async -> String? {
+        await sentence("這週留下的句子是：\(lines.suffix(8).joined(separator: "，"))。用一句話回顧，不要打分。")
+    }
+
+    private static func sentence(_ prompt: String) async -> String? {
+        #if canImport(FoundationModels)
+        if #available(iOS 26.0, *) {
+            let model = SystemLanguageModel.default
+            guard case .available = model.availability else { return nil }
+            let session = LanguageModelSession(instructions: "你是派大星。只用一句繁體中文，最多 80 字。不要提到餵食、飽足、親密、照顧、任務、打卡、分數、疾病或診斷。")
+            if let response = try? await session.respond(to: prompt) {
+                return PatrickJournalVoice.accept(response.content)
+            }
+        }
+        #endif
+        return nil
+    }
+}
+
 /// When-in-use only. Background arrival is not reliable without Always location,
 /// which this app does not request. 「我回來了」 is the path that always records it.
 @MainActor
@@ -64,6 +89,7 @@ final class PatrickHomeMonitor: NSObject, CLLocationManagerDelegate {
     static let shared = PatrickHomeMonitor()
     private let manager = CLLocationManager()
     var onArrive: ((Date) -> Void)?
+    var onLeave: ((Date) -> Void)?
 
     func update(latitude: Double?, longitude: Double?) {
         manager.delegate = self
@@ -79,7 +105,7 @@ final class PatrickHomeMonitor: NSObject, CLLocationManagerDelegate {
             let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
                                           radius: 150, identifier: "patrick.home")
             region.notifyOnEntry = true
-            region.notifyOnExit = false
+            region.notifyOnExit = true
             if existing.isEmpty { manager.startMonitoring(for: region) }
         default:
             break
@@ -91,6 +117,11 @@ final class PatrickHomeMonitor: NSObject, CLLocationManagerDelegate {
     nonisolated func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         guard region.identifier == "patrick.home" else { return }
         Task { @MainActor in self.onArrive?(Date()) }
+    }
+
+    nonisolated func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        guard region.identifier == "patrick.home" else { return }
+        Task { @MainActor in self.onLeave?(Date()) }
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {}

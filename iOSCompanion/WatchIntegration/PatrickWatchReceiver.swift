@@ -33,6 +33,7 @@ final class PatrickWatchReceiver: NSObject, ObservableObject {
     private var currentTheme: (() -> PatrickTheme)?
     private var onControlApplied: ((AppliedState) -> Void)?
     private var onOpenFace: (() -> Void)?
+    var onReachability: ((Bool) -> Void)?
 
     private static let processedIDsKey =
         "patrick.connectivity.processed-message-ids.v1"
@@ -464,11 +465,16 @@ extension PatrickWatchReceiver: WCSessionDelegate {
                 publishCurrentSnapshot()
             }
             publishLatestStatus()
+            onReachability?(session.isReachable)
         }
     }
 
     nonisolated func sessionReachabilityDidChange(_ session: WCSession) {
-        Task { @MainActor [weak self] in self?.publishLatestStatus() }
+        let reachable = session.isReachable
+        Task { @MainActor [weak self] in
+            self?.publishLatestStatus()
+            self?.onReachability?(reachable)
+        }
     }
 
     nonisolated func session(

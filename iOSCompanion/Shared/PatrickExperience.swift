@@ -75,6 +75,24 @@ struct PatrickExperienceSettings: Codable, Equatable, Sendable {
     var observatoryRainMM: Double?
     var observatoryWarnings: String?
     var observatoryAtMS: Double?
+    /// A line held while the person is in a vehicle. Nil means nothing is waiting.
+    var deferredLine: String?
+    var commuteNoted: Bool?
+    var moodAskedDay: String?
+    var moodStars: Int?
+    var eveningNoteDay: String?
+    var eveningLine: String?
+    var weeklyPage: String?
+    var weeklyPageDay: String?
+    var nightStory: String?
+    var nightStoryDay: String?
+    /// Nil until the morning story is actually on screen, then ten seconds later.
+    var theaterUntilMS: Double?
+    var phoneAtHome: Bool?
+    var phoneWasReachable: Bool?
+    var phoneLeftAlerted: Bool?
+    var bathFlow: Bool?
+    var waterOn: Bool?
     /// Nil follows the day. Stored negative moods remain in the archive.
     var moodFollowsDay: Bool?
     /// Phone-side signals. Nil means unknown, which does not suppress.
@@ -713,9 +731,10 @@ enum PatrickAutomaticScene {
     /// Manual selection wins. Automatic follows the moment: workout, charge,
     /// sleep, focus or a meeting, otherwise awake. Outfits stay on "auto".
     static func resolve(selection: PatrickExperienceScene, activitySceneID: String?, charging: Bool,
-                        sleeping: Bool, focus: Bool, workout: Bool, meeting: Bool) -> String {
+                        sleeping: Bool, focus: Bool, workout: Bool, meeting: Bool, water: Bool = false) -> String {
         if selection != .automatic { return selection.rawValue }
         if let activitySceneID { return activitySceneID }
+        if water { return "exercise" }
         if workout { return "exercise" }
         if charging { return "charging" }
         if sleeping { return "sleeping" }

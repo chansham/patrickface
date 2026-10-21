@@ -121,6 +121,20 @@ struct PatrickStackRelevance: Equatable, Sendable {
            let end = activity.endsAt, end > date {
             return Self(score: 90, duration: max(60, end.timeIntervalSince(date)))
         }
+        let day = PatrickContextSnapshot.dayKey(date, calendar: calendar)
+        let hour = calendar.component(.hour, from: date)
+        if experience.settings.waterOn == true {
+            return Self(score: 80, duration: 20 * 60)
+        }
+        if experience.settings.nightStoryDay == day, (5..<11).contains(hour) {
+            return Self(score: 60, duration: 10 * 60)
+        }
+        if experience.settings.eveningNoteDay == day, (21..<23).contains(hour) {
+            return Self(score: 55, duration: 30 * 60)
+        }
+        if experience.settings.contextCommute == true {
+            return Self(score: 50, duration: 20 * 60)
+        }
         if experience.settings.scene == .sleeping || experience.settings.isSleepTime(date, calendar: calendar) {
             return Self(score: 45, duration: 30 * 60)
         }

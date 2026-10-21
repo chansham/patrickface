@@ -52,6 +52,9 @@ struct PatrickDayAdvance: Equatable, Sendable {
     var knocks = 0
     var wake: [PatrickWakeCue] = []
     var journal: [String] = []
+    var phoneLeftPulses = 0
+    var eveningNotice: String?
+    var eveningFireAt: Date?
 }
 
 enum PatrickDayPlan {
@@ -343,7 +346,9 @@ enum PatrickDayPlan {
     /// Stand, handwash, and a storm knock do, and they stay silent when the gate is closed.
     static func advance(settings: inout PatrickExperienceSettings, activity: PatrickLocalActivity?,
                         events: [PatrickCalendarInterval], sittingMinutes: Int?, battery: Double?,
-                        role: PatrickWakeRole, now: Date, calendar: Calendar = .current) -> PatrickDayAdvance {
+                        role: PatrickWakeRole, now: Date, calendar: Calendar = .current,
+                        journalLines: [String] = [], modelEvening: String? = nil, modelWeekly: String? = nil,
+                        phoneReachable: Bool? = nil, waterSubmerged: Bool? = nil, writesJournal: Bool = true) -> PatrickDayAdvance {
         if activity?.nap == true, activity?.status == .running {
             settings.contextNap = true
         } else if settings.contextNap == true {
@@ -360,7 +365,7 @@ enum PatrickDayPlan {
         let weather = settings.observatoryTemperature.map { "天文台 \(Int($0.rounded())) 度" }
         let hello = greeting(name: settings.greetingDisplayName, hour: hour, report: report, weather: weather,
                              firstEvent: nextEventTitle(events, now: now), suppressed: suppressed)
-        if hello != nil, settings.greetedDay != day {
+        if hello != nil, settings.greetedDay != day, !gate.commute {
             settings.greetedDay = day
             if let report, settings.morningReportDay == day {
                 result.journal.append(report)
@@ -415,8 +420,17 @@ enum PatrickDayPlan {
         if let until = settings.handwashUntilMS, until > now.timeIntervalSince1970 * 1000 {
             line = "洗手 20 秒，我等你。"
         }
-        settings.dayLine = line
-        result.knocks = knocks
+        let folded = PatrickWeekPlan.fold(settings: &settings, line: line, hello: hello, knocks: knocks, gate: gate,
+                                          events: events, journalLines: journalLines, battery: battery,
+                                          modelEvening: modelEvening, modelWeekly: modelWeekly,
+                                          phoneReachable: phoneReachable, waterSubmerged: waterSubmerged,
+                                          writesJournal: writesJournal, now: now, calendar: calendar)
+        result.journal.append(contentsOf: folded.journal)
+        result.knocks = folded.knocks
+        result.phoneLeftPulses = folded.phoneLeftPulses
+        result.eveningNotice = folded.eveningNotice
+        result.eveningFireAt = folded.eveningFireAt
+        settings.dayLine = folded.line
         return result
     }
 

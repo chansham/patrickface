@@ -10,14 +10,23 @@ final class PatrickWorkoutCompanion: NSObject, HKWorkoutSessionDelegate, HKLiveW
     private let store = HKHealthStore()
     private var session: HKWorkoutSession?
     private var builder: HKLiveWorkoutBuilder?
+    private var lastMeters = 0.0
+    private var buzzedKilometer = 0
+    private var announcedZone: Int?
+    var onZone: ((Int) -> Void)?
+    var onKilometer: ((Int) -> Void)?
 
     func begin(_ kind: PatrickActivityKind) async -> Bool {
         guard let activity = Self.activityType(for: kind) else { return false }
         guard HKHealthStore.isHealthDataAvailable() else { return false }
         let share: Set<HKSampleType> = [HKObjectType.workoutType()]
-        let allowed = await requestShare(share)
+        let read: Set<HKObjectType> = [HKObjectType.workoutType(), HKQuantityType(.heartRate), HKQuantityType(.distanceWalkingRunning)]
+        let allowed = await requestShare(share, read: read)
         guard allowed else { return false }
         if session != nil { await end() }
+        lastMeters = 0
+        buzzedKilometer = 0
+        announcedZone = nil
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = activity
         configuration.locationType = kind == .walking || kind == .running ? .outdoor : .indoor
@@ -67,17 +76,45 @@ final class PatrickWorkoutCompanion: NSObject, HKWorkoutSessionDelegate, HKLiveW
         }
     }
 
-    nonisolated func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {}
+    nonisolated func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {
+        let heart = HKQuantityType(.heartRate)
+        let distance = HKQuantityType(.distanceWalkingRunning)
+        let bpm = collectedTypes.contains(heart)
+            ? workoutBuilder.statistics(for: heart)?.mostRecentQuantity()?.doubleValue(for: HKUnit.count().unitDivided(by: .minute()))
+            : nil
+        let meters = collectedTypes.contains(distance)
+            ? workoutBuilder.statistics(for: distance)?.sumQuantity()?.doubleValue(for: .meter())
+            : nil
+        let beats = bpm
+        let walked = meters
+        Task { @MainActor in
+            self.consume(bpm: beats, meters: walked)
+        }
+    }
 
     nonisolated func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {}
 
-    private func requestShare(_ types: Set<HKSampleType>) async -> Bool {
+    private func requestShare(_ types: Set<HKSampleType>, read: Set<HKObjectType>) async -> Bool {
         let status = store.authorizationStatus(for: HKObjectType.workoutType())
         if status == .sharingAuthorized { return true }
         return await withCheckedContinuation { continuation in
-            store.requestAuthorization(toShare: types, read: types) { granted, _ in
+            store.requestAuthorization(toShare: types, read: read) { granted, _ in
                 continuation.resume(returning: granted)
             }
+        }
+    }
+
+    private func consume(bpm: Double?, meters: Double?) {
+        if let bpm, let zone = PatrickHeartZone.zone(beatsPerMinute: bpm), zone.rawValue != announcedZone {
+            announcedZone = zone.rawValue
+            onZone?(zone.rawValue)
+        }
+        if let meters {
+            if let km = PatrickKilometerMarks.crossed(previousMeters: lastMeters, meters: meters), km > buzzedKilometer {
+                buzzedKilometer = km
+                onKilometer?(km)
+            }
+            lastMeters = max(lastMeters, meters)
         }
     }
 

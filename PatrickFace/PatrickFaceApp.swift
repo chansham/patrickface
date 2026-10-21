@@ -19,6 +19,9 @@ final class PatrickAppModel: ObservableObject {
     @Published private(set) var calendarCelebrationSequence = 0
     @Published private(set) var careNotice = "今天也陪著你"
     @Published private(set) var automationSequence = 0
+    @Published var workoutZone: Int?
+    private var latestReachable: Bool?
+    private var latestWater: Bool?
     private var requestedAutomation: PatrickAutomationEvent?
     private var automationGate = PatrickAutomationGate(receivedIDs:
         (PatrickSharedStore.defaults.stringArray(forKey: PatrickAutomationGate.storageKey) ?? []).compactMap(UUID.init(uuidString:)))
@@ -56,6 +59,25 @@ final class PatrickAppModel: ObservableObject {
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in self?.reloadSpokenIntent() }
             .store(in: &cancellables)
+        NotificationCenter.default.publisher(for: .patrickRideChanged)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] note in self?.noteRide(note.userInfo?["riding"] as? Bool ?? false) }
+            .store(in: &cancellables)
+        NotificationCenter.default.publisher(for: .patrickWaterChanged)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] note in self?.noteWater(note.userInfo?["submerged"] as? Bool ?? false) }
+            .store(in: &cancellables)
+        companion.onReachability = { [weak self] reachable in
+            self?.latestReachable = reachable
+            self?.refreshWeek()
+        }
+        PatrickWorkoutCompanion.shared.onZone = { [weak self] zone in self?.workoutZone = zone }
+        PatrickWorkoutCompanion.shared.onKilometer = { [weak self] _ in
+            guard let self else { return }
+            let foreground = WKExtension.shared().applicationState == .active
+            _ = PatrickHaptics.shared.play(.celebrate, settings: self.experience.settings, foreground: foreground, inWorkout: true)
+        }
+        PatrickWeekSensors.shared.start()
     }
 
     private func reloadSpokenIntent() {
@@ -100,14 +122,76 @@ final class PatrickAppModel: ObservableObject {
         var next = experience.settings
         let before = next
         PatrickDayPlan.storeMorning(settings: &next, sentence: sentence, now: .now, calendar: PatrickHKHolidays.calendar)
+        let night = await PatrickOvernightReader.lastNight()
+        let end = Date()
+        let tosses = PatrickWeekSensors.shared.tossCount(from: end.addingTimeInterval(-12 * 60 * 60), to: end)
+        PatrickNightTheater.store(settings: &next, script: PatrickNightTheater.script(quietMinutes: night.quietMinutes, tosses: tosses, wakes: night.wakes), now: end)
         if let arrived = next.arrivedHomeAtMS {
             let washed = await PatrickOvernightReader.latestHandwash(since: Date(timeIntervalSince1970: arrived / 1000))
             PatrickDayPlan.noteWash(settings: &next, washedAt: washed)
         }
-        guard next != before else { return }
-        experience.settings = next
+        if next != before {
+            experience.settings = next
+            experience.changed()
+            persistExperience()
+        }
+        refreshWeek()
+    }
+
+    func recordMood(stars: Int) {
+        guard let raw = PatrickMoodStars.raw(stars: stars) else { return }
+        let now = Date()
+        let line = PatrickMoodStars.company(stars: stars)
+        experience.settings.moodStars = stars
+        experience.settings.pendingMindRaw = raw
+        experience.settings.dayLine = line
+        experience.record(line, at: now)
+        experience.changed(at: now)
+        persistExperience()
+        Task { await self.commitMind(raw) }
+    }
+
+    private func noteRide(_ riding: Bool) {
+        let next: Bool? = riding ? true : nil
+        guard experience.settings.contextCommute != next else { return }
+        experience.settings.contextCommute = next
         experience.changed()
         persistExperience()
+        refreshWeek()
+    }
+
+    private func noteWater(_ submerged: Bool) {
+        latestWater = submerged
+        refreshWeek()
+    }
+
+    private func refreshWeek() {
+        let now = Date()
+        let calendar = PatrickHKHolidays.calendar
+        let origin = experience
+        let device = WKInterfaceDevice.current()
+        let level = device.batteryLevel
+        let battery = level >= 0 ? Double(level) : nil
+        var settings = experience.settings
+        let folded = PatrickWeekPlan.fold(
+            settings: &settings, line: settings.dayLine, hello: nil, knocks: 0,
+            gate: experience.contextSnapshot(at: now, calendar: calendar), events: [],
+            journalLines: experience.lifeJournal.map(\.text), battery: battery,
+            modelEvening: nil, modelWeekly: nil, phoneReachable: latestReachable,
+            waterSubmerged: latestWater, writesJournal: false, now: now, calendar: calendar)
+        experience.settings = settings
+        for line in folded.journal { experience.record(line, at: now) }
+        let gate = origin.contextSnapshot(at: now, calendar: calendar)
+        if experience != origin {
+            experience.changed(at: now)
+            persistExperience()
+        }
+        if folded.knocks > 0 {
+            _ = PatrickHaptics.shared.play(.knock, settings: experience.settings, foreground: WKExtension.shared().applicationState == .active, context: gate)
+        }
+        if folded.phoneLeftPulses > 0 {
+            PatrickHaptics.shared.playRepeated(.timerClosing, count: folded.phoneLeftPulses, settings: experience.settings, foreground: WKExtension.shared().applicationState == .active, context: gate)
+        }
     }
 
     func markHandwash() {
@@ -128,6 +212,7 @@ final class PatrickAppModel: ObservableObject {
         mutation(&experience)
         experience.changed()
         persistExperience()
+        refreshWeek()
     }
 
     func controlActivity(_ command: PatrickActivityControl) {
@@ -135,6 +220,7 @@ final class PatrickAppModel: ObservableObject {
         let revision = experience.revision
         let result = experience.controlActivity(command)
         if wasExercise, experience.activity?.status != .running {
+            workoutZone = nil
             Task { await PatrickWorkoutCompanion.shared.end() }
         }
         if experience.revision != revision { persistExperience() }
@@ -256,6 +342,7 @@ final class PatrickAppModel: ObservableObject {
         if experience.revision != revision { persistExperience() }
         guard let id = experience.reconcile(at: date) else { return }
         if experience.activity?.kind.isExercise == true {
+            workoutZone = nil
             Task { await PatrickWorkoutCompanion.shared.end() }
         }
         completedActivityID = allowEffects ? id.uuidString : nil
@@ -272,6 +359,11 @@ final class PatrickAppModel: ObservableObject {
         companion.sendSnapshot(theme: theme, experience: experience, automationEvent: automationEvent)
         WidgetCenter.shared.reloadTimelines(ofKind: PatrickSharedStore.complicationKind)
         syncCountdownAlerts()
+        let workingOut = experience.activity?.status == .running && experience.activity?.kind.isExercise == true
+        let donated = experience.settings
+        if #available(watchOS 11.0, *) {
+            Task { await PatrickStackDonation.refresh(settings: donated, workingOut: workingOut) }
+        }
     }
 
     func setPetScene(_ scene: PatrickPetScene) {

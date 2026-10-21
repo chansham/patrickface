@@ -372,6 +372,17 @@ struct PatrickAnimatedFaceView: View {
                         if line.contains("洗手") {
                             Button("洗 20 秒") { model.markHandwash() }
                         }
+                        if line.contains("星星"), model.experience.settings.moodStars == nil {
+                            HStack {
+                                ForEach(1...5, id: \.self) { star in
+                                    Button("\(star)") { model.recordMood(stars: star) }
+                                        .accessibilityLabel("心情 \(star)")
+                                }
+                            }
+                        }
+                    }
+                    if let page = model.experience.settings.weeklyPage, !page.isEmpty {
+                        Text(page).font(.footnote).lineLimit(6).minimumScaleFactor(0.7).fixedSize(horizontal: false, vertical: true)
                     }
                     Text("可以說「派大星，我出門了」「我回來了」「午睡 25 分鐘」「晚安」或「我累了」。手錶上的 App 名稱會出現在句子裡。").font(.footnote).fixedSize(horizontal: false, vertical: true)
                 }
@@ -432,7 +443,8 @@ struct PatrickAnimatedFaceView: View {
             sleeping: model.experience.settings.isSleepTime(.now) || model.previewState == .sleeping,
             focus: model.experience.settings.contextFocus == true,
             workout: running && activity?.kind.isExercise == true,
-            meeting: model.experience.settings.contextMeeting == true
+            meeting: model.experience.settings.contextMeeting == true,
+            water: model.experience.settings.waterOn == true
         )
     }
     private var currentOutfit: PatrickOutfitCatalog.Outfit? {

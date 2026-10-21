@@ -54,7 +54,10 @@ struct PatrickFaceView: View {
                 lowBattery: lowBattery,
                 charging: charging,
                 physicalCharging: physicalCharging,
-                petScene: model.petScene
+                petScene: model.petScene,
+                workoutSway: PatrickHeartZone(rawValue: model.workoutZone ?? 0)?.sway ?? 1,
+                lookingOut: model.experience.settings.contextCommute == true,
+                theater: (model.experience.settings.theaterUntilMS ?? 0) > timeline.date.timeIntervalSince1970 * 1000
             )
 
             Canvas { context, size in
@@ -580,7 +583,10 @@ private struct FacePose {
         lowBattery: Bool,
         charging: Bool,
         physicalCharging: Bool,
-        petScene: PatrickPetScene
+        petScene: PatrickPetScene,
+        workoutSway: Double = 1,
+        lookingOut: Bool = false,
+        theater: Bool = false
     ) {
         let clock = PatrickClockAngles.make(for: date)
         let baseHour = clock.hour
@@ -613,8 +619,10 @@ private struct FacePose {
         let showWeight = reduced || !physicalCharging
             ? 0 : Self.envelope(showElapsed, duration: 6)
         let exerciseSway = petScene == .exercise && !quiet
-            ? sin(date.timeIntervalSinceReferenceDate * .pi) * 1.5 : 0
-        bodySway = sin(showElapsed * .pi * 3) * 7 * showWeight + exerciseSway
+            ? sin(date.timeIntervalSinceReferenceDate * .pi) * 1.5 * workoutSway : 0
+        let windowSway = lookingOut && !quiet ? sin(date.timeIntervalSinceReferenceDate * .pi * 0.35) * 2 : 0
+        let storySway = theater && !quiet ? sin(date.timeIntervalSinceReferenceDate * .pi * 0.5) * 2.5 : 0
+        bodySway = sin(showElapsed * .pi * 3) * 7 * showWeight + exerciseSway + windowSway + storySway
         self.sleeping = sleeping
         self.charging = charging
         self.reduced = reduced

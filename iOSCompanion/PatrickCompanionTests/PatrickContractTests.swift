@@ -693,4 +693,54 @@ final class PatrickContractTests: XCTestCase {
         XCTAssertNil(PatrickDayPlan.acceptButler("可能着涼了"))
         XCTAssertEqual(PatrickDayPlan.greeting(name: "Sham", hour: 8, report: nil, weather: nil, firstEvent: nil, suppressed: false), "早安，Sham。")
     }
+
+    func testWeekPlanZonesStoryJournalMoodAndGate() {
+        let calendar = PatrickHKHolidays.calendar
+        XCTAssertEqual(PatrickHeartZone.zone(beatsPerMinute: 100)?.sway, 0.6)
+        XCTAssertEqual(PatrickHeartZone.zone(beatsPerMinute: 180), .peak)
+        XCTAssertNil(PatrickHeartZone.zone(beatsPerMinute: 0))
+        XCTAssertEqual(PatrickKilometerMarks.crossed(previousMeters: 999, meters: 1000), 1)
+        XCTAssertNil(PatrickKilometerMarks.crossed(previousMeters: 1000, meters: 1400))
+        XCTAssertEqual(PatrickNightMotion.tosses([1, 1.3, 1, 1.3]), 2)
+        XCTAssertEqual(PatrickNightTheater.beats(quietMinutes: 90, tosses: 0, wakes: 0).map(\.seconds).reduce(0, +), 10)
+        XCTAssertNil(PatrickNightTheater.script(quietMinutes: 0, tosses: 0, wakes: 0))
+        XCTAssertFalse(PatrickNightTheater.script(quietMinutes: 40, tosses: 4, wakes: 1)?.contains("分數") ?? true)
+        XCTAssertEqual(PatrickJournalVoice.evening(events: ["站會"], modelText: "去餵食"), "今天有站會。就這樣，很好。")
+        XCTAssertEqual(PatrickJournalVoice.weekly(lines: ["餵一口"], modelText: nil), "這週平靜地過去了。")
+        XCTAssertEqual(PatrickMoodStars.raw(stars: 3), "neutral")
+        XCTAssertFalse(PatrickMoodStars.company(stars: 1).contains("判斷"))
+        XCTAssertFalse(PatrickMoodStars.shouldAsk(hour: 20, askedDay: "2026-10-21", today: "2026-10-21", suppressed: false))
+        XCTAssertEqual(PatrickBathCharge.chargeLine(battery: 0.39), "先充 20 分鐘，再去泡澡。")
+        XCTAssertNil(PatrickBathCharge.chargeLine(battery: 0.4))
+        XCTAssertFalse(PatrickPhoneLeft.shouldAlert(wasReachable: true, reachable: false, atHome: true, already: false, suppressed: true))
+        XCTAssertTrue(PatrickPhoneLeft.shouldAlert(wasReachable: true, reachable: false, atHome: true, already: false, suppressed: false))
+        XCTAssertEqual(PatrickPhoneLeft.pulses, 3)
+        var settings = PatrickExperienceSettings()
+        settings.contextCommute = true
+        let noon = calendar.date(from: DateComponents(calendar: calendar, timeZone: calendar.timeZone, year: 2026, month: 10, day: 21, hour: 12))!
+        let riding = PatrickDayPlan.advance(settings: &settings, activity: nil, events: [
+            PatrickCalendarInterval(start: noon.addingTimeInterval(5 * 60), end: noon.addingTimeInterval(3600))
+        ], sittingMinutes: 80, battery: 1, role: .none, now: noon, calendar: calendar, writesJournal: false)
+        XCTAssertEqual(riding.knocks, 0)
+        XCTAssertEqual(settings.dayLine, "坐車看窗外。")
+        settings.contextCommute = nil
+        settings.scene = .bath
+        _ = PatrickDayPlan.advance(settings: &settings, activity: nil, events: [], sittingMinutes: nil, battery: 0.2, role: .none, now: noon, calendar: calendar, writesJournal: false)
+        XCTAssertEqual(settings.dayLine, "先充 20 分鐘，再去泡澡。")
+        XCTAssertEqual(PatrickAutomaticScene.resolve(selection: .automatic, activitySceneID: nil, charging: false, sleeping: false, focus: false, workout: false, meeting: false, water: true), "exercise")
+        var wet = PatrickExperienceSettings()
+        let entered = PatrickWeekPlan.fold(settings: &wet, line: nil, hello: nil, knocks: 0, gate: PatrickContextSnapshot(budget: 6), events: [], journalLines: [], battery: 1, modelEvening: nil, modelWeekly: nil, phoneReachable: nil, waterSubmerged: true, writesJournal: false, now: noon, calendar: calendar)
+        XCTAssertEqual(entered.line, "下水了，泳圈模式。")
+        XCTAssertEqual(entered.knocks, 0)
+        var home = PatrickExperienceSettings()
+        home.phoneAtHome = true
+        home.phoneWasReachable = true
+        let left = PatrickWeekPlan.fold(settings: &home, line: nil, hello: nil, knocks: 0, gate: PatrickContextSnapshot(budget: 6), events: [], journalLines: [], battery: 1, modelEvening: nil, modelWeekly: nil, phoneReachable: false, waterSubmerged: nil, writesJournal: false, now: noon, calendar: calendar)
+        XCTAssertEqual(left.phoneLeftPulses, 3)
+        var stack = PatrickExperienceState()
+        let idle = PatrickStackRelevance.make(experience: stack, at: noon, calendar: calendar).score
+        stack.settings.contextCommute = true
+        let ride = PatrickStackRelevance.make(experience: stack, at: noon, calendar: calendar).score
+        XCTAssertGreaterThan(ride, idle)
+    }
 }
