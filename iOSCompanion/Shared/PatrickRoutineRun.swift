@@ -60,9 +60,9 @@ struct PatrickRoutineRun: Codable, Equatable, Identifiable, Sendable {
         guard schemaVersion == 1 && routineID == "goodnight" && createdAtMS.isFinite && createdAtMS > 0
             && updatedAtMS.isFinite && updatedAtMS >= createdAtMS
             && steps.count == StepID.allCases.count && Set(steps.map(\.stepID)).count == steps.count
-            && steps.allSatisfy { (1...5).contains($0.attempt) && $0.updatedAtMS.isFinite
+            && steps.allSatisfy({ (1...5).contains($0.attempt) && $0.updatedAtMS.isFinite
                 && $0.updatedAtMS >= createdAtMS && $0.updatedAtMS <= updatedAtMS
-                && !($0.stepID.required && $0.status == .skipped) }
+                && !($0.stepID.required && $0.status == .skipped) })
             && events.count <= 20
             && Set(events.map(\.receiptID)).count == events.count
             && steps.map(\.updatedAtMS).max() == updatedAtMS else { return false }
