@@ -93,6 +93,8 @@ struct PatrickExperienceSettings: Codable, Equatable, Sendable {
     var phoneLeftAlerted: Bool?
     var bathFlow: Bool?
     var waterOn: Bool?
+    /// Nil means off. The microphone runs only while the app is in front.
+    var soundTheaterEnabled: Bool?
     /// Nil follows the day. Stored negative moods remain in the archive.
     var moodFollowsDay: Bool?
     /// Phone-side signals. Nil means unknown, which does not suppress.
@@ -114,6 +116,7 @@ struct PatrickExperienceSettings: Codable, Equatable, Sendable {
         return trimmed.isEmpty ? "Sham" : trimmed
     }
     var voiceGreetingOn: Bool { voiceGreetingEnabled ?? false }
+    var soundTheaterOn: Bool { soundTheaterEnabled == true }
     var dailyHapticBudget: Int { min(24, max(0, proactiveHapticBudget ?? 6)) }
     var phoneWakeFallback: Bool { phoneWakeFallbackEnabled ?? false }
     var wakeAlarmOn: Bool { wakeAlarmEnabled ?? false }

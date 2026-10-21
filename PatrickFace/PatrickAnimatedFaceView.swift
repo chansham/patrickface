@@ -35,6 +35,7 @@ struct PatrickAnimatedFaceView: View {
     @State private var crownAdjustsOutfit = false
     @State private var crownCaption: String?
     @State private var crownCaptionTick = 0
+    @State private var crownHistory: [PatrickCrownStep] = []
     @State private var lastClosingActivityID: UUID?
 
     private var monitoring: Bool { visible && scenePhase == .active && !wristDown && !showingActions }
@@ -178,6 +179,7 @@ struct PatrickAnimatedFaceView: View {
             player.suspend()
             feedback.stop()
             WKInterfaceDevice.current().isBatteryMonitoringEnabled = false
+            refreshSound()
         }
     }
 
@@ -240,6 +242,8 @@ struct PatrickAnimatedFaceView: View {
         }
         .onChange(of: model.experience.activity) { _, _ in refreshContext(); configureOutfit() }
         .onChange(of: model.status) { _, _ in configureOutfit() }
+        .onChange(of: model.soundCue) { _, _ in configureOutfit() }
+        .onChange(of: model.experience.settings.soundTheaterEnabled) { _, _ in refreshSound() }
         .onChange(of: showingActions) { _, shown in
             refreshContext()
             if !shown { playRequestedClipIfVisible() }
@@ -264,6 +268,16 @@ struct PatrickAnimatedFaceView: View {
                 do { try await Task.sleep(nanoseconds: 5_000_000_000) }
                 catch { return }
             }
+        }
+        .task(id: model.soundCueUntil) {
+            guard let until = model.soundCueUntil else { return }
+            let delay = until.timeIntervalSinceNow
+            if delay > 0 {
+                do { try await Task.sleep(for: .seconds(delay)) } catch { return }
+            }
+            guard !Task.isCancelled else { return }
+            model.clearExpiredSound()
+            configureOutfit()
         }
         .task(id: crownCaptionTick) {
             guard crownCaption != nil else { return }
@@ -409,6 +423,13 @@ struct PatrickAnimatedFaceView: View {
                     Text("手機效果預覽，不代表手錶已量測到相同狀態。")
                         .font(.footnote)
                 }
+                Section("星星睡衣樣本") {
+                    Text("樣本，等 Sham 之後決定。正式素材沒有換。").font(.footnote).fixedSize(horizontal: false, vertical: true)
+                    PatrickStarPajamasSample()
+                    if let line = model.activeSoundLine {
+                        Text(line).font(.footnote)
+                    }
+                }
             }
             .navigationTitle("陪你一下")
             .task {
@@ -448,12 +469,17 @@ struct PatrickAnimatedFaceView: View {
         )
     }
     private var currentOutfit: PatrickOutfitCatalog.Outfit? {
-        PatrickExperienceResources.outfit(model.experience.settings, scene: resolvedScene, from: outfits)
+        PatrickExperienceResources.outfit(model.experience.settings, scene: resolvedScene, from: outfits, soundOutfitID: model.soundOutfitID)
     }
     private var availableOutfitClips: [PatrickAnimationClip] {
         let ids = Set(currentOutfit?.actions?.values.flatMap { $0.clips } ?? [])
         return player.clips.filter { ids.contains($0.id) }
     }
+    private func refreshSound() {
+        model.clearExpiredSound()
+        PatrickSoundListener.shared.setForeground(monitoring, enabled: model.experience.settings.soundTheaterOn)
+    }
+
     private func configureOutfit() {
         player.eventClips = PatrickExperienceResources.eventClips(model.experience.settings, outfit: currentOutfit, from: outfits)
         player.idleClips = currentOutfit?.idleClips ?? []
@@ -539,6 +565,20 @@ struct PatrickAnimatedFaceView: View {
     private func applyCrown(from old: Double, to new: Double) {
         let steps = Int(new.rounded()) - Int(old.rounded())
         guard steps != 0, scenePhase == .active, !wristDown else { return }
+        var history = crownHistory
+        let gesture = PatrickCrownPlay.notice(steps, history: &history, now: .now)
+        crownHistory = history
+        if let gesture {
+            switch gesture {
+            case .tickle:
+                crownCaption = "好癢。"
+            case .knockGlass:
+                crownCaption = "有人敲玻璃。"
+                model.playGlassKnock()
+            }
+            crownCaptionTick &+= 1
+            return
+        }
         if crownAdjustsOutfit {
             let ids = ["auto"] + outfits.filter { $0.id != "auto" }.map(\.id)
             guard !ids.isEmpty else { return }
@@ -638,6 +678,7 @@ struct PatrickAnimatedFaceView: View {
         let automaticSleeping = model.experience.settings.isSleepTime(date) || model.previewState == .sleeping
         let selection = model.experience.settings.scene
         let sleeping = selection == .automatic ? automaticSleeping : selection == .sleeping
+        refreshSound()
         let timer = model.experience.activity == nil ? model.companionTimer : nil
         if model.experience.activity != nil { timerTracker = PatrickAnimationTimerTracker() }
         let timerState = timerTracker.update(id: timer?.id.uuidString,

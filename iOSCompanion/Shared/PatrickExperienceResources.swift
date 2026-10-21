@@ -30,8 +30,9 @@ enum PatrickExperienceResources {
         return catalog
     }
     static func outfits(bundle: Bundle = .main) -> [PatrickOutfitCatalog.Outfit] { catalog(bundle: bundle)?.outfits ?? [] }
-    static func outfit(_ settings: PatrickExperienceSettings, scene: String, from outfits: [PatrickOutfitCatalog.Outfit]) -> PatrickOutfitCatalog.Outfit? {
+    static func outfit(_ settings: PatrickExperienceSettings, scene: String, from outfits: [PatrickOutfitCatalog.Outfit], soundOutfitID: String? = nil) -> PatrickOutfitCatalog.Outfit? {
         if settings.outfitID != "auto" { return outfits.first { $0.id == settings.outfitID } }
+        if let soundOutfitID, let value = outfits.first(where: { $0.id == soundOutfitID }) { return value }
         if let id = catalog()?.defaultSceneOutfits?[scene], let value = outfits.first(where: { $0.id == id }) { return value }
         return outfits.first { $0.scene == scene && $0.id != "auto" }
             ?? outfits.first { $0.scene == "awake" && $0.id != "auto" }
@@ -78,6 +79,8 @@ struct PatrickSchedulePreferences: View {
             Text("早晨鬧鐘預設關掉。香港公眾假期和周末不叫；你自己開始的午睡仍會響。手機鈴聲仍預設關掉。").font(.footnote).fixedSize(horizontal: false, vertical: true)
             Toggle("起床時手機也響", isOn: Binding(get: { settings.phoneWakeFallback }, set: { settings.phoneWakeFallbackEnabled = $0 }))
             Text("手錶戴著時由手錶叫醒。手機只在這項打開、而且手錶不在手上時才出聲。").font(.footnote).fixedSize(horizontal: false, vertical: true)
+            Toggle("前景聽一下周圍", isOn: Binding(get: { settings.soundTheaterOn }, set: { settings.soundTheaterEnabled = $0 ? true : nil }))
+            Text("只在 App 開著時聽幾秒，分辨下雨、煮東西或唱歌。沒有全天麥克風。關掉就不聽。").font(.footnote).fixedSize(horizontal: false, vertical: true)
             TextField("家的緯度", text: coordinate(\.homeLatitude))
             TextField("家的經度", text: coordinate(\.homeLongitude))
             Text("回家後可以說「我回來了」。填了家的位置，也只在 App 開著時試著知道你到家，不會申請永遠定位。").font(.footnote).fixedSize(horizontal: false, vertical: true)
@@ -297,5 +300,70 @@ private struct PatrickLayoutActivity: View {
             }.foregroundStyle(.secondary)
                 .overlay(alignment: .top) { Rectangle().fill(Color.pink.opacity(0.35)).frame(height: max(0.5, unit)).offset(y: -max(2, 8 * unit)) }
         }.allowsHitTesting(false)
+    }
+}
+
+/// A drawn sample beside the existing name. It does not replace the wardrobe art.
+struct PatrickStarPajamasSample: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var body: some View {
+        HStack(alignment: .center, spacing: 8) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("現有").font(.caption2).foregroundStyle(.secondary)
+                Text("星星抱枕睡衣").font(.caption2).lineLimit(2).minimumScaleFactor(0.7).fixedSize(horizontal: false, vertical: true)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            TimelineView(.animation(minimumInterval: 0.8, paused: reduceMotion)) { timeline in
+                let closed = !reduceMotion && Int(timeline.date.timeIntervalSinceReferenceDate / 0.8).isMultiple(of: 5)
+                sampleFace(eyesClosed: closed)
+            }
+            .frame(width: 72, height: 84)
+            .accessibilityHidden(true)
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("星星睡衣樣本，並排在現有名稱旁邊，正式素材沒有換")
+    }
+
+    private func sampleFace(eyesClosed: Bool) -> some View {
+        ZStack {
+            Capsule()
+                .fill(Color(red: 0.72, green: 0.62, blue: 0.9))
+                .frame(width: 28, height: 22)
+                .offset(y: -30)
+            Circle()
+                .fill(Color(red: 0.98, green: 0.76, blue: 0.84))
+                .frame(width: 54, height: 54)
+            StarShape()
+                .fill(Color(red: 1, green: 0.86, blue: 0.35))
+                .frame(width: 16, height: 16)
+                .offset(y: 10)
+            HStack(spacing: 14) {
+                eye(closed: eyesClosed)
+                eye(closed: eyesClosed)
+            }
+            .offset(y: -6)
+        }
+    }
+
+    private func eye(closed: Bool) -> some View {
+        Capsule()
+            .fill(Color(red: 0.25, green: 0.16, blue: 0.28))
+            .frame(width: 8, height: closed ? 2 : 8)
+    }
+}
+
+private struct StarShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let center = CGPoint(x: rect.midX, y: rect.midY)
+        let radius = min(rect.width, rect.height) / 2
+        for point in 0..<5 {
+            let angle = CGFloat(point) * .pi * 4 / 5 - .pi / 2
+            let next = CGPoint(x: center.x + cos(angle) * radius, y: center.y + sin(angle) * radius)
+            if point == 0 { path.move(to: next) } else { path.addLine(to: next) }
+        }
+        path.closeSubpath()
+        return path
     }
 }

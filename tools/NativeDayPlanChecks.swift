@@ -65,6 +65,20 @@ import Foundation
         check(streak?.contains("連續幾天都偏離你自己的平常") == true, "Two earlier deviant days add the streak clause")
         check(streak?.contains("感冒") == false && streak?.contains("着涼") == false && streak?.contains("著涼") == false, "The report does not name an illness")
         check(PatrickDayPlan.morningSentence([]) == nil, "No overnight data stays silent")
+        func series(_ metric: PatrickMorningMetric, _ baseline: Double, _ overnight: Double, _ days: Int) -> PatrickMorningSeries {
+            PatrickMorningSeries(metric: metric, values: Array(repeating: baseline, count: days) + [overnight], overnightIndex: days)
+        }
+        let longSleep = series(.sleepHours, 8, 7, 14)
+        let longHRV = series(.hrvSDNN, 50, 42, 14)
+        let longPulse = series(.restingHeartRate, 60, 65, 14)
+        let slower = PatrickDayPlan.morningSentence([longSleep, longHRV, longPulse])
+        check(slower == PatrickColdPrecursor.text, "Fourteen days and three signals use the slower sentence")
+        check(slower?.contains("感冒") == false && slower?.contains("診斷") == false && slower?.contains("分數") == false, "The slower sentence is not a diagnosis")
+        let thirteen = [series(.sleepHours, 8, 7, 13), series(.hrvSDNN, 50, 42, 13), series(.restingHeartRate, 60, 65, 13)]
+        check(PatrickColdPrecursor.sentence(thirteen) == nil, "Thirteen days do not cross the longer threshold")
+        let ordinary = PatrickDayPlan.morningSentence(thirteen)
+        check(ordinary?.contains("昨晚少睡了") == true && ordinary != PatrickColdPrecursor.text, "Thirteen days keep the ordinary fact sentence")
+        check(PatrickColdPrecursor.sentence([longSleep, longHRV]) == nil, "Two signals at fourteen days stay silent on the longer line")
 
         let warnings = #"{"WRAIN":{"code":"WRAINY","name":"黃色暴雨警告信號"}}"#.data(using: .utf8)!
         check(PatrickDayPlan.warnings(from: warnings) == ["WRAINY"], "Warning summary reads the code")

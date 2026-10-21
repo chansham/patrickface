@@ -177,6 +177,21 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
     }
 }
 
+/// Optional NFC / Shortcuts hook. Not an App Shortcut, so the ten-phrase list stays as it is.
+struct PatrickLeaveHookIntent: AppIntent {
+    static var title: LocalizedStringResource = "出门"
+    static var description = IntentDescription("可選。捷徑的個人自動化選 NFC 之後可以執行這句出門。沒有貼紙也能直接用。不在背景掃描。")
+    static var openAppWhenRun = false
+
+    func perform() async throws -> some IntentResult & ProvidesDialog {
+        let name = await MainActor.run { PatrickSharedStore.shared.loadExperience().settings.greetingDisplayName }
+        let modelText = await PatrickButlerModel.reply(to: .leaving, name: name)
+        let text = await MainActor.run { PatrickSpokenIntentBridge.butler(.leaving, modelText: modelText) }
+        if #available(iOS 18.0, *) { _ = try? await donate() }
+        return .result(dialog: "\(text)")
+    }
+}
+
 struct PatrickButlerIntent: AppIntent {
     static var title: LocalizedStringResource = "派大星一句話"
     static var description = IntentDescription("用一句話告訴派大星你出門、回來、要午睡、晚安或累了。")

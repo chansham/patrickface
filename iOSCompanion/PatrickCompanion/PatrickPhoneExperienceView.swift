@@ -32,7 +32,7 @@ import SwiftUI
         )
     }
     private var outfit: PatrickOutfitCatalog.Outfit? {
-        PatrickExperienceResources.outfit(model.experience.settings, scene: scene, from: outfits)
+        PatrickExperienceResources.outfit(model.experience.settings, scene: scene, from: outfits, soundOutfitID: model.soundOutfitID)
     }
     private var pageSurface: some View {
         NavigationStack {
@@ -106,6 +106,26 @@ import SwiftUI
                             Text("\(entry.at.formatted(date: .abbreviated, time: .shortened)) · \(entry.text)").font(.caption)
                         }
                     }.frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("星星睡衣樣本").font(.headline)
+                        Text("樣本，等 Sham 之後決定。正式素材沒有換。").font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
+                        PatrickStarPajamasSample()
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("貼紙").font(.headline)
+                        Text(PatrickNFCHook.note).font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
+                        HStack {
+                            Button("出門") { Task { await model.playHook(.leaving) } }.buttonStyle(.bordered)
+                            Button("晚安") { Task { await model.playHook(.goodNight) } }.buttonStyle(.bordered)
+                        }
+                        Button("讀一張貼紙") { model.scanSticker() }.buttonStyle(.bordered)
+                        if let line = model.stickerNotice {
+                            Text(line).font(.caption).fixedSize(horizontal: false, vertical: true)
+                        }
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    if let line = model.activeSoundLine {
+                        Text(line).font(.body).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+                    }
                 }.padding()
             }.navigationTitle("派大星陪你")
                 .toolbar { Button { showSettings = true } label: { Image(systemName: "slider.horizontal.3") }.accessibilityLabel("設定") }
@@ -141,6 +161,7 @@ import SwiftUI
             model.setSoundPresentationActive(false)
             model.setAutomationPresentationActive(false)
             surpriseExpiresAt = nil; player.suspend(); feedback.stop()
+            PatrickSoundListener.shared.setForeground(false, enabled: false)
         }
         .onChange(of: scenePhase) { _, _ in configure(); if !active { feedback.stop() } }
         .onChange(of: showSettings) { _, _ in configure(); if !active { feedback.stop() } }
@@ -164,6 +185,8 @@ import SwiftUI
             configure()
             if let event = model.takeAutomationForPlayback() { player.playEvent(event.clipKey) }
         }
+        .onChange(of: model.soundCue) { _, _ in configure() }
+        .onChange(of: model.experience.settings.soundTheaterEnabled) { _, _ in refreshSound() }
         .onChange(of: model.actionSequence) { _, _ in
             if let action = model.requestedCare {
                 player.playEvent(action.clipID)
@@ -188,6 +211,16 @@ import SwiftUI
                 model.refreshExperience(allowEffects: !reduceMotion && !ProcessInfo.processInfo.isLowPowerModeEnabled, announceCompletion: true)
                 do { try await Task.sleep(for: .seconds(2)) } catch { return }
             }
+        }
+        .task(id: model.soundCueUntil) {
+            guard let until = model.soundCueUntil else { return }
+            let delay = until.timeIntervalSinceNow
+            if delay > 0 {
+                do { try await Task.sleep(for: .seconds(delay)) } catch { return }
+            }
+            guard !Task.isCancelled else { return }
+            model.clearExpiredSound()
+            configure()
         }
         .task(id: surpriseExpiresAt) {
             guard surpriseExpiresAt != nil else { return }
@@ -218,12 +251,17 @@ import SwiftUI
             surpriseExpiresAt = nil
             model.refreshExperience()
         }
+        refreshSound()
         player.eventClips = PatrickExperienceResources.eventClips(model.experience.settings, outfit: outfit, from: outfits)
         player.idleClips = outfit?.idleClips ?? []
         if restingID != outfit?.clipId { restingID = outfit?.clipId; _ = player.selectRestingClip(restingID) }
         player.update(PatrickAnimationContext(active: active, reduceMotion: reduceMotion,
             lowPower: ProcessInfo.processInfo.isLowPowerModeEnabled, sleeping: scene == "sleeping",
             charging: scene == "charging", focusing: scene == "focus", exercising: scene == "exercise", completedTimerID: model.completedActivityID))
+    }
+    private func refreshSound() {
+        model.clearExpiredSound()
+        PatrickSoundListener.shared.setForeground(active, enabled: model.experience.settings.soundTheaterOn)
     }
     private func setting<Value>(_ key: WritableKeyPath<PatrickExperienceSettings, Value>) -> Binding<Value> {
         Binding(get: { model.experience.settings[keyPath: key] }, set: { value in model.updateExperience { $0.settings[keyPath: key] = value } })

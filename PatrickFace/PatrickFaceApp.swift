@@ -19,6 +19,8 @@ final class PatrickAppModel: ObservableObject {
     @Published private(set) var calendarCelebrationSequence = 0
     @Published private(set) var careNotice = "今天也陪著你"
     @Published private(set) var automationSequence = 0
+    @Published private(set) var soundCue: PatrickSoundCue?
+    @Published private(set) var soundCueUntil: Date?
     @Published var workoutZone: Int?
     private var latestReachable: Bool?
     private var latestWater: Bool?
@@ -66,6 +68,10 @@ final class PatrickAppModel: ObservableObject {
         NotificationCenter.default.publisher(for: .patrickWaterChanged)
             .receive(on: RunLoop.main)
             .sink { [weak self] note in self?.noteWater(note.userInfo?["submerged"] as? Bool ?? false) }
+            .store(in: &cancellables)
+        NotificationCenter.default.publisher(for: .patrickSoundCue)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] note in self?.noteSound(note) }
             .store(in: &cancellables)
         companion.onReachability = { [weak self] reachable in
             Task { @MainActor in
@@ -198,6 +204,45 @@ final class PatrickAppModel: ObservableObject {
         } else if folded.knocks > 0 {
             _ = PatrickHaptics.shared.play(.knock, settings: experience.settings, foreground: foreground, context: gate)
         }
+    }
+
+    var soundOutfitID: String? {
+        guard experience.settings.outfitID == "auto",
+              let cue = soundCue, let until = soundCueUntil, until > Date() else { return nil }
+        return cue.outfitID
+    }
+
+    var activeSoundLine: String? {
+        guard let cue = soundCue, let until = soundCueUntil, until > Date() else { return nil }
+        return cue.line
+    }
+
+    func clearExpiredSound(at date: Date = .now) {
+        guard let until = soundCueUntil, until.timeIntervalSince(date) <= 0.05 else { return }
+        soundCue = nil
+        soundCueUntil = nil
+    }
+
+    private func noteSound(_ note: Notification) {
+        guard let info = note.userInfo,
+              let raw = info["kind"] as? String,
+              let kind = PatrickSoundKind(rawValue: raw),
+              let outfitID = info["outfit"] as? String,
+              let line = info["line"] as? String else { return }
+        let seconds = (info["seconds"] as? Double) ?? (info["seconds"] as? NSNumber)?.doubleValue ?? 20
+        soundCue = PatrickSoundCue(kind: kind, outfitID: outfitID, line: line, seconds: seconds)
+        soundCueUntil = Date().addingTimeInterval(seconds)
+    }
+
+    /// One knock, and only when the glass pattern cleared the budget and the gate.
+    /// A tickle never calls this.
+    func playGlassKnock(at date: Date = .now) {
+        let calendar = PatrickHKHolidays.calendar
+        let context = experience.contextSnapshot(at: date, calendar: calendar)
+        guard experience.registerProactiveHaptic(at: date, calendar: calendar) else { return }
+        persistExperience()
+        let foreground = WKExtension.shared().applicationState == .active
+        _ = PatrickHaptics.shared.play(.knock, settings: experience.settings, foreground: foreground, context: context, at: date)
     }
 
     func markHandwash() {

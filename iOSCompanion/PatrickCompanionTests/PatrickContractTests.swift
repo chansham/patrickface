@@ -743,4 +743,59 @@ final class PatrickContractTests: XCTestCase {
         let ride = PatrickStackRelevance.make(experience: stack, at: noon, calendar: calendar).score
         XCTAssertGreaterThan(ride, idle)
     }
+
+    func testPlaySoundCrownNFCAndPrecursor() {
+        XCTAssertEqual(PatrickSoundTheater.cue(identifier: "rain", confidence: 0.9)?.outfitID, "moon-robe")
+        XCTAssertEqual(PatrickSoundTheater.cue(identifier: "singing", confidence: 0.7)?.line, "有人在唱歌。")
+        XCTAssertEqual(PatrickSoundTheater.cue(identifier: "cooking", confidence: 0.8)?.outfitID, "chef")
+        XCTAssertNil(PatrickSoundTheater.cue(identifier: "train", confidence: 0.99))
+        XCTAssertNil(PatrickSoundTheater.cue(identifier: "rain", confidence: 0.4))
+        let now = Date(timeIntervalSince1970: 1_700_000_000)
+        XCTAssertFalse(PatrickSoundTheater.mayListen(enabled: false, foreground: true, lastAt: nil, now: now))
+        XCTAssertFalse(PatrickSoundTheater.mayListen(enabled: true, foreground: false, lastAt: nil, now: now))
+        XCTAssertFalse(PatrickSoundTheater.mayListen(enabled: true, foreground: true, lastAt: now, now: now.addingTimeInterval(10)))
+        var tickleHistory: [PatrickCrownStep] = []
+        var tickle: PatrickCrownGesture?
+        for step in [1, -1, 1, -1, 1] {
+            tickle = PatrickCrownPlay.notice(step, history: &tickleHistory, now: now)
+        }
+        XCTAssertEqual(tickle, .tickle)
+        var knockHistory: [PatrickCrownStep] = []
+        var knock: PatrickCrownGesture?
+        for step in [4, 4, 4] {
+            knock = PatrickCrownPlay.notice(step, history: &knockHistory, now: now)
+        }
+        XCTAssertEqual(knock, .knockGlass)
+        var steadyHistory: [PatrickCrownStep] = []
+        var steady: PatrickCrownGesture?
+        for step in [1, 1, 1] {
+            steady = PatrickCrownPlay.notice(step, history: &steadyHistory, now: now)
+        }
+        XCTAssertNil(steady)
+        XCTAssertEqual(PatrickNFCHook.phrase(in: "出门"), .leaving)
+        XCTAssertEqual(PatrickNFCHook.phrase(in: "出門"), .leaving)
+        XCTAssertEqual(PatrickNFCHook.phrase(in: "晚安"), .goodNight)
+        XCTAssertNil(PatrickNFCHook.phrase(in: "貼紙"))
+        XCTAssertFalse(PatrickExperienceSettings().soundTheaterOn)
+        func series(_ metric: PatrickMorningMetric, _ baseline: Double, _ overnight: Double, _ days: Int) -> PatrickMorningSeries {
+            PatrickMorningSeries(metric: metric, values: Array(repeating: baseline, count: days) + [overnight], overnightIndex: days)
+        }
+        let longer = PatrickDayPlan.morningSentence([
+            series(.sleepHours, 8, 7, 14),
+            series(.hrvSDNN, 50, 42, 14),
+            series(.restingHeartRate, 60, 65, 14)
+        ])
+        XCTAssertEqual(longer, PatrickColdPrecursor.text)
+        XCTAssertFalse(longer?.contains("感冒") ?? true)
+        XCTAssertFalse(longer?.contains("診斷") ?? true)
+        XCTAssertNil(PatrickColdPrecursor.sentence([
+            series(.sleepHours, 8, 7, 13),
+            series(.hrvSDNN, 50, 42, 13),
+            series(.restingHeartRate, 60, 65, 13)
+        ]))
+        XCTAssertNil(PatrickColdPrecursor.sentence([
+            series(.sleepHours, 8, 7, 14),
+            series(.hrvSDNN, 50, 42, 14)
+        ]))
+    }
 }

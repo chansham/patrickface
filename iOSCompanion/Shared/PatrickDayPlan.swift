@@ -44,6 +44,30 @@ struct PatrickMorningSeries: Equatable, Sendable {
     var overnightIndex: Int?
 }
 
+/// A longer personal history than the seven-day morning line. Silent until
+/// three signals each have fourteen of the person's own days. Not a diagnosis.
+enum PatrickColdPrecursor {
+    static let minimumDays = 14
+    static let minimumSignals = 3
+    static let text = "這幾項一起偏離你自己的平常，今天可以慢一點。"
+
+    static func sentence(_ series: [PatrickMorningSeries]) -> String? {
+        var signals = 0
+        for metric in PatrickMorningMetric.allCases {
+            guard let item = series.first(where: { $0.metric == metric }),
+                  let index = item.overnightIndex, item.values.indices.contains(index) else { continue }
+            let prior = Array(item.values[..<index]).filter(\.isFinite)
+            guard prior.count >= minimumDays, let baseline = PatrickDayPlan.median(prior) else { continue }
+            let overnight = item.values[index]
+            guard overnight.isFinite, PatrickDayPlan.deviates(metric, overnight: overnight, baseline: baseline) else { continue }
+            signals += 1
+        }
+        guard signals >= minimumSignals else { return nil }
+        guard !["感冒", "着涼", "著涼", "生病", "診斷", "分數"].contains(where: { text.contains($0) }) else { return nil }
+        return text
+    }
+}
+
 enum PatrickButlerPhrase: String, CaseIterable, Equatable, Sendable {
     case leaving, arrived, nap, goodNight, tired
 }
@@ -127,7 +151,9 @@ enum PatrickDayPlan {
 
     /// Nil when the personal baseline is thinner than seven days or the overnight
     /// value stays inside the threshold. The sentence never names an illness.
+    /// Fourteen days and three signals together use one slower sentence instead.
     static func morningSentence(_ series: [PatrickMorningSeries]) -> String? {
+        if let soft = PatrickColdPrecursor.sentence(series) { return soft }
         var facts: [String] = []
         var streak = 0
         for metric in PatrickMorningMetric.allCases {

@@ -23,6 +23,9 @@ final class AppModel: ObservableObject {
     @Published private(set) var completedActivityID: String?
     @Published private(set) var calendarCelebrationSequence = 0
     @Published private(set) var automationSequence = 0
+    @Published private(set) var soundCue: PatrickSoundCue?
+    @Published private(set) var soundCueUntil: Date?
+    @Published private(set) var stickerNotice: String?
     private var requestedAutomation: PatrickAutomationEvent?
     private var automationGate: PatrickAutomationGate
 
@@ -103,6 +106,11 @@ final class AppModel: ObservableObject {
                 self?.receiveAutomation(event)
             }.store(in: &cancellables)
 
+        NotificationCenter.default.publisher(for: .patrickSoundCue)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] note in self?.noteSound(note) }
+            .store(in: &cancellables)
+
         NotificationCenter.default.publisher(for: .patrickPendingActionsChanged)
             .receive(on: RunLoop.main)
             .sink { [weak self] _ in
@@ -129,6 +137,69 @@ final class AppModel: ObservableObject {
     func updateExperience(_ mutation: (inout PatrickExperienceState) -> Void) {
         mutation(&experience); experience.changed()
         saveExperience()
+    }
+
+    var soundOutfitID: String? {
+        guard experience.settings.outfitID == "auto",
+              let cue = soundCue, let until = soundCueUntil, until > Date() else { return nil }
+        return cue.outfitID
+    }
+
+    var activeSoundLine: String? {
+        guard let cue = soundCue, let until = soundCueUntil, until > Date() else { return nil }
+        return cue.line
+    }
+
+    func clearExpiredSound(at date: Date = .now) {
+        guard let until = soundCueUntil, until.timeIntervalSince(date) <= 0.05 else { return }
+        soundCue = nil
+        soundCueUntil = nil
+    }
+
+    private func noteSound(_ note: Notification) {
+        guard let info = note.userInfo,
+              let raw = info["kind"] as? String,
+              let kind = PatrickSoundKind(rawValue: raw),
+              let outfitID = info["outfit"] as? String,
+              let line = info["line"] as? String else { return }
+        let seconds = (info["seconds"] as? Double) ?? (info["seconds"] as? NSNumber)?.doubleValue ?? 20
+        soundCue = PatrickSoundCue(kind: kind, outfitID: outfitID, line: line, seconds: seconds)
+        soundCueUntil = Date().addingTimeInterval(seconds)
+    }
+
+    /// 「出门」 uses the existing leaving sentence. 「晚安」 uses the existing good-night path.
+    func playHook(_ phrase: PatrickButlerPhrase) async {
+        let text: String
+        switch phrase {
+        case .goodNight:
+            text = PatrickSpokenIntentBridge.goodNight()
+        case .leaving:
+            let name = store.loadExperience().settings.greetingDisplayName
+            let modelText = await PatrickButlerModel.reply(to: .leaving, name: name)
+            text = PatrickSpokenIntentBridge.butler(.leaving, modelText: modelText)
+        default:
+            return
+        }
+        settings = store.loadSettings()
+        experience = store.loadExperience()
+        stickerNotice = text
+        notice = text
+    }
+
+    func scanSticker() {
+        PatrickNFCReader.shared.onPhrase = { [weak self] phrase in
+            Task { @MainActor in await self?.playHook(phrase) }
+        }
+        PatrickNFCReader.shared.onUnavailable = { [weak self] in
+            Task { @MainActor in
+                self?.stickerNotice = PatrickNFCHook.unavailableLine
+                self?.notice = PatrickNFCHook.unavailableLine
+            }
+        }
+        if !PatrickNFCReader.shared.scanIfAvailable() {
+            stickerNotice = PatrickNFCHook.unavailableLine
+            notice = PatrickNFCHook.unavailableLine
+        }
     }
 
     func performCare(_ action: PatrickCareAction) {

@@ -177,6 +177,44 @@ import Foundation
         check(windows.contains { $0.reason == "運動" }, "A workout donates a stack window")
         check(PatrickWeekPlan.stackWindows(settings: PatrickExperienceSettings(), workingOut: false, now: noon, calendar: calendar).isEmpty, "An ordinary noon does not invent a stack moment")
 
+        let rain = PatrickSoundTheater.cue(identifier: "rain", confidence: 0.9)
+        check(rain?.outfitID == "moon-robe" && rain?.line == "下雨了，我聽著。", "Rain wears the moon robe for a moment")
+        check(PatrickSoundTheater.cue(identifier: "singing", confidence: 0.6)?.outfitID == "party", "Singing wears the party outfit")
+        check(PatrickSoundTheater.cue(identifier: "cooking", confidence: 0.8)?.kind == .cooking, "Cooking is its own cue")
+        check(PatrickSoundTheater.cue(identifier: "frying", confidence: 0.55)?.line == "有人在煮東西。", "Frying counts as cooking")
+        check(PatrickSoundTheater.cue(identifier: "boiling", confidence: 1)?.outfitID == "chef", "Boiling wears the chef outfit")
+        check(PatrickSoundTheater.cue(identifier: "train", confidence: 0.99) == nil, "Train does not match rain")
+        check(PatrickSoundTheater.cue(identifier: "rain", confidence: 0.4) == nil, "A weak classification stays quiet")
+        let listenAt = Date(timeIntervalSince1970: 1_700_000_000)
+        check(!PatrickSoundTheater.mayListen(enabled: false, foreground: true, lastAt: nil, now: listenAt), "Sound theater stays off until it is turned on")
+        check(!PatrickSoundTheater.mayListen(enabled: true, foreground: false, lastAt: nil, now: listenAt), "The microphone does not run in the background")
+        check(!PatrickSoundTheater.mayListen(enabled: true, foreground: true, lastAt: listenAt, now: listenAt.addingTimeInterval(599)), "A new listen waits out the cooldown")
+        check(PatrickSoundTheater.mayListen(enabled: true, foreground: true, lastAt: listenAt, now: listenAt.addingTimeInterval(600)), "The cooldown opens again after ten minutes")
+        check(!PatrickExperienceSettings().soundTheaterOn, "The microphone setting defaults off")
+        var tickleHistory: [PatrickCrownStep] = []
+        var tickle: PatrickCrownGesture?
+        for step in [1, -1, 1, -1, 1] {
+            tickle = PatrickCrownPlay.notice(step, history: &tickleHistory, now: listenAt)
+        }
+        check(tickle == .tickle, "Small reversals are a tickle")
+        var knockHistory: [PatrickCrownStep] = []
+        var knock: PatrickCrownGesture?
+        for step in [4, 4, 4] {
+            knock = PatrickCrownPlay.notice(step, history: &knockHistory, now: listenAt)
+        }
+        check(knock == .knockGlass, "Three stronger pulses knock the glass")
+        var steadyHistory: [PatrickCrownStep] = []
+        var steady: PatrickCrownGesture?
+        for step in [1, 1, 1] {
+            steady = PatrickCrownPlay.notice(step, history: &steadyHistory, now: listenAt)
+        }
+        check(steady == nil, "A steady turn still changes minutes")
+        check(PatrickNFCHook.phrase(in: "出门") == .leaving, "A simplified leave sticker maps to leaving")
+        check(PatrickNFCHook.phrase(in: "出門") == .leaving, "A traditional leave sticker maps to leaving")
+        check(PatrickNFCHook.phrase(in: "晚安") == .goodNight, "A good-night sticker maps to the existing phrase")
+        check(PatrickNFCHook.phrase(in: "hello") == nil, "An unrelated sticker does nothing")
+        check(PatrickNFCHook.note.contains("可選") && PatrickNFCHook.note.contains("沒有 NFC"), "NFC stays optional")
+
         print("native week plan checks: \(count)")
     }
 }

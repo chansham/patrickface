@@ -371,3 +371,99 @@ struct PatrickWeekFold: Equatable, Sendable {
     var eveningNotice: String?
     var eveningFireAt: Date?
 }
+
+enum PatrickSoundKind: String, Equatable, Sendable { case rain, cooking, singing }
+
+struct PatrickSoundCue: Equatable, Sendable {
+    var kind: PatrickSoundKind
+    var outfitID: String
+    var line: String
+    var seconds: Double
+}
+
+/// Foreground classification only. A short window, then a long quiet.
+enum PatrickSoundTheater {
+    static let windowSeconds = 4.0
+    static let cooldownSeconds = 600.0
+    static let minimumConfidence = 0.55
+
+    static func cue(identifier: String, confidence: Double) -> PatrickSoundCue? {
+        guard confidence.isFinite, confidence >= minimumConfidence else { return nil }
+        let tokens = Set(identifier.lowercased().split { !$0.isLetter }.map(String.init))
+        if tokens.contains("rain") {
+            return PatrickSoundCue(kind: .rain, outfitID: "moon-robe", line: "下雨了，我聽著。", seconds: 20)
+        }
+        if tokens.contains("singing") {
+            return PatrickSoundCue(kind: .singing, outfitID: "party", line: "有人在唱歌。", seconds: 20)
+        }
+        if tokens.contains("frying") || tokens.contains("boiling") || tokens.contains("cooking") {
+            return PatrickSoundCue(kind: .cooking, outfitID: "chef", line: "有人在煮東西。", seconds: 20)
+        }
+        return nil
+    }
+
+    static func mayListen(enabled: Bool, foreground: Bool, lastAt: Date?, now: Date) -> Bool {
+        guard enabled, foreground else { return false }
+        if let lastAt, now.timeIntervalSince(lastAt) < cooldownSeconds { return false }
+        return true
+    }
+}
+
+struct PatrickCrownStep: Equatable, Sendable {
+    var steps: Int
+    var at: Date
+}
+
+enum PatrickCrownGesture: Equatable, Sendable { case tickle, knockGlass }
+
+/// Small reversals are a tickle. Three stronger pulses are a knock on the glass.
+/// A steady turn is neither, so the crown can still change minutes.
+enum PatrickCrownPlay {
+    static func notice(_ steps: Int, history: inout [PatrickCrownStep], now: Date) -> PatrickCrownGesture? {
+        guard steps != 0 else { return nil }
+        history.append(PatrickCrownStep(steps: steps, at: now))
+        history.removeAll { now.timeIntervalSince($0.at) > 1.6 }
+        if tickle(history, now: now) {
+            history.removeAll()
+            return .tickle
+        }
+        if knock(history, now: now) {
+            history.removeAll()
+            return .knockGlass
+        }
+        return nil
+    }
+
+    private static func tickle(_ history: [PatrickCrownStep], now: Date) -> Bool {
+        let window = history.filter { now.timeIntervalSince($0.at) <= 1.2 && abs($0.steps) <= 4 && $0.steps != 0 }
+        guard window.count >= 5 else { return false }
+        var reversals = 0
+        var previous = window[0].steps
+        for step in window.dropFirst() {
+            if previous.signum() != step.steps.signum() { reversals += 1 }
+            previous = step.steps
+        }
+        return reversals >= 4
+    }
+
+    private static func knock(_ history: [PatrickCrownStep], now: Date) -> Bool {
+        let pulses = history.filter { now.timeIntervalSince($0.at) <= 1.5 && abs($0.steps) >= 3 }
+        guard pulses.count >= 3 else { return false }
+        let last = Array(pulses.suffix(3))
+        let sign = last[0].steps.signum()
+        guard sign != 0, last.allSatisfy({ $0.steps.signum() == sign }) else { return false }
+        return true
+    }
+}
+
+/// Optional sticker text. The phone does not require NFC hardware.
+enum PatrickNFCHook {
+    static let note = "可選。沒有 NFC 也能用。捷徑的個人自動化選 NFC 之後，執行「出門」或「派大星晚安」。不在背景掃描。"
+    static let unavailableLine = "這台手機現在讀不了貼紙。直接點「出門」或「晚安」，或在捷徑裡做自動化。"
+
+    static func phrase(in payload: String) -> PatrickButlerPhrase? {
+        if payload.contains("出门") || payload.contains("出門") { return .leaving }
+        if payload.contains("晚安") { return .goodNight }
+        return nil
+    }
+}
