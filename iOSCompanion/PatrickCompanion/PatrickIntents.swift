@@ -142,8 +142,7 @@ struct PatrickAppShortcuts: AppShortcutsProvider {
         ], shortTitle: "晚安", systemImageName: "moon.zzz.fill")
         AppShortcut(intent: PatrickStartRestIntent(), phrases: [
             "\(.applicationName)開始休息",
-            "\(.applicationName)开始休息",
-            "讓\(.applicationName)休息 \(\.$minutes) 分鐘"
+            "\(.applicationName)开始休息"
         ], shortTitle: "開始休息", systemImageName: "pause.circle")
         AppShortcut(intent: PatrickFeedIntent(), phrases: [
             "餵\(.applicationName)",
