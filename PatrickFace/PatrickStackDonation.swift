@@ -1,8 +1,11 @@
 import AppIntents
 import Foundation
+import WidgetKit
 
 /// Opens the face. It is not an App Shortcut, so it does not use one of the ten phrases.
-struct PatrickStackOpenIntent: AppIntent {
+/// RelevantIntent only accepts a widget configuration intent. The complication itself stays static,
+/// and its timeline score is the other clue.
+struct PatrickStackOpenIntent: AppIntent, WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "看派大星"
     static var openAppWhenRun: Bool = true
 

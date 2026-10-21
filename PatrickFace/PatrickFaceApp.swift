@@ -68,14 +68,20 @@ final class PatrickAppModel: ObservableObject {
             .sink { [weak self] note in self?.noteWater(note.userInfo?["submerged"] as? Bool ?? false) }
             .store(in: &cancellables)
         companion.onReachability = { [weak self] reachable in
-            self?.latestReachable = reachable
-            self?.refreshWeek()
+            Task { @MainActor in
+                self?.latestReachable = reachable
+                self?.refreshWeek()
+            }
         }
-        PatrickWorkoutCompanion.shared.onZone = { [weak self] zone in self?.workoutZone = zone }
+        PatrickWorkoutCompanion.shared.onZone = { [weak self] zone in
+            Task { @MainActor in self?.workoutZone = zone }
+        }
         PatrickWorkoutCompanion.shared.onKilometer = { [weak self] _ in
-            guard let self else { return }
-            let foreground = WKExtension.shared().applicationState == .active
-            _ = PatrickHaptics.shared.play(.celebrate, settings: self.experience.settings, foreground: foreground, inWorkout: true)
+            Task { @MainActor in
+                guard let self else { return }
+                let foreground = WKExtension.shared().applicationState == .active
+                _ = PatrickHaptics.shared.play(.celebrate, settings: self.experience.settings, foreground: foreground, inWorkout: true)
+            }
         }
         PatrickWeekSensors.shared.start()
     }
@@ -186,11 +192,11 @@ final class PatrickAppModel: ObservableObject {
             experience.changed(at: now)
             persistExperience()
         }
-        if folded.knocks > 0 {
-            _ = PatrickHaptics.shared.play(.knock, settings: experience.settings, foreground: WKExtension.shared().applicationState == .active, context: gate)
-        }
+        let foreground = WKExtension.shared().applicationState == .active
         if folded.phoneLeftPulses > 0 {
-            PatrickHaptics.shared.playRepeated(.timerClosing, count: folded.phoneLeftPulses, settings: experience.settings, foreground: WKExtension.shared().applicationState == .active, context: gate)
+            PatrickHaptics.shared.playRepeated(.timerClosing, count: folded.phoneLeftPulses, settings: experience.settings, foreground: foreground, context: gate)
+        } else if folded.knocks > 0 {
+            _ = PatrickHaptics.shared.play(.knock, settings: experience.settings, foreground: foreground, context: gate)
         }
     }
 

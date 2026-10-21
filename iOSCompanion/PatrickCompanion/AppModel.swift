@@ -379,11 +379,10 @@ final class AppModel: ObservableObject {
             experience.changed()
             saveExperience()
         }
-        if advance.knocks > 0 {
-            _ = PatrickHaptics.shared.play(.knock, settings: experience.settings, foreground: true, context: gate)
-        }
         if advance.phoneLeftPulses > 0 {
             PatrickHaptics.shared.playRepeated(.timerClosing, count: advance.phoneLeftPulses, settings: experience.settings, foreground: true, context: gate)
+        } else if advance.knocks > 0 {
+            _ = PatrickHaptics.shared.play(.knock, settings: experience.settings, foreground: true, context: gate)
         }
         if let body = advance.eveningNotice, let fireAt = advance.eveningFireAt {
             Task { await PatrickEveningNotifier.shared.sync(body: body, fireAt: fireAt, calendar: calendar) }

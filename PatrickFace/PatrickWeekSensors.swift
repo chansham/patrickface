@@ -41,21 +41,20 @@ final class PatrickWeekSensors: NSObject, CMWaterSubmersionManagerDelegate {
     /// Caps the walk so a full night of samples cannot stall the watch. A short read still tells the story.
     func tossCount(from start: Date, to end: Date) -> Int {
         guard let list = recorder.accelerometerData(from: start, to: end) else { return 0 }
-        var previous = 0.0
-        var tosses = 0
-        var seen = 0
-        for case let sample as CMRecordedAccelerometerData in list {
+        var magnitudes: [Double] = []
+        let enumerator = NSFastEnumerationIterator(list)
+        while let object = enumerator.next() {
+            guard let sample = object as? CMRecordedAccelerometerData else { continue }
             let acceleration = sample.acceleration
             let magnitude = (acceleration.x * acceleration.x + acceleration.y * acceleration.y + acceleration.z * acceleration.z).squareRoot()
-            if previous <= 1.05 && magnitude >= 1.2 { tosses += 1 }
-            previous = magnitude
-            seen += 1
-            if seen >= 8000 { break }
+            if magnitude.isFinite { magnitudes.append(magnitude) }
+            if magnitudes.count >= 8000 { break }
         }
-        return tosses
+        return PatrickNightMotion.tosses(magnitudes)
     }
 
     func manager(_ manager: CMWaterSubmersionManager, didUpdate event: CMWaterSubmersionEvent) {
+        if event.state == .unknown { return }
         let submerged = event.state == .submerged
         NotificationCenter.default.post(name: .patrickWaterChanged, object: nil, userInfo: ["submerged": submerged])
     }
@@ -64,6 +63,5 @@ final class PatrickWeekSensors: NSObject, CMWaterSubmersionManagerDelegate {
 
     func manager(_ manager: CMWaterSubmersionManager, errorOccurred error: Error) {
         water = nil
-        NotificationCenter.default.post(name: .patrickWaterChanged, object: nil, userInfo: ["submerged": false])
     }
 }

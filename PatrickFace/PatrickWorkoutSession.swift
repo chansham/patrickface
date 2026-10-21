@@ -95,9 +95,7 @@ final class PatrickWorkoutCompanion: NSObject, HKWorkoutSessionDelegate, HKLiveW
     nonisolated func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {}
 
     private func requestShare(_ types: Set<HKSampleType>, read: Set<HKObjectType>) async -> Bool {
-        let status = store.authorizationStatus(for: HKObjectType.workoutType())
-        if status == .sharingAuthorized { return true }
-        return await withCheckedContinuation { continuation in
+        await withCheckedContinuation { continuation in
             store.requestAuthorization(toShare: types, read: read) { granted, _ in
                 continuation.resume(returning: granted)
             }

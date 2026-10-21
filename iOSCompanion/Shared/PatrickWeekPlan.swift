@@ -48,10 +48,10 @@ struct PatrickNightBeat: Equatable, Sendable {
 enum PatrickNightMotion {
     /// A toss is a rise from a quiet sample through the threshold. Not a score.
     static func tosses(_ magnitudes: [Double], quiet: Double = 1.05, threshold: Double = 1.2) -> Int {
-        var previous = 0.0
+        var previous: Double?
         var count = 0
         for sample in magnitudes where sample.isFinite {
-            if previous <= quiet && sample >= threshold { count += 1 }
+            if let previous, previous <= quiet, sample >= threshold { count += 1 }
             previous = sample
         }
         return count
