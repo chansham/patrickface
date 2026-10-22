@@ -541,6 +541,29 @@ extension PatrickWatchReceiver: WCSessionDelegate {
             sendAcknowledgement(acknowledgement)
         }
     }
+
+    nonisolated func session(
+        _ session: WCSession,
+        didReceiveMessage message: [String: Any],
+        replyHandler: @escaping ([String: Any]) -> Void
+    ) {
+        guard message[PatrickFieldTestPing.transportKey] is Data else {
+            replyHandler([:])
+            return
+        }
+        let reply = PatrickFieldTestPing.Body(
+            id: UUID(),
+            sentAt: Date(),
+            role: "watch",
+            system: "watchOS \(WKInterfaceDevice.current().systemVersion) \(WKInterfaceDevice.current().model)",
+            note: "收到实测问候，没有改角色、主题或计时"
+        )
+        if let encoded = PatrickFieldTestPing.encode(reply) {
+            replyHandler([PatrickFieldTestPing.transportKey: encoded])
+        } else {
+            replyHandler([:])
+        }
+    }
 }
 
 extension Notification.Name {

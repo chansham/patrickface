@@ -106,6 +106,16 @@ xcodebuild \
   build
 
 python3 "$ROOT/tools/check_apple_bundle.py" "$DERIVED_ROOT/phone/Build/Products/Debug-iphonesimulator/PatrickCompanion.app"
+PHONE_APP="$DERIVED_ROOT/phone/Build/Products/Debug-iphonesimulator/PatrickCompanion.app"
+if [[ -d "$PHONE_APP/PlugIns/PatrickFieldTestNotification.appex" ]]; then
+  echo "Field-test notification extension was embedded. The default build must leave it out." >&2
+  exit 1
+fi
+FIELD_TEST_EXT="$DERIVED_ROOT/phone/Build/Products/Debug-iphonesimulator/PatrickFieldTestNotification.appex"
+if [[ ! -d "$FIELD_TEST_EXT" ]]; then
+  echo "Field-test notification extension did not compile." >&2
+  exit 1
+fi
 # Compile once, then execute on an already installed simulator. Never download a runtime.
 xcodebuild -workspace "$PHONE_WORKSPACE" -scheme PatrickCompanion -configuration Debug \
   -destination 'generic/platform=iOS Simulator' -derivedDataPath "$DERIVED_ROOT/phone" \

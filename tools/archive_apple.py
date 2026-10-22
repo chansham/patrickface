@@ -372,6 +372,10 @@ def main() -> None:
     subprocess.run(command + ["archive"], check=True)
     app = archive / "Products/Applications/PatrickCompanion.app"
     verify(app)
+    if (app / "PlugIns/PatrickFieldTestNotification.appex").exists():
+        raise PackageError(
+            "Field-test notification extension must stay out of the default archive"
+        )
     if config:
         for relative in IDS:
             subprocess.run(["codesign", "--verify", "--strict", str(app / relative)], check=True)
