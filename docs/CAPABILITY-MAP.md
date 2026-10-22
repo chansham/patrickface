@@ -17,7 +17,7 @@
 - **不可（公開 API）**：未找到受支援的替換或存取方式；同列提供可用替代，不代表所有未來系統永久不可能。
 - **待實機**：API／設計有依據，但時機、權限、硬體、背景狀態或配對行為須用使用者裝置證明。
 
-版本採**最低可依賴入口**：現有工程以 watchOS 10／iOS 17 為基礎；double tap 主動作需 watchOS 11+ 及支援硬體；Watch controls 是 watchOS 26+。不可因現行文件列出新 API，就直接放入舊版本而沒有 availability 與替代 UI。[S02][S03]
+版本採**最低可依賴入口**：現有工程最低是 watchOS 26／iOS 26。double tap 主動作從 watchOS 11 起需要支援硬體，這個最低版本已經包含；Watch controls 也是 watchOS 26 起。iOS／watchOS 27 才有的 API 仍要保留 availability 與替代 UI。[S02][S03]
 
 ## 本輪源碼狀態：日常體驗已接，原生仍待編譯與實機
 

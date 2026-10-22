@@ -1,6 +1,6 @@
 # Patrick iPhone Companion
 
-Production-oriented iOS 17 SwiftUI companion project for the existing Patrick
+Production-oriented iOS 26 SwiftUI companion project for the existing Patrick
 watch app. The apps remain separate projects, but the iPhone project now holds
 an explicit reference, dependency, and Embed Watch Content phase for the watch
 product. No existing file was deleted.
@@ -20,7 +20,7 @@ full-screen Patrick experience inside the Patrick app.
 - `PatrickCompanionTests`: contract, deep-link, persistence, and message
   deduplication tests.
 
-The deployment target is iOS 17.0. Xcode 16 or newer is recommended.
+The deployment target is iOS 26.0. The paired watch app minimum is watchOS 26.0. Xcode 26.6 is required.
 `PatrickFaceSuite.xcworkspace` opens the paired projects;
 `PatrickCompanion.xcodeproj` also resolves the referenced watch project when
 opened by itself.
@@ -175,7 +175,7 @@ Swift delimiter shape. Windows cannot run Apple's Swift SDK, `xcodebuild`,
 
 ## Remaining Mac-only steps
 
-1. Open `PatrickFaceSuite.xcworkspace` in Xcode 16 or newer (or open
+1. Open `PatrickFaceSuite.xcworkspace` in Xcode 26.6 (or open
    `PatrickCompanion.xcodeproj` for iPhone-only work) and accept only intentional
    project-format updates.
 2. Select one Apple Developer team for the iPhone app, widget, watch app,
@@ -187,7 +187,7 @@ Swift delimiter shape. Windows cannot run Apple's Swift SDK, `xcodebuild`,
    - `com.chans.patrickface.companion.watchkitapp`
    - `com.chans.patrickface.companion.watchkitapp.complications`
    - `group.com.chans.patrickface.shared`
-4. Build for an iOS 17+ simulator, run `PatrickCompanionTests`, and inspect all
+4. Build for an iOS 26+ simulator, run `PatrickCompanionTests`, and inspect all
    Swift concurrency and App Intent metadata diagnostics.
 5. Run the app and widget previews, then add every supported widget family and
    start/end a Live Activity. Check Lock Screen, StandBy, and each Dynamic Island

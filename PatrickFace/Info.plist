@@ -32,7 +32,7 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>MinimumOSVersion</key>
-	<string>10.0</string>
+	<string>26.0</string>
 	<key>NSFocusStatusUsageDescription</key>
 	<string>用於在睡眠或專注模式啟用時切換派大星的休息狀態。</string>
 	<key>UISupportedInterfaceOrientations</key>

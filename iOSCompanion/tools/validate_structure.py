@@ -76,7 +76,7 @@ REQUIRED_PROJECT_TOKENS = [
     'CODE_SIGN_ENTITLEMENTS = PatrickWidgets/PatrickWidgets.entitlements;',
     'PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion;',
     'PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.widgets;',
-    'IPHONEOS_DEPLOYMENT_TARGET = 17.0;',
+    'IPHONEOS_DEPLOYMENT_TARGET = 26.0;',
     'path = ../PatrickFace.xcodeproj;',
     'isa = PBXReferenceProxy;',
     'PatrickFace.app in Embed Watch Content',

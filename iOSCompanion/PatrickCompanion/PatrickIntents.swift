@@ -79,7 +79,7 @@ struct PatrickGoodNightIntent: AppIntent {
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let text = await MainActor.run { PatrickSpokenIntentBridge.goodNight() }
-        if #available(iOS 18.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }
@@ -93,7 +93,7 @@ struct PatrickStartRestIntent: AppIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let outcome = await MainActor.run { PatrickSpokenIntentBridge.rest(minutes: minutes) }
         if outcome.armedCountdown { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
-        if #available(iOS 18.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(outcome.text)")
     }
 }
@@ -118,7 +118,7 @@ struct PatrickRecordMindIntent: AppIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let choice = mood
         let text = await MainActor.run { PatrickSpokenIntentBridge.recordMind(raw: choice.rawValue, title: choice.title) }
-        if #available(iOS 18.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }
@@ -130,7 +130,7 @@ struct PatrickPetIntent: AppIntent {
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let text = await MainActor.run { PatrickSpokenIntentBridge.pet() }
-        if #available(iOS 18.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }
@@ -142,7 +142,7 @@ struct PatrickCheckMoodIntent: AppIntent {
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let text = await MainActor.run { PatrickSpokenActions.moodLine(PatrickSharedStore.shared.loadExperience()) }
-        if #available(iOS 18.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }
@@ -187,7 +187,7 @@ struct PatrickLeaveHookIntent: AppIntent {
         let name = await MainActor.run { PatrickSharedStore.shared.loadExperience().settings.greetingDisplayName }
         let modelText = await PatrickButlerModel.reply(to: .leaving, name: name)
         let text = await MainActor.run { PatrickSpokenIntentBridge.butler(.leaving, modelText: modelText) }
-        if #available(iOS 18.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }
@@ -203,7 +203,7 @@ struct PatrickButlerIntent: AppIntent {
         let name = await MainActor.run { PatrickSharedStore.shared.loadExperience().settings.greetingDisplayName }
         let modelText = await PatrickButlerModel.reply(to: phrase, name: name)
         let text = await MainActor.run { PatrickSpokenIntentBridge.butler(phrase, modelText: modelText) }
-        if #available(iOS 18.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }

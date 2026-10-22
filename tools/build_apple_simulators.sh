@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Manual compile check only. No signing, export, upload or device installation. Includes pure-logic tests.
-# Apple CI calls this from .github/workflows/apple-build.yml on macos-latest.
+# Apple CI calls this from .github/workflows/apple-build.yml on macos-26 with Xcode 26.6 selected.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

@@ -412,9 +412,7 @@ final class PatrickAppModel: ObservableObject {
         syncCountdownAlerts()
         let workingOut = experience.activity?.status == .running && experience.activity?.kind.isExercise == true
         let donated = experience.settings
-        if #available(watchOS 11.0, *) {
-            Task { await PatrickStackDonation.refresh(settings: donated, workingOut: workingOut) }
-        }
+        Task { await PatrickStackDonation.refresh(settings: donated, workingOut: workingOut) }
     }
 
     func setPetScene(_ scene: PatrickPetScene) {

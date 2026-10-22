@@ -551,8 +551,7 @@ struct PatrickAnimatedFaceView: View {
     }
 
     private var primaryHandHint: String {
-        if #available(watchOS 11, *) { return "雙指互點可午睡 25 分鐘" }
-        return "點一下午睡 25 分鐘"
+        "雙指互點可午睡 25 分鐘"
     }
 
     private func primaryHandAction() {
@@ -713,11 +712,7 @@ struct PatrickAnimatedFaceView: View {
 private struct PatrickPrimaryGesture: ViewModifier {
     var enabled = true
     func body(content: Content) -> some View {
-        if #available(watchOS 11, *) {
-            content.handGestureShortcut(.primaryAction, isEnabled: enabled)
-        } else {
-            content
-        }
+        content.handGestureShortcut(.primaryAction, isEnabled: enabled)
     }
 }
 

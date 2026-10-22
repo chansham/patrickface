@@ -2,9 +2,9 @@
 
 ## 目前使用的裝置（2026-10-22）
 
-目前的裝置是 **iPhone 18 Pro Max** 和 **Apple Watch Series 12 46mm**。下文把 iPhone 13 Pro 寫成當時的手機、把 iPhone 18 Pro Max 寫成換機計畫，那是 2026-09-27 和 10 月 5 日的紀錄，不再代表現在手上的手機。
+目前的裝置是 **iPhone 18 Pro Max** 和 **Apple Watch Series 12 46mm**，回報的系統是 **iOS 26** 和 **watchOS 26**。下文把 iPhone 13 Pro 寫成當時的手機、把 iPhone 18 Pro Max 寫成換機計畫，那是 2026-09-27 和 10 月 5 日的紀錄，不再代表現在手上的手機。App 最低系統現在也是 iOS 26／watchOS 26。
 
-沒有讀取序號、Apple 帳號或系統 build，也不新編 iOS／watchOS 小版本。製作目標仍是 Series 12 46mm 的官方 416×496 像素。截圖用的模擬器會優先選已安裝 runtime 裡的 Series 12 46mm；這台 runner 的 runtime 若還沒列出 Series 12，就保持最接近的 46mm（目前常見是 Series 11），並在該次 `report.json` 的 `series12Fallback` 寫明，不把 Series 11 截圖說成 Series 12 真機。
+沒有讀取序號、Apple 帳號或系統 build，也不新編 iOS／watchOS 小版本，也沒有在這兩台真機上安裝或運行。製作目標仍是 Series 12 46mm 的官方 416×496 像素。截圖用的模擬器會優先選已安裝 runtime 裡的 Series 12 46mm；這台 runner 的 runtime 若還沒列出 Series 12，就保持最接近的 46mm（目前常見是 Series 11），並在該次 `report.json` 的 `series12Fallback` 寫明，不把 Series 11 截圖說成 Series 12 真機。
 
 本文件把使用者提供的裝置資訊與 Apple 官方規格分開記錄。下表保留 **2026-09-27 查證時點**，10 月 5 日的新版本、帳號與編譯證據另列於後。已足夠按 46mm 目標繼續製作；沒有讀取或實測使用者裝置，也沒有據此宣稱已安裝成功。
 
