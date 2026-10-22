@@ -89,20 +89,47 @@ private struct PatrickStatusWidgetView: View {
     var body: some View {
         switch family {
         case .accessoryInline:
+            // Inline slots accept one SF Symbol, not a custom image.
             Label("派大星 · \(state.settings.mood.title)", systemImage: "heart.fill")
         case .accessoryCircular:
-            ZStack { AccessoryWidgetBackground(); Image(systemName: "heart.fill").widgetAccentable() }
+            ZStack {
+                AccessoryWidgetBackground()
+                PatrickHeadAvatar(slot: .circular).padding(4)
+            }
+        case .accessoryRectangular:
+            HStack(spacing: 8) {
+                PatrickHeadAvatar(slot: .rectangular, side: 36, decorative: true)
+                statusText
+            }
+        case .systemSmall:
+            VStack(alignment: .leading, spacing: 6) {
+                PatrickHeadAvatar(slot: .activity, side: 52, decorative: true)
+                statusText
+            }
         default:
-            VStack(alignment: .leading, spacing: 5) {
-                Label("派大星 · \(state.settings.mood.title)", systemImage: "star.fill").font(.headline).widgetAccentable()
-                Text(state.displayedMood(at: entry.date).title).font(.caption)
-                if let activity = state.activity, activity.status == .running, let end = activity.endsAt, end > entry.date {
-                    Text(activity.kind.title).font(.caption2)
-                    Text(timerInterval: activity.startedAt...end, countsDown: true).monospacedDigit()
-                } else if let activity = state.activity, activity.status == .paused {
-                    Text("\(activity.kind.title)已暫停").font(.caption)
-                } else { Text("我在這").font(.caption).foregroundStyle(.secondary) }
-            }.frame(maxWidth: .infinity, alignment: .leading)
+            HStack(alignment: .center, spacing: 10) {
+                PatrickHeadAvatar(slot: .activity, side: family == .systemLarge ? 88 : 64, decorative: true)
+                statusText
+            }
         }
+    }
+
+    private var statusText: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text("派大星 · \(state.settings.mood.title)")
+                .font(.headline)
+                .widgetAccentable()
+                .lineLimit(1)
+            Text(state.displayedMood(at: entry.date).title).font(.caption).lineLimit(1)
+            if let activity = state.activity, activity.status == .running, let end = activity.endsAt, end > entry.date {
+                Text(activity.kind.title).font(.caption2)
+                Text(timerInterval: activity.startedAt...end, countsDown: true).monospacedDigit()
+            } else if let activity = state.activity, activity.status == .paused {
+                Text("\(activity.kind.title)已暫停").font(.caption)
+            } else {
+                Text("我在這").font(.caption).foregroundStyle(.secondary)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
