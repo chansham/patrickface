@@ -1,5 +1,11 @@
 # 裝置目標與查證 · 2026-09-27
 
+## 目前使用的裝置（2026-10-22）
+
+目前的裝置是 **iPhone 18 Pro Max** 和 **Apple Watch Series 12 46mm**。下文把 iPhone 13 Pro 寫成當時的手機、把 iPhone 18 Pro Max 寫成換機計畫，那是 2026-09-27 和 10 月 5 日的紀錄，不再代表現在手上的手機。
+
+沒有讀取序號、Apple 帳號或系統 build，也不新編 iOS／watchOS 小版本。製作目標仍是 Series 12 46mm 的官方 416×496 像素。截圖用的模擬器會優先選已安裝 runtime 裡的 Series 12 46mm；這台 runner 的 runtime 若還沒列出 Series 12，就保持最接近的 46mm（目前常見是 Series 11），並在該次 `report.json` 的 `series12Fallback` 寫明，不把 Series 11 截圖說成 Series 12 真機。
+
 本文件把使用者提供的裝置資訊與 Apple 官方規格分開記錄。下表保留 **2026-09-27 查證時點**，10 月 5 日的新版本、帳號與編譯證據另列於後。已足夠按 46mm 目標繼續製作；沒有讀取或實測使用者裝置，也沒有據此宣稱已安裝成功。
 
 | 項目 | 使用者提供 | 2026-09-27 官方查證／當時仍未知 |
@@ -8,7 +14,7 @@
 | watchOS | 最新版本，確切號碼不確定 | 查證時 Apple 列 Series 12／Ultra 4 最新為 **watchOS 27.0.1**，其他 Series 9 及後續適用型號為 27。這是官方可用版本，不是已確認手錶安裝版本。[Apple 安全性版本列表](https://support.apple.com/en-us/100100) |
 | 現有 iPhone | iPhone 13 Pro、最新 iOS | Apple 的 iOS 27 支援列表含 iPhone 13 Pro；查證時最新公開 iOS 為 27。裝置實際版本與 build 號仍未知。[iOS 支援裝置](https://www.apple.com/os/ios/)、[版本列表](https://support.apple.com/en-us/100100) |
 | 配對相容性 | 有上述 Watch 與 iPhone | Series 12 官方条件為 iPhone 11 或後續機型、iOS 27 或後續、watchOS 27 或後續。iPhone 13 Pro 符合手機世代條件；實際配對、系統版本與本 App 安裝流程仍須驗證。[Apple 相容表](https://support.apple.com/en-la/118490) |
-| 下一支 iPhone | 計劃 10 月中換 iPhone 18 Pro Max | 記為購買計劃，不算已持有。iPhone 18 Pro Max 在官方 iOS 27 支援列表中；不以換機作為目前製作的前提。[iOS 支援裝置](https://www.apple.com/os/ios/) |
+| 下一支 iPhone | 計劃 10 月中換 iPhone 18 Pro Max | 這是 9 月 27 日的計畫紀錄。2026-10-22 起，iPhone 18 Pro Max 改記為目前的手機，見文首；不以當時的換機計畫當作尚未持有。[iOS 支援裝置](https://www.apple.com/os/ios/) |
 | 開發電腦 | Windows，沒有 MacBook | Windows 可做素材、資料、瀏覽器及純邏輯檢查。原生仍須 macOS／合適 Xcode、簽名與實機分發；現有路線見 [INSTALLATION.md](INSTALLATION.md)，截至 9 月 27 日沒有購買、遠端編譯或安裝；10 月 5 日的編譯新增證據見下文。 |
 
 ## 顯示尺寸如何使用
@@ -26,7 +32,7 @@
 |---|---|---|
 | Watch 規格 | Series 12 原頁仍列 46mm、416×496 像素、326ppi、**S11**。[Apple 規格](https://www.apple.com/apple-watch-series-12/specs/) | 不更改使用者原報「S12」，不以官網代替讀取其型號號碼。 |
 | 公開系統版本 | Apple 現列最新 iOS 與 watchOS 均為 **27.0.1**；9 月 28 日 watchOS 27.0.1 已列適用 Series 9 及後續型號。[安全性版本列表](https://support.apple.com/en-us/100100) | 上表的「iOS 27、只有 Series 12／Ultra 4 為 watchOS 27.0.1」是 9 月 27 日的歷史查證；使用者手機／Watch 實際版本與 build 號仍未知。 |
-| iPhone 與 Watch 相容性 | iOS 27 支援列表仍含 iPhone 13 Pro、iPhone 18 Pro Max；Series 12 配對條件為 iPhone 11 或後續、iOS 27 或後續、watchOS 27 或後續。[iOS 支援裝置](https://www.apple.com/os/ios/)、[Watch 相容表](https://support.apple.com/en-la/118490) | 符合官方世代條件，不等於本 App 已在這一對裝置安裝及運行；18 Pro Max 仍只是換機計畫。 |
+| iPhone 與 Watch 相容性 | iOS 27 支援列表仍含 iPhone 13 Pro、iPhone 18 Pro Max；Series 12 配對條件為 iPhone 11 或後續、iOS 27 或後續、watchOS 27 或後續。[iOS 支援裝置](https://www.apple.com/os/ios/)、[Watch 相容表](https://support.apple.com/en-la/118490) | 符合官方世代條件，不等於本 App 已在這一對裝置安裝及運行。18 Pro Max 在 10 月 5 日仍記為換機計畫；2026-10-22 起改記為目前的手機。 |
 | Xcode／SDK | 官方表列 Xcode 27 使用 iOS／watchOS SDK 27，需 macOS Tahoe 26.6 或後續；也列 Xcode 26.6 使用 SDK 26.5。[Xcode 系統要求](https://developer.apple.com/xcode/system-requirements) | 本次 runner 仍是 26.6／26.5。Xcode 27 的公開存在不是本工程已用 27 編譯的證據。 |
 | 免費帳號 | 官方允許 Xcode Personal Team 作個人裝置測試；profile 簽發後 7 天到期，需重新建置安裝。當前 iOS／watchOS 能力表的免費欄均列 App Groups、HealthKit 支援。[Personal Team](https://developer.apple.com/help/account/basics/about-your-developer-account)、[iOS 能力表](https://developer.apple.com/help/account/reference/supported-capabilities-ios)、[watchOS 能力表](https://developer.apple.com/help/account/reference/supported-capabilities-watchos) | 沒有因此要求付費或刪除功能；四個 target 的免費簽名、Widgets／complication 共用資料、WatchConnectivity 真機運作與續期均未驗證。純 Windows 完整安裝流程仍未證實。 |
 

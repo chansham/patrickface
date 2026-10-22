@@ -107,11 +107,6 @@ import SwiftUI
                         }
                     }.frame(maxWidth: .infinity, alignment: .leading)
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("星星睡衣樣本").font(.headline)
-                        Text("樣本，等 Sham 之後決定。正式素材沒有換。").font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
-                        PatrickStarPajamasSample()
-                    }.frame(maxWidth: .infinity, alignment: .leading)
-                    VStack(alignment: .leading, spacing: 8) {
                         Text("貼紙").font(.headline)
                         Text(PatrickNFCHook.note).font(.caption).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
                         HStack {
@@ -139,8 +134,10 @@ import SwiftUI
                             Toggle("顯示日期", isOn: setting(\.showDate))
                             Toggle("場景點綴", isOn: setting(\.ambienceEnabled))
                             PatrickLayoutPicker(settings: Binding(get: { model.experience.settings }, set: { value in model.updateExperience { $0.settings = value } }))
-                            Picker("讀時", selection: setting(\.faceMode)) { ForEach(PatrickFaceMode.allCases) { Text($0.title).tag($0) } }
-                            if clockArtwork.manifest == nil { Text(clockArtwork.message).font(.footnote) }
+                            if PatrickFaceMode.armsTrialVisible {
+                                Picker("讀時", selection: setting(\.faceMode)) { ForEach(PatrickFaceMode.allCases) { Text($0.title).tag($0) } }
+                                if clockArtwork.manifest == nil { Text(clockArtwork.message).font(.footnote) }
+                            }
                             PatrickSchedulePreferences(settings: Binding(get: { model.experience.settings }, set: { value in model.updateExperience { $0.settings = value } }))
                             Text("衣服預設跟著情境。手錶授權後會把運動寫進健康。聲音只在 App 前景播放，招呼只顯示文字。").font(.footnote)
                         }.navigationTitle("設定").toolbar { Button("完成") { showSettings = false } }

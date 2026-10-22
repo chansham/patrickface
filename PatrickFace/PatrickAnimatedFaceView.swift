@@ -375,9 +375,11 @@ struct PatrickAnimatedFaceView: View {
                     Toggle("顯示日期", isOn: setting(\.showDate))
                     Toggle("場景點綴", isOn: setting(\.ambienceEnabled))
                     PatrickLayoutPicker(settings: Binding(get: { model.experience.settings }, set: { value in model.updateExperience { $0.settings = value } }))
-                    Picker("讀時", selection: setting(\.faceMode)) { ForEach(PatrickFaceMode.allCases) { Text($0.title).tag($0) } }
-                    if clockArtwork.manifest == nil { Text(clockArtwork.message).font(.footnote) }
-                    Text("手臂時計使用原味造型；動作時顯示所選衣服，數字時間一直保留。").font(.footnote)
+                    if PatrickFaceMode.armsTrialVisible {
+                        Picker("讀時", selection: setting(\.faceMode)) { ForEach(PatrickFaceMode.allCases) { Text($0.title).tag($0) } }
+                        if clockArtwork.manifest == nil { Text(clockArtwork.message).font(.footnote) }
+                        Text("手臂時計使用原味造型；動作時顯示所選衣服，數字時間一直保留。").font(.footnote)
+                    }
                 }
                 PatrickSchedulePreferences(settings: Binding(get: { model.experience.settings }, set: { value in model.updateExperience { $0.settings = value } }))
                 Section("Siri") {
@@ -423,12 +425,8 @@ struct PatrickAnimatedFaceView: View {
                     Text("手機效果預覽，不代表手錶已量測到相同狀態。")
                         .font(.footnote)
                 }
-                Section("星星睡衣樣本") {
-                    Text("樣本，等 Sham 之後決定。正式素材沒有換。").font(.footnote).fixedSize(horizontal: false, vertical: true)
-                    PatrickStarPajamasSample()
-                    if let line = model.activeSoundLine {
-                        Text(line).font(.footnote)
-                    }
+                if let line = model.activeSoundLine {
+                    Text(line).font(.footnote)
                 }
             }
             .navigationTitle("陪你一下")

@@ -22,6 +22,8 @@ enum PatrickFaceMode: String, CaseIterable, Codable, Identifiable, Sendable {
     case digital, arms
     var id: String { rawValue }
     var title: String { self == .digital ? "數字與角色" : "原味手臂時計 · 試稿" }
+    /// Off until the arm-clock art is redrawn. The saved trial still decodes; the belly pivot stays hidden.
+    static var armsTrialVisible: Bool { false }
 }
 
 struct PatrickExperienceSettings: Codable, Equatable, Sendable {

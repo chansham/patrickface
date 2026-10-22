@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "tool": "tools/sync_animation_bundle.py",
   "catalogSource": "animation/catalog.json",
-  "catalogSha256": "c895b80b02fcff12512398b5b54504927481cb0da9857d3214b9164cec26afac",
+  "catalogSha256": "3b3a83e69a1cfa414b58e101c3ac94db72b42eca95596253104e36c7c6ba466e",
   "availableClipIds": [
     "yawn",
     "idle-blink-normal",
@@ -53,7 +53,7 @@
     {
       "source": "animation/catalog.json",
       "destination": "catalog.json",
-      "sha256": "c895b80b02fcff12512398b5b54504927481cb0da9857d3214b9164cec26afac",
+      "sha256": "3b3a83e69a1cfa414b58e101c3ac94db72b42eca95596253104e36c7c6ba466e",
       "bytes": 25076,
       "active": true
     },
@@ -88,15 +88,15 @@
     {
       "source": "animation/charging-v2/atlas-generated.png",
       "destination": "charging-v2/atlas-generated.png",
-      "sha256": "40e1e097be988a580c6b3985ce948c6621ffe561525b0058750e3eecdb81b673",
-      "bytes": 1121154,
+      "sha256": "58e2091a931f8cf0b12adc1e14180b0bd9491dd9c642bcd03e9d69398c571783",
+      "bytes": 1121147,
       "active": true
     },
     {
       "source": "animation/charging-v2/regions-v1.json",
       "destination": "charging-v2/regions-v1.json",
-      "sha256": "e54c5ecb861a82f563e49d7619520ca2e0a926e426424efe73589c8db4943c06",
-      "bytes": 379234,
+      "sha256": "62b82a73491c9539dbdace8cdfe952c181b7da2cfae9808438d67ebdf4b9a1c1",
+      "bytes": 379110,
       "active": true
     },
     {
