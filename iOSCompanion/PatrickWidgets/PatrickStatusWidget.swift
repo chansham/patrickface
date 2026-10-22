@@ -73,7 +73,6 @@ struct PatrickStatusWidget: Widget {
             .systemLarge,
             .accessoryCircular,
             .accessoryRectangular,
-            .accessoryCorner,
             .accessoryInline,
         ])
     }
@@ -97,9 +96,6 @@ private struct PatrickStatusWidgetView: View {
                 AccessoryWidgetBackground()
                 PatrickHeadAvatar(slot: .circular).padding(4)
             }
-        case .accessoryCorner:
-            PatrickHeadAvatar(slot: .corner)
-                .widgetLabel { Text(state.settings.mood.title) }
         case .accessoryRectangular:
             HStack(spacing: 8) {
                 PatrickHeadAvatar(slot: .rectangular, side: 36, decorative: true)
