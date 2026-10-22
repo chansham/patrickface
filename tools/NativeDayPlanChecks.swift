@@ -149,6 +149,17 @@ import Foundation
             PatrickCalendarInterval(start: quietMorning.addingTimeInterval(10 * 60), end: quietMorning.addingTimeInterval(3600))
         ], sittingMinutes: 90, battery: 1, role: .none, now: quietMorning, calendar: calendar)
         check(blocked.knocks == 0 && settings.dayLine == nil, "A meeting closes the gate for greeting and knocks")
+        if CommandLine.arguments.count > 1 {
+            let loaded = (try? Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[1]))).flatMap { try? JSONDecoder().decode(PatrickOutfitCatalog.self, from: $0) }
+            check(loaded != nil, "Themes decode for the charging default")
+            if let catalog = loaded {
+                let pool = catalog.selectionPool()
+                check(catalog.defaultSceneOutfits?["charging"] == "classic-charging", "Day plan charging default is the classic battery outfit")
+                check(catalog.chargingClipID() == "charging-classic", "Charging state resolves to the classic battery animation")
+                check(catalog.chargingSelection?.alternateVariantsEnabled == false && pool.contains { $0.id == "classic-charging" } && !pool.contains { $0.id == "space-charging" } && !pool.contains { $0.id == "moon-robe" }, "Space suit and moon robe stay out of the day-plan selection pool")
+                check(catalog.outfits.contains { $0.id == "space-charging" && $0.clipId == "charging" } && catalog.outfits.contains { $0.id == "moon-robe" && $0.clipId == "bedtime-moon" }, "Hidden charging variants remain reachable in the catalog")
+            }
+        }
         print("native day plan checks: \(count)")
     }
 }

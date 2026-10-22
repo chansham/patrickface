@@ -6,7 +6,9 @@ const root = path.resolve(__dirname, '..'), output = process.env.QA_OUTPUT || pa
 const address = process.env.PREVIEW_URL || 'http://127.0.0.1:8765/preview/';
 const themes = JSON.parse(fs.readFileSync(path.join(root, 'experience/themes.json'), 'utf8'));
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'animation/catalog.json'), 'utf8'));
-const outfits = themes.outfits.filter(outfit => catalog.clips.some(clip => clip.id === outfit.clipId && clip.atlas));
+const chargingSelection = themes.chargingSelection;
+const alternateHidden = new Set(chargingSelection && chargingSelection.alternateVariantsEnabled === false ? (chargingSelection.alternateOutfitIDs || []) : []);
+const outfits = themes.outfits.filter(outfit => !alternateHidden.has(outfit.id) && catalog.clips.some(clip => clip.id === outfit.clipId && clip.atlas));
 const report = { startedAt: new Date().toISOString(), url: address, artApproved: false, hapticHardwareVerified: false, cases: [] };
 fs.mkdirSync(output, { recursive: true });
 async function ready(page) {
@@ -42,6 +44,12 @@ const stored = page => page.evaluate(() => JSON.parse(localStorage.getItem('patr
       await page.addInitScript(value => { if (!localStorage.getItem('patrick.animation-review.patrick-bedtime-yawn-v1.v2')) localStorage.setItem('patrick.animation-review.patrick-bedtime-yawn-v1.v2', value); }, legacy);
       await ready(page); assert.equal(await page.locator('#experience-panel').isVisible(), true); assert.equal(await page.locator('.editing').isVisible(), false);
       assert.equal(await page.locator('[data-outfit]').count(), outfits.length + 1); assert.deepEqual(await page.evaluate(() => window.__audioPlays), []);
+      assert.equal(await page.locator('[data-outfit="space-charging"]').count(), 0);
+      assert.equal(await page.locator('[data-outfit="moon-robe"]').count(), 0);
+      await page.locator('[data-outfit="auto"]').click();
+      await page.locator('#scene').selectOption('charging');
+      assert.equal(await page.locator('#face').getAttribute('data-clip'), 'charging-classic');
+      await page.locator('#scene').selectOption('auto');
       await page.locator('[data-experience-tab=outfits]').click();
       for (const outfit of outfits) {
         await page.locator(`[data-outfit="${outfit.id}"]`).click(); assert.equal((await snapshot(page)).outfitPreference, outfit.id); assert.equal(await page.locator('#face').getAttribute('data-clip'), outfit.clipId);

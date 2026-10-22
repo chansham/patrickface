@@ -89,9 +89,9 @@ import SwiftUI
                         Text(surprise.line).font(.callout).multilineTextAlignment(.center)
                     }
                     Picker("陪伴情境", selection: setting(\.scene)) { ForEach(PatrickExperienceScene.allCases) { Text($0.title).tag($0) } }
-                    Picker("衣服", selection: setting(\.outfitID)) {
+                    Picker("衣服", selection: outfitSelection) {
                         Text("跟隨情境").tag("auto")
-                        ForEach(outfits.filter { $0.id != "auto" }) { Text($0.title).tag($0.id) }
+                        ForEach(PatrickExperienceResources.selectableOutfits(from: outfits)) { Text($0.title).tag($0.id) }
                     }
                     Menu("這套造型的動作") {
                         ForEach(player.clips.filter { Set(outfit?.actions?.values.flatMap { $0.clips } ?? []).contains($0.id) }) { clip in
@@ -262,6 +262,10 @@ import SwiftUI
     }
     private func setting<Value>(_ key: WritableKeyPath<PatrickExperienceSettings, Value>) -> Binding<Value> {
         Binding(get: { model.experience.settings[keyPath: key] }, set: { value in model.updateExperience { $0.settings[keyPath: key] = value } })
+    }
+    private var outfitSelection: Binding<String> {
+        Binding(get: { PatrickExperienceResources.displayedOutfitID(model.experience.settings.outfitID, from: outfits) },
+                set: { value in model.updateExperience { $0.settings.outfitID = value } })
     }
     private func time(_ date: Date) -> String {
         let parts = Calendar.current.dateComponents([.hour, .minute], from: date), hour = parts.hour ?? 0

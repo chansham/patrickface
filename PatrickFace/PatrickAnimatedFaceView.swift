@@ -311,9 +311,9 @@ struct PatrickAnimatedFaceView: View {
                     Picker("情境", selection: setting(\.scene)) {
                         ForEach(PatrickExperienceScene.allCases) { Text($0.title).tag($0) }
                     }
-                    Picker("衣服", selection: setting(\.outfitID)) {
+                    Picker("衣服", selection: outfitSelection) {
                         Text("跟隨情境").tag("auto")
-                        ForEach(outfits.filter { $0.id != "auto" }) { Text($0.title).tag($0.id) }
+                        ForEach(PatrickExperienceResources.selectableOutfits(from: outfits)) { Text($0.title).tag($0.id) }
                     }
                     Text("預設跟著今天自動換。手動選一項，就暫時蓋過自動。").font(.footnote).foregroundStyle(.secondary)
                 }
@@ -450,6 +450,10 @@ struct PatrickAnimatedFaceView: View {
     private func setting<Value>(_ key: WritableKeyPath<PatrickExperienceSettings, Value>) -> Binding<Value> {
         Binding(get: { model.experience.settings[keyPath: key] }, set: { value in model.updateExperience { $0.settings[keyPath: key] = value } })
     }
+    private var outfitSelection: Binding<String> {
+        Binding(get: { PatrickExperienceResources.displayedOutfitID(model.experience.settings.outfitID, from: outfits) },
+                set: { value in model.updateExperience { $0.settings.outfitID = value } })
+    }
 
     private var resolvedScene: String {
         let activity = model.experience.activity
@@ -578,7 +582,7 @@ struct PatrickAnimatedFaceView: View {
             return
         }
         if crownAdjustsOutfit {
-            let ids = ["auto"] + outfits.filter { $0.id != "auto" }.map(\.id)
+            let ids = ["auto"] + PatrickExperienceResources.selectableOutfits(from: outfits).map(\.id)
             guard !ids.isEmpty else { return }
             let current = model.experience.settings.outfitID
             let index = ids.firstIndex(of: current) ?? 0

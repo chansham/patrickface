@@ -255,6 +255,21 @@ import Foundation
         if CommandLine.arguments.count > 1 {
             let catalog = try JSONDecoder().decode(PatrickOutfitCatalog.self, from: Data(contentsOf: URL(fileURLWithPath: CommandLine.arguments[1])))
             check(catalog.schemaVersion == 1 && !catalog.outfits.isEmpty, "Actual themes decode")
+            check(catalog.defaultSceneOutfits?["charging"] == "classic-charging", "Charging scene default is the classic battery outfit")
+            check(catalog.chargingSelection?.alternateVariantsEnabled == false, "Space suit and moon robe stay behind the charging flag")
+            check(catalog.chargingSelection?.defaultClipID == "charging-classic", "The charging flag names the classic battery clip")
+            check(catalog.chargingClipID() == "charging-classic", "Charging state resolves to the classic battery animation")
+            let pool = catalog.selectionPool()
+            check(pool.contains { $0.id == "classic-charging" } && !pool.contains { $0.id == "space-charging" } && !pool.contains { $0.id == "moon-robe" }, "Hidden charging variants stay out of selection")
+            check(catalog.outfits.contains { $0.id == "space-charging" && $0.clipId == "charging" }, "Space-suit charging assets stay in the catalog")
+            check(catalog.outfits.contains { $0.id == "moon-robe" && $0.clipId == "bedtime-moon" }, "Moon robe assets stay in the catalog")
+            var hiddenChoice = PatrickExperienceSettings(); hiddenChoice.outfitID = "space-charging"
+            check(catalog.chargingClipID(settings: hiddenChoice) == "charging-classic", "A saved space-suit choice stays hidden while the flag is off")
+            check(catalog.resolvedOutfit(settings: .init(), scene: "awake", soundOutfitID: "moon-robe")?.id == "moon-robe", "A named rain cue can still wear the moon robe")
+            var shown = catalog
+            shown.chargingSelection?.alternateVariantsEnabled = true
+            check(shown.chargingClipID(settings: hiddenChoice) == "charging", "Turning the flag on reaches the space-suit animation")
+            check(shown.selectionPool().contains { $0.id == "moon-robe" }, "Turning the flag on returns the moon robe to selection")
             let pajamas = catalog.outfits.first { $0.id == "star-pajamas" }
             check(pajamas?.idleClips.count == 3, "Array action supports all three idle rhythms")
             check(pajamas?.actionClips["yawn"] == "yawn", "String action remains supported")

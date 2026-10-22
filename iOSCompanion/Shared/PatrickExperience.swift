@@ -651,7 +651,57 @@ struct PatrickOutfitCatalog: Decodable, Sendable {
     var defaultOutfitID: String
     var defaultSceneOutfits: [String: String]?
     var defaultActionOutfits: [String: String]?
+    /// Space-suit and moon-robe charging variants stay in `outfits`. They leave
+    /// the default charging scene and every wardrobe or crown choice while
+    /// `alternateVariantsEnabled` is false.
+    var chargingSelection: PatrickChargingSelection?
     var outfits: [Outfit]
+
+    var hiddenOutfitIDs: Set<String> {
+        guard let chargingSelection, chargingSelection.alternateVariantsEnabled == false else { return [] }
+        return Set(chargingSelection.alternateOutfitIDs)
+    }
+
+    func selectionPool(from source: [Outfit]? = nil) -> [Outfit] {
+        let hidden = hiddenOutfitIDs
+        return (source ?? outfits).filter { !hidden.contains($0.id) }
+    }
+
+    /// Automatic and random wardrobe choices skip hidden variants. A named sound
+    /// cue can still wear one. An explicit hidden id is kept in settings and
+    /// shown again only after the flag is turned on.
+    func resolvedOutfit(settings: PatrickExperienceSettings, scene: String, outfits source: [Outfit]? = nil, soundOutfitID: String? = nil) -> Outfit? {
+        let all = source ?? outfits
+        let hidden = hiddenOutfitIDs
+        if settings.outfitID != "auto", !hidden.contains(settings.outfitID),
+           let value = all.first(where: { $0.id == settings.outfitID }) { return value }
+        if let soundOutfitID, let value = all.first(where: { $0.id == soundOutfitID }) { return value }
+        let pool = selectionPool(from: all)
+        if let id = defaultSceneOutfits?[scene], let value = pool.first(where: { $0.id == id }) { return value }
+        return pool.first { $0.scene == scene && $0.id != "auto" }
+            ?? pool.first { $0.scene == "awake" && $0.id != "auto" }
+            ?? pool.first { $0.id != "auto" }
+    }
+
+    /// Clip for a charging watch when no manual scene overrides charging.
+    /// The classic battery hug is the result while alternate variants are hidden.
+    func chargingClipID(settings: PatrickExperienceSettings = .init(), activitySceneID: String? = nil,
+                        sleeping: Bool = false, focus: Bool = false, workout: Bool = false,
+                        meeting: Bool = false, water: Bool = false, soundOutfitID: String? = nil) -> String? {
+        let scene = PatrickAutomaticScene.resolve(selection: settings.scene, activitySceneID: activitySceneID,
+            charging: true, sleeping: sleeping, focus: focus, workout: workout, meeting: meeting, water: water)
+        guard scene == "charging" else { return nil }
+        let chosen = resolvedOutfit(settings: settings, scene: scene, soundOutfitID: soundOutfitID)
+        if let clip = chosen?.actionClips["charging"] ?? chosen?.clipId { return clip }
+        return chargingSelection?.defaultClipID
+    }
+}
+
+struct PatrickChargingSelection: Decodable, Equatable, Sendable {
+    var defaultOutfitID: String
+    var defaultClipID: String
+    var alternateVariantsEnabled: Bool
+    var alternateOutfitIDs: [String]
 }
 
 /// One device owns a countdown alert. The watch wins only while it is paired
