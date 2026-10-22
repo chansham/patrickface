@@ -522,7 +522,7 @@ struct PatrickFaceApp: App {
         WindowGroup {
             Group {
                 if PatrickSamplePreview.requested {
-                    PatrickStarPajamasSample()
+                    PatrickStarPajamasSample(fillsScreen: true)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color.black)
                 } else {

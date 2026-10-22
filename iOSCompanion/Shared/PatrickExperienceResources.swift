@@ -334,9 +334,25 @@ enum PatrickSampleSlot {
 
 /// Left: official clock body. Right: that same bitmap plus the sample overlay slots.
 @MainActor struct PatrickStarPajamasSample: View {
+    /// Full-screen comparison for the simulator launch. Embedded sheets stay compact.
+    var fillsScreen = false
     @StateObject private var artwork = PatrickClockArtwork()
 
     var body: some View {
+        Group {
+            if fillsScreen {
+                filled
+            } else {
+                compact
+            }
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("星星睡衣樣本。左邊是正式派大星，右邊是同一幀加上佔位疊圖。正式素材沒有換。")
+        .task { artwork.load() }
+    }
+
+    /// Scroll-sized comparison. The image row keeps its own height.
+    private var compact: some View {
         VStack(spacing: 4) {
             Text("星星睡衣樣本").font(.caption.weight(.semibold)).lineLimit(1).minimumScaleFactor(0.7)
             Text("左：正式幀　右：同一錨點疊佔位").font(.caption2).lineLimit(2).minimumScaleFactor(0.6)
@@ -349,9 +365,26 @@ enum PatrickSampleSlot {
         }
         .padding(4)
         .frame(maxWidth: .infinity)
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("星星睡衣樣本。左邊是正式派大星，右邊是同一幀加上佔位疊圖。正式素材沒有換。")
-        .task { artwork.load() }
+    }
+
+    /// Both frames share the middle of the screen. A top-aligned 896-point image
+    /// is clipped off the round watch, so each square is sized from the safe area.
+    private var filled: some View {
+        GeometryReader { geo in
+            let side = max(44, min((geo.size.width - 8) / 2, geo.size.height - 72))
+            VStack(spacing: 2) {
+                Text("星星睡衣樣本").font(.caption2.weight(.semibold)).lineLimit(1).minimumScaleFactor(0.5)
+                HStack(alignment: .top, spacing: 4) {
+                    pane(title: "現有", names: [], square: side)
+                    pane(title: "佔位疊圖", names: PatrickSampleSlot.files, square: side)
+                }
+                Text(fitLine).font(.system(size: 9)).lineLimit(1).minimumScaleFactor(0.4)
+                Text("正式素材沒有換。").font(.system(size: 9)).foregroundStyle(.secondary).lineLimit(1).minimumScaleFactor(0.4)
+            }
+            .frame(width: geo.size.width, height: geo.size.height)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black)
     }
 
     private var bodyImage: CGImage? {
@@ -364,7 +397,7 @@ enum PatrickSampleSlot {
         return "畫布 \(canvas.width)×\(canvas.height)，錨點 \(canvas.anchorPixels[0]),\(canvas.anchorPixels[1])"
     }
 
-    private func pane(title: String, names: [String]) -> some View {
+    private func pane(title: String, names: [String], square: CGFloat? = nil) -> some View {
         let base = bodyImage
         let layers = sampleLayers(base: base, names: names)
         let missing = base == nil ? [String]() : names.filter { sampleLayers(base: base, names: [$0]).isEmpty }
@@ -373,13 +406,14 @@ enum PatrickSampleSlot {
             ZStack {
                 Color.black
                 if let base {
-                    Image(decorative: base, scale: 1).resizable().interpolation(.high)
+                    Image(decorative: base, scale: 1).resizable().interpolation(.high).scaledToFit()
                 }
                 ForEach(Array(layers.enumerated()), id: \.offset) { _, layer in
-                    Image(decorative: layer, scale: 1).resizable().interpolation(.high)
+                    Image(decorative: layer, scale: 1).resizable().interpolation(.high).scaledToFit()
                 }
             }
             .aspectRatio(1, contentMode: .fit)
+            .frame(width: square, height: square)
             if !missing.isEmpty {
                 Text(missing.joined(separator: " ")).font(.caption2).foregroundStyle(.red).lineLimit(2).minimumScaleFactor(0.5)
             }

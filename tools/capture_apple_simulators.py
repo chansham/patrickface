@@ -529,7 +529,7 @@ def run(args) -> int:
                     for layout in args.layouts
                 }
             if getattr(args, "sample", False):
-                report[key]["sample"] = capture(runner, f"{key}-sample", device, app, [3], args.boot_timeout, sample=True)
+                report[key]["sample"] = capture(runner, f"{key}-sample", device, app, [6], args.boot_timeout, sample=True)
         runner.inventory("devices-final.json")
     except (CaptureError, OSError, ValueError) as error:
         report["error"] = str(error)
