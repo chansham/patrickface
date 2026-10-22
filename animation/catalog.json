@@ -330,7 +330,7 @@
         160,
         450
       ],
-      "sha256": "40e1e097be988a580c6b3985ce948c6621ffe561525b0058750e3eecdb81b673",
+      "sha256": "58e2091a931f8cf0b12adc1e14180b0bd9491dd9c642bcd03e9d69398c571783",
       "anchorNormalized": [
         0.5,
         0.8803763440860215
@@ -350,7 +350,7 @@
       "frameLabels": [],
       "frameRegions": {
         "path": "animation/charging-v2/regions-v1.json",
-        "sha256": "e54c5ecb861a82f563e49d7619520ca2e0a926e426424efe73589c8db4943c06",
+        "sha256": "62b82a73491c9539dbdace8cdfe952c181b7da2cfae9808438d67ebdf4b9a1c1",
         "version": 1
       },
       "renderingRevision": "contour-v1",
