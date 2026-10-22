@@ -48,7 +48,7 @@
         200,
         540
       ],
-      "sha256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372",
+      "sha256": "cb07212d4626191afcb56112556148c9b06808b74d559e9d0439bca5a9a3ea9e",
       "anchorNormalized": [
         0.5,
         0.8803680981595092
@@ -73,10 +73,10 @@
         "抱枕眨眼",
         "回到休息"
       ],
-      "description": "進入睡前時播放一次；不持續循環。眼睛已修正，正補動作過渡。",
+      "description": "進入睡前時播放一次；不持續循環。眼睛已修正。2026-10-22 第7格換成項目經理通過的閉眼稿，圖集畫布、其餘七格和共同腳底錨點不變。",
       "frameRegions": {
         "path": "animation/yawn-v1/regions-v1.json",
-        "sha256": "bf9a23db553f5e6c85d7e784fa5b4fb36fd9588c7edbbf3ed7add342075eb22f",
+        "sha256": "37146dc7be4ebeeb2adf4bdcc4e35b17dde558f32f45b4bdc1d764b27c668786",
         "version": 1
       },
       "renderingRevision": "contour-v1"
@@ -483,9 +483,9 @@
       "title": "正裝推眼鏡",
       "category": "focus",
       "version": 1,
-      "atlas": "animation/focus-v1/atlas-generated.png",
-      "width": 1448,
-      "height": 1121,
+      "atlas": "animation/focus-v1-c1/atlas-generated.png",
+      "width": 1292,
+      "height": 1340,
       "columns": 4,
       "rows": 4,
       "frameCount": 16,
@@ -507,13 +507,13 @@
         180,
         600
       ],
-      "sha256": "3d0d5fe30c8ddcb0a6b5d456105c5717085306be64909ca97a7119fbae4d750a",
+      "sha256": "9bd51f768ec89ef53e2b23e140936fd4bb48e5a8a20c6b646d46eae625d36771",
       "anchorNormalized": [
         0.5,
         0.8804347826086957
       ],
       "masterId": "patrick-cel-seated-v1",
-      "scale": 1.7790055248618784,
+      "scale": 1.016574585635359,
       "status": "development-review",
       "scenes": [
         "focus"
@@ -523,16 +523,26 @@
         "scene-entry",
         "interaction"
       ],
-      "description": "主體驗播放全部16格。第13–16格已換成與前段同尺度的重畫，圖集加高後腳底仍對齊，不再跳過。前段輪廓和收手過渡仍待審。",
+      "description": "主體驗播放全部16格。2026-10-22 接入項目經理通過的換幀：1–3 為條件通過稿，4 與 6–8 為新眉眼，第5格保留原畫，9–16 為等比放大。9–16 放不進舊行，已改排新圖集並重算輪廓；舊圖集檔留在 focus-v1。播放倍率按共同畫布 368/644 換算，螢幕上的像素大小不變。歪頭留待之後。",
       "frameLabels": [],
       "frameRegions": {
-        "path": "animation/focus-v1/regions-v1.json",
-        "sha256": "3b77cbde03e0acbb1bbb17a068e3fbf16995a0890bb35adafb638ee9e91f97e5",
+        "path": "animation/focus-v1-c1/regions-v1.json",
+        "sha256": "f5d3a7c5e41c65ba1f7ea96fdc9e96c9216d540db37696bf6d6958042088a2f6",
         "version": 1
       },
       "renderingRevision": "contour-v1",
       "approvedDirection": false,
       "sourceCandidateId": "focus-candidate",
+      "scaleProvenance": {
+        "method": "preserve-source-pixel-density-from-comparison",
+        "oldSource": "animation/focus-v1/atlas-generated.png",
+        "oldCanvas": 644,
+        "newCanvas": 368,
+        "oldScale": 1.7790055248618784,
+        "newScale": 1.016574585635359,
+        "perFrameScaling": false,
+        "note": "New atlas layout changed the common contour canvas. Scale is oldScale * newCanvas / oldCanvas so source pixels keep the same on-screen size. Not anatomical approval."
+      },
       "frameIndices": [
         0,
         1,

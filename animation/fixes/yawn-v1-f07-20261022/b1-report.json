@@ -1,0 +1,278 @@
+{
+ "variant": "b1",
+ "source": "raw/b1-f07.jpg",
+ "base": "原第8格",
+ "scale": 0.5197,
+ "new": {
+  "h": 423,
+  "w": 356,
+  "aspect": 1.1882,
+  "pink_h": 378,
+  "pink_w": 212,
+  "pink_area": 28267,
+  "lav_w": 323,
+  "skin_stroke": 5.0,
+  "interior_holes_px": 0,
+  "skin_rgb": [
+   254,
+   134,
+   128
+  ],
+  "lav_rgb": [
+   185,
+   162,
+   251
+  ]
+ },
+ "new_vs_f8": {
+  "dh_pct": 0.0,
+  "dw_pct": 0.28,
+  "dpink_w_pct": 0.47,
+  "daspect_pct": -0.28,
+  "iou": 0.9942
+ },
+ "new_vs_f6": {
+  "dh_pct": 0.48,
+  "dw_pct": 8.21,
+  "dpink_w_pct": 5.47,
+  "daspect_pct": -7.14,
+  "iou": 0.8939
+ },
+ "orig7_vs_f8": {
+  "dh_pct": -2.6,
+  "dw_pct": 0.28,
+  "dpink_w_pct": -1.9,
+  "daspect_pct": -2.87,
+  "iou": 0.9151
+ },
+ "orig7_vs_f6": {
+  "dh_pct": -2.14,
+  "dw_pct": 8.21,
+  "dpink_w_pct": 2.99,
+  "daspect_pct": -9.56,
+  "iou": 0.8851
+ },
+ "metrics_orig": {
+  "1": {
+   "h": 426,
+   "w": 354,
+   "aspect": 1.2034,
+   "pink_h": 379,
+   "pink_w": 211,
+   "pink_area": 26350,
+   "lav_w": 322,
+   "skin_stroke": 5.0,
+   "interior_holes_px": 0,
+   "skin_rgb": [
+    252,
+    139,
+    133
+   ],
+   "lav_rgb": [
+    184,
+    163,
+    248
+   ]
+  },
+  "2": {
+   "h": 422,
+   "w": 338,
+   "aspect": 1.2485,
+   "pink_h": 374,
+   "pink_w": 212,
+   "pink_area": 28369,
+   "lav_w": 309,
+   "skin_stroke": 5.0,
+   "interior_holes_px": 0,
+   "skin_rgb": [
+    252,
+    139,
+    133
+   ],
+   "lav_rgb": [
+    185,
+    163,
+    248
+   ]
+  },
+  "3": {
+   "h": 423,
+   "w": 342,
+   "aspect": 1.2368,
+   "pink_h": 379,
+   "pink_w": 199,
+   "pink_area": 26541,
+   "lav_w": 310,
+   "skin_stroke": 5.0,
+   "interior_holes_px": 0,
+   "skin_rgb": [
+    252,
+    138,
+    133
+   ],
+   "lav_rgb": [
+    184,
+    162,
+    248
+   ]
+  },
+  "4": {
+   "h": 419,
+   "w": 341,
+   "aspect": 1.2287,
+   "pink_h": 383,
+   "pink_w": 209,
+   "pink_area": 27332,
+   "lav_w": 312,
+   "skin_stroke": 5.0,
+   "interior_holes_px": 0,
+   "skin_rgb": [
+    252,
+    138,
+    133
+   ],
+   "lav_rgb": [
+    183,
+    162,
+    247
+   ]
+  },
+  "5": {
+   "h": 426,
+   "w": 361,
+   "aspect": 1.1801,
+   "pink_h": 397,
+   "pink_w": 238,
+   "pink_area": 29229,
+   "lav_w": 329,
+   "skin_stroke": 5.0,
+   "interior_holes_px": 0,
+   "skin_rgb": [
+    252,
+    137,
+    132
+   ],
+   "lav_rgb": [
+    183,
+    162,
+    247
+   ]
+  },
+  "6": {
+   "h": 421,
+   "w": 329,
+   "aspect": 1.2796,
+   "pink_h": 376,
+   "pink_w": 201,
+   "pink_area": 26430,
+   "lav_w": 304,
+   "skin_stroke": 5.0,
+   "interior_holes_px": 0,
+   "skin_rgb": [
+    252,
+    138,
+    132
+   ],
+   "lav_rgb": [
+    182,
+    161,
+    247
+   ]
+  },
+  "7": {
+   "h": 412,
+   "w": 356,
+   "aspect": 1.1573,
+   "pink_h": 366,
+   "pink_w": 207,
+   "pink_area": 26384,
+   "lav_w": 325,
+   "skin_stroke": 5.0,
+   "interior_holes_px": 0,
+   "skin_rgb": [
+    252,
+    139,
+    134
+   ],
+   "lav_rgb": [
+    185,
+    163,
+    248
+   ]
+  },
+  "8": {
+   "h": 423,
+   "w": 355,
+   "aspect": 1.1915,
+   "pink_h": 376,
+   "pink_w": 211,
+   "pink_area": 26291,
+   "lav_w": 323,
+   "skin_stroke": 5.0,
+   "interior_holes_px": 0,
+   "skin_rgb": [
+    252,
+    138,
+    133
+   ],
+   "lav_rgb": [
+    185,
+    163,
+    248
+   ]
+  }
+ },
+ "steps": [
+  {
+   "step": "5→6",
+   "new_dh_pct": -1.17,
+   "orig_dh_pct": -1.17,
+   "new_iou": 0.8412,
+   "orig_iou": 0.8412
+  },
+  {
+   "step": "6→7",
+   "new_dh_pct": 0.48,
+   "orig_dh_pct": -2.14,
+   "new_iou": 0.8939,
+   "orig_iou": 0.8851
+  },
+  {
+   "step": "7→8",
+   "new_dh_pct": 0.0,
+   "orig_dh_pct": 2.67,
+   "new_iou": 0.9942,
+   "orig_iou": 0.9151
+  },
+  {
+   "step": "8→1(循环)",
+   "orig_dh_pct": 0.71
+  }
+ ],
+ "app896_top": {
+  "orig": {
+   "1": -585.4,
+   "2": -579.9,
+   "3": -581.3,
+   "4": -575.8,
+   "5": -585.4,
+   "6": -578.6,
+   "7": -566.2,
+   "8": -581.3
+  },
+  "new7": -581.3,
+  "orig_6to7": 12.4,
+  "orig_7to8": -15.1,
+  "new_6to7": -2.7,
+  "new_7to8": 0.0
+ },
+ "atlas_fit": {
+  "paste_xy": [
+   939,
+   459
+  ],
+  "in_bounds": true,
+  "collision_px": 0,
+  "min_gap_px": 18.0
+ }
+}

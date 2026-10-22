@@ -76,9 +76,9 @@
       "title": "眼鏡滑下來 · 16 幀待修",
       "category": "待修審稿",
       "version": 1,
-      "atlas": "animation/focus-v1/atlas-generated.png",
-      "width": 1448,
-      "height": 1121,
+      "atlas": "animation/focus-v1-c1/atlas-generated.png",
+      "width": 1292,
+      "height": 1340,
       "columns": 4,
       "rows": 4,
       "frameCount": 16,
@@ -100,13 +100,13 @@
         170,
         450
       ],
-      "sha256": "3d0d5fe30c8ddcb0a6b5d456105c5717085306be64909ca97a7119fbae4d750a",
+      "sha256": "9bd51f768ec89ef53e2b23e140936fd4bb48e5a8a20c6b646d46eae625d36771",
       "anchorNormalized": [
         0.5,
         0.8804347826086957
       ],
       "masterId": "patrick-candidate-review-v1",
-      "scale": 1.7790055248618784,
+      "scale": 1.016574585635359,
       "status": "quality-revision-required",
       "scenes": [
         "sleeping"
@@ -114,12 +114,22 @@
       "triggerKinds": [
         "manual-review"
       ],
-      "description": "已完整分離人物，修正頭腳被切和上方混入前一格的腳。2026-10-22 第13–16格換成同尺度重畫，圖集加高到 1448×1121，不再靠逐格放大。",
+      "description": "2026-10-22 接入項目經理通過的 c1：1–3、4、6–8、9–16 換上審定稿，第5格保留原畫。9–16 放大後舊行會貼死，因此改排新圖集並重算腳底。舊 focus-v1 圖集檔保留未覆蓋。播放倍率按共同畫布 368/644 換算。歪頭這次沒做。",
       "frameLabels": [],
       "frameRegions": {
-        "path": "animation/focus-v1/regions-v1.json",
-        "sha256": "3b77cbde03e0acbb1bbb17a068e3fbf16995a0890bb35adafb638ee9e91f97e5",
+        "path": "animation/focus-v1-c1/regions-v1.json",
+        "sha256": "f5d3a7c5e41c65ba1f7ea96fdc9e96c9216d540db37696bf6d6958042088a2f6",
         "version": 1
+      },
+      "scaleProvenance": {
+        "method": "preserve-source-pixel-density-from-comparison",
+        "oldSource": "animation/focus-v1/atlas-generated.png",
+        "oldCanvas": 644,
+        "newCanvas": 368,
+        "oldScale": 1.7790055248618784,
+        "newScale": 1.016574585635359,
+        "perFrameScaling": false,
+        "note": "New atlas layout changed the common contour canvas. Scale is oldScale * newCanvas / oldCanvas so source pixels keep the same on-screen size. Not anatomical approval."
       },
       "renderingRevision": "contour-v1"
     },

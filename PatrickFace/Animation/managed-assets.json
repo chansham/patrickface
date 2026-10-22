@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "tool": "tools/sync_animation_bundle.py",
   "catalogSource": "animation/catalog.json",
-  "catalogSha256": "3b3a83e69a1cfa414b58e101c3ac94db72b42eca95596253104e36c7c6ba466e",
+  "catalogSha256": "5bc27d5431597993541670e2affb608da1960dfbd8daac371e399599983011e4",
   "availableClipIds": [
     "yawn",
     "idle-blink-normal",
@@ -53,8 +53,8 @@
     {
       "source": "animation/catalog.json",
       "destination": "catalog.json",
-      "sha256": "3b3a83e69a1cfa414b58e101c3ac94db72b42eca95596253104e36c7c6ba466e",
-      "bytes": 25076,
+      "sha256": "5bc27d5431597993541670e2affb608da1960dfbd8daac371e399599983011e4",
+      "bytes": 25898,
       "active": true
     },
     {
@@ -128,18 +128,32 @@
       "active": true
     },
     {
+      "source": "animation/focus-v1-c1/atlas-generated.png",
+      "destination": "focus-v1-c1/atlas-generated.png",
+      "sha256": "9bd51f768ec89ef53e2b23e140936fd4bb48e5a8a20c6b646d46eae625d36771",
+      "bytes": 1293756,
+      "active": true
+    },
+    {
+      "source": "animation/focus-v1-c1/regions-v1.json",
+      "destination": "focus-v1-c1/regions-v1.json",
+      "sha256": "f5d3a7c5e41c65ba1f7ea96fdc9e96c9216d540db37696bf6d6958042088a2f6",
+      "bytes": 126848,
+      "active": true
+    },
+    {
       "source": "animation/focus-v1/atlas-generated.png",
       "destination": "focus-v1/atlas-generated.png",
       "sha256": "3d0d5fe30c8ddcb0a6b5d456105c5717085306be64909ca97a7119fbae4d750a",
       "bytes": 1321547,
-      "active": true
+      "active": false
     },
     {
       "source": "animation/focus-v1/regions-v1.json",
       "destination": "focus-v1/regions-v1.json",
       "sha256": "3b77cbde03e0acbb1bbb17a068e3fbf16995a0890bb35adafb638ee9e91f97e5",
       "bytes": 173503,
-      "active": true
+      "active": false
     },
     {
       "source": "animation/mint-pajama-v1/atlas-generated.png",
@@ -200,15 +214,15 @@
     {
       "source": "animation/yawn-v1/atlas-eyes-v2.png",
       "destination": "yawn-v1/atlas-eyes-v2.png",
-      "sha256": "ca2798aac8817bf3b9524ab345ffca6743ab5ca490928cbf16b35ecf6852a372",
-      "bytes": 1607392,
+      "sha256": "cb07212d4626191afcb56112556148c9b06808b74d559e9d0439bca5a9a3ea9e",
+      "bytes": 1582299,
       "active": true
     },
     {
       "source": "animation/yawn-v1/regions-v1.json",
       "destination": "yawn-v1/regions-v1.json",
-      "sha256": "bf9a23db553f5e6c85d7e784fa5b4fb36fd9588c7edbbf3ed7add342075eb22f",
-      "bytes": 140938,
+      "sha256": "37146dc7be4ebeeb2adf4bdcc4e35b17dde558f32f45b4bdc1d764b27c668786",
+      "bytes": 140185,
       "active": true
     }
   ]

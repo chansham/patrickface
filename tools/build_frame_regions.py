@@ -24,6 +24,7 @@ SOURCES = (
     ("animation/yawn-v1/atlas-eyes-v2.png", 4, 2),
     ("animation/yawn-v3/atlas-generated.png", 4, 4),
     ("animation/focus-v1/atlas-generated.png", 4, 4),
+    ("animation/focus-v1-c1/atlas-generated.png", 4, 4),
     ("animation/celebrate-v1/atlas-generated.png", 4, 4),
     ("animation/bath-v1/atlas-generated.png", 4, 2),
     ("animation/wake-v1/atlas-generated.png", 4, 2),
