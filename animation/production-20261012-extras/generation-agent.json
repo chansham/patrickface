@@ -4,7 +4,8 @@
   "tool": "built-in image_gen",
   "artApproval": false,
   "referenceInterpretation": {
-    "path": "animation/references/user-ice-cream-20261012.png",
+    "path": null,
+    "removed": "private user photo removed from the repository",
     "visibleFacts": "右側手機殼的派大星戴倒扣甜筒帽、原版綠紫花褲、同手拿小綠色冰淇淋。",
     "suggestedBorrow": "帽子、褲子、冰淇淋元素；偷瞄品嚐後裝正經的動畫是本輪設計。",
     "doNotCopy": "不複製手機殼、品牌、頁面、旁人或文字；參考整圖未被逐項批准。"
@@ -13,7 +14,7 @@
     {
       "id": "ice-cream-v1",
       "type": "reference-guided-style-transfer",
-      "reference": "animation/references/user-ice-cream-20261012.png",
+      "reference": null,
       "requestedGrid": {
         "columns": 4,
         "rows": 3,

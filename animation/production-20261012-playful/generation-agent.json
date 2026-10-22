@@ -3,12 +3,13 @@
   "batch": "20261012-playful",
   "tool": "built-in image_gen",
   "artApproval": false,
-  "referenceManifest": "animation/references/user-playful-20261012/manifest.json",
+  "referenceManifest": null,
+  "referenceRemoved": "private user photos removed from the repository",
   "attempts": [
     {
       "id": "cowboy-v1",
       "type": "reference-guided-style-transfer",
-      "reference": "animation/references/user-playful-20261012/a02.jpg",
+      "reference": null,
       "requestedGrid": {
         "columns": 4,
         "rows": 2,
@@ -42,7 +43,7 @@
     {
       "id": "pillow-pajama-v1",
       "type": "reference-guided-style-transfer",
-      "reference": "animation/references/user-playful-20261012/a08.jpg",
+      "reference": null,
       "requestedGrid": {
         "columns": 4,
         "rows": 2,
