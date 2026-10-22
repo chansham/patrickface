@@ -4,11 +4,18 @@
   "defaultSceneOutfits": {
     "awake": "classic",
     "sleeping": "star-pajamas",
-    "charging": "space-charging",
+    "charging": "classic-charging",
     "exercise": "sport",
     "focus": "professor",
     "bath": "bath",
     "celebrate": "party"
+  },
+  "chargingSelection": {
+    "defaultOutfitID": "classic-charging",
+    "defaultClipID": "charging-classic",
+    "alternateVariantsEnabled": false,
+    "alternateOutfitIDs": ["space-charging", "moon-robe"],
+    "note": "alternateVariantsEnabled 為 false 時，太空服充電和月亮睡袍不進入預設充電場景，也不進入衣櫥或表冠輪換。改成 true 即可重新出現。圖稿和程式都保留。"
   },
   "defaultActionOutfits": {
     "feed": "chef",

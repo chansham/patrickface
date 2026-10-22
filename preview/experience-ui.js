@@ -39,12 +39,15 @@ export async function createExperience({ repo, revision, clips, read, write, get
     experience.settings.layoutID = event.target.value; save(); updatePreferences();
   });
   const available = id => clips.find(clip => clip.id === id && clip.available);
-  const outfits = (Array.isArray(themes?.outfits) ? themes.outfits : []).filter(outfit => typeof outfit.id === 'string' && available(outfit.clipId));
+  const chargingSelection = themes?.chargingSelection;
+  const alternateHidden = new Set(chargingSelection && chargingSelection.alternateVariantsEnabled === false ? (chargingSelection.alternateOutfitIDs || []) : []);
+  const allOutfits = (Array.isArray(themes?.outfits) ? themes.outfits : []).filter(outfit => typeof outfit.id === 'string' && available(outfit.clipId));
+  const outfits = allOutfits.filter(outfit => !alternateHidden.has(outfit.id));
   if (!outfits.length) {
     const first = clips.find(clip => clip.available);
     outfits.push({ id: 'classic', title: '經典睡衣', scene: 'sleeping', clipId: first.id, actions: {}, ambience: 'none' });
   }
-  if (experience.outfitId !== 'auto' && !outfits.some(outfit => outfit.id === experience.outfitId)) experience.outfitId = 'auto';
+  if (experience.outfitId !== 'auto' && !allOutfits.some(outfit => outfit.id === experience.outfitId)) experience.outfitId = 'auto';
   const overlays = [$('#ambience-large'), $('#ambience-small')];
   const overlayContexts = overlays.map(canvas => canvas.getContext('2d'));
   const titleForScene = { auto: '跟著時間', awake: '日常', sleeping: '睡前', charging: '充電', exercise: '運動', focus: '專心', bath: '洗澡', celebrate: '節日' };
@@ -55,10 +58,15 @@ export async function createExperience({ repo, revision, clips, read, write, get
     const date = new Date(), minute = date.getHours() * 60 + date.getMinutes();
     return isSleepMinute(minute, experience.settings.sleepStartMinutes, experience.settings.sleepEndMinutes) ? 'sleeping' : 'awake';
   }
-  function outfit() { return outfits.find(item => item.id === experience.outfitId)
-    || outfits.find(item => item.id === actionOutfitId)
-    || outfits.find(item => item.id === themes?.defaultSceneOutfits?.[resolvedScene()])
-    || outfits.find(item => item.scene === resolvedScene()) || outfits[0]; }
+  function outfit() {
+    if (experience.outfitId !== 'auto' && !alternateHidden.has(experience.outfitId)) {
+      const chosen = allOutfits.find(item => item.id === experience.outfitId);
+      if (chosen) return chosen;
+    }
+    return outfits.find(item => item.id === actionOutfitId)
+      || outfits.find(item => item.id === themes?.defaultSceneOutfits?.[resolvedScene()])
+      || outfits.find(item => item.scene === resolvedScene()) || outfits[0];
+  }
   function actionClips(action) {
     const value = outfit().actions?.[action]; return (Array.isArray(value) ? value : value ? [value] : []).map(available).filter(Boolean);
   }

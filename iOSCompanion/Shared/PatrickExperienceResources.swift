@@ -30,10 +30,20 @@ enum PatrickExperienceResources {
         return catalog
     }
     static func outfits(bundle: Bundle = .main) -> [PatrickOutfitCatalog.Outfit] { catalog(bundle: bundle)?.outfits ?? [] }
+    /// Wardrobe, crown, and any random pick. Hidden charging variants stay in `outfits()`.
+    static func selectableOutfits(from outfits: [PatrickOutfitCatalog.Outfit], bundle: Bundle = .main) -> [PatrickOutfitCatalog.Outfit] {
+        catalog(bundle: bundle)?.selectionPool(from: outfits) ?? outfits
+    }
+    static func displayedOutfitID(_ outfitID: String, from outfits: [PatrickOutfitCatalog.Outfit], bundle: Bundle = .main) -> String {
+        let visible = selectableOutfits(from: outfits, bundle: bundle).map(\.id)
+        return outfitID == "auto" || visible.contains(outfitID) ? outfitID : "auto"
+    }
     static func outfit(_ settings: PatrickExperienceSettings, scene: String, from outfits: [PatrickOutfitCatalog.Outfit], soundOutfitID: String? = nil) -> PatrickOutfitCatalog.Outfit? {
+        if let catalog = catalog() {
+            return catalog.resolvedOutfit(settings: settings, scene: scene, outfits: outfits, soundOutfitID: soundOutfitID)
+        }
         if settings.outfitID != "auto" { return outfits.first { $0.id == settings.outfitID } }
         if let soundOutfitID, let value = outfits.first(where: { $0.id == soundOutfitID }) { return value }
-        if let id = catalog()?.defaultSceneOutfits?[scene], let value = outfits.first(where: { $0.id == id }) { return value }
         return outfits.first { $0.scene == scene && $0.id != "auto" }
             ?? outfits.first { $0.scene == "awake" && $0.id != "auto" }
             ?? outfits.first { $0.id != "auto" }

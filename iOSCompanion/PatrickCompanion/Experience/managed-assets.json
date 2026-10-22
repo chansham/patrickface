@@ -110,8 +110,8 @@
     {
       "source": "experience/themes.json",
       "destination": "themes.json",
-      "sha256": "964a6290f7accca808131923780f3ba1defcd3c5d8125655f7d0e4c7a0563b10",
-      "bytes": 5737,
+      "sha256": "319e65241e57f0a7d4ed797a1cc9077b2fd8c5965dd1563ba054aaf624f20bb1",
+      "bytes": 6170,
       "active": true
     }
   ]

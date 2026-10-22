@@ -279,6 +279,11 @@ def boot(runner: Runner, item: dict, timeout: float) -> None:
     runner.simctl("bootstatus", item["udid"], "-b", timeout=timeout)
 
 
+def install_and_launch(runner: Runner, device: dict, app: dict, arguments: tuple[str, ...]) -> subprocess.CompletedProcess:
+    runner.simctl("install", device["udid"], app["path"], timeout=120)
+    return runner.simctl("launch", "--terminate-running-process", device["udid"], app["bundleID"], *arguments, timeout=90)
+
+
 def validate_watch_geometry(payload: dict, *, bundle_id: str, pid: int, layout: str | None,
                             launch_started_at: str) -> dict:
     """Validate identity and arithmetic, never invent active or wrist state."""
@@ -392,12 +397,24 @@ def capture(runner: Runner, label: str, device: dict, app: dict, delays: list[fl
         if layout is not None and layout not in LAYOUT_IDS:
             raise CaptureError("Unknown layout override")
         boot(runner, device, boot_timeout)
-        runner.simctl("install", device["udid"], app["path"], timeout=120)
         arguments = ("--patrick-preview-layout", layout) if layout else ()
         result["requestedLayout"] = layout
         launch_started_at = utc_now()
         result["launchStartedAt"] = launch_started_at
-        launch = runner.simctl("launch", "--terminate-running-process", device["udid"], app["bundleID"], *arguments, timeout=90)
+        # XCTest leaves this simulator booted. simctl launch can then sit until the
+        # timeout (exit 124) without returning a pid. One shutdown and boot is enough
+        # to recover; a second timeout is still a capture failure.
+        try:
+            launch = install_and_launch(runner, device, app, arguments)
+        except CaptureError as error:
+            if "(124)" not in str(error):
+                raise
+            result["launchRetry"] = "rebooted after simctl launch timed out"
+            runner.simctl("shutdown", device["udid"], timeout=60, required=False)
+            boot(runner, device, boot_timeout)
+            launch_started_at = utc_now()
+            result["launchStartedAt"] = launch_started_at
+            launch = install_and_launch(runner, device, app, arguments)
         match = re.search(r"^" + re.escape(app["bundleID"]) + r":\s*(\d+)\s*$", launch.stdout, re.MULTILINE)
         if not match:
             raise CaptureError("simctl launch did not report the requested app's process ID")
@@ -830,6 +847,40 @@ def self_test() -> int:
                     invalid = capture(runner, "invalid", device, app, [0], 30, "not-a-layout")
                     self.assertEqual(invalid["status"], "failed")
                     command.assert_not_called()
+
+        def test_launch_timeout_reboots_once_then_captures(self):
+            phone, _, _, data = self.payload()
+            device = devices(data, "iOS")[0]
+            app = {"path": "Phone.app", "bundleID": "example.fixture", "executable": "Fixture"}
+            ok = subprocess.CompletedProcess([], 0, "example.fixture: 123\n", "")
+            timed_out = CaptureError("Command failed (124): xcrun simctl launch; Command timed out")
+            with tempfile.TemporaryDirectory() as temporary:
+                runner = Runner(Path(temporary), {"commands": []})
+                with patch(__name__ + ".boot") as booted, patch(__name__ + ".png_info", return_value={"width": 1, "height": 1}), \
+                     patch.object(runner, "simctl", side_effect=[ok, timed_out, ok, ok, ok, ok]) as command, \
+                     patch.object(runner, "command", return_value=subprocess.CompletedProcess([], 0, "123 Fixture", "")):
+                    result = capture(runner, "phone", device, app, [0], 30)
+            self.assertEqual(result["status"], "captured")
+            self.assertEqual(result["launchRetry"], "rebooted after simctl launch timed out")
+            self.assertEqual(booted.call_count, 2)
+            self.assertEqual([call.args[0] for call in command.call_args_list],
+                             ["install", "launch", "shutdown", "install", "launch", "io"])
+            self.assertEqual(command.call_args_list[2].kwargs["required"], False)
+
+        def test_non_timeout_launch_failure_does_not_reboot(self):
+            _, _, _, data = self.payload()
+            device = devices(data, "iOS")[0]
+            app = {"path": "Phone.app", "bundleID": "example.fixture", "executable": "Fixture"}
+            ok = subprocess.CompletedProcess([], 0, "", "")
+            failed = CaptureError("Command failed (1): xcrun simctl launch; bundle not found")
+            with tempfile.TemporaryDirectory() as temporary:
+                runner = Runner(Path(temporary), {"commands": []})
+                with patch(__name__ + ".boot"), \
+                     patch.object(runner, "simctl", side_effect=[ok, failed]) as command:
+                    result = capture(runner, "phone", device, app, [0], 30)
+            self.assertEqual(result["status"], "failed")
+            self.assertNotIn("launchRetry", result)
+            self.assertEqual([call.args[0] for call in command.call_args_list], ["install", "launch"])
 
         def test_watch_failure_preserves_phone_capture_and_returns_partial(self):
             phone, _, _, data = self.payload()

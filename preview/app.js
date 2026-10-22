@@ -383,7 +383,7 @@ function playSelected() {
 }
 function sceneDefault() {
   if (experienceUI) return experienceUI.defaultClip();
-  const expected = { sleeping: 'yawn', awake: 'idle-blink-normal', charging: 'charging', exercise: 'exercise', focus: 'focus', bath: 'bath', celebrate: 'celebrate' }[state.scene];
+  const expected = { sleeping: 'yawn', awake: 'idle-blink-normal', charging: 'charging-classic', exercise: 'exercise', focus: 'focus', bath: 'bath', celebrate: 'celebrate' }[state.scene];
   return clips.find(clip => clip.id === expected) || sceneClips().find(clip => !isIdleClip(clip)) || sceneClips()[0];
 }
 function updateSceneText() {
