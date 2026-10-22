@@ -43,6 +43,7 @@
 		F7C2341767980E24A2529D5D /* PatrickExperienceResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67D6B3E2E6AE1EA664A51A6 /* PatrickExperienceResources.swift */; };
 		F7EB6295FD1B3A0A269A41EF /* PatrickAnimationCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D98A2BC5926252F1345D25 /* PatrickAnimationCatalog.swift */; };
 		F76E798710D25DDEDB495F15 /* PatrickAnimationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F21CB4B1989EF71A5E51C8 /* PatrickAnimationPolicy.swift */; };
+		F7A11E000000000000000006 /* PatrickAlivePresence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A11E000000000000000016 /* PatrickAlivePresence.swift */; };
 		F71ED08E3FAAABD8AD09D9F5 /* PatrickAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DCA0791D9E81125E50A339 /* PatrickAnimationPlayer.swift */; };
 		F7B8FECC84C5B501AA58E094 /* PatrickPhoneExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6865821E2B16783D972A603 /* PatrickPhoneExperienceView.swift */; };
 		F7824A4125937737C86AF097 /* Animation in Resources */ = {isa = PBXBuildFile; fileRef = F69EF6BB897261BE75DAF869 /* Animation */; };
@@ -169,6 +170,7 @@
 		F67D6B3E2E6AE1EA664A51A6 /* PatrickExperienceResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickExperienceResources.swift"; sourceTree = SOURCE_ROOT; };
 		F6D98A2BC5926252F1345D25 /* PatrickAnimationCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "../PatrickFace/PatrickAnimationCatalog.swift"; sourceTree = SOURCE_ROOT; };
 		F6F21CB4B1989EF71A5E51C8 /* PatrickAnimationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "../PatrickFace/PatrickAnimationPolicy.swift"; sourceTree = SOURCE_ROOT; };
+		F7A11E000000000000000016 /* PatrickAlivePresence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "../PatrickFace/PatrickAlivePresence.swift"; sourceTree = SOURCE_ROOT; };
 		F6DCA0791D9E81125E50A339 /* PatrickAnimationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "../PatrickFace/PatrickAnimationPlayer.swift"; sourceTree = SOURCE_ROOT; };
 		F6865821E2B16783D972A603 /* PatrickPhoneExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PatrickCompanion/PatrickPhoneExperienceView.swift"; sourceTree = SOURCE_ROOT; };
 		F69EF6BB897261BE75DAF869 /* Animation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "PatrickCompanion/Animation"; sourceTree = SOURCE_ROOT; };
@@ -283,6 +285,7 @@
 				F6865821E2B16783D972A603 /* PatrickPhoneExperienceView.swift */,
 				F6DCA0791D9E81125E50A339 /* PatrickAnimationPlayer.swift */,
 				F6F21CB4B1989EF71A5E51C8 /* PatrickAnimationPolicy.swift */,
+				F7A11E000000000000000016 /* PatrickAlivePresence.swift */,
 				F6D98A2BC5926252F1345D25 /* PatrickAnimationCatalog.swift */,
 				F67D6B3E2E6AE1EA664A51A6 /* PatrickExperienceResources.swift */,
 				5848DA14948C2FC07B1511C3 /* PatrickAutomation.swift */,
@@ -540,6 +543,7 @@
 				F7B8FECC84C5B501AA58E094 /* PatrickPhoneExperienceView.swift in Sources */,
 				F71ED08E3FAAABD8AD09D9F5 /* PatrickAnimationPlayer.swift in Sources */,
 				F76E798710D25DDEDB495F15 /* PatrickAnimationPolicy.swift in Sources */,
+				F7A11E000000000000000006 /* PatrickAlivePresence.swift in Sources */,
 				F7EB6295FD1B3A0A269A41EF /* PatrickAnimationCatalog.swift in Sources */,
 				F7C2341767980E24A2529D5D /* PatrickExperienceResources.swift in Sources */,
 				7057479EBDD0862784419424 /* PatrickAutomation.swift in Sources */,

@@ -199,13 +199,18 @@ struct PatrickLayoutPicker: View {
 
 /// Numeric clock always has its own timeline, even if an animation cannot load.
 /// The image, hand rig and anchor all receive the SAME layout transform.
+/// A separate breath/blink layer may scale only the atlas character. The clock
+/// stays a later sibling, so the digits are never inside that scale.
 @MainActor struct PatrickLayoutFace: View {
+    @Environment(\.isLuminanceReduced) private var luminanceReduced
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @ObservedObject var player: PatrickAnimationPlayer
     @ObservedObject var artwork: PatrickClockArtwork
     let experience: PatrickExperienceState
     var dimmed = false
     var active = true
     var notice: String? = nil
+    @State private var blinkClock = PatrickBlinkClock.unarmed
     private var layout: PatrickFaceLayoutSpec { .resolve(PatrickFaceLayoutSpec.presentationID(experience.settings)) }
     var body: some View {
         GeometryReader { geometry in
@@ -234,11 +239,41 @@ struct PatrickLayoutPicker: View {
             let side = 665.6 * unit
             let w = side * CGFloat(min(1, player.cellAspectRatio) * player.drawingScale)
             let h = side * CGFloat(min(1, 1 / player.cellAspectRatio) * player.drawingScale)
-            Image(decorative: image, scale: 1).resizable().interpolation(.high)
-                .frame(width: w, height: h)
-                .position(x: 83.2 * unit + side * CGFloat(player.masterAnchor[0]) + w * CGFloat(0.5 - player.anchor[0]),
-                          y: 248 * unit + side * CGFloat(player.masterAnchor[1]) + h * CGFloat(0.5 - player.anchor[1]))
-                .opacity(dimmed ? 0.55 : 1)
+            let motion = active && !dimmed && !luminanceReduced && !reduceMotion
+            let allowBlink = PatrickBlinkGate.allows(
+                motionAllowed: motion,
+                luminanceReduced: luminanceReduced || dimmed,
+                reduceMotion: reduceMotion,
+                playing: player.isPlaying,
+                clipID: player.currentClipID,
+                hasRestingClosedFrame: player.lidImage != nil)
+            let foot = PatrickAlivePlacement.footAnchor(player.anchor)
+            let originX = 83.2 * unit + side * CGFloat(player.masterAnchor[0]) + w * CGFloat(0.5 - player.anchor[0])
+            let originY = 248 * unit + side * CGFloat(player.masterAnchor[1]) + h * CGFloat(0.5 - player.anchor[1])
+            TimelineView(.animation(minimumInterval: PatrickAliveCadence.sampleInterval, paused: !motion)) { timeline in
+                let now = timeline.date.timeIntervalSinceReferenceDate
+                let pose = PatrickBreathPose.pose(at: now, enabled: motion)
+                let closed = blinkClock.eyesClosed(at: now, allow: allowBlink)
+                let shown = (closed ? player.lidImage : nil) ?? image
+                Image(decorative: shown, scale: 1).resizable().interpolation(.high)
+                    .frame(width: w, height: h)
+                    .scaleEffect(x: CGFloat(pose.scaleX), y: CGFloat(pose.scaleY), anchor: UnitPoint(x: CGFloat(foot.x), y: CGFloat(foot.y)))
+                    .position(x: originX, y: originY)
+                    .opacity(dimmed ? 0.55 : 1)
+                    .transaction { $0.disablesAnimations = true }
+                    .onChange(of: timeline.date) { _, date in
+                        let next = blinkClock.advanced(to: date.timeIntervalSinceReferenceDate, allow: allowBlink) {
+                            PatrickBlinkRoll.random()
+                        }
+                        if next != blinkClock { blinkClock = next }
+                    }
+            }
+            .onChange(of: allowBlink) { _, allowed in
+                let next = blinkClock.advanced(to: Date().timeIntervalSinceReferenceDate, allow: allowed) {
+                    PatrickBlinkRoll.random()
+                }
+                if next != blinkClock { blinkClock = next }
+            }
         } else {
             Text("動作畫稿尚未準備").font(.footnote).foregroundStyle(.secondary)
                 .frame(width: 665.6 * unit, height: 665.6 * unit).position(x: 416 * unit, y: 580.8 * unit)

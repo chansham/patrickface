@@ -21,6 +21,9 @@ final class PatrickAnimationPlayer: ObservableObject {
     @Published private(set) var masterAnchor: [Double] = [0.5, 0.5]
     @Published private(set) var drawingScale = 1.0
     @Published private(set) var cellAspectRatio = 1.0
+    /// Closed-eye still for the current resting clip, when that clip has one
+    /// in the same atlas. Nil for outfits that only have an open resting frame.
+    @Published private(set) var lidImage: CGImage?
     var onClipStarted: ((String) -> Void)?
     /// A selected costume supplies its own actions. Missing entries stay missing.
     var eventClips: [String: String]?
@@ -76,7 +79,9 @@ final class PatrickAnimationPlayer: ObservableObject {
                 do {
                     let prepared = try prepareClip(clip)
                     restingImage = try prepared.frame(at: 0); restingAnchor = prepared.anchor
-                    restingScale = clip.scale; restingAspectRatio = prepared.aspectRatio; break
+                    restingScale = clip.scale; restingAspectRatio = prepared.aspectRatio
+                    cacheLid(clip: clip, prepared: prepared)
+                    break
                 } catch {
                     failedClips[id] = "畫稿或輪廓資料讀取失敗"
                 }
@@ -104,16 +109,17 @@ final class PatrickAnimationPlayer: ObservableObject {
     func selectRestingClip(_ id: String?) -> Bool {
         stop(); restingClipID = id
         guard let id, let clip = clips.first(where: { $0.id == id }), unavailableReason(for: clip) == nil else {
-            restingImage = nil; showRestingPose(); message = "這套造型的畫稿尚未準備"; return false
+            restingImage = nil; lidImage = nil; showRestingPose(); message = "這套造型的畫稿尚未準備"; return false
         }
         do {
             let prepared = try prepareClip(clip)
             restingImage = try prepared.frame(at: 0); restingAnchor = prepared.anchor
             restingScale = clip.scale; restingAspectRatio = prepared.aspectRatio
+            cacheLid(clip: clip, prepared: prepared)
             showRestingPose(); message = "安靜陪著你"; scheduleIdle(); return true
         } catch {
             failedClips[id] = "造型畫稿無法讀取"
-            restingImage = nil; showRestingPose(); message = "造型畫稿無法讀取"; return false
+            restingImage = nil; lidImage = nil; showRestingPose(); message = "造型畫稿無法讀取"; return false
         }
     }
 
@@ -227,6 +233,19 @@ final class PatrickAnimationPlayer: ObservableObject {
         image = restingImage; anchor = restingAnchor; drawingScale = restingScale
         cellAspectRatio = restingAspectRatio
         frameIndex = 0; currentClipID = nil
+        if restingImage == nil { lidImage = nil }
+    }
+
+    /// Same canvas and anchor as the open resting frame. A missing hook, or a
+    /// closed index the clip does not play, leaves the eyes open.
+    private func cacheLid(clip: PatrickAnimationClip, prepared: PreparedClip) {
+        guard let hook = PatrickBlinkArt.hook(for: clip.id),
+              let playback = clip.sourceIndices.firstIndex(of: hook.closedSourceIndex),
+              let closed = try? prepared.frame(at: playback) else {
+            lidImage = nil
+            return
+        }
+        lidImage = closed
     }
 
     private func scheduleIdle() {

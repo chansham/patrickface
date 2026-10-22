@@ -7,7 +7,7 @@
 ## 已寫入的行為
 
 - 時間由獨立的 `TimelineView(.everyMinute)` 顯示；動作暫停、素材缺失、讀取錯誤都不會停止數字讀時。時間維持在角色上方。
-- 從圖集逐格抽取並替換畫稿，不靠整張圖片旋轉、呼吸縮放或平移充當角色表演。宣告 `frameRegions` 時按逐列輪廓遮罩抽取，不能用外框裁切代替遮罩，以免把鄰格人物一起帶入；每格使用同一個方形顯示區。
+- 從圖集逐格抽取並替換畫稿。片段本身不靠整張圖片旋轉、大幅縮放或平移充當表演。另外有一層很輕的待機：約 4 秒、垂直 1.5% 的擠壓，錨在腳底，只作用在角色圖上，不縮放數字時間。眨眼時程是 3–6 秒、偶爾連眨；只有星星抱枕睡衣的 blink-v2 第 4 格能當閉眼靜幀，其他造型沒有可疊的眼皮，細節在 `PatrickBlinkArt.missingArt`。腕下常顯、減少動態和低耗電會停掉這層。正在播放本身會動眼睛的片段時不另外眨眼。宣告 `frameRegions` 時按逐列輪廓遮罩抽取，不能用外框裁切代替遮罩，以免把鄰格人物一起帶入；每格使用同一個方形顯示區。
 - 416:496 只作參考畫面比例，按實際 SwiftUI 空間等比縮放；不把硬體像素當成 point。角色方框位於 `(0.1W, 0.25H)`，邊長 `0.8W`。
 - `scale` 預設 1、整段共用；`frameRegions` 的來源是同一個 N×N 畫布，定位採分區檔內的 `canvas.anchorNormalized`，對齊 `master.anchorNormalized`。不根據每格人物外框重新置中或縮放。只有未宣告分區檔的舊資料仍用等格方式：非正方形格等比顯示，寬為 `方框邊長 × min(1, 格比例) × scale`，高為 `方框邊長 × min(1, 1/格比例) × scale`，格邊界由共享比例取整而不累加格寬。
 - 支援 `frameIndices`；播放格數可大於原圖格數，例如同一張八格圖播放兩次組成十六格。動作長度採 `durationsMs`，不使用持續 30/60fps 的空轉重繪。
@@ -59,7 +59,7 @@
 另提供純 Foundation 測試 `tools/NativeAnimationChecks.swift`，涵蓋情境只播一次、冷卻邊界、四種靜態條件、同一計時器只慶祝一次、提早取消、舊資料奇數圖集切格、重複播放索引和路徑檢查。本輪補上分區來源／定位一致性、遮罩缺失／重疊／越界、分區索引重複，以及宣告分區後禁止退回等格的檢查；傳入清單時也讀取其分區 JSON。**此測試尚未執行**，且它不執行 CryptoKit 檔案雜湊或 Core Graphics，需在已有 Swift 的機器上：
 
 ```sh
-swiftc PatrickFace/PatrickAnimationCatalog.swift PatrickFace/PatrickAnimationPolicy.swift tools/NativeAnimationChecks.swift -o /tmp/patrick-animation-checks
+swiftc PatrickFace/PatrickAnimationCatalog.swift PatrickFace/PatrickAnimationPolicy.swift PatrickFace/PatrickAlivePresence.swift tools/NativeAnimationChecks.swift -o /tmp/patrick-animation-checks
 /tmp/patrick-animation-checks animation/catalog.json
 ```
 
