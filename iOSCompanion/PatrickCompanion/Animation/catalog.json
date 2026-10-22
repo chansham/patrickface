@@ -330,7 +330,7 @@
         160,
         450
       ],
-      "sha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "sha256": "40e1e097be988a580c6b3985ce948c6621ffe561525b0058750e3eecdb81b673",
       "anchorNormalized": [
         0.5,
         0.8803763440860215
@@ -346,11 +346,11 @@
         "scene-entry",
         "interaction"
       ],
-      "description": "抱著小電池從犯睏到回神。有真實眼嘴與抱持手勢變化；前傾與電池接觸仍需審。此稿未替換Apple Watch系統充電畫面。",
+      "description": "抱著小電池從犯睏到回神。第5–7格已換成同尺度重畫並對齊原腳底；前傾表演按審稿不保留。有真實眼嘴與抱持手勢變化，電池接觸仍需審。此稿未替換Apple Watch系統充電畫面。",
       "frameLabels": [],
       "frameRegions": {
         "path": "animation/charging-v2/regions-v1.json",
-        "sha256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
+        "sha256": "e54c5ecb861a82f563e49d7619520ca2e0a926e426424efe73589c8db4943c06",
         "version": 1
       },
       "renderingRevision": "contour-v1",
@@ -485,10 +485,10 @@
       "version": 1,
       "atlas": "animation/focus-v1/atlas-generated.png",
       "width": 1448,
-      "height": 1086,
+      "height": 1121,
       "columns": 4,
       "rows": 4,
-      "frameCount": 12,
+      "frameCount": 16,
       "durationsMs": [
         450,
         190,
@@ -501,9 +501,13 @@
         180,
         230,
         180,
+        180,
+        180,
+        180,
+        180,
         600
       ],
-      "sha256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "sha256": "3d0d5fe30c8ddcb0a6b5d456105c5717085306be64909ca97a7119fbae4d750a",
       "anchorNormalized": [
         0.5,
         0.8804347826086957
@@ -519,11 +523,11 @@
         "scene-entry",
         "interaction"
       ],
-      "description": "主體驗使用前12格推眼鏡與收手，停止使用明顯縮小的第13–16格；原16格仍留候選供修稿。前段輪廓和收手過渡仍待審。",
+      "description": "主體驗播放全部16格。第13–16格已換成與前段同尺度的重畫，圖集加高後腳底仍對齊，不再跳過。前段輪廓和收手過渡仍待審。",
       "frameLabels": [],
       "frameRegions": {
         "path": "animation/focus-v1/regions-v1.json",
-        "sha256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909",
+        "sha256": "3b77cbde03e0acbb1bbb17a068e3fbf16995a0890bb35adafb638ee9e91f97e5",
         "version": 1
       },
       "renderingRevision": "contour-v1",
@@ -541,7 +545,11 @@
         8,
         9,
         10,
-        11
+        11,
+        12,
+        13,
+        14,
+        15
       ]
     },
     {

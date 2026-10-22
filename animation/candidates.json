@@ -78,7 +78,7 @@
       "version": 1,
       "atlas": "animation/focus-v1/atlas-generated.png",
       "width": 1448,
-      "height": 1086,
+      "height": 1121,
       "columns": 4,
       "rows": 4,
       "frameCount": 16,
@@ -100,7 +100,7 @@
         170,
         450
       ],
-      "sha256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
+      "sha256": "3d0d5fe30c8ddcb0a6b5d456105c5717085306be64909ca97a7119fbae4d750a",
       "anchorNormalized": [
         0.5,
         0.8804347826086957
@@ -114,11 +114,11 @@
       "triggerKinds": [
         "manual-review"
       ],
-      "description": "已完整分離人物，修正頭腳被切和上方混入前一格的腳。原畫末列角色仍較小，沒有用逐格放大掩蓋；需另修角色比例。",
+      "description": "已完整分離人物，修正頭腳被切和上方混入前一格的腳。2026-10-22 第13–16格換成同尺度重畫，圖集加高到 1448×1121，不再靠逐格放大。",
       "frameLabels": [],
       "frameRegions": {
         "path": "animation/focus-v1/regions-v1.json",
-        "sha256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909",
+        "sha256": "3b77cbde03e0acbb1bbb17a068e3fbf16995a0890bb35adafb638ee9e91f97e5",
         "version": 1
       },
       "renderingRevision": "contour-v1"
@@ -395,7 +395,7 @@
         160,
         450
       ],
-      "sha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
+      "sha256": "40e1e097be988a580c6b3985ce948c6621ffe561525b0058750e3eecdb81b673",
       "anchorNormalized": [
         0.5,
         0.8803763440860215
@@ -409,11 +409,11 @@
       "triggerKinds": [
         "manual-review"
       ],
-      "description": "抱著小電池從犯睏到回神。有真實眼嘴與抱持手勢變化；前傾與電池接觸仍需審。此稿未替換Apple Watch系統充電畫面。",
+      "description": "抱著小電池從犯睏到回神。第5–7格已換成同尺度重畫並對齊原腳底；前傾表演按審稿不保留。電池接觸仍需審。此稿未替換Apple Watch系統充電畫面。",
       "frameLabels": [],
       "frameRegions": {
         "path": "animation/charging-v2/regions-v1.json",
-        "sha256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
+        "sha256": "e54c5ecb861a82f563e49d7619520ca2e0a926e426424efe73589c8db4943c06",
         "version": 1
       },
       "renderingRevision": "contour-v1"

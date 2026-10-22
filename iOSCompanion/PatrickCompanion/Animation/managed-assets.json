@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "tool": "tools/sync_animation_bundle.py",
   "catalogSource": "animation/catalog.json",
-  "catalogSha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
+  "catalogSha256": "c895b80b02fcff12512398b5b54504927481cb0da9857d3214b9164cec26afac",
   "availableClipIds": [
     "yawn",
     "idle-blink-normal",
@@ -53,8 +53,8 @@
     {
       "source": "animation/catalog.json",
       "destination": "catalog.json",
-      "sha256": "1ab7c1d7a5a1ddedd24e3e4c6c5b668850b846732f8577d41561956d01f949f7",
-      "bytes": 24878,
+      "sha256": "c895b80b02fcff12512398b5b54504927481cb0da9857d3214b9164cec26afac",
+      "bytes": 25076,
       "active": true
     },
     {
@@ -88,15 +88,15 @@
     {
       "source": "animation/charging-v2/atlas-generated.png",
       "destination": "charging-v2/atlas-generated.png",
-      "sha256": "e0a038b0020f5f1092b288f773a1db76035b77362596caa7e7b880ebd26a6678",
-      "bytes": 1182158,
+      "sha256": "40e1e097be988a580c6b3985ce948c6621ffe561525b0058750e3eecdb81b673",
+      "bytes": 1121154,
       "active": true
     },
     {
       "source": "animation/charging-v2/regions-v1.json",
       "destination": "charging-v2/regions-v1.json",
-      "sha256": "c191f358d1ddd019372b63f208e6ddc6d6997700c571411289307f21d0c05119",
-      "bytes": 440137,
+      "sha256": "e54c5ecb861a82f563e49d7619520ca2e0a926e426424efe73589c8db4943c06",
+      "bytes": 379234,
       "active": true
     },
     {
@@ -130,15 +130,15 @@
     {
       "source": "animation/focus-v1/atlas-generated.png",
       "destination": "focus-v1/atlas-generated.png",
-      "sha256": "d1405d87f66a16baa98689b1b2a5b704f2b68b8b7c9c64595af74db9aa90d755",
-      "bytes": 1338546,
+      "sha256": "3d0d5fe30c8ddcb0a6b5d456105c5717085306be64909ca97a7119fbae4d750a",
+      "bytes": 1321547,
       "active": true
     },
     {
       "source": "animation/focus-v1/regions-v1.json",
       "destination": "focus-v1/regions-v1.json",
-      "sha256": "217b32c84421e2d8595cd06b109682adff476738e0de1b5f8614e1358089b909",
-      "bytes": 179639,
+      "sha256": "3b77cbde03e0acbb1bbb17a068e3fbf16995a0890bb35adafb638ee9e91f97e5",
+      "bytes": 173503,
       "active": true
     },
     {

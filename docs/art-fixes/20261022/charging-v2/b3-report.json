@@ -1,0 +1,190 @@
+{
+ "variant": "b3",
+ "targets": "5,6,7 的目标身高/宽度=原第4格与第8格线性插值",
+ "metrics_orig4": {
+  "h": 323,
+  "w": 238,
+  "aspect": 1.3571,
+  "pink_h": 318,
+  "pink_w": 212,
+  "pink_area": 29230,
+  "battery_top_rel": 0.6285,
+  "skin_stroke": 3.0
+ },
+ "metrics_orig8": {
+  "h": 328,
+  "w": 237,
+  "aspect": 1.384,
+  "pink_h": 323,
+  "pink_w": 202,
+  "pink_area": 28024,
+  "battery_top_rel": 0.5457,
+  "skin_stroke": 4.0
+ },
+ "frames": {
+  "5": {
+   "h": 324,
+   "w": 238,
+   "aspect": 1.3613,
+   "pink_h": 318,
+   "pink_w": 209,
+   "pink_area": 30894,
+   "battery_top_rel": 0.5864,
+   "skin_stroke": 4.0,
+   "scale": 0.3413,
+   "target_h": 324.2,
+   "target_w": 237.8,
+   "dh_vs_target_pct": -0.08,
+   "dw_vs_target_pct": 0.11,
+   "dpink_w_vs_target_pct": -0.24,
+   "dpink_area_vs_target_pct": 6.79,
+   "daspect_vs_target_pct": -0.19,
+   "orig": {
+    "h": 314,
+    "w": 239,
+    "dh_pct": -3.16,
+    "dpink_w_pct": -5.49,
+    "dpink_area_pct": 0.1
+   },
+   "iou_vs_f4": 0.9756,
+   "iou_vs_f8": 0.9071,
+   "best_neighbor": 4,
+   "iou_orig_vs_best": 0.9297,
+   "vs_best": {
+    "dh_pct": 0.31,
+    "dw_pct": 0.0,
+    "dpink_w_pct": -1.42,
+    "daspect_pct": 0.31
+   },
+   "orig_vs_best": {
+    "dh_pct": -2.79,
+    "dpink_w_pct": -6.6
+   }
+  },
+  "6": {
+   "h": 326,
+   "w": 240,
+   "aspect": 1.3583,
+   "pink_h": 323,
+   "pink_w": 211,
+   "pink_area": 32304,
+   "battery_top_rel": 0.6012,
+   "skin_stroke": 4.0,
+   "scale": 0.3444,
+   "target_h": 325.5,
+   "target_w": 237.5,
+   "dh_vs_target_pct": 0.15,
+   "dw_vs_target_pct": 1.05,
+   "dpink_w_vs_target_pct": 1.93,
+   "dpink_area_vs_target_pct": 12.84,
+   "daspect_vs_target_pct": -0.89,
+   "orig": {
+    "h": 308,
+    "w": 235,
+    "dh_pct": -5.38,
+    "dpink_w_pct": -6.76,
+    "dpink_area_pct": 3.93
+   },
+   "iou_vs_f4": 0.974,
+   "iou_vs_f8": 0.908,
+   "best_neighbor": 4,
+   "iou_orig_vs_best": 0.9166,
+   "vs_best": {
+    "dh_pct": 0.93,
+    "dw_pct": 0.84,
+    "dpink_w_pct": -0.47,
+    "daspect_pct": 0.09
+   },
+   "orig_vs_best": {
+    "dh_pct": -4.64,
+    "dpink_w_pct": -8.96
+   }
+  },
+  "7": {
+   "h": 327,
+   "w": 235,
+   "aspect": 1.3915,
+   "pink_h": 321,
+   "pink_w": 201,
+   "pink_area": 27560,
+   "battery_top_rel": 0.5474,
+   "skin_stroke": 4.0,
+   "scale": 0.3321,
+   "target_h": 326.8,
+   "target_w": 237.2,
+   "dh_vs_target_pct": 0.08,
+   "dw_vs_target_pct": -0.95,
+   "dpink_w_vs_target_pct": -1.71,
+   "dpink_area_vs_target_pct": -2.7,
+   "daspect_vs_target_pct": 1.03,
+   "orig": {
+    "h": 316,
+    "w": 237,
+    "dh_pct": -3.29,
+    "dpink_w_pct": -4.65,
+    "dpink_area_pct": -5.58
+   },
+   "iou_vs_f4": 0.8907,
+   "iou_vs_f8": 0.9814,
+   "best_neighbor": 8,
+   "iou_orig_vs_best": 0.9447,
+   "vs_best": {
+    "dh_pct": -0.3,
+    "dw_pct": -0.84,
+    "dpink_w_pct": -0.5,
+    "daspect_pct": 0.54
+   },
+   "orig_vs_best": {
+    "dh_pct": -3.66,
+    "dpink_w_pct": -3.47
+   }
+  }
+ },
+ "atlas_fit": {
+  "5": {
+   "paste_xy": [
+    65,
+    378
+   ],
+   "box": [
+    65,
+    378,
+    303,
+    702
+   ],
+   "in_bounds": true,
+   "collision_px": 0,
+   "min_gap_px": 25.0
+  },
+  "6": {
+   "paste_xy": [
+    430,
+    375
+   ],
+   "box": [
+    430,
+    375,
+    670,
+    701
+   ],
+   "in_bounds": true,
+   "collision_px": 0,
+   "min_gap_px": 21.8
+  },
+  "7": {
+   "paste_xy": [
+    798,
+    374
+   ],
+   "box": [
+    798,
+    374,
+    1033,
+    701
+   ],
+   "in_bounds": true,
+   "collision_px": 0,
+   "min_gap_px": 20.0
+  }
+ }
+}
