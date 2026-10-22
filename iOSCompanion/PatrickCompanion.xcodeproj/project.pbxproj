@@ -68,6 +68,18 @@
 		B11C0DE0000000000000002A /* PatrickWeekPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE00000000000000029 /* PatrickWeekPlan.swift */; };
 		B11C0DE0000000000000002C /* PatrickSoundListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE0000000000000002B /* PatrickSoundListener.swift */; };
 		B11C0DE0000000000000002E /* PatrickNFCReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C0DE0000000000000002D /* PatrickNFCReader.swift */; };
+		F1E1D0000000000000000011 /* PatrickFieldTestLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000001 /* PatrickFieldTestLog.swift */; };
+		F1E1D0000000000000000012 /* PatrickFieldTestStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000002 /* PatrickFieldTestStarter.swift */; };
+		F1E1D0000000000000000013 /* PatrickFieldTestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000004 /* PatrickFieldTestScreen.swift */; };
+		F1E1D0000000000000000014 /* PatrickFieldTestAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000005 /* PatrickFieldTestAlarm.swift */; };
+		F1E1D0000000000000000015 /* PatrickFieldTestBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000006 /* PatrickFieldTestBackground.swift */; };
+		F1E1D0000000000000000016 /* PatrickFieldTestPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000007 /* PatrickFieldTestPing.swift */; };
+		F1E1D0000000000000000021 /* PatrickFieldTestLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000001 /* PatrickFieldTestLog.swift */; };
+		F1E1D0000000000000000022 /* PatrickFieldTestStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000002 /* PatrickFieldTestStarter.swift */; };
+		F1E1D0000000000000000023 /* PatrickFieldTestWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000003 /* PatrickFieldTestWidgets.swift */; };
+		F1E1D0000000000000000031 /* PatrickFieldTestLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000001 /* PatrickFieldTestLog.swift */; };
+		F1E1D0000000000000000032 /* PatrickFieldTestNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E1D0000000000000000008 /* PatrickFieldTestNotificationController.swift */; };
+		F1E1D0000000000000000033 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F1E1D000000000000000000B /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +204,18 @@
 		B11C0DE00000000000000029 /* PatrickWeekPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickWeekPlan.swift"; sourceTree = SOURCE_ROOT; };
 		B11C0DE0000000000000002B /* PatrickSoundListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared/PatrickSoundListener.swift"; sourceTree = SOURCE_ROOT; };
 		B11C0DE0000000000000002D /* PatrickNFCReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickNFCReader.swift; sourceTree = "<group>"; };
+		F1E1D0000000000000000001 /* PatrickFieldTestLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFieldTestLog.swift; sourceTree = "<group>"; };
+		F1E1D0000000000000000002 /* PatrickFieldTestStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFieldTestStarter.swift; sourceTree = "<group>"; };
+		F1E1D0000000000000000003 /* PatrickFieldTestWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFieldTestWidgets.swift; sourceTree = "<group>"; };
+		F1E1D0000000000000000004 /* PatrickFieldTestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFieldTestScreen.swift; sourceTree = "<group>"; };
+		F1E1D0000000000000000005 /* PatrickFieldTestAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFieldTestAlarm.swift; sourceTree = "<group>"; };
+		F1E1D0000000000000000006 /* PatrickFieldTestBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFieldTestBackground.swift; sourceTree = "<group>"; };
+		F1E1D0000000000000000007 /* PatrickFieldTestPing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFieldTestPing.swift; sourceTree = "<group>"; };
+		F1E1D0000000000000000008 /* PatrickFieldTestNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFieldTestNotificationController.swift; sourceTree = "<group>"; };
+		F1E1D0000000000000000009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1E1D000000000000000000A /* PatrickFieldTestNotification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatrickFieldTestNotification.entitlements; sourceTree = "<group>"; };
+		F1E1D000000000000000000B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		F1E1D000000000000000000C /* PatrickFieldTestNotification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PatrickFieldTestNotification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +240,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1E1D0000000000000000042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -226,6 +257,7 @@
 				C00000000000000000000023 /* Shared */,
 				C00000000000000000000021 /* PatrickCompanion */,
 				C00000000000000000000022 /* PatrickWidgets */,
+				F1E1D0000000000000000050 /* PatrickFieldTestNotification */,
 				C00000000000000000000024 /* PatrickCompanionTests */,
 				C00000000000000000000025 /* Resources */,
 				C00000000000000000000026 /* WatchIntegration */,
@@ -254,6 +286,9 @@
 				B11C0DE00000000000000027 /* PatrickDayServices.swift */,
 				C00000000000000000000118 /* ThemeSoundPlayer.swift */,
 				C00000000000000000000119 /* PatrickActivityController.swift */,
+				F1E1D0000000000000000004 /* PatrickFieldTestScreen.swift */,
+				F1E1D0000000000000000005 /* PatrickFieldTestAlarm.swift */,
+				F1E1D0000000000000000006 /* PatrickFieldTestBackground.swift */,
 				C0000000000000000000011A /* Info.plist */,
 				C0000000000000000000011B /* PatrickCompanion.entitlements */,
 			);
@@ -266,6 +301,7 @@
 				C00000000000000000000120 /* PatrickWidgetsBundle.swift */,
 				C00000000000000000000121 /* PatrickStatusWidget.swift */,
 				C00000000000000000000122 /* PatrickLiveActivity.swift */,
+				F1E1D0000000000000000003 /* PatrickFieldTestWidgets.swift */,
 				C00000000000000000000123 /* Info.plist */,
 				C00000000000000000000124 /* PatrickWidgets.entitlements */,
 			);
@@ -303,6 +339,8 @@
 				C00000000000000000000103 /* PatrickActivityAttributes.swift */,
 				C00000000000000000000104 /* PatrickSharedStore.swift */,
 				C00000000000000000000105 /* PatrickArtworkView.swift */,
+				F1E1D0000000000000000001 /* PatrickFieldTestLog.swift */,
+				F1E1D0000000000000000002 /* PatrickFieldTestStarter.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -330,6 +368,7 @@
 			children = (
 				C00000000000000000000150 /* PatrickWatchReceiver.swift */,
 				D50000000000000000000013 /* PatrickWatchWire.swift */,
+				F1E1D0000000000000000007 /* PatrickFieldTestPing.swift */,
 			);
 			path = WatchIntegration;
 			sourceTree = "<group>";
@@ -339,6 +378,7 @@
 			children = (
 				C00000000000000000000010 /* PatrickCompanion.app */,
 				C00000000000000000000011 /* PatrickWidgets.appex */,
+				F1E1D000000000000000000C /* PatrickFieldTestNotification.appex */,
 				C00000000000000000000012 /* PatrickCompanionTests.xctest */,
 			);
 			name = Products;
@@ -358,6 +398,17 @@
 				C00000000000000000000170 /* WATCH_INTEGRATION.md */,
 			);
 			path = docs;
+			sourceTree = "<group>";
+		};
+		F1E1D0000000000000000050 /* PatrickFieldTestNotification */ = {
+			isa = PBXGroup;
+			children = (
+				F1E1D0000000000000000008 /* PatrickFieldTestNotificationController.swift */,
+				F1E1D0000000000000000009 /* Info.plist */,
+				F1E1D000000000000000000A /* PatrickFieldTestNotification.entitlements */,
+				F1E1D000000000000000000B /* PrivacyInfo.xcprivacy */,
+			);
+			path = PatrickFieldTestNotification;
 			sourceTree = "<group>";
 		};
 		C0000000000000000000002A /* tools */ = {
@@ -382,12 +433,14 @@
 				C00000000000000000000301 /* Resources */,
 				C00000000000000000000303 /* Embed App Extensions */,
 				D50000000000000000000020 /* Embed Watch Content */,
+				F1E1D0000000000000000049 /* Embed Field Test Notification If Enabled */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C00000000000000000000501 /* PBXTargetDependency */,
 				D50000000000000000000040 /* PBXTargetDependency */,
+				F1E1D0000000000000000047 /* PBXTargetDependency */,
 			);
 			name = PatrickCompanion;
 			productName = PatrickCompanion;
@@ -428,6 +481,23 @@
 			productName = PatrickCompanionTests;
 			productReference = C00000000000000000000012 /* PatrickCompanionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F1E1D0000000000000000040 /* PatrickFieldTestNotification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1E1D0000000000000000046 /* Build configuration list for PBXNativeTarget "PatrickFieldTestNotification" */;
+			buildPhases = (
+				F1E1D0000000000000000041 /* Sources */,
+				F1E1D0000000000000000042 /* Frameworks */,
+				F1E1D0000000000000000043 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PatrickFieldTestNotification;
+			productName = PatrickFieldTestNotification;
+			productReference = F1E1D000000000000000000C /* PatrickFieldTestNotification.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -483,6 +553,7 @@
 				C00000000000000000000002 /* PatrickCompanion */,
 				C00000000000000000000003 /* PatrickWidgets */,
 				C00000000000000000000004 /* PatrickCompanionTests */,
+				F1E1D0000000000000000040 /* PatrickFieldTestNotification */,
 			);
 		};
 /* End PBXProject section */
@@ -525,7 +596,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1E1D0000000000000000043 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1E1D0000000000000000033 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F1E1D0000000000000000049 /* Embed Field Test Notification If Enabled */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Field Test Notification If Enabled";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${SRCROOT}/tools/embed_field_test_notification.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C00000000000000000000300 /* Sources */ = {
@@ -573,6 +669,12 @@
 				C0000000000000000000020D /* PatrickIntents.swift in Sources */,
 				C0000000000000000000020E /* ThemeSoundPlayer.swift in Sources */,
 				C0000000000000000000020F /* PatrickActivityController.swift in Sources */,
+				F1E1D0000000000000000011 /* PatrickFieldTestLog.swift in Sources */,
+				F1E1D0000000000000000012 /* PatrickFieldTestStarter.swift in Sources */,
+				F1E1D0000000000000000013 /* PatrickFieldTestScreen.swift in Sources */,
+				F1E1D0000000000000000014 /* PatrickFieldTestAlarm.swift in Sources */,
+				F1E1D0000000000000000015 /* PatrickFieldTestBackground.swift in Sources */,
+				F1E1D0000000000000000016 /* PatrickFieldTestPing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +693,9 @@
 				C00000000000000000000226 /* PatrickWidgetsBundle.swift in Sources */,
 				C00000000000000000000227 /* PatrickStatusWidget.swift in Sources */,
 				C00000000000000000000228 /* PatrickLiveActivity.swift in Sources */,
+				F1E1D0000000000000000021 /* PatrickFieldTestLog.swift in Sources */,
+				F1E1D0000000000000000022 /* PatrickFieldTestStarter.swift in Sources */,
+				F1E1D0000000000000000023 /* PatrickFieldTestWidgets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +704,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C00000000000000000000230 /* PatrickContractTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1E1D0000000000000000041 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1E1D0000000000000000031 /* PatrickFieldTestLog.swift in Sources */,
+				F1E1D0000000000000000032 /* PatrickFieldTestNotificationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +733,18 @@
 			isa = PBXTargetDependency;
 			name = PatrickFace;
 			targetProxy = D50000000000000000000010 /* PBXContainerItemProxy */;
+		};
+		F1E1D0000000000000000048 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C00000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1E1D0000000000000000040;
+			remoteInfo = PatrickFieldTestNotification;
+		};
+		F1E1D0000000000000000047 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1E1D0000000000000000040 /* PatrickFieldTestNotification */;
+			targetProxy = F1E1D0000000000000000048 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -693,6 +819,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PATRICK_FIELD_TEST_NOTIFICATION_EXTENSION = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion;
 				PROVISIONING_PROFILE_SPECIFIER = "$(PATRICK_PHONE_PROFILE)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -722,6 +849,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PATRICK_FIELD_TEST_NOTIFICATION_EXTENSION = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion;
 				PROVISIONING_PROFILE_SPECIFIER = "$(PATRICK_PHONE_PROFILE)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -830,6 +958,64 @@
 			};
 			name = Release;
 		};
+		F1E1D0000000000000000044 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = PatrickFieldTestNotification/PatrickFieldTestNotification.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PatrickFieldTestNotification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.fieldtest.notification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F1E1D0000000000000000045 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = PatrickFieldTestNotification/PatrickFieldTestNotification.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PatrickFieldTestNotification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chans.patrickface.companion.fieldtest.notification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -856,6 +1042,15 @@
 			buildConfigurations = (
 				C00000000000000000000421 /* Debug */,
 				C00000000000000000000422 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1E1D0000000000000000046 /* Build configuration list for PBXNativeTarget "PatrickFieldTestNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1E1D0000000000000000044 /* Debug */,
+				F1E1D0000000000000000045 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

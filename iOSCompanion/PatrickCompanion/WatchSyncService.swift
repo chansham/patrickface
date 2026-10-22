@@ -360,6 +360,53 @@ final class WatchSyncService: NSObject, ObservableObject {
         }
         linkState = session.isReachable ? .reachable : .backgroundDelivery
     }
+
+    /// Field-test ping. Older watches ignore the extra key. Theme and timer stay put.
+    func sendFieldTestPing() {
+        guard !demoMode else {
+            PatrickFieldTestLog.append("示范模式没有真手表，没有发送。角色和计时都没动。", topic: "手表")
+            return
+        }
+        guard let session, session.activationState == .activated else {
+            PatrickFieldTestLog.append("手表会话还没准备好，没有发送。", topic: "手表")
+            return
+        }
+        guard session.isReachable else {
+            PatrickFieldTestLog.append("手表现在连不上。没有改角色、主题或计时。", topic: "手表")
+            return
+        }
+        let body = PatrickFieldTestPing.Body(
+            id: UUID(),
+            sentAt: Date(),
+            role: "phone",
+            system: "iOS \(ProcessInfo.processInfo.operatingSystemVersionString)",
+            note: "问候"
+        )
+        guard let data = PatrickFieldTestPing.encode(body) else {
+            PatrickFieldTestLog.append("问候没有编出来。", topic: "手表")
+            return
+        }
+        session.sendMessage(
+            [PatrickFieldTestPing.transportKey: data],
+            replyHandler: { reply in
+                let text: String
+                if let replyData = reply[PatrickFieldTestPing.transportKey] as? Data,
+                   let decoded = PatrickFieldTestPing.decode(replyData) {
+                    text = "手表回了。\(decoded.system)。\(decoded.note)"
+                } else {
+                    text = "手表有回应，但内容读不出来。"
+                }
+                PatrickFieldTestLog.append(text, topic: "手表")
+            },
+            errorHandler: { error in
+                PatrickFieldTestLog.append(
+                    "问候失败。\(error.localizedDescription)。没有改角色。",
+                    topic: "手表"
+                )
+            }
+        )
+        PatrickFieldTestLog.append("已向手表发出问候，等回应。", topic: "手表")
+    }
 }
 
 extension WatchSyncService: WCSessionDelegate {

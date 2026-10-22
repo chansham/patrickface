@@ -43,6 +43,7 @@ final class AppModel: ObservableObject {
     private var activityPresentationGeneration: UInt64 = 0
     private var companionEvents: [PatrickCalendarInterval] = []
     private var companionSitting: Int?
+    private var didNoteFieldTestAlarm = false
 
     convenience init() {
         self.init(
@@ -624,6 +625,10 @@ final class AppModel: ObservableObject {
     }
 
     func becameActive() {
+        if !didNoteFieldTestAlarm {
+            didNoteFieldTestAlarm = true
+            PatrickFieldTestAlarm.noteLaunch()
+        }
         requestedCare = nil
         var storedSettings = store.loadSettings()
         if forcedDemoMode {

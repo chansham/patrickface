@@ -21,6 +21,7 @@
 		C30000000000000000000004 /* PatrickFaceComplications.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C30000000000000000000015 /* PatrickFaceComplications.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D40000000000000000000001 /* PatrickWatchReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000010 /* PatrickWatchReceiver.swift */; };
 		D40000000000000000000002 /* PatrickWatchWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000011 /* PatrickWatchWire.swift */; };
+		W1E1D0000000000000000001 /* PatrickFieldTestPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = W1E1D0000000000000000002 /* PatrickFieldTestPing.swift */; };
 		D40000000000000000000003 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000012 /* PrivacyInfo.xcprivacy */; };
 		D40000000000000000000004 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D40000000000000000000012 /* PrivacyInfo.xcprivacy */; };
 		F73ABBB0E6F9DA959FC6B8C8 /* PatrickExperience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637F53302A661A55B96CCE4 /* PatrickExperience.swift */; };
@@ -99,6 +100,7 @@
 		C30000000000000000000015 /* PatrickFaceComplications.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PatrickFaceComplications.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40000000000000000000010 /* PatrickWatchReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickWatchReceiver.swift; sourceTree = "<group>"; };
 		D40000000000000000000011 /* PatrickWatchWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickWatchWire.swift; sourceTree = "<group>"; };
+		W1E1D0000000000000000002 /* PatrickFieldTestPing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickFieldTestPing.swift; sourceTree = "<group>"; };
 		D40000000000000000000012 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		F637F53302A661A55B96CCE4 /* PatrickExperience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickExperience.swift"; sourceTree = SOURCE_ROOT; };
 		F60CC995B04602C187DF14B3 /* PatrickExperienceResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSCompanion/Shared/PatrickExperienceResources.swift"; sourceTree = SOURCE_ROOT; };
@@ -222,6 +224,7 @@
 			children = (
 				D40000000000000000000010 /* PatrickWatchReceiver.swift */,
 				D40000000000000000000011 /* PatrickWatchWire.swift */,
+				W1E1D0000000000000000002 /* PatrickFieldTestPing.swift */,
 			);
 			path = iOSCompanion/WatchIntegration;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				C30000000000000000000001 /* PatrickShared.swift in Sources */,
 				D40000000000000000000001 /* PatrickWatchReceiver.swift in Sources */,
 				D40000000000000000000002 /* PatrickWatchWire.swift in Sources */,
+				W1E1D0000000000000000001 /* PatrickFieldTestPing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

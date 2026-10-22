@@ -798,4 +798,47 @@ final class PatrickContractTests: XCTestCase {
             series(.hrvSDNN, 50, 42, 14)
         ]))
     }
+
+    func testFieldTestGateStaysOffUntilEnabled() {
+        let name = "PatrickFieldTest.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: name)!
+        defer { defaults.removePersistentDomain(forName: name) }
+        XCTAssertFalse(
+            PatrickFieldTestGate.isEnabled(defaults: defaults, environment: [:], arguments: [])
+        )
+        XCTAssertTrue(
+            PatrickFieldTestGate.isEnabled(
+                defaults: defaults,
+                environment: ["PATRICK_FIELD_TEST": "1"],
+                arguments: []
+            )
+        )
+        PatrickFieldTestGate.setEnabled(true, defaults: defaults)
+        XCTAssertTrue(
+            PatrickFieldTestGate.isEnabled(defaults: defaults, environment: [:], arguments: [])
+        )
+        PatrickFieldTestGate.setEnabled(false, defaults: defaults)
+        XCTAssertFalse(
+            PatrickFieldTestGate.isEnabled(defaults: defaults, environment: [:], arguments: [])
+        )
+    }
+
+    func testFieldTestLogExportsTimestampedText() {
+        let name = "PatrickFieldTest.\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: name)!
+        defer { defaults.removePersistentDomain(forName: name) }
+        let when = Date(timeIntervalSince1970: 1_800_000_000)
+        PatrickFieldTestLog.append("锁定屏幕控件点了", topic: "控件", defaults: defaults, now: when)
+        let text = PatrickFieldTestLog.exportText(defaults: defaults)
+        XCTAssertTrue(text.contains("[控件]"))
+        XCTAssertTrue(text.contains("锁定屏幕控件点了"))
+        XCTAssertTrue(text.contains("T"))
+        XCTAssertEqual(PatrickFieldTestLog.lines(defaults: defaults).count, 1)
+    }
+
+    func testFieldTestRapidPlanCountsSends() {
+        XCTAssertEqual(PatrickFieldTestRapidPlan.sequences(interval: 1), Array(0...30))
+        XCTAssertEqual(PatrickFieldTestRapidPlan.sequences(interval: 2), Array(0...15))
+        XCTAssertEqual(PatrickFieldTestRapidPlan.sequences(interval: 5), Array(0...6))
+    }
 }

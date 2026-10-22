@@ -47,6 +47,16 @@
 	<string>用來在你打開 App 時知道是否回到已儲存的家，然後問一次要不要洗手。不會在背景一直追蹤，也可以改說「我回來了」。</string>
 	<key>NSSupportsLiveActivities</key>
 	<true/>
+	<key>NSAlarmKitUsageDescription</key>
+	<string>只在隐藏的实测页里预约一次闹钟，用来看这台手机会不会响。平时不会用。</string>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.chans.patrickface.companion.fieldtest.refresh</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>

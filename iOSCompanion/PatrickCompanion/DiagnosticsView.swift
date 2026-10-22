@@ -3,6 +3,8 @@ import SwiftUI
 struct DiagnosticsView: View {
     @EnvironmentObject private var model: AppModel
     @State private var confirmReset = false
+    @State private var fieldTestEnabled = false
+    @State private var showFieldTest = false
 
     var body: some View {
         NavigationStack {
@@ -62,9 +64,22 @@ struct DiagnosticsView: View {
                         "NFC support is through a user-created Shortcuts Personal "
                         + "Automation that runs one of the included App Intents."
                     )
+                    .simultaneousGesture(
+                        TapGesture(count: 7).onEnded {
+                            PatrickFieldTestGate.setEnabled(true)
+                            fieldTestEnabled = true
+                            showFieldTest = true
+                        }
+                    )
                 }
                 .font(.footnote)
                 .foregroundStyle(.secondary)
+
+                if fieldTestEnabled {
+                    Section {
+                        Button("打开实测") { showFieldTest = true }
+                    }
+                }
 
                 Section("Deep links") {
                     deepLinkRow(
@@ -88,6 +103,13 @@ struct DiagnosticsView: View {
             .scrollContentBackground(.hidden)
             .background(Color.black)
             .navigationTitle("Status")
+            .onAppear { fieldTestEnabled = PatrickFieldTestGate.isEnabled() }
+            .fullScreenCover(isPresented: $showFieldTest, onDismiss: {
+                fieldTestEnabled = PatrickFieldTestGate.isEnabled()
+            }) {
+                PatrickFieldTestScreen()
+                    .environmentObject(model)
+            }
             .alert("Reset local data?", isPresented: $confirmReset) {
                 Button("Cancel", role: .cancel) {}
                 Button("Reset", role: .destructive) {

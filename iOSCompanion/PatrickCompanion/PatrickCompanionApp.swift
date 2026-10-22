@@ -3,7 +3,12 @@ import SwiftUI
 @main
 struct PatrickCompanionApp: App {
     @Environment(\.scenePhase) private var scenePhase
-    @StateObject private var model = AppModel()
+    @StateObject private var model: AppModel
+
+    init() {
+        PatrickFieldTestBackground.register()
+        _model = StateObject(wrappedValue: AppModel())
+    }
 
     var body: some Scene {
         WindowGroup {
