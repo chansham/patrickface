@@ -4,11 +4,11 @@ PatrickFace 是自用的派大星 Apple Watch 生活陪伴 App，也是一隻角
 
 主線是清楚的數字時間。程式裡有四款可切換版式，預設是「經典陪伴」：上方看時間，中央看角色。另外三款是「一眼大字」、「角色劇場」和「運動資訊」。四款都保留數字時間，差別在時間的位置和角色的大小。數字時鐘日後可能改用一套派大星風格的 0–9 數字字型；這只是計畫，還沒做。
 
-手臂當成真實時針、分針的類比模式先暫停，不是刪掉。之後還可能拿出來用，當成可選的未來樣式；相關素材還沒畫完。程式和現有的「原味手臂時計」素材都留著。它只在原味時計造型使用。衣服維持經典造型；做動作時改顯示所選的衣服。數字時間會一直留在畫面上。
+手臂當成真實時針、分針的類比模式先暫停，不是刪掉。之後還可能拿出來用，當成可選的未來樣式；相關素材還沒畫完，而且現有試稿的轉軸在肚子上，這個位置已被退回，要重畫以後才能再放進設定。程式和現有的「原味手臂時計」素材都留著，設定裡目前不顯示。衣服維持經典造型；做動作時改顯示所選的衣服。數字時間會一直留在畫面上。
 
 瀏覽器現在可以試玩衣櫥、照顧、心情和陪伴計時。新畫仍要逐款確認。
 
-安裝用免費 Apple 帳號，在 Windows 上用 Sideloadly。不需要 Mac，不需要付費開發者計畫，也不用 TestFlight。還沒有裝到手錶或手機上。
+安裝用免費 Apple 帳號，在 Windows 上用 Sideloadly 0.71.0。不需要 Mac，不需要付費開發者計畫，也不用 TestFlight。Sideloadly 0.71.0 的說明寫明：Watch App 的簽名目前只給付費開發者帳號，免費帳號要等下一版。所以第一階段只裝 iPhone，手錶還沒有裝上。
 
 ## 2026-10-13 最新補畫（10月12日開始）
 
@@ -94,8 +94,8 @@ PatrickFace 是自用的派大星 Apple Watch 生活陪伴 App，也是一隻角
 
 - [目前完成程度](docs/PROJECT-STATUS.md)：區分瀏覽器通過、原生源碼、未驗證與未完成。
 - [50 項能力地圖](docs/CAPABILITY-MAP.md)：可行性研究，不是 50 項都已實作。充電動畫在 App 內；NFC 由手機自動化轉送；泡澡與心情不假裝自動偵測。
-- [私人安裝](docs/INSTALLATION.md)：Windows 開發、macOS 編譯、簽名、配對 iPhone／Watch 驗證。
-- [裝置資料](docs/DEVICE-PROFILE-2026-09-27.md)：保留使用者申報，確切型號／系統版本待裝置確認。
-- `delivery/theme-pack/` 是舊交付候選，**不是這次動畫和功能版的可安裝包**；`play/` 舊小劇場已退役。
+- [私人安裝](docs/INSTALLATION.md)：Windows、免費 Apple 帳號、Sideloadly 0.71.0。第一階段只裝 iPhone。
+- [裝置資料](docs/DEVICE-PROFILE-2026-09-27.md)：iPhone 18 Pro Max 與 Apple Watch Series 12 46mm。
+- `delivery/theme-pack/`、`play/` 和 `motion-lab/` 已移到分支 `archive/legacy-theme-pack`。它們不是這次可安裝的 App。
 
-素材、程式與觀感分開驗證。主動畫、聲音、clock manifest 有驗證器；照顧／計時有純邏輯及瀏覽器測試。`tools/build_apple_simulators.sh` 在 macOS／Apple SDK 執行原生純邏輯、雙平台編譯、嵌入包及真正 XCTest；無簽名編譯通過不等於能安裝實機。使用者只有一般 Apple 帳號且沒有 Mac；目前準備以 Sideloadly v0.70.1 的 Windows WatchKit 重簽支援進行試裝，真機安裝、完整權限與續期仍未驗證。未購買會員或簽名服務，詳見 [安裝路線](docs/INSTALLATION.md)。
+素材、程式與觀感分開驗證。主動畫、聲音、clock manifest 有驗證器；照顧／計時有純邏輯及瀏覽器測試。`tools/build_apple_simulators.sh` 在 macOS／Apple SDK 執行原生純邏輯、雙平台編譯、嵌入包及真正 XCTest；無簽名編譯通過不等於能安裝實機。安裝走免費 Apple 帳號和 Sideloadly 0.71.0，第一階段只裝 iPhone，因為該版說明尚未支援用免費帳號簽 Watch App。詳見 [安裝路線](docs/INSTALLATION.md)。

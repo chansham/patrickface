@@ -1,4 +1,0 @@
-Recommended URL record after the local shortcut has been created:
-shortcuts://run-shortcut?name=Patrick%20Mode
-
-Important: a Shortcuts NFC personal automation identifies the scanned tag by its unique identifier and ignores the tag contents. The URL record is only a fallback for a normal background NFC read; it does not import or create the automation.

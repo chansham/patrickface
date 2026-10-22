@@ -9,7 +9,10 @@ Example (after build_apple_simulators.sh has built both products):
 
 No build, download, signing, real-device operation, erase or unpair is performed.
 The requested Watch size defaults to 46 mm (42 or any can be selected). Within
-that size, an existing pair with the supplied phone or an unpaired Watch is used.
+that size, Apple Watch Series 12 is preferred when an installed runtime lists
+it. Otherwise the closest supported 46 mm type already on the machine is kept
+(Series 11 on current watchOS 26 runners) and the report records that fallback.
+An existing pair with the supplied phone or an unpaired Watch is used.
 If none is free, a named QA simulator is created using an installed compatible
 runtime/device type. A separate QA phone can be created if pairing is necessary
 and the supplied phone already has a companion; existing pairs are never removed.
@@ -108,6 +111,17 @@ def matches_watch_size(item: dict, size: str) -> bool:
     return size == "any" or f"{size}mm" in label
 
 
+def watch_series_number(item: dict) -> int | None:
+    label = item.get("deviceTypeName", item.get("name", ""))
+    match = re.search(r"Series\s+(\d+)", str(label), re.IGNORECASE)
+    return int(match.group(1)) if match else None
+
+
+def series12_46_rank(item: dict) -> bool:
+    """Owner's watch is Series 12 46mm. Prefer it only when this runtime can create it."""
+    return watch_series_number(item) == 12 and matches_watch_size(item, "46")
+
+
 def select_watch(payload: dict, phone_id: str, minimum: str, size: str = "any") -> dict:
     pairs = pair_members(payload)
     target = phone_id.upper()
@@ -121,7 +135,8 @@ def select_watch(payload: dict, phone_id: str, minimum: str, size: str = "any") 
         if any(phone != target for phone in partners):
             continue
         # Prefer the user's 46 mm target when it does not disturb an existing pair.
-        key = (target in partners, matches_watch_size(item, "46"),
+        # Series 12 46mm outranks an already-paired older case when this runtime has one.
+        key = (series12_46_rank(item), target in partners, matches_watch_size(item, "46"),
                item.get("state") == "Booted", version(item["runtimeVersion"]), item.get("name", ""), watch)
         candidates.append((key, item))
     if not candidates:
@@ -146,7 +161,7 @@ def watch_creation_spec(payload: dict, minimum: str, size: str) -> tuple[dict, d
             runtime_version = version(match[1])
             if not version(device_type.get("minRuntimeVersionString", "0")) <= runtime_version <= version(device_type.get("maxRuntimeVersionString", "65535.255.255")):
                 continue
-            key = (runtime_version, matches_watch_size(device_type, "46"),
+            key = (series12_46_rank(device_type), runtime_version, matches_watch_size(device_type, "46"),
                    version(device_type.get("minRuntimeVersionString", "0")), device_type["name"])
             candidates.append((key, device_type, runtime))
     if not candidates:
@@ -424,6 +439,11 @@ def capture_watch(runner: Runner, args, phone: dict, app: dict, delays: list[flo
             watch = create_qa_device(runner, device_type, runtime, "watchOS", app["minimumOS"])
             result["deviceSelection"] = "created-qa-watch"
         result["device"] = watch
+        if not series12_46_rank(watch):
+            result["series12Fallback"] = (
+                "Installed runtime has no usable Apple Watch Series 12 46mm; "
+                "kept the closest supported 46mm."
+            )
         first = capture(runner, "watch", watch, app, delays, args.boot_timeout,
                         geometry_probe=getattr(args, "watch_geometry", False))
         result["attempts"].append(first)
@@ -541,7 +561,9 @@ def run(args) -> int:
                 else "partial" if good else "unavailable"}
         report["finishedAt"] = utc_now()
         (output / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(f"Native capture: {report['status']}; visual review: pending; report: {output / 'report.json'}", flush=True)
+        fallback = report.get("watch", {}).get("series12Fallback")
+        note = f"; {fallback}" if fallback else ""
+        print(f"Native capture: {report['status']}; visual review: pending{note}; report: {output / 'report.json'}", flush=True)
     return 0 if report["status"] == "captured" else 2 if report["status"] == "partial" else 1
 
 
@@ -686,6 +708,26 @@ def self_test() -> int:
             with self.assertRaises(CaptureError): watch_creation_spec(data, "27", "46")
             data["runtimes"][1]["isAvailable"] = False
             with self.assertRaises(CaptureError): watch_creation_spec(data, "10", "46")
+
+        def test_series_12_46_wins_only_when_the_installed_runtime_supports_it(self):
+            phone, a, b, data = self.payload()
+            series11 = {"identifier": "watch11", "name": "Apple Watch Series 11 (46mm)",
+                        "productFamily": "Apple Watch", "minRuntimeVersionString": "26"}
+            series12 = {"identifier": "watch12", "name": "Apple Watch Series 12 (46mm)",
+                        "productFamily": "Apple Watch", "minRuntimeVersionString": "26"}
+            data["devicetypes"] = [series11, series12]
+            data["runtimes"][1]["supportedDeviceTypes"] = [series11, series12]
+            selected, _runtime = watch_creation_spec(data, "10", "46")
+            self.assertEqual(selected["identifier"], "watch12")
+            entries = list(data["devices"].values())[1]
+            entries[0].update(name="Apple Watch Series 11 (46mm)", deviceTypeIdentifier="watch11")
+            entries[1].update(name="Apple Watch Series 12 (46mm)", deviceTypeIdentifier="watch12")
+            self.assertEqual(select_watch(data, phone, "10", "46")["udid"], b)
+            data["runtimes"][1]["supportedDeviceTypes"] = [series11]
+            series12["minRuntimeVersionString"] = "27"
+            selected, _runtime = watch_creation_spec(data, "10", "46")
+            self.assertEqual(selected["identifier"], "watch11")
+            self.assertFalse(series12_46_rank(selected))
 
         def test_created_device_records_real_type_not_qa_display_name(self):
             phone, _, b, data = self.payload()
