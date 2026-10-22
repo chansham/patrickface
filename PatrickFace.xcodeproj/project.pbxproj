@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E50000000000000000000001 /* PatrickAnimationCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000011 /* PatrickAnimationCatalog.swift */; };
 		E50000000000000000000002 /* PatrickAnimationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000012 /* PatrickAnimationPolicy.swift */; };
+		E50000000000000000000006 /* PatrickAlivePresence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000016 /* PatrickAlivePresence.swift */; };
 		E50000000000000000000003 /* PatrickAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000013 /* PatrickAnimationPlayer.swift */; };
 		E50000000000000000000004 /* PatrickAnimatedFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000014 /* PatrickAnimatedFaceView.swift */; };
 		E50000000000000000000005 /* Animation in Resources */ = {isa = PBXBuildFile; fileRef = E50000000000000000000015 /* Animation */; };
@@ -83,6 +84,7 @@
 /* Begin PBXFileReference section */
 		E50000000000000000000011 /* PatrickAnimationCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickAnimationCatalog.swift; sourceTree = "<group>"; };
 		E50000000000000000000012 /* PatrickAnimationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickAnimationPolicy.swift; sourceTree = "<group>"; };
+		E50000000000000000000016 /* PatrickAlivePresence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickAlivePresence.swift; sourceTree = "<group>"; };
 		E50000000000000000000013 /* PatrickAnimationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickAnimationPlayer.swift; sourceTree = "<group>"; };
 		E50000000000000000000014 /* PatrickAnimatedFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickAnimatedFaceView.swift; sourceTree = "<group>"; };
 		E50000000000000000000015 /* Animation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Animation; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				B20000000000000000000008 /* PatrickFaceView.swift */,
 				E50000000000000000000011 /* PatrickAnimationCatalog.swift */,
 				E50000000000000000000012 /* PatrickAnimationPolicy.swift */,
+				E50000000000000000000016 /* PatrickAlivePresence.swift */,
 				E50000000000000000000013 /* PatrickAnimationPlayer.swift */,
 				E50000000000000000000014 /* PatrickAnimatedFaceView.swift */,
 				E50000000000000000000015 /* Animation */,
@@ -381,6 +384,7 @@
 				B20000000000000000000015 /* PatrickFaceView.swift in Sources */,
 				E50000000000000000000001 /* PatrickAnimationCatalog.swift in Sources */,
 				E50000000000000000000002 /* PatrickAnimationPolicy.swift in Sources */,
+				E50000000000000000000006 /* PatrickAlivePresence.swift in Sources */,
 				E50000000000000000000003 /* PatrickAnimationPlayer.swift in Sources */,
 				E50000000000000000000004 /* PatrickAnimatedFaceView.swift in Sources */,
 				C30000000000000000000001 /* PatrickShared.swift in Sources */,

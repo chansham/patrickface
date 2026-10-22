@@ -1,7 +1,7 @@
 import Foundation
 
 /// Foundation-only checks; run on a machine with Swift, no Apple UI SDK needed:
-/// swiftc PatrickFace/PatrickAnimationCatalog.swift PatrickFace/PatrickAnimationPolicy.swift tools/NativeAnimationChecks.swift -o /tmp/patrick-animation-checks
+/// swiftc PatrickFace/PatrickAnimationCatalog.swift PatrickFace/PatrickAnimationPolicy.swift PatrickFace/PatrickAlivePresence.swift tools/NativeAnimationChecks.swift -o /tmp/patrick-animation-checks
 /// /tmp/patrick-animation-checks animation/catalog.json
 @main
 struct NativeAnimationChecks {
@@ -238,6 +238,8 @@ struct NativeAnimationChecks {
             require(decoded.unavailableReason != nil, "Invalid contour descriptor accepted")
         }
 
+        checkAliveLayer()
+
         if CommandLine.arguments.count > 1 {
             let url = URL(fileURLWithPath: CommandLine.arguments[1])
             let catalog = try JSONDecoder().decode(PatrickAnimationCatalog.self, from: Data(contentsOf: url))
@@ -250,7 +252,117 @@ struct NativeAnimationChecks {
                     require(sidecar.unavailableReason(for: actual) == nil, "Invalid catalog contour: \(actual.id)")
                 }
             }
+            for id in PatrickBlinkGate.eyeAnimatingClipIDs {
+                require(catalog.clips.contains { $0.id == id }, "Eye-animating clip missing from catalog: \(id)")
+            }
+            for id in ["idle-blink-normal", "idle-blink-slow", "idle-blink-double"] {
+                let clip = catalog.clips.first { $0.id == id }
+                let hook = PatrickBlinkArt.hook(for: id)
+                require(clip != nil && hook != nil, "Blink resting clip lost its closed-eye hook")
+                require(clip?.sourceIndices.contains(hook?.closedSourceIndex ?? -1) == true, "Closed-eye index is not in \(id)")
+                require(clip?.atlas?.contains("blink-v2") == true, "Closed-eye still must stay on the blink atlas")
+                require(clip?.sourceIndices.first == 0, "Open resting frame of \(id) changed")
+            }
+            for id in ["pet", "focus", "yawn", "feed", "exercise", "charging", "bedtime-mint", "bedtime-moon", "celebrate", "bath"] {
+                require(PatrickBlinkArt.hook(for: id) == nil, "\(id) must not reuse another outfit's closed frame")
+            }
         }
-        print("PASS: \(count) native animation policy/catalog/contour checks (Foundation only; no graphics or file-hash execution).")
+        print("PASS: \(count) native animation policy/catalog/contour/alive checks (Foundation only; no graphics or file-hash execution).")
+    }
+
+    static func checkAliveLayer() {
+        require(PatrickBreathPose.period >= 3 && PatrickBreathPose.period <= 6, "Breath cycle should last a few seconds")
+        require(PatrickBreathPose.verticalAmplitude > 0.01 && PatrickBreathPose.verticalAmplitude <= 0.02, "Vertical breath left the 1–2% band")
+        require(PatrickBreathPose.pose(at: 0, enabled: false) == .neutral, "Reduce Motion and Always On hold the authored scale")
+        require(PatrickBreathPose.pose(at: .nan, enabled: true) == .neutral, "A bad clock must not scale the character")
+        let rest = PatrickBreathPose.pose(at: 0, enabled: true)
+        require(rest.scaleX == 1 && rest.scaleY == 1, "Breath starts on the foot-anchored rest scale")
+        let peak = PatrickBreathPose.pose(at: PatrickBreathPose.period / 2, enabled: true)
+        require(abs(peak.scaleY - (1 + PatrickBreathPose.verticalAmplitude)) < 0.000000001, "Inhale peak moved")
+        require(abs(peak.scaleX - (1 - PatrickBreathPose.horizontalAmplitude)) < 0.000000001, "Squash peak moved")
+        var lowestX = 1.0
+        var highestY = 1.0
+        let steps = Int((PatrickBreathPose.period / 0.05).rounded())
+        for step in 0...steps {
+            let pose = PatrickBreathPose.pose(at: Double(step) * 0.05, enabled: true)
+            require(pose.scaleY >= 1 && pose.scaleY <= 1.02, "Vertical breath left 1.00–1.02")
+            require(pose.scaleX <= 1 && pose.scaleX >= 0.99, "Horizontal squash left 0.99–1.00")
+            lowestX = min(lowestX, pose.scaleX)
+            highestY = max(highestY, pose.scaleY)
+        }
+        require(highestY > 1.01 && lowestX < 1, "Breath pose never leaves rest")
+        let authoredFoot = PatrickAlivePlacement.footAnchor([0.5, 0.8803571428571428])
+        require(authoredFoot.x == 0.5 && authoredFoot.y == 0.8803571428571428, "Foot anchor should be the authored point")
+        let clampedFoot = PatrickAlivePlacement.footAnchor([2, -1])
+        require(clampedFoot.x == 1 && clampedFoot.y == 0, "Foot anchor must stay inside the image")
+        let fallbackFoot = PatrickAlivePlacement.footAnchor([0.5])
+        require(fallbackFoot.x == 0.5 && fallbackFoot.y == 1, "A missing foot anchor falls back to the bottom")
+
+        require(PatrickBlinkClock.interval == 3...6, "Blink gap left 3–6 seconds")
+        require(PatrickBlinkClock.doubleBlinkProbability > 0.1 && PatrickBlinkClock.doubleBlinkProbability < 0.35, "Double blink should stay occasional")
+        require(PatrickBlinkClock.closedHold > PatrickAliveCadence.sampleInterval, "8 Hz sampling can skip the closed lid")
+        require(PatrickBlinkClock.doubleGap > PatrickAliveCadence.sampleInterval, "8 Hz sampling can fuse a double blink")
+        require(PatrickBlinkClock.clampedGap(0) == 3 && PatrickBlinkClock.clampedGap(100) == 6, "Blink gap must stay inside 3–6 seconds")
+        require(PatrickBlinkArt.missingArt.contains("blink-v2") && PatrickBlinkArt.missingArt.contains("眼皮"), "Missing-art note lost the lid hook")
+        require(PatrickBlinkArt.hook(for: "idle-blink-normal")?.closedSourceIndex == 3, "Closed lid should be blink-v2 frame 4")
+        require(PatrickBlinkArt.hook(for: "pet") == nil, "Classic outfit has no closed-eye still")
+
+        let t0 = 10_000.0
+        var rolls = 0
+        func take(_ gap: TimeInterval, _ isDouble: Bool) -> PatrickBlinkRoll {
+            rolls += 1
+            return PatrickBlinkRoll(gap: gap, isDouble: isDouble)
+        }
+        rolls = 0
+        let single = PatrickBlinkClock.unarmed.advanced(to: t0, allow: true) { take(3, false) }
+        require(rolls == 1, "Arming the first blink rolled more than once")
+        require(single.nextStart == t0 + 3 && !single.isDouble && !single.suspended, "Single blink did not wait the lower gap")
+        require(!single.eyesClosed(at: single.nextStart - 0.001, allow: true), "Eyes closed before the blink")
+        require(single.eyesClosed(at: single.nextStart, allow: true), "Eyes stayed open at the blink start")
+        require(single.eyesClosed(at: single.nextStart + PatrickBlinkClock.closedHold - 0.001, allow: true), "Closed hold ended early")
+        require(!single.eyesClosed(at: single.nextStart + PatrickBlinkClock.closedHold, allow: true), "Eyes stayed closed after the hold")
+        require(!single.eyesClosed(at: single.nextStart + 0.02, allow: false), "Reduce Motion or wrist-down still closed the eyes")
+        let secondWindow = single.nextStart + PatrickBlinkClock.closedHold + PatrickBlinkClock.doubleGap
+        require(!single.eyesClosed(at: secondWindow + 0.02, allow: true), "A single blink grew a second close")
+        rolls = 0
+        let waiting = single.advanced(to: single.nextStart + 0.02, allow: true) { take(6, true) }
+        require(rolls == 0 && waiting == single, "An in-flight blink must not roll the next one")
+
+        rolls = 0
+        let doubled = PatrickBlinkClock.unarmed.advanced(to: t0, allow: true) { take(6, true) }
+        let start = t0 + 6
+        let second = start + PatrickBlinkClock.closedHold + PatrickBlinkClock.doubleGap
+        require(doubled.eyesClosed(at: start + 0.01, allow: true), "Double blink missed the first close")
+        require(!doubled.eyesClosed(at: start + PatrickBlinkClock.closedHold + 0.01, allow: true), "Double blink has no open gap")
+        require(doubled.eyesClosed(at: second + 0.01, allow: true), "Double blink missed the second close")
+        require(!doubled.eyesClosed(at: second + PatrickBlinkClock.closedHold, allow: true), "Double blink did not reopen")
+        rolls = 0
+        let chained = doubled.advanced(to: doubled.windowEnd, allow: true) { take(4, false) }
+        require(rolls == 1 && chained.nextStart == start + 4, "The next blink must be one 3–6 s gap after the previous start")
+        require(!chained.eyesClosed(at: doubled.windowEnd, allow: true), "Chaining blinked again immediately")
+
+        rolls = 0
+        let paused = chained.advanced(to: chained.nextStart + 30, allow: false) { take(3, true) }
+        require(rolls == 0 && paused.suspended, "A pause consumed a blink")
+        require(!paused.eyesClosed(at: chained.nextStart + 0.01, allow: false), "A paused clock still closed the eyes")
+        let resumed = paused.advanced(to: chained.nextStart + 30, allow: true) { take(5, false) }
+        require(rolls == 1 && resumed.nextStart == chained.nextStart + 30 + 5, "Waking up must wait one fresh gap, not replay missed blinks")
+        require(!resumed.eyesClosed(at: chained.nextStart + 30, allow: true), "Resume blinked on the same frame")
+
+        rolls = 0
+        let stale = PatrickBlinkClock(nextStart: t0, isDouble: false, suspended: false)
+        let caughtUp = stale.advanced(to: t0 + 60, allow: true) { take(3, false) }
+        require(rolls == 2 && caughtUp.nextStart == t0 + 60 + 3, "A long stall must arm one future blink, not a burst")
+        require(!caughtUp.eyesClosed(at: t0 + 60, allow: true), "Catch-up closed the eyes at the stall")
+
+        require(!PatrickBlinkGate.allows(motionAllowed: true, luminanceReduced: true, reduceMotion: false, playing: false, clipID: nil, hasRestingClosedFrame: true), "Always On still blinked")
+        require(!PatrickBlinkGate.allows(motionAllowed: true, luminanceReduced: false, reduceMotion: true, playing: false, clipID: nil, hasRestingClosedFrame: true), "Reduce Motion still blinked")
+        require(!PatrickBlinkGate.allows(motionAllowed: false, luminanceReduced: false, reduceMotion: false, playing: false, clipID: nil, hasRestingClosedFrame: true), "A quiet face still blinked")
+        require(!PatrickBlinkGate.allows(motionAllowed: true, luminanceReduced: false, reduceMotion: false, playing: false, clipID: nil, hasRestingClosedFrame: false), "A missing closed frame still blinked")
+        require(PatrickBlinkGate.allows(motionAllowed: true, luminanceReduced: false, reduceMotion: false, playing: false, clipID: nil, hasRestingClosedFrame: true), "Resting still with a closed frame should blink")
+        require(!PatrickBlinkGate.allows(motionAllowed: true, luminanceReduced: false, reduceMotion: false, playing: true, clipID: "idle-blink-normal", hasRestingClosedFrame: true, closedFrameTracksCurrentClip: true), "Procedural blink fought an eye clip")
+        require(!PatrickBlinkGate.allows(motionAllowed: true, luminanceReduced: false, reduceMotion: false, playing: true, clipID: "yawn", hasRestingClosedFrame: true, closedFrameTracksCurrentClip: true), "Procedural blink fought the yawn")
+        require(!PatrickBlinkGate.allows(motionAllowed: true, luminanceReduced: false, reduceMotion: false, playing: true, clipID: "pet", hasRestingClosedFrame: true), "Resting closed frame replaced a playing clip")
+        require(PatrickBlinkGate.allows(motionAllowed: true, luminanceReduced: false, reduceMotion: false, playing: true, clipID: "pet", hasRestingClosedFrame: true, closedFrameTracksCurrentClip: true), "A future tracking lid should be allowed on a clip that does not animate the eyes")
     }
 }

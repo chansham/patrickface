@@ -51,7 +51,7 @@ echo "Simulator build data: $DERIVED_ROOT"
 
 xcrun swiftc "$ROOT/PatrickFace/PatrickShared.swift" "$ROOT/tools/NativeRulesChecks.swift" -o "$DERIVED_ROOT/native-rules"
 "$DERIVED_ROOT/native-rules"
-xcrun swiftc "$ROOT/PatrickFace/PatrickAnimationCatalog.swift" "$ROOT/PatrickFace/PatrickAnimationPolicy.swift" "$ROOT/tools/NativeAnimationChecks.swift" -o "$DERIVED_ROOT/native-animation"
+xcrun swiftc "$ROOT/PatrickFace/PatrickAnimationCatalog.swift" "$ROOT/PatrickFace/PatrickAnimationPolicy.swift" "$ROOT/PatrickFace/PatrickAlivePresence.swift" "$ROOT/tools/NativeAnimationChecks.swift" -o "$DERIVED_ROOT/native-animation"
 "$DERIVED_ROOT/native-animation" "$ROOT/animation/catalog.json"
 xcrun swiftc "$ROOT/iOSCompanion/Shared/PatrickExperience.swift" "$ROOT/tools/NativeExperienceChecks.swift" -o "$DERIVED_ROOT/native-experience"
 "$DERIVED_ROOT/native-experience" "$ROOT/experience/themes.json" "$ROOT/experience/calendar.json"
