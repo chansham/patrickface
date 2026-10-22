@@ -33,6 +33,8 @@
 		C00000000000000000000226 /* PatrickWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000120 /* PatrickWidgetsBundle.swift */; };
 		C00000000000000000000227 /* PatrickStatusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000121 /* PatrickStatusWidget.swift */; };
 		C00000000000000000000228 /* PatrickLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000122 /* PatrickLiveActivity.swift */; };
+		C0000000000000000000022C /* PatrickHeadAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000126 /* PatrickHeadAvatar.swift */; };
+		C0000000000000000000022B /* Avatar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000125 /* Avatar.xcassets */; };
 		C00000000000000000000229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000140 /* Assets.xcassets */; };
 		C0000000000000000000022A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000142 /* PrivacyInfo.xcprivacy */; };
 		C00000000000000000000230 /* PatrickContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000130 /* PatrickContractTests.swift */; };
@@ -153,6 +155,8 @@
 		C00000000000000000000122 /* PatrickLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickLiveActivity.swift; sourceTree = "<group>"; };
 		C00000000000000000000123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C00000000000000000000124 /* PatrickWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PatrickWidgets.entitlements; sourceTree = "<group>"; };
+		C00000000000000000000125 /* Avatar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Avatar.xcassets; sourceTree = "<group>"; };
+		C00000000000000000000126 /* PatrickHeadAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickHeadAvatar.swift; sourceTree = "<group>"; };
 		C00000000000000000000130 /* PatrickContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrickContractTests.swift; sourceTree = "<group>"; };
 		C00000000000000000000140 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C00000000000000000000141 /* asset-provenance.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "asset-provenance.json"; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 				C00000000000000000000120 /* PatrickWidgetsBundle.swift */,
 				C00000000000000000000121 /* PatrickStatusWidget.swift */,
 				C00000000000000000000122 /* PatrickLiveActivity.swift */,
+				C00000000000000000000126 /* PatrickHeadAvatar.swift */,
+				C00000000000000000000125 /* Avatar.xcassets */,
 				C00000000000000000000123 /* Info.plist */,
 				C00000000000000000000124 /* PatrickWidgets.entitlements */,
 			);
@@ -514,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C00000000000000000000229 /* Assets.xcassets in Resources */,
+				C0000000000000000000022B /* Avatar.xcassets in Resources */,
 				C0000000000000000000022A /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,6 +598,7 @@
 				C00000000000000000000226 /* PatrickWidgetsBundle.swift in Sources */,
 				C00000000000000000000227 /* PatrickStatusWidget.swift in Sources */,
 				C00000000000000000000228 /* PatrickLiveActivity.swift in Sources */,
+				C0000000000000000000022C /* PatrickHeadAvatar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

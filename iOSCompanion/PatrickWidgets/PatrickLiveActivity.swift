@@ -12,11 +12,7 @@ struct PatrickLiveActivity: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    Image(systemName: "star.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 48, height: 58)
-                        .accessibilityHidden(true)
+                    PatrickHeadAvatar(slot: .activity, side: 44, decorative: true)
                 }
 
                 DynamicIslandExpandedRegion(.trailing) {
@@ -48,8 +44,7 @@ struct PatrickLiveActivity: Widget {
                     }
                 }
             } compactLeading: {
-                Image(systemName: "star.fill")
-                    .foregroundStyle(.pink)
+                PatrickHeadAvatar(slot: .circular, side: 20, decorative: true)
             } compactTrailing: {
                 PatrickActivityTimerLabel(
                     startedAt: context.attributes.startedAt,
@@ -58,8 +53,7 @@ struct PatrickLiveActivity: Widget {
                 .font(.caption2.monospacedDigit())
                 .frame(maxWidth: 52)
             } minimal: {
-                Image(systemName: context.state.visualState.symbolName)
-                    .foregroundStyle(.pink)
+                PatrickHeadAvatar(slot: .corner, side: 16, decorative: true)
             }
             .keylineTint(.pink)
             .widgetURL(PatrickDeepLinkRoute.timer.url)
@@ -73,14 +67,11 @@ private struct PatrickLockScreenActivityView: View {
 
     var body: some View {
         HStack(spacing: isActivityFullscreen ? 22 : 14) {
-            Image(systemName: "star.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(
-                    width: isActivityFullscreen ? 112 : 64,
-                    height: isActivityFullscreen ? 140 : 82
-                )
-                .accessibilityHidden(true)
+            PatrickHeadAvatar(
+                slot: .activity,
+                side: isActivityFullscreen ? 96 : 64,
+                decorative: true
+            )
 
             VStack(alignment: .leading, spacing: 5) {
                 Text(context.attributes.title)

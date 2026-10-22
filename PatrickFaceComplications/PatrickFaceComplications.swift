@@ -81,25 +81,87 @@ private struct PatrickComplicationProvider: TimelineProvider {
 private struct PatrickComplicationView: View {
     @Environment(\.widgetFamily) private var family
     let entry: PatrickComplicationEntry
+
+    private var moodTitle: String {
+        entry.experience.displayedMood(at: entry.date).title
+    }
+
     var body: some View {
         Group {
             if family == .accessoryInline {
+                // Inline slots accept one SF Symbol, not a custom image.
                 Label("派大星 · \(entry.experience.settings.mood.title)", systemImage: "heart.fill")
             } else if family == .accessoryCircular {
                 VStack(spacing: 1) {
-                    Image(systemName: "star.fill").widgetAccentable()
-                    Text(entry.experience.displayedMood(at: entry.date).title).font(.caption2)
+                    PatrickHeadAvatar(slot: .circular, side: 20)
+                    Text(moodTitle).font(.caption2).lineLimit(1).minimumScaleFactor(0.6)
                 }
+            } else if family == .accessoryCorner {
+                PatrickHeadAvatar(slot: .corner)
+                    .widgetLabel { Text(moodTitle) }
             } else {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(entry.date, style: .time).monospacedDigit().font(.headline)
-                    Text("派大星 · \(entry.experience.settings.mood.title)").font(.caption).widgetAccentable()
-                    if let activity = entry.experience.activity, activity.status == .running, let end = activity.endsAt, end > entry.date {
-                        Text(timerInterval: activity.startedAt...end, countsDown: true).monospacedDigit().font(.caption)
-                    } else { Text(entry.experience.displayedMood(at: entry.date).title).font(.caption2) }
+                HStack(alignment: .center, spacing: 4) {
+                    PatrickHeadAvatar(slot: .rectangular, side: 22, decorative: true)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(entry.date, style: .time).monospacedDigit().font(.headline).lineLimit(1).minimumScaleFactor(0.6)
+                        Text("派大星 · \(entry.experience.settings.mood.title)").font(.caption).widgetAccentable().lineLimit(1)
+                        if let activity = entry.experience.activity, activity.status == .running, let end = activity.endsAt, end > entry.date {
+                            Text(timerInterval: activity.startedAt...end, countsDown: true).monospacedDigit().font(.caption)
+                        } else { Text(moodTitle).font(.caption2).lineLimit(1) }
+                    }
                 }
             }
         }.widgetURL(entry.deepLinkURL).containerBackground(for: .widget) { Color.black }
+    }
+}
+
+/// Head cropped from the season-1 flat body. Accented watch faces tint the
+/// skin layer and leave the face marks in the light group. Full colour and
+/// vibrant rendering use the colour bitmap, whose luminance stays readable.
+private struct PatrickHeadAvatar: View {
+    enum Slot {
+        case circular
+        case rectangular
+        case corner
+
+        var imageBase: String {
+            switch self {
+            case .circular: "PatrickHeadCircular"
+            case .rectangular: "PatrickHeadRectangular"
+            case .corner: "PatrickHeadCorner"
+            }
+        }
+    }
+
+    var slot: Slot
+    var side: CGFloat? = nil
+    var decorative: Bool = false
+    @Environment(\.widgetRenderingMode) private var renderingMode
+
+    var body: some View {
+        avatar
+            .frame(width: side, height: side)
+            .accessibilityLabel("派大星")
+            .accessibilityHidden(decorative)
+    }
+
+    @ViewBuilder private var avatar: some View {
+        switch renderingMode {
+        case .accented:
+            ZStack {
+                image("Skin").widgetAccentable()
+                image("Features").widgetAccentable(false)
+            }
+        default:
+            image("").widgetAccentable(false)
+        }
+    }
+
+    private func image(_ suffix: String) -> some View {
+        Image(slot.imageBase + suffix)
+            .resizable()
+            .interpolation(.medium)
+            .scaledToFit()
     }
 }
 
@@ -116,6 +178,7 @@ private struct PatrickFaceComplication: Widget {
         .supportedFamilies([
             .accessoryCircular,
             .accessoryRectangular,
+            .accessoryCorner,
             .accessoryInline,
         ])
         .contentMarginsDisabled()
