@@ -9,7 +9,7 @@ final class PatrickMoodRecord {
     private let store = HKHealthStore()
 
     func write(raw: String) async -> Bool {
-        guard #available(watchOS 11.0, *), HKHealthStore.isHealthDataAvailable() else { return false }
+        guard HKHealthStore.isHealthDataAvailable() else { return false }
         guard let sample = Self.sample(raw: raw) else { return false }
         let share = Set<HKSampleType>([HKSampleType.stateOfMindType()])
         let allowed = await withCheckedContinuation { continuation in
@@ -23,7 +23,6 @@ final class PatrickMoodRecord {
         }
     }
 
-    @available(watchOS 11.0, *)
     static func sample(raw: String) -> HKStateOfMind? {
         let valence: Double
         let label: HKStateOfMind.Label

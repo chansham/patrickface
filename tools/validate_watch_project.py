@@ -115,7 +115,7 @@ check(
     app_info.get("WKSupportsAlwaysOnDisplay") is True,
     "app plist must opt into Always On",
 )
-check(app_info.get("MinimumOSVersion") == "10.0", "app minimum must be watchOS 10")
+check(app_info.get("MinimumOSVersion") == "26.0", "app minimum must be watchOS 26")
 
 url_schemes = {
     scheme
@@ -223,8 +223,8 @@ check(
     "project still disables signing",
 )
 check(
-    project.count("WATCHOS_DEPLOYMENT_TARGET = 10.0;") == 4,
-    "both targets must use watchOS 10 in Debug and Release",
+    project.count("WATCHOS_DEPLOYMENT_TARGET = 26.0;") == 4,
+    "both targets must use watchOS 26 in Debug and Release",
 )
 check(
     project.count("SKIP_INSTALL = YES;") == 4,

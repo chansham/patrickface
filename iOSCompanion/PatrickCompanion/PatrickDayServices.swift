@@ -32,15 +32,13 @@ enum PatrickButlerModel {
     static func reply(to phrase: PatrickButlerPhrase, name: String) async -> String {
         let fallback = PatrickDayPlan.butlerSentence(phrase, name: name, modelText: nil)
         #if canImport(FoundationModels)
-        if #available(iOS 26.0, *) {
-            let model = SystemLanguageModel.default
-            guard case .available = model.availability else { return fallback }
-            let session = LanguageModelSession(instructions: "你是派大星。只用一句繁體中文，最多 40 字。不要提到餵食、飽足、親密、疾病或壓力。")
-            let prompt = "\(name)對你說：\(hint(phrase))。用一句話回應。"
-            if let response = try? await session.respond(to: prompt),
-               let accepted = PatrickDayPlan.acceptButler(response.content) {
-                return accepted
-            }
+        let model = SystemLanguageModel.default
+        guard case .available = model.availability else { return fallback }
+        let session = LanguageModelSession(instructions: "你是派大星。只用一句繁體中文，最多 40 字。不要提到餵食、飽足、親密、疾病或壓力。")
+        let prompt = "\(name)對你說：\(hint(phrase))。用一句話回應。"
+        if let response = try? await session.respond(to: prompt),
+           let accepted = PatrickDayPlan.acceptButler(response.content) {
+            return accepted
         }
         #endif
         return fallback
@@ -69,13 +67,11 @@ enum PatrickJournalModel {
 
     private static func sentence(_ prompt: String) async -> String? {
         #if canImport(FoundationModels)
-        if #available(iOS 26.0, *) {
-            let model = SystemLanguageModel.default
-            guard case .available = model.availability else { return nil }
-            let session = LanguageModelSession(instructions: "你是派大星。只用一句繁體中文，最多 80 字。不要提到餵食、飽足、親密、照顧、任務、打卡、分數、疾病或診斷。")
-            if let response = try? await session.respond(to: prompt) {
-                return PatrickJournalVoice.accept(response.content)
-            }
+        let model = SystemLanguageModel.default
+        guard case .available = model.availability else { return nil }
+        let session = LanguageModelSession(instructions: "你是派大星。只用一句繁體中文，最多 80 字。不要提到餵食、飽足、親密、照顧、任務、打卡、分數、疾病或診斷。")
+        if let response = try? await session.respond(to: prompt) {
+            return PatrickJournalVoice.accept(response.content)
         }
         #endif
         return nil

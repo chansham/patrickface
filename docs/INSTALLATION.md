@@ -6,7 +6,7 @@
 
 ## 裝置
 
-目前的裝置是 iPhone 18 Pro Max 和 Apple Watch Series 12 46mm。沒有讀取序號或系統 build。細節見 [裝置紀錄](DEVICE-PROFILE-2026-09-27.md)。
+目前的裝置是 iPhone 18 Pro Max 和 Apple Watch Series 12 46mm，系統是 iOS 26 和 watchOS 26。App 最低系統同樣是 iOS 26 和 watchOS 26。沒有讀取序號或系統 build，也沒有在這兩台真機上跑過。細節見 [裝置紀錄](DEVICE-PROFILE-2026-09-27.md)。
 
 ## 為什麼第一階段只裝 iPhone
 
@@ -18,7 +18,7 @@ Sideloadly 0.71.0 的更新說明寫明：Apple Watch App 現在會簽名並處�
 
 ## 未簽名包怎麼來
 
-[apple-build.yml](../.github/workflows/apple-build.yml) 在 push（含 `main`）時編譯模擬器產品。通過後才做無簽名 Release device archive，並上傳 artifact `patrick-unsigned-resigning-input-<run number>`，保留 7 天。裡面的 `PatrickCompanion-unsigned.ipa` 不能直接安裝，要由 Sideloadly 用自己的免費 Apple 帳號重簽。
+[apple-build.yml](../.github/workflows/apple-build.yml) 固定在 macos-26、並明確選用 Xcode 26.6。push（含 `main`）時編譯模擬器產品。通過後才做無簽名 Release device archive，並上傳 artifact `patrick-unsigned-resigning-input-<run number>`，保留 7 天。裡面的 `PatrickCompanion-unsigned.ipa` 不能直接安裝，要由 Sideloadly 用自己的免費 Apple 帳號重簽。
 
 截圖用的 Watch 模擬器預設 46mm，並優先選這台 runner 已安裝、且 runtime 支援的 Series 12。若沒有 Series 12，就保持最接近的 46mm（目前常見是 Series 11），並在該次 `report.json` 的 `series12Fallback` 寫明。模擬器截圖失敗若只是手機截圖逾時，不代表編譯失敗。
 

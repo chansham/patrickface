@@ -15,7 +15,7 @@ struct PatrickWatchGoodNightIntent: AppIntent {
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let text = await PatrickWatchSpokenPerformer.apply { PatrickSpokenActions.sayGoodNight(&$0) }.text
-        if #available(watchOS 11.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }
@@ -29,7 +29,7 @@ struct PatrickWatchStartRestIntent: AppIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let outcome = await PatrickWatchSpokenPerformer.apply { PatrickSpokenActions.startRest(&$0, minutes: minutes) }
         if outcome.armedCountdown { await PatrickCountdownNotifier.shared.requestPermissionForNewCountdown() }
-        if #available(watchOS 11.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(outcome.text)")
     }
 }
@@ -54,7 +54,7 @@ struct PatrickWatchRecordMindIntent: AppIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let choice = mood
         let text = await PatrickWatchSpokenPerformer.apply { PatrickSpokenActions.recordMind(&$0, raw: choice.rawValue, title: choice.title) }.text
-        if #available(watchOS 11.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }
@@ -66,7 +66,7 @@ struct PatrickWatchPetIntent: AppIntent {
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let text = await PatrickWatchSpokenPerformer.apply { PatrickSpokenActions.pet(&$0) }.text
-        if #available(watchOS 11.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }
@@ -80,7 +80,7 @@ struct PatrickWatchMoodIntent: AppIntent {
         let text = await MainActor.run {
             PatrickSpokenActions.moodLine(PatrickExperienceState.load(from: PatrickSharedStore.defaults))
         }
-        if #available(watchOS 11.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }
@@ -120,7 +120,7 @@ struct PatrickWatchButlerIntent: AppIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let phrase = choice.phrase
         let text = await PatrickWatchSpokenPerformer.apply { PatrickSpokenActions.butler(&$0, phrase: phrase, modelText: nil) }.text
-        if #available(watchOS 11.0, *) { _ = try? await donate() }
+        _ = try? await donate()
         return .result(dialog: "\(text)")
     }
 }

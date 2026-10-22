@@ -42,7 +42,6 @@ enum PatrickMindChoice: String, AppEnum {
 
 /// Installed from Settings → Focus. While this filter is on, proactive haptics
 /// and notification sounds stay quiet. No extra entitlement.
-@available(iOS 16.0, watchOS 9.0, *)
 struct PatrickFocusFilterIntent: SetFocusFilterIntent {
     static var title: LocalizedStringResource = "派大星安靜"
     static var description = IntentDescription("這個專注模式開啟時，派大星不主動震動，倒數也不出聲。")
@@ -60,12 +59,10 @@ struct PatrickFocusFilterIntent: SetFocusFilterIntent {
     static let storageKey = "patrick.focus-filter.quiet"
 
     static func refreshStoredFlag() async -> Bool {
-        if #available(iOS 16.0, watchOS 9.0, *) {
-            if let current = try? await PatrickFocusFilterIntent.current {
-                let active = current.quiet
-                UserDefaults.standard.set(active, forKey: storageKey)
-                return active
-            }
+        if let current = try? await PatrickFocusFilterIntent.current {
+            let active = current.quiet
+            UserDefaults.standard.set(active, forKey: storageKey)
+            return active
         }
         UserDefaults.standard.set(false, forKey: storageKey)
         return false

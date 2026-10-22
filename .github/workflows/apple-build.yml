@@ -34,7 +34,7 @@ concurrency:
 
 jobs:
   simulator-build:
-    runs-on: macos-latest
+    runs-on: macos-26
     timeout-minutes: 45
     steps:
       - name: Read repository
@@ -42,6 +42,13 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 1
+      - name: Select Xcode 26.6
+        run: |
+          set -euo pipefail
+          sudo xcode-select -s /Applications/Xcode_26.6.app
+          xcode-select -p
+          xcodebuild -version
+          xcodebuild -version | grep -F 'Xcode 26.6'
       - name: Check measurement evidence for the three reviewed animation revisions
         shell: bash
         run: |

@@ -13,7 +13,6 @@ struct PatrickStackOpenIntent: AppIntent, WidgetConfigurationIntent {
 }
 
 enum PatrickStackDonation {
-    @available(watchOS 11.0, *)
     static func refresh(settings: PatrickExperienceSettings, workingOut: Bool, now: Date = .now) async {
         let windows = PatrickWeekPlan.stackWindows(settings: settings, workingOut: workingOut, now: now)
         let intents = windows.map { window in
